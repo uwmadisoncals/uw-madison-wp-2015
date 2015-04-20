@@ -12,5 +12,8 @@
 /*  Theme specific Styles */
 /**************************/
 
+@import 'theme/_header';
+@import 'theme/_footer';
+@import 'theme/_navigation';
 @import 'theme/_main';
 @import 'theme/_mobile';

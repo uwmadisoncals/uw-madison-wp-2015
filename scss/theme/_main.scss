@@ -1,1 +1,15 @@
 /* Global CSS */
+
+.site-header {
+	
+	
+	.main-navigation {
+		width: 100%;
+		background: rgba(255,255,255,0.2);
+		
+		.site-navigation-container {
+			max-width: $content-width-max;
+			margin: 0 auto;
+		}
+	}
+}
