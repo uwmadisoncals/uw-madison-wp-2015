@@ -117,12 +117,6 @@ function uw_madison_wp_2015_entry_footer() {
 		}
 	}
 
-	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
-		comments_popup_link( __( 'Leave a comment', 'uw-madison-wp-2015' ), __( '1 Comment', 'uw-madison-wp-2015' ), __( '% Comments', 'uw-madison-wp-2015' ) );
-		echo '</span>';
-	}
-
 	edit_post_link( __( 'Edit', 'uw-madison-wp-2015' ), '<span class="edit-link">', '</span>' );
 }
 endif;
