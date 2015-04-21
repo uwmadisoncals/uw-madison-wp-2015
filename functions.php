@@ -85,6 +85,31 @@ function my_theme_register_required_plugins() {
 }
 
 
+/**** Adding SVG Support ****/
+function cc_mime_types( $mimes ){
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter( 'upload_mimes', 'cc_mime_types' );
+
+
+/*** Setting default header for theme ****/
+$defaults = array(
+	'default-image'          => get_template_directory_uri() . '/images/default-logo.svg',
+	'width'                  => 400,
+	'height'                 => 80,
+	'flex-height'            => true,
+	'flex-width'             => true,
+	'uploads'                => true,
+	'random-default'         => false,
+	'header-text'            => false,
+	'default-text-color'     => '#ffffff',
+	'wp-head-callback'       => '',
+	'admin-head-callback'    => '',
+	'admin-preview-callback' => '',
+);
+add_theme_support( 'custom-header', $defaults );
+
 /**
  * Set the content width based on the theme's design and stylesheet.
  */

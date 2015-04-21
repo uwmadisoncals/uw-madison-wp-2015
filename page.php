@@ -12,6 +12,10 @@
 
 get_header(); ?>
 
+	<div class="featureHeader">
+		Hero Image Area
+	</div>
+
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
