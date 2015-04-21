@@ -298,3 +298,18 @@ function wptips_disable_comments_admin_bar() {
     }
 }
 add_action('init', 'wptips_disable_comments_admin_bar');
+
+
+function example_disable_all_comments_and_pings() {
+  // Turn off comments
+  if( '' != get_option( 'default_ping_status' ) ) {
+    update_option( 'default_ping_status', '' );
+  } // end if
+
+  // Turn off pings
+  if( '' != get_option( 'default_comment_status' ) ) {
+    update_option( 'default_comment_status', '' );
+  } // end if
+} // end example_disable_all_comments_and_pings
+
+add_action( 'after_setup_theme', 'example_disable_all_comments_and_pings' );
