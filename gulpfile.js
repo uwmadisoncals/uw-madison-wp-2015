@@ -53,7 +53,7 @@ gulp.task('debug', function() {
 
 // Images
 gulp.task('images', function() {
-  return gulp.src('img/**/*')
+  return gulp.src('images/**/*')
     .pipe(imagemin({ progressive: true, svgoPlugins: [{removeViewBox: false}] }))
     .pipe(livereload(server))
     .pipe(gulp.dest('dist/images'))
@@ -100,7 +100,7 @@ gulp.task('watch', function() {
     gulp.watch('js/**/*.js', ['scripts']);
 
     // Watch image files
-    gulp.watch('img/**/*', ['images']);
+    gulp.watch('images/**/*', ['images']);
 
     // Watch image files
     gulp.watch('svg/**/*', ['svg']);

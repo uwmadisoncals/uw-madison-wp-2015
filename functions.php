@@ -93,10 +93,14 @@ function cc_mime_types( $mimes ){
 add_filter( 'upload_mimes', 'cc_mime_types' );
 
 
+/**** Add Featured Image Support ****/
+add_theme_support( 'post-thumbnails' );
+
+
 /*** Setting default header for theme ****/
 $defaults = array(
 	'default-image'          => get_template_directory_uri() . '/images/default-logo.svg',
-	'width'                  => 400,
+	'width'                  => 300,
 	'height'                 => 80,
 	'flex-height'            => true,
 	'flex-width'             => true,
