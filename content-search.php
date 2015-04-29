@@ -23,7 +23,4 @@
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
 
-	<footer class="entry-footer">
-		<?php uw_madison_wp_2015_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
