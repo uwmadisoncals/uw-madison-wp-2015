@@ -97,6 +97,31 @@ add_filter( 'upload_mimes', 'cc_mime_types' );
 add_theme_support( 'post-thumbnails' );
 
 
+/***** Add Custom Post type for Hero Image ****/
+add_action( 'init', 'create_post_type' );
+function create_post_type() {
+	register_post_type( 'headerslides',
+		array(
+			'labels' => array(
+				'name' => __( 'Header Slides' ),
+				'singular_name' => __( 'Header Slide' )
+			),
+		'public' => true,
+		'has_archive' => true,
+		'supports' => array(
+	  'title',
+	  'editor',
+	  'excerpt',
+	  'revisions',
+	  'thumbnail',
+	  'author',
+	  'page-attributes',
+	  )
+		)
+	);
+}
+
+
 /*** Setting default header for theme ****/
 $defaults = array(
 	'default-image'          => get_template_directory_uri() . '/images/default-logo.svg',
@@ -113,6 +138,137 @@ $defaults = array(
 	'admin-preview-callback' => '',
 );
 add_theme_support( 'custom-header', $defaults );
+
+
+/**** Added ACF fields for Header Slides ****/
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_hero-image-fields',
+		'title' => 'Hero Image Fields',
+		'fields' => array (
+			array (
+				'key' => 'field_554146e0cd9b4',
+				'label' => 'Sub Heading Text',
+				'name' => 'sub_heading_text',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_554146f2cd9b5',
+				'label' => 'Link To',
+				'name' => 'link_to',
+				'type' => 'radio',
+				'choices' => array (
+					'none' => 'Do not link',
+					'pageorpost' => 'Link to a Page or Post',
+					'externalurl' => 'Specify a URL',
+				),
+				'other_choice' => 0,
+				'save_other_choice' => 0,
+				'default_value' => 'none',
+				'layout' => 'vertical',
+			),
+			array (
+				'key' => 'field_5541473ccd9b6',
+				'label' => 'Link to a Page or Post',
+				'name' => 'link_to_a_page_or_post',
+				'type' => 'page_link',
+				'required' => 1,
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_554146f2cd9b5',
+							'operator' => '==',
+							'value' => 'pageorpost',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'post_type' => array (
+					0 => 'post',
+					1 => 'page',
+				),
+				'allow_null' => 0,
+				'multiple' => 0,
+			),
+			array (
+				'key' => 'field_554147f9cd9b7',
+				'label' => 'Specify a URL',
+				'name' => 'specify_a_url',
+				'type' => 'text',
+				'required' => 1,
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_554146f2cd9b5',
+							'operator' => '==',
+							'value' => 'externalurl',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'default_value' => '',
+				'placeholder' => 'www.wisc.edu',
+				'prepend' => 'http://',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_55414630cd9b2',
+				'label' => 'Hero Image',
+				'name' => 'hero_image',
+				'type' => 'image',
+				'required' => 1,
+				'save_format' => 'id',
+				'preview_size' => 'medium',
+				'library' => 'all',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'headerslides',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+				0 => 'permalink',
+				1 => 'the_content',
+				2 => 'excerpt',
+				3 => 'custom_fields',
+				4 => 'discussion',
+				5 => 'comments',
+				6 => 'revisions',
+				7 => 'slug',
+				8 => 'author',
+				9 => 'format',
+				10 => 'featured_image',
+				11 => 'categories',
+				12 => 'tags',
+				13 => 'send-trackbacks',
+			),
+		),
+		'menu_order' => 0,
+	));
+}
+
+
 
 /**
  * Set the content width based on the theme's design and stylesheet.

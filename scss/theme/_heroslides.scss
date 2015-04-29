@@ -1,0 +1,48 @@
+.featureHeader {
+	min-height: 80px;
+	background: $uwred;
+	
+	.heroImage {
+		
+		
+		
+		.heroHeadingWrapper {
+			min-height: 500px;
+			max-width: $content-width-max;
+			margin: 0 auto;
+			position: relative;
+		
+			.heroHeading {
+				display:block;
+				position: absolute;
+				bottom: 100px;
+				left: 0px;
+				z-index:1;
+				text-decoration: none;
+				color: #fff;
+				
+				h1 {
+					font-family: "Raleway";
+					font-size: 34px;
+					font-weight: 500;
+					color: #fff;
+					
+					span {
+						display: block;
+						text-transform: uppercase;
+						color: rgba(255,255,255,0.6);
+						font-size: 17px;
+						font-weight: 400;
+						letter-spacing: 0.4px;
+					}
+				}	
+			}
+		}
+	}
+	
+	.heroImageDefault {
+		background: url("../../dist/images/bascom_sample.jpg") no-repeat;
+		background-position: center center;
+		background-size: 100%;
+	}
+}
