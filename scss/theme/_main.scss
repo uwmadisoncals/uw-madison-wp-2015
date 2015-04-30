@@ -32,8 +32,8 @@
 	
 	.main-navigation {
 		width: 100%;
-		background: rgba(255,255,255,0.2);
-		padding: 0.3em;
+		background: rgba(255,255,255,0.3);
+		
 		
 		.site-navigation-container {
 			max-width: $content-width-max;
@@ -41,9 +41,27 @@
 			padding-left: 30px;
 			padding-right: 30px;
 			
-			a {
-				display: inline-block;
-				color: rgba(255,255,255,0.9);
+			li {
+				line-height: 1;
+				
+				a {
+					
+					display: inline-block;
+					color: rgba(0,0,0,0.9);
+					font-family: "Roboto Condensed", sans-serif;
+					font-weight: 400;
+					font-size: 14px;
+					line-height: 1;
+					letter-spacing: 0.3px;
+					padding: 0.8em;
+					margin-top: 0px;
+					margin-bottom: 0px;
+				}
+				
+				a:hover, a:focus {
+					background: $uwred;
+					color: rgba(255,255,255,0.8);
+				}
 			}
 		}
 	}
