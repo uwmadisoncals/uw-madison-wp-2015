@@ -24,13 +24,14 @@
 	.main-navigation {
 		width: 100%;
 		background: rgba(255,255,255,0.2);
-		padding: 0.5em;
+		padding: 0.3em;
 		
 		.site-navigation-container {
 			max-width: $content-width-max;
 			margin: 0 auto;
 			
 			a {
+				display: inline-block;
 				color: rgba(255,255,255,0.9);
 			}
 		}

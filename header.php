@@ -92,7 +92,9 @@
 								 $image = wp_get_attachment_image_src($attachment_id, $size);
 								
 								//$imgurl = wp_get_attachment_image_src( $image, $size ); ?>
+								<div class="heroImageBlur" style="background-image: url(<?php echo $image[0] ?>);"></div>
 								<div class="heroImage" style="background: url(<?php echo $image[0] ?>);">
+									<div class="heroOverlay"></div>
 									<div class="heroHeadingWrapper">
 									
 									<?php  
@@ -109,7 +111,9 @@
 								</div>
 
 							<?php } else { ?>
+									<div class="heroImageBlur heroImageDefault"></div>
 									<div class="heroImage heroImageDefault">
+										<div class="heroOverlay"></div>
 										<div class="heroHeadingWrapper">
 											<div class="heroHeading"><h1><span>A Wordpress them for UW Madison</span> Madison 2015 Theme</h1></div>
 										</div>
@@ -120,7 +124,10 @@
 					
 					<?php endwhile; ?>
 					<?php } else { ?>
+								<div class="heroImageBlur heroImageDefault"></div>
+
 								<div class="heroImage heroImageDefault">
+									<div class="heroOverlay"></div>
 									<div class="heroHeadingWrapper">	
 										<div class="heroHeading"><h1><span>A Wordpress them for UW Madison</span> Madison 2015 Theme</h1></div>
 									</div>										
@@ -128,6 +135,8 @@
 					<?php } ?>
 				
 		<?php } ?>
+		
+		
 	</div>
  
 

@@ -1,16 +1,57 @@
 .featureHeader {
 	min-height: 80px;
 	background: $uwred;
+	position:relative;
+	z-index:1;
+	
+	.heroImageBlur {
+		position: absolute;
+		top: -10px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		z-index:2;
+		min-height: 500px;
+		background-size: cover;
+		filter: blur(8px);
+		-webkit-filter: blur(8px);
+		
+		-moz-mask-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 17%, rgba(0,0,0,0) 40%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+		-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,1)), color-stop(17%,rgba(0,0,0,1)), color-stop(40%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+		-webkit-mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 17%,rgba(0,0,0,0) 40%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+		-o-mask-image: -o-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 17%,rgba(0,0,0,0) 40%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+		—ms-mask-image: -ms-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 17%,rgba(0,0,0,0) 40%,rgba(0,0,0,0) 100%); /* IE10+ */
+		mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 17%,rgba(0,0,0,0) 40%,rgba(0,0,0,0) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+		-webkit-transform: translateZ(0);
+		-ms-transform: translate3d(0,0,0);
+	}
 	
 	.heroImage {
+		min-height: 500px;
+		position: relative;
 		
+		.heroOverlay {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			right: 0px;
+			bottom: 0px;
+			z-index:1;
+			background: rgba(0,0,0,0.4);
+		}
 		
 		
 		.heroHeadingWrapper {
-			min-height: 500px;
+			
 			max-width: $content-width-max;
 			margin: 0 auto;
-			position: relative;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			right: 0px;
+			bottom: 0px;
+			z-index:5;
 		
 			.heroHeading {
 				display:block;
@@ -20,12 +61,19 @@
 				z-index:1;
 				text-decoration: none;
 				color: #fff;
+				border-left: 2px solid $uwred;
+				padding-left: 14px;
+				transition: 0.4s;
+				-webkit-transition: 0.4s;
+				-moz-transition: 0.4s;
 				
 				h1 {
 					font-family: "Raleway";
 					font-size: 34px;
 					font-weight: 500;
 					color: #fff;
+					line-height:1;
+					text-transform: none;
 					
 					span {
 						display: block;
@@ -34,8 +82,14 @@
 						font-size: 17px;
 						font-weight: 400;
 						letter-spacing: 0.4px;
+						line-height:1;
+						margin-bottom: 0.2em;
 					}
 				}	
+			}
+			
+			.heroHeading:hover, .heroHeading:focus {
+				border-left: 8px solid $uwred;
 			}
 		}
 	}
