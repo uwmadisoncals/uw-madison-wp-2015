@@ -92,8 +92,8 @@
 								 $image = wp_get_attachment_image_src($attachment_id, $size);
 								
 								//$imgurl = wp_get_attachment_image_src( $image, $size ); ?>
-								<div class="heroImageBlur" style="background-image: url(<?php echo $image[0] ?>);"></div>
-								<div class="heroImage" style="background: url(<?php echo $image[0] ?>);">
+								<div class="heroImageBlur" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: center center;"></div>
+								<div class="heroImage" style="background: url(<?php echo $image[0] ?>); background-size: cover; background-position: center center;">
 									<div class="heroOverlay"></div>
 									<div class="heroHeadingWrapper">
 									
