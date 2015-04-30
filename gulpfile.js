@@ -60,6 +60,11 @@ gulp.task('images', function() {
     .pipe(notify({ message: 'Images task complete' }));
 });
 
+// Reload
+gulp.task('reload', function() {
+  return gulp.src('**/*.php').pipe(livereload(server));
+});
+
 //SVG Processing
 gulp.task('svg', function () {
   return gulp.src('svg/*.svg')
@@ -104,6 +109,9 @@ gulp.task('watch', function() {
 
     // Watch image files
     gulp.watch('svg/**/*', ['svg']);
+    
+    // Watch php files
+    gulp.watch('**/*.php', ['reload']);
 
 
 
