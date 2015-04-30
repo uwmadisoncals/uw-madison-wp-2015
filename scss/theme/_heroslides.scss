@@ -5,6 +5,44 @@
 	z-index:1;
 	top: 0px;
 	
+	
+	.owl-controls {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		z-index:3;
+		
+		.owl-nav {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			right: 0px;
+			bottom: 0px;
+			z-index:3;
+			
+			.owl-prev {
+				position: absolute;
+				top: 50%;
+				left: 3%;
+				z-index:1;
+				transform: translateY(-50%);
+				-webkit-transform: translateY(-50%);
+				
+			}
+			
+			.owl-next {
+				position: absolute;
+				top: 50%;
+				right: 3%;
+				z-index:1;
+				transform: translateY(-50%);
+				-webkit-transform: transla
+			}
+		}
+	}
+	
 	.heroImageBlur {
 		position: absolute;
 		top: 0px;

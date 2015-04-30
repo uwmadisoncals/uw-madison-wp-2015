@@ -78,10 +78,12 @@
 				<?php $args = array( 'post_type' => 'headerslides', 'posts_per_page' => 10 );
 					$loop = new WP_Query( $args );
 					
-					if($loop->have_posts()) {
+					if($loop->have_posts()) { ?>
+						
+					<div class="owl-carousel">
 					
-					while ( $loop->have_posts() ) : $loop->the_post(); ?>
-					
+					<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
+						<div>
 						<?php 
 
 							$image = get_field('hero_image');
@@ -121,8 +123,9 @@
 							<?php } ?>
 						
 						
-					
+						</div>
 					<?php endwhile; ?>
+					</div>
 					<?php } else { ?>
 								<div class="heroImageBlur heroImageDefault"></div>
 
