@@ -115,7 +115,7 @@
 									<div class="heroImage heroImageDefault">
 										<div class="heroOverlay"></div>
 										<div class="heroHeadingWrapper">
-											<div class="heroHeading"><h1><span>A Wordpress them for UW Madison</span> Madison 2015 Theme</h1></div>
+											<div class="heroHeading"><h1><span>A Wordpress theme for UW Madison</span> Madison 2015 Theme</h1></div>
 										</div>
 									</div>
 							<?php } ?>
@@ -129,7 +129,7 @@
 								<div class="heroImage heroImageDefault">
 									<div class="heroOverlay"></div>
 									<div class="heroHeadingWrapper">	
-										<div class="heroHeading"><h1><span>A Wordpress them for UW Madison</span> Madison 2015 Theme</h1></div>
+										<div class="heroHeading"><h1><span>A Wordpress theme for UW Madison</span> Madison 2015 Theme</h1></div>
 									</div>										
 								</div>
 					<?php } ?>
