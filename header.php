@@ -123,7 +123,7 @@
 							<?php } ?>
 						
 						
-						</div>
+						</div> 
 					<?php endwhile; ?>
 					</div>
 					<?php } else { ?>

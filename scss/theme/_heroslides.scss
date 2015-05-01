@@ -5,40 +5,103 @@
 	z-index:1;
 	top: 0px;
 	
+	.owl-carousel {
+		overflow: hidden;
+	}
 	
 	.owl-controls {
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		right: 0px;
-		bottom: 0px;
-		z-index:3;
+		position: relative;
+		
+		
+		.owl-dots {
+			
+				position: absolute;
+				bottom: 20px;
+				left: 50%;
+				z-index:2;
+				transform: translateX(-50%);
+				-webkit-transform: translateX(-50%);
+				
+				.owl-dot {
+					display: inline-block;
+					position: relative;
+					border-radius: 20px;
+					width: 18px;
+					height: 18px;
+					border: 3px solid rgba(255,255,255,0.5);
+					margin-right: 4px;
+					
+					span {
+						opacity: 0;
+						transition: opacity 0.3s;
+						-webkit-transition: opacity 0.3s;
+					}
+					
+				}
+				
+				.owl-dot.active {
+					span {
+						opacity: 1;
+						display: block;
+						border-radius: 30px;
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						z-index:1;
+						width: 7px;
+						height: 7px;
+						background: rgba(255,255,255,0.8);
+						transform: translate(-50%,-50%);
+						
+					}
+				}
+		}
 		
 		.owl-nav {
 			position: absolute;
-			top: 0px;
+			
 			left: 0px;
 			right: 0px;
-			bottom: 0px;
+			bottom: 230px;
 			z-index:3;
+			
 			
 			.owl-prev {
 				position: absolute;
 				top: 50%;
-				left: 3%;
+				left: 2%;
 				z-index:1;
-				transform: translateY(-50%);
-				-webkit-transform: translateY(-50%);
-				
+				width: 24px;
+				height: 70px;
+				opacity: 0.2;
+				text-indent: 10000000px;
+				background: url("../images/nextarrow.svg") no-repeat;
+				background-size: 100% 100%;
+				transform: translateY(-50%) rotate(180deg);
+				-webkit-transform: translateY(-50%) rotate(180deg);
+				transition: opacity 0.3s;
+				-webkit-transition: opacity 0.3s;
 			}
 			
 			.owl-next {
 				position: absolute;
 				top: 50%;
-				right: 3%;
+				right: 2%;
 				z-index:1;
+				width: 24px;
+				height: 70px;
+				opacity: 0.2;
+				text-indent: 10000000px;
+				background: url("../images/nextarrow.svg") no-repeat;
+				background-size: 100% 100%;
 				transform: translateY(-50%);
-				-webkit-transform: transla
+				-webkit-transform: translateY(-50%);
+				transition: opacity 0.3s;
+				-webkit-transition: opacity 0.3s;
+			}
+			
+			.owl-next:hover, .owl-next:focus, .owl-prev:hover, .owl-prev:focus {
+				opacity: 0.9;
 			}
 		}
 	}
