@@ -139,7 +139,7 @@
 								 $image = wp_get_attachment_image_src($attachment_id, $size);
 								
 								//$imgurl = wp_get_attachment_image_src( $image, $size ); ?>
-								<div class="heroImageBlur" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: center center;"></div>
+								<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: center center;"></div></div>
 								<div class="heroImage" style="background: url(<?php echo $image[0] ?>); background-size: cover; background-position: center center;">
 									<div class="heroOverlay"></div>
 									<div class="heroHeadingWrapper">
@@ -158,7 +158,7 @@
 								</div>
 
 							<?php } else { ?>
-									<div class="heroImageBlur heroImageDefault"></div>
+									<div class="heroImageBlur"><div class="heroImageBlurInner heroImageDefault"></div></div>
 									<div class="heroImage heroImageDefault">
 										<div class="heroOverlay"></div>
 										<div class="heroHeadingWrapper">
@@ -172,7 +172,7 @@
 					<?php endwhile; ?>
 					</div>
 					<?php } else { ?>
-								<div class="heroImageBlur heroImageDefault"></div>
+								<div class="heroImageBlur"><div class="heroImageBlurInner heroImageDefault"></div></div>
 
 								<div class="heroImage heroImageDefault">
 									<div class="heroOverlay"></div>

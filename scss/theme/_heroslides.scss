@@ -112,6 +112,18 @@
 		left: 0px;
 		right: 0px;
 		bottom: 0px;
+		z-index:2;
+		overflow: hidden;
+		
+		
+		.heroImageBlurInner {
+			left:-15px;
+		    right:-15px;
+		    top:-15px;
+		    bottom:-15px;
+		    
+		    position: absolute;
+		
 		
 		z-index:2;
 		min-height: 500px;
@@ -129,6 +141,7 @@
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 		-webkit-transform: translateZ(0);
 		-ms-transform: translate3d(0,0,0);
+		}
 	}
 	
 	.heroImage {
