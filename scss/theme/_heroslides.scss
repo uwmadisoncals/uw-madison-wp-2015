@@ -1,6 +1,6 @@
 .featureHeader {
 	min-height: 80px;
-	background: $uwred;
+	
 	position:relative;
 	z-index:1;
 	top: 0px;
@@ -106,6 +106,17 @@
 		}
 	}
 	
+	
+	.heroImageContainerSVG {
+		width: 100%;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		z-index:2;
+	}
+		
 	.heroImageBlur {
 		position: absolute;
 		top: 0px;
@@ -115,33 +126,43 @@
 		z-index:2;
 		overflow: hidden;
 		
+		@-moz-document url-prefix() {
+			div.heroImageBlurInner {
+				
+				filter: url(../../resources.svg#svgBlur);
+				
+			}
+			
+		}
+		
 		
 		.heroImageBlurInner {
+			position: absolute;
 			left:-15px;
 		    right:-15px;
 		    top:-15px;
 		    bottom:-15px;
-		    
-		    position: absolute;
+			z-index:2;
+			min-height: 500px;
+			background-size: cover;
+			background-position: center center;
+			filter: blur(8px);
+			-webkit-filter: blur(8px);
 		
 		
-		z-index:2;
-		min-height: 500px;
-		background-size: cover;
-		background-position: center center;
-		filter: blur(8px);
-		-webkit-filter: blur(8px);
+		-moz-mask-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 40%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+		-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,1)), color-stop(20%,rgba(0,0,0,1)), color-stop(40%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+		-webkit-mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 20%,rgba(0,0,0,0) 40%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+		-o-mask-image: -o-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 20%,rgba(0,0,0,0) 40%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+		—ms-mask-image: -ms-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 20%,rgba(0,0,0,0) 40%,rgba(0,0,0,0) 100%); /* IE10+ */
+		mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 20%,rgba(0,0,0,0) 40%,rgba(0,0,0,0) 100%); /* W3C */
+		//filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 		
-		-moz-mask-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 17%, rgba(0,0,0,0) 40%, rgba(0,0,0,0) 100%); /* FF3.6+ */
-		-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,1)), color-stop(17%,rgba(0,0,0,1)), color-stop(40%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
-		-webkit-mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 17%,rgba(0,0,0,0) 40%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
-		-o-mask-image: -o-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 17%,rgba(0,0,0,0) 40%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
-		—ms-mask-image: -ms-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 17%,rgba(0,0,0,0) 40%,rgba(0,0,0,0) 100%); /* IE10+ */
-		mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 17%,rgba(0,0,0,0) 40%,rgba(0,0,0,0) 100%); /* W3C */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
-		-webkit-transform: translateZ(0);
-		-ms-transform: translate3d(0,0,0);
+		filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100,FinishOpacity=0,Style=1,StartX=0,FinishX=0,StartY=0,FinishY=300);
+		
 		}
+		
+		
 	}
 	
 	.heroImage {

@@ -320,8 +320,6 @@ function uw_madison_wp_2015_setup() {
 	) );
 
 	
-	add_image_size( 'hero-image', 1200 ); // 300 pixels wide (and unlimited height)
-
 	/*
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
@@ -348,7 +346,9 @@ endif; // uw_madison_wp_2015_setup
 add_action( 'after_setup_theme', 'uw_madison_wp_2015_setup' );
 
 
-
+if (function_exists('add_image_size')) {
+		add_image_size( 'hero-image', 1200 ); // 1200 pixels wide (and unlimited height)
+	}
 
 /**
  * Register widget area.

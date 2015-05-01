@@ -124,22 +124,48 @@
 					$loop = new WP_Query( $args );
 					
 					if($loop->have_posts()) { ?>
+					<?php $loopcount = $loop->post_count; 
+						if($loopcount > 1) {
+					?>
+						<div class="owl-carousel">
 						
-					<div class="owl-carousel">
+					<?php } else { ?>
+						<div>
+					<?php } ?>
 					
 					<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 						<div>
 						<?php 
 
 							$image = get_field('hero_image');
-							$size = 'large'; // (thumbnail, medium, large, full or custom size)
+							$size = 'hero-image'; // (thumbnail, medium, large, full or custom size)
 							
 							if( $image ) {
 								 $attachment_id = get_field('hero_image'); $size = "hero-image"; 
 								 $image = wp_get_attachment_image_src($attachment_id, $size);
 								
 								//$imgurl = wp_get_attachment_image_src( $image, $size ); ?>
+								<svg class="heroImageContainerSVG">
+
+									<!-- Definition of a mask begins -->
+							        <defs>
+							            <mask id="mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
+										    <linearGradient id="g" gradientUnits="objectBoundingBox" x2="0" y2="1">
+										        <stop stop-color="white" stop-opacity="1" offset="0"/>
+										        <stop stop-color="white" stop-opacity="1" offset="0.6"/>
+										        <stop stop-color="white" stop-opacity="0.7" offset="0.9"/>
+										        <stop stop-color="white" stop-opacity="0" offset="1"/>
+										    </linearGradient>
+										    <rect width="100%" height="100%" fill="url(#g)"/>
+										</mask>
+							        </defs>
+								
+									<foreignObject width="100%" height="100%" style="mask: url(#mask); ">
+								
 								<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: center center;"></div></div>
+								</foreignObject>
+								</svg>
+								
 								<div class="heroImage" style="background: url(<?php echo $image[0] ?>); background-size: cover; background-position: center center;">
 									<div class="heroOverlay"></div>
 									<div class="heroHeadingWrapper">
@@ -158,7 +184,26 @@
 								</div>
 
 							<?php } else { ?>
+								<svg class="heroImageContainerSVG">
+
+									<!-- Definition of a mask begins -->
+							        <defs>
+							            <mask id="mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
+										    <linearGradient id="g" gradientUnits="objectBoundingBox" x2="0" y2="1">
+										        <stop stop-color="white" stop-opacity="1" offset="0"/>
+										        <stop stop-color="white" stop-opacity="1" offset="0.6"/>
+										        <stop stop-color="white" stop-opacity="0.7" offset="0.9"/>
+										        <stop stop-color="white" stop-opacity="0" offset="1"/>
+										    </linearGradient>
+										    <rect width="100%" height="100%" fill="url(#g)"/>
+										</mask>
+							        </defs>
+								
+									<foreignObject width="100%" height="100%" style="mask: url(#mask); ">
 									<div class="heroImageBlur"><div class="heroImageBlurInner heroImageDefault"></div></div>
+									</foreignObject>
+								</svg>
+								
 									<div class="heroImage heroImageDefault">
 										<div class="heroOverlay"></div>
 										<div class="heroHeadingWrapper">
@@ -172,15 +217,36 @@
 					<?php endwhile; ?>
 					</div>
 					<?php } else { ?>
-								<div class="heroImageBlur"><div class="heroImageBlurInner heroImageDefault"></div></div>
+								<svg class="heroImageContainerSVG">
 
+									<!-- Definition of a mask begins -->
+							        <defs>
+							            <mask id="mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
+										    <linearGradient id="g" gradientUnits="objectBoundingBox" x2="0" y2="1">
+										        <stop stop-color="white" stop-opacity="1" offset="0"/>
+										        <stop stop-color="white" stop-opacity="1" offset="0.6"/>
+										        <stop stop-color="white" stop-opacity="0.7" offset="0.9"/>
+										        <stop stop-color="white" stop-opacity="0" offset="1"/>
+										    </linearGradient>
+										    <rect width="100%" height="100%" fill="url(#g)"/>
+										</mask>
+							        </defs>
+								
+									<foreignObject width="100%" height="100%" style="mask: url(#mask); ">
+									<div class="heroImageBlur"><div class="heroImageBlurInner heroImageDefault"></div></div>
+									</foreignObject>
+								</svg>
+								
 								<div class="heroImage heroImageDefault">
 									<div class="heroOverlay"></div>
 									<div class="heroHeadingWrapper">	
 										<div class="heroHeading"><h1><span>A Wordpress theme for UW Madison</span> Madison 2015 Theme</h1></div>
 									</div>										
 								</div>
+									
 					<?php } ?>
+					
+					
 				
 		<?php } ?>
 		
