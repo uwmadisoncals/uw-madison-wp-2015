@@ -1,18 +1,19 @@
 /* Minimum width of 300 pixels. */
-@media screen and (min-width: 300px) {
-
-
-
+@media screen and (max-width: 300px) {
+	
 }
 
 
 /* Minimum width of 600 pixels. */
-@media screen and (min-width: 600px) {
-	
+@media screen and (max-width: 600px) {
+	.logoImage img {
+		max-height: 55px;
+		width: auto;
+	}
 }
 
 /* Minimum width of 960 pixels. */
-@media screen and (min-width: 960px) {
+@media screen and (max-width: 960px) {
 	
 
 }

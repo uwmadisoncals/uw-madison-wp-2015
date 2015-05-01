@@ -316,7 +316,11 @@ function uw_madison_wp_2015_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'uw-madison-wp-2015' ),
+		'youruw' => __( 'Your UW Menu', 'uw-madison-wp-2015' ),
 	) );
+
+	
+	add_image_size( 'hero-image', 1200 ); // 300 pixels wide (and unlimited height)
 
 	/*
 	 * Switch default core markup for search form, comment form, and comments
@@ -342,6 +346,9 @@ function uw_madison_wp_2015_setup() {
 }
 endif; // uw_madison_wp_2015_setup
 add_action( 'after_setup_theme', 'uw_madison_wp_2015_setup' );
+
+
+
 
 /**
  * Register widget area.
