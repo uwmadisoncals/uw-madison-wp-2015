@@ -3,6 +3,38 @@ jQuery (document ).ready(function($){
 /**
  * ----------------------------------------------------------------------------
  *
+ *  Mobile Menu Logic
+ *
+ * ----------------------------------------------------------------------------
+ */
+ 
+ var totalWidth = 0;
+ var menuWidth = $(".menu").width();
+ $(".menu > ul > li").each(function() {
+		totalWidth = totalWidth  + $(this).width();
+ });
+ 
+ console.log(totalWidth + " " + menuWidth);
+ 
+ function mobileMenu() {
+	  var menuWidth = $(".menu").width();
+	 
+	 if(totalWidth >= menuWidth) {
+		 console.log("switch to mobile");
+	 } else {
+		 console.log("switch to full");
+	 }
+}
+
+mobileMenu();
+
+$(window).resize(function() {
+	mobileMenu();
+});
+
+/**
+ * ----------------------------------------------------------------------------
+ *
  *  Setup Hero Image Carousel for Home Page
  *
  * ----------------------------------------------------------------------------
