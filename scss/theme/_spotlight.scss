@@ -1,0 +1,17 @@
+.spotlight {
+	
+	margin: 0 auto;
+	
+	.spotlightImage{
+		overflow: hidden;
+		border-radius: 5em;
+		width: 130px;
+		height: 130px;
+		border: 3px solid $uwred;
+		
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}
