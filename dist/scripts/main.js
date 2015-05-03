@@ -15,21 +15,41 @@ jQuery (document ).ready(function($){
  * ----------------------------------------------------------------------------
  */
  
- var totalWidth = 0;
+
  var menuWidth = $(".menu").width();
+ var totalWidth = 0;
  $(".menu > ul > li").each(function() {
 		totalWidth = totalWidth  + $(this).width();
  });
  
- console.log(totalWidth + " " + menuWidth);
- 
+  
  function mobileMenu() {
+	  
 	  var menuWidth = $(".menu").width();
+	   /*$(".menu > ul > li").each(function() {
+			totalWidth = totalWidth  + $(this).width();
+ 		});*/
 	 
-	 if(totalWidth >= menuWidth) {
+	 console.log(totalWidth + " " + menuWidth);
+
+	 
+	 if(totalWidth > menuWidth) {
 		 console.log("switch to mobile");
+		 $("#site-navigation").css("visibility","hidden");
+		 $(".mobileTrigger").show();
+		 $(".logoImage").addClass("mobileMenuOn");
 	 } else {
-		 console.log("switch to full");
+		 if(totalWidth == 0) {
+			 console.log("switch to mobile");
+			 $("#site-navigation").css("visibility","hidden");
+			 $(".mobileTrigger").show();
+			 $(".logoImage").addClass("mobileMenuOn");
+		 } else {
+			 console.log("switch to full");
+			 $("#site-navigation").css("visibility","visible");
+			 $(".mobileTrigger").hide();
+			 $(".logoImage").removeClass("mobileMenuOn");
+		 }
 	 }
 }
 
