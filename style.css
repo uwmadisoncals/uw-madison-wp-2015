@@ -592,14 +592,14 @@ a:active {
 }
 
 @media screen and (max-width: 600px) {
-	.menu-toggle,
+	/*.menu-toggle,
 	.main-navigation.toggled .nav-menu {
 		display: block;
 	}
 
 	.main-navigation ul {
 		display: none;
-	}
+	}*/
 }
 
 .site-main .comment-navigation,
