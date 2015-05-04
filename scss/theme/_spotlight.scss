@@ -1,21 +1,137 @@
-.spotlight {
-	
-	margin: 3em 15em;
+.spotlight {	
+	max-width: $feature-width-max; 
+	margin: 0 auto;
 	text-align: center;
 	display: block;
+	margin-top: 3em;
+	margin-bottom: 3em;
+	
+	ul {
+		li {
+			padding-right: 2em;
+		}
+		
+		
+	}
+	
+	h2 {
+		margin-top: 1em;
+		
+		a {
+			font-family: "Roboto Condensed", sans-serif;
+			font-size: 26px;
+			font-weight: 400;
+			text-decoration: none;
+			color: #414141;
+		}
+	}
+	
+	p {
+		font-family: "Open Sans", sans-serif;
+		font-size: 14px;
+		font-weight: 300;
+	}
 	
 	.spotlightImage{
 		overflow: hidden;
-		border-radius: 5em;
-		width: 130px;
-		height: 130px;
-		text-align: center;
-		display: block;
+		border-radius: 15em;
+		width: 180px;
+		height: 180px;
 		margin: 0 auto;
+		display: block;
+		
 		
 		img {
-			width: 100%;
-			height: auto;
+			max-width: none;
+			max-height: none;
 		}
 	}
+}
+
+.box{height:100px;width:100px;overflow:hidden}
+.wh{height:100%!important}
+.ww{width:100%!important}
+
+
+
+
+
+/* Minimum width of 300 pixels. */
+@media screen and (max-width: 300px) {
+	
+}
+
+
+/* Minimum width of 600 pixels. */
+@media screen and (max-width: 600px) {
+
+	
+	.spotlight {
+		.row {
+			.span-33 {
+				width: 100%;
+				float: none;
+				margin-bottom: 4em;
+			}
+		}
+		
+		ul {
+			li {
+				padding-right: 0em;
+			}
+		}
+		
+		.spotlightImage{
+			overflow: hidden;
+			border-radius: 15em;
+			width: 180px;
+			height: 180px;
+			margin: 0 auto;
+			display: block;	 
+		}
+	
+	
+		h2 {
+			margin-top: 1em;
+			
+			a {
+				font-family: "Roboto Condensed", sans-serif;
+				font-size: 32px;
+				font-weight: 400;
+				text-decoration: none;
+				color: #414141;
+			}
+		}
+		
+		p {
+			font-family: "Open Sans", sans-serif;
+			font-size: 18px;
+			font-weight: 300;
+		}
+	
+	}
+	
+}
+
+/* Minimum width of 960 pixels. */
+@media screen and (max-width: 960px) {
+	
+	.spotlight {
+		.spotlightImage{
+			overflow: hidden;
+			border-radius: 15em;
+			width: 140px;
+			height: 140px;
+			margin: 0 auto;
+			display: block;	 
+		}
+	}
+}
+
+
+/* =Print
+----------------------------------------------- */
+
+@media print {
+  
 }

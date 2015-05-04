@@ -6,12 +6,12 @@
 	<ul>
 	<?php while (have_posts()) : the_post(); ?>
 		<li class="span-33">
-			<div class="spotlightImage">
+			<div class="spotlightImage box">
 				<?php if ( has_post_thumbnail() ) { ?>
-					  <?php the_post_thumbnail('thumbnail'); ?>
+					  <?php the_post_thumbnail('medium'); ?>
 				<?php } 
 					else{ ?>
-						<img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.png">
+						<img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg">
 					<?php }
 				?>
 			</div>
