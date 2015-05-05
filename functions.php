@@ -4,6 +4,78 @@
  *
  * @package UW Madison WP 2015
  */
+ 
+ 
+add_action('wp_enqueue_scripts', 'se_wp_enqueue_scripts');
+function se_wp_enqueue_scripts() {
+    wp_enqueue_script('suggest',array( 'jquery' ));
+    
+}
+
+add_action('wp_head', 'se_wp_head');
+function se_wp_head() {
+?>
+<script type="text/javascript">
+    
+	
+	var se_ajax_url = '<?php echo admin_url('admin-ajax.php'); ?>?action=se_lookup';
+	
+	
+	
+    jQuery(document).ready(function() {
+	    
+	  	//console.log(se_ajax_url2);
+	  	$.ajax({
+		  url: se_ajax_url
+		}).done(function(msg) {
+		 
+		  var se_ajax_array = msg.split('~');
+		  		  
+		  
+		  	jQuery('.search-field').suggest(se_ajax_array, {
+	         suggestionColor   : '#cccccc',
+			 moreIndicatorClass: 'suggest-more',
+			 moreIndicatorText : '&hellip;'
+        	});
+		});
+		
+	   //console.log(se_ajax_url3);
+        
+    });
+</script>
+<?php
+}
+
+add_action('wp_ajax_se_lookup', 'se_lookup');
+add_action('wp_ajax_nopriv_se_lookup', 'se_lookup');
+
+function se_lookup() {
+    global $wpdb;
+    
+    
+
+    $search = like_escape($_REQUEST['q']);
+
+    $query = 'SELECT ID,post_title FROM ' . $wpdb->posts . '
+        WHERE post_title LIKE \'' . $search . '%\'
+        AND post_status = \'publish\'
+        ORDER BY post_title ASC';
+    
+    //$post_array = [];
+    foreach ($wpdb->get_results($query) as $row) {
+        
+        
+        $post_title = $row->post_title;
+        //$id = $row->ID;
+
+        //$meta = get_post_meta($id, 'YOUR_METANAME', TRUE);
+
+        echo $post_title . "~";
+       
+    }
+
+    die();
+}
 
 
 /**

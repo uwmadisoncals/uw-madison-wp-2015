@@ -33,7 +33,7 @@ gulp.task('styles', function() {
 
 // Scripts
 gulp.task('scripts', function() {
-  return gulp.src(['bower_components/jquery/dist/jquery.min.js','js/owlcarousel/owl.carousel.min.js','js/global.js'])
+  return gulp.src(['bower_components/jquery/dist/jquery.min.js','js/jquery.suggest.js','js/owlcarousel/owl.carousel.min.js','js/global.js'])
     .pipe(concat('main.js'))
     .pipe(gulp.dest('dist/scripts'))
     .pipe(rename({ suffix: '.min' }))

@@ -120,12 +120,34 @@ $(".mobileTrigger, .menuOverlay").click(function(e) {
 		
 	});
 	
+	var searchVisible = false;
+	
 	$(".searchTrigger, .searchClose, .searchResultsOverlay").click(function(e) {
 		e.preventDefault();
 		
-		$(".searchUI").toggleClass("visible").attr("aria-hidden","false");
-		$("#page").toggleClass("blur");
-		$(".searchResultsOverlay").toggleClass("visible").attr("aria-hidden","false");
+		if(searchVisible) {
+			$(".searchUI").toggleClass("visible").attr("aria-hidden","true");
+			$("#page").toggleClass("blur");
+			$(".searchResultsOverlay").toggleClass("visible").attr("aria-hidden","true");
+			setTimeout(function() {
+				$(".searchUI input.search-field").blur();
+			},100);
+			
+			searchVisible = false;
+		} else {
+			
+			$(".searchUI").toggleClass("visible").attr("aria-hidden","false");
+			$("#page").toggleClass("blur");
+			$(".searchResultsOverlay").toggleClass("visible").attr("aria-hidden","false");
+			setTimeout(function() {
+				$(".searchUI input.search-field").focus();
+			},500);
+			
+			searchVisible = true;
+		}
+		
+		
+		
 		
 	});
 
