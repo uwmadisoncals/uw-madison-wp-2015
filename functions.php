@@ -19,7 +19,7 @@ function se_wp_head() {
     
 	
 	var se_ajax_url = '<?php echo admin_url('admin-ajax.php'); ?>?action=se_lookup';
-	
+	var se_ajax_url_https = '<?php echo admin_url('admin-ajax.php','https'); ?>?action=se_lookup';
 	
 	
     jQuery(document).ready(function() {
@@ -27,6 +27,24 @@ function se_wp_head() {
 	  	//console.log(se_ajax_url2);
 	  	$.ajax({
 		  url: se_ajax_url
+		}).error(function(msg) {
+				$.ajax({
+				  url: se_ajax_url_https
+				}).error(function(msg) {
+					console.log("The connection to the admin interface has failed.");	
+					
+				}).done(function(msg) {
+				 
+				  var se_ajax_array = msg.split('~');
+				  		  
+				  
+				  	jQuery('.search-field').suggest(se_ajax_array, {
+			         suggestionColor   : '#cccccc',
+					 moreIndicatorClass: 'suggest-more',
+					 moreIndicatorText : '&hellip;'
+		        	});
+				});
+			
 		}).done(function(msg) {
 		 
 		  var se_ajax_array = msg.split('~');
