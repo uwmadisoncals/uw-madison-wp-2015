@@ -101,3 +101,48 @@
 	letter-spacing: 1px;
 	
 }
+
+
+/* Page styles */
+.page, 
+.single,
+.search {
+	
+	a{
+		text-decoration: none;
+	}
+	
+	.site-header{
+		background-color: rgba(139, 0, 0, 0.89);
+		
+		.main-navigation{
+			  background: rgba(115, 26, 31, 1);
+			  
+			  .site-navigation-container li a{
+			  	color: #fff;
+			  }
+		}
+
+	}
+		
+	.site-content{
+		max-width: 1124px;
+		margin: 0 auto;
+		padding-left: 30px;
+		padding-right: 30px;
+		position: relative;
+	}
+	
+	h1.entry-title{
+		color: $uwred;
+		margin-top: 3em;
+	}
+	
+	.posted-on,
+	.byline{
+		font-size: 11px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+}
