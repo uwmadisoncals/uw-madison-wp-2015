@@ -241,13 +241,35 @@ jQuery (document ).ready(function($){
 var lastScrollTop = 0;
 $(window).scroll(function(event){
    var st = $(this).scrollTop();
+   var header = $(".site-header").offset().top;
+   var headerHeight = $(".site-header").height();
+   var headerPlacement = st - headerHeight;
+   
    if (st > lastScrollTop){
        // downscroll code
-       $(".site-header").removeClass("sticky");
+       
+       header = $(".site-header").offset().top;
+       $(".site-header").css("top",header).removeClass("sticky");
+       
+       
+       
+       if(st > (header+headerHeight)) {
+       	$(".site-header").css("top",headerPlacement);
+       	console.log(headerPlacement);
+       }
    } else {
       // upscroll code
-      $(".site-header").addClass("sticky");
+      if(st <= header) {
+      	$(".site-header").addClass("sticky").css("top","0px");
+      }
    }
+   
+   if(st > headerHeight) {
+	   $(".site-header").addClass("red");
+   } else {
+	   $(".site-header").removeClass("red");
+   }
+   
    lastScrollTop = st;
 });
 	

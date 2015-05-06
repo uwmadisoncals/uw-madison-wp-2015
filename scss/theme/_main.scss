@@ -8,8 +8,25 @@
 }
 
 .site-header.sticky {
+	position: fixed;
 	
-	
+}
+
+.site-header.red {
+		background-color: $uwred;
+		
+		.main-navigation{
+			  background: rgba(115, 26, 31, 0.2);
+			  
+			  .site-navigation-container li a{
+			  	color: #fff;
+			  }
+			  
+			  .site-navigation-container li a:hover, .site-navigation-container li a:focus {
+				  background: $uwred-dark; 
+			  }
+		}
+
 }
 
 .site-header {
@@ -18,9 +35,8 @@
 	left: 0px;
 	width: 100%;
 	z-index:3;
-	transition: 0.4s;
-	-webkit-transition: 0.4s;
-	
+	transition: 0.4s background-color;
+	-webkit-transition: 0.4s background-color;
 	
 	.site-title, .site-description {
 		position: absolute;
