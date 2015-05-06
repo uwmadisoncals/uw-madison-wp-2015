@@ -270,6 +270,10 @@ $(window).scroll(function(event){
 	   $(".site-header").removeClass("red");
    }
    
+   if(st == 0) {
+	   $(".site-header").removeClass("red").removeClass("sticky").css("top","0px");
+   }
+    
    lastScrollTop = st;
 });
 	
