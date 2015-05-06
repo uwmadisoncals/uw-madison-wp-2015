@@ -7,12 +7,19 @@
 	-webkit-filter: blur(8px);
 }
 
+.site-header.sticky {
+	
+	
+}
+
 .site-header {
 	position: absolute;
 	top: 0px;
 	left: 0px;
 	width: 100%;
 	z-index:3;
+	transition: 0.4s;
+	-webkit-transition: 0.4s;
 	
 	
 	.site-title, .site-description {

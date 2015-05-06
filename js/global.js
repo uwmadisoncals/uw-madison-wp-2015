@@ -1,4 +1,26 @@
 jQuery (document ).ready(function($){
+
+
+/**
+ * ----------------------------------------------------------------------------
+ *
+ *  Sticky header when scrolling up
+ *
+ * ----------------------------------------------------------------------------
+ */
+ 
+var lastScrollTop = 0;
+$(window).scroll(function(event){
+   var st = $(this).scrollTop();
+   if (st > lastScrollTop){
+       // downscroll code
+       $(".site-header").removeClass("sticky");
+   } else {
+      // upscroll code
+      $(".site-header").addClass("sticky");
+   }
+   lastScrollTop = st;
+});
 	
 	
 /**

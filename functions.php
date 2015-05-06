@@ -6,6 +6,12 @@
  */
  
  
+function custom_excerpt_length( $length ) {
+	return 25;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+ 
+ 
 add_action('wp_enqueue_scripts', 'se_wp_enqueue_scripts');
 function se_wp_enqueue_scripts() {
     wp_enqueue_script('suggest',array( 'jquery' ));
