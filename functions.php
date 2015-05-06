@@ -21,7 +21,9 @@ function se_wp_head() {
 	var se_ajax_url = '<?php echo admin_url('admin-ajax.php','http'); ?>?action=se_lookup';
 	var se_ajax_url_https = '<?php echo admin_url('admin-ajax.php','https'); ?>?action=se_lookup';
 	
+	var se_ajax_url = "//"+se_ajax_url.replace(/.*?:\/\//g, "");
 	
+	//console.log(se_ajax_url);
     jQuery(document).ready(function() {
 	    
 	  	//console.log(se_ajax_url2);
