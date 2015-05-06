@@ -18,7 +18,7 @@ function se_wp_head() {
 <script type="text/javascript">
     
 	
-	var se_ajax_url = '<?php echo admin_url('admin-ajax.php'); ?>?action=se_lookup';
+	var se_ajax_url = '<?php echo admin_url('admin-ajax.php','http'); ?>?action=se_lookup';
 	var se_ajax_url_https = '<?php echo admin_url('admin-ajax.php','https'); ?>?action=se_lookup';
 	
 	
