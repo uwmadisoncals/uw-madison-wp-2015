@@ -222,7 +222,7 @@ function create_post_type() {
 
 /*** Setting default header for theme ****/
 $defaults = array(
-	'default-image'          => get_template_directory_uri() . '/images/default-logo.svg',
+	'default-image'          => get_template_directory_uri() . '/images/default-logo-bw.svg',
 	'width'                  => 280,
 	'height'                 => 80,
 	'flex-height'            => true,

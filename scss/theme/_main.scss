@@ -44,6 +44,13 @@
 		margin-bottom: 0.5em;
 		margin-left: 0;
 		line-height: 1;
+		opacity: 0.8;
+		transition: 0.2s opacity;
+		-webkit-transition: 0.2s opacity;
+	}
+	
+	.logoImage:hover, .logoImage:focus {
+		opacity: 1;
 	}
 	
 	
@@ -113,13 +120,17 @@
 	}
 	
 	.site-header{
-		background-color: rgba(139, 0, 0, 0.89);
+		background-color: $uwred;
 		
 		.main-navigation{
-			  background: rgba(115, 26, 31, 1);
+			  background: rgba(115, 26, 31, 0.2);
 			  
 			  .site-navigation-container li a{
 			  	color: #fff;
+			  }
+			  
+			  .site-navigation-container li a:hover, .site-navigation-container li a:focus {
+				  background: $uwred-dark; 
 			  }
 		}
 
