@@ -1,6 +1,4 @@
-/* Global CSS */
-
-
+/* General Page layout styles */
 h1, h2, h3, h4, h5, h6{
 	line-height: 1.2em;
 }
@@ -25,6 +23,14 @@ p{
 	margin: 1.5em 0em
 }
 
+.wp-caption .wp-caption-text{
+	color: #494949;
+	margin-top: 0.3em;
+	font-style: italic;
+}
+
+
+/* Page heading */
 #page.blur {
 	filter: blur(8px);
 	-webkit-filter: blur(8px);
@@ -149,7 +155,7 @@ p{
 }
 
 
-/* Page styles */
+/* non-home Page styles */
 .page, 
 .single,
 .search {

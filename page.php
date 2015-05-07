@@ -22,6 +22,14 @@ get_header(); ?>
 				<?php get_template_part( 'content', 'page' ); ?>
 
 			<?php endwhile; // end of the loop. ?>
+			
+			<div class="right-Nav">
+			<?php 
+				if ( !is_home() ) {
+				     get_template_part('nav_menu', 'sidebar');  
+				}	  
+			?>
+			</div>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
