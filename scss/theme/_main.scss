@@ -1,6 +1,29 @@
 /* Global CSS */
 
 
+h1, h2, h3, h4, h5, h6{
+	line-height: 1.2em;
+}
+
+h2{
+	font-size: 22px;
+	margin: 2em 0em 0em;
+	font-weight: 600;
+	color: #515151;
+}
+
+h3{
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 600;
+	border-bottom: 1px solid #ccc;
+	color: #5A5A5A;
+	margin-top: 2em;
+}
+
+p{
+	margin: 1.5em 0em
+}
 
 #page.blur {
 	filter: blur(8px);
@@ -131,8 +154,13 @@
 .single,
 .search {
 	
+	.entry-content{
+		margin-top: 0.5em;
+	}
+	
 	a{
 		text-decoration: none;
+		color: rgb(65, 167, 211);
 	}
 	
 	.site-header{
@@ -171,5 +199,28 @@
 		font-weight: 600;
 		text-transform: uppercase;
 		letter-spacing: 1px;
+	}
+	
+	main{
+	
+		ul{
+			list-style-type: inherit;
+			margin: 1em 1.5em;
+			
+			ul{
+				list-style-type: circle;
+				margin: 0em 1.5em;
+			}
+		}
+		
+		ol{
+			list-style-type: decimal;
+			margin: 1em 1.5em;
+			
+			ol{
+				list-style-type: lower-alpha;
+				margin: 0em 1.5em;
+			}
+		}
 	}
 }

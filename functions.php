@@ -580,3 +580,18 @@ function example_disable_all_comments_and_pings() {
 } // end example_disable_all_comments_and_pings
 
 add_action( 'after_setup_theme', 'example_disable_all_comments_and_pings' );
+
+
+/**
+ * Modifying TinyMCE editor to remove unused items.
+ * ----------------------------------------------------------------------------
+ */
+ function customformatTinyMCE($init) {
+   $init['block_formats'] = "Paragraph=p; Heading 2=h2; Heading 3=h3";
+   $init['toolbar2']='formatselect,alignjustify,pastetext,removeformat,charmap,outdent,indent,undo,redo,table';
+   
+   $init['toolbar1'] = 'bold,italic,underline, strikethrough,bullist,numlist,alignleft,aligncenter,alignright,link,unlink,wp_more,spellchecker,wp_fullscreen,wp_adv,gca_button ';
+  
+  return $init;
+}
+add_filter('tiny_mce_before_init', 'customformatTinyMCE' );
