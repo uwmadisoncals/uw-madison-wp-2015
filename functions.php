@@ -595,3 +595,19 @@ add_action( 'after_setup_theme', 'example_disable_all_comments_and_pings' );
   return $init;
 }
 add_filter('tiny_mce_before_init', 'customformatTinyMCE' );
+
+
+/**
+ *  Set default to not add link to images
+ * ----------------------------------------------------------------------------
+ */
+function wpb_imagelink_setup() {
+    $image_set = get_option( 'image_default_link_type' );
+
+    if ($image_set !== 'none') {
+        update_option('image_default_link_type', 'none');
+    }
+}
+
+add_action('admin_init', 'wpb_imagelink_setup', 10);
+
