@@ -154,11 +154,23 @@ p{
 	
 }
 
+/* set the width of the content */
+
+.has_nav article {
+	width: 70%;
+	float: left;
+	margin-right: 1em;
+}
+
 
 /* non-home Page styles */
 .page, 
 .single,
 .search {
+	
+	#content{
+		margin-top: 2em;
+	}
 	
 	.entry-content{
 		margin-top: 0.5em;
@@ -196,7 +208,6 @@ p{
 	
 	h1.entry-title{
 		color: $uwred;
-		margin-top: 3em;
 	}
 	
 	.posted-on,

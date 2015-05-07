@@ -11,7 +11,6 @@
  * @depth_count int internal counter used by function to keep track of depth level of current iteration
 */
 ?>
-<div id="nav_sidebar">
 	<?php
 		
 		//find all of the parents to the post
@@ -25,30 +24,28 @@
 		
 		if(!empty($child_pages) && sizeof($reverted) >= 0){?>
 		
-			<div class="exploreMenu">
+			<section class="sidebar_menu">
 			<?php 
 				if (get_the_title() == "Blog Home"){
 			?>
-					<h3>Archives</h3>
+					<h1>Archives</h1>
 			<?php	
 				} else {
 			?>
-				<h3><?php the_title(); ?></h3>
+				<h1><?php the_title(); ?></h1>
 			<?php	} 	?>
 	        <ul id="nav_explore">
-				
 				<?php
 	            foreach($child_pages as $post){
 	            	setup_postdata($post);?>
 	           			<li class="page_item page-item-<?php the_ID();?>">
 	           				<a href="<?php the_permalink(); ?>">
-	           					<span class="nav_arrow"><?php include("images/arrow-right-thin.svg"); ?></span>
 	           					<span class="nav_text"><?php the_title(); ?></span>
 							</a>
 	                     </li>
 	            <?php } ?>
 	            </ul><!-- #nav_explore --> 
-			</div>   
+			</section>   
 		<?php 
 		}
 
@@ -56,7 +53,6 @@
 		// Done. restore original $post
 		$post = $tmp_post;
 		?>
-</div>
 
 
 

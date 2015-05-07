@@ -487,5 +487,27 @@ $(".mobileTrigger, .menuOverlay").click(function(e) {
 	        im.css({marginTop: '-'+hd+'px', marginLeft: 0});//offset top
 	    }
 	});
+	
+	
+/**
+ * ----------------------------------------------------------------------------
+ *
+ *  Set the width of a page depending on if there is a side nav
+ *
+ * ----------------------------------------------------------------------------
+ */	
+	
+	function setContentWidth(){
+		if ($(".sidebar_menu")[0]){
+			$("#content").addClass("has_nav"); 
+		} else {
+			$("#content").removeClass("has_nav"); 
+		}
+	}
+	   
+	setContentWidth();
 
 });
+
+
+
