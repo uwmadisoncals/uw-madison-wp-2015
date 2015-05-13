@@ -19,6 +19,10 @@ h3{
 	margin-top: 2em;
 }
 
+strong {
+	font-weight: 700;
+}
+
 p{
 	margin: 1.5em 0em
 }
@@ -27,6 +31,69 @@ p{
 	color: #494949;
 	margin-top: 0.3em;
 	font-style: italic;
+}
+
+
+/* Blockquotes */
+blockquote {
+	background: #f9f9f9;
+	border-left: 10px solid #ccc;
+	margin: 1.5em 10px;
+	padding: 0.5em 10px;
+	quotes: "\201C""\201D""\2018""\2019";
+}
+
+blockquote:before {
+	color: #ccc;
+	content: open-quote;
+	font-size: 4em;
+	line-height: 0.1em;
+	margin-right: 0.25em;
+	vertical-align: -0.4em;
+}
+
+blockquote p {
+ 	display: inline;
+}
+
+
+/* Table Styles */
+table{
+	margin: 1em 0em;
+	
+	tbody{
+		
+		tr{
+			border-bottom: 1px solid rgba(204, 204, 204, 0.72);
+			
+			th{
+				text-align: left;
+				font-weight: 700;
+			}
+			
+			td{
+				padding: 0.7em 0em;
+			}
+		}
+		
+		tr:first-child{
+			border-bottom: 3px solid rgba(204, 204, 204, 0.72);
+		}
+	}
+}
+
+
+/* Definition List */
+dl{
+	margin: 1em 0em;
+
+	dt {
+		font-weight: 700;
+	}
+	
+	dd {
+		padding-left: 2em;
+	}
 }
 
 
@@ -226,6 +293,11 @@ p{
 			ul{
 				list-style-type: circle;
 				margin: 0em 1.5em;
+				
+				ul{
+					list-style-type: disc;
+					margin: 0em 1.5em;
+				}
 			}
 		}
 		
@@ -236,6 +308,11 @@ p{
 			ol{
 				list-style-type: lower-alpha;
 				margin: 0em 1.5em;
+				
+				ol{
+					list-style-type: lower-roman;
+					margin: 0em 1.5em;
+				}
 			}
 		}
 	}
