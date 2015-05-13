@@ -32,7 +32,7 @@
 			<?php	
 				} else {
 			?>
-				<h1 class="screen-reader-text"><?php the_title(); ?></h1>
+				<h1><?php the_title(); ?></h1>
 			<?php	} 	?>
 	        <ul id="nav_explore">
 				<?php
