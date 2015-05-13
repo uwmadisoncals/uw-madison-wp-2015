@@ -56,6 +56,20 @@ blockquote p {
  	display: inline;
 }
 
+/* Quotes */
+q {
+  quotes: "“" "”" "‘" "’";
+  font-style: italic;
+}
+
+q:before {
+    content: open-quote;
+}
+
+q:after {
+    content: close-quote;
+}
+
 
 /* Table Styles */
 table{
@@ -81,6 +95,23 @@ table{
 		}
 	}
 }
+
+/* Misc Styles */
+pre {
+    display: block;
+    font-family: monospace;
+    white-space: pre;
+    margin: 1em 0;
+}
+
+var, em, cite { 
+    font-style: italic;
+}
+
+kbd, code { 
+    font-family: monospace;
+}
+
 
 
 /* Definition List */
