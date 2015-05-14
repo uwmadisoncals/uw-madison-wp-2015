@@ -83,7 +83,8 @@ $(window).click(function(e) {
 	
 	
 	//close your uw menu
-	$(".youruwmenu").removeClass("visible");
+	$(".youruwmenu, .subLevel1, .subLevel2").removeClass("visible");
+	
 	
 });
 
@@ -159,6 +160,56 @@ $(".mobileTrigger, .menuOverlay").click(function(e) {
 	$(".menuOverlay").toggleClass("mobileMenuShown");
 	$("#page").toggleClass("blur");
 }); 
+
+
+$("li.page_item_has_children > a").click(function(e) {
+	e.preventDefault();
+	e.stopPropagation();
+	
+	var subItems = $(this).next().html();
+	var clickedLinkTitle = $(this).text() + " Overview";
+	var clickedLinkHref = $(this).attr("href");
+	
+	var overviewLink = "<li><a href='"+clickedLinkHref+"'>"+clickedLinkTitle+"</a></li>";
+	var backLink = '<li class="subLevel1Back"><a href="#"><span><svg height="512px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="352,128.4 319.7,96 160,256 160,256 160,256 319.7,416 352,383.6 224.7,256 "/></svg></span> Back</a></li>';
+	
+	
+	$(".mobileMenu .subLevel1").html(subItems).prepend(overviewLink).prepend(backLink).addClass("visible");
+	
+	$(".subLevel1Back > a").click(function(b) {
+		b.preventDefault();
+		b.stopPropagation();
+		
+		console.log("hit a");
+		$(".mobileMenu .subLevel1").removeClass("visible");
+	});
+	
+	$(".subLevel1 li.page_item_has_children > a").click(function(c) {
+		c.preventDefault();
+		c.stopPropagation();
+		
+		var subItems = $(this).next().html();
+		var clickedLinkTitle = $(this).text() + " Overview";
+		var clickedLinkHref = $(this).attr("href");
+		
+		var overviewLink = "<li><a href='"+clickedLinkHref+"'>"+clickedLinkTitle+"</a></li>";
+		var backLink = '<li class="subLevel2Back"><a href="#"><span><svg height="512px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="352,128.4 319.7,96 160,256 160,256 160,256 319.7,416 352,383.6 224.7,256 "/></svg></span> Back</a></li>';
+		
+		
+		$(".mobileMenu .subLevel2").html(subItems).prepend(overviewLink).prepend(backLink).addClass("visible");
+		
+		$(".subLevel2Back > a").click(function(b) {
+			b.preventDefault();
+			b.stopPropagation();
+			
+			console.log("hit b");
+			$(".mobileMenu .subLevel2").removeClass("visible");
+		});
+		
+	});
+	
+});
+
 
 
 
