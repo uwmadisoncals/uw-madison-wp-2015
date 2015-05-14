@@ -267,7 +267,7 @@ $(window).scroll(function(event){
       
       if(!mobileOn) {
 	      if(st <= navPos) {
-		      $(".site-header").addClass("sticky").css("top","-100px");
+		      $(".site-header").addClass("sticky").css("top","-"+brandingHeight+"px");
 	      }
       } else {
 	      if(st <= header) {
