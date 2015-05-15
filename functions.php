@@ -5,13 +5,77 @@
  * @package UW Madison WP 2015
  */
  
+
+/**** Adding Theme Customizer Options ****/
+function mytheme_customize_register( $wp_customize ) {
+   //All our sections, settings, and controls will be added here
+   
+   /**
+ * Pages Drop-Down List
+ *
+ * Since NARGA v1.6
+ */
+
+$wp_customize->add_section( 'uw-madison-wp-2015-home-options' , array(
+    	'title'      => __( 'Home Page Feature', 'uw-madison-wp-2015' ),
+    	'priority'   => 60,
+	) ); 
+
+$wp_customize->add_setting('uw-madison-wp-2015_options[page_feature]', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'option',
  
+));
+
+ 
+$wp_customize->add_control('uw-madison-wp-2015_options[page_feature]', array(
+    'label'      => __('Featured Page', 'uw-madison-wp-2015'),
+    'section'    => 'uw-madison-wp-2015-home-options',
+    'type'    => 'dropdown-pages',
+    'settings'   => 'uw-madison-wp-2015_options[page_feature]',
+));
+   
+   
+   /*$wp_customize->add_setting( 'home_featurepage' , array(
+    	'capability' => 'edit_theme_options',
+    	'type' => 'option',
+	) );
+   
+   $wp_customize->add_section( 'uw-madison-wp-2015-home-options' , array(
+    	'title'      => __( 'Home Page Options', 'uw-madison-wp-2015' ),
+    	'priority'   => 30,
+	) );
+	
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'dropdown-pages', array(
+		'label'        => __( 'Feature Page', 'uw-madison-wp-2015' ),
+		'section'    => 'uw-madison-wp-2015-home-options',
+		'settings'   => 'home_featurepage',
+		'type' => 'dropdown-pages'
+	) ) );*/
+
+}
+add_action( 'customize_register', 'mytheme_customize_register' );
+
+
+/*function mytheme_customize_css()
+{
+    ?>
+         <style type="text/css">
+             body { color:<?php echo get_theme_mod('home_featurecolor', '#000000'); ?>; }
+         </style>
+    <?php
+}
+add_action( 'wp_head', 'mytheme_customize_css');*/
+
+ 
+/**** Adjusted Excerpt Length ****/
 function custom_excerpt_length( $length ) {
 	return 25;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
  
- 
+
+/**** Search Suggest functionality ****/
 add_action('wp_enqueue_scripts', 'se_wp_enqueue_scripts');
 function se_wp_enqueue_scripts() {
     wp_enqueue_script('suggest',array( 'jquery' ));
