@@ -23,9 +23,9 @@ get_header(); ?>
 				
 				
 				
-					$mod = get_theme_mod( 'uw-madison-wp-2015_options[page_feature]' );
+					$mod = get_theme_mod( 'uw-madison-wp-2015_options_id' );
 					
-						var_dump($mod);
+						echo($mod);
 				
 				
 				/*$args = array(

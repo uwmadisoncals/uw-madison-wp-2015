@@ -21,18 +21,18 @@ $wp_customize->add_section( 'uw-madison-wp-2015-home-options' , array(
     	'priority'   => 60,
 	) ); 
 
-$wp_customize->add_setting('uw-madison-wp-2015_options[page_feature]', array(
+$wp_customize->add_setting('uw-madison-wp-2015_options_id', array(
     'capability'     => 'edit_theme_options',
-    'type'           => 'option',
+    'type'           => 'theme_mod',
  
 ));
 
  
-$wp_customize->add_control('uw-madison-wp-2015_options[page_feature]', array(
+$wp_customize->add_control('uw-madison-wp-2015-home-options', array(
     'label'      => __('Featured Page', 'uw-madison-wp-2015'),
     'section'    => 'uw-madison-wp-2015-home-options',
     'type'    => 'dropdown-pages',
-    'settings'   => 'uw-madison-wp-2015_options[page_feature]',
+    'settings'   => 'uw-madison-wp-2015_options_id',
 ));
    
    
