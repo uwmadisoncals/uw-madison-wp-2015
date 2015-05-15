@@ -4,6 +4,62 @@ jQuery (document ).ready(function($){
 /**
  * ----------------------------------------------------------------------------
  *
+ *  Apply fast click poly fill for mobile browsers
+ *
+ * ----------------------------------------------------------------------------
+ */
+ 
+if ('addEventListener' in document) {
+    document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+    }, false);
+}
+
+
+/**
+ * ----------------------------------------------------------------------------
+ *
+ *  Detect Browser and Mobile and apply it as a class to the body element
+ *
+ * ----------------------------------------------------------------------------
+ */
+ 
+var browser = BrowserDetect.browser;
+
+
+$("body").addClass(browser);
+
+var isMobile = {
+            Android: function() {
+                return navigator.userAgent.match(/Android/i);
+            },
+            BlackBerry: function() {
+                return navigator.userAgent.match(/BlackBerry/i);
+            },
+            iOS: function() {
+                return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+            },
+            Opera: function() {
+                return navigator.userAgent.match(/Opera Mini/i);
+            },
+            Windows: function() {
+                return navigator.userAgent.match(/IEMobile/i);
+            },
+            any: function() {
+                return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+            }
+};
+
+var mobileBrowser = isMobile.any();  //will return true of false
+
+if( mobileBrowser ) {
+    $('body').addClass("mobile");
+}
+
+
+/**
+ * ----------------------------------------------------------------------------
+ *
  *  Sticky header when scrolling up
  *
  * ----------------------------------------------------------------------------
