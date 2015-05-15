@@ -18,60 +18,12 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 			<?php include('spotlight.php'); ?>
 			
-			<div class="featuredPage">
-				<?php
+			
 				
 				
+			<?php include('pagefeature.php'); ?>
 				
-					$mod = get_theme_mod( 'uw-madison-wp-2015_options_id' );
-					
-						echo($mod);
-				
-				
-				/*$args = array(
-					'posts_per_page' => 1,
-					'post_type' => 'page',
-					'post__in' => $mod,
-					'orderby' => 'post__in'
-				);
-				
-				$query = new WP_Query( $args );
-				
-				if ( $query->have_posts() ) :
-					$count = 1;
-					while ( $query->have_posts() ) : $query->the_post();
-					?>
-				 
-						<article id="post-<?php the_ID(); ?>" <?php post_class( 'featured-' . $count ); ?>>
-				 
-							<header class="entry-header">
-								<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
-							</header><!-- .entry-header -->
-				 
-							<div class="entry-summary clearfix">
-								<?php the_excerpt(); ?>
-							</div><!-- .entry-content -->
-							<?php endif; ?>
-				 
-						</article><!-- #post-## -->
-				 
-					<?php
-					$count++;
-					endwhile;
-				else :
-					if ( current_user_can( 'customize' ) ) { ?>
-						<div class="message">
-							<p><?php _e( 'There are no pages available to display.', 'textdomain' ); ?></p>
-							<p><?php printf(
-								__( 'These pages can be set in the <a href="%s">customizer</a>.', 'textdomain' ),
-								admin_url( 'customize.php?autofocus[control]=showcase' )
-							); ?>
-							</p>
-						</div>
-					<?php }
-				endif; */
-				?>
-			</div>
+							
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

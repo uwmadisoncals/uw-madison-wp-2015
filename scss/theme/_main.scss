@@ -242,7 +242,7 @@ dl{
 
 
 .site-content{
-	margin: 2em 1em;
+	margin: 0px;
 }
 
 .site-footer a, site-footer a:hover, site-footer a:focus, site-footer a:visited{
@@ -251,6 +251,78 @@ dl{
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	
+}
+
+.featuredPage {
+	position: relative;
+	background: $uwred;
+	
+	
+	.rowalt {
+		display: flex;
+	}
+	
+	.featuredImageContainer {
+		min-height: 200px;
+		position: relative;
+		flex: 1;
+	}
+	
+	.featuredImageText {
+		padding: 40px;
+		flex: 1;
+		position: relative;
+		
+		.slice {
+			position: absolute;
+			top: 0px;
+			left: -50px;
+			width: 50px;
+			bottom: 0px;
+			z-index:3;
+			
+			svg {
+				height: 100%;
+				width: 50px;
+				
+				polygon {
+					fill: $uwred;
+				}
+			}
+		}
+	}
+	
+	h2 {
+		color: rgba(255,255,255,0.9);
+		font-family: "Raleway", sans-serif;
+		font-weight: 100;
+		font-size: 30px;
+		text-align: left;
+		margin-bottom: 0px;
+		margin-top: 0px;
+	}
+	
+	p {
+		color: rgba(255,255,255,0.6);
+		font-family: "Raleway", sans-serif;
+		font-weight: 300;
+		font-size: 16px;
+		line-height: 1.6;
+		text-align: left;
+		margin-top: 0.4em;
+		margin-bottom: 0.4em;
+	}
+	
+	.featuredPageImage {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		z-index:1;
+		background-size: cover;
+		background-position: center center;
+	}
 }
 
 /* set the width of the content */
