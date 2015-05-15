@@ -213,7 +213,7 @@ $(".mobileTrigger, .menuOverlay").click(function(e) {
 }); 
 
 
-$("li.page_item_has_children > a").click(function(e) {
+$(".mobileMenu li.page_item_has_children > a").click(function(e) {
 	e.preventDefault();
 	e.stopPropagation();
 	
@@ -227,7 +227,7 @@ $("li.page_item_has_children > a").click(function(e) {
 	
 	$(".mobileMenu .subLevel1").html(subItems).prepend(overviewLink).prepend(backLink).addClass("visible");
 	
-	$(".subLevel1Back > a").click(function(b) {
+	$(".mobileMenu .subLevel1Back > a").click(function(b) {
 		b.preventDefault();
 		b.stopPropagation();
 		
@@ -235,7 +235,7 @@ $("li.page_item_has_children > a").click(function(e) {
 		$(".mobileMenu .subLevel1").removeClass("visible");
 	});
 	
-	$(".subLevel1 li.page_item_has_children > a").click(function(c) {
+	$(".mobileMenu .subLevel1 li.page_item_has_children > a").click(function(c) {
 		c.preventDefault();
 		c.stopPropagation();
 		

@@ -116,7 +116,7 @@
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<div class="site-navigation-container">
 					
-					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'depth' => 1 ) ); ?>
 				</div>
 			</nav><!-- #site-navigation -->
 		
