@@ -1300,6 +1300,7 @@ $(window).scroll(function(event){
 	   }
 	   
 	   if(st > headerHeight) {
+		  
 		   $(".site-header").addClass("red");
 	   } else {
 		   $(".site-header").removeClass("red");

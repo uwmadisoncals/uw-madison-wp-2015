@@ -139,6 +139,8 @@ dl{
 	
 }
 
+.home.page, .home.blog {
+
 .site-header.red {
 		background-color: $uwred;
 		
@@ -154,6 +156,8 @@ dl{
 				  background: $uwred-dark; 
 			  }
 		}
+
+}
 
 }
 
@@ -338,6 +342,34 @@ dl{
 	margin-right: 3em;
 }
 
+.admin-bar .site-header {
+	padding-top: 30px;	
+}
+
+.home.page {
+	.site-header{
+		background-color: transparent;
+		
+		.main-navigation{
+			  background: rgba(255,255,255, 0.35);
+			  
+			  .site-navigation-container li a{
+			  	color: rgba(0,0,0,0.8);
+			  }
+			  
+			  .site-navigation-container li a:hover, .site-navigation-container li a:focus {
+				  background: $uwred; 
+				  color: rgba(255,255,255,0.8);
+			  }
+		}
+
+	}
+}
+
+
+.pagePadding {
+	padding: 2em;
+}
 
 /* non-home Page styles */
 .page, 
@@ -377,7 +409,7 @@ dl{
 	.site-content{
 		max-width: 1124px;
 		margin: 0 auto;
-		padding-left: 45px;
+		
 		position: relative;
 	}
 	

@@ -18,10 +18,9 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 			<?php include('spotlight.php'); ?>
 			
-			
-				
-				
-			<?php include('pagefeature.php'); ?>
+			<?php if(is_front_page()) { ?>
+				<?php include('pagefeature.php'); ?>
+			<?php } ?>
 				
 							
 		</main><!-- #main -->

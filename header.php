@@ -124,7 +124,9 @@
   
 	<div class="featureHeader">
 				
-		<?php if(is_home()) { ?>
+		<?php 
+			if(is_front_page()) { ?>
+		
 				<?php $args = array( 'post_type' => 'headerslides', 'posts_per_page' => 10 );
 					$loop = new WP_Query( $args );
 					
