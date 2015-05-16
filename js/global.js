@@ -72,50 +72,62 @@ $(window).scroll(function(event){
    //brandingHeight = "-" + brandingHeight;
    var headerPlacement = st - headerHeight;
    
-   if (st > lastScrollTop){
-       // downscroll code
-       
-       header = $(".site-header").offset().top;
-       $(".site-header").css("top",header).removeClass("sticky");
-       
-       
-       
-       if(st > (header+headerHeight)) {
-       	$(".site-header").css("top",headerPlacement);
-       	//console.log(headerPlacement);
-       }
-   } else {
-      // upscroll code
-      
-      if(!mobileOn) {
-	      if(st <= navPos) {
-		      $(".site-header").addClass("sticky").css("top","-"+brandingHeight+"px");
+   if(mobileBrowser) {
+	   $(".site-header").css("top","0px").css("position","fixed");
+	   
+	   if(st > headerHeight) {
+		   $(".site-header").addClass("red");
+	   } else {
+		   $(".site-header").removeClass("red");
+	   }
+	   
+   } else { 
+   
+	   if (st > lastScrollTop){
+	       // downscroll code
+	       
+	       header = $(".site-header").offset().top;
+	       $(".site-header").css("top",header).removeClass("sticky");
+	       
+	       
+	       
+	       if(st > (header+headerHeight)) {
+	       	$(".site-header").css("top",headerPlacement);
+	       	//console.log(headerPlacement);
+	       }
+	   } else {
+	      // upscroll code
+	      
+	      if(!mobileOn) {
+		      if(st <= navPos) {
+			      $(".site-header").addClass("sticky").css("top","-"+brandingHeight+"px");
+		      }
+	      } else {
+		      if(st <= header) {
+			  		$(".site-header").addClass("sticky").css("top","0px");
+	      		}
 	      }
-      } else {
-	      if(st <= header) {
-		  		$(".site-header").addClass("sticky").css("top","0px");
-      		}
-      }
-      
-      
+	      
+	      
+	   }
+	   
+	   if(st > headerHeight) {
+		   $(".site-header").addClass("red");
+	   } else {
+		   $(".site-header").removeClass("red");
+	   }
+	   
+	   if(!mobileOn) {
+		   if(st < brandingHeight) {
+		   		$(".site-header").removeClass("red").removeClass("sticky").css("top","0px");
+	   		}
+		} else {
+			if(st < 1) {
+			$(".site-header").removeClass("red").removeClass("sticky").css("top","0px");
+	   		}
+		}
+   
    }
-   
-   if(st > headerHeight) {
-	   $(".site-header").addClass("red");
-   } else {
-	   $(".site-header").removeClass("red");
-   }
-   
-   if(!mobileOn) {
-	   if(st < brandingHeight) {
-	   		$(".site-header").removeClass("red").removeClass("sticky").css("top","0px");
-   		}
-	} else {
-		if(st < 1) {
-		$(".site-header").removeClass("red").removeClass("sticky").css("top","0px");
-   		}
-	}
-   
    
     
    lastScrollTop = st;
