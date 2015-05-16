@@ -6,19 +6,27 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-
-		<div class="entry-meta">
-			<?php uw_madison_wp_2015_posted_on(); ?>
-		</div><!-- .entry-meta -->
+		<?php
+			if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
+			  	the_post_thumbnail('large'); ?>
+			  	<div class="featured_title">
+					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+			
+					<div class="entry-meta">
+						<?php uw_madison_wp_2015_posted_on(); ?>
+					</div><!-- .entry-meta -->
+				</div>
+		<?php	} else { ?>
+					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+	
+					<div class="entry-meta">
+						<?php uw_madison_wp_2015_posted_on(); ?>
+					</div><!-- .entry-meta -->
+			
+		<?php } ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<?php
-			if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
-			  	the_post_thumbnail('large');
-			}
-		?>
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(
