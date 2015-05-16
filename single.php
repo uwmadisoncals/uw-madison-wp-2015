@@ -14,9 +14,11 @@ get_header(); ?>
 
 			<?php get_template_part( 'content', 'single' ); ?>
 
+			<?php the_post_navigation(); ?>
+
 		<?php endwhile; // end of the loop. ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
+		</main>
+	</div>
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>
