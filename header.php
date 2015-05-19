@@ -151,7 +151,10 @@
 								 $attachment_id = get_field('hero_image'); $size = "hero-image"; 
 								 $image = wp_get_attachment_image_src($attachment_id, $size);
 								
+								
 								//$imgurl = wp_get_attachment_image_src( $image, $size ); ?>
+								
+								<div class="heroImageIeMask"></div>
 								<svg class="heroImageContainerSVG">
 
 									<!-- Definition of a mask begins -->
