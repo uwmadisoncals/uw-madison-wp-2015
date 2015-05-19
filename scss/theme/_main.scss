@@ -255,13 +255,18 @@ dl{
 	
 	
 	.rowalt {
-		display: flex;
+		  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+		  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+		  display: -ms-flexbox;      /* TWEENER - IE 10 */
+		  display: -webkit-flex;     /* NEW - Chrome */
+		  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
 	}
 	
 	.featuredImageContainer {
 		min-height: 200px;
 		position: relative;
 		flex: 1;
+		-webkit-flex: 1;
 	}
 	
 	.span-100 {
@@ -272,6 +277,7 @@ dl{
 	.featuredImageText {
 		padding: 40px;
 		flex: 1;
+		-webkit-flex: 1;
 		position: relative;
 		
 		.slice {
@@ -284,7 +290,7 @@ dl{
 			
 			svg {
 				height: 100%;
-				width: 50px;
+				width: 51px;
 				
 				polygon {
 					fill: $uwred;

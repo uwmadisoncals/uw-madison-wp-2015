@@ -16,6 +16,9 @@ var gulp = require('gulp'),
     svgmin = require('gulp-svgmin'),
     livereload = require('gulp-livereload'),
     lr = require('tiny-lr'),
+    filter      = require('gulp-filter'),
+    browserSync = require('browser-sync').create(),
+    reload      = browserSync.reload,
     server = lr();
 
 
@@ -28,7 +31,9 @@ gulp.task('styles', function() {
     .pipe(minifycss())
     .pipe(livereload(server))
     .pipe(gulp.dest('dist/styles'))
-    .pipe(notify({ message: 'Styles task complete' }));
+    .pipe(notify({ message: 'Styles task complete' }))
+    .pipe(filter('**/*.css')) // Filtering stream to only css files
+    .pipe(reload({stream: true}));
 });
 
 // Scripts
@@ -40,7 +45,8 @@ gulp.task('scripts', function() {
     .pipe(uglify())
     .pipe(livereload(server))
     .pipe(gulp.dest('dist/scripts'))
-    .pipe(notify({ message: 'Scripts task complete' }));
+    .pipe(notify({ message: 'Scripts task complete' }))
+    .pipe(reload({stream: true}));
 });
 
 // Debug Scripts
@@ -58,6 +64,22 @@ gulp.task('images', function() {
     .pipe(livereload(server))
     .pipe(gulp.dest('dist/images'))
     .pipe(notify({ message: 'Images task complete' }));
+});
+
+//browser sync
+gulp.task('browser-sync', function() {
+    browserSync.init({
+        proxy: "madisonwptheme.localhost"
+    });
+    
+    // Watch .scss files
+    gulp.watch('scss/**/*.scss', ['styles']);
+
+    // Watch .js files
+    gulp.watch('js/**/*.js', ['scripts']);
+    
+    // Watch php files
+    gulp.watch('**/*.php', ['reload']);
 });
 
 // Reload
