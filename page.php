@@ -17,19 +17,20 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 			<div class="cf pagePadding">
-			<?php while ( have_posts() ) : the_post(); ?>
-
-				<?php get_template_part( 'content', 'page' ); ?>
-
-			<?php endwhile; // end of the loop. ?>
-			
-			<?php 
-				if ( !is_home() ) {
-				     get_template_part('nav_menu', 'sidebar');  
-				}	  
-			?>
+				<?php while ( have_posts() ) : the_post(); ?>
+	
+					<?php get_template_part( 'content', 'page' ); ?>
+	
+				<?php endwhile; // end of the loop. ?>
+				
+				<?php 
+					if ( !is_home() ) {
+					     get_template_part('nav_menu', 'sidebar');  
+					}	  
+				?>
 			
 			</div>
+			
 			<?php if(is_front_page()) { ?>
 				<?php include('pagefeature.php'); ?>
 			<?php } ?>

@@ -39,7 +39,7 @@ if(getInternetExplorerVersion() != "-1") {
 /**
  * ----------------------------------------------------------------------------
  *
- *  Apply fast click poly fill for mobile browsers
+ *  Apply fast click polyfill for mobile browsers
  *
  * ----------------------------------------------------------------------------
  */
@@ -219,6 +219,7 @@ $(window).click(function(e) {
 		$(".mobileTrigger").show();
 		$(".logoImage").addClass("mobileMenuOn");
 		$(".site-header").addClass("mobileOn");
+		$("body").addClass("mobileNavOn");
 	 } else {
 	 
 		 if(totalWidth > menuWidth) {
@@ -227,6 +228,7 @@ $(window).click(function(e) {
 			 $(".mobileTrigger").show();
 			 $(".logoImage").addClass("mobileMenuOn");
 			 $(".site-header").addClass("mobileOn");
+			 $("body").addClass("mobileNavOn");
 		 } else {
 			 if(totalWidth == 0) {
 				 //console.log("switch to mobile");
@@ -234,12 +236,14 @@ $(window).click(function(e) {
 				 $(".mobileTrigger").show();
 				 $(".logoImage").addClass("mobileMenuOn");
 				 $(".site-header").addClass("mobileOn");
+				 $("body").addClass("mobileNavOn");
 			 } else {
 				 //console.log("switch to full");
 				 $("#site-navigation").css("visibility","visible").css("height","auto");
 				 $(".mobileTrigger").hide();
 				 $(".logoImage").removeClass("mobileMenuOn");
 				 $(".site-header").removeClass("mobileOn");
+				 $("body").removeClass("mobileNavOn");
 			 }
 		 }
 	 

@@ -374,14 +374,34 @@ dl{
 	padding: 2em;
 }
 
+.postPadding {
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+
+
 /* non-home Page styles */
+
+.mobileNavOn.page, 
+.mobileNavOn.single,
+.mobileNavOn.search,
+.mobileNavOn.archive {
+	
+	#content{
+		margin-top: 0em;
+	}
+	
+}
+
+
 .page, 
 .single,
 .search,
 .archive {
 	
 	#content{
-		margin-top: 2em;
+		margin-top: 4em;
 	}
 	
 	.entry-content{
