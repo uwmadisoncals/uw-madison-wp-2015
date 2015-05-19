@@ -24,7 +24,7 @@ strong {
 }
 
 p{
-	margin: 1.5em 0em
+	margin: 0.7em 0em 1.5em;
 }
 
 .wp-caption .wp-caption-text{
@@ -437,4 +437,13 @@ dl{
 			}
 		}
 	}
+}
+
+//override for blog pages
+.single{
+	
+	#content{
+		margin-top: 7em;
+	}
+	
 }
