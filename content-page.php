@@ -8,7 +8,16 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php
+			if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
+			  	the_post_thumbnail('large'); ?>
+			  	<div class="featured_title">
+					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+				</div>
+		<?php	} else { ?>
+					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+			
+				<?php } ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">

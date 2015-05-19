@@ -24,7 +24,7 @@ strong {
 }
 
 p{
-	margin: 1.5em 0em
+	margin: 0.7em 0em 1.5em;
 }
 
 .wp-caption .wp-caption-text{
@@ -364,6 +364,11 @@ dl{
 	}
 }
 
+.search-field {
+	position: relative;
+	z-index:2;
+}
+
 
 .pagePadding {
 	padding: 2em;
@@ -372,7 +377,8 @@ dl{
 /* non-home Page styles */
 .page, 
 .single,
-.search {
+.search,
+.archive {
 	
 	#content{
 		margin-top: 2em;
@@ -443,4 +449,13 @@ dl{
 			}
 		}
 	}
+}
+
+//override for blog pages
+.single, .archive{
+	
+	#content{
+		margin-top: 7em;
+	}
+	
 }

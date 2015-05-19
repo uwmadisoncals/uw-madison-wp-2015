@@ -445,15 +445,25 @@ $(".mobileMenu li.page_item_has_children > a").click(function(e) {
  */	
 	
 	function setContentWidth(){
+		//used on pages
 		if ($(".sidebar_menu")[0]){
 			$("#content").addClass("has_nav"); 
 		} else {
 			$("#content").removeClass("has_nav"); 
 		}
+		
+		
+		//used on posts
+		if ($(".widget-area")[0]) {
+			$(".content-area").addClass("span-66 right_margin"); 
+		} else {
+			$(".content-area").removeClass("span-66 right_margin"); 
+		}
+		
+		
 	}
 	   
 	setContentWidth();
-
 });
 
 
