@@ -5,6 +5,8 @@
  * @package UW Madison WP 2015
  */
  
+ 
+
 
 /**** Adding Theme Customizer Options ****/
 function mytheme_customize_register( $wp_customize ) {

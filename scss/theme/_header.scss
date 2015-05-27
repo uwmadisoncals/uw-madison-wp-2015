@@ -185,8 +185,8 @@
 	transform: translateY(-100%);
 	-webkit-transform: translateY(-100%);
 	
-	transition: 0.4s cubic-bezier(0.000, 0.875, 0.455, 1.160);;
-	-webkit-transition: 0.4s cubic-bezier(0.000, 0.875, 0.455, 1.160);;
+	transition: 0.4s cubic-bezier(0.000, 0.875, 0.455, 1.160);
+	-webkit-transition: 0.4s cubic-bezier(0.000, 0.875, 0.455, 1.160);
 	
 	.searchFormIcon {
 		position: absolute;
@@ -198,9 +198,9 @@
 		transform: translate(0%, -250%);
 		-webkit-transform: translate(0%, -250%);
 		-moz-transform: translate(0%, -250%);
-		-webkit-transition: 0.3s;
-		-moz-transition: 0.3s;
-		transition: 0.3s;
+		-webkit-transition: 0.3s cubic-bezier(0.000, 0.875, 0.455, 1.160);
+		-moz-transition: 0.3s cubic-bezier(0.000, 0.875, 0.455, 1.160);
+		transition: 0.3s cubic-bezier(0.000, 0.875, 0.455, 1.160);
 		box-shadow: 0px 1px 5px rgba(0,0,0,0.2);
 		border-radius: 1000px;
 		
@@ -312,12 +312,12 @@
 					
 					animation: radiateOut 0.8s forwards;
 					animation-iteration-count: 1;
-					animation-delay: 0.3s;
+					animation-delay: 0.4s;
 					-webkit-animation: radiateOut 0.8s forwards;
 					-webkit-animation-iteration-count: 1;
-					-webkit-animation-delay: 0.3s;
+					-webkit-animation-delay: 0.4s;
 					-moz-animation: radiateOut 0.8s forwards;
 					-moz-animation-iteration-count: 1;
-					-moz-animation-delay: 0.3s;
+					-moz-animation-delay: 0.4s;
 		}
 }
