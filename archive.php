@@ -23,15 +23,13 @@ get_header(); ?>
 			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>
-			<ul>
+			<ul class="archived_items">
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<li>
-				<?php
-					the_title( '<h2 class="entry-title">', '</h2>' );
-					uw_madison_wp_2015_posted_on();
-					the_excerpt();
-				?>
+					<span class="date"><span class="screen-reader-text">Posted on </span><?php the_date(); ?> </span>
+					<?php the_title( sprintf( '<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a>' ); ?>
+					<?php the_excerpt(); ?>
 				</li>
 
 			<?php endwhile; ?>
