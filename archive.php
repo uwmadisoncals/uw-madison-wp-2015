@@ -11,6 +11,7 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
+			<div class="cf pagePadding">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -22,17 +23,19 @@ get_header(); ?>
 			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>
+			<ul>
 			<?php while ( have_posts() ) : the_post(); ?>
 
+				<li>
 				<?php
-					/* Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format() );
+					the_title( '<h2 class="entry-title">', '</h2>' );
+					uw_madison_wp_2015_posted_on();
+					the_excerpt();
 				?>
+				</li>
 
 			<?php endwhile; ?>
+			</ul>
 
 			<?php the_posts_navigation(); ?>
 
@@ -41,6 +44,8 @@ get_header(); ?>
 			<?php get_template_part( 'content', 'none' ); ?>
 
 		<?php endif; ?>
+		
+			</div>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
