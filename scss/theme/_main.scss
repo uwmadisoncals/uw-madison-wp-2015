@@ -244,6 +244,11 @@ dl{
 		opacity: 0.8;
 		transition: 0.2s opacity;
 		-webkit-transition: 0.2s opacity;
+		
+		img {
+			min-height: 50px;
+			min-width: 200px; 
+		}
 	}
 	
 	.logoImage:hover, .logoImage:focus {
