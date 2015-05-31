@@ -26,10 +26,12 @@ get_header(); ?>
 			<ul class="archived_items">
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<li>
-					<span class="date"><span class="screen-reader-text">Posted on </span><?php the_date(); ?> </span>
-					<?php the_title( sprintf( '<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a>' ); ?>
-					<?php the_excerpt(); ?>
+				<li class="row">
+					<span class="date span-15"><span class="screen-reader-text">Posted on </span><?php the_date(); ?> </span>
+					<div class="span-75">
+						<?php the_title( sprintf( '<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a>' ); ?>
+						<?php the_excerpt(); ?>
+					</div>
 				</li>
 
 			<?php endwhile; ?>
