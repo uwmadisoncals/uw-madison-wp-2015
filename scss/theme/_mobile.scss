@@ -175,8 +175,41 @@
 }
 
 
-/* Minimum width of 300 pixels. */
-@media screen and (max-width: 300px) {
+/* Minimum width of 400 pixels. */
+@media screen and (max-width: 400px) {
+	.mobileNavOn {
+		.youruw {
+			display: none;
+		}
+		
+		.search {
+			border-left: none;
+			padding-right: 6px; 
+		}
+		
+		
+		.searchUI {
+			label.searchLabel {
+				width: 65%;
+				margin: 1em auto 1em 1em;
+				padding-left: 0px;
+				
+				.search-field {
+					border-bottom: 0px;
+				}
+				
+				
+			}
+			
+			.searchClose {
+				margin-right: 2em;
+			}
+			
+			.searchFormIcon {
+				display: none;	
+			}
+		}
+	}
 	
 }
 
@@ -186,6 +219,35 @@
 	.logoImage img {
 		max-height: 55px;
 		width: auto;
+	}
+	
+	.searchUI label .search-field {
+		/*padding: 0.3em 0.4em;*/
+		margin-right: 50px;
+		font-size: 2em;
+	}
+	
+	.searchUI {
+		label.searchLabel {
+			width: 65%;
+		}
+	}
+	
+	
+	
+	.searchUI label > div {
+		padding-bottom: 0px !important;
+	}
+	
+	
+	.logoImage.mobileMenuOn {
+		margin-top: 0.9em;
+		
+		img {
+			max-width: 145px;
+			height: auto;
+		}
+		
 	}
 	
 	.mobileTrigger { 

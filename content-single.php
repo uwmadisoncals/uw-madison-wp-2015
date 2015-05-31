@@ -10,6 +10,9 @@
 			if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
 			  	the_post_thumbnail('large'); ?>
 			  	<div class="featured_title">
+				  	<?php if(get_field("sub_title")) { ?>
+				  			<h2 class="entrySubTitle"><?php the_field("sub_title"); ?></h2>
+				  	<?php } ?>
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 			
 					<div class="entry-meta">
@@ -17,6 +20,9 @@
 					</div><!-- .entry-meta -->
 				</div>
 		<?php	} else { ?>
+					<?php if(get_field("sub_title")) { ?>
+				  			<h2 class="entrySubTitle"><?php the_field("sub_title"); ?></h2>
+				  	<?php } ?>
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	
 					<div class="entry-meta">

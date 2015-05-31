@@ -1,3 +1,39 @@
+@keyframes rotatefromtop {
+	0% {
+		transform: translate3d(0px, -100px, 0px);
+		opacity: 0;
+	}
+	
+	100% {
+		transform: translate3d(0px, 0px, 0px);
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes rotatefromtop {
+	0% {
+		-webkit-transform: translate3d(0px, -100px, -0px);
+		opacity: 0;
+	}
+	
+	100% {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes rotatefromtop {
+	0% {
+		-moz-transform: translate3d(0px, -100px, 0px);
+		opacity: 0;
+	}
+	
+	100% {
+		-moz-transform: translate3d(0px, 0px, 0px);
+		opacity: 1;
+	}
+}
+
 /* General Page layout styles */
 h1, h2, h3, h4, h5, h6{
 	line-height: 1.2em;
@@ -167,6 +203,19 @@ dl{
 	left: 0px;
 	width: 100%;
 	z-index:3;
+	animation: rotatefromtop 0.6s forwards;
+	animation-iteration-count: 1;
+	animation-delay: 0.6s;
+	-webkit-animation: rotatefromtop 0.6s forwards;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-delay: 0.6s;
+	-moz-animation: rotatefromtop 0.6s forwards;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-delay: 0.6s;
+	
+	transform: translate3d(0px, -100px, 0px);
+	opacity: 0;
+	
 	transition: 0.4s background-color;
 	-webkit-transition: 0.4s background-color;
 	
@@ -195,6 +244,11 @@ dl{
 		opacity: 0.8;
 		transition: 0.2s opacity;
 		-webkit-transition: 0.2s opacity;
+		
+		img {
+			min-height: 50px;
+			min-width: 200px; 
+		}
 	}
 	
 	.logoImage:hover, .logoImage:focus {

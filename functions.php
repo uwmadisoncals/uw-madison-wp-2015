@@ -5,6 +5,8 @@
  * @package UW Madison WP 2015
  */
  
+ 
+
 
 /**** Adding Theme Customizer Options ****/
 function mytheme_customize_register( $wp_customize ) {
@@ -305,6 +307,53 @@ add_theme_support( 'custom-header', $defaults );
 /**** Added ACF fields for Header Slides ****/
 if(function_exists("register_field_group"))
 {
+	register_field_group(array (
+		'id' => 'acf_page-and-single-attributes',
+		'title' => 'Page and Single Attributes',
+		'fields' => array (
+			array (
+				'key' => 'field_5563b6ea89fb7',
+				'label' => 'Sub Title',
+				'name' => 'sub_title',
+				'type' => 'text',
+				'instructions' => 'This text will appear above your page title as a subtitle.',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'post',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'page',
+					'order_no' => 0,
+					'group_no' => 1,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'acf_after_title',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+	
 	register_field_group(array (
 		'id' => 'acf_hero-image-fields',
 		'title' => 'Hero Image Fields',
