@@ -378,7 +378,30 @@ $(".mobileMenu li.page_item_has_children > a").click(function(e) {
 		
 		
 	});
+	
+	
+/**
+ * ----------------------------------------------------------------------------
+ *
+ *  Search AJAX Logic
+ *
+ * ----------------------------------------------------------------------------
+ */	
 
+ 	$("form.search-form").submit(function(e) {
+	 	e.preventDefault();
+	 	
+	 	var searchTerm = $(this).find("input[name='s']").val();
+	 	var fixedSearchTerm = searchTerm.split(' ').join('+');
+	 	var searchUrl = templateUrl + "/?s=" + fixedSearchTerm + " #main";
+	 	
+	 	console.log(searchUrl);
+	 	
+	 	$( "#ajaxResults" ).load( searchUrl, function() {
+		  //completed loading results
+		  $(".searchUI").addClass("resultsLoaded");
+		});
+ 	});
  
 /**
  * ----------------------------------------------------------------------------
