@@ -330,23 +330,6 @@
 		
 		#main {
 			
-			
-			
-			/*.entry-title {
-				transform: translate3d(0px,0px,0px);
-				transition: 0.4s cubic-bezier(0.250, 0.250, 0.465, 1.220);
-				
-				a:hover {
-					text-decoration: none;
-				}
-				
-			}
-			
-			.entry-title:hover, .entry-title:focus {
-				transform: translate3d(3px,-6px,0px);
-				
-			}*/
-			
 			.entry-summary {
 				margin-top: 0px;
 				margin-bottom: 3em;
@@ -417,7 +400,7 @@
 		h1.page-title {
 			margin-top: 0px;
 			font-size: 13px;
-			font-weight: 300;
+			font-weight: 400;
 			letter-spacing: 1px;
 			color: rgba(0,0,0,0.5);
 			text-transform: uppercase;
@@ -435,6 +418,7 @@
 	}
 	
 }
+
 
 .searchUI.visible {
 	visibility: visible;

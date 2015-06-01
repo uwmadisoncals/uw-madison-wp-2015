@@ -582,3 +582,26 @@ dl{
 	}
 	
 }
+
+.search-results{
+	h1.page-title {
+		font-size: 13px;
+		font-weight: 400;
+		letter-spacing: 1px;
+		color: rgba(0,0,0,0.5);
+		text-transform: uppercase;
+		
+		span {
+			font-weight: 700;	
+		}
+	}
+	
+	.entry-summary{
+		margin-top: 0.5em;
+		margin-bottom: 3em;
+	}
+	
+	p{
+		margin-top: 0em;
+	}
+}
