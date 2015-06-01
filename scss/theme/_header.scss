@@ -279,6 +279,11 @@
 		-webkit-transform: translateY(-50%);
 	}
 	
+	#ajaxResults {
+		max-width: $content-width-max;	
+		margin: 0 auto;
+	}
+	
 }
 
 .searchUI.visible {
