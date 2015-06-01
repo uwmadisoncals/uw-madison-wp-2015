@@ -354,6 +354,8 @@ $(".mobileMenu li.page_item_has_children > a").click(function(e) {
 		e.preventDefault();
 		
 		if(searchVisible) {
+			$("#ajaxResults").attr("style","").html("");
+			$("input[name='s']").val("");
 			$(".searchUI").toggleClass("visible").attr("aria-hidden","true");
 			$("#page").toggleClass("blur");
 			$(".searchResultsOverlay").toggleClass("visible").attr("aria-hidden","true");
@@ -387,20 +389,39 @@ $(".mobileMenu li.page_item_has_children > a").click(function(e) {
  *
  * ----------------------------------------------------------------------------
  */	
+ 	var searchUiHeight = $(".searchUI").height();
+ 	var remainingHeight = $(window).height();
+ 	var resultsMinHeight = remainingHeight - searchUiHeight;
+ 	var bodyHeight = $("body").height();
 
- 	$("form.search-form").submit(function(e) {
+ 	$(".searchUI form.search-form").submit(function(e) {
 	 	e.preventDefault();
 	 	
 	 	var searchTerm = $(this).find("input[name='s']").val();
 	 	var fixedSearchTerm = searchTerm.split(' ').join('+');
 	 	var searchUrl = templateUrl + "/?s=" + fixedSearchTerm + " #main";
 	 	
-	 	console.log(searchUrl);
+	 	$(".searchUI").addClass("searching");
+		 	
+	 	
 	 	
 	 	$( "#ajaxResults" ).load( searchUrl, function() {
 		  //completed loading results
-		  $(".searchUI").addClass("resultsLoaded");
+		  $("#ajaxResults").css("height",resultsMinHeight);
+		  $(".searchUI").removeClass("searching");
+		  
+		  setTimeout(function() {
+			  window.scrollTo(0, 0);
+			  $("#ajaxResults").css("height","auto");
+			  $(".searchUI").css("position","absolute");
+		  },500);
 		});
+ 	});
+ 	
+ 	$(window).resize(function() {
+	 	searchUiHeight = $(".searchUI").height();
+	 	remainingHeight = $(window).height();
+ 		resultsMinHeight = remainingHeight - searchUiHeight;
  	});
  
 /**

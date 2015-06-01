@@ -34,6 +34,15 @@
 	}
 }
 
+a:link, a:visited {
+		text-decoration: none;
+		color: $blue;
+}
+
+a:hover, a:focus {
+	text-decoration: underline;
+}
+
 /* General Page layout styles */
 h1, h2, h3, h4, h5, h6{
 	line-height: 1.2em;
@@ -170,6 +179,43 @@ dl{
 	-webkit-filter: blur(8px);
 }
 
+#page {
+	.searchLabel {
+		display: block;
+		position:relative;
+		padding-left: 40px;
+	
+		.searchFormIcon {
+			height: 2em;
+			width: 2em;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			z-index:1;
+			
+			svg {
+				circle {
+					fill: $blue;
+				}
+			}
+		}
+		
+		.search-field {
+			border: none;
+			border-radius: 0px;
+			border-bottom: 1px solid $blue;
+			font-family: "Raleway";
+			letter-spacing: 0.3px;
+			width: 100%;
+		}
+		
+		.search-field:focus {
+			outline: none;
+		}
+	
+	}
+}
+
 .site-header.sticky {
 	position: fixed;
 	
@@ -290,6 +336,7 @@ dl{
 				a:hover, a:focus {
 					background: $uwred;
 					color: rgba(255,255,255,0.8);
+					text-decoration: none;
 				}
 			}
 		}
@@ -391,7 +438,7 @@ dl{
 .has_nav article {
 	width: 70%;
 	float: left;
-	margin-right: 3em;
+	margin-right: 5%;
 }
 
 .admin-bar .site-header {
@@ -449,6 +496,8 @@ dl{
 }
 
 
+
+
 .page, 
 .single,
 .search,
@@ -462,7 +511,7 @@ dl{
 		margin-top: 0.5em;
 	}
 	
-	a{
+	a {
 		text-decoration: none;
 		color: rgb(65, 167, 211);
 	}
