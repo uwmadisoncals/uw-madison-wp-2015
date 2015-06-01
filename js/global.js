@@ -283,7 +283,6 @@ $(".mobileMenu li.page_item_has_children > a").click(function(e) {
 		b.preventDefault();
 		b.stopPropagation();
 		
-		console.log("hit a");
 		$(".mobileMenu .subLevel1").removeClass("visible");
 	});
 	
@@ -305,7 +304,6 @@ $(".mobileMenu li.page_item_has_children > a").click(function(e) {
 			b.preventDefault();
 			b.stopPropagation();
 			
-			console.log("hit b");
 			$(".mobileMenu .subLevel2").removeClass("visible");
 		});
 		
@@ -512,7 +510,20 @@ $(".mobileMenu li.page_item_has_children > a").click(function(e) {
 	}
 	   
 	setContentWidth();
+	
+	
+/**
+ * ----------------------------------------------------------------------------
+ *
+ *  wrap widget-area for styles
+ *
+ * ----------------------------------------------------------------------------
+ */	
+ 	$( ".widget-area ul li a" ).each(function( index ) {
+		$(this).wrapInner( "<span class='nav_text'></span>");
+	});
 });
+
 
 
 
