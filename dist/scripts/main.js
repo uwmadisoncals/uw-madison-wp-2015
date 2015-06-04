@@ -100,10 +100,10 @@ void 0===c?d&&"get"in d&&null!==(e=d.get(a,b))?e:(e=n.find.attr(a,b),null==e?voi
 
           // let's prevent default enter behavior while a suggestion
           // is being accepted (e.g. while submitting a form)
-          } else if (code == 13) {
-            if (!$suggest.is(':empty')) {
+          /*} else if (code == 13) {*/
+            /*if (!$suggest.is(':empty')) {
               e.preventDefault();
-            }
+            }*/
 
           // use arrow keys to cycle through suggestions
           } else if (code == 38 || code == 40) {
@@ -142,7 +142,7 @@ void 0===c?d&&"get"in d&&null!==(e=d.get(a,b))?e:(e=n.find.attr(a,b),null==e?voi
 
           // accept suggestion with 'enter' or 'tab'
           // if the suggestion hasn't been accepted yet
-          if (code == 9 || code == 13) {
+          if (code == 9) {
             // only accept if there's anything suggested
             if ($suggest.text().length > 0) {
               e.preventDefault();
