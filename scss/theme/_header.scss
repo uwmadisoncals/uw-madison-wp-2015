@@ -296,6 +296,37 @@
 			outline: none;
 		}
 		
+		.tabSuggest {
+			color: #bababa;
+			text-transform: uppercase;
+			font-size:12px;
+			letter-spacing: 1px;
+			position: absolute;
+			bottom: -10px;
+			left: 60px;
+			z-index:1;
+			/*opacity: 0;
+			transform: translate(0px, 40px);
+			-webkit-transform: translate(0px, 40px);
+			-moz-transform: translate(0px, 40px);
+			
+			transition: 0.4s;
+			-webkit-transition: 0.4s;
+			-moz-transition: 0.4s;*/
+			
+			
+			strong {
+				color: #929292;
+			}
+		}
+		
+		.tabSuggest.visible {
+			opacity: 1;
+			transform: translate(0px, 0px);
+			-webkit-transform: translate(0px, 0px);
+			-moz-transform: translate(0px, 0px);
+		}
+		
 	}
 	
 	.search-submit {

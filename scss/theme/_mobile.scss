@@ -177,6 +177,10 @@
 
 /* Minimum width of 400 pixels. */
 @media screen and (max-width: 400px) {
+	.tabSuggest {
+		display: none;	
+	}
+	
 	.mobileNavOn {
 		.youruw {
 			display: none;
@@ -216,6 +220,10 @@
 
 /* Minimum width of 600 pixels. */
 @media screen and (max-width: 600px) {
+	.tabSuggest {
+		display: none;
+	}
+	
 	.logoImage img {
 		max-height: 55px;
 		width: auto;
