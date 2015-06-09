@@ -30,8 +30,8 @@
 
 <div class="radiate"></div>
 </div>
-		<span class="screen-reader-text"><?php echo _x( 'Search for:', 'label' ) ?></span>
-		<input type="text" class="search-field" placeholder="<?php echo esc_attr_x( 'Search …', 'placeholder' ) ?>" value="<?php echo get_search_query() ?>" id="s" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
+		<span class="screen-reader-text"><?php echo _x( 'Search for:', 'label', 'uw_madison_wp_2015' ) ?></span>
+		<input type="text" class="search-field" placeholder="<?php echo esc_attr_x( 'Search …', 'placeholder', 'uw_madison_wp_2015' ) ?>" value="<?php echo get_search_query() ?>" id="s" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
 		<div class="tabSuggest">Press <strong>tab</strong> to complete the suggestion.</div>
 	</label>
 	<input type="submit" class="search-submit" value="<?php echo esc_attr_x( 'Search', 'submit button' ) ?>" />

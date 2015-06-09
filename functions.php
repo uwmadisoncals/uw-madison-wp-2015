@@ -146,7 +146,7 @@ function se_lookup() {
     
     
 
-    $search = like_escape($_REQUEST['q']);
+    $search = wpdb::esc_like($_REQUEST['q']);
 
     $query = 'SELECT ID,post_title FROM ' . $wpdb->posts . '
         WHERE post_title LIKE \'' . $search . '%\'
@@ -193,9 +193,19 @@ function my_theme_register_required_plugins() {
     /**
      * Array of plugin arrays. Required keys are name and slug.
      * If the source is NOT from the .org repo, then source is also required.
-     */
+     */ 
     $plugins = array(
-
+		
+		array(
+            'name'               => 'UW Madison Header Slides', // The plugin name.
+            'slug'               => 'uwmadison-header-slides', // The plugin slug (typically the folder name).
+            'source'             => get_stylesheet_directory() . '/lib/plugins/uwmadison-header-slides.zip', // The plugin source.
+            'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+            'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
+            'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+            'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+            'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+        ),
       
 
         // This is an example of how to include a plugin from the WordPress Plugin Repository.
@@ -262,13 +272,13 @@ add_theme_support( 'post-thumbnails' );
 
 
 /***** Add Custom Post type for Hero Image ****/
-add_action( 'init', 'create_post_type' );
+/*add_action( 'init', 'create_post_type' );
 function create_post_type() {
 	register_post_type( 'headerslides',
 		array(
 			'labels' => array(
-				'name' => __( 'Header Slides' ),
-				'singular_name' => __( 'Header Slide' )
+				'name' => __( 'Header Slides', 'uw_madison_wp_2015' ),
+				'singular_name' => __( 'Header Slide', 'uw_madison_wp_2015' )
 			),
 		'public' => true,
 		'has_archive' => true,
@@ -283,7 +293,7 @@ function create_post_type() {
 	  )
 		)
 	);
-}
+}*/
 
 
 /*** Setting default header for theme ****/
