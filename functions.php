@@ -26,6 +26,7 @@ $wp_customize->add_section( 'uw-madison-wp-2015-home-options' , array(
 $wp_customize->add_setting('uw-madison-wp-2015_options_id', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'theme_mod',
+    'sanitize_callback' => 'sanitize_page_feature'
  
 ));
 
@@ -36,24 +37,17 @@ $wp_customize->add_control('uw-madison-wp-2015-home-options', array(
     'type'    => 'dropdown-pages',
     'settings'   => 'uw-madison-wp-2015_options_id',
 ));
+
+
+function sanitize_page_feature( $value ) {
+    if ( !$value )
+        $value = '-Select-';
+ 
+    return $value;
+}
    
    
-   /*$wp_customize->add_setting( 'home_featurepage' , array(
-    	'capability' => 'edit_theme_options',
-    	'type' => 'option',
-	) );
-   
-   $wp_customize->add_section( 'uw-madison-wp-2015-home-options' , array(
-    	'title'      => __( 'Home Page Options', 'uw-madison-wp-2015' ),
-    	'priority'   => 30,
-	) );
-	
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'dropdown-pages', array(
-		'label'        => __( 'Feature Page', 'uw-madison-wp-2015' ),
-		'section'    => 'uw-madison-wp-2015-home-options',
-		'settings'   => 'home_featurepage',
-		'type' => 'dropdown-pages'
-	) ) );*/
+
 
 }
 add_action( 'customize_register', 'mytheme_customize_register' );
@@ -227,7 +221,7 @@ function my_theme_register_required_plugins() {
     $config = array(
         'default_path' => '',                      // Default absolute path to pre-packaged plugins.
         'menu'         => 'tgmpa-install-plugins', // Menu slug.
-        'has_notices'  => false,                    // Show admin notices or not.
+        'has_notices'  => true,                    // Show admin notices or not.
         'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
         'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
         'is_automatic' => true,                   // Automatically activate plugins after installation or not.
@@ -271,29 +265,7 @@ add_filter( 'upload_mimes', 'cc_mime_types' );
 add_theme_support( 'post-thumbnails' );
 
 
-/***** Add Custom Post type for Hero Image ****/
-/*add_action( 'init', 'create_post_type' );
-function create_post_type() {
-	register_post_type( 'headerslides',
-		array(
-			'labels' => array(
-				'name' => __( 'Header Slides', 'uw_madison_wp_2015' ),
-				'singular_name' => __( 'Header Slide', 'uw_madison_wp_2015' )
-			),
-		'public' => true,
-		'has_archive' => true,
-		'supports' => array(
-	  'title',
-	  'editor',
-	  'excerpt',
-	  'revisions',
-	  'thumbnail',
-	  'author',
-	  'page-attributes',
-	  )
-		)
-	);
-}*/
+
 
 
 /*** Setting default header for theme ****/
@@ -634,75 +606,9 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
-// Disable support for comments and trackbacks in post types
-function wptips_disable_comments_post_types_support() {
-    $post_types = get_post_types();
-    foreach ($post_types as $post_type) {
-        if(post_type_supports($post_type, 'comments')) {
-            remove_post_type_support($post_type, 'comments');
-            remove_post_type_support($post_type, 'trackbacks');
-        }
-    }
-}
-add_action('admin_init', 'wptips_disable_comments_post_types_support');
-
-// Close comments on the front-end
-function wptips_disable_comments_status() {
-    return false;
-}
-add_filter('comments_open', 'wptips_disable_comments_status', 20, 2);
-add_filter('pings_open', 'wptips_disable_comments_status', 20, 2);
-
-// Hide existing comments
-function wptips_disable_comments_hide_existing_comments($comments) {
-    $comments = array();
-    return $comments;
-}
-add_filter('comments_array', 'wptips_disable_comments_hide_existing_comments', 10, 2);
-
-// Remove comments page in menu
-function wptips_disable_comments_admin_menu() {
-    remove_menu_page('edit-comments.php');
-}
-add_action('admin_menu', 'wptips_disable_comments_admin_menu');
-
-// Redirect any user trying to access comments page
-function wptips_disable_comments_admin_menu_redirect() {
-    global $pagenow;
-    if ($pagenow === 'edit-comments.php') {
-        wp_redirect(admin_url()); exit;
-    }
-}
-add_action('admin_init', 'wptips_disable_comments_admin_menu_redirect');
-
-// Remove comments metabox from dashboard
-function wptips_disable_comments_dashboard() {
-    remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');
-}
-add_action('admin_init', 'wptips_disable_comments_dashboard');
-
-// Remove comments links from admin bar
-function wptips_disable_comments_admin_bar() {
-    if (is_admin_bar_showing()) {
-        remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);
-    }
-}
-add_action('init', 'wptips_disable_comments_admin_bar');
 
 
-function example_disable_all_comments_and_pings() {
-  // Turn off comments
-  if( '' != get_option( 'default_ping_status' ) ) {
-    update_option( 'default_ping_status', '' );
-  } // end if
-
-  // Turn off pings
-  if( '' != get_option( 'default_comment_status' ) ) {
-    update_option( 'default_comment_status', '' );
-  } // end if
-} // end example_disable_all_comments_and_pings
-
-add_action( 'after_setup_theme', 'example_disable_all_comments_and_pings' );
+require get_template_directory() . '/inc/comment-removal.php';
 
 
 /**
