@@ -249,21 +249,6 @@ dl{
 	left: 0px;
 	width: 100%;
 	z-index:6;
-	animation: rotatefromtop 0.6s forwards;
-	animation-iteration-count: 1;
-	animation-delay: 0.6s;
-	-webkit-animation: rotatefromtop 0.6s forwards;
-	-webkit-animation-iteration-count: 1;
-	-webkit-animation-delay: 0.6s;
-	-moz-animation: rotatefromtop 0.6s forwards;
-	-moz-animation-iteration-count: 1;
-	-moz-animation-delay: 0.6s;
-	
-	transform: translate3d(0px, -100px, 0px);
-	opacity: 0;
-	
-	transition: 0.4s background-color;
-	-webkit-transition: 0.4s background-color;
 	
 	.site-title, .site-description {
 		position: absolute;
@@ -305,6 +290,22 @@ dl{
 	.main-navigation {
 		width: 100%;
 		background: rgba(255,255,255,0.35);
+		
+		animation: rotatefromtop 0.6s forwards;
+		animation-iteration-count: 1;
+		animation-delay: 0.6s;
+		-webkit-animation: rotatefromtop 0.6s forwards;
+		-webkit-animation-iteration-count: 1;
+		-webkit-animation-delay: 0.6s;
+		-moz-animation: rotatefromtop 0.6s forwards;
+		-moz-animation-iteration-count: 1;
+		-moz-animation-delay: 0.6s;
+		
+		transform: translate3d(0px, -100px, 0px);
+		opacity: 0;
+		
+		transition: 0.4s background-color;
+		-webkit-transition: 0.4s background-color;
 		
 		
 		.site-navigation-container {
