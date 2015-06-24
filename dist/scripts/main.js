@@ -1388,14 +1388,16 @@ $(window).click(function(e) {
 
  var menuWidth = $(".site-navigation-container .menu").width();
  var totalWidth = 0;
- $(".site-navigation-container .menu > ul > li").each(function() {
+ $(".site-navigation-container .menu > ul > li, .site-navigation-container ul.menu > li").each(function() {
 		totalWidth = totalWidth  + $(this).width();
+		//console.log(totalWidth);
  });
  
   
  function mobileMenu() {
 	  var windowWidth = $(window).width();
 	  var menuWidth = $(".site-navigation-container .menu").width();
+	  //console.log(menuWidth);
 	   /*$(".menu > ul > li").each(function() {
 			totalWidth = totalWidth  + $(this).width();
  		});*/
@@ -1404,7 +1406,7 @@ $(window).click(function(e) {
 
 	 if(windowWidth < 600) {
 		$("#site-navigation").css("visibility","hidden").css("height","0px");
-		$(".mobileTrigger").show();
+		$(".mobileTrigger").addClass("shown");
 		$(".logoImage").addClass("mobileMenuOn");
 		$(".site-header").addClass("mobileOn");
 		$("body").addClass("mobileNavOn");
@@ -1413,7 +1415,7 @@ $(window).click(function(e) {
 		 if(totalWidth > menuWidth) {
 			 //console.log("switch to mobile");
 			 $("#site-navigation").css("visibility","hidden").css("height","0px");
-			 $(".mobileTrigger").show();
+			 $(".mobileTrigger").addClass("shown");
 			 $(".logoImage").addClass("mobileMenuOn");
 			 $(".site-header").addClass("mobileOn");
 			 $("body").addClass("mobileNavOn");
@@ -1421,14 +1423,14 @@ $(window).click(function(e) {
 			 if(totalWidth == 0) {
 				 //console.log("switch to mobile");
 				 $("#site-navigation").css("visibility","hidden").css("height","0px");
-				 $(".mobileTrigger").show();
+				 $(".mobileTrigger").addClass("shown");
 				 $(".logoImage").addClass("mobileMenuOn");
 				 $(".site-header").addClass("mobileOn");
 				 $("body").addClass("mobileNavOn");
 			 } else {
 				 //console.log("switch to full");
 				 $("#site-navigation").css("visibility","visible").css("height","auto");
-				 $(".mobileTrigger").hide();
+				 $(".mobileTrigger").removeClass("shown");
 				 $(".logoImage").removeClass("mobileMenuOn");
 				 $(".site-header").removeClass("mobileOn");
 				 $("body").removeClass("mobileNavOn");
