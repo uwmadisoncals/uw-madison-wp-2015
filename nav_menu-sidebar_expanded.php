@@ -26,10 +26,16 @@ function cals_page_navigation_menu($post, $parent_before = '', $parent_after= ''
 		// - The current page
 		// - One of the current page's ancestors
 		
+	
+		
 	//This condition keeps the nav bar from printing every single child page
 	if($top_ancestor == $post->ID || is_page($post->ID) || in_array($post->ID, $current_page_ancestors)){
 		$children = get_pages('child_of='.$post->ID.'&parent='.$post->ID.'&hierarchical=0&post_type=page&sort_column=menu_order&sort_order=ASC');
+	} else {
+		$children = null;
 	}
+	
+	$is_top_ancestor = false;
 	
 	//Is the current item the top ancestor?
 	if($top_ancestor == $post->ID){
@@ -47,7 +53,7 @@ function cals_page_navigation_menu($post, $parent_before = '', $parent_after= ''
 	//print menu element link
 	?>
 				
-	<a href="<?php the_permalink(); ?>" <?php if (is_page($post->ID)){ echo 'class="current_link"';}?> title="<?php the_title();?>"><span class="white"><?php the_title();?></span><span class="arrow"></span></a>
+	<a href="<?php the_permalink(); ?>" <?php if (is_page($post->ID)){ echo 'class="current_link"';}?> title="<?php the_title();?>"><span class="nav_text"><?php the_title();?></span></a>
 	
 	<?php 
 	//If the current item is top_ancestor is top_ancestor, print closing custom html for it 
@@ -55,6 +61,7 @@ function cals_page_navigation_menu($post, $parent_before = '', $parent_after= ''
 	if($is_top_ancestor){
 		echo $parent_after;
 	}
+	
 	
 	//if there are children, print them
 	if(count($children)>0){
@@ -67,9 +74,10 @@ function cals_page_navigation_menu($post, $parent_before = '', $parent_after= ''
 		//to be consistent with WP
 		
 		?>
-		<ul <?php if($depth_count>1) { echo 'class="children"'; }?>>
+		<ul id="nav_explore" <?php if($depth_count>1) { echo 'class="children"'; }?>>
 					
 		<?php
+			
 		//get current item's children
 		foreach($children as $child){
 			cals_page_navigation_menu($child, '', '', $current_page_ancestors, '', $depth_count);
@@ -86,6 +94,8 @@ function cals_page_navigation_menu($post, $parent_before = '', $parent_after= ''
 		$depth_count--;
 	}
 	
+	
+	
 	if(!$is_top_ancestor){
 		echo '</li>';
 	}
@@ -94,8 +104,8 @@ function cals_page_navigation_menu($post, $parent_before = '', $parent_after= ''
 ?>
 
 
+<section class="sidebar_menu expanded">
 
-<ul id="nav_sidebar">
 	<?php
 	
 	//setup parameters
@@ -127,15 +137,14 @@ function cals_page_navigation_menu($post, $parent_before = '', $parent_after= ''
 			$top_ancestor_post = get_posts('include='.$top_ancestor.'&posts_per_page=1&post_type=page');
 			
 		//define custom html parameters for $top_ancestor
-		$parent_before = '<h3 class="page_item page-item-'.$top_ancestor.' '.$css_class.'">';
-		$parent_after = '</h3>';
+		$parent_before = '<h1 class="page_item page-item-'.$top_ancestor.' '.$css_class.'">';
+		$parent_after = '</h1>';
 	
 		//Run the stuff
 		//hold original $post
 		$tmp_post = $post;
 	
-		//print li.pagenav element, which wraps all elements in hierarchical menus in WP
-		echo '<li class="pagenav">';
+		
 	
 		//populate list
 		foreach($top_ancestor_post as $post){
@@ -144,13 +153,12 @@ function cals_page_navigation_menu($post, $parent_before = '', $parent_after= ''
 			cals_page_navigation_menu($post, $parent_before, $parent_after, $current_page_ancestors, $top_ancestor, $depth_count);
 		}
 	
-		//close  li.pagenav element
-		echo '</li>';
+		
 
 	// Done. restore original $post
 	$post = $tmp_post;
 ?>
-</ul>
 
+</section>
 
 	

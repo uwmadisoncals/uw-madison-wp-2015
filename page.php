@@ -25,7 +25,17 @@ get_header(); ?>
 				
 				<?php 
 					if ( !is_home() ) {
-					     get_template_part('nav_menu', 'sidebar');  
+						
+						$side_nav_settings = get_option( 'uw-madison-wp-2015_sidebar_options_id' );
+						
+						
+
+						if($side_nav_settings == "simple-nav") {
+							get_template_part('nav_menu', 'sidebar'); 
+						} else {
+							get_template_part('nav_menu', 'sidebar_expanded');
+						}
+					     
 					}	  
 				?>
 			

@@ -39,9 +39,43 @@ $wp_customize->add_control('uw-madison-wp-2015-home-options', array(
 ));
 
 
+// Adding option to choose simple or expanded sidebar nav
+$wp_customize->add_section( 'uw-madison-wp-2015-sidebar-options' , array(
+    	'title'      => __( 'Side Bar Navigation', 'uw-madison-wp-2015' ),
+    	'priority'   => 60,
+	) ); 
+
+$wp_customize->add_setting('uw-madison-wp-2015_sidebar_options_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'option',
+    'default'		 => 'simple-nav',
+    'sanitize_callback' => 'sanitize_sidebar_nav'
+ 
+));
+
+ 
+$wp_customize->add_control('uw-madison-wp-2015-sidebar-options', array(
+    'label'      => __('Navigation Style', 'uw-madison-wp-2015'),
+    'section'    => 'uw-madison-wp-2015-sidebar-options',
+    'type'    => 'radio',
+    'choices' => array(
+            'simple-nav' => __( 'Simple Navigation', 'uw-madison-wp-2015' ),
+            'expanded-nav' => __( 'Expanded Navigation', 'uw-madison-wp-2015' )
+        ),
+    'settings'   => 'uw-madison-wp-2015_sidebar_options_id',
+));
+
+
 function sanitize_page_feature( $value ) {
     if ( !$value )
         $value = '-Select-';
+ 
+    return $value;
+}
+
+function sanitize_sidebar_nav( $value ) {
+    if ( !$value )
+        $value = 'simple';
  
     return $value;
 }

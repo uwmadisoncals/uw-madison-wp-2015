@@ -1,10 +1,31 @@
+.sidebar_menu.expanded {
+	h1 {
+		
+		
+		a {
+			position:relative;
+			margin-top: 0;
+			padding: 0.7em;
+			padding-left: 0px;
+			color: rgba(42, 42, 42, 0.8);
+			font-family: "Roboto Condensed",sans-serif;
+			font-weight: 700;
+			font-size: 14px;
+			line-height: 1;
+			letter-spacing: .3px;
+			text-transform: uppercase;	
+			margin-bottom: 0.5em;
+		}
+	}
+}
+
 .sidebar_menu, .widget-area {
 	width: 23%;
 	float: left;
 	vertical-align: top;
 	margin-top: 3em;
 	
-	h1{
+	h1 {
 		position:relative;
 		margin-top: 0;
 		padding: 0.7em;
