@@ -208,6 +208,15 @@ function my_theme_register_required_plugins() {
             'slug'      => 'advanced-custom-fields',
             'required'  => true,
         ),
+        
+        // This is an example of how to include a plugin from the WordPress Plugin Repository.
+        array(
+            'name'      => 'UW-Madison Events Calendar',
+            'slug'      => 'uw-madison-events-calendar',
+            'required'  => true,
+        ),
+        
+        
 
     );
 
