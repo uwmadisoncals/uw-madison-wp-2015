@@ -461,7 +461,7 @@ dl{
 	padding-top: 30px;	
 }
 
-.home.page {
+.home.page, .home.blog {
 	.site-header{
 		background-color: transparent;
 		
@@ -517,7 +517,8 @@ dl{
 .page, 
 .single,
 .search,
-.archive {
+.archive,
+.blog {
 	
 	#content{
 		margin-top: 4em;
@@ -571,6 +572,10 @@ dl{
 					margin: 0em 1.5em;
 				}
 			}
+		}
+		
+		ul.spotlightList{
+			list-style-type: none;
 		}
 		
 		ol{

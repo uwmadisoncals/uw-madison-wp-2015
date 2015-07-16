@@ -7,7 +7,7 @@
            'posts_per_page' => 3, 
         ); 
 		query_posts($args); ?>
-	<ul>
+	<ul class="spotlightList">
 	<?php while (have_posts()) : the_post(); ?>
 		<li class="span-33">
 			<div class="spotlightImage box">
