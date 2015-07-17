@@ -260,6 +260,26 @@
 		width: 100%;
 	}
 	
+	.site-header .logoImage.mobileMenuOn{
+		margin-left: 2em;
+	}
+	
+	.logoImage.mobileMenuOn {
+		margin-top: 0em;
+		
+		img {
+			max-width: 100px;
+			height: auto;
+		}
+	}
+	
+	.mobileTrigger {
+	  width: 40px;
+	  height: 30px;
+	  top: 15px;
+	  left: 15px;
+	}
+	
 	.mobileNavOn {
 		.youruw {
 			display: none;
@@ -292,6 +312,14 @@
 				display: none;	
 			}
 		}
+	}
+	
+	.archive #content, 
+	.blog #content, 
+	.page #content, 
+	.search #content, 
+	.single #content{
+		margin-top: 2em;
 	}
 	
 }
