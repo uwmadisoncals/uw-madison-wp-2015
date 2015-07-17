@@ -17,13 +17,9 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 			<?php include('spotlight.php'); ?>
-			
-			<?php if(is_front_page()) { ?>
-				<?php include('pagefeature.php'); ?>
-			<?php } ?>
 				
 							
 		</main><!-- #main -->
 	</div><!-- #primary -->
-
+	
 <?php get_footer(); ?>

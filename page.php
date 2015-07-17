@@ -40,12 +40,9 @@ get_header(); ?>
 				?>
 			
 			</div>
-			
-			<?php if(is_front_page()) { ?>
-				<?php include('pagefeature.php'); ?>
-			<?php } ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
+	
 <?php get_footer(); ?>

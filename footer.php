@@ -9,7 +9,9 @@
 ?>
 
 	</div><!-- #content -->
-
+<?php if(is_front_page()) { ?>
+		<?php include('pagefeature.php'); ?>
+	<?php } ?>
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
 			<a href="http://www.wisconsin.edu/">&copy; Board of Regents of the University of Wisconsin System</a>
