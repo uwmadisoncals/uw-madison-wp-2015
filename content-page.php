@@ -28,6 +28,11 @@
 
 	<div class="entry-content">
 		<?php the_content(); ?>
+		<?php if( get_field('tag') ): ?>
+			<?php 
+				uwmadison_events('http://today.wisc.edu/events/tag/'.rawurlencode(get_field('tag')) , array('limit' => get_field('limit'))); 
+			?>
+		<?php endif; ?>
 		<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'uw-madison-wp-2015' ),

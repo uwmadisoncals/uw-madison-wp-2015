@@ -505,6 +505,61 @@ if(function_exists("register_field_group"))
 }
 
 
+/**
+ * ACF fields for events
+ */
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_uw-events',
+		'title' => 'UW Events',
+		'fields' => array (
+			array (
+				'key' => 'field_55a94df76ef5b',
+				'label' => 'Tag',
+				'name' => 'tag',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_55abfd67a6009',
+				'label' => 'Number of Results',
+				'name' => 'limit',
+				'type' => 'number',
+				'default_value' => 3,
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'min' => '',
+				'max' => '',
+				'step' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page_template',
+					'operator' => '==',
+					'value' => 'default',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'side',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
 
 /**
  * Set the content width based on the theme's design and stylesheet.
