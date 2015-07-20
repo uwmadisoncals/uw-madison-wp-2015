@@ -25,14 +25,18 @@ function cals_page_navigation_menu($post, $parent_before = '', $parent_after= ''
 	  	// - The top ancestor
 		// - The current page
 		// - One of the current page's ancestors
-		
 	
+	//Default to assuming there will be children
+	$num_of_children = 1;
 		
 	//This condition keeps the nav bar from printing every single child page
 	if($top_ancestor == $post->ID || is_page($post->ID) || in_array($post->ID, $current_page_ancestors)){
 		$children = get_pages('child_of='.$post->ID.'&parent='.$post->ID.'&hierarchical=0&post_type=page&sort_column=menu_order&sort_order=ASC');
+		$num_of_children = count($children);
+	
 	} else {
 		$children = null;
+		
 	}
 	
 	$is_top_ancestor = false;
@@ -42,13 +46,19 @@ function cals_page_navigation_menu($post, $parent_before = '', $parent_after= ''
 		$is_top_ancestor = true;
 	}
 	
+	
+	
 	//If the current item is top_ancestor, print opening custom html specified by $parent_before param (if available).
 	//Otherwise, print generic li element
-	if($is_top_ancestor) {
-		echo $parent_before;
-	} else {
-		echo '<li class="page_item page-item-'.$post->ID.'">';
-	}
+	if($num_of_children > 0) {
+	
+		if($is_top_ancestor) {
+			echo $parent_before;
+		} else {
+			echo '<li class="page_item page-item-'.$post->ID.'">';
+		}
+	
+	
 	
 	//print menu element link
 	?>
@@ -98,6 +108,8 @@ function cals_page_navigation_menu($post, $parent_before = '', $parent_after= ''
 	
 	if(!$is_top_ancestor){
 		echo '</li>';
+	}
+	
 	}
 				
 } //EOF cals_page_navigation_menu
