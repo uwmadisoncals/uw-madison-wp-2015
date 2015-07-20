@@ -54,7 +54,7 @@ var templateUrl = '<?php home_url(); ?>';
 							}
 							?>
 
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span>
 				<?php
 					
 						// Compatibility with versions of WordPress prior to 3.4.
