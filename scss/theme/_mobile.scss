@@ -180,7 +180,7 @@
 	.page .entry-header .entry-title, 
 	.post .entry-header .entry-title, 
 	.single .entry-header .entry-title {
-		margin-top: 1.5em;
+		margin-top: 0.8em;
 	}
 	
 	#primary, #secondary{
@@ -324,6 +324,32 @@
 		margin-top: 2em;
 	}
 	
+	.has_nav article,
+	.sidebar_menu, .widget-area{
+		width: 100%;
+		margin-right: 0em;
+		clear: both;
+	}
+	
+	.sidebar_menu, .widget-area{
+		margin-top: 0em;
+		margin-left: 0.5em;
+	}
+	
+	.pagePadding{
+		padding: 1em;
+	}
+	
+	.uwmadison_events_title{
+		margin-top: 0.5em;
+		margin-left: 0.4em;
+		display: inline-block;
+	}
+	
+	.page main ul.uwmadison_events{
+		display: inline-block;
+		padding: 0.8em 1em;
+	}
 }
 
 

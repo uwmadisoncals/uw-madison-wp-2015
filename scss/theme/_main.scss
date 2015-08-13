@@ -157,6 +157,11 @@ kbd, code {
     font-family: monospace;
 }
 
+//override for events plugin
+code{
+	white-space: normal;
+}
+
 
 
 /* Definition List */
