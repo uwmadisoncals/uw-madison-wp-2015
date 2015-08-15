@@ -738,3 +738,6 @@ function wpb_imagelink_setup() {
 
 add_action('admin_init', 'wpb_imagelink_setup', 10);
 
+require_once('wp-updates-theme.php');
+new WPUpdatesThemeUpdater_1555( 'http://wp-updates.com/api/2/theme', basename( get_template_directory() ) );
+
