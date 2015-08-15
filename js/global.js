@@ -314,6 +314,17 @@ $(".mobileMenu li.page_item_has_children > a").click(function(e) {
 });
 
 
+/**
+ * ----------------------------------------------------------------------------
+ *
+ *  Sidebar menu logic additions
+ *
+ * ----------------------------------------------------------------------------
+ */
+
+$(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("immediateParent");
+
+
 
 
 /**

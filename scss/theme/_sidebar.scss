@@ -33,8 +33,24 @@
 	}
 	
 	#nav_explore {
+		a.immediateParent {
+			font-weight: bold;
+		}
+		
+		a.immediateParent:before {
+			background: rgba(171, 171, 171, 1);
+			box-shadow: inset 0px 0px 0px 1px #fff;
+			border: 2px solid rgba(171, 171, 171, 1);
+		}
+		
 		a.current_link {
 			font-weight: bold;
+		}
+		
+		a.current_link:before {
+			background: $blue;
+			box-shadow: inset 0px 0px 0px 1px #fff;
+			
 		}
 		
 		/* level3 */
