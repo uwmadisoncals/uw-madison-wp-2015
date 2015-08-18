@@ -32,8 +32,10 @@ function cals_page_navigation_menu($post, $parent_before = '', $parent_after= ''
 	//This condition keeps the nav bar from printing every single child page
 	if($top_ancestor == $post->ID || is_page($post->ID) || in_array($post->ID, $current_page_ancestors)){
 		$children = get_pages('child_of='.$post->ID.'&parent='.$post->ID.'&hierarchical=0&post_type=page&sort_column=menu_order&sort_order=ASC');
-		//$num_of_children = count($children);
-	
+		$num_of_children = count($children);
+		//echo $num_of_children;
+		//$num_of_children = intval($num_of_children);
+		
 	} else {
 		
 		$children = null;
@@ -51,6 +53,14 @@ function cals_page_navigation_menu($post, $parent_before = '', $parent_after= ''
 	
 	//If the current item is top_ancestor, print opening custom html specified by $parent_before param (if available).
 	//Otherwise, print generic li element
+	//echo $is_top_ancestor;
+	
+	if($is_top_ancestor && $num_of_children < 1) {
+		//echo "found one";	
+	} else {
+		$num_of_children = 1;
+	}
+	
 	if($num_of_children > 0) {
 	
 		if($is_top_ancestor) {
