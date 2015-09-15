@@ -541,6 +541,22 @@
 		}
 }
 
+
+.featureHeader video#bgvid { 
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    
+    
+}
+
+.featureHeader .heroImage.heroVideo .heroOverlay {
+	background: rgba(0,0,0,.5);
+}
+
 @media screen and (max-width: 400px) {
 	.searchUI {
 		.searchClose {

@@ -150,8 +150,10 @@ var templateUrl = '<?php home_url(); ?>';
 							$size = 'hero-image'; // (thumbnail, medium, large, full or custom size)
 							
 							if( $image ) {
+								
 								 $attachment_id = get_field('hero_image'); $size = "hero-image"; 
 								 $image = wp_get_attachment_image_src($attachment_id, $size);
+								
 								
 								
 								//$imgurl = wp_get_attachment_image_src( $image, $size ); ?>
@@ -174,6 +176,43 @@ var templateUrl = '<?php home_url(); ?>';
 								
 									<foreignObject width="100%" height="100%" style="mask: url(#mask); ">
 								
+								<?php 
+									$video = get_field('hero_video');
+									
+									if( $video ) { ?>
+									
+									<div class="heroImageBlur"><div class="heroImageBlurInner">
+										
+										
+										
+									</div></div>
+								</foreignObject>
+								</svg>
+								
+								<div class="heroImage heroVideo">
+									<video autoplay loop id="bgvid">
+										    <source src="<?php echo $video ?>" type="video/mp4">
+									</video>
+									
+									
+									<div class="heroOverlay"></div>
+									<div class="heroHeadingWrapper">
+									
+									<?php  
+									$linkoption = get_field('link_to'); ?>
+									
+									<?php if($linkoption == 'pageorpost') { ?>
+											<a href="<?php the_field('link_to_a_page_or_post'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
+									<?php } else if($linkoption == 'externalurl') { ?>
+											<a href="http://<?php the_field('specify_a_url'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
+									<?php } else { ?>
+											<div class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></div>
+									<?php } ?>
+									</div>
+								</div>
+									
+									<?php } else { ?>
+								
 								<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: center center;"></div></div>
 								</foreignObject>
 								</svg>
@@ -194,6 +233,8 @@ var templateUrl = '<?php home_url(); ?>';
 									<?php } ?>
 									</div>
 								</div>
+								
+								<?php } ?>
 
 							<?php } else { ?>
 								<svg class="heroImageContainerSVG" aria-label="Featured Image">
