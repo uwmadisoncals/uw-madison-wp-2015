@@ -553,8 +553,12 @@
     
 }
 
+.featureHeader .heroImage.heroVideo {
+	overflow: hidden;
+}
+
 .featureHeader .heroImage.heroVideo .heroOverlay {
-	background: rgba(0,0,0,.5);
+	background: rgba(0,0,0,.6);
 }
 
 @media screen and (max-width: 400px) {
