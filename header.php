@@ -181,9 +181,11 @@ var templateUrl = '<?php home_url(); ?>';
 									
 									if( $video ) { ?>
 									
-									<div class="heroImageBlur"><div class="heroImageBlurInner">
+									<div class="heroImageBlur heroVideoBlur"><div class="heroImageBlurInner">
 										
-										
+										<video autoplay loop id="bgvid">
+										    <source src="<?php echo $video ?>" type="video/mp4">
+										</video>
 										
 									</div></div>
 								</foreignObject>
