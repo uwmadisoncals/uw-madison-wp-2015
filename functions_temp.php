@@ -5,6 +5,7 @@
  * @package UW Madison WP 2015
  */
  
+ 
 
 /***** Add Custom Post type for Hero Image ****/
 add_action( 'init', 'create_post_type' );
@@ -36,11 +37,11 @@ function my_rewrite_flush() {
 }
 add_action( 'after_switch_theme', 'my_rewrite_flush' );
 
-
-add_action( 'customize_register', 'my_customize_register' );
-
-function my_customize_register($wp_customize) {
  
+if ( ! class_exists( 'WP_Customize_Control' ) ) {
+    return NULL;
+   }
+
 /**
  * Class to create a custom layout control
  */
@@ -49,142 +50,20 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
       /**
        * Render the content on the theme customizer page
        */
-      public $type = 'layout';
-       
       public function render_content()
        {
             ?>
-            	<style>
-	            	.layoutClear {
-		            	clear: both;
-	            	}
-	            	
-	            	ul.layoutOptions li {
-		            	float: left;
-		            	margin-right: 6px;
-		            	margin-bottom: 6px;
-		            	display: block;
-		            	width: 90px;
-		            	border: 1px solid rgba(0,0,0,0.1);
-		            	
-		            	border-radius: 3px;
-		            	height: 120px;
-	            	}
-	            	
-	            	.layoutOption {
-		            	display:block;
-		            	padding: 10px;
-		            	background: rgba(0,0,0,0.18);
-		            	font-size: 11px;
-		            	
-	            	}
-	            	
-	            	.layoutIcon {
-		            	padding: 10px;
-	            	}
-	            	
-	            	.layoutIcon svg {
-		            	width: 100%;
-		            	
-	            	}
-	            </style>
-            
                 <label>
-                  <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
-                  
-                  <ul class="layoutOptions">
-                    <li><label for="<?php echo $this->id; ?>[circles]" class="layoutOption">Circles Layout</label><div class="layoutIcon"><svg width="84px" height="24px" viewBox="0 0 84 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
-    <title>circles</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-426.000000, -322.000000)" fill="#D8D8D8">
-            <g id="circles" sketch:type="MSLayerGroup" transform="translate(426.000000, 322.000000)">
-                <circle id="Oval-1" sketch:type="MSShapeGroup" cx="12" cy="12" r="12"></circle>
-                <circle id="Oval-1-Copy" sketch:type="MSShapeGroup" cx="42" cy="12" r="12"></circle>
-                <circle id="Oval-1-Copy-2" sketch:type="MSShapeGroup" cx="72" cy="12" r="12"></circle>
-            </g>
-        </g>
-    </g>
-</svg></div><input type="radio" style="display: none;" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[circles]" value="circles" <?php $this->link(); ?> /></li>
-                    <li><label for="<?php echo $this->id; ?>[tiles]" class="layoutOption">Tiles Layout</label><div class="layoutIcon"><svg width="83px" height="66px" viewBox="0 0 83 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
-    <title>tiles</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-426.000000, -378.000000)" fill="#D8D8D8">
-            <g id="tiles" sketch:type="MSLayerGroup" transform="translate(426.000000, 378.000000)">
-                <rect id="Rectangle-1" sketch:type="MSShapeGroup" x="0" y="0" width="24" height="31"></rect>
-                <rect id="Rectangle-1-Copy-4" sketch:type="MSShapeGroup" x="59" y="40" width="24" height="24"></rect>
-                <rect id="Rectangle-1-Copy-2" sketch:type="MSShapeGroup" x="29" y="0" width="24" height="52"></rect>
-                <rect id="Rectangle-1-Copy" sketch:type="MSShapeGroup" x="0" y="35" width="24" height="31"></rect>
-                <rect id="Rectangle-1-Copy-3" sketch:type="MSShapeGroup" x="59" y="0" width="24" height="36"></rect>
-            </g>
-        </g>
-    </g>
-</svg></div><input type="radio" style="display: none;" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[tiles]" value="tiles" <?php $this->link(); ?> /></li>
-                    <li><label for="<?php echo $this->id; ?>[left_sidebar]" class="layoutOption">Left Sidebar Layout</label><div class="layoutIcon"><svg width="83px" height="45px" viewBox="0 0 83 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
-    <title>left-sidebar</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-426.000000, -467.000000)" fill="#D8D8D8">
-            <g id="left-sidebar" sketch:type="MSLayerGroup" transform="translate(426.000000, 467.000000)">
-                <rect id="Rectangle-6" sketch:type="MSShapeGroup" x="0" y="0" width="24" height="45"></rect>
-                <rect id="Rectangle-6-Copy" sketch:type="MSShapeGroup" x="30" y="0" width="53" height="45"></rect>
-            </g>
-        </g>
-    </g>
-</svg></div><input style="display: none;" type="radio" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[left_sidebar]" value="left_sidebar" <?php $this->link(); ?> /></li>
-            
+                  <span class="customize-layout-control"><?php echo esc_html( $this->label ); ?></span>
+                  <ul>
+                    <li><img src="<?php echo get_template_directory_uri(); ?>/images/1col.png" alt="Full Width" /><input type="radio" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[full_width]" value="1" /></li>
+                    <li><img src="<?php echo get_template_directory_uri(); ?>/images/2cl.png" alt="Left Sidebar" /><input type="radio" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[left_sidebar]" value="1" /></li>
+                    <li><img src="<?php echo get_template_directory_uri(); ?>/images/2cr.png" alt="Right Sidebar" /><input type="radio" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[right_sidebar]" value="1" /></li>
                   </ul>
-                  <div class="layoutClear"></div>
                 </label>
-                
-                <script>
-				/*document.getElementById("layout1").addEventListener("click", function(){ var valueoption = this.getAttribute("data-value");  document.getElementById("circlesRadio").value = valueoption; });
-				document.getElementById("layout2").addEventListener("click", function(){ var valueoption = this.getAttribute("data-value");  document.getElementById("layoutTextArea").value = valueoption; });
-				document.getElementById("layout3").addEventListener("click", function(){ var valueoption = this.getAttribute("data-value");  document.getElementById("layoutTextArea").value = valueoption; });*/
-				</script>
             <?php
        }
 }
-
-
-
-class WP_Customize_Layout_Control extends WP_Customize_Control {
-		public $type = 'textarea';
- 
-		public function render_content() {
-		?>
-			
-		
-			<a href="#" id="layout1" class="layoutOption" data-value="option1">Option 1</a>
-			<a href="#" id="layout2" class="layoutOption" data-value="option2">Option 2</a>
-			<a href="#" id="layout3" class="layoutOption" data-value="option3">Option 3</a>
-			
-		
-			<label>
-				<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
-				<textarea id="layoutTextArea" rows="5" style="width:100%;" <?php $this->link(); ?>><?php echo esc_textarea( $this->value() ); ?></textarea>
-			</label>
-			
-			
-			<script>
-				document.getElementById("layout1").addEventListener("click", function(){ var valueoption = this.getAttribute("data-value");  document.getElementById("layoutTextArea").value = valueoption; });
-				document.getElementById("layout2").addEventListener("click", function(){ var valueoption = this.getAttribute("data-value");  document.getElementById("layoutTextArea").value = valueoption; });
-				document.getElementById("layout3").addEventListener("click", function(){ var valueoption = this.getAttribute("data-value");  document.getElementById("layoutTextArea").value = valueoption; });
-			</script>
-		<?php
-		}
-	}
-
-
-}
-
 
 
 /**** Adding Theme Customizer Options ****/
@@ -198,7 +77,7 @@ function mytheme_customize_register( $wp_customize ) {
  */
 
 $wp_customize->add_section( 'uw-madison-wp-2015-home-options' , array(
-    	'title'      => __( 'Home Page Options', 'uw-madison-wp-2015' ),
+    	'title'      => __( 'Home Page Feature', 'uw-madison-wp-2015' ),
     	'priority'   => 60,
 	) ); 
 
@@ -220,16 +99,13 @@ $wp_customize->add_control('uw-madison-wp-2015-home-options', array(
 
 
 //Home Page Layout Options
-$wp_customize->add_setting('uw-madison-wp-2015_layout_id', array(
+/*$wp_customize->add_setting('uw-madison-wp-2015_layout_id', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'theme_mod',
     'default'		 => 'circles',
     'sanitize_callback' => 'sanitize_home_layout'
  
-));
-
-
-
+));*/
 
  
 /*$wp_customize->add_control('uw-madison-wp-2015-home-layout', array(
@@ -260,19 +136,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_layout_id', array(
         ),
         )
     )
-);
-*/
-
-$wp_customize->add_control( new Layout_Picker_Custom_Control( 
-	$wp_customize, 
-	'uw-madison-wp-2015-home-layout-control', 
-	array(
-		'label'	=> __( 'Latest Posts Layout', 'uw-madison-wp-2015' ),
-		'section' => 'uw-madison-wp-2015-home-options',
-		'settings' => 'uw-madison-wp-2015_layout_id',
-	) 
-));
-
+);*/
 
 
 // Adding option to choose simple or expanded sidebar nav
@@ -467,7 +331,7 @@ function my_theme_register_required_plugins() {
      */ 
     $plugins = array(
 		
-
+		
         // This is an example of how to include a plugin from the WordPress Plugin Repository.
         array(
             'name'      => 'Advanced Custom Fields',
@@ -481,6 +345,8 @@ function my_theme_register_required_plugins() {
             'slug'      => 'uw-madison-events-calendar',
             'required'  => false,
         ),
+        
+        
 
     );
 

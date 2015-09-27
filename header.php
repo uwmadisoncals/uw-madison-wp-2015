@@ -77,7 +77,20 @@ var templateUrl = '<?php home_url(); ?>';
 				<div class="search-youruw">
 					
 					<div class="youruw">
-						<a href="#" class="youruwTrigger">Your UW</a>
+						<a href="#" class="youruwTrigger"><?php
+							$menu_location = 'youruw';
+							$menu_locations = get_nav_menu_locations();
+							$menu_object = (isset($menu_locations[$menu_location]) ? wp_get_nav_menu_object($menu_locations[$menu_location]) : null);
+							$menu_name = (isset($menu_object->name) ? $menu_object->name : '');
+							
+							if($menu_name) {
+							
+							echo esc_html($menu_name);
+							
+							} else {
+								echo "Your UW";
+							}
+						?></a>
 						<div class="youruwmenu">
 							<?php if ( has_nav_menu( 'youruw' ) ) { ?>
 							<?php wp_nav_menu( array( 'theme_location' => 'youruw' ) ); ?>

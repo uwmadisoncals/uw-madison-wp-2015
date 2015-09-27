@@ -16,7 +16,18 @@ get_header(); ?>
 	
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-			<?php include('spotlight.php'); ?>
+			
+			<?php $home_layout_settings = get_theme_mod( 'uw-madison-wp-2015_layout_id' );
+				
+					if($home_layout_settings == "circles") {
+						include('spotlight.php');
+					} else if($home_layout_settings == "tiles") {
+						include('spotlight_tiles.php');
+					} else if($home_layout_settings == "left_sidebar") {
+						include('spotlight_left-sidebar.php');
+					}
+				?>
+			
 				
 							
 		</main><!-- #main -->

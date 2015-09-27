@@ -114,6 +114,59 @@
 
 }
 
+.spotlight.left-sidebar {
+	ul {
+		li.span-33 {
+			width: 100%;
+			margin-bottom: 1.2em;
+			padding-bottom: 1.2em;
+			border-bottom: 1px solid rgba(0,0,0,0.1);
+		}
+		
+		li:nth-child(2) {
+			margin-left: 0%;
+			margin-right: 0%;
+		}
+	}
+	
+	.spotlightImage{
+		overflow: hidden;
+		border-radius: 15em;
+		width: 140px;
+		height: 140px;
+		margin: 0px;
+		display: block;
+		float: left;
+		animation: rotatein 0.6s forwards;
+		animation-iteration-count: 1;
+		animation-delay: 0.4s;
+		-webkit-animation: rotatein 0.6s forwards;
+		-webkit-animation-iteration-count: 1;
+		-webkit-animation-delay: 0.4s;
+		-moz-animation: rotatein 0.6s forwards;
+		-moz-animation-iteration-count: 1;
+		-moz-animation-delay: 0.4s;
+		transform: translate(-100px,0px) rotate(-90deg);
+		opacity: 0;
+		
+		
+		img {
+			max-width: none;
+			max-height: none;
+		}
+	}
+	
+	.spotlightText {
+		float: left;
+		width: 70%;
+		margin-left: 5%;
+		
+		h2, .spotlightDate, p {
+			text-align: left;
+		}
+	}
+}
+
 .spotlight {	
 	max-width: $feature-width-max; 
 	margin: 5em auto;
