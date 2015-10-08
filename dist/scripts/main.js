@@ -1701,7 +1701,7 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
 		
 		
 		//used on posts
-		if ($(".widget-area")[0]) {
+		if ($(".post-content .widget-area")[0]) {
 			$(".content-area").addClass("span-66 right_margin"); 
 		} else {
 			$(".content-area").removeClass("span-66 right_margin"); 

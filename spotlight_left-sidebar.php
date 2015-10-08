@@ -1,14 +1,20 @@
 <?php if (is_front_page()){ ?>
-<section class="spotlight left-sidebar">
+<section class="spotlight left-sidebar cf">
 	<h1><span class="screen-reader-text">Check out the latest news and articles.</span></h1>
 	
+	
+	
+	
 	<div class="row toppadding">
+	
+		
+	
 	<?php $args = array( 
            'post__not_in' => get_option( 'sticky_posts' ), 
            'posts_per_page' => 3, 
         ); 
 		query_posts($args); ?>
-	<ul class="spotlightList">
+	<ul class="spotlightList cf">
 	<?php while (have_posts()) : the_post(); ?>
 		<li class="span-33 cf">
 			<div class="spotlightImage box">
@@ -30,6 +36,9 @@
 		<?php wp_reset_query(); ?>
 		
 	</ul>
+	
+	</div>
+	<div class="sidebarWrapper"><?php get_sidebar(); ?></div>
 	
 </section>
 

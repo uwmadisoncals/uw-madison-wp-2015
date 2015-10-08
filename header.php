@@ -202,7 +202,7 @@ var templateUrl = '<?php home_url(); ?>';
 								</foreignObject>
 								</svg>
 								
-								<div class="heroImage heroVideo">
+								<div class="heroImage heroVideo" style="background: url(<?php echo $image[0] ?>); background-size: cover; background-position: center center;">
 									<video autoplay loop id="bgvid">
 										    <source src="<?php echo $video ?>" type="video/mp4">
 									</video>
@@ -319,5 +319,8 @@ var templateUrl = '<?php home_url(); ?>';
 		
 	</div>
  
-
-	<div id="content" class="site-content row">
+	<?php if(is_front_page()) { ?>
+		<div id="content" class="site-content row">
+	<?php } else { ?>
+		<div id="content" class="site-content post-content row">
+	<?php } ?>

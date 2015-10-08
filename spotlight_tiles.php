@@ -17,8 +17,7 @@
 				<?php } 
 					else{ ?>
 						<img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg">
-					<?php }
-				?>
+					<?php } ?>
 			</div>
 			<h2 class="home link "><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 			<div class="spotlightDate"><?php the_date(); ?></div>

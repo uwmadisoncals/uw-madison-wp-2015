@@ -561,6 +561,10 @@
 	background: rgba(0,0,0,.6);
 }
 
+.mobile #bgvid {
+	display: none;
+}
+
 @media screen and (max-width: 400px) {
 	.searchUI {
 		.searchClose {
@@ -573,6 +577,12 @@
 			padding-left: 1.3em;
 			padding-right: 1.3em;	
 		}
+	}
+}
+
+@media screen and (max-width: 900px) {
+	#bgvid {
+		display: none;
 	}
 }
 	
