@@ -25,6 +25,8 @@ get_header(); ?>
 						include('spotlight_tiles.php');
 					} else if($home_layout_settings == "left_sidebar") {
 						include('spotlight_left-sidebar.php');
+					} else {
+						include('spotlight.php');
 					}
 				?>
 			
