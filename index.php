@@ -18,15 +18,19 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 			
 			<?php $home_layout_settings = get_theme_mod( 'uw-madison-wp-2015_layout_id' );
-				
-					if($home_layout_settings == "circles") {
+					
+					if(!$home_layout_settings) {
 						include('spotlight.php');
-					} else if($home_layout_settings == "tiles") {
-						include('spotlight_tiles.php');
-					} else if($home_layout_settings == "left_sidebar") {
-						include('spotlight_left-sidebar.php');
+										
 					} else {
-						include('spotlight.php');
+						if($home_layout_settings == "circles") {
+							include('spotlight.php');
+						} else if($home_layout_settings == "tiles") {
+							include('spotlight_tiles.php');
+						} else if($home_layout_settings == "left_sidebar") {
+							include('spotlight_left-sidebar.php');
+						} 
+
 					}
 				?>
 			
