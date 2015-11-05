@@ -170,10 +170,23 @@
 							height: 6px;
 						}	
 					}
+					
+					
+					
 				}
 				
 				
 		}
+		
+		.main-gallery {
+						.flickity-page-dots {
+							.dot.is-selected:after {
+								background: red;
+								width: 3px;
+								height: 3px;
+							}
+						}
+					}
 		
 		.flickity-prev-next-button.previous {
 				position: absolute;
@@ -302,6 +315,7 @@
 		
 		
 		.heroImageBlurInner {
+			
 			position: absolute;
 			left:-15px;
 		    right:-15px;
@@ -330,37 +344,7 @@
 		
 	}
 	
-	.owl-item.active, .heroSingle, .gallery-cell.is-selected {
-		.heroHeading {
-			h1 {
-				animation: herotext 0.6s forwards;
-				animation-iteration-count: 1;
-				animation-delay: 0.3s;
-				-webkit-animation: herotext 0.6s forwards;
-				-webkit-animation-iteration-count: 1;
-				-webkit-animation-delay: 0.3s;
-				-moz-animation: herotext 0.6s forwards;
-				-moz-animation-iteration-count: 1;
-				-moz-animation-delay: 0.3s;
-				transform: translate(-100px,0px);
-				opacity: 0;
-					
-				span {
-					animation: herotext 0.6s forwards;
-					animation-iteration-count: 1;
-					animation-delay: 0.4s;
-					-webkit-animation: herotext 0.6s forwards;
-					-webkit-animation-iteration-count: 1;
-					-webkit-animation-delay: 0.4s;
-					-moz-animation: herotext 0.6s forwards;
-					-moz-animation-iteration-count: 1;
-					-moz-animation-delay: 0.4s;
-					transform: translate(-100px,0px);
-					opacity: 1;
-				}
-			}	
-		}
-	}
+	
 	
 	.heroImage {
 		min-height: 500px;
@@ -443,5 +427,55 @@
 		background: url("../../dist/images/bascom_sample.jpg") no-repeat;
 		background-position: center center;
 		background-size: cover;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.featureHeader {
+		.owl-item.active, .heroSingle, .gallery-cell.is-selected {
+			.heroHeading {
+				h1 {
+					animation: herotext 0.6s forwards;
+					animation-iteration-count: 1;
+					animation-delay: 0.3s;
+					-webkit-animation: herotext 0.6s forwards;
+					-webkit-animation-iteration-count: 1;
+					-webkit-animation-delay: 0.3s;
+					-moz-animation: herotext 0.6s forwards;
+					-moz-animation-iteration-count: 1;
+					-moz-animation-delay: 0.3s;
+					transform: translate(-100px,0px);
+					opacity: 0;
+						
+					span {
+						animation: herotext 0.6s forwards;
+						animation-iteration-count: 1;
+						animation-delay: 0.4s;
+						-webkit-animation: herotext 0.6s forwards;
+						-webkit-animation-iteration-count: 1;
+						-webkit-animation-delay: 0.4s;
+						-moz-animation: herotext 0.6s forwards;
+						-moz-animation-iteration-count: 1;
+						-moz-animation-delay: 0.4s;
+						transform: translate(-100px,0px);
+						opacity: 1;
+					}
+				}	
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.heroImageBlurInner {
+		display: none !important;	
+	}
+	
+	.featureHeader {
+		.owl-item.active, .heroSingle, .gallery-cell.is-selected {
+			.heroHeading {
+				
+			}
+		}
 	}
 }
