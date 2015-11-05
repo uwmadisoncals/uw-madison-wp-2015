@@ -149,14 +149,14 @@ var templateUrl = '<?php home_url(); ?>';
 					<?php $loopcount = $loop->post_count; 
 						if($loopcount > 1) {
 					?>
-						<div class="owl-carousel">
+						<div class="main-gallery">
 						
 					<?php } else { ?>
 						<div class="heroSingle">
 					<?php } ?>
 					
 					<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
-						<div>
+						<div class="gallery-cell">
 						<?php 
 
 							$image = get_field('hero_image');

@@ -335,11 +335,18 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
  * ----------------------------------------------------------------------------
  */
  
-	$(".owl-carousel").owlCarousel({
+	/*$(".owl-carousel").owlCarousel({
 		items: 1,
 		nav:true,
 		loop: true,
 		dots: true
+	});*/
+	
+	$('.main-gallery').flickity({
+	  // options
+	  cellAlign: 'left',
+	  contain: true,
+	  wrapAround: true
 	});
 	
 	
