@@ -58,6 +58,7 @@
 	overflow: hidden;
 	
 	img {
+		
 		width: 100%;
 		height: auto;
 		
@@ -210,7 +211,9 @@
 	border-radius: 3px;
 	box-shadow: 0px 18px 65px rgba(0,0,0,0.3);
 	background: #fff;
-
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+	
     transform-origin: 50% 50%;
     -webkit-transform-origin: 50% 50%;
     transform-style: preserve-3d;
@@ -218,6 +221,18 @@
     
     transition: 0.1s transform, 0.2s box-shadow;
     -webkit-transition: 0.1s transform, 0.2s box-shadow;
+}
+
+.Safari .tiltPanel {
+	transform-origin: 50% 50% 0px !important;
+    -webkit-transform-origin: 50% 50% 0px !important;
+}
+
+@-moz-document url-prefix() {
+	.tiltPanel {
+	 	transition: 0s transform, 0.2s box-shadow !important;
+	 	-webkit-transition: 0s transform, 0.2s box-shadow !important;
+    }
 }
 
 .tiltWrapper.pressed .tiltPanel {
@@ -277,6 +292,7 @@
 }
 
 .cardStyles {
+	
 	position: absolute;
 	bottom: -2px;
 	left: -1px;

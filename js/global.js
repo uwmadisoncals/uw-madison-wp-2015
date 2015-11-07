@@ -576,7 +576,7 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
       var refY = elemheight - cursorY;
     }
 
-    var rotation = "transform: rotateX(" + degY + "deg) rotateY(" + degX + "deg); -webkit-transform: rotateX(" + degY + "deg) rotateY(" + degX + "deg); transform-origin: center center "+tiltdepth+"px;";
+    var rotation = "transform: rotateX(" + degY + "deg) rotateY(" + degX + "deg); -webkit-transform: rotateX(" + degY + "deg) rotateY(" + degX + "deg); transform-origin: center center 0px"+tiltdepth+"px; -webkit-transform-origin: center center "+tiltdepth+"px;";
     $(rotateelem).attr("style", rotation);
 
     var reflection = "transform: translate(" + refX + "px, " + refY + "px); -webkit-transform: translate(" + refX + "px, " + refY + "px); opacity: " + opacityX + ";";
@@ -598,8 +598,12 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
     }
     
     $(wrapperelem).css("z-index","");
-
-    var rotation = "transform: rotateX(0deg) rotateY(0deg); transform-origin: center center "+tiltdepth+"px; transition: 1.0s transform; -webkit-transform: rotateX(0deg) rotateY(0deg); -webkit-transition: 1.0s transform;";
+	if(browser == "Firefox") {
+		var rotation = "transform: rotateX(0deg) rotateY(0deg); transform-origin: center center "+tiltdepth+"px; transition: 0s transform; -webkit-transform: rotateX(0deg) rotateY(0deg); -webkit-transition: 0s transform; -webkit-transform-origin: center center "+tiltdepth+"px;";
+	} else {
+		var rotation = "transform: rotateX(0deg) rotateY(0deg); transform-origin: center center "+tiltdepth+"px; transition: 1.0s transform; -webkit-transform: rotateX(0deg) rotateY(0deg); -webkit-transition: 1.0s transform; -webkit-transform-origin: center center "+tiltdepth+"px;";
+	}
+    
     $(rotateelem).attr("style", rotation);
   });
 

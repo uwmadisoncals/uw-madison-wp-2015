@@ -27,7 +27,7 @@ $height = $thumb['2']; $height = $height; ?>
 						<?php }
 						?>
 	  <div class="grid-item tiltWrapper custom" data-maxangle="4" data-tiltdepth="70">
-		  <div class="tiltWrapperSize">
+		  
 			<a href="<?php the_permalink(); ?>" class="tiltAction"><?php the_title(); ?></a>
 			
 			<div class="tiltPanel">
@@ -121,7 +121,7 @@ $height = $thumb['2']; $height = $height; ?>
 				</div>
 			</div>
 		</div>
-	  </div>
+	  
 	  
    <?php endwhile; ?>
    <?php wp_reset_query(); ?>
