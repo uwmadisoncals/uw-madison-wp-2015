@@ -26,12 +26,18 @@ var templateUrl = '<?php home_url(); ?>';
 <div class="mobileMenu"><h2 class="mobileTitle">Menu</h2><?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?><div class="subLevel1"></div><div class="subLevel2"></div></div>
 <div class="menuOverlay"></div>
 
-<div id="page" class="hfeed site">
+<div id="page" class="hfeed site <?php $home_layout_settings = get_theme_mod( 'uw-madison-wp-2015_layout_id' ); if($home_layout_settings == "tiles") { echo "tiledPosts"; } ?>">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'uw-madison-wp-2015' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		
-			<div class="logo-search-container">
+		<?php $header_image = get_header_image();
+						if ( $header_image ) { ?>
+							<div class="logo-search-container">
+						<?php } else { ?>
+							<div class="logo-search-container noimage">
+						<?php } ?>
+
+			
 				<div class="site-branding">
 					<a href="#" class="mobileTrigger"><svg height="32px" aria-label="Open Menu" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/></svg></a>
 					
@@ -43,7 +49,7 @@ var templateUrl = '<?php home_url(); ?>';
 					<?php
 						// Check to see if the header image has been removed
 						$header_image = get_header_image();
-						if ( $header_image ) :
+						if ( $header_image ) { 
 							// Compatibility with versions of WordPress prior to 3.4.
 							if ( function_exists( 'get_custom_header' ) ) {
 								// We need to figure out what the minimum width should be for our featured image.
@@ -69,7 +75,11 @@ var templateUrl = '<?php home_url(); ?>';
 					<img src="<?php header_image(); ?>" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" alt="" />
 				<?php /*endif;*/ // end check for featured image or standard header ?>
 			</a>
-			<?php endif; // end check for removed header image ?>
+			<?php } else { // end check for removed header image ?>
+						<div class="noimageLogo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span><img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg"> <div class="mainTitle"><?php bloginfo( 'name' ); ?><span><?php bloginfo( 'description' ); ?></span></div></a></div>
+						
+						
+			<?php } ?>
 					
 				</div><!-- .site-branding -->
 				

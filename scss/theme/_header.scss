@@ -70,6 +70,84 @@
 	}
 }
 
+.site-header {
+	.logo-search-container.noimage {
+		height: 65px;
+	}
+	
+	.noimageLogo {
+		.logoImage {
+			display: block;
+			width: 50%;
+			
+			
+			img {
+				float: left;
+				width: 42px;
+				min-width: 42px;
+				margin-bottom: 10px;
+			}
+			
+			.mainTitle {
+				position:relative;
+				top: 10px;
+				left: 8px;
+				font-family: "Raleway", sans-serif;
+				font-size: 24px;
+				font-weight: 100;
+				color: #fff;
+				line-height: 1;
+				
+				
+				span {
+					display: block;
+					font-size: 13px;
+					font-weight: 400;
+				}
+			}
+		}
+	}
+}
+
+.mobileNavOn {
+		.site-header {
+		.noimageLogo {
+			.logoImage {
+				display: block;
+				width: 50%;
+				
+				
+				
+				img {
+					float: left;
+					width: 42px;
+					min-width: 42px;
+					margin-bottom: 10px;
+					margin-top: 8px;
+				}
+				
+				.mainTitle {
+					position:relative;
+					top: 14px;
+					left: 6px;
+					font-family: "Raleway", sans-serif;
+					font-size: 24px;
+					font-weight: 100;
+					color: #fff;
+					line-height: 1;
+					
+					
+					span {
+						display: block;
+						font-size: 13px;
+						font-weight: 400;
+					}
+				}
+			}
+		}
+	}
+}
+
 .search-youruw {
 	position: absolute;
 	top: 50%;

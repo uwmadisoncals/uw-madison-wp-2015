@@ -118,9 +118,9 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
         </g>
     </g>
 </svg></div><input type="radio" style="display: none;" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[circles]" value="circles" <?php $this->link(); ?> /></li>
-                    <!--<li><label for="<?php echo $this->id; ?>[tiles]" class="layoutOption">Tiles Layout</label><div class="layoutIcon"><svg width="83px" height="66px" viewBox="0 0 83 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+                    <li><label for="<?php echo $this->id; ?>[tiles]" class="layoutOption" id="tilesLayout">Tiles Layout</label><div class="layoutIcon"><svg width="83px" height="66px" viewBox="0 0 83 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
-    <!--<title>tiles</title>
+    <title>tiles</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
@@ -134,7 +134,7 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
             </g>
         </g>
     </g>
-</svg></div><input type="radio" style="display: none;" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[tiles]" value="tiles" <?php $this->link(); ?> /></li>-->
+</svg></div><input type="radio" style="display: none;" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[tiles]" value="tiles" <?php $this->link(); ?> /></li>
                     <li><label for="<?php echo $this->id; ?>[left_sidebar]" class="layoutOption" id="sidebarLayout">Left Sidebar Layout</label><div class="layoutIcon"><svg width="83px" height="45px" viewBox="0 0 83 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
     <title>left-sidebar</title>
@@ -155,9 +155,15 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
                 </label>
                 
                 <script>
-				document.getElementById("circlesLayout").addEventListener("click", function(){ this.parentNode.setAttribute("class", "layoutSelected"); document.getElementById("sidebarLayout").parentNode.setAttribute("class", "");  });
+				document.getElementById("circlesLayout").addEventListener("click", function(){ this.parentNode.setAttribute("class", "layoutSelected"); document.getElementById("sidebarLayout").parentNode.setAttribute("class", ""); 
+document.getElementById("tilesLayout").parentNode.setAttribute("class", ""); 					 });
 				
-				document.getElementById("sidebarLayout").addEventListener("click", function(){ this.parentNode.setAttribute("class", "layoutSelected"); document.getElementById("circlesLayout").parentNode.setAttribute("class", "");  });
+				document.getElementById("sidebarLayout").addEventListener("click", function(){ this.parentNode.setAttribute("class", "layoutSelected"); document.getElementById("circlesLayout").parentNode.setAttribute("class", "");
+document.getElementById("tilesLayout").parentNode.setAttribute("class", "");					  });
+				
+				document.getElementById("tilesLayout").addEventListener("click", function(){ this.parentNode.setAttribute("class", "layoutSelected"); document.getElementById("sidebarLayout").parentNode.setAttribute("class", "");
+document.getElementById("circlesLayout").parentNode.setAttribute("class", "");  });
+				
 				/*document.getElementById("layout2").addEventListener("click", function(){ var valueoption = this.getAttribute("data-value");  document.getElementById("layoutTextArea").value = valueoption; });
 				document.getElementById("layout3").addEventListener("click", function(){ var valueoption = this.getAttribute("data-value");  document.getElementById("layoutTextArea").value = valueoption; });*/
 				</script>
