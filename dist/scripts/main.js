@@ -1581,20 +1581,7 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
  */
  
  	
-	/*$('.tilesWrapper').isotope({
-	  
-	  masonry: {
-	  	
-    	columnWidth: '.tile-sizer',
-    	gutter: '.gutter-sizer'
-  		},
-  		
-	  itemSelector: '.tile-item',
-	  percentPosition: true
-	});*/
-	
-	
-	
+
 
   var $grid = $('.grid').isotope({
     itemSelector: '.grid-item',

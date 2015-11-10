@@ -228,12 +228,12 @@
     -webkit-transform-origin: 50% 50% 0px !important;
 }
 
-@-moz-document url-prefix() {
+/*@-moz-document url-prefix() {
 	.tiltPanel {
 	 	transition: 0s transform, 0.2s box-shadow !important;
 	 	-webkit-transition: 0s transform, 0.2s box-shadow !important;
     }
-}
+}*/
 
 .tiltWrapper.pressed .tiltPanel {
 	
@@ -250,6 +250,7 @@
 	margin-left: -25%;
 	z-index:4; 
 	opacity: 0;
+	
 	transition: 0.1s transform, 0.4s opacity;
 }
 
@@ -265,10 +266,10 @@
 
 
 .level1 {
-	transform: translateZ(0px);
+	transform: translateZ(1px);
 	overflow: hidden;
 	z-index:1;
-  
+	
 }
 
 .level2 {

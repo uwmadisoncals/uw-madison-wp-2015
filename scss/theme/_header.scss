@@ -72,7 +72,7 @@
 
 .site-header {
 	.logo-search-container.noimage {
-		height: 65px;
+		height: 75px;
 	}
 	
 	.noimageLogo {
@@ -659,6 +659,21 @@
 			padding-left: 1.3em;
 			padding-right: 1.3em;	
 		}
+	}
+	
+	.mobileNavOn .site-header .noimageLogo .logoImage img {
+		height: 35px !important;
+		width: 28px !important;
+		min-width: 0px !important;
+		margin-top: 5px !important;
+	}
+	
+	.site-header .noimageLogo .logoImage .mainTitle {
+		top: 14px !important;
+	}
+	
+	#masthead.site-header {
+		background-color: #C2242A;
 	}
 }
 

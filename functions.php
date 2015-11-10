@@ -59,23 +59,33 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
 		            	clear: both;
 	            	}
 	            	
-	            	ul.layoutOptions li {
-		            	float: left;
+	            	ul.layoutOptions label {
+		            	
 		            	margin-right: 6px;
 		            	margin-bottom: 6px;
 		            	display: block;
-		            	width: 90px;
+		            	box-sizing: border-box;
+		            	-webkit-box-sizing: border-box;
+		            	-moz-box-sizing: border-box;
+		            	width: 100%;
 		            	border: 1px solid rgba(0,0,0,0.1);
-		            	
+		            	height: auto;
 		            	border-radius: 3px;
-		            	height: 120px;
+		            	background: transparent;
+		            	
 	            	}
 	            	
-	            	ul.layoutOptions li.layoutSelected {
+	            	ul.layoutOptions label span {
+		            	display: block;
+		            	background: rgba(0,0,0,0.18);
+		            	padding: 10px;
+	            	}
+	            	
+	            	ul.layoutOptions label.layoutSelected {
 		            	border: 1px solid #C2242A;
 	            	}
 	            	
-	            	ul.layoutOptions li.layoutSelected .layoutOption {
+	            	ul.layoutOptions label.layoutSelected span {
 		            	background: #C2242A;
 		            	color: #fff;
 		            	font-weight: bold;
@@ -83,14 +93,14 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
 	            	
 	            	.layoutOption {
 		            	display:block;
-		            	padding: 10px;
-		            	background: rgba(0,0,0,0.18);
+		            	
+		            	
 		            	font-size: 11px;
 		            	
 	            	}
 	            	
 	            	.layoutIcon {
-		            	padding: 10px;
+		            	padding: 16px;
 	            	}
 	            	
 	            	.layoutIcon svg {
@@ -101,9 +111,10 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
             
                 <label>
                   <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+                 </label>
                   
                   <ul class="layoutOptions">
-                    <li><label for="<?php echo $this->id; ?>[circles]" class="layoutOption" id="circlesLayout">Circles Layout</label><div class="layoutIcon"><svg width="84px" height="24px" viewBox="0 0 84 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+                    <label id="circlesLayout" for="<?php echo $this->id; ?>[circles]" class="layoutOption"><span>Circles Layout</span><div class="layoutIcon"><svg width="84px" height="24px" viewBox="0 0 84 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
     <title>circles</title>
     <desc>Created with Sketch.</desc>
@@ -117,8 +128,8 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
             </g>
         </g>
     </g>
-</svg></div><input type="radio" style="display: none;" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[circles]" value="circles" <?php $this->link(); ?> /></li>
-                    <li><label for="<?php echo $this->id; ?>[tiles]" class="layoutOption" id="tilesLayout">Tiles Layout</label><div class="layoutIcon"><svg width="83px" height="66px" viewBox="0 0 83 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+</svg></div><input type="radio" style="display: none;" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[circles]" value="circles" <?php $this->link(); ?> /></label>
+                   <label id="tilesLayout" for="<?php echo $this->id; ?>[tiles]" class="layoutOption"><span>Tiles Layout</span><div class="layoutIcon"><svg width="83px" height="66px" viewBox="0 0 83 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
     <title>tiles</title>
     <desc>Created with Sketch.</desc>
@@ -134,8 +145,8 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
             </g>
         </g>
     </g>
-</svg></div><input type="radio" style="display: none;" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[tiles]" value="tiles" <?php $this->link(); ?> /></li>
-                    <li><label for="<?php echo $this->id; ?>[left_sidebar]" class="layoutOption" id="sidebarLayout">Left Sidebar Layout</label><div class="layoutIcon"><svg width="83px" height="45px" viewBox="0 0 83 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+</svg></div><input type="radio" style="display: none;" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[tiles]" value="tiles" <?php $this->link(); ?> /></label>
+                    <label id="sidebarLayout" for="<?php echo $this->id; ?>[left_sidebar]" class="layoutOption"><span>Left Sidebar Layout</span><div class="layoutIcon"><svg width="83px" height="45px" viewBox="0 0 83 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
     <title>left-sidebar</title>
     <desc>Created with Sketch.</desc>
@@ -148,21 +159,34 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
             </g>
         </g>
     </g>
-</svg></div><input style="display: none;" type="radio" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[left_sidebar]" value="left_sidebar" <?php $this->link(); ?> /></li>
+</svg></div><input style="display: none;" type="radio" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[left_sidebar]" value="left_sidebar" <?php $this->link(); ?> /></label>
             
                   </ul>
                   <div class="layoutClear"></div>
-                </label>
+                
                 
                 <script>
-				document.getElementById("circlesLayout").addEventListener("click", function(){ this.parentNode.setAttribute("class", "layoutSelected"); document.getElementById("sidebarLayout").parentNode.setAttribute("class", ""); 
-document.getElementById("tilesLayout").parentNode.setAttribute("class", ""); 					 });
+	                
+	            if(document.getElementById('uw-madison-wp-2015-home-layout-control[circles]').checked) {
+		            document.getElementById('uw-madison-wp-2015-home-layout-control[circles]').parentNode.setAttribute("class", "layoutSelected");
+		        }
+		        
+		        if(document.getElementById('uw-madison-wp-2015-home-layout-control[tiles]').checked) {
+		            document.getElementById('uw-madison-wp-2015-home-layout-control[tiles]').parentNode.setAttribute("class", "layoutSelected");
+		        }
+		        
+		        if(document.getElementById('uw-madison-wp-2015-home-layout-control[left_sidebar]').checked) {
+		            document.getElementById('uw-madison-wp-2015-home-layout-control[left_sidebar]').parentNode.setAttribute("class", "layoutSelected");
+		        }
+	                
+				document.getElementById("circlesLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected"); document.getElementById("sidebarLayout").setAttribute("class", ""); 
+document.getElementById("tilesLayout").setAttribute("class", ""); 					 });
 				
-				document.getElementById("sidebarLayout").addEventListener("click", function(){ this.parentNode.setAttribute("class", "layoutSelected"); document.getElementById("circlesLayout").parentNode.setAttribute("class", "");
-document.getElementById("tilesLayout").parentNode.setAttribute("class", "");					  });
+				document.getElementById("sidebarLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected"); document.getElementById("circlesLayout").setAttribute("class", "");
+document.getElementById("tilesLayout").setAttribute("class", "");					  });
 				
-				document.getElementById("tilesLayout").addEventListener("click", function(){ this.parentNode.setAttribute("class", "layoutSelected"); document.getElementById("sidebarLayout").parentNode.setAttribute("class", "");
-document.getElementById("circlesLayout").parentNode.setAttribute("class", "");  });
+				document.getElementById("tilesLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected"); document.getElementById("sidebarLayout").setAttribute("class", "");
+document.getElementById("circlesLayout").setAttribute("class", "");  });
 				
 				/*document.getElementById("layout2").addEventListener("click", function(){ var valueoption = this.getAttribute("data-value");  document.getElementById("layoutTextArea").value = valueoption; });
 				document.getElementById("layout3").addEventListener("click", function(){ var valueoption = this.getAttribute("data-value");  document.getElementById("layoutTextArea").value = valueoption; });*/
@@ -995,6 +1019,16 @@ function wpb_imagelink_setup() {
 
 add_action('admin_init', 'wpb_imagelink_setup', 10);
 
-require_once('wp-updates-theme.php');
-new WPUpdatesThemeUpdater_1555( 'http://wp-updates.com/api/2/theme', basename( get_template_directory() ) );
+
+/**** Replacing wp-updates.com for my own api ****/
+/*require_once('wp-updates-theme.php');
+new WPUpdatesThemeUpdater_1555( 'http://wp-updates.com/api/2/theme', basename( get_template_directory() ) );*/
+
+
+/**** My replacement API *****/
+require 'theme-update-checker.php';
+$MyThemeUpdateChecker = new ThemeUpdateChecker(
+'madisonwp2015', //Theme slug. Usually the same as the name of its directory.
+'http://wpupdates.heroiccloud.com/?action=get_metadata&slug=madisonwp2015' //Metadata URL.
+);
 

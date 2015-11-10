@@ -33,7 +33,7 @@ $height = $thumb['2']; $height = $height; ?>
 			<div class="tiltPanel">
 				
 				
-								
+						
 				
 				
 				<div class="plane level1">
@@ -56,9 +56,7 @@ $height = $thumb['2']; $height = $height; ?>
 						</svg>
 					</div>
 				
-					
-					
-					
+										
 					
 
 					<div class="backgroundImageSample">
