@@ -271,6 +271,49 @@ $wp_customize->add_setting('uw-madison-wp-2015_layout_id', array(
 ));
 
 
+$wp_customize->add_setting('uw-madison-wp-2015_header_style_options_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => 'transparent',
+    'sanitize_callback' => 'sanitize_header_options'
+ 
+));
+
+ 
+$wp_customize->add_control('uw-madison-wp-2015-header_style_options', array(
+    'label'      => __('Header Style', 'uw-madison-wp-2015'),
+    'section'    => 'uw-madison-wp-2015-home-options',
+    'type'    => 'radio',
+    'choices' => array(
+            'transparent' => __( 'Transparent', 'uw-madison-wp-2015' ),
+            'opaque' => __( 'Opaque', 'uw-madison-wp-2015' )
+        ),
+    'settings'   => 'uw-madison-wp-2015_header_style_options_id',
+));
+
+
+
+$wp_customize->add_setting('uw-madison-wp-2015_header_slides_options_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => 'shown',
+    'sanitize_callback' => 'sanitize_header_slides_options'
+ 
+));
+
+ 
+$wp_customize->add_control('uw-madison-wp-2015-header_slides_options', array(
+    'label'      => __('Header Slides', 'uw-madison-wp-2015'),
+    'section'    => 'uw-madison-wp-2015-home-options',
+    'type'    => 'radio',
+    'choices' => array(
+            'shown' => __( 'Shown', 'uw-madison-wp-2015' ),
+            'hidden' => __( 'Hidden', 'uw-madison-wp-2015' )
+        ),
+    'settings'   => 'uw-madison-wp-2015_header_slides_options_id',
+));
+
+
 
 
  
@@ -354,6 +397,20 @@ function sanitize_page_feature( $value ) {
 function sanitize_sidebar_nav( $value ) {
     if ( !$value )
         $value = 'simple';
+ 
+    return $value;
+}
+
+function sanitize_header_options( $value ) {
+    if ( !$value )
+        $value = 'transparent';
+ 
+    return $value;
+}
+
+function sanitize_header_slides_options( $value ) {
+    if ( !$value )
+        $value = 'shown';
  
     return $value;
 }

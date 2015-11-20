@@ -647,6 +647,86 @@
 	display: none;
 }
 
+.home .solidHeader #masthead.site-header, .home .hiddenSlides #masthead.site-header {
+	background-color: #C2242A;
+}
+
+.mobileNavOn.home .solidHeader .featureHeader {
+	margin-top: 80px;
+	
+	.heroImage {
+		min-height: 380px;
+	}
+}
+
+.home .solidHeader .featureHeader {
+	margin-top: 120px;
+	
+	.heroImage {
+		min-height: 380px;
+	}
+}
+
+.home .solidHeader.hiddenSlides .featureHeader {
+	margin-top: 50px;
+	
+	.heroImage {
+		min-height: 380px;
+	}
+}
+
+.mobileNavOn.home .solidHeader.hiddenSlides .featureHeader {
+	margin-top: 0px;
+	
+	.heroImage {
+		min-height: 380px;
+	}
+}
+
+.home .solidHeader .gallery-cell {
+	height: 380px;
+}
+
+.home .solidHeader #site-navigation.main-navigation {
+	background: rgba(115,26,31,.2);
+	
+	li {
+		a {
+			color: #fff;
+		}
+		
+		a:hover {
+			background: rgba(0,0,0,0.25);
+		}
+	}
+	
+}
+
+
+.home .hiddenSlides #site-navigation.main-navigation {
+	background: rgba(115,26,31,.2);
+	
+	li {
+		a {
+			color: #fff;
+		}
+		
+		a:hover {
+			background: rgba(0,0,0,0.25);
+		}
+	}
+	
+}
+
+
+.home .transparentHeader.hiddenSlides #content {
+	padding-top: 50px;
+}
+
+.mobileNavOn.home .transparentHeader.hiddenSlides #content {
+	padding-top: 0px;
+}
+
 @media screen and (max-width: 400px) {
 	.searchUI {
 		.searchClose {
