@@ -195,7 +195,17 @@
 		display: none;
 	}
 	
+	.admin-bar {
 	
+		.page-title{
+			margin-top: 0em;
+		}
+		
+		#content{
+			margin-top: 1em !important;
+		}
+	
+	}
 }
 
 /* Minimum width of 600 pixels. */

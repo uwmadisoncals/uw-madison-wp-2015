@@ -474,6 +474,19 @@ dl{
 	padding-top: 30px;	
 }
 
+.admin-bar {
+	.tabSuggest{
+		display: none;
+	}
+	
+	input[type="submit"]{
+		position: absolute !important;
+		left: -999em;
+		opacity: 0;
+	}
+	
+}
+
 .home.page, .home.blog {
 	.site-header{
 		background-color: transparent;
@@ -531,7 +544,8 @@ dl{
 .single,
 .search,
 .archive,
-.blog {
+.blog,
+.admin-bar {
 	
 	#content{
 		margin-top: 4em;
