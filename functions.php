@@ -783,14 +783,7 @@ if(function_exists("register_field_group"))
 		),
 		'menu_order' => 0,
 	));
-}
 
-
-/**
- * ACF fields for events
- */
-if(function_exists("register_field_group"))
-{
 	register_field_group(array (
 		'id' => 'acf_uw-events',
 		'title' => 'UW Events',
@@ -840,7 +833,42 @@ if(function_exists("register_field_group"))
 		),
 		'menu_order' => 0,
 	));
+	
+	register_field_group(array (
+		'id' => 'acf_page-options',
+		'title' => 'Page Options',
+		'fields' => array (
+			array (
+				'key' => 'field_564ea0a169947',
+				'label' => 'Hide the Side Navigation',
+				'name' => 'hide_the_side_navigation',
+				'type' => 'true_false',
+				'message' => '',
+				'default_value' => 0,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page_template',
+					'operator' => '==',
+					'value' => 'default',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'side',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
 }
+
+
 
 /**
  * Set the content width based on the theme's design and stylesheet.
