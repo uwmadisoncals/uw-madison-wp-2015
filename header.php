@@ -152,7 +152,9 @@ var templateUrl = '<?php home_url(); ?>';
   
 	<div class="featureHeader">
 		
-		<?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "shown") { ?> 
+		<?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { ?>
+		
+		<?php } else { ?> 
 				
 		<?php 
 			if(is_front_page()) { ?>
