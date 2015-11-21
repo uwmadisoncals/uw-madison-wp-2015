@@ -47,11 +47,7 @@
 	<h1><span class="screen-reader-text">Check out the latest news and articles.</span></h1>
 	
 	<div class="row toppadding">
-	<?php $args = array( 
-           'post__not_in' => get_option( 'sticky_posts' ), 
-           'posts_per_page' => 20, 
-        ); 
-		query_posts($args); ?>
+	
 	<ul class="spotlightList">
 	<?php while (have_posts()) : the_post(); ?>
 		<li class="row">
@@ -74,7 +70,9 @@
 		<?php wp_reset_query(); ?>
 		
 	</ul>
+	<div class="postsNavigation">
 	<?php the_posts_navigation(); ?>
+</div>
 	
 	
 </section>

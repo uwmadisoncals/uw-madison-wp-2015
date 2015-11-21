@@ -38,6 +38,7 @@ get_header(); ?>
 			</ul>
 
 			<?php the_posts_navigation(); ?>
+			
 
 		<?php else : ?>
 
