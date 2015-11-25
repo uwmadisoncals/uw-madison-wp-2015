@@ -791,6 +791,39 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
  	$( ".widget-area ul li a" ).each(function( index ) {
 		$(this).wrapInner( "<span class='nav_text'></span>");
 	});
+	
+	
+/**
+ * ----------------------------------------------------------------------------
+ *
+ *  blur scroll effect for homepage
+ *
+ * ----------------------------------------------------------------------------
+ */
+ 
+ 	if($("body").hasClass("home")) {
+	 	if($("#page").hasClass("visibleSlides")) {
+		 	$(window).scroll(function() {
+			 	var galleryHeight = $(".main-gallery").height();
+			 	var scrollTop = $(window).scrollTop();
+			 	var galleryCutOff = galleryHeight * .4;
+			 	
+			 	if((scrollTop > (galleryHeight - galleryCutOff)) && (scrollTop < (galleryHeight +galleryCutOff))) {
+				 	
+				 	var percentageBlur = (scrollTop/(galleryHeight-galleryCutOff)-1);
+				 	var blurValue = percentageBlur * 15;
+				 	var blurStr = "filter: blur("+blurValue+"px); -webkit-filter: blur("+blurValue+"px)";
+				 	
+				 	$(".featureHeader").attr("style",blurStr); 
+			 	} else {
+				 	var blurStr = "filter: blur(0px); -webkit-filter: blur(0px)";
+				 	$(".featureHeader").attr("style",blurStr); 
+			 	}
+		 	});
+		 	
+	 	}
+ 	}
+ 
 });
 
 
