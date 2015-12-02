@@ -663,3 +663,57 @@ dl{
 		margin-top: 0em;
 	}
 }
+
+.breadcrumb{
+	font-size: 12px;
+	
+
+	.curr_page{
+		font-weight: 600;
+		padding-left: 1rem;
+		opacity: 0.7;
+		max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+	}
+	
+	.breadcrumb_item{
+		position: relative;
+		display: inline-block;
+		
+		a{
+			padding-left: 1rem;
+			opacity: 0.7;
+			font-weight: bold;
+			max-width: 200px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: inline-block;
+		}
+	
+		.nav_arrow{
+			position: absolute;
+			top: 3px;
+		
+			 svg {
+				 width: 14px;
+				 height: 14px;
+				 fill: #76808D;		  		 
+			}
+		}
+	}
+	
+	.breadcrumb_item:first-child{
+		
+		a{
+			padding-left: 0rem;
+		}
+	
+		.nav_arrow{
+			display: none;
+		}
+	}
+}

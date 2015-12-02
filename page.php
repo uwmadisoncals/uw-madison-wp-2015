@@ -16,7 +16,20 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 			<div class="cf pagePadding">
 				<?php while ( have_posts() ) : the_post(); ?>
-	
+						
+						<?php 
+							
+							$breadcrumb_settings = get_theme_mod( 'uw-madison-wp-2015_breadcrumbs_id' );
+							
+							
+							if($breadcrumb_settings == "shown") {
+								
+								 get_template_part('breadcrumb', 'menu'); 
+							}
+						?>
+					
+						
+				
 					<?php get_template_part( 'content', 'page' ); ?>
 	
 				<?php endwhile; // end of the loop. ?>

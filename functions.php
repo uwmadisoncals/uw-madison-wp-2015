@@ -293,6 +293,28 @@ $wp_customize->add_control('uw-madison-wp-2015-header_style_options', array(
 
 
 
+$wp_customize->add_setting('uw-madison-wp-2015_breadcrumbs_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => 'hidden',
+    'sanitize_callback' => 'sanitize_breadcrumbs_options'
+ 
+));
+
+ 
+$wp_customize->add_control('uw-madison-wp-2015-breadcrumbs', array(
+    'label'      => __('Page Breadcrumbs', 'uw-madison-wp-2015'),
+    'section'    => 'uw-madison-wp-2015-sidebar-options',
+    'type'    => 'radio',
+    'choices' => array(
+            'shown' => __( 'Shown', 'uw-madison-wp-2015' ),
+            'hidden' => __( 'Hidden', 'uw-madison-wp-2015' )
+        ),
+    'settings'   => 'uw-madison-wp-2015_breadcrumbs_id',
+));
+
+
+
 $wp_customize->add_setting('uw-madison-wp-2015_header_slides_options_id', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'theme_mod',
@@ -362,7 +384,7 @@ $wp_customize->add_control( new Layout_Picker_Custom_Control(
 
 // Adding option to choose simple or expanded sidebar nav
 $wp_customize->add_section( 'uw-madison-wp-2015-sidebar-options' , array(
-    	'title'      => __( 'Side Bar Navigation', 'uw-madison-wp-2015' ),
+    	'title'      => __( 'Page Options', 'uw-madison-wp-2015' ),
     	'priority'   => 60,
 	) ); 
 
@@ -376,7 +398,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_sidebar_options_id', array(
 
  
 $wp_customize->add_control('uw-madison-wp-2015-sidebar-options', array(
-    'label'      => __('Navigation Style', 'uw-madison-wp-2015'),
+    'label'      => __('Sidebar Navigation Style', 'uw-madison-wp-2015'),
     'section'    => 'uw-madison-wp-2015-sidebar-options',
     'type'    => 'radio',
     'choices' => array(
@@ -404,6 +426,13 @@ function sanitize_sidebar_nav( $value ) {
 function sanitize_header_options( $value ) {
     if ( !$value )
         $value = 'transparent';
+ 
+    return $value;
+}
+
+function sanitize_breadcrumbs_options( $value ) {
+    if ( !$value )
+        $value = 'hidden';
  
     return $value;
 }
