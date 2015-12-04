@@ -240,9 +240,15 @@ function mytheme_customize_register( $wp_customize ) {
  */
 
 $wp_customize->add_section( 'uw-madison-wp-2015-home-options' , array(
-    	'title'      => __( 'Home Page Options', 'uw-madison-wp-2015' ),
+    	'title'      => __( 'Latest Post Options', 'uw-madison-wp-2015' ),
+    	'priority'   => 61,
+	) ); 
+
+$wp_customize->add_section( 'uw-madison-wp-2015-header-options' , array(
+    	'title'      => __( 'Header Options', 'uw-madison-wp-2015' ),
     	'priority'   => 60,
 	) ); 
+
 
 $wp_customize->add_setting('uw-madison-wp-2015_options_id', array(
     'capability'     => 'edit_theme_options',
@@ -282,13 +288,34 @@ $wp_customize->add_setting('uw-madison-wp-2015_header_style_options_id', array(
  
 $wp_customize->add_control('uw-madison-wp-2015-header_style_options', array(
     'label'      => __('Header Style', 'uw-madison-wp-2015'),
-    'section'    => 'uw-madison-wp-2015-home-options',
+    'section'    => 'uw-madison-wp-2015-header-options',
     'type'    => 'radio',
     'choices' => array(
             'transparent' => __( 'Transparent', 'uw-madison-wp-2015' ),
             'opaque' => __( 'Opaque', 'uw-madison-wp-2015' )
         ),
     'settings'   => 'uw-madison-wp-2015_header_style_options_id',
+));
+
+
+$wp_customize->add_setting('uw-madison-wp-2015_dropdowns_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => 'disabled',
+    'sanitize_callback' => 'sanitize_dropdown_options'
+ 
+));
+
+ 
+$wp_customize->add_control('uw-madison-wp-2015-dropdowns', array(
+    'label'      => __('Drop Down Menus', 'uw-madison-wp-2015'),
+    'section'    => 'uw-madison-wp-2015-header-options',
+    'type'    => 'radio',
+    'choices' => array(
+            'enabled' => __( 'Enabled', 'uw-madison-wp-2015' ),
+            'disabled' => __( 'Disabled', 'uw-madison-wp-2015' )
+        ),
+    'settings'   => 'uw-madison-wp-2015_dropdowns_id',
 ));
 
 
@@ -326,7 +353,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_header_slides_options_id', array(
  
 $wp_customize->add_control('uw-madison-wp-2015-header_slides_options', array(
     'label'      => __('Header Slides', 'uw-madison-wp-2015'),
-    'section'    => 'uw-madison-wp-2015-home-options',
+    'section'    => 'uw-madison-wp-2015-header-options',
     'type'    => 'radio',
     'choices' => array(
             'shown' => __( 'Shown', 'uw-madison-wp-2015' ),
@@ -385,7 +412,7 @@ $wp_customize->add_control( new Layout_Picker_Custom_Control(
 // Adding option to choose simple or expanded sidebar nav
 $wp_customize->add_section( 'uw-madison-wp-2015-sidebar-options' , array(
     	'title'      => __( 'Page Options', 'uw-madison-wp-2015' ),
-    	'priority'   => 60,
+    	'priority'   => 62,
 	) ); 
 
 $wp_customize->add_setting('uw-madison-wp-2015_sidebar_options_id', array(
@@ -426,6 +453,13 @@ function sanitize_sidebar_nav( $value ) {
 function sanitize_header_options( $value ) {
     if ( !$value )
         $value = 'transparent';
+ 
+    return $value;
+}
+
+function sanitize_dropdown_options( $value ) {
+    if ( !$value )
+        $value = 'disabled';
  
     return $value;
 }
@@ -692,6 +726,155 @@ add_theme_support( 'custom-header', $defaults );
 /**** Added ACF fields for Header Slides ****/
 if(function_exists("register_field_group"))
 {
+	register_field_group(array (
+		'id' => 'acf_page-layout-options',
+		'title' => 'Page Layout Options',
+		'fields' => array (
+			array (
+				'key' => 'field_565fc8e7b2b67',
+				'label' => 'Featured Pages Layouts',
+				'name' => 'featured_pages_layouts',
+				'type' => 'radio',
+				'required' => 1,
+				'choices' => array (
+					'circles' => 'Circles',
+					'tiles' => 'Tiles',
+					'list' => 'List',
+				),
+				'other_choice' => 0,
+				'save_other_choice' => 0,
+				'default_value' => 'circles',
+				'layout' => 'horizontal',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page_template',
+					'operator' => '==',
+					'value' => 'page-featured_pages.php',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'acf_after_title',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 1,
+	));
+	register_field_group(array (
+		'id' => 'acf_page-layout-fields',
+		'title' => 'Page Layout Fields',
+		'fields' => array (
+			array (
+				'key' => 'field_565fc5543e19a',
+				'label' => 'Featured Page 1',
+				'name' => 'featured_page_1',
+				'type' => 'post_object',
+				'post_type' => array (
+					0 => 'page',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'allow_null' => 1,
+				'multiple' => 0,
+			),
+			array (
+				'key' => 'field_565fcb7378f4e',
+				'label' => 'Featured Page 2',
+				'name' => 'featured_page_2',
+				'type' => 'post_object',
+				'post_type' => array (
+					0 => 'page',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'allow_null' => 1,
+				'multiple' => 0,
+			),
+			array (
+				'key' => 'field_565fcb81d8329',
+				'label' => 'Featured Page 3',
+				'name' => 'featured_page_3',
+				'type' => 'post_object',
+				'post_type' => array (
+					0 => 'page',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'allow_null' => 1,
+				'multiple' => 0,
+			),
+			array (
+				'key' => 'field_565fcb8cd832a',
+				'label' => 'Featured Page 4',
+				'name' => 'featured_page_4',
+				'type' => 'post_object',
+				'post_type' => array (
+					0 => 'page',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'allow_null' => 1,
+				'multiple' => 0,
+			),
+			array (
+				'key' => 'field_565fcb92d832b',
+				'label' => 'Featured Page 5',
+				'name' => 'featured_page_5',
+				'type' => 'post_object',
+				'post_type' => array (
+					0 => 'page',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'allow_null' => 1,
+				'multiple' => 0,
+			),
+			array (
+				'key' => 'field_565fcbb1d832c',
+				'label' => 'Featured Page 6',
+				'name' => 'featured_page_6',
+				'type' => 'post_object',
+				'post_type' => array (
+					0 => 'page',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'allow_null' => 1,
+				'multiple' => 0,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page_template',
+					'operator' => '==',
+					'value' => 'page-featured_pages.php',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'acf_after_title',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 2,
+	));
+	
 	register_field_group(array (
 		'id' => 'acf_hero-image-fields',
 		'title' => 'Hero Image Fields',

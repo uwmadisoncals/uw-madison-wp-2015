@@ -4,9 +4,7 @@
 <section class="tiledSpotlight">
 	<h1><span class="screen-reader-text">Check out the latest news and articles.</span></h1>
 	<?php $args = array( 
-           'post__not_in' => get_option( 'sticky_posts' ), 
-           'posts_per_page' => 50,
-            
+           'post__not_in' => get_option( 'sticky_posts' )            
         ); 
 		query_posts($args); ?>
 	

@@ -727,6 +727,65 @@
 	padding-top: 0px;
 }
 
+ul.children, ul.sub-menu {
+	background: rgba(255,255,255,0.8);
+}
+
+.main-navigation ul ul {
+	top: 2.25em;
+}
+
+.main-navigation ul ul ul {
+	display: none;
+}
+
+.site-header .main-navigation .site-navigation-container {
+	li {
+		a.arrowOn {
+			padding-right: 1.8em;	
+		}
+	}
+}
+
+.main-navigation {
+
+	ul li a .arrow {
+	display: block;
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	right: 7px;
+	top: 48%;
+	transform: translateY(-50%);
+	
+		svg {
+			width: 100%;
+			height: auto;
+			
+			path.lines {
+				fill: rgba(0,0,0,0.9);
+			}
+		}
+	
+	}
+	
+	ul li a:hover .arrow, ul li a:active .arrow {
+		svg {
+			width: 100%;
+			height: auto;
+			
+			path.lines {
+				fill: rgba(255,255,255,0.9);
+			}
+		}
+	}
+	
+	
+}
+
+
+
+
 @media screen and (max-width: 400px) {
 	.searchUI {
 		.searchClose {

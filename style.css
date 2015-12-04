@@ -571,6 +571,11 @@ a:active {
 .main-navigation ul ul a:hover {
 }
 
+.main-navigation ul li > ul {
+	display: none;
+	left: auto;
+}
+
 .main-navigation ul li:hover > ul {
 	left: auto;
 }

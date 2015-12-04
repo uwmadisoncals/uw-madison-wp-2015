@@ -1404,6 +1404,7 @@ $(window).click(function(e) {
 	//close your uw menu
 	$(".youruwmenu, .subLevel1, .subLevel2").removeClass("visible");
 	
+	$(".main-navigation ul li ul.children").hide();
 	
 });
 
@@ -2043,6 +2044,63 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
 		 	
 	 	}
  	}
+ 	
+ 	
+/**
+ * ----------------------------------------------------------------------------
+ *
+ *  Drop Down Menu Click Events
+ *
+ * ----------------------------------------------------------------------------
+ */
+ 
+ 	 $(".dropdownEnabled ul > li a").each(function() {
+	 	 
+	 	 var elem = $(this);
+	 	 var href = $(this).attr("href");
+	 	 var text = $(this).text();
+	 	 text = text + " Overview";
+	 	 var menuitem = $(this).next();
+	 	 
+	 	 var item = "<li><a href='"+href+"'>"+text+"</a><li>";
+	 	 var arrow = '<span class="arrow"><svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path class="lines" d="M14.83 16.42l9.17 9.17 9.17-9.17 2.83 2.83-12 12-12-12z"/><path d="M0-.75h48v48h-48z" fill="none"/></svg></span>';
+	 	 
+	 	 if($(menuitem).hasClass("children") || $(menuitem).hasClass("sub-menu")) {
+		 	 $(menuitem).prepend(item);
+		 	 $(elem).addClass("arrowOn").append(arrow);
+		 	 
+	 	 }
+	 	 
+	 	 
+	 	 
+	 	 
+ 	 });
+ 	 
+ 	 $(".dropdownEnabled .sub-menu a.arrowOn .arrow, .dropdownEnabled .children a.arrowOn .arrow").hide();
+ 
+	 $(".dropdownEnabled ul li > a").click(function(e) {
+		 
+		 var elem = $(this);
+		 
+		 if($(elem).next().hasClass("sub-menu") || $(elem).next().hasClass("children")) {
+		 
+			 e.preventDefault();
+			 e.stopPropagation();
+			 
+			 
+			 $(".dropdownEnabled ul.children, .dropdownEnabled ul.sub-menu").hide();
+			 
+			 $(this).next(".children").show();
+			 $(this).next(".sub-menu").show();
+		 
+		 }
+		 
+		 
+	 });
+	 
+	 
+ 
+ 	
  
 });
 

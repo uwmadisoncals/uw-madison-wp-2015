@@ -13,10 +13,10 @@
 		<li class="span-33">
 			<div class="spotlightImage box">
 				<?php if ( has_post_thumbnail() ) { ?>
-					  <?php the_post_thumbnail('medium'); ?>
+					  <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
 				<?php } 
 					else{ ?>
-						<img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg">
+						<a href="<?php the_permalink(); ?>"><img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg"></a>
 					<?php }
 				?>
 			</div>

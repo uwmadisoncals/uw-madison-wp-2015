@@ -138,10 +138,23 @@ var templateUrl = '<?php home_url(); ?>';
 				
 			</div>
 		
-			<nav id="site-navigation" class="main-navigation" role="navigation">
+			<nav id="site-navigation" class="main-navigation <?php $main_menu_dropdown = get_theme_mod( 'uw-madison-wp-2015_dropdowns_id' ); if($main_menu_dropdown == "enabled") { echo "dropdownEnabled"; } ?>" role="navigation">
 				<div class="site-navigation-container">
 					
-					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'depth' => 1 ) ); ?>
+					<?php 
+						
+						$main_menu_dropdown = get_theme_mod( 'uw-madison-wp-2015_dropdowns_id' );
+					
+						if($main_menu_dropdown == "enabled") {
+							
+							wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) );
+						
+						} else {
+							wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'depth' => 1 ) ); 
+						}
+						
+						
+						?>
 				</div>
 			</nav><!-- #site-navigation -->
 		
