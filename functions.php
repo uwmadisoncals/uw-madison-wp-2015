@@ -248,6 +248,85 @@ $wp_customize->add_section( 'uw-madison-wp-2015-header-options' , array(
     	'title'      => __( 'Header Options', 'uw-madison-wp-2015' ),
     	'priority'   => 60,
 	) ); 
+	
+$wp_customize->add_section( 'uw-madison-wp-2015-social-options' , array(
+    	'title'      => __( 'Social', 'uw-madison-wp-2015' ),
+    	'priority'   => 70,
+	) );
+	
+
+/*** Twitter ***/
+$wp_customize->add_setting('uw-madison-wp-2015_twitter_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => '',
+    'sanitize_callback' => 'sanitize_twitter_options'
+ 
+));
+
+ 
+$wp_customize->add_control('uw-madison-wp-2015-twitter', array(
+    'label'      => __('Twitter', 'uw-madison-wp-2015'),
+    'description'=> 'Enter your twitter username.',
+    'section'    => 'uw-madison-wp-2015-social-options',
+    'type'    => 'text',
+    'settings'   => 'uw-madison-wp-2015_twitter_id',
+));
+
+
+/*** Facebook ***/
+$wp_customize->add_setting('uw-madison-wp-2015_facebook_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => '',
+    'sanitize_callback' => 'sanitize_facebook_options'
+ 
+));
+
+ 
+$wp_customize->add_control('uw-madison-wp-2015-facebook', array(
+    'label'      => __('Facebook', 'uw-madison-wp-2015'),
+    'description'=> 'Enter your facebook username.',
+    'section'    => 'uw-madison-wp-2015-social-options',
+    'type'    => 'text',
+    'settings'   => 'uw-madison-wp-2015_facebook_id',
+)); 
+
+/*** LinkedIn ***/
+$wp_customize->add_setting('uw-madison-wp-2015_linkedin_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => '',
+    'sanitize_callback' => 'sanitize_linkedin_options'
+ 
+));
+
+ 
+$wp_customize->add_control('uw-madison-wp-2015-linkedin', array(
+    'label'      => __('LinkedIn', 'uw-madison-wp-2015'),
+    'description'=> 'Enter your linkedin username.',
+    'section'    => 'uw-madison-wp-2015-social-options',
+    'type'    => 'text',
+    'settings'   => 'uw-madison-wp-2015_linkedin_id',
+));
+
+/*** Youtube ***/
+$wp_customize->add_setting('uw-madison-wp-2015_youtube_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => '',
+    'sanitize_callback' => 'sanitize_youtube_options'
+ 
+));
+
+ 
+$wp_customize->add_control('uw-madison-wp-2015-youtube', array(
+    'label'      => __('Youtube', 'uw-madison-wp-2015'),
+    'description'=> 'Enter your youtube url.',
+    'section'    => 'uw-madison-wp-2015-social-options',
+    'type'    => 'text',
+    'settings'   => 'uw-madison-wp-2015_youtube_id',
+));
 
 
 $wp_customize->add_setting('uw-madison-wp-2015_options_id', array(
@@ -474,6 +553,34 @@ function sanitize_breadcrumbs_options( $value ) {
 function sanitize_header_slides_options( $value ) {
     if ( !$value )
         $value = 'shown';
+ 
+    return $value;
+}
+
+function sanitize_twitter_options( $value ) {
+    if ( !$value )
+        $value = '';
+ 
+    return $value;
+}
+
+function sanitize_facebook_options( $value ) {
+    if ( !$value )
+        $value = '';
+ 
+    return $value;
+}
+
+function sanitize_linkedin_options( $value ) {
+    if ( !$value )
+        $value = '';
+ 
+    return $value;
+}
+
+function sanitize_youtube_options( $value ) {
+    if ( !$value )
+        $value = '';
  
     return $value;
 }
@@ -1108,7 +1215,7 @@ if(function_exists("register_field_group"))
 		'title' => 'Page Options',
 		'fields' => array (
 			array (
-				'key' => 'field_564ea0a169947',
+				'key' => 'field_5661e83871c8c',
 				'label' => 'Hide the Side Navigation',
 				'name' => 'hide_the_side_navigation',
 				'type' => 'true_false',
@@ -1119,9 +1226,9 @@ if(function_exists("register_field_group"))
 		'location' => array (
 			array (
 				array (
-					'param' => 'page_template',
+					'param' => 'post_type',
 					'operator' => '==',
-					'value' => 'default',
+					'value' => 'page',
 					'order_no' => 0,
 					'group_no' => 0,
 				),

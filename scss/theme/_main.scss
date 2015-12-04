@@ -221,6 +221,19 @@ dl{
 	}
 }
 
+.page-template-page-featured_pages-php .hiddenSidebar .site-main .entry-header {
+	display: block;
+	
+	h1.entry-title {
+		text-align: center;
+		font-size: 1em;
+		font-weight: 700;
+		color: rgba(0,0,0,0.25);
+		text-transform: uppercase;
+		letter-spacing: 0.4px;
+	}
+}
+
 .site-header.sticky {
 	position: fixed;
 	

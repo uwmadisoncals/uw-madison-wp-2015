@@ -11,5 +11,60 @@ footer {
 	
 	a:hover,a:focus{
 		text-decoration: underline;
+	}
+	
+	
+	.site-info {
+		float: left;
+		width: 45%;
+		
+	}
+	
+	.footerWrapper {
+		max-width: $content-width-max;
+		margin: 0 auto;
 	}	
+	
+	.social {
+		float: right;
+		width: 45%;
+		text-align: right;
+		
+		ul {
+			list-style: none;
+			margin: 0px;
+			float: right;
+			
+			li {
+				list-style: none;
+				margin:0px;
+				padding: 0px;
+				display: block;
+				float: left;
+				width: 20px;
+				height: 20px;
+				
+				
+				a {
+					display: block;
+					
+					
+					svg {
+						width: 100%;
+						height: 100%;
+						
+						path {
+							fill: rgba(255,255,255,0.2);
+						}
+					}
+				}
+				
+				li.linkedin_social {
+					width: 30px;
+					height: 30px;
+				}
+				
+			}
+		}
+	}
 }
