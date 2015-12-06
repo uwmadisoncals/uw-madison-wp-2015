@@ -1393,6 +1393,14 @@ require get_template_directory() . '/inc/jetpack.php';
 
 require get_template_directory() . '/inc/comment-removal.php';
 
+/**
+ * Enables the Excerpt meta box in Page edit screen.
+ */
+function wpcodex_add_excerpt_support_for_pages() {
+	add_post_type_support( 'page', 'excerpt' );
+}
+add_action( 'init', 'wpcodex_add_excerpt_support_for_pages' );
+
 
 /**
  * Modifying TinyMCE editor to remove unused items.
@@ -1425,14 +1433,14 @@ add_action('admin_init', 'wpb_imagelink_setup', 10);
 
 
 /**** Replacing wp-updates.com for my own api ****/
-/*require_once('wp-updates-theme.php');
-new WPUpdatesThemeUpdater_1555( 'http://wp-updates.com/api/2/theme', basename( get_template_directory() ) );*/
+require_once('wp-updates-theme.php');
+new WPUpdatesThemeUpdater_1555( 'http://wp-updates.com/api/2/theme', basename( get_template_directory() ) );
 
 
 /**** My replacement API *****/
-require 'theme-update-checker.php';
+/*require 'theme-update-checker.php';
 $MyThemeUpdateChecker = new ThemeUpdateChecker(
 'madisonwp2015', //Theme slug. Usually the same as the name of its directory.
 'http://wpupdates.heroiccloud.com/?action=get_metadata&slug=madisonwp2015' //Metadata URL.
-);
+);*/
 
