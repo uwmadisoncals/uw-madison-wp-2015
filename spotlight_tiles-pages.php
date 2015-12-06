@@ -12,7 +12,7 @@ $post_object6 = get_field('featured_page_6');
 
 
 
-<section class="tiledSpotlight">
+<section class="tiledSpotlight tiledforpages">
 	<h1><span class="screen-reader-text">Check out the latest news and articles.</span></h1>
 	
 	

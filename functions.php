@@ -322,7 +322,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_youtube_id', array(
  
 $wp_customize->add_control('uw-madison-wp-2015-youtube', array(
     'label'      => __('Youtube', 'uw-madison-wp-2015'),
-    'description'=> 'Enter your youtube url.',
+    'description'=> 'Enter your youtube username.',
     'section'    => 'uw-madison-wp-2015-social-options',
     'type'    => 'text',
     'settings'   => 'uw-madison-wp-2015_youtube_id',

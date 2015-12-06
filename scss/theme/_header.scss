@@ -727,8 +727,25 @@
 	padding-top: 0px;
 }
 
+
+.main-navigation.dropdownEnabled {
+	.site-navigation-container {
+		ul.sub-menu, ul.children {
+			li {
+				a {
+					color: rgba(0,0,0,0.9);
+				}
+				a:hover {
+					color: rgba(255,255,255,0.9);
+				}
+			}
+		}
+	}	
+}
+
 ul.children, ul.sub-menu {
 	background: rgba(255,255,255,0.8);
+	
 }
 
 .main-navigation ul ul {

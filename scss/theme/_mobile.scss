@@ -96,11 +96,11 @@
 	}
 	
 	
-	.children {
+	.children, .sub-menu {
 		display: none;
 	}
 	
-	.page_item_has_children {
+	.page_item_has_children, .menu-item-has-children {
 		background: url("../images/nextarrow.svg") no-repeat;
 		background-position: 90% center;
 		background-size: auto 50%;

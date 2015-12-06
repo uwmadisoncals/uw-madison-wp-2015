@@ -1404,7 +1404,7 @@ $(window).click(function(e) {
 	//close your uw menu
 	$(".youruwmenu, .subLevel1, .subLevel2").removeClass("visible");
 	
-	$(".main-navigation ul li ul.children").hide();
+	$(".main-navigation ul li ul.children, .main-navigation ul li ul.sub-menu").hide();
 	
 });
 
@@ -1488,7 +1488,7 @@ $(".mobileTrigger, .menuOverlay").click(function(e) {
 }); 
 
 
-$(".mobileMenu li.page_item_has_children > a").click(function(e) {
+$(".mobileMenu li.page_item_has_children > a, .mobileMenu li.menu-item-has-children > a").click(function(e) {
 	e.preventDefault();
 	e.stopPropagation();
 	
@@ -1509,7 +1509,7 @@ $(".mobileMenu li.page_item_has_children > a").click(function(e) {
 		$(".mobileMenu .subLevel1").removeClass("visible");
 	});
 	
-	$(".mobileMenu .subLevel1 li.page_item_has_children > a").click(function(c) {
+	$(".mobileMenu .subLevel1 li.page_item_has_children > a, .mobileMenu .subLevel1 li.menu-item-has-children > a").click(function(c) {
 		c.preventDefault();
 		c.stopPropagation();
 		

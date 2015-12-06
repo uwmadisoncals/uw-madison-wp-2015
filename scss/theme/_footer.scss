@@ -2,7 +2,7 @@ footer {
 	background: #2f2f2f;
 	font-size: 11px;
 	padding: 1em;
-	padding-left: 7em;
+	padding-left: 1em;
 	
 	a, a:hover, a:focus, a:visited{
 		color: #9E9E9E !important;
@@ -28,6 +28,8 @@ footer {
 	.social {
 		float: right;
 		width: 45%;
+		height: 20px;
+		overflow: hidden;
 		text-align: right;
 		
 		ul {
@@ -59,12 +61,38 @@ footer {
 					}
 				}
 				
-				li.linkedin_social {
-					width: 30px;
-					height: 30px;
-				}
 				
 			}
+			
+			
+				li.linkedin_social {
+					position: relative;
+					top: -8px;
+					width: 34px;
+					height: 34px;
+					
+					a {
+						svg {
+							
+						}
+					}
+					
+				}
+				
+				li.youtube_social {
+					position: relative;
+					top: 4px;
+					width: 17px;
+					height: 17px;
+				}
+				
+				li.facebook_social {
+					position: relative;
+					top: 1px;
+					left: 3px;  
+					width: 16px;
+					height: 16px;
+				}
 		}
 	}
 }

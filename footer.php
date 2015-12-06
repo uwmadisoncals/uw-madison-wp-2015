@@ -28,7 +28,7 @@
 				
 				<?php $facebook = get_theme_mod( 'uw-madison-wp-2015_facebook_id' );
 					if($facebook != "") { ?>
-						<li><a href="http://facebook.com/<?php echo $facebook ?>" class="facebook_social"><svg enable-background="new 0 0 56.693 56.693" height="56.693px" id="Layer_1" version="1.1" viewBox="0 0 56.693 56.693" width="56.693px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M40.43,21.739h-7.645v-5.014c0-1.883,1.248-2.322,2.127-2.322c0.877,0,5.395,0,5.395,0V6.125l-7.43-0.029  c-8.248,0-10.125,6.174-10.125,10.125v5.518h-4.77v8.53h4.77c0,10.947,0,24.137,0,24.137h10.033c0,0,0-13.32,0-24.137h6.77  L40.43,21.739z"/></svg></a></li>
+						<li class="facebook_social"><a href="http://facebook.com/<?php echo $facebook ?>" class="facebook_social"><svg enable-background="new 0 0 56.693 56.693" height="56.693px" id="Layer_1" version="1.1" viewBox="0 0 56.693 56.693" width="56.693px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M40.43,21.739h-7.645v-5.014c0-1.883,1.248-2.322,2.127-2.322c0.877,0,5.395,0,5.395,0V6.125l-7.43-0.029  c-8.248,0-10.125,6.174-10.125,10.125v5.518h-4.77v8.53h4.77c0,10.947,0,24.137,0,24.137h10.033c0,0,0-13.32,0-24.137h6.77  L40.43,21.739z"/></svg></a></li>
 					<?php } ?>
 					
 					
@@ -40,7 +40,7 @@
 					
 				<?php $youtube = get_theme_mod( 'uw-madison-wp-2015_youtube_id' );
 					if($youtube != "") { ?>
-						<li><a href="http://www.youtube.com/user/<?php echo $youtube ?>" class="youtube_social"><svg height="16px" version="1.1" viewBox="0 0 20 16" width="20px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill="#000000" id="Icons-AV" transform="translate(-42.000000, -171.000000)"><g id="video-youtube" transform="translate(42.000000, 171.000000)"><path d="M18,0.4 C17.4,0.2 13.7,0 10,0 C6.3,0 2.6,0.2 2,0.4 C0.4,0.9 0,4.4 0,8 C0,11.6 0.4,15.1 2,15.6 C2.6,15.8 6.3,16 10,16 C13.7,16 17.4,15.8 18,15.6 C19.6,15.1 20,11.6 20,8 C20,4.4 19.6,0.9 18,0.4 L18,0.4 Z M8,12.5 L8,3.5 L14,8 L8,12.5 L8,12.5 Z" id="Shape"/></g></g></g></svg></a></li>
+						<li class="youtube_social"><a href="http://www.youtube.com/user/<?php echo $youtube ?>" class="youtube_social"><svg height="16px" version="1.1" viewBox="0 0 20 16" width="20px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill="#000000" id="Icons-AV" transform="translate(-42.000000, -171.000000)"><g id="video-youtube" transform="translate(42.000000, 171.000000)"><path d="M18,0.4 C17.4,0.2 13.7,0 10,0 C6.3,0 2.6,0.2 2,0.4 C0.4,0.9 0,4.4 0,8 C0,11.6 0.4,15.1 2,15.6 C2.6,15.8 6.3,16 10,16 C13.7,16 17.4,15.8 18,15.6 C19.6,15.1 20,11.6 20,8 C20,4.4 19.6,0.9 18,0.4 L18,0.4 Z M8,12.5 L8,3.5 L14,8 L8,12.5 L8,12.5 Z" id="Shape"/></g></g></g></svg></a></li>
 					<?php } ?>
 			</ul>
 		</div>
