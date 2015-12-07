@@ -878,12 +878,13 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
  	 
  	 $(".dropdownEnabled .sub-menu a.arrowOn .arrow, .dropdownEnabled .children a.arrowOn .arrow").hide();
  
-	 $(".dropdownEnabled ul li > a").click(function(e) {
+	 $(".dropdownEnabled ul li a").click(function(e) {
 		 
 		 var elem = $(this);
 		 
-		 if($(elem).next().hasClass("sub-menu") || $(elem).next().hasClass("children")) {
+		 if($(elem).closest('ul').hasClass("sub-menu") || $(elem).closest('ul').hasClass("children")) {
 		 
+		 } else {
 			 e.preventDefault();
 			 e.stopPropagation();
 			 
