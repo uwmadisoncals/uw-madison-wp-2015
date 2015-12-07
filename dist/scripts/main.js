@@ -1284,14 +1284,7 @@ FastClick.attach(document.body);
  });
  
  
- $("a.button").touchstart(function() {
-	$(this).addClass("pressed"); 
- });
- 
-  $("a.button").touchend(function() {
-	$(this).removeClass("pressed"); 
- });
- 
+
 
 /**
  * ----------------------------------------------------------------------------
