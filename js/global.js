@@ -46,6 +46,33 @@ if(getInternetExplorerVersion() != "-1") {
  
 FastClick.attach(document.body);
 
+
+/**
+ * ----------------------------------------------------------------------------
+ *
+ *  Button Pressed GUI Actions
+ *
+ * ----------------------------------------------------------------------------
+ */
+ 
+ $("a.button").mousedown(function() {
+	$(this).addClass("pressed"); 
+ });
+ 
+  $("a.button").mouseup(function() {
+	$(this).removeClass("pressed"); 
+ });
+ 
+ 
+ $("a.button").touchstart(function() {
+	$(this).addClass("pressed"); 
+ });
+ 
+  $("a.button").touchend(function() {
+	$(this).removeClass("pressed"); 
+ });
+ 
+
 /**
  * ----------------------------------------------------------------------------
  *
