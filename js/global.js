@@ -846,6 +846,31 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
  	}
  	
  	
+ 	
+ 	if($("body").hasClass("page")) {
+	 	if($("#primary").hasClass("heroImage")) {
+		 	$(window).scroll(function() {
+			 	var galleryHeight = $(".heroWatermark").height();
+			 	var scrollTop = $(window).scrollTop();
+			 	var galleryCutOff = galleryHeight * .4;
+			 	
+			 	if((scrollTop < galleryHeight)) {
+				 	
+				 	var percentageBlur = ((galleryHeight/scrollTop)-1);
+				 	var blurValue = percentageBlur;
+				 	var blurStr = "opacity: "+blurValue+"; -webkit-opacity: "+blurValue+"; ";
+				 	
+				 	$(".heroWatermark").attr("style",blurStr); 
+			 	} else {
+				 	var blurStr = "opacity: 0; -webkit-opacity: 0;";
+				 	$(".heroWatermark").attr("style",blurStr); 
+			 	}
+		 	});
+		 	
+	 	}
+ 	}
+ 	
+ 	
 /**
  * ----------------------------------------------------------------------------
  *

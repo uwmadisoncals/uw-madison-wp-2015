@@ -834,6 +834,39 @@ add_theme_support( 'custom-header', $defaults );
 if(function_exists("register_field_group"))
 {
 	register_field_group(array (
+		'id' => 'acf_page-hero-images',
+		'title' => 'Page Hero Images',
+		'fields' => array (
+			array (
+				'key' => 'field_566743c4528dc',
+				'label' => 'Hero Image',
+				'name' => 'hero_image_pages',
+				'type' => 'image',
+				'save_format' => 'id',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'page',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'side',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
 		'id' => 'acf_page-layout-options',
 		'title' => 'Page Layout Options',
 		'fields' => array (
