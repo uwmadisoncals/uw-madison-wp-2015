@@ -882,17 +882,26 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
 		 
 		 var elem = $(this);
 		 
-		 if($(elem).closest('ul').hasClass("sub-menu") || $(elem).closest('ul').hasClass("children")) {
 		 
+		 
+		 if( $(elem).closest('ul').hasClass("sub-menu") || $(elem).closest('ul').hasClass("children") ) {
+		 	
 		 } else {
-			 e.preventDefault();
-			 e.stopPropagation();
 			 
-			 
-			 $(".dropdownEnabled ul.children, .dropdownEnabled ul.sub-menu").hide();
-			 
-			 $(this).next(".children").show();
-			 $(this).next(".sub-menu").show();
+			 if($(elem).closest("li").hasClass("page_item_has_children") || $(elem).closest("li").hasClass("menu-item-has-children")) {
+				
+				 e.preventDefault();
+				 e.stopPropagation();
+				 
+				 
+				 $(".dropdownEnabled ul.children, .dropdownEnabled ul.sub-menu").hide();
+				 
+				 $(this).next(".children").show();
+				 $(this).next(".sub-menu").show();
+			
+			} else { 
+				//follow link normally
+			}
 		 
 		 }
 		 

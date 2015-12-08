@@ -777,7 +777,7 @@ ul.children, ul.sub-menu {
 	
 		svg {
 			width: 100%;
-			height: auto;
+			height: 100%;
 			
 			path.lines {
 				fill: rgba(0,0,0,0.9);
@@ -789,7 +789,7 @@ ul.children, ul.sub-menu {
 	ul li a:hover .arrow, ul li a:active .arrow {
 		svg {
 			width: 100%;
-			height: auto;
+			height: 100%;
 			
 			path.lines {
 				fill: rgba(255,255,255,0.9);
