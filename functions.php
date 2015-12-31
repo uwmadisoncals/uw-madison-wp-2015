@@ -1377,6 +1377,17 @@ function uw_madison_wp_2015_widgets_init() {
 }
 add_action( 'widgets_init', 'uw_madison_wp_2015_widgets_init' );
 
+
+
+
+if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
+function my_jquery_enqueue() {
+   wp_deregister_script('jquery');
+   wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js", false, null);
+   wp_enqueue_script('jquery');
+}
+
+
 /**
  * Enqueue scripts and styles.
  */
@@ -1384,6 +1395,8 @@ function uw_madison_wp_2015_scripts() {
 	wp_enqueue_style( 'uw-madison-wp-2015-style', get_stylesheet_uri() );
 	
 	wp_enqueue_style( 'uw-madison-wp-2015-mainstyles', get_template_directory_uri().'/dist/styles/master.min.css' );
+	
+	
 
 	wp_enqueue_script( 'uw-madison-wp-2015-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 	
