@@ -48,7 +48,10 @@
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
+
 <?php wp_footer(); ?>
+
+<?php include("footer_include.php"); ?>
 
 </body>
 </html>

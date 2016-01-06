@@ -16,7 +16,10 @@
 <script type="text/javascript">
 var templateUrl = '<?php home_url(); ?>';
 </script>
+
 <?php wp_head(); ?>
+
+<?php include("header_include.php"); ?>
 </head>
 
 <body <?php body_class(); ?>>
