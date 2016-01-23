@@ -70,6 +70,65 @@
 	}
 }
 
+.home .rightHandNav .site-header .main-navigation {
+	
+}
+
+.rightHandNav {
+	
+	
+	
+	.site-header {
+		.noimageLogo {
+			padding-top: 20px;	
+		}
+		
+		.search-youruw {
+			display: block;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			right: 0px;
+			z-index:1;
+			background: $uwred;
+			
+			.youruwGroup {
+				float: right;
+			}
+		}
+		
+		.main-navigation {
+			position: absolute;
+			top: 50%;
+			right: 0px;
+			max-width: 60%;
+			background: transparent !important;
+			
+			ul.menu {
+				float: right;
+				
+				li {
+					a {
+						color: rgba(255,255,255,0.9) !important;
+						font-weight: 400;
+						padding-left: 0px;
+						padding-right: 0px;
+						margin-left: 1.1em;
+						margin-right: 1.1em;
+						text-shadow: 0px 3px 7px rgba(0,0,0,0.5);
+					}
+					
+					a:hover {
+						background: transparent !important;
+						border-bottom: 3px solid rgba(255,255,255,0.9);
+					}
+				}
+			}
+		}
+		
+	}
+}
+
 .site-header {
 	.logo-search-container.noimage {
 		height: 75px;

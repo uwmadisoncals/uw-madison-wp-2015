@@ -34,6 +34,131 @@
 	}
 }
 
+/*********************/
+/***** Fade Up *******/
+/*********************/
+
+@keyframes fadeup {
+	0% {
+		transform: translate3d(0px, 100px, 0px);
+		opacity: 0;
+	}
+	
+	100% {
+		transform: translate3d(0px, 0px, 0px);
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeup {
+	0% {
+		-webkit-transform: translate3d(0px, 100px, -0px);
+		opacity: 0;
+	}
+	
+	100% {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes fadeup {
+	0% {
+		-moz-transform: translate3d(0px, 100px, 0px);
+		opacity: 0;
+	}
+	
+	100% {
+		-moz-transform: translate3d(0px, 0px, 0px);
+		opacity: 1;
+	}
+}
+
+
+
+/*********************/
+/*** Fade From Left ***/
+/*********************/
+
+@keyframes fadefromleft {
+	0% {
+		transform: translate3d(-100px, 0px, 0px);
+		opacity: 0;
+	}
+	
+	100% {
+		transform: translate3d(0px, 0px, 0px);
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadefromleft {
+	0% {
+		-webkit-transform: translate3d(-100px, 0px, -0px);
+		opacity: 0;
+	}
+	
+	100% {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes fadefromleft {
+	0% {
+		-moz-transform: translate3d(-100px, 0px, 0px);
+		opacity: 0;
+	}
+	
+	100% {
+		-moz-transform: translate3d(0px, 0px, 0px);
+		opacity: 1;
+	}
+}
+
+
+/*********************/
+/*** Fade From Right ***/
+/*********************/
+
+@keyframes fadefromright {
+	0% {
+		transform: translate3d(100px, 0px, 0px);
+		opacity: 0;
+	}
+	
+	100% {
+		transform: translate3d(0px, 0px, 0px);
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadefromright {
+	0% {
+		-webkit-transform: translate3d(100px, 0px, -0px);
+		opacity: 0;
+	}
+	
+	100% {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes fadefromright {
+	0% {
+		-moz-transform: translate3d(100px, 0px, 0px);
+		opacity: 0;
+	}
+	
+	100% {
+		-moz-transform: translate3d(0px, 0px, 0px);
+		opacity: 1;
+	}
+}
+
+
+
 a:link, a:visited {
 		text-decoration: none;
 		color: $blue;
@@ -423,7 +548,117 @@ dl{
 }
 
 
+.home #main .pagePadding > article {
+		animation: fadefromleft 0.6s forwards;
+		animation-iteration-count: 1;
+		animation-delay: 0.2s;
+		-webkit-animation: fadefromleft 0.6s forwards;
+		-webkit-animation-iteration-count: 1;
+		-webkit-animation-delay: 0.2s;
+		-moz-animation: fadefromleft 0.6s forwards;
+		-moz-animation-iteration-count: 1;
+		-moz-animation-delay: 0.2s;
+		
+		opacity: 0;
+}
 
+.home #main .pagePadding > section {
+		animation: fadefromright 0.6s forwards;
+		animation-iteration-count: 1;
+		animation-delay: 0.4s;
+		-webkit-animation: fadefromright 0.6s forwards;
+		-webkit-animation-iteration-count: 1;
+		-webkit-animation-delay: 0.4s;
+		-moz-animation: fadefromright 0.6s forwards;
+		-moz-animation-iteration-count: 1;
+		-moz-animation-delay: 0.4s;
+		
+		opacity: 0;
+}
+
+.grid > div:nth-child(1) {
+		animation: fadeup 0.6s forwards;
+		animation-iteration-count: 1;
+		animation-delay: 0.1s;
+		-webkit-animation: fadeup 0.6s forwards;
+		-webkit-animation-iteration-count: 1;
+		-webkit-animation-delay: 0.1s;
+		-moz-animation: fadeup 0.6s forwards;
+		-moz-animation-iteration-count: 1;
+		-moz-animation-delay: 0.1s;
+		
+		opacity: 0;
+}
+
+.grid > div:nth-child(2) {
+		animation: fadeup 0.6s forwards;
+		animation-iteration-count: 1;
+		animation-delay: 0.4s;
+		-webkit-animation: fadeup 0.6s forwards;
+		-webkit-animation-iteration-count: 1;
+		-webkit-animation-delay: 0.4s;
+		-moz-animation: fadeup 0.6s forwards;
+		-moz-animation-iteration-count: 1;
+		-moz-animation-delay: 0.4s;
+		
+		opacity: 0;
+}
+
+.grid > div:nth-child(3) {
+		animation: fadeup 0.6s forwards;
+		animation-iteration-count: 1;
+		animation-delay: 0.6s;
+		-webkit-animation: fadeup 0.6s forwards;
+		-webkit-animation-iteration-count: 1;
+		-webkit-animation-delay: 0.6s;
+		-moz-animation: fadeup 0.6s forwards;
+		-moz-animation-iteration-count: 1;
+		-moz-animation-delay: 0.6s;
+		
+		opacity: 0;
+}
+
+.grid > div:nth-child(4) {
+		animation: fadeup 0.6s forwards;
+		animation-iteration-count: 1;
+		animation-delay: 0.8s;
+		-webkit-animation: fadeup 0.6s forwards;
+		-webkit-animation-iteration-count: 1;
+		-webkit-animation-delay: 0.8s;
+		-moz-animation: fadeup 0.6s forwards;
+		-moz-animation-iteration-count: 1;
+		-moz-animation-delay: 0.8s;
+		
+		opacity: 0;
+}
+
+.grid > div:nth-child(5) {
+		animation: fadeup 0.6s forwards;
+		animation-iteration-count: 1;
+		animation-delay: 1s;
+		-webkit-animation: fadeup 0.6s forwards;
+		-webkit-animation-iteration-count: 1;
+		-webkit-animation-delay: 1s;
+		-moz-animation: fadeup 0.6s forwards;
+		-moz-animation-iteration-count: 1;
+		-moz-animation-delay: 1s;
+		
+		opacity: 0;
+}
+
+.grid > div {
+		animation: fadeup 0.6s forwards;
+		animation-iteration-count: 1;
+		animation-delay: 1.2s;
+		-webkit-animation: fadeup 0.6s forwards;
+		-webkit-animation-iteration-count: 1;
+		-webkit-animation-delay: 1.2s;
+		-moz-animation: fadeup 0.6s forwards;
+		-moz-animation-iteration-count: 1;
+		-moz-animation-delay: 1.2s;
+		
+		opacity: 0;
+}
 
 .site-content{
 	margin: 0px;

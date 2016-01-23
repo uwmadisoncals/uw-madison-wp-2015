@@ -196,6 +196,144 @@ document.getElementById("circlesLayout").setAttribute("class", "");  });
 }
 
 
+/**
+ * Class to create a custom header layout control
+ */
+class Header_Layout_Picker_Custom_Control extends WP_Customize_Control
+{
+      /**
+       * Render the content on the theme customizer page
+       */
+      public $type = 'layout';
+       
+      public function render_content()
+       {
+            ?>
+            	<style>
+	            	.layoutClear {
+		            	clear: both;
+	            	}
+	            	
+	            	ul.layoutOptions label {
+		            	
+		            	margin-right: 6px;
+		            	margin-bottom: 6px;
+		            	display: block;
+		            	box-sizing: border-box;
+		            	-webkit-box-sizing: border-box;
+		            	-moz-box-sizing: border-box;
+		            	width: 100%;
+		            	border: 1px solid rgba(0,0,0,0.1);
+		            	height: auto;
+		            	border-radius: 3px;
+		            	background: transparent;
+		            	
+	            	}
+	            	
+	            	ul.layoutOptions label span {
+		            	display: block;
+		            	background: rgba(0,0,0,0.18);
+		            	padding: 10px;
+	            	}
+	            	
+	            	ul.layoutOptions label.layoutSelected {
+		            	border: 1px solid #C2242A;
+	            	}
+	            	
+	            	ul.layoutOptions label.layoutSelected span {
+		            	background: #C2242A;
+		            	color: #fff;
+		            	font-weight: bold;
+		            }
+	            	
+	            	.layoutOption {
+		            	display:block;
+		            	
+		            	
+		            	font-size: 11px;
+		            	
+	            	}
+	            	
+	            	.layoutIcon {
+		            	padding: 16px;
+	            	}
+	            	
+	            	.layoutIcon svg {
+		            	width: 100%;
+		            	
+	            	}
+	            </style>
+            
+                <label>
+                  <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+                 </label>
+                  
+                  <ul class="layoutOptions">
+                    <label id="navbarLayout" for="<?php echo $this->id; ?>[navbar]" class="layoutOption"><span>Navigation Bar</span><div class="layoutIcon"><svg width="84px" height="24px" viewBox="0 0 84 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
+    <title>circles</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-426.000000, -322.000000)" fill="#D8D8D8">
+            <g id="circles" sketch:type="MSLayerGroup" transform="translate(426.000000, 322.000000)">
+                <circle id="Oval-1" sketch:type="MSShapeGroup" cx="12" cy="12" r="12"></circle>
+                <circle id="Oval-1-Copy" sketch:type="MSShapeGroup" cx="42" cy="12" r="12"></circle>
+                <circle id="Oval-1-Copy-2" sketch:type="MSShapeGroup" cx="72" cy="12" r="12"></circle>
+            </g>
+        </g>
+    </g>
+</svg></div><input type="radio" style="display: none;" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[navbar]" value="navbar" <?php $this->link(); ?> /></label>
+                   <label id="righthandLayout" for="<?php echo $this->id; ?>[righthand]" class="layoutOption"><span>Anchored Right Nav</span><div class="layoutIcon"><svg width="83px" height="66px" viewBox="0 0 83 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
+    <title>tiles</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-426.000000, -378.000000)" fill="#D8D8D8">
+            <g id="tiles" sketch:type="MSLayerGroup" transform="translate(426.000000, 378.000000)">
+                <rect id="Rectangle-1" sketch:type="MSShapeGroup" x="0" y="0" width="24" height="31"></rect>
+                <rect id="Rectangle-1-Copy-4" sketch:type="MSShapeGroup" x="59" y="40" width="24" height="24"></rect>
+                <rect id="Rectangle-1-Copy-2" sketch:type="MSShapeGroup" x="29" y="0" width="24" height="52"></rect>
+                <rect id="Rectangle-1-Copy" sketch:type="MSShapeGroup" x="0" y="35" width="24" height="31"></rect>
+                <rect id="Rectangle-1-Copy-3" sketch:type="MSShapeGroup" x="59" y="0" width="24" height="36"></rect>
+            </g>
+        </g>
+    </g>
+</svg></div><input type="radio" style="display: none;" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[righthand]" value="righthand" <?php $this->link(); ?> /></label>
+                    
+            
+                  </ul>
+                  <div class="layoutClear"></div>
+                
+                
+                <script>
+	                
+	            if(document.getElementById('uw-madison-wp-2015-header-layout-control[navbar]').checked) {
+		            document.getElementById('uw-madison-wp-2015-header-layout-control[navbar]').parentNode.setAttribute("class", "layoutSelected");
+		        }
+		        
+		        if(document.getElementById('uw-madison-wp-2015-header-layout-control[righthand]').checked) {
+		            document.getElementById('uw-madison-wp-2015-header-layout-control[righthand]').parentNode.setAttribute("class", "layoutSelected");
+		        }
+		        
+		        
+	                
+				document.getElementById("navbarLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected");  
+document.getElementById("righthandLayout").setAttribute("class", ""); 					 });
+				
+				
+				
+				document.getElementById("righthandLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected"); 
+document.getElementById("navbarLayout").setAttribute("class", "");  });
+				
+				
+				</script>
+            <?php
+       }
+}
+
+
 
 class WP_Customize_Layout_Control extends WP_Customize_Control {
 		public $type = 'textarea';
@@ -356,6 +494,16 @@ $wp_customize->add_setting('uw-madison-wp-2015_layout_id', array(
 ));
 
 
+//Header Layout Options
+$wp_customize->add_setting('uw-madison-wp-2015_header_layout_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => 'navbar',
+    'sanitize_callback' => 'sanitize_header_layout'
+ 
+));
+
+
 $wp_customize->add_setting('uw-madison-wp-2015_header_style_options_id', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'theme_mod',
@@ -487,6 +635,17 @@ $wp_customize->add_control( new Layout_Picker_Custom_Control(
 ));
 
 
+$wp_customize->add_control( new Header_Layout_Picker_Custom_Control( 
+	$wp_customize, 
+	'uw-madison-wp-2015-header-layout-control', 
+	array(
+		'label'	=> __( 'Header Layout', 'uw-madison-wp-2015' ),
+		'section' => 'uw-madison-wp-2015-header-options',
+		'settings' => 'uw-madison-wp-2015_header_layout_id',
+	) 
+));
+
+
 
 // Adding option to choose simple or expanded sidebar nav
 $wp_customize->add_section( 'uw-madison-wp-2015-sidebar-options' , array(
@@ -588,6 +747,13 @@ function sanitize_youtube_options( $value ) {
 function sanitize_home_layout( $value ) {
     if ( !$value )
         $value = 'circles';
+ 
+    return $value;
+}
+
+function sanitize_header_layout( $value ) {
+    if ( !$value )
+        $value = 'navbar';
  
     return $value;
 }

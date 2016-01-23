@@ -29,7 +29,7 @@ var templateUrl = '<?php home_url(); ?>';
 <div class="mobileMenu"><h2 class="mobileTitle">Menu</h2><?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?><div class="subLevel1"></div><div class="subLevel2"></div></div>
 <div class="menuOverlay"></div>
 
-<div id="page" class="hfeed site <?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { echo "hiddenSlides"; } else { echo "visibleSlides"; } ?> <?php $header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' ); if($header_style == "opaque") { echo "solidHeader"; } else { echo "transparentHeader"; } ?> <?php $home_layout_settings = get_theme_mod( 'uw-madison-wp-2015_layout_id' ); if($home_layout_settings == "tiles") { echo "tiledPosts"; } ?> <?php if( get_field('hide_the_side_navigation')) { echo "hiddenSidebar"; } ?>">
+<div id="page" class="hfeed site <?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { echo "hiddenSlides"; } else { echo "visibleSlides"; } ?> <?php $header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' ); if($header_style == "opaque") { echo "solidHeader"; } else { echo "transparentHeader"; } ?> <?php $home_layout_settings = get_theme_mod( 'uw-madison-wp-2015_layout_id' ); if($home_layout_settings == "tiles") { echo "tiledPosts"; } ?> <?php $header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' ); if($header_layout_settings == "righthand") { echo "rightHandNav"; } else { echo "navBar"; } ?> <?php if( get_field('hide_the_side_navigation')) { echo "hiddenSidebar"; } ?>">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'uw-madison-wp-2015' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
@@ -88,33 +88,34 @@ var templateUrl = '<?php home_url(); ?>';
 				
 				
 				<div class="search-youruw">
-					
-					<div class="youruw">
-						<a href="#" class="youruwTrigger"><?php
-							$menu_location = 'youruw';
-							$menu_locations = get_nav_menu_locations();
-							$menu_object = (isset($menu_locations[$menu_location]) ? wp_get_nav_menu_object($menu_locations[$menu_location]) : null);
-							$menu_name = (isset($menu_object->name) ? $menu_object->name : '');
-							
-							if($menu_name) {
-							
-							echo esc_html($menu_name);
-							
-							} else {
-								echo "Your UW";
-							}
-						?></a>
-						<div class="youruwmenu">
-							<?php if ( has_nav_menu( 'youruw' ) ) { ?>
-							<?php wp_nav_menu( array( 'theme_location' => 'youruw' ) ); ?>
-							<?php } else { ?>
-									<ul>
-										<li><a href="http://wisc.edu">UW-Madison</a></li>
-										<li><a href="http://my.wisc.edu">My UW</a></li>
-										<li><a href="http://map.wisc.edu">Campus Map</a></li>
-									</ul>
-							<?php } ?>
-						</div>
+						<div class="youruwGroup">
+						<div class="youruw">
+							<a href="#" class="youruwTrigger"><?php
+								$menu_location = 'youruw';
+								$menu_locations = get_nav_menu_locations();
+								$menu_object = (isset($menu_locations[$menu_location]) ? wp_get_nav_menu_object($menu_locations[$menu_location]) : null);
+								$menu_name = (isset($menu_object->name) ? $menu_object->name : '');
+								
+								if($menu_name) {
+								
+								echo esc_html($menu_name);
+								
+								} else {
+									echo "Your UW";
+								}
+							?></a>
+							<div class="youruwmenu">
+								<?php if ( has_nav_menu( 'youruw' ) ) { ?>
+								<?php wp_nav_menu( array( 'theme_location' => 'youruw' ) ); ?>
+								<?php } else { ?>
+										<ul>
+											<li><a href="http://wisc.edu">UW-Madison</a></li>
+											<li><a href="http://my.wisc.edu">My UW</a></li>
+											<li><a href="http://map.wisc.edu">Campus Map</a></li>
+										</ul>
+								<?php } ?>
+							</div>
+						
 					</div>
 					
 					<div class="search"><a href="#" class="searchTrigger">
@@ -137,7 +138,7 @@ var templateUrl = '<?php home_url(); ?>';
 </svg></a></div>
 					
 				</div>
-				
+				</div>
 				
 			</div>
 		
