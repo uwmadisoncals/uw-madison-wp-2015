@@ -74,13 +74,39 @@
 	
 }
 
+.admin-bar .rightHandNav {
+ 	.site-header {
+	 	.main-navigation { 
+			top: -50px; 	
+		 }
+	 	
+	 	.search-youruw {
+			top: 30px;
+		}
+	}
+}
+
 .rightHandNav {
 	
+	.logo-search-container.noimage .site-branding {
+		padding-top: 50px;	
+	}
 	
+	.site-header .logo-search-container.noimage {
+		height: 125px;
+	}
 	
 	.site-header {
 		.noimageLogo {
-			padding-top: 20px;	
+			
+		}
+		
+		.site-branding {
+			padding-top: 60px;
+			
+			.mobileTrigger {
+				top: 76px;
+			}
 		}
 		
 		.search-youruw {
@@ -90,18 +116,56 @@
 			left: 0px;
 			right: 0px;
 			z-index:1;
+			height: 35px;
+			
 			background: $uwred;
+			transform: translateY(0%);
+			
+			.search-youruw-container {
+				max-width: $content-width-max;
+				margin: 0 auto;	
+			}
 			
 			.youruwGroup {
 				float: right;
+				
+				.youruw {
+					a {
+						font-size: 11px;
+					}
+					
+					
+				}
+				
+				.search {
+						.searchTrigger {
+							width: 16px;
+							height: 16px;
+							top: 46%;
+							
+							svg {
+								
+							}
+						}
+					}
 			}
+			
+		}
+		
+		.main-navigation-container {
+			position: relative;
+			max-width: $content-width-max;
+			margin: 0 auto;	
+			margin-top: 0px;
+			
 		}
 		
 		.main-navigation {
 			position: absolute;
-			top: 50%;
+			top: -50px;
 			right: 0px;
 			max-width: 60%;
+			
 			background: transparent !important;
 			
 			ul.menu {
@@ -113,12 +177,15 @@
 						font-weight: 400;
 						padding-left: 0px;
 						padding-right: 0px;
+						padding-bottom: 0.5em;
+						padding-top: 0.5em;
 						margin-left: 1.1em;
 						margin-right: 1.1em;
-						text-shadow: 0px 3px 7px rgba(0,0,0,0.5);
+						text-shadow: 0px 3px 11px rgba(0,0,0,0.3);
+						
 					}
 					
-					a:hover {
+					a:hover, a:active, a:focus {
 						background: transparent !important;
 						border-bottom: 3px solid rgba(255,255,255,0.9);
 					}
@@ -889,6 +956,21 @@ ul.children, ul.sub-menu {
 	
 	#masthead.site-header {
 		background-color: #C2242A;
+	}
+	
+	.rightHandNav {
+	
+		.logo-search-container.noimage .site-branding {
+			padding-top: 30px;	
+			
+			.mobileTrigger {
+				top: 40px;
+			}
+		}
+		
+		.site-header .logo-search-container.noimage {
+			height: 35px;
+		}
 	}
 }
 

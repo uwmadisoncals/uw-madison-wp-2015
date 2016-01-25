@@ -398,6 +398,10 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
 	  $grid.isotope('layout');
 	});
 
+  /*$(window).resize(function() {
+	 $grid.isotope('layout');
+	 
+  });*/
 
 
 /**

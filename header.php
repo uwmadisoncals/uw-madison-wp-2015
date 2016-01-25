@@ -33,7 +33,151 @@ var templateUrl = '<?php home_url(); ?>';
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'uw-madison-wp-2015' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<?php $header_image = get_header_image();
+		
+		<?php $header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' ); 
+				if($header_layout_settings == "righthand") { ?>
+				 	<!-- uses righthand nav -->
+				 	
+				 	<div class="search-youruw">
+					 	<div class="search-youruw-container">
+						<div class="youruwGroup">
+						<div class="youruw">
+							<a href="#" class="youruwTrigger"><?php
+								$menu_location = 'youruw';
+								$menu_locations = get_nav_menu_locations();
+								$menu_object = (isset($menu_locations[$menu_location]) ? wp_get_nav_menu_object($menu_locations[$menu_location]) : null);
+								$menu_name = (isset($menu_object->name) ? $menu_object->name : '');
+								
+								if($menu_name) {
+								
+								echo esc_html($menu_name);
+								
+								} else {
+									echo "Your UW";
+								}
+							?></a>
+							<div class="youruwmenu">
+								<?php if ( has_nav_menu( 'youruw' ) ) { ?>
+								<?php wp_nav_menu( array( 'theme_location' => 'youruw' ) ); ?>
+								<?php } else { ?>
+										<ul>
+											<li><a href="http://wisc.edu">UW-Madison</a></li>
+											<li><a href="http://my.wisc.edu">My UW</a></li>
+											<li><a href="http://map.wisc.edu">Campus Map</a></li>
+										</ul>
+								<?php } ?>
+							</div>
+						
+					</div>
+					
+					<div class="search"><a href="#" class="searchTrigger">
+						<svg width="19px" height="19px" aria-label="Open Search" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+   
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop-HD-Alt" sketch:type="MSArtboardGroup" transform="translate(-1242.000000, -34.000000)" fill="#FFFFFF">
+            <g id="satellite-nav" sketch:type="MSLayerGroup" transform="translate(1141.000000, 26.000000)">
+                <g id="1427843142_common_search_lookup_" transform="translate(101.000000, 8.000000)" sketch:type="MSShapeGroup">
+                    <g id="miu">
+                        <g id="common_search_lookup_glyph">
+                            <path d="M13.3667388,11.5346894 C14.1956945,10.3458308 14.6818182,8.90014012 14.6818182,7.34090909 C14.6818182,3.28663675 11.3951814,0 7.34090909,0 C3.28663675,0 0,3.28663675 0,7.34090909 C0,11.3951814 3.28663675,14.6818182 7.34090909,14.6818182 C8.89990029,14.6818182 10.3453862,14.195844 11.5341409,13.3671211 L11.5346339,13.3666833 L16.9786009,18.8106502 C17.0795394,18.9115888 17.2400871,18.9146947 17.3437279,18.8110538 L18.8110538,17.3437279 C18.9117694,17.2430123 18.9070875,17.0750381 18.8106502,16.9786009 L13.3667388,11.5346894 L13.3667388,11.5346894 Z M7.34090909,12.9545455 C10.441235,12.9545455 12.9545455,10.441235 12.9545455,7.34090909 C12.9545455,4.24058318 10.441235,1.72727273 7.34090909,1.72727273 C4.24058318,1.72727273 1.72727273,4.24058318 1.72727273,7.34090909 C1.72727273,10.441235 4.24058318,12.9545455 7.34090909,12.9545455 L7.34090909,12.9545455 Z" id="search-icon"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg></a></div>
+						</div>
+				</div>
+				</div>
+
+				 	
+				 	<?php $header_image = get_header_image();
+						if ( $header_image ) { ?>
+							<div class="logo-search-container">
+						<?php } else { ?>
+							<div class="logo-search-container noimage">
+						<?php } ?>
+
+			
+				<div class="site-branding">
+					<a href="#" class="mobileTrigger"><svg height="32px" aria-label="Open Menu" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/></svg></a>
+					
+					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<?php if(get_bloginfo('description') <> '') { ?>
+						<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+					<?php } ?>
+					
+					<?php
+						// Check to see if the header image has been removed
+						$header_image = get_header_image();
+						if ( $header_image ) { 
+							// Compatibility with versions of WordPress prior to 3.4.
+							if ( function_exists( 'get_custom_header' ) ) {
+								// We need to figure out what the minimum width should be for our featured image.
+								// This result would be the suggested width if the theme were to implement flexible widths.
+								$header_image_width = get_theme_support( 'custom-header', 'width' );
+							} else {
+								$header_image_width = HEADER_IMAGE_WIDTH;
+							}
+							?>
+
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span>
+				<?php
+					
+						// Compatibility with versions of WordPress prior to 3.4.
+						if ( function_exists( 'get_custom_header' ) ) {
+							$header_image_width  = get_custom_header()->width;
+							$header_image_height = get_custom_header()->height;
+						} else {
+							$header_image_width  = HEADER_IMAGE_WIDTH;
+							$header_image_height = HEADER_IMAGE_HEIGHT;
+						}
+						?>
+					<img src="<?php header_image(); ?>" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" alt="" />
+				<?php /*endif;*/ // end check for featured image or standard header ?>
+			</a>
+			<?php } else { // end check for removed header image ?>
+						<div class="noimageLogo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span><img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg"> <div class="mainTitle"><?php bloginfo( 'name' ); ?><span><?php bloginfo( 'description' ); ?></span></div></a></div>
+						
+						
+			<?php } ?>
+					
+				</div><!-- .site-branding -->
+				
+				
+								
+			</div>
+			
+			<div class="main-navigation-container">
+		
+			<nav id="site-navigation" class="main-navigation <?php $main_menu_dropdown = get_theme_mod( 'uw-madison-wp-2015_dropdowns_id' ); if($main_menu_dropdown == "enabled") { echo "dropdownEnabled"; } ?>" role="navigation">
+				<div class="site-navigation-container">
+					
+					<?php 
+						
+						$main_menu_dropdown = get_theme_mod( 'uw-madison-wp-2015_dropdowns_id' );
+					
+						if($main_menu_dropdown == "enabled") {
+							
+							wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) );
+						
+						} else {
+							wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'depth' => 1 ) ); 
+						}
+						
+						
+						?>
+				</div>
+			</nav><!-- #site-navigation -->
+		
+			</div>
+				
+				<?php } else { ?>  
+				
+					<!-- uses navbar -->
+					<?php $header_image = get_header_image();
 						if ( $header_image ) { ?>
 							<div class="logo-search-container">
 						<?php } else { ?>
@@ -161,6 +305,10 @@ var templateUrl = '<?php home_url(); ?>';
 						?>
 				</div>
 			</nav><!-- #site-navigation -->
+					
+				<?php } ?>
+		
+		
 		
 	</header><!-- #masthead -->
   
