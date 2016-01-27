@@ -356,12 +356,6 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
  * ----------------------------------------------------------------------------
  */
  
-	/*$(".owl-carousel").owlCarousel({
-		items: 1,
-		nav:true,
-		loop: true,
-		dots: true
-	});*/
 	
 	$('.main-gallery').flickity({
 	  // options
@@ -402,7 +396,23 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
 	 $grid.isotope('layout');
 	 
   });*/
+  
+  
+/**
+ * ----------------------------------------------------------------------------
+ *
+ *  Color Theif Logic
+ *
+ * ----------------------------------------------------------------------------
+ */
+	
+	
+		
 
+  	
+  	
+	
+	
 
 /**
  * ----------------------------------------------------------------------------

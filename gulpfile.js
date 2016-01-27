@@ -36,7 +36,7 @@ gulp.task('styles', function() {
 
 // Scripts
 gulp.task('scripts', function() {
-  return gulp.src(['js/jquery.visible.js','js/jquery.suggest.js','js/owlcarousel/owl.carousel.min.js','js/flickity.js','js/isotope.min.js','js/imagesloaded.js','js/detectbrowser.js','js/fastclick.js','js/global.js'])
+  return gulp.src(['js/jquery.visible.js','js/jquery.suggest.js','js/color-thief.min.js','js/color-thief-init.js','js/flickity.js','js/isotope.min.js','js/imagesloaded.js','js/detectbrowser.js','js/fastclick.js','js/global.js'])
     .pipe(concat('main.js'))
     .pipe(gulp.dest('dist/scripts'))
     .pipe(rename({ suffix: '.min' }))
