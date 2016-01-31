@@ -139,7 +139,38 @@ var templateUrl = '<?php home_url(); ?>';
 				<?php /*endif;*/ // end check for featured image or standard header ?>
 			</a>
 			<?php } else { // end check for removed header image ?>
-						<div class="noimageLogo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span><img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg"> <div class="mainTitle"><?php bloginfo( 'name' ); ?><span><?php bloginfo( 'description' ); ?></span></div></a></div>
+			
+						<div class="noimageLogo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span>
+							<?php $logo_noimage_settings = get_theme_mod( 'uw-madison-wp-2015_noimage_crest_id' ); if($logo_noimage_settings == "color") { ?>
+								
+								<img src="<?php echo get_template_directory_uri(); ?>/images/cl_logo.svg">
+							<?php } else { ?>
+							
+								<?php 
+									$header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' );
+									$header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' ); 
+									if(is_front_page()) { ?>
+										<?php if($header_style == "opaque") { ?>
+											<?php if($header_layout_settings == "righthand") { ?>
+												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg">
+											<?php } else { ?>
+												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg">
+											<?php } ?>
+										<?php } else { ?>
+										<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg"> 
+										<?php } ?>
+									<?php } else { ?>
+									
+										<?php if($header_layout_settings == "righthand") { ?>
+												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg">
+
+										<?php } else { ?>
+												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg">
+
+										<?php } ?>
+																			<?php } ?>
+							<?php } ?>
+							<div class="mainTitle"><?php bloginfo( 'name' ); ?><span><?php bloginfo( 'description' ); ?></span></div></a></div>
 						
 						
 			<?php } ?>
@@ -223,8 +254,37 @@ var templateUrl = '<?php home_url(); ?>';
 				<?php /*endif;*/ // end check for featured image or standard header ?>
 			</a>
 			<?php } else { // end check for removed header image ?>
-						<div class="noimageLogo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span><img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg"> <div class="mainTitle"><?php bloginfo( 'name' ); ?><span><?php bloginfo( 'description' ); ?></span></div></a></div>
-						
+						<div class="noimageLogo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span>
+							<?php $logo_noimage_settings = get_theme_mod( 'uw-madison-wp-2015_noimage_crest_id' ); if($logo_noimage_settings == "color") { ?>
+								
+								<img src="<?php echo get_template_directory_uri(); ?>/images/cl_logo.svg">
+							<?php } else { ?>
+							
+								<?php 
+									$header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' );
+									$header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' ); 
+									if(is_front_page()) { ?>
+										<?php if($header_style == "opaque") { ?>
+											<?php if($header_layout_settings == "righthand") { ?>
+												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg">
+											<?php } else { ?>
+												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg">
+											<?php } ?>
+										<?php } else { ?>
+										<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg"> 
+										<?php } ?>
+									<?php } else { ?>
+									
+										<?php if($header_layout_settings == "righthand") { ?>
+												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg">
+
+										<?php } else { ?>
+												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg">
+
+										<?php } ?>
+																			<?php } ?>
+							<?php } ?>
+							<div class="mainTitle"><?php bloginfo( 'name' ); ?><span><?php bloginfo( 'description' ); ?></span></div></a></div>						
 						
 			<?php } ?>
 					

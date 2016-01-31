@@ -512,6 +512,29 @@ $wp_customize->add_setting('uw-madison-wp-2015_header_style_options_id', array(
  
 ));
 
+
+
+$wp_customize->add_setting('uw-madison-wp-2015_noimage_crest_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => 'monochrome',
+    'sanitize_callback' => 'sanitize_logonoimage_options'
+ 
+));
+
+
+$wp_customize->add_control('uw-madison-wp-2015_noimage_crest', array(
+    'label'      => __('Crest Style', 'uw-madison-wp-2015'),
+    'description'=> 'Crest style is only applied when no header image is present.',
+    'section'    => 'uw-madison-wp-2015-header-options',
+    'type'    => 'radio',
+    'choices' => array(
+            'monochrome' => __( 'Monochrome', 'uw-madison-wp-2015' ),
+            'color' => __( 'Color', 'uw-madison-wp-2015' )
+        ),
+    'settings'   => 'uw-madison-wp-2015_noimage_crest_id',
+));
+
  
 $wp_customize->add_control('uw-madison-wp-2015-header_style_options', array(
     'label'      => __('Header Style', 'uw-madison-wp-2015'),
@@ -673,6 +696,9 @@ $wp_customize->add_control('uw-madison-wp-2015-sidebar-options', array(
     'settings'   => 'uw-madison-wp-2015_sidebar_options_id',
 ));
 
+ 
+
+
 
 function sanitize_page_feature( $value ) {
     if ( !$value )
@@ -757,8 +783,16 @@ function sanitize_header_layout( $value ) {
  
     return $value;
 }
+
+
+function sanitize_logonoimage_options( $value ) {
+    if ( !$value )
+        $value = 'monochrome';
+ 
+    return $value;
+}
    
-   
+  
 
 
 }
@@ -981,7 +1015,7 @@ add_theme_support( 'post-thumbnails' );
 /*** Setting default header for theme ****/
 $defaults = array(
 	'default-image'          => get_template_directory_uri() . '/images/default-logo-bw.svg',
-	'width'                  => 280,
+	'width'                  => 250,
 	'height'                 => 80,
 	'flex-height'            => true,
 	'flex-width'             => true,
@@ -994,6 +1028,23 @@ $defaults = array(
 	'admin-preview-callback' => '',
 );
 add_theme_support( 'custom-header', $defaults );
+
+
+register_default_headers( array(
+	'colorcrest' => array(
+		'url'           => '%s/images/uw_logo_color.svg',
+		'thumbnail_url' => '%s/images/uw_logo_color.svg',
+		'description'   => __( 'Color UW Logo', 'uw-madison-wp-2015' ),
+		
+	),
+	'bwcrest' => array(
+		'url'           => '%s/images/default-logo-bw.svg',
+		'thumbnail_url' => '%s/images/default-logo-bw.svg',
+		'description'   => __( 'Monochrome UW Logo', 'uw-madison-wp-2015' ),
+		
+	)
+	
+) );
 
 
 /**** Added ACF fields for Header Slides ****/

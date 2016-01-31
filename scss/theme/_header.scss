@@ -90,12 +90,48 @@
 	background: #f2f2f2;
 }
 
+div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a {
+			color: rgba(0,0,0,0.8) !important;
+			text-shadow: none;
+		}
+		
+div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
+			color: $uwred !important;
+			text-shadow: none;
+			border-color: $uwred;
+		}
+		
+
+.rightHandNav.solidHeader {
+	.logo-search-container.noimage .site-branding {
+		padding-top: 40px;	
+		
+		
+		.logoImage {
+			margin-top: 0.4em;
+		}
+		
+		.mobileTrigger {
+			top: 60px;
+			border-right: 1px solid rgba(0,0,0,0.2);
+			
+			svg {
+				path {
+					fill: rgba(0,0,0,0.6);
+				}
+			}
+		}
+	}
+
+}
+
 .rightHandNav {
 	
 	.logo-search-container.noimage .site-branding {
 		padding-top: 50px;	
 	}
 	
+		
 	.site-header .logo-search-container.noimage {
 		height: 125px;
 	}
@@ -182,6 +218,55 @@
 				
 				li {
 					a {
+						color: rgba(0,0,0,0.9) !important;
+						font-weight: 400;
+						padding-left: 0px;
+						padding-right: 0px;
+						padding-bottom: 0.5em;
+						padding-top: 0.5em;
+						margin-left: 1.1em;
+						margin-right: 1.1em;
+						text-shadow: 0px 3px 11px rgba(0,0,0,0.0);
+						
+					}
+					
+					a:hover, a:active, a:focus {
+						color: $uwred !important;
+						background: transparent !important;
+						border-bottom: 3px solid $uwred;
+					}
+				}
+			}
+		}
+		
+	}
+}
+
+.home {
+	.rightHandNav .site-header {
+		.noimageLogo {
+			
+			.logoImage {
+				
+				.mainTitle {
+					
+					color: #fff;
+					
+					
+				}
+			}
+		}
+		
+		.main-navigation {
+			
+			
+			background: transparent !important;
+			
+			ul.menu {
+				
+				
+				li {
+					a {
 						color: rgba(255,255,255,0.9) !important;
 						font-weight: 400;
 						padding-left: 0px;
@@ -195,20 +280,56 @@
 					}
 					
 					a:hover, a:active, a:focus {
+						color: #fff !important;
 						background: transparent !important;
-						border-bottom: 3px solid rgba(255,255,255,0.9);
+						border-bottom: 3px solid #fff;
 					}
 				}
 			}
 		}
-		
 	}
 }
+
+	.rightHandNav.solidHeader .site-header {
+		.noimageLogo {
+			
+			.logoImage {
+				
+				.mainTitle {
+					
+					color: #000;
+					
+					
+				}
+			}
+		}
+	}
+
+
+
+
+	.rightHandNav .site-header {
+		.noimageLogo {
+			
+			.logoImage {
+				
+				.mainTitle {
+					
+					color: #000;
+					
+					
+				}
+			}
+		}
+	}
+
 
 .site-header {
 	.logo-search-container.noimage {
 		height: 75px;
 	}
+	
+	
 	
 	.noimageLogo {
 		height: 84px;
@@ -231,11 +352,14 @@
 				position:relative;
 				top: 10px;
 				left: 8px;
+				/*font-family: "FrizQuadrataTT", "Raleway", sans-serif;*/
 				font-family: "Raleway", sans-serif;
 				font-size: 24px;
 				font-weight: 100;
+				letter-spacing: -0.5px;
 				color: #fff;
 				line-height: 1;
+				
 				
 				
 				span {
@@ -269,6 +393,7 @@
 					position:relative;
 					top: 14px;
 					left: 6px;
+					/*font-family: "FrizQuadrataTT", "Raleway", sans-serif;*/
 					font-family: "Raleway", sans-serif;
 					font-size: 24px;
 					font-weight: 100;
@@ -784,6 +909,10 @@
 
 .home .solidHeader #masthead.site-header, .home .hiddenSlides #masthead.site-header {
 	background-color: #C2242A;
+}
+
+.home .solidHeader.rightHandNav #masthead.site-header, .home .rightHandNav.hiddenSlides #masthead.site-header {
+	background-color: #fff;
 }
 
 .mobileNavOn.home .solidHeader .featureHeader {
