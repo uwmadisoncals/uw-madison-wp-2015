@@ -269,36 +269,37 @@ class Header_Layout_Picker_Custom_Control extends WP_Customize_Control
                  </label>
                   
                   <ul class="layoutOptions">
-                    <label id="navbarLayout" for="<?php echo $this->id; ?>[navbar]" class="layoutOption"><span>Navigation Bar</span><div class="layoutIcon"><svg width="84px" height="24px" viewBox="0 0 84 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
-    <title>circles</title>
+                    <label id="navbarLayout" for="<?php echo $this->id; ?>[navbar]" class="layoutOption"><span>Navigation Bar</span><div class="layoutIcon"><svg width="277px" height="111px" viewBox="0 0 277 111" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5.1 (25234) - http://www.bohemiancoding.com/sketch -->
+    <title>Untitled</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-426.000000, -322.000000)" fill="#D8D8D8">
-            <g id="circles" sketch:type="MSLayerGroup" transform="translate(426.000000, 322.000000)">
-                <circle id="Oval-1" sketch:type="MSShapeGroup" cx="12" cy="12" r="12"></circle>
-                <circle id="Oval-1-Copy" sketch:type="MSShapeGroup" cx="42" cy="12" r="12"></circle>
-                <circle id="Oval-1-Copy-2" sketch:type="MSShapeGroup" cx="72" cy="12" r="12"></circle>
-            </g>
+        <g id="Main-Navigation" sketch:type="MSLayerGroup" transform="translate(0.000000, 79.000000)" fill="#898989" fill-opacity="0.265285326">
+            <rect id="Rectangle-3" sketch:type="MSShapeGroup" x="0" y="0" width="277" height="22"></rect>
         </g>
+        <path d="M64.0627398,23.8916503 C63.7122932,20.4038182 62.8361769,17.2647692 61.7848373,14.6488951 C61.7848373,14.5616993 61.6096141,14.3001119 61.6096141,14.2129161 C60.6458861,12.2074126 59.5069349,10.3763007 58.1927604,9.06836364 C55.7396348,6.53968531 52.7608393,5.14455245 49.4315973,5.05735664 L49.3439857,5.05735664 C48.8183159,3.92381119 47.3289181,3.13904895 46.1023553,2.96465734 C46.1023553,2.96465734 45.3138506,0 42.1598319,0 C39.0058131,0 38.2173084,2.96465734 38.2173084,2.96465734 C36.903134,3.13904895 35.5013479,3.92381119 34.9756781,5.05735664 L34.8880664,5.05735664 C31.5588244,5.05735664 28.580029,6.45248951 26.1269033,9.06836364 C24.8127288,10.4634965 23.6737776,12.2074126 22.7100497,14.2129161 C22.7100497,14.2129161 22.5348264,14.5616993 22.5348264,14.6488951 C21.3958752,17.2647692 20.5197589,20.4038182 20.256924,23.8916503 C18.4170797,41.1564196 26.5649614,62.345 41.2837156,65.5712448 C41.4589388,65.920028 42.0722202,66.5303986 42.3350551,66.5303986 C42.59789,66.5303986 43.1235598,65.920028 43.3863947,65.5712448 C57.7547023,62.2578042 65.902584,41.1564196 64.0627398,23.8916503 L64.0627398,23.8916503 L64.0627398,23.8916503 Z" id="Crest-path" fill="#D8D8D8" sketch:type="MSShapeGroup"></path>
     </g>
 </svg></div><input type="radio" style="display: none;" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[navbar]" value="navbar" <?php $this->link(); ?> /></label>
-                   <label id="righthandLayout" for="<?php echo $this->id; ?>[righthand]" class="layoutOption"><span>Anchored Right Nav</span><div class="layoutIcon"><svg width="83px" height="66px" viewBox="0 0 83 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
-    <title>tiles</title>
+                   <label id="righthandLayout" for="<?php echo $this->id; ?>[righthand]" class="layoutOption"><span>Anchored Right Nav</span><div class="layoutIcon"><svg width="277px" height="111px" viewBox="0 0 277 111" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5.1 (25234) - http://www.bohemiancoding.com/sketch -->
+    <title>Untitled</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-426.000000, -378.000000)" fill="#D8D8D8">
-            <g id="tiles" sketch:type="MSLayerGroup" transform="translate(426.000000, 378.000000)">
-                <rect id="Rectangle-1" sketch:type="MSShapeGroup" x="0" y="0" width="24" height="31"></rect>
-                <rect id="Rectangle-1-Copy-4" sketch:type="MSShapeGroup" x="59" y="40" width="24" height="24"></rect>
-                <rect id="Rectangle-1-Copy-2" sketch:type="MSShapeGroup" x="29" y="0" width="24" height="52"></rect>
-                <rect id="Rectangle-1-Copy" sketch:type="MSShapeGroup" x="0" y="35" width="24" height="31"></rect>
-                <rect id="Rectangle-1-Copy-3" sketch:type="MSShapeGroup" x="59" y="0" width="24" height="36"></rect>
-            </g>
+        <g id="Main-Navigation" sketch:type="MSLayerGroup" fill="#898989" fill-opacity="0.265285326">
+            <rect id="Rectangle-3" sketch:type="MSShapeGroup" x="0" y="0" width="277" height="14"></rect>
         </g>
+        <g id="Main-Navigation" sketch:type="MSLayerGroup" transform="translate(217.000000, 52.000000)" fill="#898989" fill-opacity="0.265285326">
+            <rect id="Rectangle-3" sketch:type="MSShapeGroup" x="0" y="0" width="44" height="14"></rect>
+        </g>
+        <g id="Main-Navigation" sketch:type="MSLayerGroup" transform="translate(157.000000, 52.000000)" fill="#898989" fill-opacity="0.265285326">
+            <rect id="Rectangle-3" sketch:type="MSShapeGroup" x="0" y="0" width="44" height="14"></rect>
+        </g>
+        <g id="Main-Navigation" sketch:type="MSLayerGroup" transform="translate(97.000000, 52.000000)" fill="#898989" fill-opacity="0.265285326">
+            <rect id="Rectangle-3" sketch:type="MSShapeGroup" x="0" y="0" width="44" height="14"></rect>
+        </g>
+        <path d="M54.0627398,56.8916503 C53.7122932,53.4038182 52.8361769,50.2647692 51.7848373,47.6488951 C51.7848373,47.5616993 51.6096141,47.3001119 51.6096141,47.2129161 C50.6458861,45.2074126 49.5069349,43.3763007 48.1927604,42.0683636 C45.7396348,39.5396853 42.7608393,38.1445524 39.4315973,38.0573566 L39.3439857,38.0573566 C38.8183159,36.9238112 37.3289181,36.139049 36.1023553,35.9646573 C36.1023553,35.9646573 35.3138506,33 32.1598319,33 C29.0058131,33 28.2173084,35.9646573 28.2173084,35.9646573 C26.903134,36.139049 25.5013479,36.9238112 24.9756781,38.0573566 L24.8880664,38.0573566 C21.5588244,38.0573566 18.580029,39.4524895 16.1269033,42.0683636 C14.8127288,43.4634965 13.6737776,45.2074126 12.7100497,47.2129161 C12.7100497,47.2129161 12.5348264,47.5616993 12.5348264,47.6488951 C11.3958752,50.2647692 10.5197589,53.4038182 10.256924,56.8916503 C8.41707971,74.1564196 16.5649614,95.345 31.2837156,98.5712448 C31.4589388,98.920028 32.0722202,99.5303986 32.3350551,99.5303986 C32.59789,99.5303986 33.1235598,98.920028 33.3863947,98.5712448 C47.7547023,95.2578042 55.902584,74.1564196 54.0627398,56.8916503 L54.0627398,56.8916503 L54.0627398,56.8916503 Z" id="Crest-path" fill="#D8D8D8" sketch:type="MSShapeGroup"></path>
     </g>
 </svg></div><input type="radio" style="display: none;" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[righthand]" value="righthand" <?php $this->link(); ?> /></label>
                     
@@ -391,6 +392,31 @@ $wp_customize->add_section( 'uw-madison-wp-2015-social-options' , array(
     	'title'      => __( 'Social', 'uw-madison-wp-2015' ),
     	'priority'   => 70,
 	) );
+	
+	
+$wp_customize->add_setting('uw-madison-wp-2015_header_alt_image_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => '',
+    'sanitize_callback' => 'sanitize_twitter_options'
+ 
+));
+
+
+
+$wp_customize->add_control(
+       new WP_Customize_Image_Control(
+           $wp_customize,
+           'logo',
+           array(
+               'label'      => __( 'Upload an alternate logo', 'uw-madison-wp-2015' ),
+               'description'=> 'If available supply a version of your logo image that works well on a white background.',
+               'section'    => 'header_image',
+               'settings'   => 'uw-madison-wp-2015_header_alt_image_id',
+               'context'    => 'uw-madison-wp-2015-header_alt_image' 
+           )
+       )
+);
 	
 
 /*** Twitter ***/

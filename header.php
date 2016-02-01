@@ -94,8 +94,15 @@ var templateUrl = '<?php home_url(); ?>';
 
 				 	
 				 	<?php $header_image = get_header_image();
+						  $header_alt_image = get_theme_mod( 'uw-madison-wp-2015_header_alt_image_id' );
 						if ( $header_image ) { ?>
-							<div class="logo-search-container">
+							<?php if($header_alt_image) { ?>
+								<div class="logo-search-container withimage withaltimage">
+									
+							<?php } else { ?>
+								<div class="logo-search-container withimage noaltimage">
+							<?php } ?>
+							
 						<?php } else { ?>
 							<div class="logo-search-container noimage">
 						<?php } ?>
@@ -135,7 +142,10 @@ var templateUrl = '<?php home_url(); ?>';
 							$header_image_height = HEADER_IMAGE_HEIGHT;
 						}
 						?>
-					<img src="<?php header_image(); ?>" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" alt="" />
+					<img src="<?php header_image(); ?>" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" class="mainLogoImg" alt="" />
+					<?php if($header_alt_image) { ?>
+					<img src="<?php echo $header_alt_image; ?>" class="altLogoImg" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" alt="" />
+					<?php } ?>
 				<?php /*endif;*/ // end check for featured image or standard header ?>
 			</a>
 			<?php } else { // end check for removed header image ?>
@@ -157,7 +167,11 @@ var templateUrl = '<?php home_url(); ?>';
 												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg">
 											<?php } ?>
 										<?php } else { ?>
-										<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg"> 
+											<?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { ?>
+												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg">
+											<?php } else { ?>
+												<img class="monochrome" src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg"> 
+											<?php } ?>
 										<?php } ?>
 									<?php } else { ?>
 									
@@ -209,8 +223,14 @@ var templateUrl = '<?php home_url(); ?>';
 				
 					<!-- uses navbar -->
 					<?php $header_image = get_header_image();
+						  $header_alt_image = get_theme_mod( 'uw-madison-wp-2015_header_alt_image_id' );
 						if ( $header_image ) { ?>
-							<div class="logo-search-container">
+							<?php if($header_alt_image) { ?>
+								<div class="logo-search-container withimage withaltimage">
+							<?php } else { ?>
+								<div class="logo-search-container withimage noaltimage">
+							<?php } ?>
+							
 						<?php } else { ?>
 							<div class="logo-search-container noimage">
 						<?php } ?>
@@ -271,7 +291,12 @@ var templateUrl = '<?php home_url(); ?>';
 												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg">
 											<?php } ?>
 										<?php } else { ?>
-										<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg"> 
+
+												<?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { ?>
+												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg">
+											<?php } else { ?>
+												<img class="monochrome" src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg"> 
+											<?php } ?>
 										<?php } ?>
 									<?php } else { ?>
 									

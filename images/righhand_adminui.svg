@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="277px" height="111px" viewBox="0 0 277 111" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5.1 (25234) - http://www.bohemiancoding.com/sketch -->
+    <title>Untitled</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Main-Navigation" sketch:type="MSLayerGroup" fill="#898989" fill-opacity="0.265285326">
+            <rect id="Rectangle-3" sketch:type="MSShapeGroup" x="0" y="0" width="277" height="14"></rect>
+        </g>
+        <g id="Main-Navigation" sketch:type="MSLayerGroup" transform="translate(217.000000, 52.000000)" fill="#898989" fill-opacity="0.265285326">
+            <rect id="Rectangle-3" sketch:type="MSShapeGroup" x="0" y="0" width="44" height="14"></rect>
+        </g>
+        <g id="Main-Navigation" sketch:type="MSLayerGroup" transform="translate(157.000000, 52.000000)" fill="#898989" fill-opacity="0.265285326">
+            <rect id="Rectangle-3" sketch:type="MSShapeGroup" x="0" y="0" width="44" height="14"></rect>
+        </g>
+        <g id="Main-Navigation" sketch:type="MSLayerGroup" transform="translate(97.000000, 52.000000)" fill="#898989" fill-opacity="0.265285326">
+            <rect id="Rectangle-3" sketch:type="MSShapeGroup" x="0" y="0" width="44" height="14"></rect>
+        </g>
+        <path d="M54.0627398,56.8916503 C53.7122932,53.4038182 52.8361769,50.2647692 51.7848373,47.6488951 C51.7848373,47.5616993 51.6096141,47.3001119 51.6096141,47.2129161 C50.6458861,45.2074126 49.5069349,43.3763007 48.1927604,42.0683636 C45.7396348,39.5396853 42.7608393,38.1445524 39.4315973,38.0573566 L39.3439857,38.0573566 C38.8183159,36.9238112 37.3289181,36.139049 36.1023553,35.9646573 C36.1023553,35.9646573 35.3138506,33 32.1598319,33 C29.0058131,33 28.2173084,35.9646573 28.2173084,35.9646573 C26.903134,36.139049 25.5013479,36.9238112 24.9756781,38.0573566 L24.8880664,38.0573566 C21.5588244,38.0573566 18.580029,39.4524895 16.1269033,42.0683636 C14.8127288,43.4634965 13.6737776,45.2074126 12.7100497,47.2129161 C12.7100497,47.2129161 12.5348264,47.5616993 12.5348264,47.6488951 C11.3958752,50.2647692 10.5197589,53.4038182 10.256924,56.8916503 C8.41707971,74.1564196 16.5649614,95.345 31.2837156,98.5712448 C31.4589388,98.920028 32.0722202,99.5303986 32.3350551,99.5303986 C32.59789,99.5303986 33.1235598,98.920028 33.3863947,98.5712448 C47.7547023,95.2578042 55.902584,74.1564196 54.0627398,56.8916503 L54.0627398,56.8916503 L54.0627398,56.8916503 Z" id="Crest-path" fill="#D8D8D8" sketch:type="MSShapeGroup"></path>
+    </g>
+</svg>
