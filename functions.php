@@ -398,7 +398,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_header_alt_image_id', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'theme_mod',
     'default'		 => '',
-    'sanitize_callback' => 'sanitize_twitter_options'
+    'sanitize_callback' => 'sanitize_alt_logo_options'
  
 ));
 
@@ -618,6 +618,29 @@ $wp_customize->add_control('uw-madison-wp-2015-breadcrumbs', array(
 
 
 
+$wp_customize->add_setting('uw-madison-wp-2015_tablesaw_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => 'tablesaw',
+    'sanitize_callback' => 'sanitize_tablesaw_options'
+ 
+));
+
+ 
+$wp_customize->add_control('uw-madison-wp-2015-tablesaw', array(
+    'label'      => __('Mobile Responsive Tables', 'uw-madison-wp-2015'),
+    'section'    => 'uw-madison-wp-2015-sidebar-options',
+    'type'    => 'radio',
+    'choices' => array(
+            'tablesaw' => __( 'Tablesaw (filament group)', 'uw-madison-wp-2015' ),
+            //'datatables' => __( 'Data Tables', 'uw-madison-wp-2015' ),
+            'none' => __( 'None (not recommended)', 'uw-madison-wp-2015' )
+        ),
+    'settings'   => 'uw-madison-wp-2015_tablesaw_id',
+));
+
+
+
 $wp_customize->add_setting('uw-madison-wp-2015_header_slides_options_id', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'theme_mod',
@@ -761,6 +784,13 @@ function sanitize_breadcrumbs_options( $value ) {
     return $value;
 }
 
+function sanitize_tablesaw_options( $value ) {
+    if ( !$value )
+        $value = 'tablesaw';
+ 
+    return $value;
+}
+
 function sanitize_header_slides_options( $value ) {
     if ( !$value )
         $value = 'shown';
@@ -819,10 +849,18 @@ function sanitize_logonoimage_options( $value ) {
 }
    
   
-
+function sanitize_alt_logo_options( $value ) {
+    if ( !$value )
+        $value = '';
+ 
+    return $value;
+}
 
 }
 add_action( 'customize_register', 'mytheme_customize_register' );
+
+
+
 
 
 /*function mytheme_customize_css()
@@ -1650,6 +1688,33 @@ function uw_madison_wp_2015_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+	
+	
+	$tablesaw_settings = get_theme_mod( 'uw-madison-wp-2015_tablesaw_id' );
+
+	if($tablesaw_settings == "tablesaw") {
+		
+		
+		add_filter( 'the_content', 'tablesaw_add_custom_table_class' );
+		function tablesaw_add_custom_table_class( $content ) {
+		    return str_replace( '<table>', '<table class="tablesaw" data-tablesaw-mode="stack">', $content );
+		}
+		
+		wp_enqueue_script( 'uw-madison-wp-2015-tablesaw', get_template_directory_uri() . '/js/tablesaw.js', array(), '20160201', true );
+		wp_enqueue_script( 'uw-madison-wp-2015-tablesaw-init', get_template_directory_uri() . '/js/tablesaw-init.js', array(), '20160201', true );
+	} 
+	
+	if($tablesaw_settings == "datatables") {
+		add_filter( 'the_content', 'datatables_add_custom_table_class' );
+		function datatables_add_custom_table_class( $content ) {
+		    return str_replace( '<table>', '<table class="tablesaw" data-tablesaw-mode="stack">', $content );
+		}
+		
+		wp_enqueue_script( 'uw-madison-wp-2015-datatables', get_template_directory_uri() . '/js/jquery.dataTables.js', array(), '20160201', true );
+		wp_enqueue_script( 'uw-madison-wp-2015-shcore', get_template_directory_uri() . '/js/shCore.js', array(), '20160201', true );
+		wp_enqueue_script( 'uw-madison-wp-2015-datatables-init', get_template_directory_uri() . '/js/datatables-init.js', array(), '20160201', true );
+	}
+	
 }
 add_action( 'wp_enqueue_scripts', 'uw_madison_wp_2015_scripts' );
 
