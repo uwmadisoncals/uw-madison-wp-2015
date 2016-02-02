@@ -1,30 +1,5 @@
 <?php
-/**
- * Plugin installation and activation for WordPress themes.
- *
- * Please note that this is a drop-in library for a theme or plugin.
- * The authors of this library (Thomas, Gary and Juliette) are NOT responsible
- * for the support of your plugin or theme. Please contact the plugin
- * or theme author for support.
- *
- * @package   TGM-Plugin-Activation
- * @version   2.5.2
- * @link      http://tgmpluginactivation.com/
- * @author    Thomas Griffin, Gary Jones, Juliette Reinders Folmer
- * @copyright Copyright (c) 2011, Thomas Griffin
- * @license   GPL-2.0+
- *
- * @wordpress-plugin
- * Plugin Name: TGM Plugin Activation
- * Plugin URI:
- * Description: Plugin installation and activation for WordPress themes.
- * Version:     2.5.2
- * Author:      Thomas Griffin, Gary Jones, Juliette Reinders Folmer
- * Author URI:  http://tgmpluginactivation.com/
- * Text Domain: tgmpa
- * Domain Path: /languages/
- * Copyright:   2011, Thomas Griffin
- */
+
 
 /*
 	Copyright 2011 Thomas Griffin (thomasgriffinmedia.com)

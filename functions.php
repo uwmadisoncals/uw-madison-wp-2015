@@ -1798,3 +1798,9 @@ $MyThemeUpdateChecker = new ThemeUpdateChecker(
 'http://wpupdates.heroiccloud.com/?action=get_metadata&slug=madisonwp2015' //Metadata URL.
 );*/
 
+require 'theme-update-checker.php';
+$MyThemeUpdateChecker = new ThemeUpdateChecker(
+'madisonwp2015', //Theme slug. Usually the same as the name of its directory.
+'http://wpupdates.heroiccloud.com/wp-update-server/?action=get_metadata&slug=madisonwp2015' //Metadata URL.
+);
+
