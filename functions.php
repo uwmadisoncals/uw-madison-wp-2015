@@ -632,8 +632,8 @@ $wp_customize->add_control('uw-madison-wp-2015-tablesaw', array(
     'section'    => 'uw-madison-wp-2015-sidebar-options',
     'type'    => 'radio',
     'choices' => array(
-            'tablesaw' => __( 'Tablesaw (filament group)', 'uw-madison-wp-2015' ),
-            //'datatables' => __( 'Data Tables', 'uw-madison-wp-2015' ),
+            'tablesaw' => __( 'Tablesaw', 'uw-madison-wp-2015' ),
+            'datatables' => __( 'Data Tables', 'uw-madison-wp-2015' ),
             'none' => __( 'None (not recommended)', 'uw-madison-wp-2015' )
         ),
     'settings'   => 'uw-madison-wp-2015_tablesaw_id',
@@ -1707,11 +1707,11 @@ function uw_madison_wp_2015_scripts() {
 	if($tablesaw_settings == "datatables") {
 		add_filter( 'the_content', 'datatables_add_custom_table_class' );
 		function datatables_add_custom_table_class( $content ) {
-		    return str_replace( '<table>', '<table class="tablesaw" data-tablesaw-mode="stack">', $content );
+		    return str_replace( '<table>', '<table>', $content );
 		}
 		
-		wp_enqueue_script( 'uw-madison-wp-2015-datatables', get_template_directory_uri() . '/js/jquery.dataTables.js', array(), '20160201', true );
-		wp_enqueue_script( 'uw-madison-wp-2015-shcore', get_template_directory_uri() . '/js/shCore.js', array(), '20160201', true );
+		wp_enqueue_script( 'uw-madison-wp-2015-datatables', "https://cdn.datatables.net/s/dt/dt-1.10.10,r-2.0.0/datatables.min.js", array(), '20160201', true );
+		wp_enqueue_style( 'uw-madison-wp-2015-datatablestyle', "https://cdn.datatables.net/s/dt/dt-1.10.10,r-2.0.0/datatables.min.css" );
 		wp_enqueue_script( 'uw-madison-wp-2015-datatables-init', get_template_directory_uri() . '/js/datatables-init.js', array(), '20160201', true );
 	}
 	
