@@ -13,7 +13,7 @@
 		<li class="span-33">
 			<div class="spotlightImage box">
 				<?php if ( has_post_thumbnail() ) { ?>
-					  <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+					  <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
 				<?php } 
 					else{ ?>
 						<a href="<?php the_permalink(); ?>"><img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg"></a>
@@ -42,7 +42,7 @@
 		<li class="row">
 			<div class="spotlightImage box span-25">
 				<?php if ( has_post_thumbnail() ) { ?>
-					  <?php the_post_thumbnail('medium'); ?>
+					  <?php the_post_thumbnail('thumbnail'); ?>
 				<?php } 
 					else{ ?>
 						<img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg">

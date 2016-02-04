@@ -19,7 +19,7 @@
 		<li class="span-33 cf">
 			<div class="spotlightImage box">
 				<?php if ( has_post_thumbnail() ) { ?>
-					  <?php the_post_thumbnail('medium'); ?>
+					  <?php the_post_thumbnail('thumbnail'); ?>
 				<?php } 
 					else{ ?>
 						<img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg">
@@ -53,7 +53,7 @@
 		<li class="row">
 			<div class="spotlightImage box span-25">
 				<?php if ( has_post_thumbnail() ) { ?>
-					  <?php the_post_thumbnail('medium'); ?>
+					  <?php the_post_thumbnail('thumbnail'); ?>
 				<?php } 
 					else{ ?>
 						<img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg">
