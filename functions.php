@@ -1296,6 +1296,7 @@ if(function_exists("register_field_group"))
 		'menu_order' => 2,
 	));
 	
+
 	register_field_group(array (
 		'id' => 'acf_hero-image-fields',
 		'title' => 'Hero Image Fields',
@@ -1311,6 +1312,17 @@ if(function_exists("register_field_group"))
 				'append' => '',
 				'formatting' => 'none',
 				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_56b2db003b514',
+				'label' => 'Hide Slide Text',
+				'name' => 'hide_slide_text',
+				'type' => 'checkbox',
+				'choices' => array (
+					'hide' => 'Hide Text',
+				),
+				'default_value' => '',
+				'layout' => 'vertical',
 			),
 			array (
 				'key' => 'field_554146f2cd9b5',
@@ -1427,6 +1439,9 @@ if(function_exists("register_field_group"))
 		),
 		'menu_order' => 0,
 	));
+
+
+
 	register_field_group(array (
 		'id' => 'acf_page-and-single-attributes',
 		'title' => 'Page and Single Attributes',

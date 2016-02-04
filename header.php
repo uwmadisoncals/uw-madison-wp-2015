@@ -479,14 +479,35 @@ var templateUrl = '<?php home_url(); ?>';
 									<div class="heroHeadingWrapper">
 									
 									<?php  
+									$hidetextoption = get_field('hide_slide_text');
+
 									$linkoption = get_field('link_to'); ?>
 									
-									<?php if($linkoption == 'pageorpost') { ?>
-											<a href="<?php the_field('link_to_a_page_or_post'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
-									<?php } else if($linkoption == 'externalurl') { ?>
-											<a href="http://<?php the_field('specify_a_url'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
+									<?php if($hidetextoption) {  ?>
+										
+										<?php if( in_array('hide', $hidetextoption) ) { ?>
+										
+										<?php } else { ?>
+												
+												<?php if($linkoption == 'pageorpost') { ?>
+												<a href="<?php the_field('link_to_a_page_or_post'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
+										<?php } else if($linkoption == 'externalurl') { ?>
+												<a href="http://<?php the_field('specify_a_url'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
+										<?php } else { ?>
+												<div class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></div>
+										<?php } ?>
+										<?php } ?>
+									
 									<?php } else { ?>
-											<div class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></div>
+									
+										<?php if($linkoption == 'pageorpost') { ?>
+												<a href="<?php the_field('link_to_a_page_or_post'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
+										<?php } else if($linkoption == 'externalurl') { ?>
+												<a href="http://<?php the_field('specify_a_url'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
+										<?php } else { ?>
+												<div class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></div>
+										<?php } ?>
+									
 									<?php } ?>
 									</div>
 								</div>
@@ -502,14 +523,36 @@ var templateUrl = '<?php home_url(); ?>';
 									<div class="heroHeadingWrapper">
 									
 									<?php  
+										
+									$hidetextoption = get_field('hide_slide_text');
+
 									$linkoption = get_field('link_to'); ?>
 									
-									<?php if($linkoption == 'pageorpost') { ?>
-											<a href="<?php the_field('link_to_a_page_or_post'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
-									<?php } else if($linkoption == 'externalurl') { ?>
-											<a href="http://<?php the_field('specify_a_url'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
+									<?php if($hidetextoption) {  ?>
+										
+										<?php if( in_array('hide', $hidetextoption) ) { ?>
+										
+										<?php } else { ?>
+												
+												<?php if($linkoption == 'pageorpost') { ?>
+												<a href="<?php the_field('link_to_a_page_or_post'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
+										<?php } else if($linkoption == 'externalurl') { ?>
+												<a href="http://<?php the_field('specify_a_url'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
+										<?php } else { ?>
+												<div class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></div>
+										<?php } ?>
+										<?php } ?>
+									
 									<?php } else { ?>
-											<div class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></div>
+									
+										<?php if($linkoption == 'pageorpost') { ?>
+												<a href="<?php the_field('link_to_a_page_or_post'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
+										<?php } else if($linkoption == 'externalurl') { ?>
+												<a href="http://<?php the_field('specify_a_url'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
+										<?php } else { ?>
+												<div class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></div>
+										<?php } ?>
+									
 									<?php } ?>
 									</div>
 								</div>
