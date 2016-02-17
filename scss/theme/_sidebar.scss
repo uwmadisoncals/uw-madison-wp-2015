@@ -122,6 +122,45 @@
 			
 		}
 	}
+	
+	
+	
+.cardSidebar {
+	.sidebar_menu, .widget-area {
+		background: #fff;
+		box-shadow: 0px 2px 5px rgba(0,0,0,0.15);
+		border-bottom: 4px solid $uwred;
+		padding: 2em;
+		margin-top: 0em;
+		
+		
+		h1:before, h1:after {
+			display: none !important;
+		}
+		
+		ul {
+			margin: 0px;
+			
+			li {
+				margin: 0px;
+				
+				a {
+					.nav_text {
+						padding-left: 0px !important;
+					}
+				}
+				
+				a:before {
+					display: none !important;
+				}
+				
+				a:after {
+					display: none !important;
+				}
+			}
+		}
+	}
+}
 
 .sidebar_menu, .widget-area {
 	width: 23%;

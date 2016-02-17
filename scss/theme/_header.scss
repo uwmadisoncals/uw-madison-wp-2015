@@ -275,7 +275,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 			
 		}
 		
-		.main-navigation-container {
+		.main-navigation-container, .site-navigation-container {
 			position: relative;
 			max-width: $content-width-max;
 			margin: 0 auto;	
@@ -291,7 +291,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 			
 			background: transparent !important;
 			
-			ul.menu {
+			ul.menu, .menu > ul {
 				float: right;
 				
 				li {
@@ -371,10 +371,33 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 			
 			background: transparent;
 			
-			ul.menu {
+			ul.menu, .menu > ul {
 				
 				
 				li {
+					.sub-menu, .children {
+						background: rgba(0,0,0,0.75);
+						
+						li {
+							a {
+								color: rgba(255,255,255,0.9) !important;
+								text-shadow: none;
+								padding-top: 1em;
+								padding-bottom: 1em;
+								margin: 0px;
+								padding-left: 1.5em;
+								padding-right: 1.5em;
+								line-height: 1.4;
+							}
+							
+							a:hover {
+								border-bottom: none;
+								background: rgba(255,255,255,0.2) !important;
+							}
+						}
+					}
+					
+					
 					a {
 						color: rgba(0,0,0,0.9) !important;
 						font-weight: 400;
@@ -417,10 +440,33 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 			
 			background: transparent !important;
 			
-			ul.menu {
+			ul.menu, .menu > ul {
 				
 				
 				li {
+					position: relative;
+					
+					.sub-menu, .children {
+						background: rgba(0,0,0,0.75);
+						
+						li {
+							a {
+								text-shadow: none;
+								padding-top: 1em;
+								padding-bottom: 1em;
+								margin: 0px;
+								padding-left: 1.5em;
+								padding-right: 1.5em;
+								line-height: 1.4;
+							}
+							
+							a:hover {
+								border-bottom: none;
+								background: rgba(255,255,255,0.2) !important;
+							}
+						}
+					}
+					
 					a {
 						color: rgba(255,255,255,0.9) !important;
 						font-weight: 400;
@@ -434,6 +480,13 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 						
 					}
 					
+					a.arrowOn {
+						position: relative;
+						padding-right: 28px;
+						margin-right: 10px;
+						
+					}
+					
 					a:hover, a:active, a:focus {
 						color: #fff !important;
 						background: transparent !important;
@@ -444,6 +497,130 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 		}
 	}
 }
+
+
+
+.rightHandNav.hiddenSlides .site-header, .rightHandNav.solidHeader .site-header {
+		
+		 		
+		.main-navigation {
+			
+			
+			
+			
+			ul.menu, .menu > ul {
+				
+				
+				li {
+					.sub-menu, .children {
+						
+						
+						li {
+							a {
+							
+							}
+							
+							a:hover {
+								border-bottom: none;
+								background: rgba(255,255,255,0.2) !important;
+							}
+						}
+					}
+					
+					
+					a {
+						
+						
+					}
+					
+					a:hover, a:active, a:focus {
+						
+					}
+				}
+			}
+		}	
+	}
+	
+	.rightHandNav .site-header {
+		.noimageLogo {
+			
+			.logoImage {
+				
+				.mainTitle {
+					
+					
+					
+					
+				}
+			}
+		}
+		
+		.main-navigation {
+			
+			
+			
+			
+			ul.menu, .menu > ul {
+				
+				
+				li {
+					
+					
+					.sub-menu, .children {
+						background: rgba(0,0,0,0.75);
+						
+						li {
+							a {
+								color: rgba(255,255,255,0.9) !important;
+								text-shadow: none;
+								padding-top: 1em;
+								padding-bottom: 1em;
+								margin: 0px;
+								padding-left: 1.5em;
+								padding-right: 1.5em;
+								line-height: 1.4;
+							}
+							
+							a:hover {
+								border-bottom: none;
+								background: rgba(255,255,255,0.2) !important;
+							}
+						}
+					}
+					
+					a {
+						
+						font-weight: 400;
+						padding-left: 0px;
+						padding-right: 0px;
+						padding-bottom: 0.5em;
+						padding-top: 0.5em;
+						margin-left: 1.1em;
+						margin-right: 1.1em;
+						
+						
+					}
+					
+					a.arrowOn {
+						position: relative;
+						padding-right: 28px;
+						margin-right: 10px;
+						
+					}
+					
+					a:hover, a:active, a:focus {
+						
+						background: transparent !important;
+						
+					}
+				}
+			}
+		}
+	}
+
+
+
+
 
 .home {
 	.rightHandNav.solidHeader .site-header, .rightHandNav.hiddenSlides .site-header, .rightHandNav.transparentHeader.hiddenSlides .site-header {
@@ -1538,6 +1715,30 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 			}
 		}
 	}	
+}
+
+.solidHeader {
+	.main-navigation.dropdownEnabled {
+		.site-navigation-container {
+			ul.sub-menu, ul.children {
+				li {
+					a {
+						color: rgba(255,255,255,0.9);
+						
+					}
+					a:hover {
+						color: rgba(255,255,255,0.9);
+						
+					}
+				}
+			}
+		}	
+	}
+	
+	ul.children, ul.sub-menu {
+		background: rgba(0,0,0,0.9);
+	
+	}
 }
 
 ul.children, ul.sub-menu {

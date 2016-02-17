@@ -618,6 +618,28 @@ $wp_customize->add_control('uw-madison-wp-2015-breadcrumbs', array(
 
 
 
+$wp_customize->add_setting('uw-madison-wp-2015_sidebar_style_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => 'dots',
+    'sanitize_callback' => 'sanitize_sidebar_style_options'
+ 
+));
+
+ 
+$wp_customize->add_control('uw-madison-wp-2015-sidebar_style', array(
+    'label'      => __('Sidebar Style', 'uw-madison-wp-2015'),
+    'section'    => 'uw-madison-wp-2015-sidebar-options',
+    'type'    => 'radio',
+    'choices' => array(
+            'dots' => __( 'Dots', 'uw-madison-wp-2015' ),
+            'card' => __( 'Card', 'uw-madison-wp-2015' )
+        ),
+    'settings'   => 'uw-madison-wp-2015_sidebar_style_id',
+));
+
+
+
 $wp_customize->add_setting('uw-madison-wp-2015_tablesaw_id', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'theme_mod',
@@ -780,6 +802,13 @@ function sanitize_dropdown_options( $value ) {
 function sanitize_breadcrumbs_options( $value ) {
     if ( !$value )
         $value = 'hidden';
+ 
+    return $value;
+}
+
+function sanitize_sidebar_style_options( $value ) {
+    if ( !$value )
+        $value = 'dots';
  
     return $value;
 }
