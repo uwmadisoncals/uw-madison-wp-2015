@@ -14,6 +14,7 @@
  * @depth_count int internal counter used by function to keep track of depth level of current iteration
 */
 
+
 function cals_page_navigation_menu($post, $parent_before = '', $parent_after= '', $current_page_ancestors, $top_ancestor = '', $depth_count = 0){
 	
 	
@@ -55,9 +56,14 @@ function cals_page_navigation_menu($post, $parent_before = '', $parent_after= ''
 	//Otherwise, print generic li element
 	//echo $is_top_ancestor;
 	
-	if($is_top_ancestor && $num_of_children < 1) {
-		//echo "found one";	
-	} else {
+	if($is_top_ancestor && $num_of_children < 1) { ?>
+		<script>
+			document.getElementById("sidebar_menu").style.display = "none";
+		</script>
+			
+	 <?php } else {
+		//echo "found one";
+		//$GLOBALS['nonavitems'] = false;
 		$num_of_children = 1;
 	}
 	
@@ -127,7 +133,7 @@ function cals_page_navigation_menu($post, $parent_before = '', $parent_after= ''
 ?>
 
 
-<section class="sidebar_menu expanded">
+<section class="sidebar_menu expanded" id="sidebar_menu">
 
 	<?php
 	
