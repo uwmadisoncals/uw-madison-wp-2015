@@ -633,7 +633,8 @@ $wp_customize->add_control('uw-madison-wp-2015-sidebar_style', array(
     'type'    => 'radio',
     'choices' => array(
             'dots' => __( 'Dots', 'uw-madison-wp-2015' ),
-            'card' => __( 'Card', 'uw-madison-wp-2015' )
+            'card' => __( 'Card', 'uw-madison-wp-2015' ),
+            'line' => __( 'Line', 'uw-madison-wp-2015' )
         ),
     'settings'   => 'uw-madison-wp-2015_sidebar_style_id',
 ));

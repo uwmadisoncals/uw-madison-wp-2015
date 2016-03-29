@@ -106,7 +106,7 @@ gulp.task('clean', function() {
 
 // Default task
 gulp.task('default', ['clean'], function() {
-    gulp.start('styles', 'debug', 'scripts', 'images');
+    gulp.start('styles', 'scripts', 'images', 'watch');
 });
 
 // Watch

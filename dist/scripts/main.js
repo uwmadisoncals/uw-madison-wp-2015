@@ -1548,6 +1548,67 @@ $(window).click(function(e) {
 /**
  * ----------------------------------------------------------------------------
  *
+ *  Ajax Page Loading  **Experimental**
+ *
+ * ----------------------------------------------------------------------------
+ */
+ 
+/*
+function get_hostname(url) {
+    var m = url.match(/^http:\/\/[^/]+/);
+    return m ? m[0] : null;
+}
+
+
+$("a").click(function(e) {
+	console.log("clicked");
+	
+	var url = $(this).attr("href");
+	var domain = get_hostname(url) + "/";
+	
+	var currentSite = $(location).attr('href');
+	
+	
+	if(currentSite == domain) {
+		if($("body").hasClass("home")) {
+			e.preventDefault();
+			console.log("ajax call");
+			var urltoload = url + " #content";
+			
+			$("#content, .featuredPage").fadeOut(300);
+			$(".featureHeader > .main-gallery").slideUp(300);
+			$("body").removeClass("home").addClass("page");
+
+			$( "#result" ).load( urltoload, function() {
+			  
+			  $("#result").fadeIn(300);
+			  $("#result #content").addClass("has_nav");
+			  window.history.pushState("string", "Title", url);
+			});
+		}
+	}
+});
+
+*/
+
+
+/**
+ * ----------------------------------------------------------------------------
+ *
+ *  Sidebar Menu Classes
+ *
+ * ----------------------------------------------------------------------------
+ */
+
+if($("#page").hasClass("lineSidebar")) {
+	$(".sidebar_menu.expanded .current_link").next("ul.children").addClass("currentSub");
+}
+
+
+
+/**
+ * ----------------------------------------------------------------------------
+ *
  *  Mobile Menu Logic
  *
  * ----------------------------------------------------------------------------
@@ -1555,9 +1616,9 @@ $(window).click(function(e) {
  
  function mobileMenuRightHand() {
 		  var windowWidth = $(window).width();
-		  var menuWidth = $(".site-navigation-container").width();
-		 
-		  //console.log(menuWidth);
+		  var menuWidth = $(".site-navigation-container").width() - 30;
+		   
+		  //console.log("menu: " + menuWidth);
 		   /*$(".menu > ul > li").each(function() {
 				totalWidth = totalWidth  + $(this).width();
 	 		});*/
@@ -1962,12 +2023,15 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
   $("a.tiltAction").mouseout(function(event) {
     var reflectionelem = $(this).next().find(".reflection");
     $(reflectionelem).css("opacity", "0");
+
+    var elem = $(this).closest(".tiltWrapper");
+    $(elem).removeClass("hovered");
   });
 
   $("a.tiltAction").mousemove(function(event) {
     var wrapperelem = $(this).closest(".tiltWrapper");
     
-    $(wrapperelem).css("z-index","10");
+    $(wrapperelem).css("z-index","10").addClass("hovered");
     
     var rotateelem = $(this).next(".tiltPanel");
     var reflectionelem = $(this).next().find(".reflection");
