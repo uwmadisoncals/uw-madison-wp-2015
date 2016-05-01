@@ -10,8 +10,112 @@
 /* Nunito */
 @import url(https://fonts.googleapis.com/css?family=Nunito:300);
 
+/* Verlag Black */
+@font-face {
+    font-family: 'Verlag-Black';
+    src: url('../../css/webfont/VerlagBlack.eot');
+    src: url('../../css/webfont/VerlagBlack.eot') format('embedded-opentype'),
+         url('../../css/webfont/VerlagBlack.woff2') format('woff2'),
+         url('../../css/webfont/VerlagBlack.woff') format('woff'),
+         url('../../css/webfont/VerlagBlack.ttf') format('truetype'),
+         url('../../css/webfont/VerlagBlack.svg#VerlagBlack') format('svg');
+}
+
+
+/* Verlag Book */
+@font-face {
+  font-family: 'Verlag-Book';
+    src: url('../../css/webfont/VerlagBook.eot');
+    src: url('../../css/webfont/VerlagBook.eot') format('embedded-opentype'),
+         url('../../css/webfont/VerlagBook.woff2') format('woff2'),
+         url('../../css/webfont/VerlagBook.woff') format('woff'),
+         url('../../css/webfont/VerlagBook.ttf') format('truetype'),
+         url('../../css/webfont/VerlagBook.svg#VerlagBook') format('svg');
+}
+
+/* Verlag Bold */
+@font-face {
+ font-family: 'Verlag-Bold';
+    src: url('../../css/webfont/VerlagBold.eot');
+    src: url('../../css/webfont/VerlagBold.eot') format('embedded-opentype'),
+         url('../../css/webfont/VerlagBold.woff2') format('woff2'),
+         url('../../css/webfont/VerlagBold.woff') format('woff'),
+         url('../../css/webfont/VerlagBold.ttf') format('truetype'),
+         url('../../css/webfont/VerlagBold.svg#VerlagBold') format('svg');
+}
+
+
+
 
 /*@font-face { font-family: 'FrizQuadrataTT'; src: url('../../css/webfont/FrizQuadrataTT.eot?#iefix') format('embedded-opentype'), url('../../css/webfont/FrizQuadrataTT.woff') format('woff'), url('../../css/webfont/FrizQuadrataTT.ttf') format('truetype'), url('../../css/webfont/FrizQuadrataTT.svg#FrizQuadrataTT') format('svg'); font-weight: normal; font-style: normal; }*/
+
+
+
+.verlag-option {
+	.main-title {
+		font-weight: 400;
+	}
+
+	.site-header .main-navigation .site-navigation-container li a {
+		font-family: 'Verlag-Book';
+		letter-spacing: 1px;
+
+	}
+
+	h1.entry-title, h1.page-title {
+		
+		  font-family: 'Verlag-Black';
+		  text-transform: uppercase; 
+		  
+		
+	}
+
+	.featuredPage h2 {
+		font-family: 'Verlag-Black';
+		  text-transform: uppercase; 
+	}
+
+	.featuredPage p {
+		font-family: 'Verlag-Book';
+	}
+
+
+
+	.site-header .noimageLogo .logoImage .mainTitle {
+		font-family: 'Verlag-Bold';
+		
+
+		span {
+			font-family: 'Verlag-Book';
+			
+		}
+	}
+
+	a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+		font-family: 'Verlag-Book';
+		
+	}
+
+	p {
+		font-size: 1.2em;
+	}
+
+}
+
+.page .verlag-option .entry-header h1, .post .verlag-option .entry-header h1, .single .verlag-option .entry-header h1 {
+		color: rgba(0,0,0,0.8);
+	}
+
+.page .verlag-option .entry-header h1:before, .post .verlag-option .entry-header h1:before, .single .verlag-option .entry-header h1:before {
+	content: "";
+	display: block;
+	width: 1em;
+	height: 4px;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	background: $uwred;
+}
+
 
 
 a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {

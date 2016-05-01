@@ -68,6 +68,103 @@
 	}
 }
 
+.photoHeader {
+	.featureHeader {
+		.heroImage {
+			min-height: 200px;
+
+		}
+
+		.gallery-cell {
+			height: 200px;
+		}
+	}
+}
+
+.home {
+
+	.photoHeader {
+		.featureHeader {
+			.heroImage {
+				min-height: 500px;
+
+			}
+
+			.gallery-cell {
+				height: 500px;
+			}
+		}
+
+		.heroHeading {
+			display: block;
+		}
+
+
+	}
+
+}
+
+body.blog, body.post, body.archive, body.search, body.single, body.page {
+	div.rightHandNav.photoHeader {
+		
+			.site-header {
+					background-color: transparent;
+				}
+
+			.heroHeading {
+				display: none;
+			}
+
+			.secondaryBlur {
+				display: block;
+			}
+
+			.heroImageContainerSVG {
+				display: none;
+			}
+		}
+	
+}
+
+div.photoHeader {
+	.site-header {
+			background-color: transparent;
+		}
+
+	.heroHeading {
+		display: none;
+	}
+
+	.secondaryBlur {
+		display: block;
+	}
+
+	.heroImageContainerSVG {
+		display: none;
+	}
+}
+
+body.home, body.home.blog {
+	div.photoHeader {
+		.secondaryBlur {
+			display: none;
+		}
+		.heroImageContainerSVG {
+			display: block;
+		}
+	}
+}
+
+.admin-bar {
+	div.photoHeader {
+		.site-header {
+				background-color: transparent;
+			}
+	}
+}
+
+
+
 
 .featureHeader {
 	min-height: 80px;
@@ -348,6 +445,24 @@
 		//filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 		
 		filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100,FinishOpacity=0,Style=1,StartX=0,FinishX=0,StartY=0,FinishY=300);
+		
+		}
+
+		.heroImageBlurInnerAlt {
+			
+			position: absolute;
+			left:-15px;
+		    right:-15px;
+		    top:-15px;
+		    bottom:-15px;
+			z-index:2;
+			min-height: 500px;
+			background-size: cover;
+			background-position: center center;
+			filter: blur(8px);
+			-webkit-filter: blur(8px);
+		
+		
 		
 		}
 		

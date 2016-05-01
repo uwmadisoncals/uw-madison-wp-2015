@@ -57,7 +57,7 @@ var templateUrl = '<?php home_url(); ?>';
 
 
 
-<div id="page" class="hfeed site <?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { echo "hiddenSlides"; } else { echo "visibleSlides"; } ?> <?php $header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' ); if($header_style == "opaque") { echo "solidHeader"; } else { echo "transparentHeader"; } ?> <?php $home_layout_settings = get_theme_mod( 'uw-madison-wp-2015_layout_id' ); if($home_layout_settings == "tiles") { echo "tiledPosts"; } ?> <?php $header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' ); if($header_layout_settings == "righthand") { echo "rightHandNav"; } else { echo "navBar"; } ?> <?php if( get_field('hide_the_side_navigation')) { echo "hiddenSidebar"; } ?> <?php $sidebar_settings = get_theme_mod( 'uw-madison-wp-2015_sidebar_style_id' ); if($sidebar_settings == "card") { echo 'cardSidebar'; } else if($sidebar_settings == "dots") { echo 'dotsSidebar'; } else { echo 'lineSidebar'; } ?>">
+<div id="page" class="hfeed site <?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { echo "hiddenSlides"; } else { echo "visibleSlides"; } ?> <?php $header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' ); if($header_style == "opaque") { echo "solidHeader"; } else if($header_style == "photo") { echo "photoHeader"; } else { echo "transparentHeader"; } ?> <?php $home_layout_settings = get_theme_mod( 'uw-madison-wp-2015_layout_id' ); if($home_layout_settings == "tiles") { echo "tiledPosts"; } ?> <?php $header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' ); if($header_layout_settings == "righthand") { echo "rightHandNav"; } else { echo "navBar"; } ?> <?php if( get_field('hide_the_side_navigation')) { echo "hiddenSidebar"; } ?> <?php $sidebar_settings = get_theme_mod( 'uw-madison-wp-2015_sidebar_style_id' ); if($sidebar_settings == "card") { echo 'cardSidebar'; } else if($sidebar_settings == "dots") { echo 'dotsSidebar'; } else { echo 'lineSidebar'; } ?><?php $fontselection = get_theme_mod( 'uw-madison-wp-2015_fonts_id' ); echo ' '.$fontselection; ?>">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'uw-madison-wp-2015' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
@@ -124,14 +124,18 @@ var templateUrl = '<?php home_url(); ?>';
 				 	<?php $header_image = get_header_image();
 						  $header_alt_image = get_theme_mod( 'uw-madison-wp-2015_header_alt_image_id' );
 						if ( $header_image ) { ?>
+							<!-- A Header Image is assigned -->
 							<?php if($header_alt_image) { ?>
+								<!-- An Alt Image is also assigned -->
 								<div class="logo-search-container withimage withaltimage">
 									
 							<?php } else { ?>
+								<!-- A Header Alt Image is NOT assigned -->
 								<div class="logo-search-container withimage noaltimage">
 							<?php } ?>
 							
 						<?php } else { ?>
+							<!-- A Header Image is NOT assigned -->
 							<div class="logo-search-container noimage">
 						<?php } ?>
 
@@ -148,6 +152,8 @@ var templateUrl = '<?php home_url(); ?>';
 						// Check to see if the header image has been removed
 						$header_image = get_header_image();
 						if ( $header_image ) { 
+							//A Header Image is assigned
+
 							// Compatibility with versions of WordPress prior to 3.4.
 							if ( function_exists( 'get_custom_header' ) ) {
 								// We need to figure out what the minimum width should be for our featured image.
@@ -177,36 +183,83 @@ var templateUrl = '<?php home_url(); ?>';
 				<?php /*endif;*/ // end check for featured image or standard header ?>
 			</a>
 			<?php } else { // end check for removed header image ?>
-			
+
+						<!-- A Header Image is Not Assigned -->
+
 						<div class="noimageLogo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span>
 							<?php $logo_noimage_settings = get_theme_mod( 'uw-madison-wp-2015_noimage_crest_id' ); if($logo_noimage_settings == "color") { ?>
+								<!-- Full Color Crest Selected -->
 								
 								<img src="<?php echo get_template_directory_uri(); ?>/images/cl_logo.svg">
+							<?php } else if($logo_noimage_settings == "hybrid") { ?>
+								<!-- Hybrid Crest Selected -->
+
+								<?php 
+									$header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' );
+								if($header_style == "opaque") { ?>
+									<!-- Hybrid Selected with Opaque Header -->
+									<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" class="hybrid">
+									<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" class="hybrid_b">
+
+								<?php } else { ?>
+								<!-- Hybrid Logo with Transparent or Photo Header -->
+
+									<?php if(is_front_page()) { ?>
+									<!-- Hybrid Logo / Transparent Header or Photo Header / Homepage -->
+										<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo.svg" class="hybrid">
+										<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" class="hybrid_b">
+									<?php } else { ?>
+									<!-- Hybrid Logo / Transparent Header or Photo Header / Subpages -->
+
+										<?php $header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' ); 
+
+											if($header_style == "photo") {
+										?>
+											<!-- Hybrid Logo / Photo Header Only / Subpages -->
+											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo.svg" class="hybrid">
+											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" class="hybrid_b">
+										<?php } else { ?>
+											<!-- Hybrid Logo / Transparent Header Only / Subpages -->
+											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" class="hybrid">
+											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" class="hybrid_b">
+										<?php } ?>
+									<?php } ?>
+								<?php } ?>
+
 							<?php } else { ?>
-							
+								<!-- Outline Crest Selected -->
 								<?php 
 									$header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' );
 									$header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' ); 
 									if(is_front_page()) { ?>
+									<!-- Outline Crest on Homepage -->
 										<?php if($header_style == "opaque") { ?>
+										<!-- Outline Crest / Homepage / Opaque Header -->
 											<?php if($header_layout_settings == "righthand") { ?>
+											<!-- Outline Crest / Homepage / Opaque Header / Right Hand Nav -->
 												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg">
 											<?php } else { ?>
+											<!-- Outline Crest / Homepage / Opaque Header / Bar Nav -->
 												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg">
 											<?php } ?>
 										<?php } else { ?>
+										<!-- Outline Crest / Homepage / Transparent Header -->
 											<?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { ?>
+												<!-- Outline Crest / Homepage / Hidden Slides -->
 												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg">
 											<?php } else { ?>
+												<!-- Outline Crest / Homepage / Visible Slides -->
 												<img class="monochrome" src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg"> 
 											<?php } ?>
 										<?php } ?>
 									<?php } else { ?>
-									
+									<!-- Outline Crest on Subpages -->
 										<?php if($header_layout_settings == "righthand") { ?>
+												<!-- Outline Crest / Right Hand Nav / Subpages  -->
 												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg">
 
 										<?php } else { ?>
+												<!-- Outline Crest / Bar Nav / Subpages -->
 												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg">
 
 										<?php } ?>
@@ -306,6 +359,9 @@ var templateUrl = '<?php home_url(); ?>';
 							<?php $logo_noimage_settings = get_theme_mod( 'uw-madison-wp-2015_noimage_crest_id' ); if($logo_noimage_settings == "color") { ?>
 								
 								<img src="<?php echo get_template_directory_uri(); ?>/images/cl_logo.svg">
+								<?php } else if($logo_noimage_settings == "hybrid") { ?>
+								<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo.svg" class="hybrid">
+
 							<?php } else { ?>
 							
 								<?php 
@@ -435,9 +491,18 @@ var templateUrl = '<?php home_url(); ?>';
 		<?php } else { ?> 
 				
 		<?php 
-			if(is_front_page()) { ?>
-		
-				<?php $args = array( 'post_type' => 'headerslides', 'posts_per_page' => 10 );
+			if(is_front_page() || $header_style == "photo") { ?>
+				<?php if(is_front_page()) {
+						$args = array( 'post_type' => 'headerslides', 'posts_per_page' => 10 );
+
+				 } else { 
+				 		$args = array( 'post_type' => 'headerslides', 'posts_per_page' => 1 );
+
+				 }?>
+
+
+
+				<?php 
 					$loop = new WP_Query( $args );
 					
 					if($loop->have_posts()) { ?>
@@ -449,9 +514,33 @@ var templateUrl = '<?php home_url(); ?>';
 					<?php } else { ?>
 						<div class="heroSingle">
 					<?php } ?>
+
+					<?php 
+										$photo_header_size = get_theme_mod( 'uw-madison-wp-2015_photo_header_size_id' );
+
+										$home_photo_header_size = get_theme_mod( 'uw-madison-wp-2015-home_photo_header_size_id' );
+										
+									?>
 					
 					<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
-						<div class="gallery-cell">
+
+						<?php if(is_front_page()) { ?>
+							<?php if($home_photo_header_size) { ?>
+								<div class="gallery-cell" style="height:<?php echo $home_photo_header_size ?>px;">
+							<?php } else { ?>
+								<div class="gallery-cell">
+							<?php } ?>
+
+						<?php } else { ?>
+							<?php if($photo_header_size) { ?>
+								<div class="gallery-cell" style="height:<?php echo $photo_header_size ?>px;">
+							<?php } else { ?>
+								<div class="gallery-cell">
+							<?php } ?>
+							
+
+						<?php } ?>
+
 						<?php 
 
 							$image = get_field('hero_image');
@@ -488,7 +577,7 @@ var templateUrl = '<?php home_url(); ?>';
 									$video = get_field('hero_video');
 									
 									if( $video ) { ?>
-									
+									<!-- If a Hero Video is set -->
 									<div class="heroImageBlur heroVideoBlur"><div class="heroImageBlurInner">
 										
 										
@@ -527,7 +616,7 @@ var templateUrl = '<?php home_url(); ?>';
 										<?php } ?>
 									
 									<?php } else { ?>
-									
+										
 										<?php if($linkoption == 'pageorpost') { ?>
 												<a href="<?php the_field('link_to_a_page_or_post'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
 										<?php } else if($linkoption == 'externalurl') { ?>
@@ -541,12 +630,35 @@ var templateUrl = '<?php home_url(); ?>';
 								</div>
 									
 									<?php } else { ?>
-								
-								<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: center center;"></div></div>
+									<!-- If a Hero Video is NOT set -->
+
+									
+
+								<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: center center; "></div></div>
 								</foreignObject>
 								</svg>
+
+
+								<div class="heroImageBlur secondaryBlur"><div class="heroImageBlurInnerAlt" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: center center;"></div></div>
 								
-								<div class="heroImage" style="background: url(<?php echo $image[0] ?>); background-size: cover; background-position: center center;">
+								<?php if(is_front_page()) { ?>
+
+									<?php if($home_photo_header_size) { ?>
+											<div class="heroImage" style="background: url(<?php echo $image[0] ?>); background-size: cover; background-position: center center; min-height:<?php echo $home_photo_header_size ?>px;">
+									<?php } else { ?>
+											<div class="heroImage" style="background: url(<?php echo $image[0] ?>); background-size: cover; background-position: center center;">
+									<?php } ?>
+
+								
+
+								<?php } else { ?>
+										<?php if($photo_header_size) { ?>
+											<div class="heroImage" style="background: url(<?php echo $image[0] ?>); background-size: cover; background-position: center center; min-height:<?php echo $photo_header_size ?>px;">
+										<?php } else { ?>
+											<div class="heroImage" style="background: url(<?php echo $image[0] ?>); background-size: cover; background-position: center center;">
+										<?php } ?>
+								<?php } ?>
+
 									<div class="heroOverlay"></div>
 									<div class="heroHeadingWrapper">
 									

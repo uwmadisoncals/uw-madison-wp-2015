@@ -407,7 +407,7 @@ dl{
 		background-color: $uwred;
 		
 		.main-navigation{
-			  background: rgba(115, 26, 31, 0.2);
+			  background: rgba(0,0,0, 0.2);
 			  
 			  .site-navigation-container li a{
 			  	color: #fff;
@@ -474,18 +474,29 @@ dl{
 		margin-bottom: 0.5em;
 		margin-left: 0;
 		line-height: 1;
-		opacity: 0.8;
+		opacity: 1;
 		transition: 0.2s opacity, 0.2s margin-left;
 		-webkit-transition: 0.2s opacity, 0.2s margin-left;
+
+		.mainTitle, .mainTitle span {
+			transition: 0.3s;
+		}
 		
 		img {
 			min-height: 50px;
 			min-width: 200px; 
+			transition: 0.3s;
 		}
 	}
 	
 	.logoImage:hover, .logoImage:focus {
-		opacity: 1;
+		img {
+			opacity: 0.8;
+		}
+
+		.mainTitle, .mainTitle span {
+			text-shadow: 0px 0px 7px rgba(255,255,255,0.4);
+		}
 	}
 	
 	
@@ -849,7 +860,7 @@ dl{
 		background-color: $uwred;
 		
 		.main-navigation{
-			  background: rgba(115, 26, 31, 0.2);
+			  background: rgba(0,0,0, 0.2);
 			  
 			  .site-navigation-container li a{
 			  	color: #fff;

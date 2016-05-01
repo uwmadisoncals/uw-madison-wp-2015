@@ -21,6 +21,18 @@
 	}
 }
 
+.mobileNavOn {
+
+	.rightHandNav.solidHeader, .rightHandNav.transparentHeader, .rightHandNav.hiddenSlides, .rightHandNav.transparentHeader.visibleSlides, .rightHandNav.transparentHeader.hiddenSlides {
+		.logo-search-container.noimage .site-branding {
+			
+			.logoImage {
+				margin-top: 0em;
+			}
+		}
+	}
+}
+
 
 
 .mobileMenu {
@@ -263,6 +275,11 @@
 /* Minimum width of 400 pixels. */
 @media screen and (max-width: 400px) {
 	
+	.logoImage.mobileMenuOn img {
+		max-height: 50px;
+		width: auto;
+	}
+
 	.archive main ul.archived_items li .date{
 		width: 100%;
 		margin-bottom: 0.2em;
@@ -273,7 +290,7 @@
 	}
 	
 	.site-header .logoImage.mobileMenuOn{
-		margin-left: 2em;
+		margin-left: 1.4em;
 	}
 	
 	.logoImage.mobileMenuOn {

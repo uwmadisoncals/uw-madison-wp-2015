@@ -90,6 +90,19 @@
 	}
 }
 
+.site-header {
+		.noimageLogo {
+			.logoImage {
+				img.hybrid {
+
+					/*width: 52px;
+					margin-bottom: 2px;*/
+				}
+			}
+			
+		}
+}
+
 .admin-bar .rightHandNav .site-header, .archive .rightHandNav .site-header, .blog .rightHandNav .site-header, .page .rightHandNav .site-header, .search .rightHandNav .site-header, .single .rightHandNav .site-header {
 	background: #f2f2f2;
 }
@@ -108,7 +121,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 
 .rightHandNav.solidHeader, .rightHandNav.transparentHeader, .rightHandNav.hiddenSlides, .rightHandNav.transparentHeader.visibleSlides, .rightHandNav.transparentHeader.hiddenSlides {
 	.logo-search-container.noimage .site-branding {
-		padding-top: 40px;	
+			
 		
 		
 		.logoImage {
@@ -130,7 +143,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 }
 
 .home {
-	.rightHandNav.transparentHeader {
+	.rightHandNav.transparentHeader, .rightHandNav.photoHeader {
 		.logo-search-container.noimage .site-branding {
 			.mobileTrigger {
 				border-right: 1px solid rgba(255,255,255,0.2);
@@ -201,6 +214,13 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 	
 	.site-header {
 		.noimageLogo {
+			.logoImage {
+				img.hybrid {
+					
+					/*width: 52px;
+					margin-bottom: 2px;*/
+				}
+			}
 			
 		}
 		
@@ -302,7 +322,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 				
 				li {
 					a {
-						color: rgba(0,0,0,0.9) !important;
+						color: rgba(0,0,0,0.9);
 						font-weight: 400;
 						padding-left: 0px;
 						padding-right: 0px;
@@ -326,6 +346,38 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 	}
 }
 
+.page, .search, .single, .archive {
+	.rightHandNav.photoHeader {
+		.site-header {
+			.noimageLogo .logoImage .mainTitle {
+				color: #fff;
+			}
+
+			.main-navigation {
+				
+				
+				ul.menu, .menu > ul {
+					
+					
+					li {
+						a {
+							color: rgba(255,255,255,0.9);
+							
+							
+						}
+						
+						a:hover, a:active, a:focus {
+							color: rgba(255,255,255,0.9) !important;
+							background: transparent !important;
+							border-bottom: 3px solid rgba(255,255,255,0.9);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 .home {
 	
 	.rightHandNav.solidHeader {
@@ -333,6 +385,8 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 			display: none;
 		}
 	}
+
+
 	
 	.rightHandNav.hiddenSlides .site-header, .rightHandNav.solidHeader .site-header {
 		
@@ -370,7 +424,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 				
 				.mainTitle {
 					
-					color: #000;
+					color: $uwred;
 					
 					
 				}
@@ -741,6 +795,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 					
 					color: #000;
 					
+
 					
 				}
 			}
@@ -892,6 +947,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 						
 						color: #fff;
 						
+
 						
 					}
 				}
@@ -932,6 +988,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 						
 						color: #fff;
 						
+							
 						
 					}
 				}
@@ -993,8 +1050,11 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 				
 				.mainTitle {
 					
-					color: #000;
+					color: $uwred;
 					
+					span {
+						/*color: #000;*/
+					}
 					
 				}
 			}
@@ -1026,7 +1086,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 				margin-bottom: 10px;
 			}
 			
-			.mainTitle {
+			.mainTitle.light {
 				position:relative;
 				top: 10px;
 				left: 8px;
@@ -1044,6 +1104,81 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 					display: block;
 					font-size: 13px;
 					font-weight: 400;
+				}
+			}
+
+			.mainTitle {
+				position:relative;
+				top: 14px;
+				left: 8px;
+				/*font-family: "FrizQuadrataTT", "Raleway", sans-serif;*/
+				font-family: "Raleway", sans-serif;
+				font-size: 24px;
+				font-weight: 300;
+				letter-spacing: 0.8px;
+				color: #fff;
+				line-height: 0.9;
+				text-transform: uppercase;
+				text-shadow: 0px 3px 11px rgba(0,0,0,0.2);
+				
+				
+				
+				span {
+					display: block;
+					font-size: 13px;
+					font-weight: 400;
+					text-transform: uppercase; 
+					letter-spacing: 0.6px;
+					opacity: 0.5;
+					
+				}
+			}
+		}
+	}
+}
+
+.rightHandNav.solidHeader, .page .rightHandNav.transparentHeader, .single .rightHandNav.transparentHeader, .post .rightHandNav.transparentHeader {
+	.site-header .noimageLogo .logoImage .mainTitle span {
+		color: #000;
+	}
+}
+
+.photoHeader {
+	.site-header.red.sticky {
+		background: $uwred !important;
+	}
+
+	.featureHeader .heroImage .heroHeadingWrapper .heroHeading {
+		display: none;
+	}
+
+	.featureHeader .heroImageContainerSVG {
+		min-height: 250px;
+	}
+
+	/*.featureHeader .heroImage {
+		filter: blur(20px);
+		-webkit-filter: blur(20px);
+	}*/
+}
+
+.home {
+	.photoHeader {
+		.featureHeader .heroImage .heroHeadingWrapper .heroHeading {
+			display: block;
+		}
+	}
+}
+
+.mobileNavOn {
+	.verlag-option {
+		.site-header {
+			.noimageLogo {
+				.logoImage {
+					.mainTitle { 
+						font-weight: 700;
+						font-family: 'Verlag-Bold';
+					}
 				}
 			}
 		}
@@ -1809,8 +1944,9 @@ ul.children, ul.sub-menu {
 	
 }
 
-
-
+.hybrid_b {
+	display: none;
+}
 
 @media screen and (max-width: 400px) {
 	.featureHeader {
@@ -1959,8 +2095,16 @@ ul.children, ul.sub-menu {
 			}
 	}
 	
+	.rightHandNav.solidHeader, .rightHandNav.transparentHeader, .rightHandNav.hiddenSlides, .rightHandNav.transparentHeader.visibleSlides, .rightHandNav.transparentHeader.hiddenSlides {
+		.logo-search-container.noimage .site-branding {
+			.mobileTrigger {
+				top: 50px;
+			}
+		}
+	}
+
 	.rightHandNav .site-header .withimage .site-branding .mobileTrigger {
-		top: 60px;
+		top: 50px;
 	}
 	
 	.rightHandNav {
@@ -1968,20 +2112,37 @@ ul.children, ul.sub-menu {
 		
 			
 		.logo-search-container.noimage .site-branding {
-			padding-top: 30px;	
+			padding-top: 35px;	
+
+			.logoImage {
+				.hybrid {
+					display: none;
+
+				}
+
+				.hybrid_b {
+					display:block;
+				}
+			}
 			
 			.mobileTrigger {
-				top: 40px;
+				top: 50px;
 			}
 		}
 		
 		.site-header .logo-search-container.noimage, .site-header .logo-search-container, .site-header .logo-search-container {
-			height: 115px;
+			height: 80px;
 		}
+
+		
 	}
 	
 	.mobileNavOn .rightHandNav .site-header .logo-search-container {
-		height: 115px;
+		height: 80px;
+	}
+
+	.mobileNavOn .rightHandNav .site-header .logo-search-container.withimage {
+		height: 100px;
 	}
 	
 	.mobileNavOn .rightHandNav.visibleSlides.transparentHeader .site-header .noimageLogo img.monochrome {
