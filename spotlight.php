@@ -12,6 +12,8 @@
 	<?php while (have_posts()) : the_post(); ?>
 		<li class="span-33">
 			<div class="spotlightImage box">
+				
+
 				<?php if ( has_post_thumbnail() ) { ?>
 					  <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
 				<?php } 

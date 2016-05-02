@@ -638,8 +638,9 @@ var templateUrl = '<?php home_url(); ?>';
 								</foreignObject>
 								</svg>
 
-
+								<?php if($header_style == "photo") { ?>
 								<div class="heroImageBlur secondaryBlur"><div class="heroImageBlurInnerAlt" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: center center;"></div></div>
+								<?php } ?>
 								
 								<?php if(is_front_page()) { ?>
 

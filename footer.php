@@ -15,6 +15,38 @@
 	<?php } ?>
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="footerWrapper">
+
+		<div class="footerWidgetAreas">
+			
+				<?php if ( is_active_sidebar( 'footer-col-1' ) ) : ?>
+					<div class="footer-widget-area col-1">
+						<?php dynamic_sidebar( 'footer-col-1' ); ?>
+					</div>
+				<?php endif; ?>
+			
+			
+				<?php if ( is_active_sidebar( 'footer-col-2' ) ) : ?>
+					<div class="footer-widget-area col-2">
+						<?php dynamic_sidebar( 'footer-col-2' ); ?>
+					</div>
+				<?php endif; ?>
+			
+			
+				<?php if ( is_active_sidebar( 'footer-col-3' ) ) : ?>
+					<div class="footer-widget-area col-3">
+						<?php dynamic_sidebar( 'footer-col-3' ); ?>
+					</div>
+				<?php endif; ?>
+			
+			
+				<?php if ( is_active_sidebar( 'footer-col-4' ) ) : ?>
+					<div class="footer-widget-area col-4">
+						<?php dynamic_sidebar( 'footer-col-4' ); ?>
+					</div>
+				<?php endif; ?>
+			
+		</div>
+
 		<div class="site-info">
 			<a href="http://www.wisconsin.edu/">&copy; Board of Regents of the University of Wisconsin System</a>
 		</div><!-- .site-info -->

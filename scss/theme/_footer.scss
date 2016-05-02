@@ -1,8 +1,8 @@
 footer {
 	background: #2f2f2f;
 	font-size: 11px;
-	padding: 1em;
-	padding-left: 1em;
+	padding: 3em;
+	
 	
 	a, a:hover, a:focus, a:visited{
 		color: #9E9E9E !important;
@@ -23,6 +23,70 @@ footer {
 	.footerWrapper {
 		max-width: $content-width-max;
 		margin: 0 auto;
+
+		.searchLabel div {
+			background: transparent !important;
+		}
+
+		.searchLabel input[type="text"] {
+			color: rgba(255,255,255,0.9);
+		}
+
+		.searchLabel .searchFormIcon {
+			top: 6px !important;
+			left: 6px !important;
+		}
+
+		.footerWidgetAreas {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box; 
+			display: flex;
+			
+			flex-direction: row;
+			flex-wrap: wrap;
+			
+
+			.footer-widget-area {
+				flex: 1 1 20%;
+				height: auto;
+				min-width: 160px;
+    			margin-right: 5%;
+				color: rgba(255,255,255,0.7);
+				margin-top: 3em;
+
+				aside {
+					margin-bottom: 4em;
+				}
+
+				
+				h1, h2 {
+					font-size: 18px;
+					font-weight: bold;
+					margin-top: 0px;
+					margin-bottom: 1.5em;
+					color: rgba(255,255,255,0.8);
+					text-transform: uppercase;
+					letter-spacing: 1px;
+				}
+
+				p, li, a {
+					font-size: 14px;
+					font-weight: 300;
+				}
+
+				li {
+					margin-bottom: 0.7em;
+				}
+			}
+
+
+		}
+
+		.footerWidgetAreas:after {
+			content: "";
+			clear: both;
+		}
 	}	
 	
 	.social {

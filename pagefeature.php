@@ -14,7 +14,7 @@
 					<!-- the loop -->
 					<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 						
-						<div class="featuredPage">
+						<a href="<?php the_permalink(); ?>" class="featuredPage">
 							<div class="rowalt">
 								<?php if (has_post_thumbnail()) {
     $thumb = wp_get_attachment_image_src(get_post_thumbnail_id(), 'large');
@@ -48,7 +48,7 @@
 							<?php } ?>
 								
 							</div>
-						</div>
+						</a>
 					<?php endwhile; ?>
 					<!-- end of the loop -->
 				

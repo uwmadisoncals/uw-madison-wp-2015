@@ -645,7 +645,7 @@ $wp_customize->add_control('uw-madison-wp-2015_fonts', array(
     'type'    => 'radio',
     'choices' => array(
             'raleway-option' => __( 'Raleway/Open Sans', 'uw-madison-wp-2015' ),
-            //'verlag-option' => __( 'Verlag', 'uw-madison-wp-2015' )
+            'verlag-option' => __( 'Verlag', 'uw-madison-wp-2015' )
         ),
     'settings'   => 'uw-madison-wp-2015_fonts_id',
 ));
@@ -1726,6 +1726,18 @@ if(function_exists("register_field_group"))
 				'message' => '',
 				'default_value' => 0,
 			),
+			array (
+				'key' => 'field_572628c43f043',
+				'label' => 'Hide Featured Image',
+				'name' => 'hide_featured_image',
+				'type' => 'checkbox',
+				'instructions' => 'Hide the featured image on this page.',
+				'choices' => array (
+					'hide' => 'Yes, hide the Featured Image',
+				),
+				'default_value' => '',
+				'layout' => 'vertical',
+			),
 		),
 		'location' => array (
 			array (
@@ -1844,9 +1856,50 @@ function uw_madison_wp_2015_widgets_init() {
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h1 class="widget-title">',
 		'after_title'   => '</h1>',
+	));
+
+	register_sidebar( array(
+		'name'          => __( 'Footer Column 1', 'uw-madison-wp-2015' ),
+		'id'            => 'footer-col-1',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="widget-title">',
+		'after_title'   => '</h1>',
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Footer Column 2', 'uw-madison-wp-2015' ),
+		'id'            => 'footer-col-2',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="widget-title">',
+		'after_title'   => '</h1>',
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Footer Column 3', 'uw-madison-wp-2015' ),
+		'id'            => 'footer-col-3',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="widget-title">',
+		'after_title'   => '</h1>',
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Footer Column 4', 'uw-madison-wp-2015' ),
+		'id'            => 'footer-col-4',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="widget-title">',
+		'after_title'   => '</h1>',
 	) );
 }
 add_action( 'widgets_init', 'uw_madison_wp_2015_widgets_init' );
+
 
 
 
