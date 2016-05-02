@@ -114,6 +114,12 @@
 
 }
 
+.home .spotlight.spotlight-page, .spotlight.spotlight-page {
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: -5em;
+}
+
 .spotlight.left-sidebar {
 	.row {
 		width: 74%;
@@ -131,6 +137,103 @@
 			float: none;
 			width: 100%;
 			margin-top: 1em;
+		}
+	}
+	
+	ul {
+		li.span-33 {
+			width: 100%;
+			margin-bottom: 1.2em;
+			padding-bottom: 1.2em;
+			border-bottom: 1px solid rgba(0,0,0,0.1);
+			line-height: 1em;
+			
+		}
+		
+		li:nth-child(2), li:nth-child(5) {
+			margin-left: 0%;
+			margin-right: 0%;
+		}
+	}
+	
+	.spotlightImage{
+		overflow: hidden;
+		border-radius: 15em;
+		width: 140px;
+		height: 140px;
+		margin: 0px;
+		display: block;
+		float: left;
+		animation: rotatein 0.6s forwards;
+		animation-iteration-count: 1;
+		animation-delay: 0.4s;
+		-webkit-animation: rotatein 0.6s forwards;
+		-webkit-animation-iteration-count: 1;
+		-webkit-animation-delay: 0.4s;
+		-moz-animation: rotatein 0.6s forwards;
+		-moz-animation-iteration-count: 1;
+		-moz-animation-delay: 0.4s;
+		transform: translate(-100px,0px) rotate(-90deg);
+		opacity: 0;
+		
+		
+		img {
+			max-width: none;
+			max-height: none;
+			width: 100%;
+			
+		}
+	}
+	
+	.spotlightText {
+		float: left;
+		width: 70%;
+		margin-left: 5%;
+		
+		h2, .spotlightDate, p {
+			text-align: left;
+		}
+	}
+}
+
+
+.spotlight.right-sidebar {
+	max-width: 100%;
+
+	.row {
+		width: 74%;
+		float: left;
+		margin-left: 1%;	
+	} 
+	
+	.sidebarWrapper {
+		position: relative;
+		float: right;
+		width: 25%;
+		text-align: left;
+		background: $uwred;
+		
+		margin-top: -6em;
+		box-shadow: 0px 6px 14px rgba(0,0,0,0.3);
+
+		.sidebarfold {
+			position: absolute;
+			top: 0px;
+			left: -30px;
+			z-index:-1;
+			width: 30px;
+			height: 30px;
+		}
+		
+		.widget-area {
+			float: none;
+			width: 100%;
+			margin-top: 1em;
+			padding: 1.4em;
+
+			p, a, li {
+				color: rgba(255,255,255,0.9);
+			}
 		}
 	}
 	
@@ -404,7 +507,11 @@
 /* Minimum width of 600 pixels. */
 @media screen and (max-width: 600px) {
 
-	
+	.home .spotlight.spotlight-page {
+		display: none;
+
+	}
+
 	.spotlight {
 		.row {
 			.span-33 {
@@ -449,9 +556,13 @@
 		}
 	
 	}
+
 	
-	.spotlight.left-sidebar {
-		
+	.spotlight.left-sidebar, .spotlight.right-sidebar {
+		.sidebarfold {
+			display: none;
+		}
+
 		.row {
 			padding-left: 0px;	
 			width: 100%;
@@ -463,7 +574,7 @@
 			float: none;
 			width: 100%;
 			text-align: left;
-			
+			margin-top: 2em;
 			
 			.widget-area {
 				float: none;

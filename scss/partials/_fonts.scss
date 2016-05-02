@@ -65,9 +65,23 @@
 	h1.entry-title, h1.page-title {
 		
 		  font-family: 'Verlag-Black';
-		  text-transform: uppercase; 
-		  
-		
+		  text-transform: uppercase;   
+	}
+
+	.featureHeader .heroImage .heroHeadingWrapper .heroHeading h1 span {
+		font-family: 'Verlag-Book';
+	}
+
+	.featureHeader .heroImage .heroHeadingWrapper .heroHeading h1 {
+		font-family: 'Verlag-Bold';
+	}
+
+	.sidebar_menu h1, .sidebar_menu.expanded h1 a, .widget-area h1 {
+		font-family: 'Verlag-Black';
+	}
+
+	.sidebar_menu #nav_explore li a .nav_text, .sidebar_menu .widget ul li a .nav_text, .widget-area #nav_explore li a .nav_text, .widget-area .widget ul li a .nav_text {
+		font-family: 'Verlag-Book' !important;
 	}
 
 	.featuredPage h2 {

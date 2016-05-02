@@ -40,6 +40,8 @@
 				include('spotlight_tiles-pages.php');
 			} else if(get_field('featured_pages_layouts') == "list") {
 				include('spotlight-list_pages.php');
+			} else if(get_field('featured_pages_layouts') == "listr") {
+				include('spotlight-listr_pages.php');
 			}
 		?>
 		

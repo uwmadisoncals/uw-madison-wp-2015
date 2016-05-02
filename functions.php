@@ -160,6 +160,24 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
         </g>
     </g>
 </svg></div><input style="display: none;" type="radio" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[left_sidebar]" value="left_sidebar" <?php $this->link(); ?> /></label>
+
+
+<label id="rightsidebarLayout" for="<?php echo $this->id; ?>[right_sidebar]" class="layoutOption"><span>Right Sidebar Layout</span><div class="layoutIcon"><svg width="83px" height="45px" viewBox="0 0 83 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
+    <title>left-sidebar</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-426.000000, -467.000000)" fill="#D8D8D8">
+            <g id="right-sidebar" sketch:type="MSLayerGroup" transform="translate(426.000000, 467.000000)">
+                <rect id="Rectangle-6" sketch:type="MSShapeGroup" x="0" y="0" width="24" height="45"></rect>
+                <rect id="Rectangle-6-Copy" sketch:type="MSShapeGroup" x="30" y="0" width="53" height="45"></rect>
+            </g>
+        </g>
+    </g>
+</svg></div><input style="display: none;" type="radio" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[right_sidebar]" value="right_sidebar" <?php $this->link(); ?> /></label>
+
+
             
                   </ul>
                   <div class="layoutClear"></div>
@@ -178,15 +196,34 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
 		        if(document.getElementById('uw-madison-wp-2015-home-layout-control[left_sidebar]').checked) {
 		            document.getElementById('uw-madison-wp-2015-home-layout-control[left_sidebar]').parentNode.setAttribute("class", "layoutSelected");
 		        }
+
+		        if(document.getElementById('uw-madison-wp-2015-home-layout-control[right_sidebar]').checked) {
+		            document.getElementById('uw-madison-wp-2015-home-layout-control[right_sidebar]').parentNode.setAttribute("class", "layoutSelected");
+		        }
 	                
-				document.getElementById("circlesLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected"); document.getElementById("sidebarLayout").setAttribute("class", ""); 
-document.getElementById("tilesLayout").setAttribute("class", ""); 					 });
+				document.getElementById("circlesLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected"); 
+						document.getElementById("sidebarLayout").setAttribute("class", ""); 
+						document.getElementById("tilesLayout").setAttribute("class", ""); 
+						document.getElementById("rightsidebarLayout").setAttribute("class", ""); 					 
+					});
 				
-				document.getElementById("sidebarLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected"); document.getElementById("circlesLayout").setAttribute("class", "");
-document.getElementById("tilesLayout").setAttribute("class", "");					  });
+				document.getElementById("sidebarLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected"); 
+						document.getElementById("circlesLayout").setAttribute("class", "");
+						document.getElementById("tilesLayout").setAttribute("class", "");
+						document.getElementById("rightsidebarLayout").setAttribute("class", "");					  
+					});
 				
-				document.getElementById("tilesLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected"); document.getElementById("sidebarLayout").setAttribute("class", "");
-document.getElementById("circlesLayout").setAttribute("class", "");  });
+				document.getElementById("tilesLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected"); 
+						document.getElementById("sidebarLayout").setAttribute("class", "");
+						document.getElementById("circlesLayout").setAttribute("class", ""); 
+						document.getElementById("rightsidebarLayout").setAttribute("class", "");  
+				});
+
+				document.getElementById("rightsidebarLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected"); 
+					document.getElementById("tilesLayout").setAttribute("class", "");
+					document.getElementById("sidebarLayout").setAttribute("class", "");
+					document.getElementById("circlesLayout").setAttribute("class", "");  
+				});
 				
 				/*document.getElementById("layout2").addEventListener("click", function(){ var valueoption = this.getAttribute("data-value");  document.getElementById("layoutTextArea").value = valueoption; });
 				document.getElementById("layout3").addEventListener("click", function(){ var valueoption = this.getAttribute("data-value");  document.getElementById("layoutTextArea").value = valueoption; });*/
@@ -640,12 +677,12 @@ $wp_customize->add_setting('uw-madison-wp-2015_fonts_id', array(
 
 $wp_customize->add_control('uw-madison-wp-2015_fonts', array(
     'label'      => __('Typeface Selection', 'uw-madison-wp-2015'),
-    'description'=> 'Verlag (the new UW typeface) will be available in a upcoming update.',
+    'description'=> 'Verlag (the new UW typeface) is available for UW-Madison campus websites.',
     'section'    => 'uw-madison-wp-2015-font-options',
     'type'    => 'radio',
     'choices' => array(
             'raleway-option' => __( 'Raleway/Open Sans', 'uw-madison-wp-2015' ),
-            //'verlag-option' => __( 'Verlag', 'uw-madison-wp-2015' )
+            'verlag-option' => __( 'Verlag', 'uw-madison-wp-2015' )
         ),
     'settings'   => 'uw-madison-wp-2015_fonts_id',
 ));
@@ -1336,6 +1373,7 @@ if(function_exists("register_field_group"))
 					'circles' => 'Circles',
 					'tiles' => 'Tiles',
 					'list' => 'List',
+					'listr' => 'List (Right Sidebar)',
 				),
 				'other_choice' => 0,
 				'save_other_choice' => 0,

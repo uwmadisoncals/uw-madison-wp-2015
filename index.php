@@ -27,8 +27,12 @@ get_header(); ?>
 						} else if($home_layout_settings == "tiles") {
 							include('spotlight_tiles.php');
 						} else if($home_layout_settings == "left_sidebar") {
+
 							include('spotlight_left-sidebar.php');
-						} 
+						} else if($home_layout_settings == "right_sidebar") {
+							
+							include('spotlight_right-sidebar.php');
+						}
 
 					}
 				?>
