@@ -645,7 +645,7 @@ $wp_customize->add_control('uw-madison-wp-2015_fonts', array(
     'type'    => 'radio',
     'choices' => array(
             'raleway-option' => __( 'Raleway/Open Sans', 'uw-madison-wp-2015' ),
-            'verlag-option' => __( 'Verlag', 'uw-madison-wp-2015' )
+            //'verlag-option' => __( 'Verlag', 'uw-madison-wp-2015' )
         ),
     'settings'   => 'uw-madison-wp-2015_fonts_id',
 ));
