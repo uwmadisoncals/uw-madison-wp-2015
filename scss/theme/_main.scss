@@ -761,7 +761,15 @@ dl{
 
 /* set the width of the content */
 
-.has_nav article {
+.page {
+	.listRightSidebar {
+		#primary.span-66 {
+			width: 100%;
+		}
+	}
+}
+
+article {
 	width: 70%;
 	float: left;
 	margin-right: 5%;

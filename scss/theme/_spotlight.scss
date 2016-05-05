@@ -114,11 +114,25 @@
 
 }
 
-.home .spotlight.spotlight-page, .spotlight.spotlight-page {
+.home .spotlight.spotlight-page {
 	padding-left: 0px;
 	padding-right: 0px;
 	margin-top: -5em;
+
+	.sidebarfold {
+		display: block;
+	}
 }
+
+.spotlight.spotlight-page {
+	padding-left: 0px;
+	padding-right: 0px;
+
+	.sidebarfold {
+		display: none;
+	}
+}
+
 
 .spotlight.left-sidebar {
 	.row {
@@ -507,7 +521,7 @@
 /* Minimum width of 600 pixels. */
 @media screen and (max-width: 600px) {
 
-	.home .spotlight.spotlight-page {
+	.home .spotlight.spotlight-page .sidebarfold {
 		display: none;
 
 	}
@@ -571,7 +585,7 @@
 		}
 		
 		.sidebarWrapper {
-			float: none;
+			/*float: none;*/
 			width: 100%;
 			text-align: left;
 			margin-top: 2em;
