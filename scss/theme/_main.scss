@@ -769,10 +769,14 @@ dl{
 	}
 }
 
-article {
+article, article.hentry {
 	width: 70%;
 	float: left;
 	margin-right: 5%;
+}
+
+.hiddenSidebar article {
+	width: 100%;
 }
 
 .admin-bar .site-header {

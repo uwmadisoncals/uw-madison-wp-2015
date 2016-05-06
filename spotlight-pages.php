@@ -26,7 +26,7 @@ $post_object6 = get_field('featured_page_6');
 		<li class="span-33">
 			<div class="spotlightImage box">
 				<?php if ( has_post_thumbnail() ) { ?>
-					  <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+					  <a href="<?php the_permalink(); ?>" style="background: url('<?php $pstthumb = get_the_post_thumbnail_url( $post, 'medium' ); echo $pstthumb; ?>') no-repeat; background-size: cover; background-position: center center;"><?php the_title(); ?></a>
 				<?php } 
 					else{ ?>
 						<a href="<?php the_permalink(); ?>"><img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg"></a>
@@ -52,7 +52,7 @@ $post_object6 = get_field('featured_page_6');
 		<li class="span-33">
 			<div class="spotlightImage box">
 				<?php if ( has_post_thumbnail() ) { ?>
-					  <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+					  <a href="<?php the_permalink(); ?>" style="background: url('<?php $pstthumb = get_the_post_thumbnail_url( $post, 'medium' ); echo $pstthumb; ?>') no-repeat; background-size: cover; background-position: center center;"><?php the_title(); ?></a>
 				<?php } 
 					else{ ?>
 						<a href="<?php the_permalink(); ?>"><img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg"></a>
@@ -74,8 +74,8 @@ $post_object6 = get_field('featured_page_6');
 	?>
 		<li class="span-33">
 			<div class="spotlightImage box">
-				<?php if ( has_post_thumbnail() ) { ?>
-					  <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+				<?php if ( has_post_thumbnail() ) { echo has_post_thumbnail(); ?>
+					  <a href="<?php the_permalink(); ?>" style="background: url('<?php $pstthumb = get_the_post_thumbnail_url( $post, 'medium' ); echo $pstthumb; ?>') no-repeat; background-size: cover; background-position: center center;"><?php the_title(); ?></a>
 				<?php } 
 					else{ ?>
 						<a href="<?php the_permalink(); ?>"><img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg"></a>
@@ -99,7 +99,7 @@ $post_object6 = get_field('featured_page_6');
 		<li class="span-33">
 			<div class="spotlightImage box">
 				<?php if ( has_post_thumbnail() ) { ?>
-					  <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+					  <a href="<?php the_permalink(); ?>" style="background: url('<?php $pstthumb = get_the_post_thumbnail_url( $post, 'medium' ); echo $pstthumb; ?>') no-repeat; background-size: cover; background-position: center center;"><?php the_title(); ?></a>
 				<?php } 
 					else{ ?>
 						<a href="<?php the_permalink(); ?>"><img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg"></a>
@@ -123,7 +123,7 @@ $post_object6 = get_field('featured_page_6');
 		<li class="span-33">
 			<div class="spotlightImage box">
 				<?php if ( has_post_thumbnail() ) { ?>
-					  <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+					  <a href="<?php the_permalink(); ?>" style="background: url('<?php $pstthumb = get_the_post_thumbnail_url( $post, 'medium' ); echo $pstthumb; ?>') no-repeat; background-size: cover; background-position: center center;"><?php the_title(); ?></a>
 				<?php } 
 					else{ ?>
 						<a href="<?php the_permalink(); ?>"><img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg"></a>
@@ -147,7 +147,7 @@ $post_object6 = get_field('featured_page_6');
 		<li class="span-33">
 			<div class="spotlightImage box">
 				<?php if ( has_post_thumbnail() ) { ?>
-					  <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+					  <a href="<?php the_permalink(); ?>" style="background: url('<?php $pstthumb = get_the_post_thumbnail_url( $post, 'medium' ); echo $pstthumb; ?>') no-repeat; background-size: cover; background-position: center center;"><?php the_title(); ?></a>
 				<?php } 
 					else{ ?>
 						<a href="<?php the_permalink(); ?>"><img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg"></a>

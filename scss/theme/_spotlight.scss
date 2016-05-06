@@ -189,7 +189,9 @@
 		-moz-animation-delay: 0.4s;
 		transform: translate(-100px,0px) rotate(-90deg);
 		opacity: 0;
+
 		
+
 		
 		img {
 			max-width: none;
@@ -414,12 +416,26 @@
 		-moz-animation-delay: 0.4s;
 		transform: translate(-100px,0px) rotate(-90deg);
 		opacity: 0;
+
+		a {
+			display: block;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			right: 0px;
+			bottom: 0px;
+			z-index:1;
+			border-radius: 100px;
+			font-size: 0px;
+			overflow: hidden;
+		}
 		
 		
 		img {
 			max-width: none;
 			max-height: none;
 			width: 100%;
+			
 		}
 	}
 }
