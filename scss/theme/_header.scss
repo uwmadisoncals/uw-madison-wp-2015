@@ -1144,8 +1144,8 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 }
 
 .photoHeader {
-	.site-header.red.sticky {
-		background: $uwred !important;
+	.site-header.red {
+		background: rgba(0,0,0,0.7) !important;
 	}
 
 	.featureHeader .heroImage .heroHeadingWrapper .heroHeading {
