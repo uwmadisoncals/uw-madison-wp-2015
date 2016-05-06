@@ -59,7 +59,14 @@ get_header(); ?>
 										    </g>
 										</svg>
 									</div>
-									<?php get_sidebar(); ?></div>
+									<?php if ( is_active_sidebar( 'page-sidebar-1' ) ) { ?>
+									<div id="secondary" class="widget-area">
+										<?php dynamic_sidebar( 'page-sidebar-1' ); ?>
+									</div>
+								<?php } else { ?>
+									<?php get_sidebar(); ?>
+								<?php } ?>
+									</div>
 							<?php }
 
 							if($side_nav_settings == "simple-nav") {

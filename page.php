@@ -82,7 +82,17 @@ get_header(); ?>
 							} else {
 								get_template_part('nav_menu', 'sidebar_expanded');
 							}
+
 					    }
+
+					    if( get_field('show_page_widgets')) {
+					    	if ( is_active_sidebar( 'page-sidebar-1' ) ) : ?>
+								<div class="sidebar_menu page-widget-sidebar">
+									<?php dynamic_sidebar( 'page-sidebar-1' ); ?>
+								</div>
+							<?php endif;  
+					    }
+
 					}	  
 				?>
 			

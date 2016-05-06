@@ -1776,6 +1776,18 @@ if(function_exists("register_field_group"))
 				'default_value' => '',
 				'layout' => 'vertical',
 			),
+			array (
+				'key' => 'field_572badddcd0b7',
+				'label' => 'Show Page Widgets',
+				'name' => 'show_page_widgets',
+				'type' => 'checkbox',
+				'instructions' => 'Select this option if you would like the "Pages Sidebar" widget area to appear on this page. By default it is hidden.',
+				'choices' => array (
+					'showpagewidgets' => 'Show Page Sidebar Widgets',
+				),
+				'default_value' => '',
+				'layout' => 'vertical',
+			),
 		),
 		'location' => array (
 			array (
@@ -1887,7 +1899,7 @@ if (function_exists('add_image_size')) {
  */
 function uw_madison_wp_2015_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'uw-madison-wp-2015' ),
+		'name'          => __( 'Posts Sidebar', 'uw-madison-wp-2015' ),
 		'id'            => 'sidebar-1',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -1929,6 +1941,16 @@ function uw_madison_wp_2015_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Footer Column 4', 'uw-madison-wp-2015' ),
 		'id'            => 'footer-col-4',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="widget-title">',
+		'after_title'   => '</h1>',
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Pages Sidebar', 'uw-madison-wp-2015' ),
+		'id'            => 'page-sidebar-1',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
