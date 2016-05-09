@@ -594,12 +594,16 @@
 
 	}
 	aside.widget_text .textwidget, aside.widget_text .textwidget p {
+		color:rgba(255,255,255,.8);
 		font-family: "Open Sans", sans-serif;
 		font-size:14px;
 		font-weight: 300;
 		-webkit-animation: fadein .6s forwards;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-delay: .4s;
+		animation: fadein .6s forwards;
+		animation-iteration-count: 1;
+		animation-delay: .4s;
 		opacity: 0;
 	}
 
