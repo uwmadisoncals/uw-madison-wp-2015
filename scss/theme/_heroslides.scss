@@ -126,6 +126,27 @@ body.blog, body.post, body.archive, body.search, body.single, body.page {
 	
 }
 
+body.page.home {
+	div.rightHandNav.photoHeader {
+		
+			.site-header {
+					background-color: transparent;
+				}
+
+			.heroHeading {
+				display: block;
+			}
+
+			.secondaryBlur {
+				display: none;
+			}
+
+			.heroImageContainerSVG {
+				display: block;
+			}
+		}
+}
+
 div.photoHeader {
 	.site-header {
 			background-color: transparent;
