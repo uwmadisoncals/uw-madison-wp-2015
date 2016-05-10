@@ -127,9 +127,103 @@
 		}
 	}
 
+.home {
+	.postsRightSidebar.dotsSidebar {
+		.sidebar_menu #nav_explore li a:before, .sidebar_menu .widget ul li a:before, .widget-area #nav_explore li a:before, .widget-area .widget ul li a:before {
+			background: $uwred;
+			border: 2px solid rgba(255,255,255,0.8);
+		}
 
+		.sidebar_menu h1:before, .widget-area h1:before {
+			border: 2px solid #fff;
+			background: #fff;
+		}
+
+		.spotlight.right-sidebar ul li:last-child, .spotlight.right-sidebar ul li:last-child {
+			a:after {
+				transform: translateY(-100%);
+				-webkit-transform: translateY(-100%);
+			}
+
+		}
+	}
+}
+
+.listRightSidebar.dotsSidebar {
+	.sidebar_menu #nav_explore li a:before, .sidebar_menu .widget ul li a:before, .widget-area #nav_explore li a:before, .widget-area .widget ul li a:before {
+		background: $uwred;
+		border: 2px solid rgba(255,255,255,0.8);
+	}
+
+	.sidebar_menu h1:before, .widget-area h1:before {
+		border: 2px solid #fff;
+		background: #fff;
+	}
+
+	.spotlight.right-sidebar ul li:last-child, .spotlight.right-sidebar ul li:last-child {
+		a:after {
+			transform: translateY(-100%);
+			-webkit-transform: translateY(-100%);
+		}
+
+	}
+}
 
 .cardSidebar {
+	.right-sidebar {
+		.sidebar_menu, .widget-area {
+			background: transparent;
+			box-shadow: 1px 2px 5px rgba(0,0,0,0.1);
+			border: 1px solid rgba(0,0,0,0);
+			border-bottom: 4px solid $uwred;
+			padding: 2em;
+			margin-top: 0em;
+
+			h1 {
+				padding: 0px;
+				text-align: center;
+
+
+				a {
+					color: #838383;
+					font-size: 0.9em;
+					padding: 0px;
+					font-weight: 400;
+					letter-spacing: 0.4px;
+				}
+			}
+
+
+			h1:before, h1:after {
+				display: none !important;
+			}
+
+			ul {
+				margin: 0px;
+
+				li {
+					margin: 0px;
+
+					a {
+						/*color: #454545;*/
+
+						.nav_text {
+							padding-left: 0px !important;
+						}
+					}
+
+					a:before {
+						display: none !important;
+					}
+
+					a:after {
+						display: none !important;
+					}
+				}
+			}
+		}
+	}
+
 	.sidebar_menu, .widget-area {
 		background: #fff;
 		box-shadow: 1px 2px 5px rgba(0,0,0,0.1);

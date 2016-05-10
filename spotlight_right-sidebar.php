@@ -39,6 +39,7 @@
 	
 	</div>
 	<div class="sidebarWrapper">
+	<?php if ( is_active_sidebar( 'sidebar-1' ) ) { ?>
 		<div class="sidebarfold">
 			<svg width="38px" height="33px" viewBox="0 0 38 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			    <!-- Generator: Sketch 3.7.2 (28276) - http://www.bohemiancoding.com/sketch -->
@@ -54,6 +55,7 @@
 			    </g>
 			</svg>
 		</div>
+		<?php } ?>
 		<?php get_sidebar(); ?></div>
 	
 </section>
