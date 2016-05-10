@@ -41,7 +41,7 @@ get_header(); ?>
 						if( !get_field('hide_the_side_navigation')) {
 							$side_nav_settings = get_option( 'uw-madison-wp-2015_sidebar_options_id' );
 							
-							if(get_field('featured_pages_layouts') == "listr") { ?>
+							if(get_field('featured_pages_layouts') == "listr" && is_active_sidebar('page-sidebar-1')) { ?>
 								<div class="spotlight right-sidebar spotlight-page">
 								<div class="sidebarWrapper">
 									<div class="sidebarfold">
