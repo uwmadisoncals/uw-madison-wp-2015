@@ -124,6 +124,16 @@
 	}
 }
 
+.mobileNavOn.home .spotlight.spotlight-page {
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: 2em;
+
+	.sidebarfold {
+		display: block;
+	}
+}
+
 .spotlight.spotlight-page {
 	padding-left: 0px;
 	padding-right: 0px;
