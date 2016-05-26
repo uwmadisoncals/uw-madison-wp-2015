@@ -3,9 +3,10 @@ $(window).on("load", function() {
 	if($("#page").hasClass("tiledPosts")) {
 		$(".grid-item").each(function() {
 			var img = $(this).find("img");
+			img.crossOrigin = 'Anonymous';
 			var imgC = img[0];
 			
-			imgC.crossOrigin = "Anonymous";
+			
 
 			var colorThief = new ColorThief();
 			var color = colorThief.getColor(imgC);
