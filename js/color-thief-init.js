@@ -5,6 +5,8 @@ $(window).on("load", function() {
 			var img = $(this).find("img");
 			var imgC = img[0];
 			
+			imgC.crossOrigin = "Anonymous";
+
 			var colorThief = new ColorThief();
 			var color = colorThief.getColor(imgC);
 			
