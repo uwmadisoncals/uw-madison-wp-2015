@@ -769,11 +769,20 @@ dl{
 	}
 }
 
-article, article.hentry {
-	width: 70%;
-	float: left;
-	margin-right: 5%;
+#content.has_nav {
+
+	article, article.hentry {
+		width: 70%;
+		float: left;
+		margin-right: 5%;
+	}
+
 }
+
+article, article.hentry {
+		
+		margin-right: 5%;
+	}
 
 .hiddenSidebar article {
 	width: 100%;

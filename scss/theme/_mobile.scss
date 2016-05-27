@@ -262,7 +262,10 @@
 	}
 
 	
-	
+	#content.has_nav article, #content.has_nav article.hentry {
+		width: 100%;
+		float: none;
+	}
 	
 	
 	.searchUI label > div {
@@ -309,9 +312,14 @@
 		width: 100%;
 	}
 	
-	.site-header .logoImage.mobileMenuOn{
+	.site-header .logoImage.mobileMenuOn {
 		margin-left: 1.4em;
 	}
+
+	.site-header .logoImage.mobileMenuOn.nologoImageAssigned {
+		margin-left: 2.4em;
+	}
+	
 	
 	.logoImage.mobileMenuOn {
 		margin-top: 0em;

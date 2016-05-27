@@ -86,6 +86,8 @@
 	 	
 	 	.search-youruw {
 			top: 30px;
+
+
 		}
 	}
 }
@@ -261,12 +263,26 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 			
 			background: $uwred;
 			transform: translateY(0%);
+
+
 			
 			.search-youruw-container {
 				max-width: $content-width-max;
 				margin: 0 auto;	
 				padding-right: 20px;
+
+
 			
+			}
+
+			.campusTitle {
+				float: left;
+				position: relative;
+				top: 8px;
+				left: 30px;
+				color: #fff;
+				font-size: 13px;
+				letter-spacing: 0.7px;
 			}
 			
 			.youruwGroup {
@@ -738,8 +754,40 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 					}
 				}
 			}
-		}
+	}
+
+	
 }
+
+.rightHandNav.photoHeader .site-header {
+		.withimage {
+			
+			
+			
+				.logoImage {
+					
+					
+					.mainLogoImg {
+						display: block;
+					}
+					
+					.altLogoImg {
+						display: none;
+					}
+				}
+
+				.mobileTrigger {
+					border-right: 1px solid rgba(255,255,255,0.2);
+					
+					svg {
+						path {
+							fill: rgba(255,255,255,0.8);
+						}
+					}		
+					
+				}
+			}
+	}
 
 	.rightHandNav.solidHeader .site-header, .rightHandNav.hiddenSlides .site-header, .rightHandNav.transparentHeader.hiddenSlides .site-header {
 		

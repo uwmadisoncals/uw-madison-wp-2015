@@ -496,6 +496,26 @@ $wp_customize->add_control(
            )
        )
 );
+
+
+$wp_customize->add_setting('uw-madison-wp-2015_campus_title_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => 'UNIVERSITY of WISCONSIN-MADISON',
+    'sanitize_callback' => 'sanitize_campus_title'
+ 
+));
+
+
+$wp_customize->add_control('uw-madison-wp-2015-campus_title', array(
+    'label'      => __('Campus Title', 'uw-madison-wp-2015'),
+    'description'=> '',
+    'section'    => 'title_tagline',
+    'type'    => 'text',
+    'settings'   => 'uw-madison-wp-2015_campus_title_id',
+));
+
+
 	
 
 /*** Twitter ***/
@@ -936,6 +956,13 @@ $wp_customize->add_control('uw-madison-wp-2015-sidebar-options', array(
 function sanitize_page_feature( $value ) {
     if ( !$value )
         $value = '-Select-';
+ 
+    return $value;
+}
+
+function sanitize_campus_title( $value ) {
+    if ( !$value )
+        $value = 'UNIVERSITY of WISCONSIN-MADISON';
  
     return $value;
 }

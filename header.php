@@ -71,6 +71,13 @@ var templateUrl = '<?php home_url(); ?>';
 				 	
 				 	<div class="search-youruw">
 					 	<div class="search-youruw-container">
+					 		<div class="campusTitle"><?php $campustitle = get_theme_mod( 'uw-madison-wp-2015_campus_title_id' );	if($campustitle != "") {
+					 					echo $campustitle;
+					 				} 
+					 			?>
+					 			
+					 		</div>
+
 						<div class="youruwGroup">
 						<div class="youruw">
 							<a href="#" class="youruwTrigger"><?php
@@ -189,7 +196,7 @@ var templateUrl = '<?php home_url(); ?>';
 
 						<!-- A Header Image is Not Assigned -->
 
-						<div class="noimageLogo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span>
+						<div class="noimageLogo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage nologoImageAssigned"><span class="forScreenReaders">Logo Image</span>
 							<?php $logo_noimage_settings = get_theme_mod( 'uw-madison-wp-2015_noimage_crest_id' ); if($logo_noimage_settings == "color") { ?>
 								<!-- Full Color Crest Selected -->
 								
