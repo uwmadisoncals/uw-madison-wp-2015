@@ -955,11 +955,31 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
  */	
 	
 	function setContentWidth(){
+
+		var sidebarNav = false;
+		var sidebarWidget = false;
+
 		//used on pages
-		if ($(".sidebar_menu")[0]){
-			$("#content").addClass("has_nav"); 
+		if ($(".sidebar_menu div.noSideBarMenuItems")[0]){
+			
+			sidebarNav = false;
 		} else {
-			$("#content").removeClass("has_nav"); 
+			
+			sidebarNav = true;
+		}
+
+		if ($(".spotlight .widget-area")[0]){
+			
+			sidebarWidget = true;
+		} else {
+			
+			sidebarWidget = false;
+		}
+
+		if(sidebarWidget || sidebarNav) {
+			$("#content").addClass("has_nav");
+		} else {
+			$("#content").removeClass("has_nav");
 		}
 		
 		

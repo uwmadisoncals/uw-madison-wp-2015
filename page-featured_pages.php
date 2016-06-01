@@ -36,7 +36,7 @@ get_header(); ?>
 				<?php endwhile; // end of the loop. ?>
 				
 				<?php 
-					if ( !is_home() ) {
+					
 						
 						if( !get_field('hide_the_side_navigation')) {
 							$side_nav_settings = get_option( 'uw-madison-wp-2015_sidebar_options_id' );
@@ -65,7 +65,7 @@ get_header(); ?>
 									<div id="secondary" class="widget-area">
 										<?php dynamic_sidebar( 'page-sidebar-1' ); ?>
 									</div>
-								<?php } else { ?>
+								<?php } else if ( is_active_sidebar( 'sidebar-1' ) ) { ?>
 									<div class="sidebarfold">
 										<svg width="38px" height="33px" viewBox="0 0 38 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 										    <!-- Generator: Sketch 3.7.2 (28276) - http://www.bohemiancoding.com/sketch -->
@@ -85,7 +85,7 @@ get_header(); ?>
 								<?php } ?>
 									</div>
 							<?php }
-
+							
 							if($side_nav_settings == "simple-nav") {
 								get_template_part('nav_menu', 'sidebar'); 
 							} else {
@@ -95,7 +95,7 @@ get_header(); ?>
 									</div>
 								<?php } ?>
 					   <?php }
-					}	  
+						  
 				?>
 			
 			</div>

@@ -57,6 +57,7 @@ function cals_page_navigation_menu($post, $parent_before = '', $parent_after= ''
 	//echo $is_top_ancestor;
 	
 	if($is_top_ancestor && $num_of_children < 1) { ?>
+		<div class="noSideBarMenuItems"></div>
 		<script>
 			document.getElementById("sidebar_menu").style.display = "none";
 		</script>
