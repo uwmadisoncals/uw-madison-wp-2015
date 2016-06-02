@@ -967,6 +967,7 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
 
 		var sidebarNav = false;
 		var sidebarWidget = false;
+		var hiddenSideBarFlag = false;
 
 		//used on pages
 		if ($(".sidebar_menu div.noSideBarMenuItems")[0]){
@@ -985,8 +986,21 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
 			sidebarWidget = false;
 		}
 
+		if($("#page").hasClass("hiddenSidebar")) {
+			hiddenSideBarFlag = true;
+		} else {
+			hiddenSideBarFlag = false;
+		}
+
 		if(sidebarWidget || sidebarNav) {
-			$("#content").addClass("has_nav");
+
+			if(hiddenSideBarFlag == true) {
+
+				$("#content").removeClass("has_nav");
+			} else {
+				$("#content").addClass("has_nav");
+			}
+			
 		} else {
 			$("#content").removeClass("has_nav");
 		}
