@@ -791,11 +791,20 @@ var templateUrl = '<?php home_url(); ?>';
 				<div class="frostedShelf"></div>
 				<div class="frostedImage">
 					<?php $args = array( 'post_type' => 'headerslides', 'posts_per_page' => 10 ); 
+
 						
 						$loop = new WP_Query( $args );
+
 					
 						if($loop->have_posts()) { ?>
+
+							<?php $loopcount = $loop->post_count; 
+						if($loopcount > 1) {
+					?>
 							<div class="gallery-b">
+						<?php } else { ?>
+								<div class="reflection-b">
+							<?php } ?>
 							<?php while ( $loop->have_posts() ) : $loop->the_post(); 
 
 								$video = get_field('hero_video');
@@ -822,6 +831,7 @@ var templateUrl = '<?php home_url(); ?>';
 							<?php }
 
 							endwhile;
+
 						}
 					?>
 							</div>
@@ -840,7 +850,7 @@ var templateUrl = '<?php home_url(); ?>';
 						$loop = new WP_Query( $args );
 					
 						if($loop->have_posts()) { ?>
-							<div class="gallery-b">
+							<div class="reflection-b">
 							<?php while ( $loop->have_posts() ) : $loop->the_post(); 
 
 								$video = get_field('hero_video');

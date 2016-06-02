@@ -109,20 +109,24 @@
 	.headerSlidesFade {
 	/* Fade CSS */
 
-		.flickity-slider {
-		  transform: none !important;
-		}
+		.main-gallery, .gallery-b {
 
-		.gallery-cell {
-		  left: 0 !important;
-		  opacity: 0;
-		  transition: opacity 0.3s ease-in-out;
-		  z-index: -1;
-		}
+			.flickity-slider {
+			  transform: none !important;
+			}
 
-		.gallery-cell.is-selected {
-		  opacity: 1;
-		  z-index: 0
+			.gallery-cell {
+			  left: 0 !important;
+			  opacity: 0;
+			  transition: opacity 0.3s ease-in-out;
+			  z-index: -1;
+			}
+
+			.gallery-cell.is-selected {
+			  opacity: 1;
+			  z-index: 0
+			}
+
 		}
 	}
 }
