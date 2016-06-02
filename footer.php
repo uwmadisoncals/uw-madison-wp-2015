@@ -7,7 +7,7 @@
  * @package UW Madison WP 2015
  */
 ?>
-	
+		</div><!-- .site-content-inner -->
 	</div><!-- #content -->
 	<div id="result"></div>
 <?php if(is_front_page()) { ?>

@@ -721,6 +721,82 @@ $wp_customize->add_control('uw-madison-wp-2015-header_style_options', array(
     'priority'   => 1,
 ));
 
+
+/*** WORK HERE ***/
+
+$wp_customize->add_setting('uw-madison-wp-2015_headerslides_transition_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+));
+
+
+$wp_customize->add_control('uw-madison-wp-2015-headerslides_transition', array(
+    'label'      => __('Use a cross disolve effect for Header Slides', 'uw-madison-wp-2015'),
+    'section'    => 'uw-madison-wp-2015-header-options',
+    'type'    => 'checkbox',
+    'settings'   => 'uw-madison-wp-2015_headerslides_transition_id',
+    'priority'   => 1,
+));
+
+$wp_customize->add_setting('uw-madison-wp-2015_headerslides_frostedglass_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+));
+
+
+$wp_customize->add_control('uw-madison-wp-2015-headerslides_frostedglass', array(
+    'label'      => __('Frosted Glass Effect on Hompage', 'uw-madison-wp-2015'),
+    'section'    => 'uw-madison-wp-2015-header-options',
+    'type'    => 'checkbox',
+    'settings'   => 'uw-madison-wp-2015_headerslides_frostedglass_id',
+    'priority'   => 2,
+));
+
+
+$wp_customize->add_setting('uw-madison-wp-2015_headerslides_frostedglass_subpages_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+));
+
+
+$wp_customize->add_control('uw-madison-wp-2015-headerslides_frostedglass_subpages', array(
+    'label'      => __('Frosted Glass Effect on Subpages', 'uw-madison-wp-2015'),
+    'section'    => 'uw-madison-wp-2015-header-options',
+    'type'    => 'checkbox',
+    'settings'   => 'uw-madison-wp-2015_headerslides_frostedglass_subpages_id',
+    'priority'   => 2,
+));
+
+
+$wp_customize->add_setting('uw-madison-wp-2015_headerslides_dots_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+));
+
+
+$wp_customize->add_control('uw-madison-wp-2015-headerslides_dots', array(
+    'label'      => __('Hide Header Slides Dots', 'uw-madison-wp-2015'),
+    'section'    => 'uw-madison-wp-2015-header-options',
+    'type'    => 'checkbox',
+    'settings'   => 'uw-madison-wp-2015_headerslides_dots_id',
+    'priority'   => 2,
+));
+
+
+$wp_customize->add_setting('uw-madison-wp-2015_headerslides_arrows_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+));
+
+
+$wp_customize->add_control('uw-madison-wp-2015-headerslides_arrows', array(
+    'label'      => __('Hide Header Slides Arrows', 'uw-madison-wp-2015'),
+    'section'    => 'uw-madison-wp-2015-header-options',
+    'type'    => 'checkbox',
+    'settings'   => 'uw-madison-wp-2015_headerslides_arrows_id',
+    'priority'   => 2,
+));
+
 /*$wp_customize->add_control('uw-madison-wp-2015-photo_header_size', array(
     'label'      => __('Header Style', 'uw-madison-wp-2015'),
     'section'    => 'uw-madison-wp-2015-header-options',

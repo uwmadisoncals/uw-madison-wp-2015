@@ -518,9 +518,18 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
 	  // options
 	  cellAlign: 'left',
 	  contain: true,
-	  wrapAround: true
+	  wrapAround: true,
+	  sync: '.gallery-b'
 	});
-	
+
+	/*$('.gallery-b').flickity();*/
+	$('.gallery-b').flickity({
+	  // options
+	  cellAlign: 'left',
+	  contain: true,
+	  wrapAround: true
+	  
+	});
 
 
 
@@ -1016,7 +1025,7 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
  * ----------------------------------------------------------------------------
  */
  
- 	if($("body").hasClass("home")) {
+ 	/*if($("body").hasClass("home")) {
 	 	if($("#page").hasClass("visibleSlides")) {
 		 	$(window).scroll(function() {
 			 	var galleryHeight = $(".main-gallery").height();
@@ -1062,7 +1071,7 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
 		 	});
 		 	
 	 	}
- 	}
+ 	}*/
  	
  	
 /**

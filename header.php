@@ -48,6 +48,7 @@ var templateUrl = '<?php home_url(); ?>';
 </head>
 
 <body <?php body_class(); ?>>
+
 <div class="searchUI" aria-hidden="true"><?php get_search_form(); ?><a href="#" class="searchClose"><svg enable-background="new 0 0 32 32" aria-label="Close Search" height="32px" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><polyline fill="none" points="   649,137.999 675,137.999 675,155.999 661,155.999  " stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/><polyline fill="none" points="   653,155.999 649,155.999 649,141.999  " stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/><polyline fill="none" points="   661,156 653,162 653,156  " stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/></g><g><path d="M11.312,12.766c0.194,0.195,0.449,0.292,0.704,0.292c0.255,0,0.51-0.097,0.704-0.292c0.389-0.389,0.389-1.02,0-1.409   L4.755,3.384c-0.389-0.389-1.019-0.389-1.408,0s-0.389,1.02,0,1.409L11.312,12.766z"/><path d="M17.407,16.048L28.652,4.793c0.389-0.389,0.389-1.02,0-1.409c-0.389-0.389-1.019-0.561-1.408-0.171L15.296,15   c0,0-0.296,0-0.296,0s0,0.345,0,0.345L3.2,27.303c-0.389,0.389-0.315,1.02,0.073,1.409c0.194,0.195,0.486,0.292,0.741,0.292   s0.528-0.097,0.722-0.292L15.99,17.458l11.249,11.255c0.194,0.195,0.452,0.292,0.706,0.292s0.511-0.097,0.705-0.292   c0.389-0.389,0.39-1.02,0.001-1.409L17.407,16.048z"/></g></svg></a><div id="ajaxResults"></div></div>
 <div class="searchResultsOverlay" aria-hidden="true"></div>
 
@@ -57,7 +58,8 @@ var templateUrl = '<?php home_url(); ?>';
 
 
 
-<div id="page" class="hfeed site <?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { echo "hiddenSlides"; } else { echo "visibleSlides"; } ?> <?php $header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' ); if($header_style == "opaque") { echo "solidHeader"; } else if($header_style == "photo") { echo "photoHeader"; } else { echo "transparentHeader"; } ?> <?php $home_layout_settings = get_theme_mod( 'uw-madison-wp-2015_layout_id' ); if($home_layout_settings == "tiles") { echo "tiledPosts"; }; if($home_layout_settings == "right_sidebar") { echo "postsRightSidebar"; } ?> <?php $header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' ); if($header_layout_settings == "righthand") { echo "rightHandNav"; } else { echo "navBar"; } ?> <?php if( get_field('hide_the_side_navigation')) { echo "hiddenSidebar"; } ?> <?php $sidebar_settings = get_theme_mod( 'uw-madison-wp-2015_sidebar_style_id' ); if($sidebar_settings == "card") { echo 'cardSidebar'; } else if($sidebar_settings == "dots") { echo 'dotsSidebar'; } else { echo 'lineSidebar'; } ?><?php $fontselection = get_theme_mod( 'uw-madison-wp-2015_fonts_id' ); echo ' '.$fontselection; ?> <?php if(get_field('featured_pages_layouts')) { $page_layout = get_field('featured_pages_layouts'); if($page_layout == 'listr') { echo 'listRightSidebar'; }  } ?>">
+<div id="page" class="hfeed site <?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { echo "hiddenSlides"; } else { echo "visibleSlides"; } ?> <?php $header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' ); if($header_style == "opaque") { echo "solidHeader"; } else if($header_style == "photo") { echo "photoHeader"; } else { echo "transparentHeader"; } ?> <?php $home_layout_settings = get_theme_mod( 'uw-madison-wp-2015_layout_id' ); if($home_layout_settings == "tiles") { echo "tiledPosts"; }; if($home_layout_settings == "right_sidebar") { echo "postsRightSidebar"; } ?> <?php $header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' ); if($header_layout_settings == "righthand") { echo "rightHandNav"; } else { echo "navBar"; } ?> <?php if( get_field('hide_the_side_navigation')) { echo "hiddenSidebar"; } ?> <?php $sidebar_settings = get_theme_mod( 'uw-madison-wp-2015_sidebar_style_id' ); if($sidebar_settings == "card") { echo 'cardSidebar'; } else if($sidebar_settings == "dots") { echo 'dotsSidebar'; } else { echo 'lineSidebar'; } ?><?php $fontselection = get_theme_mod( 'uw-madison-wp-2015_fonts_id' ); echo ' '.$fontselection; ?> <?php if(get_field('featured_pages_layouts')) { $page_layout = get_field('featured_pages_layouts'); if($page_layout == 'listr') { echo 'listRightSidebar'; }  } ?> <?php $header_slides_dots = get_theme_mod( 'uw-madison-wp-2015_headerslides_dots_id' ); if($header_slides_dots == true) { echo "hiddenSlideDots"; } ?> <?php $header_slides_arrows = get_theme_mod( 'uw-madison-wp-2015_headerslides_arrows_id' ); if($header_slides_arrows == true) { echo "hiddenSlideArrows"; } ?> <?php $header_slides_transition = get_theme_mod( 'uw-madison-wp-2015_headerslides_transition_id' ); if($header_slides_transition == true) { echo "headerSlidesFade"; } ?>">
+
 
 
 
@@ -780,10 +782,97 @@ var templateUrl = '<?php home_url(); ?>';
 		<?php } ?>
 	</div>
 	
-
+	
  
 	<?php if(is_front_page()) { ?>
 		<div id="content" class="site-content row">
+			<?php $header_frosted_glass = get_theme_mod( 'uw-madison-wp-2015_headerslides_frostedglass_id' ); if($header_frosted_glass == true) {  ?>
+			<div class="whiteGradient">
+				<div class="frostedShelf"></div>
+				<div class="frostedImage">
+					<?php $args = array( 'post_type' => 'headerslides', 'posts_per_page' => 10 ); 
+						
+						$loop = new WP_Query( $args );
+					
+						if($loop->have_posts()) { ?>
+							<div class="gallery-b">
+							<?php while ( $loop->have_posts() ) : $loop->the_post(); 
+
+								$video = get_field('hero_video');
+									
+									
+
+								$image = get_field('hero_image');
+							$size = 'hero-image'; // (thumbnail, medium, large, full or custom size)
+							
+							if( $video ) { ?>
+									<div class="gallery-cell">
+										<video autoplay loop id="bgvid">
+										    <source src="<?php echo $video ?>" type="video/mp4">
+										</video>
+									</div>
+							<?php } else {
+								
+								 $attachment_id = get_field('hero_image'); $size = "hero-image"; 
+								 $image = wp_get_attachment_image_src($attachment_id, $size); ?>
+								 <div class="gallery-cell" style="background: url(<?php echo $image[0]; ?>) no-repeat; background-size: cover; background-position: center center">
+								 	
+								 </div>
+							
+							<?php }
+
+							endwhile;
+						}
+					?>
+							</div>
+				</div>
+			</div><?php } ?>
+				<div class="site-content-inner">
 	<?php } else { ?>
 		<div id="content" class="site-content post-content row">
+			<?php $header_frosted_glass = get_theme_mod( 'uw-madison-wp-2015_headerslides_frostedglass_subpages_id' ); if($header_frosted_glass == true) {  ?>
+			<div class="whiteGradient">
+				<div class="frostedShelf"></div>
+				<div class="frostedImage">
+					
+					<?php $args = array( 'post_type' => 'headerslides', 'posts_per_page' => 1 ); 
+						
+						$loop = new WP_Query( $args );
+					
+						if($loop->have_posts()) { ?>
+							<div class="gallery-b">
+							<?php while ( $loop->have_posts() ) : $loop->the_post(); 
+
+								$video = get_field('hero_video');
+									
+									
+
+								$image = get_field('hero_image');
+							$size = 'hero-image'; // (thumbnail, medium, large, full or custom size)
+							
+							if( $video ) { ?>
+									<div class="gallery-cell">
+										<video autoplay loop id="bgvid">
+										    <source src="<?php echo $video ?>" type="video/mp4">
+										</video>
+									</div>
+							<?php } else {
+								
+								 $attachment_id = get_field('hero_image'); $size = "hero-image"; 
+								 $image = wp_get_attachment_image_src($attachment_id, $size); ?>
+								 <div class="gallery-cell" style="background: url(<?php echo $image[0]; ?>) no-repeat; background-size: cover; background-position: center center">
+								 	
+								 </div>
+							
+							<?php }
+
+							endwhile;
+						}
+					?>
+							</div>
+
+				</div>
+			</div>
+				<?php } ?>
+				<div class="site-content-inner">
 	<?php } ?>

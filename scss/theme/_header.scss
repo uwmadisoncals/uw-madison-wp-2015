@@ -105,6 +105,91 @@
 		}
 }
 
+.home {
+	.headerSlidesFade {
+	/* Fade CSS */
+
+		.flickity-slider {
+		  transform: none !important;
+		}
+
+		.gallery-cell {
+		  left: 0 !important;
+		  opacity: 0;
+		  transition: opacity 0.3s ease-in-out;
+		  z-index: -1;
+		}
+
+		.gallery-cell.is-selected {
+		  opacity: 1;
+		  z-index: 0
+		}
+	}
+}
+
+.whiteGradient {
+	height: 300px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	z-index:-1;	
+	overflow: hidden;
+
+	.frostedShelf {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		z-index:2;
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0.4+0,1+100 */
+background: -moz-linear-gradient(top,  rgba(255,255,255,0.4) 0%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(255,255,255,0.4) 0%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(255,255,255,0.4) 0%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+
+	}
+
+	.frostedImage {
+		position: absolute;
+		top: -20px;
+		left: -15px;
+		right: -15px;
+		bottom: 0px;
+		z-index:1;
+		
+		.flickity-prev-next-button, .flickity-page-dots {
+			  	display: none;
+			  }
+
+
+
+		.gallery-cell {
+			
+			-moz-transform: scaleY(-1);
+	        -o-transform: scaleY(-1);
+	        -webkit-transform: scaleY(-1);
+	        transform: scaleY(-1);
+	        filter: FlipW;
+	        -ms-filter: "FlipW";
+			
+			 -webkit-filter: blur(12px);
+			  -moz-filter: blur(12px);
+			  -o-filter: blur(12px);
+			  -ms-filter: blur(12px);
+			  filter: blur(12px);
+
+			  video {
+			  	width: 100%;
+			  }
+
+		}
+	}
+
+}
+
 .admin-bar .rightHandNav .site-header, .archive .rightHandNav .site-header, .blog .rightHandNav .site-header, .page .rightHandNav .site-header, .search .rightHandNav .site-header, .single .rightHandNav .site-header {
 	background: #f2f2f2;
 }
@@ -1201,7 +1286,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 	}
 
 	.featureHeader .heroImageContainerSVG {
-		min-height: 250px;
+		/*min-height: 250px;*/
 	}
 
 	/*.featureHeader .heroImage {
