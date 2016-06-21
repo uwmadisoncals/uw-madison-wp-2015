@@ -396,7 +396,7 @@ class Photo_Header_Size_Custom_Control extends WP_Customize_Control
 
                  
                  <div style="margin-top: 1em;">
-                 <input id="<?php echo $this->id; ?>" name="<?php echo $this->id; ?>" type="range" min="150" max="500" step="10" value="<?php echo $this->value(); ?>" <?php $this->link(); ?> />
+                 <input id="<?php echo $this->id; ?>" name="<?php echo $this->id; ?>" type="range" min="150" max="800" step="10" value="<?php echo $this->value(); ?>" <?php $this->link(); ?> />
                  </div>
                   
                   
@@ -514,6 +514,28 @@ $wp_customize->add_control('uw-madison-wp-2015-campus_title', array(
     'type'    => 'text',
     'settings'   => 'uw-madison-wp-2015_campus_title_id',
 ));
+
+
+
+
+/*** adjust logo image width if desired ***/
+
+/*$wp_customize->add_setting('uw-madison-wp-2015_logo_width_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => '',
+    'sanitize_callback' => 'sanitize_logo_width'
+ 
+));
+
+
+$wp_customize->add_control('uw-madison-wp-2015-logo_width', array(
+    'label'      => __('Uploaded Logo Width', 'uw-madison-wp-2015'),
+    'description'=> '',
+    'section'    => 'header_image',
+    'type'    => 'text',
+    'settings'   => 'uw-madison-wp-2015_logo_width_id',
+));*/
 
 
 	
@@ -1027,6 +1049,13 @@ $wp_customize->add_control('uw-madison-wp-2015-sidebar-options', array(
 
  
 
+
+/*function sanitize_logo_width( $value ) {
+    if ( !$value )
+        $value = '';
+ 
+    return $value;
+}*/
 
 
 function sanitize_page_feature( $value ) {
@@ -1630,7 +1659,7 @@ if(function_exists("register_field_group"))
 				'maxlength' => '',
 			),
 			array (
-				'key' => 'field_56b2db003b514',
+				'key' => 'field_576961e2c6ddf',
 				'label' => 'Hide Slide Text',
 				'name' => 'hide_slide_text',
 				'type' => 'checkbox',
@@ -1712,6 +1741,46 @@ if(function_exists("register_field_group"))
 				'save_format' => 'id',
 				'preview_size' => 'medium',
 				'library' => 'all',
+			),
+			array (
+				'key' => 'field_57696007ab6c2',
+				'label' => 'Hero Image Vertical Alignment',
+				'name' => 'hero_image_vertical_alignment',
+				'type' => 'radio',
+				'instructions' => 'To accommodate various browser and device sizes the images will auto resize and crop when needed. Would you like this image to auto resize itself from the top, center, or bottom of the image?',
+				'choices' => array (
+					'top' => 'Top',
+					'center' => 'Centered',
+					'bottom' => 'Bottom',
+				),
+				'other_choice' => 0,
+				'save_other_choice' => 0,
+				'default_value' => 'center',
+				'layout' => 'vertical',
+			),
+			array (
+				'key' => 'field_576960b2ab6c3',
+				'label' => 'Disable Image Filter?',
+				'name' => 'hero_image_filter',
+				'type' => 'checkbox',
+				'instructions' => 'In order to provide contrast to any text on top of the image this theme places a subtle darkening filter on the image.	If you would like to disable this, check this box.',
+				'choices' => array (
+					'yes' => 'Yes',
+				),
+				'default_value' => '',
+				'layout' => 'vertical',
+			),
+			array (
+				'key' => 'field_57696121ab6c4',
+				'label' => 'Disable Blur Filter?',
+				'name' => 'disable_blur_filter',
+				'type' => 'checkbox',
+				'instructions' => 'In order to make navigation text readable in the event of a detailed image this theme will blur the top portion of the image.	If you would like to disable this, check this box.',
+				'choices' => array (
+					'yes' => 'Yes',
+				),
+				'default_value' => '',
+				'layout' => 'vertical',
 			),
 			array (
 				'key' => 'field_55f87f434dc2e',

@@ -16,7 +16,7 @@
 <!-- 7. WordPress will then import each of the posts, pages, comments, categories, etc. -->
 <!--    contained in this file into your site. -->
 
-<!-- generator="WordPress/4.3.1" created="2015-09-15 20:51" -->
+<!-- generator="WordPress/4.5.2" created="2016-06-21 15:49" -->
 <rss version="2.0"
 	xmlns:excerpt="http://wordpress.org/export/1.1/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -26,10 +26,10 @@
 >
 
 <channel>
-	<title>Madison WP 2015 Theme</title>
+	<title>International Programs</title>
 	<link>http://madisonwptheme.localhost</link>
-	<description></description>
-	<pubDate>Tue, 15 Sep 2015 20:51:44 +0000</pubDate>
+	<description>College of Agricultural and Life Sciences</description>
+	<pubDate>Tue, 21 Jun 2016 15:49:47 +0000</pubDate>
 	<language></language>
 	<wp:wxr_version>1.1</wp:wxr_version>
 	<wp:base_site_url>http://madisonwptheme.localhost</wp:base_site_url>
@@ -62,19 +62,19 @@
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>field_554146f2cd9b5</wp:meta_key>
-			<wp:meta_value><![CDATA[a:13:{s:3:"key";s:19:"field_554146f2cd9b5";s:5:"label";s:7:"Link To";s:4:"name";s:7:"link_to";s:4:"type";s:5:"radio";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:7:"choices";a:3:{s:4:"none";s:11:"Do not link";s:10:"pageorpost";s:22:"Link to a Page or Post";s:11:"externalurl";s:13:"Specify a URL";}s:12:"other_choice";s:1:"0";s:17:"save_other_choice";s:1:"0";s:13:"default_value";s:4:"none";s:6:"layout";s:8:"vertical";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:1;}]]></wp:meta_value>
+			<wp:meta_value><![CDATA[a:13:{s:3:"key";s:19:"field_554146f2cd9b5";s:5:"label";s:7:"Link To";s:4:"name";s:7:"link_to";s:4:"type";s:5:"radio";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:7:"choices";a:3:{s:4:"none";s:11:"Do not link";s:10:"pageorpost";s:22:"Link to a Page or Post";s:11:"externalurl";s:13:"Specify a URL";}s:12:"other_choice";s:1:"0";s:17:"save_other_choice";s:1:"0";s:13:"default_value";s:4:"none";s:6:"layout";s:8:"vertical";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:2;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>field_5541473ccd9b6</wp:meta_key>
-			<wp:meta_value><![CDATA[a:11:{s:3:"key";s:19:"field_5541473ccd9b6";s:5:"label";s:22:"Link to a Page or Post";s:4:"name";s:22:"link_to_a_page_or_post";s:4:"type";s:9:"page_link";s:12:"instructions";s:0:"";s:8:"required";s:1:"1";s:9:"post_type";a:2:{i:0;s:4:"post";i:1;s:4:"page";}s:10:"allow_null";s:1:"0";s:8:"multiple";s:1:"0";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"1";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_554146f2cd9b5";s:8:"operator";s:2:"==";s:5:"value";s:10:"pageorpost";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:2;}]]></wp:meta_value>
+			<wp:meta_value><![CDATA[a:11:{s:3:"key";s:19:"field_5541473ccd9b6";s:5:"label";s:22:"Link to a Page or Post";s:4:"name";s:22:"link_to_a_page_or_post";s:4:"type";s:9:"page_link";s:12:"instructions";s:0:"";s:8:"required";s:1:"1";s:9:"post_type";a:2:{i:0;s:4:"post";i:1;s:4:"page";}s:10:"allow_null";s:1:"0";s:8:"multiple";s:1:"0";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"1";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_554146f2cd9b5";s:8:"operator";s:2:"==";s:5:"value";s:10:"pageorpost";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:3;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>field_554147f9cd9b7</wp:meta_key>
-			<wp:meta_value><![CDATA[a:14:{s:3:"key";s:19:"field_554147f9cd9b7";s:5:"label";s:13:"Specify a URL";s:4:"name";s:13:"specify_a_url";s:4:"type";s:4:"text";s:12:"instructions";s:0:"";s:8:"required";s:1:"1";s:13:"default_value";s:0:"";s:11:"placeholder";s:12:"www.wisc.edu";s:7:"prepend";s:7:"http://";s:6:"append";s:0:"";s:10:"formatting";s:4:"none";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"1";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_554146f2cd9b5";s:8:"operator";s:2:"==";s:5:"value";s:11:"externalurl";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:3;}]]></wp:meta_value>
+			<wp:meta_value><![CDATA[a:14:{s:3:"key";s:19:"field_554147f9cd9b7";s:5:"label";s:13:"Specify a URL";s:4:"name";s:13:"specify_a_url";s:4:"type";s:4:"text";s:12:"instructions";s:0:"";s:8:"required";s:1:"1";s:13:"default_value";s:0:"";s:11:"placeholder";s:12:"www.wisc.edu";s:7:"prepend";s:7:"http://";s:6:"append";s:0:"";s:10:"formatting";s:4:"none";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"1";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_554146f2cd9b5";s:8:"operator";s:2:"==";s:5:"value";s:11:"externalurl";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:4;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>field_55414630cd9b2</wp:meta_key>
-			<wp:meta_value><![CDATA[a:11:{s:3:"key";s:19:"field_55414630cd9b2";s:5:"label";s:10:"Hero Image";s:4:"name";s:10:"hero_image";s:4:"type";s:5:"image";s:12:"instructions";s:0:"";s:8:"required";s:1:"1";s:11:"save_format";s:2:"id";s:12:"preview_size";s:6:"medium";s:7:"library";s:3:"all";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:4;}]]></wp:meta_value>
+			<wp:meta_value><![CDATA[a:11:{s:3:"key";s:19:"field_55414630cd9b2";s:5:"label";s:10:"Hero Image";s:4:"name";s:10:"hero_image";s:4:"type";s:5:"image";s:12:"instructions";s:0:"";s:8:"required";s:1:"1";s:11:"save_format";s:2:"id";s:12:"preview_size";s:6:"medium";s:7:"library";s:3:"all";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:5;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>position</wp:meta_key>
@@ -90,11 +90,7 @@
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>field_55f87f434dc2e</wp:meta_key>
-			<wp:meta_value><![CDATA[a:10:{s:3:"key";s:19:"field_55f87f434dc2e";s:5:"label";s:10:"Hero Video";s:4:"name";s:10:"hero_video";s:4:"type";s:4:"file";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:11:"save_format";s:3:"url";s:7:"library";s:3:"all";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_554146f2cd9b5";s:8:"operator";s:2:"==";s:5:"value";s:4:"none";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:5;}]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>rule</wp:meta_key>
-			<wp:meta_value><![CDATA[a:5:{s:5:"param";s:9:"post_type";s:8:"operator";s:2:"==";s:5:"value";s:12:"headerslides";s:8:"order_no";i:0;s:8:"group_no";i:0;}]]></wp:meta_value>
+			<wp:meta_value><![CDATA[a:10:{s:3:"key";s:19:"field_55f87f434dc2e";s:5:"label";s:10:"Hero Video";s:4:"name";s:10:"hero_video";s:4:"type";s:4:"file";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:11:"save_format";s:3:"url";s:7:"library";s:3:"all";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_554146f2cd9b5";s:8:"operator";s:2:"==";s:5:"value";s:4:"none";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:9;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>_edit_last</wp:meta_key>
@@ -106,19 +102,19 @@
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>field_554146f2cd9b5</wp:meta_key>
-			<wp:meta_value><![CDATA[a:13:{s:3:"key";s:19:"field_554146f2cd9b5";s:5:"label";s:7:"Link To";s:4:"name";s:7:"link_to";s:4:"type";s:5:"radio";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:7:"choices";a:3:{s:4:"none";s:11:"Do not link";s:10:"pageorpost";s:22:"Link to a Page or Post";s:11:"externalurl";s:13:"Specify a URL";}s:12:"other_choice";s:1:"0";s:17:"save_other_choice";s:1:"0";s:13:"default_value";s:4:"none";s:6:"layout";s:8:"vertical";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:1;}]]></wp:meta_value>
+			<wp:meta_value><![CDATA[a:13:{s:3:"key";s:19:"field_554146f2cd9b5";s:5:"label";s:7:"Link To";s:4:"name";s:7:"link_to";s:4:"type";s:5:"radio";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:7:"choices";a:3:{s:4:"none";s:11:"Do not link";s:10:"pageorpost";s:22:"Link to a Page or Post";s:11:"externalurl";s:13:"Specify a URL";}s:12:"other_choice";s:1:"0";s:17:"save_other_choice";s:1:"0";s:13:"default_value";s:4:"none";s:6:"layout";s:8:"vertical";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:2;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>field_5541473ccd9b6</wp:meta_key>
-			<wp:meta_value><![CDATA[a:11:{s:3:"key";s:19:"field_5541473ccd9b6";s:5:"label";s:22:"Link to a Page or Post";s:4:"name";s:22:"link_to_a_page_or_post";s:4:"type";s:9:"page_link";s:12:"instructions";s:0:"";s:8:"required";s:1:"1";s:9:"post_type";a:2:{i:0;s:4:"post";i:1;s:4:"page";}s:10:"allow_null";s:1:"0";s:8:"multiple";s:1:"0";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"1";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_554146f2cd9b5";s:8:"operator";s:2:"==";s:5:"value";s:10:"pageorpost";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:2;}]]></wp:meta_value>
+			<wp:meta_value><![CDATA[a:11:{s:3:"key";s:19:"field_5541473ccd9b6";s:5:"label";s:22:"Link to a Page or Post";s:4:"name";s:22:"link_to_a_page_or_post";s:4:"type";s:9:"page_link";s:12:"instructions";s:0:"";s:8:"required";s:1:"1";s:9:"post_type";a:2:{i:0;s:4:"post";i:1;s:4:"page";}s:10:"allow_null";s:1:"0";s:8:"multiple";s:1:"0";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"1";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_554146f2cd9b5";s:8:"operator";s:2:"==";s:5:"value";s:10:"pageorpost";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:3;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>field_554147f9cd9b7</wp:meta_key>
-			<wp:meta_value><![CDATA[a:14:{s:3:"key";s:19:"field_554147f9cd9b7";s:5:"label";s:13:"Specify a URL";s:4:"name";s:13:"specify_a_url";s:4:"type";s:4:"text";s:12:"instructions";s:0:"";s:8:"required";s:1:"1";s:13:"default_value";s:0:"";s:11:"placeholder";s:12:"www.wisc.edu";s:7:"prepend";s:7:"http://";s:6:"append";s:0:"";s:10:"formatting";s:4:"none";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"1";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_554146f2cd9b5";s:8:"operator";s:2:"==";s:5:"value";s:11:"externalurl";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:3;}]]></wp:meta_value>
+			<wp:meta_value><![CDATA[a:14:{s:3:"key";s:19:"field_554147f9cd9b7";s:5:"label";s:13:"Specify a URL";s:4:"name";s:13:"specify_a_url";s:4:"type";s:4:"text";s:12:"instructions";s:0:"";s:8:"required";s:1:"1";s:13:"default_value";s:0:"";s:11:"placeholder";s:12:"www.wisc.edu";s:7:"prepend";s:7:"http://";s:6:"append";s:0:"";s:10:"formatting";s:4:"none";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"1";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_554146f2cd9b5";s:8:"operator";s:2:"==";s:5:"value";s:11:"externalurl";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:4;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>field_55414630cd9b2</wp:meta_key>
-			<wp:meta_value><![CDATA[a:11:{s:3:"key";s:19:"field_55414630cd9b2";s:5:"label";s:10:"Hero Image";s:4:"name";s:10:"hero_image";s:4:"type";s:5:"image";s:12:"instructions";s:0:"";s:8:"required";s:1:"1";s:11:"save_format";s:2:"id";s:12:"preview_size";s:6:"medium";s:7:"library";s:3:"all";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:4;}]]></wp:meta_value>
+			<wp:meta_value><![CDATA[a:11:{s:3:"key";s:19:"field_55414630cd9b2";s:5:"label";s:10:"Hero Image";s:4:"name";s:10:"hero_image";s:4:"type";s:5:"image";s:12:"instructions";s:0:"";s:8:"required";s:1:"1";s:11:"save_format";s:2:"id";s:12:"preview_size";s:6:"medium";s:7:"library";s:3:"all";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:5;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>position</wp:meta_key>
@@ -134,7 +130,23 @@
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>field_55f87f434dc2e</wp:meta_key>
-			<wp:meta_value><![CDATA[a:10:{s:3:"key";s:19:"field_55f87f434dc2e";s:5:"label";s:10:"Hero Video";s:4:"name";s:10:"hero_video";s:4:"type";s:4:"file";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:11:"save_format";s:3:"url";s:7:"library";s:3:"all";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_554146f2cd9b5";s:8:"operator";s:2:"==";s:5:"value";s:4:"none";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:5;}]]></wp:meta_value>
+			<wp:meta_value><![CDATA[a:10:{s:3:"key";s:19:"field_55f87f434dc2e";s:5:"label";s:10:"Hero Video";s:4:"name";s:10:"hero_video";s:4:"type";s:4:"file";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:11:"save_format";s:3:"url";s:7:"library";s:3:"all";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_554146f2cd9b5";s:8:"operator";s:2:"==";s:5:"value";s:4:"none";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:9;}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>field_57696007ab6c2</wp:meta_key>
+			<wp:meta_value><![CDATA[a:13:{s:3:"key";s:19:"field_57696007ab6c2";s:5:"label";s:29:"Hero Image Vertical Alignment";s:4:"name";s:29:"hero_image_vertical_alignment";s:4:"type";s:5:"radio";s:12:"instructions";s:191:"To accommodate various browser and device sizes the images will auto resize and crop when needed. Would you like this image to auto resize itself from the top, center, or bottom of the image?";s:8:"required";s:1:"0";s:7:"choices";a:3:{s:3:"top";s:3:"Top";s:6:"center";s:8:"Centered";s:6:"bottom";s:6:"Bottom";}s:12:"other_choice";s:1:"0";s:17:"save_other_choice";s:1:"0";s:13:"default_value";s:0:"";s:6:"layout";s:8:"vertical";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_554146f2cd9b5";s:8:"operator";s:2:"==";s:5:"value";s:4:"none";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:6;}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>field_576960b2ab6c3</wp:meta_key>
+			<wp:meta_value><![CDATA[a:11:{s:3:"key";s:19:"field_576960b2ab6c3";s:5:"label";s:21:"Disable Image Filter?";s:4:"name";s:17:"hero_image_filter";s:4:"type";s:8:"checkbox";s:12:"instructions";s:170:"In order to provide contrast to any text on top of the image this theme places a subtle darkening filter on the image.  If you would like to disable this, check this box.";s:8:"required";s:1:"0";s:7:"choices";a:1:{s:3:"yes";s:3:"Yes";}s:13:"default_value";s:0:"";s:6:"layout";s:8:"vertical";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_554146f2cd9b5";s:8:"operator";s:2:"==";s:5:"value";s:4:"none";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:7;}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>field_57696121ab6c4</wp:meta_key>
+			<wp:meta_value><![CDATA[a:11:{s:3:"key";s:19:"field_57696121ab6c4";s:5:"label";s:20:"Disable Blur Filter?";s:4:"name";s:19:"disable_blur_filter";s:4:"type";s:8:"checkbox";s:12:"instructions";s:177:"In order to make navigation text readable in the event of a detailed image this theme will blur the top portion of the image.  If you would like to disable this, check this box.";s:8:"required";s:1:"0";s:7:"choices";a:1:{s:3:"yes";s:3:"Yes";}s:13:"default_value";s:0:"";s:6:"layout";s:8:"vertical";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_554146f2cd9b5";s:8:"operator";s:2:"==";s:5:"value";s:4:"none";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:8;}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>field_576961e2c6ddf</wp:meta_key>
+			<wp:meta_value><![CDATA[a:11:{s:3:"key";s:19:"field_576961e2c6ddf";s:5:"label";s:15:"Hide Slide Text";s:4:"name";s:15:"hide_slide_text";s:4:"type";s:8:"checkbox";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:7:"choices";a:1:{s:4:"hide";s:9:"Hide Text";}s:13:"default_value";s:0:"";s:6:"layout";s:8:"vertical";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_554146f2cd9b5";s:8:"operator";s:2:"==";s:5:"value";s:4:"none";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:1;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>rule</wp:meta_key>
