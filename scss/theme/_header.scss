@@ -74,6 +74,45 @@
 	
 }
 
+.home .featureHeader .centeredSiteLogo {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	z-index:10;
+}
+
+.featureHeader .centeredSiteLogo {
+	display: none;
+
+}
+
+.hideMainNav .mobileTrigger, .hideMainNav .main-navigation-container {
+	display: none !important;
+}
+
+.hidemainlogo .site-header .logo-search-container {
+	min-height: 140px;
+}
+
+.mobileNavOn .hidemainlogo .site-header .logo-search-container {
+	min-height: auto;
+}
+
+#page.hidemainlogo.hideMainNav .logo-search-container {
+	height: 35px;
+}
+
+
+
+.home .hidemainlogo .site-branding .logoImage img {
+	display: none !important;
+}
+
 .altLogoImg {
 	display: none;
 }
@@ -2292,6 +2331,19 @@ ul.children, ul.sub-menu {
 @media screen and (max-width: 900px) {
 	#bgvid {
 		display: none;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	.featureHeader .centeredSiteLogo {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 80%;
+		transform: translate(-50%,-50%);
+		-webkit-transform: translate(-50%,-50%);
+		-moz-transform: translate(-50%,-50%);
+		z-index:10;
 	}
 }
 	

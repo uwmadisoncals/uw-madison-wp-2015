@@ -240,6 +240,23 @@
 
 /* Minimum width of 600 pixels. */
 @media screen and (max-width: 600px) {
+	
+	.hidemainlogo.hideMainNav .flickity-viewport, .flickity-viewport .gallery-cell {
+		height: 240px !important;
+	}
+	
+	.home .featureHeader .centeredSiteLogo {
+		width: auto;
+		height: 90px;
+		max-width: 85%;
+		top: 55%;	
+	}
+	
+	
+	.hidemainlogo.hideMainNav .whiteGradient .frostedImage {
+		display: none;
+	}
+	
 	.tabSuggest {
 		display: none;
 	}
@@ -297,6 +314,23 @@
 
 /* Minimum width of 400 pixels. */
 @media screen and (max-width: 400px) {
+	
+	.hidemainlogo.hideMainNav .flickity-viewport, .flickity-viewport .gallery-cell {
+		height: 140px !important;
+	}
+	
+	.home .featureHeader .centeredSiteLogo {
+		width: auto;
+		height: 90px;
+		max-width: 85%;
+		top: 55%;	
+	}
+	
+	
+	.hidemainlogo.hideMainNav .whiteGradient .frostedImage {
+		display: none;
+	}
+	
 	
 	.logoImage.mobileMenuOn img {
 		max-height: 50px;

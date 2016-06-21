@@ -518,6 +518,61 @@ $wp_customize->add_control('uw-madison-wp-2015-campus_title', array(
 
 
 
+
+
+/*** Add option to move main logo for homepage ***/
+
+$wp_customize->add_setting('uw-madison-wp-2015_home_logo_position_id', array(
+    'capability'     => 'edit_theme_options',
+    'default'		 => 'top-left',
+    'type'           => 'theme_mod',
+    'sanitize_callback' => 'sanitize_home_logo_position'
+ 
+));
+
+
+$wp_customize->add_control('uw-madison-wp-2015-home_logo_position', array(
+    'label'      => __('Homepage Logo Position', 'uw-madison-wp-2015'),
+    'description'=> 'Adjust the position of the logo on the homepage.',
+    'section'    => 'header_image',
+    'type'    => 'radio',
+    'choices' => array(
+            'top-left' => __( 'Top Left (default)', 'uw-madison-wp-2015' ),
+            'center' => __( 'Center of the Hero Image', 'uw-madison-wp-2015' )
+        ),
+    'settings'   => 'uw-madison-wp-2015_home_logo_position_id',
+    'priority'	=> 10
+));
+
+
+
+
+/*** Add option to hide main navigation ***/
+
+$wp_customize->add_setting('uw-madison-wp-2015_hide_show_nav_id', array(
+    'capability'     => 'edit_theme_options',
+    'default'		 => 'no',
+    'type'           => 'theme_mod',
+    'sanitize_callback' => 'sanitize_hide_show_nav'
+ 
+));
+
+
+$wp_customize->add_control('uw-madison-wp-2015-hide_show_nav', array(
+    'label'      => __('Hide Main Navigation', 'uw-madison-wp-2015'),
+    'description'=> 'Hide the main navigation in the event there no subpages.',
+    'section'    => 'uw-madison-wp-2015-header-options',
+    'type'    => 'radio',
+    'choices' => array(
+            'no' => __( 'Show Navigation (default)', 'uw-madison-wp-2015' ),
+            'yes' => __( 'Hide Navigation', 'uw-madison-wp-2015' )
+        ),
+    'settings'   => 'uw-madison-wp-2015_hide_show_nav_id',
+    'priority'	=> 1
+));
+
+
+
 /*** adjust logo image width if desired ***/
 
 /*$wp_customize->add_setting('uw-madison-wp-2015_logo_width_id', array(
@@ -1047,15 +1102,21 @@ $wp_customize->add_control('uw-madison-wp-2015-sidebar-options', array(
     'settings'   => 'uw-madison-wp-2015_sidebar_options_id',
 ));
 
- 
 
 
-/*function sanitize_logo_width( $value ) {
+function sanitize_hide_show_nav( $value ) {
     if ( !$value )
-        $value = '';
+        $value = 'no';
  
     return $value;
-}*/
+}
+
+function sanitize_home_logo_position( $value ) {
+    if ( !$value )
+        $value = 'top-left';
+ 
+    return $value;
+}
 
 
 function sanitize_page_feature( $value ) {
