@@ -965,6 +965,13 @@ article, article.hentry {
 			}
 		}
 	}
+
+	#page.photoHeader.navBar .site-header .main-navigation{
+		background: rgba(255,255,255, 0.35);
+		.site-navigation-container li a{
+			color:rgba(0,0,0,0.8);
+		}
+	}
 }
 
 .home {
