@@ -888,6 +888,8 @@ article, article.hentry {
 .blog,
 .admin-bar {
 	
+	
+	
 	#content{
 		/*margin-top: 4em;*/
 	}
@@ -901,22 +903,42 @@ article, article.hentry {
 		/*color: rgb(65, 167, 211);*/
 	}
 	
-	.site-header{
-		background-color: $uwred;
-		
-		.main-navigation{
-			  background: rgba(0,0,0, 0.2);
-			  
-			  .site-navigation-container li a{
-			  	color: #fff;
-			  }
-			  
-			  .site-navigation-container li a:hover, .site-navigation-container li a:focus {
-				  background: $uwred-dark; 
-			  }
+	
+	
+		.site-header {
+			background-color: $uwred;
+			
+			.main-navigation{
+				  background: rgba(0,0,0, 0.2);
+				  
+				  .site-navigation-container li a{
+				  	color: #fff;
+				  }
+				  
+				  .site-navigation-container li a:hover, .site-navigation-container li a:focus {
+					  background: $uwred-dark; 
+				  }
+			}
+	
 		}
-
+		
+	.photoHeader {
+		.site-header {
+			
+			
+			.main-navigation{
+				  
+				  
+				  
+				  
+				  .site-navigation-container li a:hover, .site-navigation-container li a:focus {
+					  background: $uwred; 
+				  }
+			}
+	
+		}
 	}
+	
 		
 	.site-content {
 		position: relative;

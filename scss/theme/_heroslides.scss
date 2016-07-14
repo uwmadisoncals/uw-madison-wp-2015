@@ -197,6 +197,18 @@ body.home, body.home.blog {
 }
 
 
+.hiddenSlides.photoHeader {
+	.featureHeader {
+		min-height: 160px;
+	}
+}
+
+.hiddenSlides.transparentHeader, .hiddenSlides.solidHeader {
+	.featureHeader {
+		min-height: 120px;
+	}
+}
+
 .featureHeader {
 	min-height: 80px;
 	
