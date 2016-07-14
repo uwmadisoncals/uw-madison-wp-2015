@@ -970,6 +970,10 @@ article, article.hentry {
 		background: rgba(255,255,255, 0.35);
 		.site-navigation-container li a{
 			color:rgba(0,0,0,0.8);
+
+			&:hover{
+				color:rgba(255,255,255,.9);
+			}
 		}
 	}
 }
