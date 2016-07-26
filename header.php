@@ -594,7 +594,7 @@ var templateUrl = '<?php home_url(); ?>';
 								<svg class="heroImageContainerSVG" aria-label="Featured Image">
 
 									<!-- Definition of a mask begins -->
-							        <defs>
+							        <!--<defs>
 							            <mask id="mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
 										    <linearGradient id="g" gradientUnits="objectBoundingBox" x2="0" y2="1">
 										        <stop stop-color="white" stop-opacity="1" offset="0"/>
@@ -604,7 +604,7 @@ var templateUrl = '<?php home_url(); ?>';
 										    </linearGradient>
 										    <rect width="100%" height="100%" fill="url(#g)"/>
 										</mask>
-							        </defs>
+							        </defs>-->
 								
 									<foreignObject width="100%" height="100%" style="mask: url(#mask); ">
 								
