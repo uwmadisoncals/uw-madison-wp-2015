@@ -6,7 +6,7 @@
  */
 
 get_header(); ?>
-
+<div class="site-content-inner">
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 			<div class="cf postPadding">
@@ -27,5 +27,7 @@ get_header(); ?>
 			</div>
 		</main>
 	</div>
+
 <?php get_sidebar(); ?>
+</div><!-- .site-content-inner -->
 <?php get_footer(); ?>

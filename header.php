@@ -72,7 +72,7 @@ var templateUrl = '<?php home_url(); ?>';
 		
 		<?php $header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' ); 
 				if($header_layout_settings == "righthand") { ?>
-				 	<!-- uses righthand nav -->
+				 	<!-- uses righthand nav --> 
 				 	
 				 	<div class="search-youruw">
 					 	<div class="search-youruw-container">
@@ -879,10 +879,12 @@ var templateUrl = '<?php home_url(); ?>';
 	
  
 	<?php if(is_front_page()) { ?>
+		<?php $background_color = get_background_color(); ?>
 		<div id="content" class="site-content row">
 			<?php $header_frosted_glass = get_theme_mod( 'uw-madison-wp-2015_headerslides_frostedglass_id' ); if($header_frosted_glass == true) {  ?>
 			<div class="whiteGradient">
-				<div class="frostedShelf"></div>
+				<div class="frostedShelf" <?php if($background_color) { ?>style="background: -moz-linear-gradient(top,  rgba(255,255,255,0.4) 0%, #<?php echo $background_color; ?> 100%); background: -webkit-linear-gradient(top,  rgba(255,255,255,0.4) 0%, #<?php echo $background_color; ?> 100%);
+background: linear-gradient(to bottom,  rgba(255,255,255,0.4) 0%, #<?php echo $background_color; ?> 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66ffffff', endColorstr='#<?php echo $background_color; ?>',GradientType=0 );" <?php } ?>></div>
 				<div class="frostedImage">
 					<?php $args = array( 'post_type' => 'headerslides', 'posts_per_page' => 10 ); 
 
@@ -931,7 +933,7 @@ var templateUrl = '<?php home_url(); ?>';
 							</div>
 				</div>
 			</div><?php } ?>
-				<div class="site-content-inner">
+				
 	<?php } else { ?>
 		<div id="content" class="site-content post-content row">
 			<?php $header_frosted_glass = get_theme_mod( 'uw-madison-wp-2015_headerslides_frostedglass_subpages_id' ); if($header_frosted_glass == true) {  ?>
@@ -978,5 +980,7 @@ var templateUrl = '<?php home_url(); ?>';
 				</div>
 			</div>
 				<?php } ?>
-				<div class="site-content-inner">
+				
+				
 	<?php } ?>
+	

@@ -11,6 +11,7 @@
  */
 
 get_header(); ?>
+<div class="site-content-inner">
 
 	<div id="primary" class="content-area <?php $image = get_field('hero_image_pages'); if($image) { echo "heroImage"; } ?>">
 		<main id="main" class="site-main" role="main">
@@ -101,5 +102,5 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-	
+</div><!-- .site-content-inner -->
 <?php get_footer(); ?>
