@@ -978,7 +978,7 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
 			sidebarNav = true;
 		}
 
-		if ($(".spotlight .widget-area")[0]){
+		if ($(".spotlight .widget-area")[0] || $(".page-widget-sidebar")[0]) {
 			
 			sidebarWidget = true;
 		} else {
