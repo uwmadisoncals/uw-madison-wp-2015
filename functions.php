@@ -502,6 +502,11 @@ $wp_customize->add_section( 'uw-madison-wp-2015-header-options' , array(
     	'priority'   => 60,
 	) ); 
 
+$wp_customize->add_section( 'uw-madison-wp-2015-visual-effects' , array(
+    	'title'      => __( 'Visual Effects', 'uw-madison-wp-2015' ),
+    	'priority'   => 60,
+	) ); 
+
 $wp_customize->add_section( 'uw-madison-wp-2015-font-options' , array(
     	'title'      => __( 'Fonts', 'uw-madison-wp-2015' ),
     	'priority'   => 60,
@@ -832,7 +837,7 @@ $wp_customize->add_control('uw-madison-wp-2015-header_style_options', array(
     'choices' => array(
             'transparent' => __( 'Transparent', 'uw-madison-wp-2015' ),
             'opaque' => __( 'Opaque', 'uw-madison-wp-2015' ),
-            'photo' => __( 'Photo', 'uw-madison-wp-2015' )
+            'photo' => __( 'Hero Image from Homepage', 'uw-madison-wp-2015' )
         ),
     'settings'   => 'uw-madison-wp-2015_header_style_options_id',
     'priority'   => 1,
@@ -848,8 +853,8 @@ $wp_customize->add_setting('uw-madison-wp-2015_headerslides_transition_id', arra
 
 
 $wp_customize->add_control('uw-madison-wp-2015-headerslides_transition', array(
-    'label'      => __('Use a cross disolve effect for Header Slides', 'uw-madison-wp-2015'),
-    'section'    => 'uw-madison-wp-2015-header-options',
+    'label'      => __('Use a cross dissolve effect for Header Slide transitions', 'uw-madison-wp-2015'),
+    'section'    => 'uw-madison-wp-2015-visual-effects',
     'type'    => 'checkbox',
     'settings'   => 'uw-madison-wp-2015_headerslides_transition_id',
     'priority'   => 1,
@@ -863,7 +868,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_headerslides_frostedglass_id', ar
 
 $wp_customize->add_control('uw-madison-wp-2015-headerslides_frostedglass', array(
     'label'      => __('Frosted Glass Effect on Hompage', 'uw-madison-wp-2015'),
-    'section'    => 'uw-madison-wp-2015-header-options',
+    'section'    => 'uw-madison-wp-2015-visual-effects',
     'type'    => 'checkbox',
     'settings'   => 'uw-madison-wp-2015_headerslides_frostedglass_id',
     'priority'   => 2,
@@ -878,7 +883,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_headerslides_frostedglass_subpage
 
 $wp_customize->add_control('uw-madison-wp-2015-headerslides_frostedglass_subpages', array(
     'label'      => __('Frosted Glass Effect on Subpages', 'uw-madison-wp-2015'),
-    'section'    => 'uw-madison-wp-2015-header-options',
+    'section'    => 'uw-madison-wp-2015-visual-effects',
     'type'    => 'checkbox',
     'settings'   => 'uw-madison-wp-2015_headerslides_frostedglass_subpages_id',
     'priority'   => 2,
@@ -1004,8 +1009,7 @@ $wp_customize->add_control('uw-madison-wp-2015-tablesaw', array(
     'type'    => 'radio',
     'choices' => array(
             'tablesaw' => __( 'Tablesaw', 'uw-madison-wp-2015' ),
-            'datatables' => __( 'Data Tables', 'uw-madison-wp-2015' ),
-            'none' => __( 'None (not recommended)', 'uw-madison-wp-2015' )
+            'datatables' => __( 'Data Tables', 'uw-madison-wp-2015' )
         ),
     'settings'   => 'uw-madison-wp-2015_tablesaw_id',
 ));
@@ -1557,531 +1561,780 @@ register_default_headers( array(
 
 
 /**** Added ACF fields for Header Slides ****/
-if(function_exists("register_field_group"))
-{
-	register_field_group(array (
-		'id' => 'acf_page-hero-images',
-		'title' => 'Page Hero Images',
-		'fields' => array (
-			array (
-				'key' => 'field_566743c4528dc',
-				'label' => 'Hero Image',
-				'name' => 'hero_image_pages',
-				'type' => 'image',
-				'save_format' => 'id',
-				'preview_size' => 'thumbnail',
-				'library' => 'all',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'page',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'side',
-			'layout' => 'no_box',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
-	register_field_group(array (
-		'id' => 'acf_page-layout-options',
-		'title' => 'Page Layout Options',
-		'fields' => array (
-			array (
-				'key' => 'field_565fc8e7b2b67',
-				'label' => 'Featured Pages Layouts',
-				'name' => 'featured_pages_layouts',
-				'type' => 'radio',
-				'required' => 1,
-				'choices' => array (
-					'circles' => 'Circles',
-					'tiles' => 'Tiles',
-					'list' => 'List',
-					'listr' => 'List (Right Sidebar)',
-				),
-				'other_choice' => 0,
-				'save_other_choice' => 0,
-				'default_value' => 'circles',
-				'layout' => 'horizontal',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'page_template',
-					'operator' => '==',
-					'value' => 'page-featured_pages.php',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'acf_after_title',
-			'layout' => 'no_box',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 1,
-	));
-	register_field_group(array (
-		'id' => 'acf_page-layout-fields',
-		'title' => 'Page Layout Fields',
-		'fields' => array (
-			array (
-				'key' => 'field_565fc5543e19a',
-				'label' => 'Featured Page 1',
-				'name' => 'featured_page_1',
-				'type' => 'post_object',
-				'post_type' => array (
-					0 => 'page',
-				),
-				'taxonomy' => array (
-					0 => 'all',
-				),
-				'allow_null' => 1,
-				'multiple' => 0,
-			),
-			array (
-				'key' => 'field_565fcb7378f4e',
-				'label' => 'Featured Page 2',
-				'name' => 'featured_page_2',
-				'type' => 'post_object',
-				'post_type' => array (
-					0 => 'page',
-				),
-				'taxonomy' => array (
-					0 => 'all',
-				),
-				'allow_null' => 1,
-				'multiple' => 0,
-			),
-			array (
-				'key' => 'field_565fcb81d8329',
-				'label' => 'Featured Page 3',
-				'name' => 'featured_page_3',
-				'type' => 'post_object',
-				'post_type' => array (
-					0 => 'page',
-				),
-				'taxonomy' => array (
-					0 => 'all',
-				),
-				'allow_null' => 1,
-				'multiple' => 0,
-			),
-			array (
-				'key' => 'field_565fcb8cd832a',
-				'label' => 'Featured Page 4',
-				'name' => 'featured_page_4',
-				'type' => 'post_object',
-				'post_type' => array (
-					0 => 'page',
-				),
-				'taxonomy' => array (
-					0 => 'all',
-				),
-				'allow_null' => 1,
-				'multiple' => 0,
-			),
-			array (
-				'key' => 'field_565fcb92d832b',
-				'label' => 'Featured Page 5',
-				'name' => 'featured_page_5',
-				'type' => 'post_object',
-				'post_type' => array (
-					0 => 'page',
-				),
-				'taxonomy' => array (
-					0 => 'all',
-				),
-				'allow_null' => 1,
-				'multiple' => 0,
-			),
-			array (
-				'key' => 'field_565fcbb1d832c',
-				'label' => 'Featured Page 6',
-				'name' => 'featured_page_6',
-				'type' => 'post_object',
-				'post_type' => array (
-					0 => 'page',
-				),
-				'taxonomy' => array (
-					0 => 'all',
-				),
-				'allow_null' => 1,
-				'multiple' => 0,
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'page_template',
-					'operator' => '==',
-					'value' => 'page-featured_pages.php',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'acf_after_title',
-			'layout' => 'no_box',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 2,
-	));
-	
+if( function_exists('acf_add_local_field_group') ):
 
-	register_field_group(array (
-		'id' => 'acf_hero-image-fields',
-		'title' => 'Hero Image Fields',
-		'fields' => array (
-			array (
-				'key' => 'field_554146e0cd9b4',
-				'label' => 'Sub Heading Text',
-				'name' => 'sub_heading_text',
-				'type' => 'text',
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'none',
-				'maxlength' => '',
+acf_add_local_field_group(array (
+	'key' => 'group_acf_hero-image-fields',
+	'title' => 'Hero Image Fields ',
+	'fields' => array (
+		array (
+			'key' => 'field_554146e0cd9b4',
+			'label' => 'Sub Heading Text',
+			'name' => 'sub_heading_text',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
 			),
-			array (
-				'key' => 'field_576961e2c6ddf',
-				'label' => 'Hide Slide Text',
-				'name' => 'hide_slide_text',
-				'type' => 'checkbox',
-				'choices' => array (
-					'hide' => 'Hide Text',
-				),
-				'default_value' => '',
-				'layout' => 'vertical',
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'formatting' => 'none',
+			'maxlength' => '',
+			'readonly' => 0,
+			'disabled' => 0,
+		),
+		array (
+			'key' => 'field_576961e2c6ddf',
+			'label' => 'Hide Slide Text',
+			'name' => 'hide_slide_text',
+			'type' => 'checkbox',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
 			),
-			array (
-				'key' => 'field_554146f2cd9b5',
-				'label' => 'Link To',
-				'name' => 'link_to',
-				'type' => 'radio',
-				'choices' => array (
-					'none' => 'Do not link',
-					'pageorpost' => 'Link to a Page or Post',
-					'externalurl' => 'Specify a URL',
-				),
-				'other_choice' => 0,
-				'save_other_choice' => 0,
-				'default_value' => 'none',
-				'layout' => 'vertical',
+			'choices' => array (
+				'hide' => 'Hide Text',
 			),
-			array (
-				'key' => 'field_5541473ccd9b6',
-				'label' => 'Link to a Page or Post',
-				'name' => 'link_to_a_page_or_post',
-				'type' => 'page_link',
-				'required' => 1,
-				'conditional_logic' => array (
-					'status' => 1,
-					'rules' => array (
-						array (
-							'field' => 'field_554146f2cd9b5',
-							'operator' => '==',
-							'value' => 'pageorpost',
-						),
+			'default_value' => array (
+			),
+			'layout' => 'vertical',
+			'toggle' => 0,
+		),
+		array (
+			'key' => 'field_554146f2cd9b5',
+			'label' => 'Link To',
+			'name' => 'link_to',
+			'type' => 'radio',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array (
+				'none' => 'Do not link',
+				'pageorpost' => 'Link to a Page or Post',
+				'externalurl' => 'Specify a URL',
+			),
+			'other_choice' => 0,
+			'save_other_choice' => 0,
+			'default_value' => 'none',
+			'layout' => 'vertical',
+			'allow_null' => 0,
+		),
+		array (
+			'key' => 'field_5541473ccd9b6',
+			'label' => 'Link to a Page or Post',
+			'name' => 'link_to_a_page_or_post',
+			'type' => 'page_link',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => array (
+				array (
+					array (
+						'field' => 'field_554146f2cd9b5',
+						'operator' => '==',
+						'value' => 'pageorpost',
 					),
-					'allorany' => 'all',
 				),
-				'post_type' => array (
-					0 => 'post',
-					1 => 'page',
-				),
-				'allow_null' => 0,
-				'multiple' => 0,
 			),
-			array (
-				'key' => 'field_554147f9cd9b7',
-				'label' => 'Specify a URL',
-				'name' => 'specify_a_url',
-				'type' => 'text',
-				'required' => 1,
-				'conditional_logic' => array (
-					'status' => 1,
-					'rules' => array (
-						array (
-							'field' => 'field_554146f2cd9b5',
-							'operator' => '==',
-							'value' => 'externalurl',
-						),
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'post_type' => array (
+				0 => 'post',
+				1 => 'page',
+			),
+			'allow_null' => 0,
+			'multiple' => 0,
+			'taxonomy' => array (
+			),
+		),
+		array (
+			'key' => 'field_554147f9cd9b7',
+			'label' => 'Specify a URL',
+			'name' => 'specify_a_url',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => array (
+				array (
+					array (
+						'field' => 'field_554146f2cd9b5',
+						'operator' => '==',
+						'value' => 'externalurl',
 					),
-					'allorany' => 'all',
 				),
-				'default_value' => '',
-				'placeholder' => 'www.wisc.edu',
-				'prepend' => 'http://',
-				'append' => '',
-				'formatting' => 'none',
-				'maxlength' => '',
 			),
-			array (
-				'key' => 'field_55414630cd9b2',
-				'label' => 'Hero Image',
-				'name' => 'hero_image',
-				'type' => 'image',
-				'required' => 1,
-				'save_format' => 'id',
-				'preview_size' => 'medium',
-				'library' => 'all',
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
 			),
-			array (
-				'key' => 'field_57696007ab6c2',
-				'label' => 'Hero Image Vertical Alignment',
-				'name' => 'hero_image_vertical_alignment',
-				'type' => 'radio',
-				'instructions' => 'To accommodate various browser and device sizes the images will auto resize and crop when needed. Would you like this image to auto resize itself from the top, center, or bottom of the image?',
-				'choices' => array (
-					'top' => 'Top',
-					'center' => 'Centered',
-					'bottom' => 'Bottom',
-				),
-				'other_choice' => 0,
-				'save_other_choice' => 0,
-				'default_value' => 'center',
-				'layout' => 'vertical',
+			'default_value' => '',
+			'placeholder' => 'www.wisc.edu',
+			'prepend' => 'http://',
+			'append' => '',
+			'formatting' => 'none',
+			'maxlength' => '',
+			'readonly' => 0,
+			'disabled' => 0,
+		),
+		array (
+			'key' => 'field_55414630cd9b2',
+			'label' => 'Hero Image',
+			'name' => 'hero_image',
+			'type' => 'image',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
 			),
-			array (
-				'key' => 'field_576960b2ab6c3',
-				'label' => 'Disable Image Filter?',
-				'name' => 'hero_image_filter',
-				'type' => 'checkbox',
-				'instructions' => 'In order to provide contrast to any text on top of the image this theme places a subtle darkening filter on the image.	If you would like to disable this, check this box.',
-				'choices' => array (
-					'yes' => 'Yes',
-				),
-				'default_value' => '',
-				'layout' => 'vertical',
+			'preview_size' => 'medium',
+			'library' => 'all',
+			'return_format' => 'id',
+			'min_width' => 0,
+			'min_height' => 0,
+			'min_size' => 0,
+			'max_width' => 0,
+			'max_height' => 0,
+			'max_size' => 0,
+			'mime_types' => '',
+		),
+		array (
+			'key' => 'field_57696007ab6c2',
+			'label' => 'Hero Image Vertical Alignment',
+			'name' => 'hero_image_vertical_alignment',
+			'type' => 'radio',
+			'instructions' => 'To accommodate various browser and device sizes the images will auto resize and crop when needed. Would you like this image to auto resize itself from the top, center, or bottom of the image?',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
 			),
-			array (
-				'key' => 'field_57696121ab6c4',
-				'label' => 'Disable Blur Filter?',
-				'name' => 'disable_blur_filter',
-				'type' => 'checkbox',
-				'instructions' => 'In order to make navigation text readable in the event of a detailed image this theme will blur the top portion of the image.	If you would like to disable this, check this box.',
-				'choices' => array (
-					'yes' => 'Yes',
-				),
-				'default_value' => '',
-				'layout' => 'vertical',
+			'choices' => array (
+				'top' => 'Top',
+				'center' => 'Centered',
+				'bottom' => 'Bottom',
 			),
+			'other_choice' => 0,
+			'save_other_choice' => 0,
+			'default_value' => 'center',
+			'layout' => 'vertical',
+			'allow_null' => 0,
+		),
+		array (
+			'key' => 'field_576960b2ab6c3',
+			'label' => 'Disable Image Filter?',
+			'name' => 'hero_image_filter',
+			'type' => 'checkbox',
+			'instructions' => 'In order to provide contrast to any text on top of the image this theme places a subtle darkening filter on the image.	If you would like to disable this, check this box.',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array (
+				'yes' => 'Yes',
+			),
+			'default_value' => array (
+			),
+			'layout' => 'vertical',
+			'toggle' => 0,
+		),
+		array (
+			'key' => 'field_57696121ab6c4',
+			'label' => 'Disable Blur Filter?',
+			'name' => 'disable_blur_filter',
+			'type' => 'checkbox',
+			'instructions' => 'In order to make navigation text readable in the event of a detailed image this theme will blur the top portion of the image.	If you would like to disable this, check this box.',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array (
+				'yes' => 'Yes',
+			),
+			'default_value' => array (
+				0 => 'no',
+			),
+			'layout' => 'vertical',
+			'toggle' => 0,
+		),
+		array (
+			'key' => 'field_55f87f434dc2e',
+			'label' => 'Hero Video',
+			'name' => 'hero_video',
+			'type' => 'file',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'library' => 'all',
+			'return_format' => 'url',
+			'min_size' => 0,
+			'max_size' => 0,
+			'mime_types' => '',
+		),
+	),
+	'location' => array (
+		array (
 			array (
-				'key' => 'field_55f87f434dc2e',
-				'label' => 'Hero Video',
-				'name' => 'hero_video',
-				'type' => 'file',
-				'save_format' => 'url',
-				'library' => 'all',
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'headerslides',
 			),
 		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'headerslides',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'normal',
-			'layout' => 'no_box',
-			'hide_on_screen' => array (
-				0 => 'permalink',
-				1 => 'the_content',
-				2 => 'excerpt',
-				3 => 'custom_fields',
-				4 => 'discussion',
-				5 => 'comments',
-				6 => 'revisions',
-				7 => 'slug',
-				8 => 'author',
-				9 => 'format',
-				10 => 'featured_image',
-				11 => 'categories',
-				12 => 'tags',
-				13 => 'send-trackbacks',
-			),
-		),
-		'menu_order' => 0,
-	));
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'seamless',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => array (
+		0 => 'permalink',
+		1 => 'the_content',
+		2 => 'excerpt',
+		3 => 'custom_fields',
+		4 => 'discussion',
+		5 => 'comments',
+		6 => 'revisions',
+		7 => 'slug',
+		8 => 'author',
+		9 => 'format',
+		10 => 'featured_image',
+		11 => 'categories',
+		12 => 'tags',
+		13 => 'send-trackbacks',
+	),
+	'active' => 1,
+	'description' => '',
+));
 
+acf_add_local_field_group(array (
+	'key' => 'group_acf_page-and-single-attributes',
+	'title' => 'Page and Single Attributes ',
+	'fields' => array (
+		array (
+			'key' => 'field_5563b6ea89fb7',
+			'label' => 'Sub Title',
+			'name' => 'sub_title',
+			'type' => 'text',
+			'instructions' => 'This text will appear above your page title as a subtitle.',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'formatting' => 'none',
+			'maxlength' => '',
+			'readonly' => 0,
+			'disabled' => 0,
+		),
+	),
+	'location' => array (
+		array (
+			array (
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+				'order_no' => 0,
+				'group_no' => 0,
+			),
+		),
+		array (
+			array (
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'page',
+				'order_no' => 0,
+				'group_no' => 1,
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'acf_after_title',
+	'style' => 'seamless',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => array (
+	),
+	'active' => 1,
+	'description' => '',
+	'id' => 'acf_page-and-single-attributes',
+	'local' => 'php',
+));
 
+acf_add_local_field_group(array (
+	'key' => 'group_acf_page-hero-images',
+	'title' => 'Page Hero Images ',
+	'fields' => array (
+		array (
+			'key' => 'field_566743c4528dc',
+			'label' => 'Hero Image',
+			'name' => 'hero_image_pages',
+			'type' => 'image',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'preview_size' => 'thumbnail',
+			'library' => 'all',
+			'return_format' => 'id',
+			'min_width' => 0,
+			'min_height' => 0,
+			'min_size' => 0,
+			'max_width' => 0,
+			'max_height' => 0,
+			'max_size' => 0,
+			'mime_types' => '',
+		),
+	),
+	'location' => array (
+		array (
+			array (
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'page',
+				'order_no' => 0,
+				'group_no' => 0,
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'side',
+	'style' => 'seamless',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => array (
+	),
+	'active' => 1,
+	'description' => '',
+	'id' => 'acf_page-hero-images',
+	'local' => 'php',
+));
 
-	register_field_group(array (
-		'id' => 'acf_page-and-single-attributes',
-		'title' => 'Page and Single Attributes',
-		'fields' => array (
+acf_add_local_field_group(array (
+	'key' => 'group_acf_page-options',
+	'title' => 'Page Options ',
+	'fields' => array (
+		array (
+			'key' => 'field_5661e83871c8c',
+			'label' => 'Hide the Side Navigation',
+			'name' => 'hide_the_side_navigation',
+			'type' => 'true_false',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => '',
+			'default_value' => 0,
+		),
+		array (
+			'key' => 'field_572628c43f043',
+			'label' => 'Hide Featured Image',
+			'name' => 'hide_featured_image',
+			'type' => 'checkbox',
+			'instructions' => 'Hide the featured image on this page.',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array (
+				'hide' => 'Yes, hide the Featured Image',
+			),
+			'default_value' => array (
+			),
+			'layout' => 'vertical',
+			'toggle' => 0,
+		),
+		array (
+			'key' => 'field_572badddcd0b7',
+			'label' => 'Show Page Widgets',
+			'name' => 'show_page_widgets',
+			'type' => 'checkbox',
+			'instructions' => 'Select this option if you would like the "Pages Sidebar" widget area to appear on this page. By default it is hidden.',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array (
+				'showpagewidgets' => 'Show Page Sidebar Widgets',
+			),
+			'default_value' => array (
+			),
+			'layout' => 'vertical',
+			'toggle' => 0,
+		),
+	),
+	'location' => array (
+		array (
 			array (
-				'key' => 'field_5563b6ea89fb7',
-				'label' => 'Sub Title',
-				'name' => 'sub_title',
-				'type' => 'text',
-				'instructions' => 'This text will appear above your page title as a subtitle.',
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'none',
-				'maxlength' => '',
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'page',
+				'order_no' => 0,
+				'group_no' => 0,
 			),
 		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'post',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'page',
-					'order_no' => 0,
-					'group_no' => 1,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'acf_after_title',
-			'layout' => 'no_box',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
+	),
+	'menu_order' => 0,
+	'position' => 'side',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => array (
+	),
+	'active' => 1,
+	'description' => '',
+	'id' => 'acf_page-options',
+	'local' => 'php',
+));
 
-	register_field_group(array (
-		'id' => 'acf_uw-events',
-		'title' => 'UW Events',
-		'fields' => array (
-			array (
-				'key' => 'field_55a94df76ef5b',
-				'label' => 'Tag',
-				'name' => 'tag',
-				'type' => 'text',
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'html',
-				'maxlength' => '',
+acf_add_local_field_group(array (
+	'key' => 'group_acf_uw-events',
+	'title' => 'UW Events ',
+	'fields' => array (
+		array (
+			'key' => 'field_55a94df76ef5b',
+			'label' => 'Tag',
+			'name' => 'tag',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
 			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'formatting' => 'html',
+			'maxlength' => '',
+			'readonly' => 0,
+			'disabled' => 0,
+		),
+		array (
+			'key' => 'field_55abfd67a6009',
+			'label' => 'Number of Results',
+			'name' => 'limit',
+			'type' => 'number',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => 3,
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'min' => '',
+			'max' => '',
+			'step' => '',
+			'readonly' => 0,
+			'disabled' => 0,
+		),
+	),
+	'location' => array (
+		array (
 			array (
-				'key' => 'field_55abfd67a6009',
-				'label' => 'Number of Results',
-				'name' => 'limit',
-				'type' => 'number',
-				'default_value' => 3,
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'min' => '',
-				'max' => '',
-				'step' => '',
+				'param' => 'page_template',
+				'operator' => '==',
+				'value' => 'default',
+				'order_no' => 0,
+				'group_no' => 0,
 			),
 		),
-		'location' => array (
+	),
+	'menu_order' => 0,
+	'position' => 'side',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => array (
+	),
+	'active' => 1,
+	'description' => '',
+	'id' => 'acf_uw-events',
+	'local' => 'php',
+));
+
+acf_add_local_field_group(array (
+	'key' => 'group_acf_page-layout-options',
+	'title' => 'Page Layout Options ',
+	'fields' => array (
+		array (
+			'key' => 'field_565fc8e7b2b67',
+			'label' => 'Featured Pages Layouts',
+			'name' => 'featured_pages_layouts',
+			'type' => 'radio',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array (
+				'circles' => 'Circles',
+				'tiles' => 'Tiles',
+				'list' => 'List',
+				'listr' => 'List (Right Sidebar)',
+			),
+			'other_choice' => 0,
+			'save_other_choice' => 0,
+			'default_value' => 'circles',
+			'layout' => 'horizontal',
+			'allow_null' => 0,
+		),
+	),
+	'location' => array (
+		array (
 			array (
-				array (
-					'param' => 'page_template',
-					'operator' => '==',
-					'value' => 'default',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
+				'param' => 'page_template',
+				'operator' => '==',
+				'value' => 'page-featured_pages.php',
+				'order_no' => 0,
+				'group_no' => 0,
 			),
 		),
-		'options' => array (
-			'position' => 'side',
-			'layout' => 'default',
-			'hide_on_screen' => array (
+	),
+	'menu_order' => 1,
+	'position' => 'acf_after_title',
+	'style' => 'seamless',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => array (
+	),
+	'active' => 1,
+	'description' => '',
+	'id' => 'acf_page-layout-options',
+	'local' => 'php',
+));
+
+acf_add_local_field_group(array (
+	'key' => 'group_acf_page-layout-fields',
+	'title' => 'Page Layout Fields ',
+	'fields' => array (
+		array (
+			'key' => 'field_565fc5543e19a',
+			'label' => 'Featured Page 1',
+			'name' => 'featured_page_1',
+			'type' => 'post_object',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'post_type' => array (
+				0 => 'page',
+			),
+			'taxonomy' => array (
+			),
+			'allow_null' => 1,
+			'multiple' => 0,
+			'return_format' => 'object',
+			'ui' => 1,
+		),
+		array (
+			'key' => 'field_565fcb7378f4e',
+			'label' => 'Featured Page 2',
+			'name' => 'featured_page_2',
+			'type' => 'post_object',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'post_type' => array (
+				0 => 'page',
+			),
+			'taxonomy' => array (
+			),
+			'allow_null' => 1,
+			'multiple' => 0,
+			'return_format' => 'object',
+			'ui' => 1,
+		),
+		array (
+			'key' => 'field_565fcb81d8329',
+			'label' => 'Featured Page 3',
+			'name' => 'featured_page_3',
+			'type' => 'post_object',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'post_type' => array (
+				0 => 'page',
+			),
+			'taxonomy' => array (
+			),
+			'allow_null' => 1,
+			'multiple' => 0,
+			'return_format' => 'object',
+			'ui' => 1,
+		),
+		array (
+			'key' => 'field_565fcb8cd832a',
+			'label' => 'Featured Page 4',
+			'name' => 'featured_page_4',
+			'type' => 'post_object',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'post_type' => array (
+				0 => 'page',
+			),
+			'taxonomy' => array (
+			),
+			'allow_null' => 1,
+			'multiple' => 0,
+			'return_format' => 'object',
+			'ui' => 1,
+		),
+		array (
+			'key' => 'field_565fcb92d832b',
+			'label' => 'Featured Page 5',
+			'name' => 'featured_page_5',
+			'type' => 'post_object',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'post_type' => array (
+				0 => 'page',
+			),
+			'taxonomy' => array (
+			),
+			'allow_null' => 1,
+			'multiple' => 0,
+			'return_format' => 'object',
+			'ui' => 1,
+		),
+		array (
+			'key' => 'field_565fcbb1d832c',
+			'label' => 'Featured Page 6',
+			'name' => 'featured_page_6',
+			'type' => 'post_object',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'post_type' => array (
+				0 => 'page',
+			),
+			'taxonomy' => array (
+			),
+			'allow_null' => 1,
+			'multiple' => 0,
+			'return_format' => 'object',
+			'ui' => 1,
+		),
+	),
+	'location' => array (
+		array (
+			array (
+				'param' => 'page_template',
+				'operator' => '==',
+				'value' => 'page-featured_pages.php',
+				'order_no' => 0,
+				'group_no' => 0,
 			),
 		),
-		'menu_order' => 0,
-	));
-	
-	register_field_group(array (
-		'id' => 'acf_page-options',
-		'title' => 'Page Options',
-		'fields' => array (
-			array (
-				'key' => 'field_5661e83871c8c',
-				'label' => 'Hide the Side Navigation',
-				'name' => 'hide_the_side_navigation',
-				'type' => 'true_false',
-				'message' => '',
-				'default_value' => 0,
-			),
-			array (
-				'key' => 'field_572628c43f043',
-				'label' => 'Hide Featured Image',
-				'name' => 'hide_featured_image',
-				'type' => 'checkbox',
-				'instructions' => 'Hide the featured image on this page.',
-				'choices' => array (
-					'hide' => 'Yes, hide the Featured Image',
-				),
-				'default_value' => '',
-				'layout' => 'vertical',
-			),
-			array (
-				'key' => 'field_572badddcd0b7',
-				'label' => 'Show Page Widgets',
-				'name' => 'show_page_widgets',
-				'type' => 'checkbox',
-				'instructions' => 'Select this option if you would like the "Pages Sidebar" widget area to appear on this page. By default it is hidden.',
-				'choices' => array (
-					'showpagewidgets' => 'Show Page Sidebar Widgets',
-				),
-				'default_value' => '',
-				'layout' => 'vertical',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'page',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'side',
-			'layout' => 'default',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
-}
+	),
+	'menu_order' => 2,
+	'position' => 'acf_after_title',
+	'style' => 'seamless',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => array (
+	),
+	'active' => 1,
+	'description' => '',
+	'id' => 'acf_page-layout-fields',
+	'local' => 'php',
+));
+
+endif;
 
 
 

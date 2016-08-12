@@ -2,6 +2,7 @@
 /*  Base Sass Structure */
 /************************/
 
+@import 'theme/_wpdefault';
 @import 'partials/_reset';
 @import 'partials/_scaffolding';
 @import 'partials/_colors';
@@ -25,6 +26,7 @@
 @import 'theme/_events';
 @import 'theme/_mobile';
 @import 'theme/_misc';
+
 
 
 /**************************/
