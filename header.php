@@ -736,10 +736,12 @@ var templateUrl = '<?php home_url(); ?>';
 										$hidebluroption = get_field('disable_blur_filter');
 										
 										if($hidebluroption) {
+											
 										
 											if( in_array('yes', $hidebluroption) ) { ?>
-									
+												
 									<?php 	} else { ?>
+											
 											<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; "></div></div>
 									<?php 	} 
 										} else { ?>
