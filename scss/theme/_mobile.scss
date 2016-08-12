@@ -144,7 +144,6 @@
 		padding-left: 1.2em;
 		padding-right: 1.2em;
 		text-decoration: none;
-		/*border-bottom: 1px solid rgba(255,255,255,0.06);*/
 	}
 	
 	a:hover {
@@ -236,6 +235,10 @@
 			}
 		}
 	}
+	
+	.rightHandNav .site-header .logo-search-container.noimage{
+		height: 140px;
+	}
 }
 
 /* Minimum width of 600 pixels. */
@@ -309,6 +312,26 @@
 	
 	.site-header .logoImage.mobileMenuOn {
 		margin-left: 50px;
+	}
+	
+	.mobileNavOn .site-header .noimageLogo .logoImage{
+		width: 100%;
+	}
+	
+	.rightHandNav .logo-search-container.noimage .site-branding{
+		padding-top: 50px;
+	}
+	
+	.rightHandNav .site-header .logo-search-container.noimage {
+	    height: 130px;
+	}
+	
+	.site-content-inner .site-main{
+		padding-top: 0;
+	}
+	
+	.pagePadding {
+		padding-top: 0;
 	}
 }
 
@@ -426,7 +449,7 @@
 	}
 	
 	.pagePadding{
-		padding: 1em;
+		padding: 2em 1em;
 	}
 	
 	.uwmadison_events_title{
