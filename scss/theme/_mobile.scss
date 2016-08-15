@@ -187,6 +187,20 @@
 
 
 /* Minimum width of 700 pixels. */
+@media screen and (max-width: 768px) {
+	.lineSidebar .sidebar_menu, .lineSidebar .widget-area{
+		display: none; 
+	}
+	
+	#content.has_nav article, 
+	#content.has_nav article.hentry{
+		padding: 0;
+		width: 100%;
+	}
+}
+
+
+/* Minimum width of 700 pixels. */
 @media screen and (max-width: 700px) {
 	.page .entry-header .entry-title, 
 	.post .entry-header .entry-title, 
@@ -449,7 +463,7 @@
 	}
 	
 	.pagePadding{
-		padding: 2em 1em;
+		padding: 0em 1.5em;
 	}
 	
 	.uwmadison_events_title{

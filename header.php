@@ -58,7 +58,6 @@ var templateUrl = '<?php home_url(); ?>';
 	<div class="subLevel1"></div>
 	<div class="subLevel2"></div>
 	
-	<h2 class="mobileTitle">Page Heading</h2>
 	<?php
 	//find all of the parents to the post
 	$current_page_ancestors = get_post_ancestors($post);
@@ -68,7 +67,8 @@ var templateUrl = '<?php home_url(); ?>';
 	//get children of current page
 	$child_pages = get_pages('child_of='.$post->ID.'&parent='.$post->ID.'&sort_column=menu_order');
 	
-	if(!empty($child_pages)){?>			
+	if(!empty($child_pages)){?>		
+		<h2 class="mobileTitle"><?php echo get_the_title(); ?></h2>	
 		<ul id="full_page_nav" class="flexbox-container">
 			<?php
             foreach($child_pages as $post){
