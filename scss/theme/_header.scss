@@ -167,6 +167,14 @@
 	}
 }
 
+.IE, .IE11 {
+	.whiteGradient {
+		.frostedImage {
+			display: none;
+		}
+	}
+}
+
 .whiteGradient {
 	height: 300px;
 	position: absolute;
@@ -320,6 +328,25 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 		}
 	}
 }
+
+
+
+.IE, .IE11 {
+	.rightHandNav {
+		.site-header {
+			.search-youruw {
+				.youruwGroup {
+					div.youruw {
+						top: -15px;
+					}
+				}
+			}
+		}
+		
+	}
+
+}
+
 
 .rightHandNav {
 	
