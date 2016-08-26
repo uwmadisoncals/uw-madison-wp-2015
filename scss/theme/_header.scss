@@ -1975,7 +1975,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 	}
 }
 
-.mobileNavOn .rightHandNav.solidHeader .featureHeader, .mobileNavOn .rightHandNav.hiddenSlides .featureHeader, .mobileNavOn .rightHandNav.transparentHeader .featureHeader {
+.mobileNavOn .navBar.solidHeader .featureHeader, .mobileNavOn .rightHandNav.hiddenSlides .featureHeader, .mobileNavOn .navBar.transparentHeader .featureHeader {
 	margin-top: 80px;
 
 }
@@ -2160,7 +2160,7 @@ ul.children, ul.sub-menu {
 	}
 	
 	.page .rightHandNav .featureHeader, .search .rightHandNav .featureHeader, .archive .rightHandNav .featureHeader, .single .rightHandNav .featureHeader {
-		/*min-height: 140px;*/
+		min-height: 120px;
 	}
 	
 	#secondary {

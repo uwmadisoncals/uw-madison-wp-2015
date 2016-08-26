@@ -225,8 +225,33 @@
 	}
 }
 
+.listRightSidebar {
+	.pagePadding {
+		.spotlight.right-sidebar {
+			.sidebarWrapper {
+				margin-top: -7.5em;
+			}
+		}
+	
+	}
+}
 
-
+.listRightSidebar.hiddenSlides {
+	
+		
+			.spotlight.right-sidebar {
+				.sidebarWrapper {
+					margin-top: 0em;
+					
+					.sidebarfold {
+						display: none;
+					}
+				}
+			}
+		
+		
+	
+}
 
 .spotlight.right-sidebar {
 	max-width: 100%;
