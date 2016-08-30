@@ -1422,13 +1422,20 @@ function se_lookup() {
     die();
 }
 
+//Force Deactivation of Normal ACF since ACF Pro is bundled with the theme.
+function deactivate_plugin_conditional() {
+    if ( is_plugin_active('advanced-custom-fields/acf.php') ) {
+    deactivate_plugins('advanced-custom-fields/acf.php');    
+    }
+}
+add_action( 'admin_init', 'deactivate_plugin_conditional' );
 
 /**
  * Include the TGM_Plugin_Activation class.
  */
 require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
 
-add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
+add_action( 'tgmpa_register', 'uw_madison_wp_2015_register_required_plugins' );
 /**
  * Register the required plugins for this theme.
  *
@@ -1441,7 +1448,7 @@ add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
  * This function is hooked into tgmpa_init, which is fired within the
  * TGM_Plugin_Activation class constructor.
  */
-function my_theme_register_required_plugins() {
+function uw_madison_wp_2015_register_required_plugins() {
 
     /**
      * Array of plugin arrays. Required keys are name and slug.
@@ -1454,7 +1461,7 @@ function my_theme_register_required_plugins() {
         /*array(
             'name'      => 'Advanced Custom Fields',
             'slug'      => 'advanced-custom-fields',
-            'required'  => true,
+            'force_deactivation' => true,
         ),*/
         
         // This is an example of how to include a plugin from the WordPress Plugin Repository.
