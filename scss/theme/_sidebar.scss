@@ -693,6 +693,22 @@
 	}
 }
 
+.widget_nav_menu {
+
+	.menu-item {
+	
+			a:hover,
+			a:focus {
+				span.nav_text {
+					display: block;
+					transform: translateX(10px);
+					-webkit-transform: translateX(10px);
+				}
+			}
+
+	}
+}
+
 .widget-area{
 	aside{
 		padding-left: 0.6em;
