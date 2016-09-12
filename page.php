@@ -19,6 +19,63 @@ get_header(); ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 						
 						
+						
+						
+						<?php
+
+							// check if the flexible content field has rows of data
+							if( have_rows('page_content_options') ) {
+							
+							 	// loop through the rows of data
+							    while ( have_rows('page_content_options') ) : the_row();
+							
+									// check current row layout
+							        if( get_row_layout() == 'full_width' ):
+										
+										
+										if( have_rows('full_width_content_options') ) {
+											
+											while ( have_rows('full_width_content_options') ) : the_row();
+											
+												
+												 if( get_row_layout() == 'fw_highlighted_content' ) {
+													 if(have_rows("fw_highlighted_content_type")) {
+													
+													 	while ( have_rows('fw_highlighted_content_type') ) : the_row();
+													
+															if(get_row_layout() == 'fw_latest_posts') {
+																the_sub_field('fw_number_of_posts');
+																echo " Latest Posts";
+															}
+															
+															if(get_row_layout() == 'fw_posts_by_category') {
+																echo " Posts By Category";
+															}
+															
+															if(get_row_layout() == 'fw_highlighted_page') {
+																echo "Highlighted Page";
+															}
+														
+													    endwhile;	 
+													 }
+													 
+												 }
+											endwhile;
+											
+										}
+							        	
+							
+							        endif;
+							
+							    endwhile;
+							
+							} else { // no layouts found ?>
+							
+							   
+							
+							
+						
+						
 						<div class="heroWatermark">
 							
 							<?php 
@@ -69,7 +126,8 @@ get_header(); ?>
 						
 				
 					<?php get_template_part( 'content', 'page' ); ?>
-	
+					
+					<?php } //close off check for advanced editor ?>
 				<?php endwhile; // end of the loop. ?>
 				
 				<?php 
@@ -96,6 +154,8 @@ get_header(); ?>
 
 					}	  
 				?>
+				
+				
 			
 			</div>
 
