@@ -1,0 +1,151 @@
+.home .pagePadding .flex-row:first-child {
+	margin-top: -3em;
+	
+}
+
+.home .pagePadding .flex-row.top-row.right_redbg .flex-rightCol {
+	margin-top: -4.2em;
+	-webkit-border-top-left-radius: 0px;
+-webkit-border-top-right-radius: 0px;
+-moz-border-radius-topleft: 0px;
+-moz-border-radius-topright: 0px;
+border-top-left-radius: 0px;
+border-top-right-radius: 0px;
+
+	.sidebarFold {
+		display: block;
+		position: absolute;
+		top: -1px;
+		left: -25px;
+		z-index:-1;
+		width: 30px;
+		height: 30px;
+		
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+.sidebarFold {
+	display: none;
+}
+
+h2.uwmadison_events_title {
+	text-transform: uppercase;
+	letter-spacing: .9px;
+	font-family: 'Verlag-Black';
+	margin-top: 0px;
+	font-weight: 300;
+	font-size: 1.8rem;
+	color: rgba(0,0,0,.8);	
+}
+
+h2.uwmadison_events_title:before {
+	content: "";
+	display: block;
+    width: 1em;
+    height: 4px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    background: #c5050c;
+}
+
+
+
+
+.left_redbg {
+	.flex-leftCol {
+		background: $uwred;
+		color: rgba(255,255,255,0.9);
+		border-radius: 4px;
+		box-shadow: 0px 6px 13px rgba(210,9,9,.35);
+		
+		.entry-header {
+			h1.entry-title {
+				color: #830000;
+				font-size: 1.1rem;
+				letter-spacing: 0.9px;
+			}
+		}
+		
+		h2.uwmadison_events_title {
+				color: #830000;
+				font-size: 1.1rem;
+		}
+		
+		ul.uwmadison_events .uwmadison_event_date {
+			color: rgba(255,255,255,0.6);
+		}
+		
+		ul.uwmadison_events a {
+			color: rgba(255,255,255,0.8);
+		}
+		
+		ul.uwmadison_events a:hover {
+			text-decoration: underline;
+		}
+	}	
+}
+
+.right_redbg {
+	.flex-rightCol {
+		position: relative;
+		background: $uwred;
+		color: rgba(255,255,255,0.9);
+		border-radius: 4px;
+		box-shadow: 0px 6px 13px rgba(210,9,9,.35);
+		
+		.entry-header {
+			h1.entry-title {
+				color: #830000;
+				font-size: 1.1rem;
+				letter-spacing: 0.9px;
+			}
+		}
+		
+		h2.uwmadison_events_title {
+				color: #830000;
+				font-size: 1.1rem;
+		}
+		
+		ul.uwmadison_events .uwmadison_event_date {
+			color: rgba(255,255,255,0.6);
+		}
+		
+		ul.uwmadison_events a {
+			color: rgba(255,255,255,0.8);
+		}
+		
+		ul.uwmadison_events a:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.entry-header.small-header {
+	.entry-title {
+		font-size: 1.8rem;
+	}
+}
+
+div.tiltWrapper.twocolsize {
+	width: 50%;
+}
+
+.flex-highlightedtiles {
+	
+	.flex-item {
+		height: 500px;
+	}
+	
+	.flex-item:nth-child(even) {
+		padding-left: 2rem;
+		
+	}
+	
+	.flex-item:nth-child(odd) {
+		padding-right: 2rem;
+	}
+}

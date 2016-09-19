@@ -536,13 +536,40 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
 /**
  * ----------------------------------------------------------------------------
  *
+ *  Setup Advanced Page Editor Scripts
+ *
+ * ----------------------------------------------------------------------------
+ */
+ 
+ 
+	setTimeout(function() {
+		
+	
+		$(".gridstyle2 .grid-item2col").each(function() {
+			
+			var item = $(this).find(".tiltWrapper");
+			
+			var svg = $(this).find(".highlightContentBlur");
+			
+			var containerHeight = $(item).height();
+			
+			//console.log(containerHeight);
+			$(svg).height(containerHeight);
+		});
+	
+	},500);
+
+
+/**
+ * ----------------------------------------------------------------------------
+ *
  *  Setup Isotope for Tiles Homepage Layout
  *
  * ----------------------------------------------------------------------------
  */
  
  	
-
+$(".home .pagePadding .flex-row").first().addClass("top-row");
 
   var $grid = $('.grid').isotope({
     itemSelector: '.grid-item',
@@ -554,9 +581,34 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
     }
   });
   
+
+  
+  
+  var $grid2col = $('.gridtwocol').isotope({
+    itemSelector: '.grid-item2col',
+    percentPosition: true,
+    stamp: '.stamp',
+    getSortData: {
+    date: '.numericdate', // text from querySelector
+  	},
+  	sortBy : 'date',
+  	sortAscending: false,
+    masonry: {
+      columnWidth: '.grid-sizer2col',
+      gutter: '.gutter-sizer2col'
+     
+    }
+  });
+  
   $grid.imagesLoaded().progress( function() {
 	  $grid.isotope('layout');
 	});
+	
+	$grid2col.imagesLoaded().progress( function() {
+	  $grid2col.isotope('layout');
+	});
+	
+	
 
   /*$(window).resize(function() {
 	 $grid.isotope('layout');

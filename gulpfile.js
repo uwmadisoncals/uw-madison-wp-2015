@@ -34,6 +34,18 @@ gulp.task('styles', function() {
     .pipe(reload({stream: true}));
 });
 
+gulp.task('styles-admin', function() {
+  return gulp.src('scss/admin-styles.scss')
+    .pipe(sass({ style: 'expanded', }))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(minifycss())
+    .pipe(livereload(server))
+    .pipe(gulp.dest('dist/styles'))
+    .pipe(notify({ message: 'Styles task complete' }))
+    .pipe(filter('**/*.css')) // Filtering stream to only css files
+    .pipe(reload({stream: true}));
+});
+
 // Scripts
 gulp.task('scripts', function() {
   return gulp.src(['js/jquery.visible.js','js/jquery.suggest.js','js/color-thief.min.js','js/color-thief-init.js','js/flickity.js','js/flickity-sync.js','js/isotope.min.js','js/imagesloaded.js','js/detectbrowser.js','js/fastclick.js','js/global.js'])
@@ -106,7 +118,7 @@ gulp.task('clean', function() {
 
 // Default task
 gulp.task('default', ['clean'], function() {
-    gulp.start('styles', 'scripts', 'images', 'watch');
+    gulp.start('styles', 'styles-admin', 'scripts', 'images', 'watch');
 });
 
 // Watch
@@ -119,7 +131,7 @@ gulp.task('watch', function() {
     };
 
     // Watch .scss files
-    gulp.watch('scss/**/*.scss', ['styles']);
+    gulp.watch('scss/**/*.scss', ['styles', 'styles-admin']);
 
     // Watch .js files
     gulp.watch('js/**/*.js', ['scripts']);

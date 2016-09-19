@@ -6,6 +6,11 @@
   margin-left: 4%;
 }
 
+.gridtwocol {
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+}
+
 /* clear fix */
 .grid:after {
   content: '';
@@ -21,6 +26,14 @@
   width: 29%;
 }
 
+.grid-item2col, .grid-sizer2col {
+	width: 48%;
+}
+
+.gutter-sizer2col {
+	width: 4%;
+}
+
 .gutter-sizer {
 	width: 4%;
 }
@@ -33,6 +46,11 @@
  
 }
 
+.grid-item2col {
+	min-height: 100px;
+	margin-bottom: 4%;
+}
+
 .grid-item--width2 { width: 62%; }
 .grid-item--height2 { height: 200px; }
 
@@ -41,6 +59,12 @@
 
 .tiltWrapper.custom {
 	width: 29%; 
+	
+	
+}
+
+.tiltWrapper.custom2col {
+	width: 100%; 
 	
 	
 }
@@ -56,6 +80,167 @@
 .tiltWrapper div {
 	line-height: 1;
 }
+
+
+.grid-itemspacer {
+		position: absolute;
+		top: 0px;
+		
+		right: 0px;
+		width: 30%;
+		height: 40px;
+		min-height: 40px;
+		z-index:1;
+	}
+	
+.gridstyle2 {
+	
+	.numericdate {
+		display: none;	
+	}
+	
+	.grid-item2col {
+		
+		.heroImageContainerSVG {
+		width: 100%;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		right: 0px; 
+		bottom: 0px;
+		z-index:2;
+		
+	}
+		
+	.heroImageBlur {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		z-index:2;
+		overflow: hidden;
+		
+-webkit-border-bottom-right-radius: 4px;
+-webkit-border-bottom-left-radius: 4px;
+-moz-border-radius-bottomright: 4px;
+-moz-border-radius-bottomleft: 4px;
+border-bottom-right-radius: 4px;
+border-bottom-left-radius: 4px;
+		
+		@-moz-document url-prefix() {
+			div.heroImageBlurInner {
+				filter: blur(12px);
+				/*filter: url(../../resources.svg#svgBlur);*/
+				
+			}
+			
+		}
+		
+		
+		.heroImageBlurInner {
+			
+			position: absolute;
+			left:-15px;
+		    right:-15px;
+		    top:-15px;
+		    bottom:-15px;
+			z-index:2;
+			
+			background-size: cover;
+			background-position: center center;
+			filter: blur(8px);
+			-webkit-filter: blur(8px);
+		
+		
+		-moz-mask-image: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 29%, rgba(0,0,0,1) 74%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
+		-webkit-mask-image: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 29%,rgba(0,0,0,1) 74%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+		
+		
+		mask-image: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 29%,rgba(0,0,0,1) 74%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		//filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+		
+		filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100,FinishOpacity=0,Style=1,StartX=0,FinishX=0,StartY=0,FinishY=300);
+		
+		
+		
+
+		}
+
+		.heroImageBlurInnerAlt {
+			
+			position: absolute;
+			left:-15px;
+		    right:-15px;
+		    top:-15px;
+		    bottom:-15px;
+			z-index:2;
+			min-height: 500px;
+			background-size: cover;
+			background-position: center center;
+			filter: blur(8px);
+			-webkit-filter: blur(8px);
+		
+		
+		
+		}
+		
+		
+	}
+		
+		
+		.textContent {
+			
+			position: absolute;
+			bottom: 0px;
+			left: 0px;
+			right: 0px;
+			z-index:2;
+			color: rgba(255,255,255,0.9);
+			
+			.whiteContent {
+				transform: none;
+			}
+			
+			h2 {
+				margin-top: 0px;
+				font-weight: 700;
+				color: #fff;
+				font-size: 1.7rem;
+				letter-spacing: 0.7px;
+				text-shadow: 0px 4px 20px rgba(0,0,0,0.4);
+			}
+			
+			.dateposted {
+				font-size: 1.1rem;
+				
+				letter-spacing: 1px;
+				color: rgba(255,255,255,0.4);
+				text-shadow: 0px 4px 20px rgba(0,0,0,0.4);
+			}
+			
+			p {
+				font-size: 1.1rem;
+				text-shadow: 0px 4px 35px rgba(0,0,0,0.7);
+				color: rgba(255,255,255,0.8);
+				margin-bottom: 0px;
+				line-height: 1.2;
+			}
+		}
+		
+		.level1 {
+			
+			
+			img {
+				width: 100%;
+				margin-bottom: -4px;
+			}
+		}
+	}
+	
+	
+}
+
 
 .tiltWrapper .backgroundImageSample {
 	position:relative;

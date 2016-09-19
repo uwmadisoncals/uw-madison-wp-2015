@@ -93,3 +93,218 @@ html {
 
 
 }
+
+
+.flex-row {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 4rem;
+	
+	
+	.flex-item {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+	}
+}
+
+.flex-5050 {
+	.flex-item {
+		width: 50%;
+	}
+	
+	.flex-leftCol {
+		padding-right: 2rem;
+	}
+	
+	.flex-rightCol {
+		padding-left: 2rem;
+		
+	}
+}
+
+.flex-6633 {
+	.flex-leftCol {
+		width: 66%;
+		padding-right: 2rem;
+	}
+	
+	.flex-rightCol {
+		width: 33%;
+		padding-left: 2rem;
+	}
+}
+
+.flex-3366 {
+	.flex-leftCol {
+		width: 33%;
+		padding-right: 2rem;
+	}
+	
+	.flex-rightCol {
+		width: 66%;
+		padding-left: 2rem;
+	}
+}
+
+.flex-7525 {
+	.flex-leftCol {
+		width: 75%;
+		padding-right: 2rem;
+	}
+	
+	.flex-rightCol {
+		width: 25%;
+		padding-left: 2rem;
+	}
+}
+
+
+.flex-2575 {
+	.flex-leftCol {
+		width: 25%;
+		padding-right: 2rem;
+	}
+	
+	.flex-rightCol {
+		width: 75%;
+		padding-left: 2rem;
+	}
+}
+
+.flex-333333 {
+	flex-wrap: nowrap;
+	
+	.flex-item {
+		width: 33%;
+		
+	}	
+	
+	.flex-item:nth-child(1) {
+		
+		margin-right: 1rem;
+	}
+	
+	.flex-item:nth-child(2) {
+		margin-left: 1rem;
+		margin-right: 1rem;
+	}
+	
+	.flex-item:nth-child(3) {
+		
+		margin-left: 1rem;
+	}
+}
+
+
+.flex-255025 {
+	flex-wrap: nowrap;
+	
+	.flex-item {
+		width: 25%;
+		
+	}	
+	
+	.flex-item:nth-child(1) {
+		
+		margin-right: 1rem;
+	}
+	
+	.flex-item:nth-child(2) {
+		margin-left: 1rem;
+		margin-right: 1rem;
+		width: 50%;
+	}
+	
+	.flex-item:nth-child(3) {
+		
+		margin-left: 1rem;
+	}
+}
+
+.flex-252550 {
+	flex-wrap: nowrap;
+	
+	.flex-item {
+		width: 25%;
+		
+	}	
+	
+	.flex-item:nth-child(1) {
+		
+		margin-right: 1rem;
+	}
+	
+	.flex-item:nth-child(2) {
+		margin-left: 1rem;
+		margin-right: 1rem;
+		
+	}
+	
+	.flex-item:nth-child(3) {
+		width: 50%;
+		margin-left: 1rem;
+	}
+}
+
+.flex-502525 {
+	flex-wrap: nowrap;
+	
+	.flex-item {
+		width: 25%;
+		
+	}	
+	
+	.flex-item:nth-child(1) {
+		width: 50%;
+		margin-right: 1rem;
+	}
+	
+	.flex-item:nth-child(2) {
+		margin-left: 1rem;
+		margin-right: 1rem;
+		
+	}
+	
+	.flex-item:nth-child(3) {
+		
+		margin-left: 1rem;
+	}
+}
+
+
+.right_redbg {
+	.flex-rightCol {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+}
+
+.left_redbg {
+	.flex-leftCol {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+}
+
+/* Minimum width of 700 pixels. */
+@media screen and (max-width: 700px) {
+	.flex-2575, .flex-7525, .flex-3366, .flex-6633, .flex-5050, .flex-333333 {
+		display: block;
+		
+		.flex-item {
+			padding: 0rem;
+		}
+		
+		.flex-leftCol {
+			width: 100%;
+		}
+		
+		.flex-rightCol {
+			width: 100%;
+			
+		}
+	}
+}
+
+
+
