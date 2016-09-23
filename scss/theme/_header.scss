@@ -1888,6 +1888,23 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 		}
 }
 
+	
+.home.page {
+		.rightHandNav.visibleSlides .site-header .withimage.noaltimage .site-branding {
+				padding-top: 50px;
+				
+				.logoImage {
+					img {
+						-webkit-filter: none;
+						filter: none;
+						-moz-filter: none;
+						
+	
+					}
+				}
+		}
+}
+	
 	.page, .single, .search, .archive {
 		.rightHandNav .site-header .withimage.noaltimage .site-branding {
 				padding-top: 50px;
@@ -2255,7 +2272,10 @@ ul.children, ul.sub-menu {
 	}
 	
 	
-	.rightHandNav .site-header .withimage.noaltimage .site-branding {
+	
+	
+	
+	.home.page .rightHandNav.visibleSlides .site-header .withimage.noaltimage .site-branding, .rightHandNav.visibleSlides .site-header .withimage.noaltimage .site-branding {
 			padding-top: 50px;
 			
 			.logoImage {

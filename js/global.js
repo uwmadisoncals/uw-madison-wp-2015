@@ -542,22 +542,47 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
  */
  
  
-	setTimeout(function() {
-		
+ 
+ 	function apeEditor() {
+	 	  var zoom = detectZoom.zoom();
+	      var device = detectZoom.device();
 	
+	      //console.log(zoom, device); 
+	 	
+	 	
 		$(".gridstyle2 .grid-item2col").each(function() {
 			
 			var item = $(this).find(".tiltWrapper");
 			
 			var svg = $(this).find(".highlightContentBlur");
 			
-			var containerHeight = $(item).height();
+			var svginner = $(this).find(".heroImageBlur");
 			
+			
+			var containerHeight = $(item).height();
+			var containerWidth = $(item).width();
+			
+			containerHeight = containerHeight * zoom * device;
+			containerWidth = containerWidth * zoom * device;
 			//console.log(containerHeight);
 			$(svg).height(containerHeight);
+			$(svginner).width(containerWidth);
 		});
+	}
 	
+	//Check on page load.
+	apeEditor();
+	
+	//delay check in case scripts are delayed
+	setTimeout(function() {
+		apeEditor();
 	},500);
+	
+	//check on window resize.
+	$(window).resize(function() {
+		apeEditor();
+	});
+	
 
 
 /**
