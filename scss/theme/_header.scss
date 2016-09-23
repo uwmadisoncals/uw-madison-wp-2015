@@ -1890,7 +1890,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 
 	
 .home.page {
-		.rightHandNav.visibleSlides .site-header .withimage.noaltimage .site-branding {
+		.rightHandNav.visibleSlides.transparentHeader .site-header .withimage.noaltimage .site-branding, .rightHandNav.visibleSlides.photoHeader .site-header .withimage.noaltimage .site-branding {
 				padding-top: 50px;
 				
 				.logoImage {
