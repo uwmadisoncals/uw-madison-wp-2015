@@ -223,7 +223,7 @@ get_header(); ?>
 																								<div class="dateposted"><?php the_time('M') ?> <?php the_time('jS') ?></div>
 																								<div class="numericdate"><?php the_time('Ymd'); ?></div>
 																								<h2><?php the_title(); ?></h2>
-																								<div><?php the_excerpt(); ?></div>
+																								<div class="excerpt"><?php the_excerpt(); ?></div>
 																								
 																																									
 																								

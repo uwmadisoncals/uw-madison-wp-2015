@@ -520,11 +520,29 @@ border-bottom-left-radius: 4px;
 	
 	
 	
+	
 	.tiltWrapper.custom {
 		width: 46%; 
 		
 		
 	}	
+	
+	.tiltWrapper.custom2col {
+		width: 100%; 
+	}
+	
+	
+	.grid-item2col, .grid-sizer2col {
+		width: 100%;
+	}
+	
+	.grid-itemspacer {
+		display: none;
+	}
+	
+	
+	
+	
 }
 
 
@@ -557,4 +575,15 @@ border-bottom-left-radius: 4px;
 		
 		
 	}	
+	
+	.grid-item2col {
+		.excerpt {
+			display: none;
+		}
+	}
+	
+	.whiteGradient {
+		display: none;
+	}
+	
 }
