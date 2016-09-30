@@ -835,8 +835,8 @@ $wp_customize->add_control('uw-madison-wp-2015-header_style_options', array(
     'section'    => 'uw-madison-wp-2015-header-options',
     'type'    => 'radio',
     'choices' => array(
-            'transparent' => __( 'Transparent', 'uw-madison-wp-2015' ),
-            'opaque' => __( 'Opaque', 'uw-madison-wp-2015' ),
+            'transparent' => __( 'Red on Subpages', 'uw-madison-wp-2015' ),
+            'opaque' => __( 'Red on All Pages', 'uw-madison-wp-2015' ),
             'photo' => __( 'Hero Image from Homepage', 'uw-madison-wp-2015' )
         ),
     'settings'   => 'uw-madison-wp-2015_header_style_options_id',

@@ -1,6 +1,6 @@
 // Load plugins
 var gulp = require('gulp'),
-    sass = require('gulp-ruby-sass'),
+    sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
     jshint = require('gulp-jshint'),
@@ -24,7 +24,7 @@ var gulp = require('gulp'),
 // Styles
 gulp.task('styles', function() {
   return gulp.src('scss/master.scss')
-    .pipe(sass({ style: 'expanded', }))
+    .pipe(sass({ outputStyle: 'expanded', }))
     .pipe(rename({ suffix: '.min' }))
     .pipe(minifycss())
     .pipe(livereload(server))
@@ -81,13 +81,13 @@ gulp.task('browser-sync', function() {
     browserSync.init({
         proxy: "madisonwptheme.localhost"
     });
-    
+
     // Watch .scss files
     gulp.watch('scss/**/*.scss', ['styles']);
 
     // Watch .js files
     gulp.watch('js/**/*.js', ['scripts']);
-    
+
     // Watch php files
     gulp.watch('**/*.php', ['reload']);
 });
@@ -141,7 +141,7 @@ gulp.task('watch', function() {
 
     // Watch image files
     gulp.watch('svg/**/*', ['svg']);
-    
+
     // Watch php files
     gulp.watch('**/*.php', ['reload']);
 
