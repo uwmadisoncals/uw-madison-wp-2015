@@ -1,3 +1,9 @@
+$(window).on("load", function() {
+    //remove the load cover once images are loaded.
+    $(".loadCover").fadeOut(300);
+});
+
+
 jQuery (document ).ready(function($){
 
 /**

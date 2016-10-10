@@ -492,13 +492,26 @@ function mytheme_customize_register( $wp_customize ) {
  * Since NARGA v1.6
  */
 
+
+$wp_customize->add_section( 'uw-madison-wp-2015-navigation-options' , array(
+    	'title'      => __( 'Navigation Options', 'uw-madison-wp-2015' ),
+    	'priority'   => 58,
+	) ); 
+	
+	
+$wp_customize->add_section( 'uw-madison-wp-2015-logo-options' , array(
+    	'title'      => __( 'Custom Logo', 'uw-madison-wp-2015' ),
+    	'priority'   => 20,
+	) ); 
+
+
 $wp_customize->add_section( 'uw-madison-wp-2015-home-options' , array(
     	'title'      => __( 'Latest Post Options', 'uw-madison-wp-2015' ),
     	'priority'   => 61,
 	) ); 
 
 $wp_customize->add_section( 'uw-madison-wp-2015-header-options' , array(
-    	'title'      => __( 'Header Options', 'uw-madison-wp-2015' ),
+    	'title'      => __( 'Hero Image Options', 'uw-madison-wp-2015' ),
     	'priority'   => 60,
 	) ); 
 
@@ -509,7 +522,7 @@ $wp_customize->add_section( 'uw-madison-wp-2015-visual-effects' , array(
 
 $wp_customize->add_section( 'uw-madison-wp-2015-font-options' , array(
     	'title'      => __( 'Fonts', 'uw-madison-wp-2015' ),
-    	'priority'   => 60,
+    	'priority'   => 57,
 	) ); 
 	
 $wp_customize->add_section( 'uw-madison-wp-2015-social-options' , array(
@@ -527,6 +540,15 @@ $wp_customize->add_setting('uw-madison-wp-2015_header_alt_image_id', array(
 ));
 
 
+$wp_customize->add_setting('uw-madison-wp-2015_header_main_image_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => '',
+    'sanitize_callback' => 'sanitize_main_logo_options'
+ 
+));
+
+
 
 $wp_customize->add_control(
        new WP_Customize_Image_Control(
@@ -535,12 +557,43 @@ $wp_customize->add_control(
            array(
                'label'      => __( 'Upload an alternate logo', 'uw-madison-wp-2015' ),
                'description'=> 'If available supply a version of your logo image that works well on a white background.',
-               'section'    => 'header_image',
+               'section'    => 'uw-madison-wp-2015-logo-options',
                'settings'   => 'uw-madison-wp-2015_header_alt_image_id',
-               'context'    => 'uw-madison-wp-2015-header_alt_image' 
+               'context'    => 'uw-madison-wp-2015-header_alt_image',
+               'priority'	=> 2
            )
        )
 );
+
+
+
+/*** Primary Logo ***/
+$wp_customize->add_setting('uw-madison-wp-2015_header_main_image_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => '',
+    'sanitize_callback' => 'sanitize_main_logo_options'
+ 
+));
+
+
+
+$wp_customize->add_control(
+       new WP_Customize_Image_Control(
+           $wp_customize,
+           'logomain',
+           array(
+               'label'      => __( 'Upload a custom logo', 'uw-madison-wp-2015' ),
+               'description'=> 'Upload your own logo in either PNG or SVG formats.',
+               'section'    => 'uw-madison-wp-2015-logo-options',
+               'settings'   => 'uw-madison-wp-2015_header_main_image_id',
+               'context'    => 'uw-madison-wp-2015-header_main_image',
+               'priority'	=> 1
+           )
+       )
+);
+
+
 
 
 $wp_customize->add_setting('uw-madison-wp-2015_campus_title_id', array(
@@ -579,7 +632,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_home_logo_position_id', array(
 $wp_customize->add_control('uw-madison-wp-2015-home_logo_position', array(
     'label'      => __('Homepage Logo Position', 'uw-madison-wp-2015'),
     'description'=> 'Adjust the position of the logo on the homepage.',
-    'section'    => 'header_image',
+    'section'    => 'uw-madison-wp-2015-logo-options',
     'type'    => 'radio',
     'choices' => array(
             'top-left' => __( 'Top Left (default)', 'uw-madison-wp-2015' ),
@@ -606,7 +659,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_hide_show_nav_id', array(
 $wp_customize->add_control('uw-madison-wp-2015-hide_show_nav', array(
     'label'      => __('Hide Main Navigation', 'uw-madison-wp-2015'),
     'description'=> 'Hide the main navigation in the event there no subpages.',
-    'section'    => 'uw-madison-wp-2015-header-options',
+    'section'    => 'uw-madison-wp-2015-navigation-options',
     'type'    => 'radio',
     'choices' => array(
             'no' => __( 'Show Navigation (default)', 'uw-madison-wp-2015' ),
@@ -725,6 +778,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_options_id', array(
 $wp_customize->add_control('uw-madison-wp-2015-home-options', array(
     'label'      => __('Featured Page', 'uw-madison-wp-2015'),
     'section'    => 'uw-madison-wp-2015-home-options',
+    'active_callback' => 'is_home',
     'type'    => 'dropdown-pages',
     'settings'   => 'uw-madison-wp-2015_options_id',
 ));
@@ -774,7 +828,7 @@ $wp_customize->add_setting('uw-madison-wp-2015-home_photo_header_size_id', array
 $wp_customize->add_setting('uw-madison-wp-2015_header_style_options_id', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'theme_mod',
-    'default'		 => 'transparent',
+    'default'		 => 'photo',
     'sanitize_callback' => 'sanitize_header_options'
  
 ));
@@ -796,7 +850,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_noimage_crest_id', array(
 $wp_customize->add_control('uw-madison-wp-2015_noimage_crest', array(
     'label'      => __('Crest Style', 'uw-madison-wp-2015'),
     'description'=> 'Crest style is only applied when no header image is present.',
-    'section'    => 'uw-madison-wp-2015-header-options',
+    'section'    => 'title_tagline',
     'type'    => 'radio',
     'choices' => array(
             'monochrome' => __( 'Monochrome', 'uw-madison-wp-2015' ),
@@ -804,14 +858,14 @@ $wp_customize->add_control('uw-madison-wp-2015_noimage_crest', array(
             'hybrid' => __( 'Hybrid', 'uw-madison-wp-2015' )
         ),
     'settings'   => 'uw-madison-wp-2015_noimage_crest_id',
-    'priority' => 0,
+    'priority' => 10,
 ));
 
 
 $wp_customize->add_setting('uw-madison-wp-2015_fonts_id', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'theme_mod',
-    'default'		 => 'raleway-option',
+    'default'		 => 'verlag-option',
     'sanitize_callback' => 'sanitize_fonts_options'
  
 ));
@@ -823,21 +877,22 @@ $wp_customize->add_control('uw-madison-wp-2015_fonts', array(
     'section'    => 'uw-madison-wp-2015-font-options',
     'type'    => 'radio',
     'choices' => array(
-            'raleway-option' => __( 'Raleway/Open Sans', 'uw-madison-wp-2015' ),
-            'verlag-option' => __( 'Verlag', 'uw-madison-wp-2015' )
+	    	'verlag-option' => __( 'Verlag', 'uw-madison-wp-2015' ),
+            'raleway-option' => __( 'Raleway/Open Sans', 'uw-madison-wp-2015' )
+            
         ),
     'settings'   => 'uw-madison-wp-2015_fonts_id',
 ));
 
  
 $wp_customize->add_control('uw-madison-wp-2015-header_style_options', array(
-    'label'      => __('Header Style', 'uw-madison-wp-2015'),
-    'section'    => 'uw-madison-wp-2015-header-options',
+    'label'      => __('Navigation Bar Style', 'uw-madison-wp-2015'),
+    'section'    => 'uw-madison-wp-2015-navigation-options',
     'type'    => 'radio',
     'choices' => array(
-            'transparent' => __( 'Red on Subpages', 'uw-madison-wp-2015' ),
-            'opaque' => __( 'Red on All Pages', 'uw-madison-wp-2015' ),
-            'photo' => __( 'Hero Image from Homepage', 'uw-madison-wp-2015' )
+            //'transparent' => __( 'Transparent Navigation Bar', 'uw-madison-wp-2015' ),
+            'opaque' => __( 'Opaque Navigation Bar', 'uw-madison-wp-2015' ),
+            'photo' => __( 'Transparent Navigation Bar', 'uw-madison-wp-2015' )
         ),
     'settings'   => 'uw-madison-wp-2015_header_style_options_id',
     'priority'   => 1,
@@ -854,10 +909,10 @@ $wp_customize->add_setting('uw-madison-wp-2015_headerslides_transition_id', arra
 
 $wp_customize->add_control('uw-madison-wp-2015-headerslides_transition', array(
     'label'      => __('Use a cross dissolve effect for Header Slide transitions', 'uw-madison-wp-2015'),
-    'section'    => 'uw-madison-wp-2015-visual-effects',
+    'section'    => 'uw-madison-wp-2015-header-options',
     'type'    => 'checkbox',
     'settings'   => 'uw-madison-wp-2015_headerslides_transition_id',
-    'priority'   => 1,
+    'priority'   => 2,
 ));
 
 $wp_customize->add_setting('uw-madison-wp-2015_headerslides_frostedglass_id', array(
@@ -868,7 +923,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_headerslides_frostedglass_id', ar
 
 $wp_customize->add_control('uw-madison-wp-2015-headerslides_frostedglass', array(
     'label'      => __('Frosted Glass Effect on Hompage', 'uw-madison-wp-2015'),
-    'section'    => 'uw-madison-wp-2015-visual-effects',
+    'section'    => 'uw-madison-wp-2015-header-options',
     'type'    => 'checkbox',
     'settings'   => 'uw-madison-wp-2015_headerslides_frostedglass_id',
     'priority'   => 2,
@@ -883,7 +938,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_headerslides_frostedglass_subpage
 
 $wp_customize->add_control('uw-madison-wp-2015-headerslides_frostedglass_subpages', array(
     'label'      => __('Frosted Glass Effect on Subpages', 'uw-madison-wp-2015'),
-    'section'    => 'uw-madison-wp-2015-visual-effects',
+    'section'    => 'uw-madison-wp-2015-header-options',
     'type'    => 'checkbox',
     'settings'   => 'uw-madison-wp-2015_headerslides_frostedglass_subpages_id',
     'priority'   => 2,
@@ -938,7 +993,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_dropdowns_id', array(
  
 $wp_customize->add_control('uw-madison-wp-2015-dropdowns', array(
     'label'      => __('Drop Down Menus', 'uw-madison-wp-2015'),
-    'section'    => 'uw-madison-wp-2015-header-options',
+    'section'    => 'uw-madison-wp-2015-navigation-options',
     'type'    => 'radio',
     'choices' => array(
             'enabled' => __( 'Enabled', 'uw-madison-wp-2015' ),
@@ -1026,7 +1081,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_header_slides_options_id', array(
 
  
 $wp_customize->add_control('uw-madison-wp-2015-header_slides_options', array(
-    'label'      => __('Header Slides', 'uw-madison-wp-2015'),
+    'label'      => __('Hero Image on Homepage', 'uw-madison-wp-2015'),
     'section'    => 'uw-madison-wp-2015-header-options',
     'type'    => 'radio',
     'choices' => array(
@@ -1034,6 +1089,7 @@ $wp_customize->add_control('uw-madison-wp-2015-header_slides_options', array(
             'hidden' => __( 'Hidden', 'uw-madison-wp-2015' )
         ),
     'settings'   => 'uw-madison-wp-2015_header_slides_options_id',
+    'priority'	=> 1
 ));
 
 
@@ -1077,6 +1133,7 @@ $wp_customize->add_control( new Layout_Picker_Custom_Control(
 	array(
 		'label'	=> __( 'Latest Posts Layout', 'uw-madison-wp-2015' ),
 		'section' => 'uw-madison-wp-2015-home-options',
+		'active_callback' => 'is_home',
 		'settings' => 'uw-madison-wp-2015_layout_id',
 	) 
 ));
@@ -1086,8 +1143,8 @@ $wp_customize->add_control( new Header_Layout_Picker_Custom_Control(
 	$wp_customize, 
 	'uw-madison-wp-2015-header-layout-control', 
 	array(
-		'label'	=> __( 'Header Layout', 'uw-madison-wp-2015' ),
-		'section' => 'uw-madison-wp-2015-header-options',
+		'label'	=> __( 'Navigation Layout', 'uw-madison-wp-2015' ),
+		'section' => 'uw-madison-wp-2015-navigation-options',
 		'settings' => 'uw-madison-wp-2015_header_layout_id',
 	) 
 ));
@@ -1097,7 +1154,7 @@ $wp_customize->add_control( new Photo_Header_Size_Custom_Control(
 	$wp_customize, 
 	'uw-madison-wp-2015-home_photo_header_size', 
 	array(
-		'label'	=> __( 'Homepage Photo Header Size', 'uw-madison-wp-2015' ),
+		'label'	=> __( 'Hero Image Size on Homepage', 'uw-madison-wp-2015' ),
 		'description' => 'In effect when transparent and photo Header style is selected.',
 		'section' => 'uw-madison-wp-2015-header-options',
 		'settings' => 'uw-madison-wp-2015-home_photo_header_size_id',
@@ -1110,7 +1167,7 @@ $wp_customize->add_control( new Photo_Header_Size_Custom_Control(
 	$wp_customize, 
 	'uw-madison-wp-2015-photo_header_size', 
 	array(
-		'label'	=> __( 'Subpage Photo Header Size', 'uw-madison-wp-2015' ),
+		'label'	=> __( 'Hero Image Size on Subpages', 'uw-madison-wp-2015' ),
 		'description' => 'Only in effect when Photo Header Style is selected.',
 		'section' => 'uw-madison-wp-2015-header-options',
 		'settings' => 'uw-madison-wp-2015_photo_header_size_id',
@@ -1299,6 +1356,13 @@ function sanitize_fonts_options( $value ) {
    
   
 function sanitize_alt_logo_options( $value ) {
+    if ( !$value )
+        $value = '';
+ 
+    return $value;
+}
+
+function sanitize_main_logo_options( $value ) {
     if ( !$value )
         $value = '';
  
@@ -1554,7 +1618,11 @@ $defaults = array(
 	'admin-head-callback'    => '',
 	'admin-preview-callback' => '',
 );
-add_theme_support( 'custom-header', $defaults );
+
+$header_image = get_header_image();
+if($header_image) {
+	add_theme_support( 'custom-header', $defaults );
+}
 
 
 register_default_headers( array(
@@ -3734,7 +3802,7 @@ function uw_madison_wp_2015_setup() {
 
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'uw_madison_wp_2015_custom_background_args', array(
-		'default-color' => 'ffffff',
+		'default-color' => 'eaeaea',
 		'default-image' => '',
 	) ) );
 }

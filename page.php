@@ -986,8 +986,8 @@ get_header(); ?>
 
 					    }
 					    
-					    $editor = get_field('page_editor');
-						if($editor == 'default') {
+					    //$editor = get_field('page_editor');
+						//if($editor == 'default') {
 
 						    if( get_field('show_page_widgets')) {
 						    	if ( is_active_sidebar( 'page-sidebar-1' ) ) : ?>
@@ -997,7 +997,7 @@ get_header(); ?>
 								<?php endif;  
 						    }
 					    
-					    }
+					    //}
 
 					}	  
 				?>
