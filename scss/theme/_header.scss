@@ -1964,6 +1964,10 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 	}
 }
 
+.page .solidHeader .featureHeader, .single .solidHeader .featureHeader {
+	min-height: 140px;	
+}
+
 .home .solidHeader .featureHeader {
 	margin-top: 115px;
 

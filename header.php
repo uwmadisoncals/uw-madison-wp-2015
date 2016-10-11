@@ -388,13 +388,22 @@ var templateUrl = '<?php home_url(); ?>';
 					<!-- uses navbar -->
 					<?php $header_image = get_header_image();
 						  $header_alt_image = get_theme_mod( 'uw-madison-wp-2015_header_alt_image_id' );
+						  
+						  $logo_image = get_theme_mod( 'uw-madison-wp-2015_header_main_image_id' );
+						  
 						if ( $header_image ) { ?>
 							<?php if($header_alt_image) { ?>
 								<div class="logo-search-container withimage withaltimage">
 							<?php } else { ?>
 								<div class="logo-search-container withimage noaltimage">
 							<?php } ?>
-							
+						
+						<?php } else if($logo_image) { ?>
+								<?php if($header_alt_image) { ?>
+									<div class="logo-search-container withimage withaltimage">
+								<?php } else { ?>
+									<div class="logo-search-container withimage noaltimage">
+								<?php } ?>
 						<?php } else { ?>
 							<div class="logo-search-container noimage">
 						<?php } ?>
@@ -411,6 +420,9 @@ var templateUrl = '<?php home_url(); ?>';
 					<?php
 						// Check to see if the header image has been removed
 						$header_image = get_header_image();
+						
+						$logo_image = get_theme_mod( 'uw-madison-wp-2015_header_main_image_id' );
+						
 						if ( $header_image ) { 
 							// Compatibility with versions of WordPress prior to 3.4.
 							if ( function_exists( 'get_custom_header' ) ) {
@@ -437,6 +449,18 @@ var templateUrl = '<?php home_url(); ?>';
 					<img src="<?php header_image(); ?>" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" alt="" />
 				<?php /*endif;*/ // end check for featured image or standard header ?>
 			</a>
+			
+			<?php } else if($logo_image) { //using new logo image assignment ?>
+					
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span>
+						
+							<img src="<?php echo $logo_image; ?>" class="mainLogoImg" alt="" />
+							<?php if($header_alt_image) { ?>
+							<img src="<?php echo $header_alt_image; ?>" class="altLogoImg" alt="" />
+							<?php } ?>
+						<?php /*endif;*/ // end check for featured image or standard header ?>
+					</a>
+			
 			<?php } else { // end check for removed header image ?>
 						<div class="noimageLogo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span>
 							<?php $logo_noimage_settings = get_theme_mod( 'uw-madison-wp-2015_noimage_crest_id' ); if($logo_noimage_settings == "color") { ?>
@@ -573,7 +597,13 @@ var templateUrl = '<?php home_url(); ?>';
 		
 		<?php $logo_position = get_theme_mod( 'uw-madison-wp-2015_home_logo_position_id' ); if($logo_position == "center") { ?>
 		
-					<?php
+				<?php if($logo_image) { ?>
+		
+					
+					<img src="<?php echo $logo_image; ?>" alt="" class="centeredSiteLogo" />
+				
+				<?php } else { ?>
+						<?php
 					
 						// Compatibility with versions of WordPress prior to 3.4.
 						if ( function_exists( 'get_custom_header' ) ) {
@@ -585,6 +615,7 @@ var templateUrl = '<?php home_url(); ?>';
 						}
 						?>
 					<img src="<?php header_image(); ?>" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" alt="" class="centeredSiteLogo" />
+				<?php } ?>
 		
 		<?php } ?>
 		
