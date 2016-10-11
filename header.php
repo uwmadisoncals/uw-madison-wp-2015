@@ -125,6 +125,18 @@ var templateUrl = '<?php home_url(); ?>';
 					 		</div>
 
 						<div class="youruwGroup">
+							
+							
+							<div class="uwresources">
+								
+								
+									<?php if ( has_nav_menu( 'resources' ) ) { ?>
+										<?php wp_nav_menu( array( 'theme_location' => 'resources' ) ); ?>
+									<?php } ?>
+								
+							
+							</div>
+							
 						<div class="youruw">
 							<a href="#" class="youruwTrigger"><?php
 								$menu_location = 'youruw'; 
@@ -509,34 +521,46 @@ var templateUrl = '<?php home_url(); ?>';
 				
 				<div class="search-youruw">
 						<div class="youruwGroup">
-						<div class="youruw">
-							<a href="#" class="youruwTrigger"><?php
-								$menu_location = 'youruw';
-								$menu_locations = get_nav_menu_locations();
-								$menu_object = (isset($menu_locations[$menu_location]) ? wp_get_nav_menu_object($menu_locations[$menu_location]) : null);
-								$menu_name = (isset($menu_object->name) ? $menu_object->name : '');
+							
+							<div class="uwresources">
 								
-								if($menu_name) {
 								
-								echo esc_html($menu_name);
+									<?php if ( has_nav_menu( 'resources' ) ) { ?>
+										<?php wp_nav_menu( array( 'theme_location' => 'resources' ) ); ?>
+									<?php } ?>
 								
-								} else {
-									echo "Your UW";
-								}
-							?></a>
-							<div class="youruwmenu">
-								<?php if ( has_nav_menu( 'youruw' ) ) { ?>
-								<?php wp_nav_menu( array( 'theme_location' => 'youruw' ) ); ?>
-								<?php } else { ?>
-										<ul>
-											<li><a href="http://wisc.edu">UW-Madison</a></li>
-											<li><a href="http://my.wisc.edu">My UW</a></li>
-											<li><a href="http://map.wisc.edu">Campus Map</a></li>
-										</ul>
-								<?php } ?>
+							
 							</div>
-						
-					</div>
+
+							
+							<div class="youruw">
+								<a href="#" class="youruwTrigger"><?php
+									$menu_location = 'youruw';
+									$menu_locations = get_nav_menu_locations();
+									$menu_object = (isset($menu_locations[$menu_location]) ? wp_get_nav_menu_object($menu_locations[$menu_location]) : null);
+									$menu_name = (isset($menu_object->name) ? $menu_object->name : '');
+									
+									if($menu_name) {
+									
+									echo esc_html($menu_name);
+									
+									} else {
+										echo "Your UW";
+									}
+								?></a>
+								<div class="youruwmenu">
+									<?php if ( has_nav_menu( 'youruw' ) ) { ?>
+									<?php wp_nav_menu( array( 'theme_location' => 'youruw' ) ); ?>
+									<?php } else { ?>
+											<ul>
+												<li><a href="http://wisc.edu">UW-Madison</a></li>
+												<li><a href="http://my.wisc.edu">My UW</a></li>
+												<li><a href="http://map.wisc.edu">Campus Map</a></li>
+											</ul>
+									<?php } ?>
+								</div>
+							
+							</div>
 					
 					<div class="search"><a href="#" class="searchTrigger">
 						<svg width="19px" height="19px" aria-label="Open Search" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">

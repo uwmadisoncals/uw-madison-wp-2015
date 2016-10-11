@@ -3781,6 +3781,8 @@ function uw_madison_wp_2015_setup() {
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'uw-madison-wp-2015' ),
 		'youruw' => __( 'Your UW Menu', 'uw-madison-wp-2015' ),
+		'resources' => __( 'Resources Menu', 'uw-madison-wp-2015' )
+		
 	) );
 
 	

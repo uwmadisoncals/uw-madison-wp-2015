@@ -437,6 +437,17 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 
 			.youruwGroup {
 				float: right;
+				
+				
+				.uwresources {
+					ul.menu {
+						li {
+							a {
+								font-size: 11px;
+							}
+						}
+					}
+				}
 
 				.youruw {
 					a {
@@ -1420,7 +1431,36 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 	z-index:2;
 	transform: translateY(-50%);
 	-webkit-transform: translateY(-50%);
+	
+	.youruwGroup {
+		display: flex;
+		flex-wrap: nowrap;
+	}
 
+	
+	.uwresources {
+		
+		ul.menu {
+			
+			display: flex;
+			flex-wrap: nowrap;
+		
+			li {
+				
+				margin-right: 1.5rem;
+				
+				a {
+					position: relative;
+					color: rgba(255,255,255,0.9);
+					text-transform: uppercase;
+					font-size: 13px;
+					letter-spacing: 0.3px;
+					top: 3px;
+				}
+			}	
+		
+		}
+	}
 
 
 	.youruw {
@@ -1435,8 +1475,8 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 			color: rgba(255,255,255,0.9);
 			text-decoration: none;
 			position: relative;
-			top:2px;
-			margin-right: 8px;
+			top:3px;
+			margin-right: 12px;
 		}
 
 		.youruwmenu:after {
@@ -2382,5 +2422,9 @@ ul.children, ul.sub-menu {
 		-webkit-transform: translate(-50%,-50%);
 		-moz-transform: translate(-50%,-50%);
 		z-index:10;
+	}
+	
+	.uwresources {
+		display: none;	
 	}
 }
