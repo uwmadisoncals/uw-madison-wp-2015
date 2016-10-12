@@ -18,6 +18,27 @@
 	padding-top: 2em;
 }
 
+div.lineSidebar .sidebar_menu, div.lineSidebar .widget-area {
+	
+	
+	h1 {
+		
+			text-align: left;
+		
+	}
+	
+	ul#nav_explore {
+		padding-left: 0px;
+		
+		li {
+			a .nav_text {
+				text-align: left;
+			}
+		}
+	}
+}
+
+
 .sidebar_menu.expanded {
 	h1 {
 		a {
@@ -87,6 +108,7 @@
 				a {
 					.nav_text {
 						margin-left: 14px;
+						
 					}
 
 					.nav_text:before {
@@ -129,43 +151,47 @@
 
 .home {
 	.postsRightSidebar.dotsSidebar {
-		.sidebar_menu #nav_explore li a:before, .sidebar_menu .widget ul li a:before, .widget-area #nav_explore li a:before, .widget-area .widget ul li a:before {
-			background: $uwred;
-			border: 2px solid rgba(255,255,255,0.8);
-		}
-
-		.sidebar_menu h1:before, .widget-area h1:before {
-			border: 2px solid #fff;
-			background: #fff;
-		}
-
-		.spotlight.right-sidebar ul li:last-child, .spotlight.right-sidebar ul li:last-child {
-			a:after {
-				transform: translateY(-100%);
-				-webkit-transform: translateY(-100%);
+		.sidebarWrapper {
+			.sidebar_menu #nav_explore li a:before, .sidebar_menu .widget ul li a:before, .widget-area #nav_explore li a:before, .widget-area .widget ul li a:before {
+				background: $uwred;
+				border: 2px solid rgba(255,255,255,0.8);
 			}
-
+	
+			.sidebar_menu h1:before, .widget-area h1:before {
+				border: 2px solid #fff;
+				background: #fff;
+			}
+	
+			.spotlight.right-sidebar ul li:last-child, .spotlight.right-sidebar ul li:last-child {
+				a:after {
+					transform: translateY(-100%);
+					-webkit-transform: translateY(-100%);
+				}
+	
+			}
 		}
 	}
 }
 
 .listRightSidebar.dotsSidebar {
-	.sidebar_menu #nav_explore li a:before, .sidebar_menu .widget ul li a:before, .widget-area #nav_explore li a:before, .widget-area .widget ul li a:before {
-		background: $uwred;
-		border: 2px solid rgba(255,255,255,0.8);
-	}
-
-	.sidebar_menu h1:before, .widget-area h1:before {
-		border: 2px solid #fff;
-		background: #fff;
-	}
-
-	.spotlight.right-sidebar ul li:last-child, .spotlight.right-sidebar ul li:last-child {
-		a:after {
-			transform: translateY(-100%);
-			-webkit-transform: translateY(-100%);
+	.sidebarWrapper {
+		.sidebar_menu #nav_explore li a:before, .sidebar_menu .widget ul li a:before, .widget-area #nav_explore li a:before, .widget-area .widget ul li a:before {
+			background: $uwred;
+			border: 2px solid rgba(255,255,255,0.8);
 		}
-
+	
+		.sidebar_menu h1:before, .widget-area h1:before {
+			border: 2px solid #fff;
+			background: #fff;
+		}
+	
+		.spotlight.right-sidebar ul li:last-child, .spotlight.right-sidebar ul li:last-child {
+			a:after {
+				transform: translateY(-100%);
+				-webkit-transform: translateY(-100%);
+			}
+	
+		}
 	}
 }
 
@@ -287,7 +313,7 @@
 		padding: 2em;*/
 
 		border-left: 1px solid rgba(0,0,0,0.1);
-		padding-left: 3em;
+		padding-left: 2em;
 		margin-top: 0em;
 
 		h1 {
@@ -311,7 +337,7 @@
 		}
 
 		ul#nav_explore {
-			padding-left: 1em;
+			padding-left: 0em;
 		}
 
 		ul.currentSub {
@@ -465,7 +491,7 @@
 					width: 14px;
 					height: 14px;
 					border: 2px solid rgba(0,0,0,0.5);
-					background: #fff;
+					background: $default-background;
 					border-radius: 100px;
 					position: absolute;
 					top: 50%;
@@ -544,7 +570,7 @@
 					width: 14px;
 					height: 14px;
 					border: 2px solid rgba(0,0,0,0.5);
-					background: #fff;
+					background: $default-background;
 					border-radius: 100px;
 					position: absolute;
 					top: 50%;
@@ -632,7 +658,7 @@
 					width: 14px;
 					height: 14px;
 					border: 2px solid rgba(0,0,0,0.5);
-					background: #fff;
+					background: $default-background;
 					border-radius: 100px;
 					position: absolute;
 					top: 50%;

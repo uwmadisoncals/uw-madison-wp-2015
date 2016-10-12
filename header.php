@@ -117,12 +117,18 @@ var templateUrl = '<?php home_url(); ?>';
 				 	
 				 	<div class="search-youruw">
 					 	<div class="search-youruw-container">
-					 		<div class="campusTitle"><?php $campustitle = get_theme_mod( 'uw-madison-wp-2015_campus_title_id' );	if($campustitle != "") {
-					 					echo $campustitle;
-					 				} 
-					 			?>
+					 		<?php 
+						 		$campustitle = get_theme_mod( 'uw-madison-wp-2015_campus_title_id' );	
+						 		$campustitlelink = get_theme_mod( 'uw-madison-wp-2015_campus_title_link_id' );	
+						 			if($campustitle != "") { 
+					 					if($campustitlelink != "") { ?>
+					 					<a href="<?php echo $campustitlelink; ?>" class="campusTitle"><?php echo $campustitle; ?></a>
+					 					<?php } else { ?>
+					 						<div class="campusTitle"><?php echo $campustitle; ?></div>
+					 					<?php } ?>
+					 			<?php } ?>
 					 			
-					 		</div>
+					 		
 
 						<div class="youruwGroup">
 							

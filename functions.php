@@ -614,6 +614,24 @@ $wp_customize->add_control('uw-madison-wp-2015-campus_title', array(
 ));
 
 
+$wp_customize->add_setting('uw-madison-wp-2015_campus_title_link_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => '',
+    'sanitize_callback' => 'sanitize_campus_title_link'
+ 
+));
+
+
+$wp_customize->add_control('uw-madison-wp-2015-campus_title_link', array(
+    'label'      => __('Campus Title Link', 'uw-madison-wp-2015'),
+    'description'=> '',
+    'section'    => 'title_tagline',
+    'type'    => 'text',
+    'settings'   => 'uw-madison-wp-2015_campus_title_link_id',
+));
+
+
 
 
 
@@ -1233,6 +1251,14 @@ function sanitize_campus_title( $value ) {
  
     return $value;
 }
+
+function sanitize_campus_title_link( $value ) {
+    if ( !$value )
+        $value = '';
+ 
+    return $value;
+}
+
 
 function sanitize_sidebar_nav( $value ) {
     if ( !$value )
