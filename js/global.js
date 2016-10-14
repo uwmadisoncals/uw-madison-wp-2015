@@ -58,7 +58,7 @@ if(getInternetExplorerVersion() != "-1") {
  *
  * ----------------------------------------------------------------------------
  */
- 
+ var adjust2;
  var adjust;
  var newfontsize;
  var currentfontsize = $(".mainTitle").css("font-size");
