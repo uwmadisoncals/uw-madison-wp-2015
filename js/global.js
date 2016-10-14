@@ -1,3 +1,11 @@
+/**
+ * ----------------------------------------------------------------------------
+ *
+ *  Preloader Cover
+ *
+ * ----------------------------------------------------------------------------
+ */
+
 $(window).on("load", function() {
     //remove the load cover once images are loaded.
     $(".loadCover").fadeOut(300);
@@ -40,6 +48,66 @@ if(getInternetExplorerVersion() != "-1") {
 	var bodyClass = "IE" + getInternetExplorerVersion();
 	$("body").addClass("IE").addClass(bodyClass);
 }
+
+
+
+/**
+ * ----------------------------------------------------------------------------
+ *
+ *  Dynamic Logo Text Sizing  **BETA** Currently Inactive
+ *
+ * ----------------------------------------------------------------------------
+ */
+ 
+ var adjust;
+ var newfontsize;
+ var currentfontsize = $(".mainTitle").css("font-size");
+ var fontfirsttime = true;
+ 
+ function adjustTitleSize() {
+ 
+	
+	 //currentfontsize = $(".mainTitle").css("font-size");
+	 //console.log(currentfontsize);
+	 //currentfontsize = String(currentfontsize);
+	 
+	 if(fontfirsttime) {
+	 	currentfontsize = currentfontsize.substring(0, currentfontsize.length - 2);
+	 }
+	 var newfontsize = currentfontsize - 1;
+	 $(".mainTitle").css("font-size",newfontsize);
+	 
+	 
+	 var titleContainer = $(".mainTitle").height();
+	 
+	
+	 //console.log(titleContainer);
+	 
+	 $(".mainTitle").css("font-size",newfontsize);
+		 setTimeout(function() { 
+			 titleContainer = $(".mainTitle").height();
+			 
+			 if(titleContainer > 50) {
+				 fontfirsttime = false;
+				 adjustTitleSize();
+			 } else {
+				 console.log("all set!");
+			 }
+			 
+			  
+		 },50);
+		 currentfontsize = newfontsize;
+		 //console.log(newfontsize);
+	
+ 
+ }
+ 
+ 
+
+//adjustTitleSize();
+
+//adjust = setInterval(adjustTitleSize(), 5000);
+ 
 
 
 /**
