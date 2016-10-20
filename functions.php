@@ -5,43 +5,51 @@
  * @package UW Madison WP 2015
  */
  
- 
 
 
-// 1. customize ACF path
-add_filter('acf/settings/path', 'my_acf_settings_path');
- 
-function my_acf_settings_path( $path ) {
- 
-    // update path
-    $path = get_template_directory() . '/acf/';
-    
-    // return
-    return $path;
-    
-}
- 
+	// 1. customize ACF path
+	add_filter('acf/settings/path', 'my_acf_settings_path');
+	 
+	function my_acf_settings_path( $path ) {
+	 
+	    // update path
+	    $path = get_template_directory() . '/acf/';
+	    
+	    // return
+	    return $path;
+	    
+	}
+	 
+	
+	// 2. customize ACF dir
+	add_filter('acf/settings/dir', 'my_acf_settings_dir');
+	 
+	function my_acf_settings_dir( $dir ) {
+	 
+	    // update path
+	    $dir = get_template_directory_uri() . '/acf/';
+	    
+	    // return
+	    return $dir;
+	    
+	}
+	 
+	
+	// 3. Hide ACF field group menu item
+	//add_filter('acf/settings/show_admin', '__return_false');
+	
+	
+	// 4. Include ACF
+	include_once( get_template_directory() . '/acf/acf.php' );
 
-// 2. customize ACF dir
-add_filter('acf/settings/dir', 'my_acf_settings_dir');
- 
-function my_acf_settings_dir( $dir ) {
- 
-    // update path
-    $dir = get_template_directory_uri() . '/acf/';
-    
-    // return
-    return $dir;
-    
-}
- 
-
-// 3. Hide ACF field group menu item
-add_filter('acf/settings/show_admin', '__return_false');
 
 
-// 4. Include ACF
-include_once( get_template_directory() . '/acf/acf.php' );
+
+
+//Include the UW Events Calendar
+//if ( !function_exists("uwmadison_events_object") ) {
+	include_once( get_template_directory() . '/uwevents/uwmadison_events.php' );
+//}
 
 
  
@@ -594,6 +602,26 @@ $wp_customize->add_control(
 );
 
 
+$wp_customize->add_setting('uw-madison-wp-2015_tagline_location_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => 'below',
+    'sanitize_callback' => 'sanitize_tagline_location'
+ 
+));
+
+
+$wp_customize->add_control('uw-madison-wp-2015-tagline_location', array(
+    'label'      => __('Tagline Location', 'uw-madison-wp-2015'),
+    'description'=> '',
+    'section'    => 'title_tagline',
+    'type'    => 'radio',
+    'choices' => array(
+            'above' => __( 'Above the Title', 'uw-madison-wp-2015' ),
+            'below' => __( 'Below the Title', 'uw-madison-wp-2015' )
+        ),
+    'settings'   => 'uw-madison-wp-2015_tagline_location_id',
+));
 
 
 $wp_customize->add_setting('uw-madison-wp-2015_campus_title_id', array(
@@ -1252,6 +1280,15 @@ function sanitize_campus_title( $value ) {
     return $value;
 }
 
+
+
+function sanitize_tagline_location( $value ) {
+    if ( !$value )
+        $value = 'below';
+ 
+    return $value;
+}
+
 function sanitize_campus_title_link( $value ) {
     if ( !$value )
         $value = '';
@@ -1515,8 +1552,33 @@ function se_lookup() {
 //Force Deactivation of Normal ACF since ACF Pro is bundled with the theme.
 function deactivate_plugin_conditional() {
     if ( is_plugin_active('advanced-custom-fields/acf.php') ) {
-    deactivate_plugins('advanced-custom-fields/acf.php');    
+    	deactivate_plugins('advanced-custom-fields/acf.php');  
+    	
+    	add_action( 'admin_notices', function(){
+ 	    	echo '<div class="error"><p>It looks like you have the <b>advanced-custom-fields</b> plugin activated. The theme bundles ACF Pro. As a result your plugin will be deactivated while this theme is active.</p></div>';
+ 	  	});  
+ 	  	return;
+ 	  	
     }
+    
+    if ( is_plugin_active('advanced-custom-fields-pro/acf.php') ) {
+    	deactivate_plugins('advanced-custom-fields-pro/acf.php'); 
+    	
+    	add_action( 'admin_notices', function(){
+ 	    	echo '<div class="error"><p>It looks like you have the <b>advanced-custom-fields-pro</b> plugin activated. The theme bundles ACF Pro. As a result your installed acf pro plugin will be deactivated while this theme is active.</p></div>';
+ 	  	});
+ 	  	return;   
+    }
+    
+    if ( is_plugin_active('uw-madison-events-calendar/uwmadison_events.php') ) {
+    	deactivate_plugins('uw-madison-events-calendar/uwmadison_events.php');  
+    	
+    	add_action( 'admin_notices', function(){
+ 	    	echo '<div class="error"><p>It looks like you have the <b>UW Events Calendar</b> plugin activated. The theme bundles this plugin automatically. As a result your plugin will be deactivated while this theme is active.</p></div>';
+ 	  	});
+ 	  	return;  
+    }
+    
 }
 add_action( 'admin_init', 'deactivate_plugin_conditional' );
 
@@ -1555,11 +1617,11 @@ function uw_madison_wp_2015_register_required_plugins() {
         ),*/
         
         // This is an example of how to include a plugin from the WordPress Plugin Repository.
-        array(
+        /*array(
             'name'      => 'UW-Madison Events Calendar',
             'slug'      => 'uw-madison-events-calendar',
             'required'  => false,
-        ),
+        ),*/
 
     );
 
