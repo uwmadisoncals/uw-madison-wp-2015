@@ -48,7 +48,7 @@ var templateUrl = '<?php home_url(); ?>';
 </head>
 
 <body <?php body_class(); ?>>
-	
+
 	<div class="loadCover">
 		<div class="loadLogo"></div>
 	</div>
@@ -61,18 +61,18 @@ var templateUrl = '<?php home_url(); ?>';
 	<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 	<div class="subLevel1"></div>
 	<div class="subLevel2"></div>
-	
+
 	<?php
 	//find all of the parents to the post
 	$current_page_ancestors = get_post_ancestors($post);
-	
+
 	$tmp_post = $post;
 
 	//get children of current page
 	$child_pages = get_pages('child_of='.$post->ID.'&parent='.$post->ID.'&sort_column=menu_order');
-	
-	if(!empty($child_pages)){?>		
-		<h2 class="mobileTitle"><?php echo get_the_title(); ?></h2>	
+
+	if(!empty($child_pages)){?>
+		<h2 class="mobileTitle"><?php echo get_the_title(); ?></h2>
 		<ul id="full_page_nav" class="flexbox-container">
 			<?php
             foreach($child_pages as $post){
@@ -81,11 +81,11 @@ var templateUrl = '<?php home_url(); ?>';
            				<a href="<?php the_permalink(); ?>">
            					<div class="heading"><?php the_title(); ?> </div>
 						</a
-						
+
                      </li>
             <?php } ?>
-        </ul><!-- #nav_explore --> 
-	<?php 
+        </ul><!-- #nav_explore -->
+	<?php
 	}
 
 
@@ -110,50 +110,50 @@ var templateUrl = '<?php home_url(); ?>';
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'uw-madison-wp-2015' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		
-		<?php $header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' ); 
+
+		<?php $header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' );
 				if($header_layout_settings == "righthand") { ?>
-				 	<!-- uses righthand nav --> 
-				 	
+				 	<!-- uses righthand nav -->
+
 				 	<div class="search-youruw">
 					 	<div class="search-youruw-container">
-					 		<?php 
-						 		$campustitle = get_theme_mod( 'uw-madison-wp-2015_campus_title_id' );	
-						 		$campustitlelink = get_theme_mod( 'uw-madison-wp-2015_campus_title_link_id' );	
-						 			if($campustitle != "") { 
+					 		<?php
+						 		$campustitle = get_theme_mod( 'uw-madison-wp-2015_campus_title_id' );
+						 		$campustitlelink = get_theme_mod( 'uw-madison-wp-2015_campus_title_link_id' );
+						 			if($campustitle != "") {
 					 					if($campustitlelink != "") { ?>
 					 					<a href="<?php echo $campustitlelink; ?>" class="campusTitle"><?php echo $campustitle; ?></a>
 					 					<?php } else { ?>
 					 						<div class="campusTitle"><?php echo $campustitle; ?></div>
 					 					<?php } ?>
 					 			<?php } ?>
-					 			
-					 		
+
+
 
 						<div class="youruwGroup">
-							
-							
+
+
 							<div class="uwresources">
-								
-								
+
+
 									<?php if ( has_nav_menu( 'resources' ) ) { ?>
 										<?php wp_nav_menu( array( 'theme_location' => 'resources' ) ); ?>
 									<?php } ?>
-								
-							
+
+
 							</div>
-							
+
 						<div class="youruw">
 							<a href="#" class="youruwTrigger"><?php
-								$menu_location = 'youruw'; 
+								$menu_location = 'youruw';
 								$menu_locations = get_nav_menu_locations();
 								$menu_object = (isset($menu_locations[$menu_location]) ? wp_get_nav_menu_object($menu_locations[$menu_location]) : null);
 								$menu_name = (isset($menu_object->name) ? $menu_object->name : '');
-								
+
 								if($menu_name) {
-								
+
 								echo esc_html($menu_name);
-								
+
 								} else {
 									echo "Your UW";
 								}
@@ -169,12 +169,12 @@ var templateUrl = '<?php home_url(); ?>';
 										</ul>
 								<?php } ?>
 							</div>
-						
+
 					</div>
-					
+
 					<div class="search"><a href="#" class="searchTrigger">
 						<svg width="19px" height="19px" aria-label="Open Search" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-   
+
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g id="Desktop-HD-Alt" sketch:type="MSArtboardGroup" transform="translate(-1242.000000, -34.000000)" fill="#FFFFFF">
@@ -194,28 +194,28 @@ var templateUrl = '<?php home_url(); ?>';
 				</div>
 				</div>
 
-				 	
+
 				 	<?php $header_image = get_header_image();
 						  $header_alt_image = get_theme_mod( 'uw-madison-wp-2015_header_alt_image_id' );
-						  
+
 						  $logo_image = get_theme_mod( 'uw-madison-wp-2015_header_main_image_id' );
-						  
+
 						if ( $header_image ) { ?>
 							<!-- A Header Image is assigned -->
 							<?php if($header_alt_image) { ?>
 								<!-- An Alt Image is also assigned -->
 								<div class="logo-search-container withimage withaltimage">
-									
+
 							<?php } else { ?>
 								<!-- A Header Alt Image is NOT assigned -->
 								<div class="logo-search-container withimage noaltimage">
 							<?php } ?>
-							
+
 						<?php } else if($logo_image) { ?>
 							<?php if($header_alt_image) { ?>
 								<!-- An Alt Image is also assigned -->
 								<div class="logo-search-container withimage withaltimage">
-									
+
 							<?php } else { ?>
 								<!-- A Header Alt Image is NOT assigned -->
 								<div class="logo-search-container withimage noaltimage">
@@ -226,21 +226,21 @@ var templateUrl = '<?php home_url(); ?>';
 							<div class="logo-search-container noimage">
 						<?php } ?>
 
-			
+
 				<div class="site-branding">
 					<a href="#" class="mobileTrigger"><svg height="32px" aria-label="Open Menu" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/></svg></a>
-					
+
 					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 					<?php if(get_bloginfo('description') <> '') { ?>
 						<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 					<?php } ?>
-					
+
 					<?php
 						// Check to see if the header image has been removed
 						$header_image = get_header_image();
 						$logo_image = get_theme_mod( 'uw-madison-wp-2015_header_main_image_id' );
-						
-						if ( $header_image ) { 
+
+						if ( $header_image ) {
 							//A Header Image is assigned
 
 							// Compatibility with versions of WordPress prior to 3.4.
@@ -255,7 +255,7 @@ var templateUrl = '<?php home_url(); ?>';
 
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span>
 				<?php
-					
+
 						// Compatibility with versions of WordPress prior to 3.4.
 						if ( function_exists( 'get_custom_header' ) ) {
 							$header_image_width  = get_custom_header()->width;
@@ -271,18 +271,18 @@ var templateUrl = '<?php home_url(); ?>';
 					<?php } ?>
 				<?php /*endif;*/ // end check for featured image or standard header ?>
 			</a>
-			
+
 			<?php } else if($logo_image) { //using new logo image assignment ?>
-					
+
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span>
-						
+
 							<img src="<?php echo $logo_image; ?>" class="mainLogoImg" alt="" />
 							<?php if($header_alt_image) { ?>
 							<img src="<?php echo $header_alt_image; ?>" class="altLogoImg" alt="" />
 							<?php } ?>
 						<?php /*endif;*/ // end check for featured image or standard header ?>
 					</a>
-			
+
 			<?php } else { // end check for removed header image ?>
 
 						<!-- A Header Image is Not Assigned -->
@@ -290,12 +290,12 @@ var templateUrl = '<?php home_url(); ?>';
 						<div class="noimageLogo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage nologoImageAssigned"><span class="forScreenReaders">Logo Image</span>
 							<?php $logo_noimage_settings = get_theme_mod( 'uw-madison-wp-2015_noimage_crest_id' ); if($logo_noimage_settings == "color") { ?>
 								<!-- Full Color Crest Selected -->
-								
+
 								<img src="<?php echo get_template_directory_uri(); ?>/images/cl_logo.svg">
 							<?php } else if($logo_noimage_settings == "hybrid") { ?>
 								<!-- Hybrid Crest Selected -->
 
-								<?php 
+								<?php
 									$header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' );
 								if($header_style == "opaque") { ?>
 									<!-- Hybrid Selected with Opaque Header -->
@@ -312,7 +312,7 @@ var templateUrl = '<?php home_url(); ?>';
 									<?php } else { ?>
 									<!-- Hybrid Logo / Transparent Header or Photo Header / Subpages -->
 
-										<?php $header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' ); 
+										<?php $header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' );
 
 											if($header_style == "photo") {
 										?>
@@ -329,9 +329,9 @@ var templateUrl = '<?php home_url(); ?>';
 
 							<?php } else { ?>
 								<!-- Outline Crest Selected -->
-								<?php 
+								<?php
 									$header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' );
-									$header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' ); 
+									$header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' );
 									if(is_front_page()) { ?>
 									<!-- Outline Crest on Homepage -->
 										<?php if($header_style == "opaque") { ?>
@@ -350,7 +350,7 @@ var templateUrl = '<?php home_url(); ?>';
 												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg">
 											<?php } else { ?>
 												<!-- Outline Crest / Homepage / Visible Slides -->
-												<img class="monochrome" src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg"> 
+												<img class="monochrome" src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg">
 											<?php } ?>
 										<?php } ?>
 									<?php } else { ?>
@@ -367,55 +367,55 @@ var templateUrl = '<?php home_url(); ?>';
 																			<?php } ?>
 							<?php } ?>
 							<div class="mainTitle"><?php bloginfo( 'name' ); ?><span><?php bloginfo( 'description' ); ?></span></div></a></div>
-						
-						
+
+
 			<?php } ?>
-					
+
 				</div><!-- .site-branding -->
-				
-				
-								
+
+
+
 			</div>
-			
+
 			<div class="main-navigation-container">
-		
+
 			<nav id="site-navigation" class="main-navigation <?php $main_menu_dropdown = get_theme_mod( 'uw-madison-wp-2015_dropdowns_id' ); if($main_menu_dropdown == "enabled") { echo "dropdownEnabled"; } ?>" role="navigation">
 				<div class="site-navigation-container">
-					
-					<?php 
-						
+
+					<?php
+
 						$main_menu_dropdown = get_theme_mod( 'uw-madison-wp-2015_dropdowns_id' );
-					
+
 						if($main_menu_dropdown == "enabled") {
-							
+
 							wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) );
-						
+
 						} else {
-							wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'depth' => 1 ) ); 
+							wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'depth' => 1 ) );
 						}
-						
-						
+
+
 						?>
 				</div>
 			</nav><!-- #site-navigation -->
-		
+
 			</div>
-				
-				<?php } else { ?>  
-				
+
+				<?php } else { ?>
+
 					<!-- uses navbar -->
 					<?php $header_image = get_header_image();
 						  $header_alt_image = get_theme_mod( 'uw-madison-wp-2015_header_alt_image_id' );
-						  
+
 						  $logo_image = get_theme_mod( 'uw-madison-wp-2015_header_main_image_id' );
-						  
+
 						if ( $header_image ) { ?>
 							<?php if($header_alt_image) { ?>
 								<div class="logo-search-container withimage withaltimage">
 							<?php } else { ?>
 								<div class="logo-search-container withimage noaltimage">
 							<?php } ?>
-						
+
 						<?php } else if($logo_image) { ?>
 								<?php if($header_alt_image) { ?>
 									<div class="logo-search-container withimage withaltimage">
@@ -426,22 +426,22 @@ var templateUrl = '<?php home_url(); ?>';
 							<div class="logo-search-container noimage">
 						<?php } ?>
 
-			
+
 				<div class="site-branding">
 					<a href="#" class="mobileTrigger"><svg height="32px" aria-label="Open Menu" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/></svg></a>
-					
+
 					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 					<?php if(get_bloginfo('description') <> '') { ?>
 						<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 					<?php } ?>
-					
+
 					<?php
 						// Check to see if the header image has been removed
 						$header_image = get_header_image();
-						
+
 						$logo_image = get_theme_mod( 'uw-madison-wp-2015_header_main_image_id' );
-						
-						if ( $header_image ) { 
+
+						if ( $header_image ) {
 							// Compatibility with versions of WordPress prior to 3.4.
 							if ( function_exists( 'get_custom_header' ) ) {
 								// We need to figure out what the minimum width should be for our featured image.
@@ -454,7 +454,7 @@ var templateUrl = '<?php home_url(); ?>';
 
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span>
 				<?php
-					
+
 						// Compatibility with versions of WordPress prior to 3.4.
 						if ( function_exists( 'get_custom_header' ) ) {
 							$header_image_width  = get_custom_header()->width;
@@ -467,31 +467,31 @@ var templateUrl = '<?php home_url(); ?>';
 					<img src="<?php header_image(); ?>" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" alt="" />
 				<?php /*endif;*/ // end check for featured image or standard header ?>
 			</a>
-			
+
 			<?php } else if($logo_image) { //using new logo image assignment ?>
-					
+
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span>
-						
+
 							<img src="<?php echo $logo_image; ?>" class="mainLogoImg" alt="" />
 							<?php if($header_alt_image) { ?>
 							<img src="<?php echo $header_alt_image; ?>" class="altLogoImg" alt="" />
 							<?php } ?>
 						<?php /*endif;*/ // end check for featured image or standard header ?>
 					</a>
-			
+
 			<?php } else { // end check for removed header image ?>
 						<div class="noimageLogo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span>
 							<?php $logo_noimage_settings = get_theme_mod( 'uw-madison-wp-2015_noimage_crest_id' ); if($logo_noimage_settings == "color") { ?>
-								
+
 								<img src="<?php echo get_template_directory_uri(); ?>/images/cl_logo.svg">
 								<?php } else if($logo_noimage_settings == "hybrid") { ?>
 								<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo.svg" class="hybrid">
 
 							<?php } else { ?>
-							
-								<?php 
+
+								<?php
 									$header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' );
-									$header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' ); 
+									$header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' );
 									if(is_front_page()) { ?>
 										<?php if($header_style == "opaque") { ?>
 											<?php if($header_layout_settings == "righthand") { ?>
@@ -504,11 +504,11 @@ var templateUrl = '<?php home_url(); ?>';
 												<?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { ?>
 												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg">
 											<?php } else { ?>
-												<img class="monochrome" src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg"> 
+												<img class="monochrome" src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg">
 											<?php } ?>
 										<?php } ?>
 									<?php } else { ?>
-									
+
 										<?php if($header_layout_settings == "righthand") { ?>
 												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg">
 
@@ -518,38 +518,38 @@ var templateUrl = '<?php home_url(); ?>';
 										<?php } ?>
 																			<?php } ?>
 							<?php } ?>
-							<div class="mainTitle"><?php bloginfo( 'name' ); ?><span><?php bloginfo( 'description' ); ?></span></div></a></div>						
-						
+							<div class="mainTitle"><?php bloginfo( 'name' ); ?><span><?php bloginfo( 'description' ); ?></span></div></a></div>
+
 			<?php } ?>
-					
+
 				</div><!-- .site-branding -->
-				
-				
+
+
 				<div class="search-youruw">
 						<div class="youruwGroup">
-							
+
 							<div class="uwresources">
-								
-								
+
+
 									<?php if ( has_nav_menu( 'resources' ) ) { ?>
 										<?php wp_nav_menu( array( 'theme_location' => 'resources' ) ); ?>
 									<?php } ?>
-								
-							
+
+
 							</div>
 
-							
+
 							<div class="youruw">
 								<a href="#" class="youruwTrigger"><?php
 									$menu_location = 'youruw';
 									$menu_locations = get_nav_menu_locations();
 									$menu_object = (isset($menu_locations[$menu_location]) ? wp_get_nav_menu_object($menu_locations[$menu_location]) : null);
 									$menu_name = (isset($menu_object->name) ? $menu_object->name : '');
-									
+
 									if($menu_name) {
-									
+
 									echo esc_html($menu_name);
-									
+
 									} else {
 										echo "Your UW";
 									}
@@ -565,12 +565,12 @@ var templateUrl = '<?php home_url(); ?>';
 											</ul>
 									<?php } ?>
 								</div>
-							
+
 							</div>
-					
+
 					<div class="search"><a href="#" class="searchTrigger">
 						<svg width="19px" height="19px" aria-label="Open Search" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-   
+
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g id="Desktop-HD-Alt" sketch:type="MSArtboardGroup" transform="translate(-1242.000000, -34.000000)" fill="#FFFFFF">
@@ -586,55 +586,55 @@ var templateUrl = '<?php home_url(); ?>';
         </g>
     </g>
 </svg></a></div>
-					
+
 				</div>
 				</div>
-				
+
 			</div>
-		
+
 			<nav id="site-navigation" class="main-navigation <?php $main_menu_dropdown = get_theme_mod( 'uw-madison-wp-2015_dropdowns_id' ); if($main_menu_dropdown == "enabled") { echo "dropdownEnabled"; } ?>" role="navigation">
 				<div class="site-navigation-container">
-					
-					<?php 
-						
+
+					<?php
+
 						$main_menu_dropdown = get_theme_mod( 'uw-madison-wp-2015_dropdowns_id' );
-					
+
 						if($main_menu_dropdown == "enabled") {
-							
+
 							wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) );
-						
+
 						} else {
-							wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'depth' => 1 ) ); 
+							wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'depth' => 1 ) );
 						}
-						
-						
+
+
 						?>
 				</div>
 			</nav><!-- #site-navigation -->
-					
+
 				<?php } ?>
-		
-		
-		
+
+
+
 	</header><!-- #masthead -->
-  
-  
-	
-  
+
+
+
+
 	<div class="featureHeader">
-		
-		
-		
+
+
+
 		<?php $logo_position = get_theme_mod( 'uw-madison-wp-2015_home_logo_position_id' ); if($logo_position == "center") { ?>
-		
+
 				<?php if($logo_image) { ?>
-		
-					
+
+
 					<img src="<?php echo $logo_image; ?>" alt="" class="centeredSiteLogo" />
-				
+
 				<?php } else { ?>
 						<?php
-					
+
 						// Compatibility with versions of WordPress prior to 3.4.
 						if ( function_exists( 'get_custom_header' ) ) {
 							$header_image_width  = get_custom_header()->width;
@@ -646,46 +646,46 @@ var templateUrl = '<?php home_url(); ?>';
 						?>
 					<img src="<?php header_image(); ?>" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" alt="" class="centeredSiteLogo" />
 				<?php } ?>
-		
+
 		<?php } ?>
-		
-		
+
+
 		<?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { ?>
-		
-		<?php } else { ?> 
-				
-		<?php 
+
+		<?php } else { ?>
+
+		<?php
 			if(is_front_page() || $header_style == "photo") { ?>
 				<?php if(is_front_page()) {
 						$args = array( 'post_type' => 'headerslides', 'posts_per_page' => 10 );
 
-				 } else { 
+				 } else {
 				 		$args = array( 'post_type' => 'headerslides', 'posts_per_page' => 1 );
 
 				 }?>
 
 
 
-				<?php 
+				<?php
 					$loop = new WP_Query( $args );
-					
+
 					if($loop->have_posts()) { ?>
-					<?php $loopcount = $loop->post_count; 
+					<?php $loopcount = $loop->post_count;
 						if($loopcount > 1) {
 					?>
 						<div class="main-gallery">
-						
+
 					<?php } else { ?>
 						<div class="heroSingle">
 					<?php } ?>
 
-					<?php 
+					<?php
 										$photo_header_size = get_theme_mod( 'uw-madison-wp-2015_photo_header_size_id' );
 
 										$home_photo_header_size = get_theme_mod( 'uw-madison-wp-2015-home_photo_header_size_id' );
-										
+
 									?>
-					
+
 					<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
 						<?php if(is_front_page()) { ?>
@@ -701,26 +701,26 @@ var templateUrl = '<?php home_url(); ?>';
 							<?php } else { ?>
 								<div class="gallery-cell">
 							<?php } ?>
-							
+
 
 						<?php } ?>
 
-						<?php 
+						<?php
 
 							$image = get_field('hero_image');
 							$size = 'hero-image'; // (thumbnail, medium, large, full or custom size)
-							
+
 							if( $image ) {
-								
-								 $attachment_id = get_field('hero_image'); $size = "hero-image"; 
+
+								 $attachment_id = get_field('hero_image'); $size = "hero-image";
 								 $image = wp_get_attachment_image_src($attachment_id, $size);
-								
-								
-								
+
+
+
 								//$imgurl = wp_get_attachment_image_src( $image, $size ); ?>
-								
+
 								<div class="heroImageIeMask"></div>
-								<svg class="heroImageContainerSVG" aria-label="Featured Image">
+								<!--svg class="heroImageContainerSVG" aria-label="Featured Image" -->
 
 									<!-- Definition of a mask begins -->
 							        <defs>
@@ -734,68 +734,68 @@ var templateUrl = '<?php home_url(); ?>';
 										    <rect width="100%" height="100%" fill="url(#g)"/>
 										</mask>
 							        </defs>
-								
-									<foreignObject width="100%" height="100%" style="mask: url(#mask); ">
-								
-								<?php 
+
+									<!--foreignObject width="100%" height="100%" style="mask: url(#mask); "-->
+
+								<?php
 									$video = get_field('hero_video');
-									
+
 									if( $video ) { ?>
 									<!-- If a Hero Video is set -->
-									
+
 									<?php
-										
+
 										$hidebluroption = get_field('disable_blur_filter');
-										
+
 										if($hidebluroption) {
-										
+
 											if( in_array('yes', $hidebluroption) ) { ?>
-									
+
 									<?php 	} else { ?>
-											<div class="heroImageBlur heroVideoBlur"><div class="heroImageBlurInner"></div></div>
-									<?php 	} 
+											<!--div class="heroImageBlur heroVideoBlur"><div class="heroImageBlurInner"></div></div-->
+									<?php 	}
 										} else { ?>
-											<div class="heroImageBlur heroVideoBlur"><div class="heroImageBlurInner"></div></div>
+											<!--div class="heroImageBlur heroVideoBlur"><div class="heroImageBlurInner"></div></div-->
 									<?php } ?>
-									
-									
-								</foreignObject>
-								</svg>
-								
-								
-								
+
+
+								</foreignObject -->
+							</svg -->
+
+
+
 								<div class="heroImage heroVideo" style="background: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center;">
 									<video autoplay loop id="bgvid">
 										    <source src="<?php echo $video ?>" type="video/mp4">
 									</video>
-									
-									<?php 
-										
+
+									<?php
+
 										$hideoverlayoption = get_field('hero_image_filter');
-										
+
 										if($hideoverlayoption) {
-										
+
 											if( in_array('yes', $hideoverlayoption) ) { ?>
-									
+
 									<?php 	} else { ?>
 											<div class="heroOverlay"></div>
-									<?php 	} 
+									<?php 	}
 										} else { ?>
 											<div class="heroOverlay"></div>
 									<?php } ?>
 									<div class="heroHeadingWrapper">
-									
-									<?php  
+
+									<?php
 									$hidetextoption = get_field('hide_slide_text');
 
 									$linkoption = get_field('link_to'); ?>
-									
+
 									<?php if($hidetextoption) {  ?>
-										
+
 										<?php if( in_array('hide', $hidetextoption) ) { ?>
-										
+
 										<?php } else { ?>
-												
+
 												<?php if($linkoption == 'pageorpost') { ?>
 												<a href="<?php the_field('link_to_a_page_or_post'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
 										<?php } else if($linkoption == 'externalurl') { ?>
@@ -804,9 +804,9 @@ var templateUrl = '<?php home_url(); ?>';
 												<div class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></div>
 										<?php } ?>
 										<?php } ?>
-									
+
 									<?php } else { ?>
-										
+
 										<?php if($linkoption == 'pageorpost') { ?>
 												<a href="<?php the_field('link_to_a_page_or_post'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
 										<?php } else if($linkoption == 'externalurl') { ?>
@@ -814,58 +814,58 @@ var templateUrl = '<?php home_url(); ?>';
 										<?php } else { ?>
 												<div class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></div>
 										<?php } ?>
-									
+
 									<?php } ?>
 									</div>
 								</div>
-									
+
 									<?php } else { ?>
 									<!-- If a Hero Video is NOT set -->
 
-									
+
 									<?php
-										
+
 										$hidebluroption = get_field('disable_blur_filter');
-										
+
 										if($hidebluroption) {
-											
-										
+
+
 											if( in_array('yes', $hidebluroption) ) { ?>
-												
+
 									<?php 	} else { ?>
-											
-											<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; "></div></div>
-									<?php 	} 
+
+											<!--div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; "></div></div>
+									<?php 	}
 										} else { ?>
-											<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; "></div></div>
+											<!--div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; "></div></div>
 									<?php } ?>
 
-								
+
 								</foreignObject>
-								</svg>
+							</svg -->
 
 								<?php if($header_style == "photo") { ?>
-								
-								
+
+
 									<?php
-										
+
 										$hidebluroption = get_field('disable_blur_filter');
-										
+
 										if($hidebluroption) {
-										
+
 											if( in_array('yes', $hidebluroption) ) { ?>
-									
+
 									<?php 	} else { ?>
-											<div class="heroImageBlur secondaryBlur"><div class="heroImageBlurInnerAlt" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center;"></div></div>
-									<?php 	} 
+											<!--div class="heroImageBlur secondaryBlur"><div class="heroImageBlurInnerAlt" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center;"></div></div-->
+									<?php 	}
 										} else { ?>
-											<div class="heroImageBlur secondaryBlur"><div class="heroImageBlurInnerAlt" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center;"></div></div>
+											<!--div class="heroImageBlur secondaryBlur"><div class="heroImageBlurInnerAlt" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center;"></div></div-->
 									<?php } ?>
-								
-								
-								
+
+
+
 								<?php } ?>
-								
+
 								<?php if(is_front_page()) { ?>
 
 									<?php if($home_photo_header_size) { ?>
@@ -874,7 +874,7 @@ var templateUrl = '<?php home_url(); ?>';
 											<div class="heroImage" style="background: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center;">
 									<?php } ?>
 
-								
+
 
 								<?php } else { ?>
 										<?php if($photo_header_size) { ?>
@@ -884,34 +884,34 @@ var templateUrl = '<?php home_url(); ?>';
 										<?php } ?>
 								<?php } ?>
 
-									<?php 
-										
+									<?php
+
 										$hideoverlayoption = get_field('hero_image_filter');
-										
+
 										if($hideoverlayoption) {
-										
+
 											if( in_array('yes', $hideoverlayoption) ) { ?>
-									
+
 									<?php 	} else { ?>
 											<div class="heroOverlay"></div>
-									<?php 	} 
+									<?php 	}
 										} else { ?>
 											<div class="heroOverlay"></div>
 									<?php } ?>
 									<div class="heroHeadingWrapper">
-									
-									<?php  
-										
+
+									<?php
+
 									$hidetextoption = get_field('hide_slide_text');
 
 									$linkoption = get_field('link_to'); ?>
-									
+
 									<?php if($hidetextoption) {  ?>
-										
+
 										<?php if( in_array('hide', $hidetextoption) ) { ?>
-										
+
 										<?php } else { ?>
-												
+
 												<?php if($linkoption == 'pageorpost') { ?>
 												<a href="<?php the_field('link_to_a_page_or_post'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
 										<?php } else if($linkoption == 'externalurl') { ?>
@@ -920,9 +920,9 @@ var templateUrl = '<?php home_url(); ?>';
 												<div class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></div>
 										<?php } ?>
 										<?php } ?>
-									
+
 									<?php } else { ?>
-									
+
 										<?php if($linkoption == 'pageorpost') { ?>
 												<a href="<?php the_field('link_to_a_page_or_post'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
 										<?php } else if($linkoption == 'externalurl') { ?>
@@ -930,17 +930,17 @@ var templateUrl = '<?php home_url(); ?>';
 										<?php } else { ?>
 												<div class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></div>
 										<?php } ?>
-									
+
 									<?php } ?>
 									</div>
 								</div>
-								
+
 								<?php } ?>
 
 							<?php } else { ?>
-								<svg class="heroImageContainerSVG" aria-label="Featured Image">
+								<!--svg class="heroImageContainerSVG" aria-label="Featured Image">
 
-									<!-- Definition of a mask begins -->
+									<!-- Definition of a mask begins ->
 							        <defs>
 							            <mask id="mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
 										    <linearGradient id="g" gradientUnits="objectBoundingBox" x2="0" y2="1">
@@ -952,12 +952,12 @@ var templateUrl = '<?php home_url(); ?>';
 										    <rect width="100%" height="100%" fill="url(#g)"/>
 										</mask>
 							        </defs>
-								
+
 									<foreignObject width="100%" height="100%" style="mask: url(#mask); ">
 									<div class="heroImageBlur"><div class="heroImageBlurInner heroImageDefault"></div></div>
 									</foreignObject>
-								</svg>
-								
+								</svg -->
+
 									<div class="heroImage heroImageDefault">
 										<div class="heroOverlay"></div>
 										<div class="heroHeadingWrapper">
@@ -965,15 +965,15 @@ var templateUrl = '<?php home_url(); ?>';
 										</div>
 									</div>
 							<?php } ?>
-						
-						
-						</div> 
+
+
+						</div>
 					<?php endwhile; ?>
 					</div>
 					<?php } else { ?>
-								<svg class="heroImageContainerSVG" aria-label="Featured Image">
+								<!--svg class="heroImageContainerSVG" aria-label="Featured Image">
 
-									<!-- Definition of a mask begins -->
+									<!-- Definition of a mask begins ->
 							        <defs>
 							            <mask id="mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
 										    <linearGradient id="g" gradientUnits="objectBoundingBox" x2="0" y2="1">
@@ -985,30 +985,30 @@ var templateUrl = '<?php home_url(); ?>';
 										    <rect width="100%" height="100%" fill="url(#g)"/>
 										</mask>
 							        </defs>
-								
+
 									<foreignObject width="100%" height="100%" style="mask: url(#mask); ">
-									<div class="heroImageBlur"><div class="heroImageBlurInner heroImageDefault"></div></div>
+										<div class="heroImageBlur"><div class="heroImageBlurInner heroImageDefault"></div></div>
 									</foreignObject>
-								</svg>
-								 
+								</svg -->
+
 								<div class="heroImage heroImageDefault">
 									<div class="heroOverlay"></div>
-									<div class="heroHeadingWrapper">	
+									<div class="heroHeadingWrapper">
 										<div class="heroHeading"><h1><span>A Wordpress theme for UW Madison</span> Madison 2015 Theme</h1></div>
-									</div>										
+									</div>
 								</div>
-									
+
 					<?php } ?>
-					
-					
-				
+
+
+
 		<?php } ?>
-		
+
 		<?php } ?>
 	</div>
-	
-	
- 
+
+
+
 	<?php if(is_front_page()) { ?>
 		<?php $background_color = get_background_color(); ?>
 		<div id="content" class="site-content row">
@@ -1017,30 +1017,30 @@ var templateUrl = '<?php home_url(); ?>';
 				<div class="frostedShelf" <?php if($background_color) { ?>style="background: -moz-linear-gradient(top,  rgba(255,255,255,0.4) 0%, #<?php echo $background_color; ?> 100%); background: -webkit-linear-gradient(top,  rgba(255,255,255,0.4) 0%, #<?php echo $background_color; ?> 100%);
 background: linear-gradient(to bottom,  rgba(255,255,255,0.4) 0%, #<?php echo $background_color; ?> 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66ffffff', endColorstr='#<?php echo $background_color; ?>',GradientType=0 );" <?php } ?>></div>
 				<div class="frostedImage">
-					<?php $args = array( 'post_type' => 'headerslides', 'posts_per_page' => 10 ); 
+					<?php $args = array( 'post_type' => 'headerslides', 'posts_per_page' => 10 );
 
-						
+
 						$loop = new WP_Query( $args );
 
-					
+
 						if($loop->have_posts()) { ?>
 
-							<?php $loopcount = $loop->post_count; 
+							<?php $loopcount = $loop->post_count;
 						if($loopcount > 1) {
 					?>
 							<div class="gallery-b">
 						<?php } else { ?>
 								<div class="reflection-b">
 							<?php } ?>
-							<?php while ( $loop->have_posts() ) : $loop->the_post(); 
+							<?php while ( $loop->have_posts() ) : $loop->the_post();
 
 								$video = get_field('hero_video');
-									
-									
+
+
 
 								$image = get_field('hero_image');
 							$size = 'hero-image'; // (thumbnail, medium, large, full or custom size)
-							
+
 							if( $video ) { ?>
 									<div class="gallery-cell">
 										<video autoplay loop id="bgvid">
@@ -1048,13 +1048,13 @@ background: linear-gradient(to bottom,  rgba(255,255,255,0.4) 0%, #<?php echo $b
 										</video>
 									</div>
 							<?php } else {
-								
-								 $attachment_id = get_field('hero_image'); $size = "hero-image"; 
+
+								 $attachment_id = get_field('hero_image'); $size = "hero-image";
 								 $image = wp_get_attachment_image_src($attachment_id, $size); ?>
 								 <div class="gallery-cell" style="background: url(<?php echo $image[0]; ?>) no-repeat; background-size: cover; background-position: center center">
-								 	
+
 								 </div>
-							
+
 							<?php }
 
 							endwhile;
@@ -1064,29 +1064,29 @@ background: linear-gradient(to bottom,  rgba(255,255,255,0.4) 0%, #<?php echo $b
 							</div>
 				</div>
 			</div><?php } ?>
-				
+
 	<?php } else { ?>
 		<div id="content" class="site-content post-content row">
 			<?php $header_frosted_glass = get_theme_mod( 'uw-madison-wp-2015_headerslides_frostedglass_subpages_id' ); if($header_frosted_glass == true) {  ?>
 			<div class="whiteGradient">
 				<div class="frostedShelf"></div>
 				<div class="frostedImage">
-					
-					<?php $args = array( 'post_type' => 'headerslides', 'posts_per_page' => 1 ); 
-						
+
+					<?php $args = array( 'post_type' => 'headerslides', 'posts_per_page' => 1 );
+
 						$loop = new WP_Query( $args );
-					
+
 						if($loop->have_posts()) { ?>
 							<div class="reflection-b">
-							<?php while ( $loop->have_posts() ) : $loop->the_post(); 
+							<?php while ( $loop->have_posts() ) : $loop->the_post();
 
 								$video = get_field('hero_video');
-									
-									
+
+
 
 								$image = get_field('hero_image');
 							$size = 'hero-image'; // (thumbnail, medium, large, full or custom size)
-							
+
 							if( $video ) { ?>
 									<div class="gallery-cell">
 										<video autoplay loop id="bgvid">
@@ -1094,13 +1094,13 @@ background: linear-gradient(to bottom,  rgba(255,255,255,0.4) 0%, #<?php echo $b
 										</video>
 									</div>
 							<?php } else {
-								
-								 $attachment_id = get_field('hero_image'); $size = "hero-image"; 
+
+								 $attachment_id = get_field('hero_image'); $size = "hero-image";
 								 $image = wp_get_attachment_image_src($attachment_id, $size); ?>
 								 <div class="gallery-cell" style="background: url(<?php echo $image[0]; ?>) no-repeat; background-size: cover; background-position: center center">
-								 	
+
 								 </div>
-							
+
 							<?php }
 
 							endwhile;
@@ -1111,7 +1111,6 @@ background: linear-gradient(to bottom,  rgba(255,255,255,0.4) 0%, #<?php echo $b
 				</div>
 			</div>
 				<?php } ?>
-				
-				
+
+
 	<?php } ?>
-	

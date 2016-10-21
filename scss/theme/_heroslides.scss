@@ -190,13 +190,13 @@ body.page.home {
 		}
 }
 
-.photoHeader.hiddenSlides {
+.photoHeader.visibleSlides {
 	.site-header {
 		background-color:none;
 	}
 }
 
-div.photoHeader {
+div.photoHeader.visibleSlides {
 	.site-header {
 			background-color: transparent;
 		}
@@ -255,6 +255,16 @@ body.home, body.home.blog {
 .hiddenSlides.transparentHeader, .hiddenSlides.solidHeader {
 	.featureHeader {
 		min-height: 120px;
+	}
+}
+
+.solidHeader {
+	.featureHeader {
+		.heroImage {
+			.heroOverlay {
+				padding-top:0;
+			}
+		}
 	}
 }
 
@@ -566,9 +576,32 @@ body.home, body.home.blog {
 	.heroImage {
 		min-height: 500px;
 		position: relative;
-		background-position: center center;
-		background-size: cover;
+//		background-position: center center;
+//		background-size: cover;
+		overflow: hidden;
 
+		&:before {
+			background-position:top center;
+			background-size: inherit;
+			background:inherit;
+			box-sizing: border-box;
+
+			filter: blur(15px) brightness(80%);
+			content: '';
+			margin: -20px;
+			position: absolute;
+			top: 0px;
+			right: 0;
+			bottom:0;
+//			bottom:calc(100% - 180px); /* this 20% could be set to variable for the blur's height */
+			left: 0;
+			z-index: 1;
+
+			.noBlur & {
+				filter: blur(0px);
+			}
+
+		}
 		.heroOverlay {
 			position: absolute;
 			top: 0px;
@@ -576,7 +609,13 @@ body.home, body.home.blog {
 			right: 0px;
 			bottom: 0px;
 			z-index:2;
-			background: rgba(0,0,0,0.2);
+//			background: rgba(0,0,0,0.2);
+			background:inherit;
+			background-size: inherit;
+			background-clip:content-box;
+			padding-top:135px;// solid transparent;
+			box-sizing: content-box;
+			filter: brightness(80%)
 		}
 
 
