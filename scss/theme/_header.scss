@@ -106,8 +106,8 @@
 
 .photoHeader.visibleSlides {
 	header#masthead.site-header {
-		height:135px!important;
-		box-shadow: 0px 10px 30px rgba(0,0,0,.3);
+	//	height:135px!important;
+	//	box-shadow: 0px 10px 30px rgba(0,0,0,.3);
 	}
 }
 
@@ -493,7 +493,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 
 		.main-navigation {
 			position: absolute;
-			top: -65px;
+			top: -50px;
 			right: 0px;
 			max-width: 60%;
 
