@@ -16,7 +16,7 @@ get_header(); ?>
 	<div id="primary" class="content-area <?php $image = get_field('hero_image_pages'); if($image) { echo "heroImage"; } ?>">
 		<main id="main" class="site-main" role="main">
 			<div class="cf pagePadding">
-				<div class="testDiv"></div>
+				
 				<?php while ( have_posts() ) : the_post(); ?>
 						
 						
