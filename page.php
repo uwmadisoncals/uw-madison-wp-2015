@@ -918,7 +918,7 @@ get_header(); ?>
 							<?php } else { ?>
 							
 						
-						
+						<?php if(get_field('hero_image_pages')) { ?>
 						<div class="heroWatermark">
 							
 							<?php 
@@ -954,6 +954,7 @@ get_header(); ?>
 							
 								<?php } //completed check for editor type ?>
 							</div>
+						<?php } ?>
 						<?php 
 							
 							$breadcrumb_settings = get_theme_mod( 'uw-madison-wp-2015_breadcrumbs_id' );
