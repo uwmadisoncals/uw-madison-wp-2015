@@ -52,7 +52,27 @@ h2.uwmadison_events_title:before {
     background: #c5050c;
 }
 
+.flex-6633.right_redbg, .flex-7525.right_redbg {
+	.flex-rightCol {
+		.button {
+			display: block;
+		}
+	}
+}
 
+.flex-3366.left_redbg, .flex-2275.left_redbg {
+	.flex-leftCol {
+		.button {
+			display: block;
+		}
+	}
+}
+
+.flex-333333 {
+	.button {
+			display: block;
+		}
+}
 
 
 .left_redbg {
@@ -61,6 +81,22 @@ h2.uwmadison_events_title:before {
 		color: rgba(255,255,255,0.9);
 		border-radius: 4px;
 		box-shadow: 0px 6px 13px rgba(210,9,9,.35);
+		
+		.button {
+			background: rgba(0,0,0,0.2);
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			font-size: 0.8rem;
+			padding: 1rem;
+			padding-top: 0.7rem;
+			padding-bottom: 0.7rem;
+			color: rgba(255,255,255,0.9);
+		}
+		
+		a.button:hover {
+			box-shadow: 0px 8px 15px rgba(0,0,0,0.12);
+			transform: translateY(-2px);
+		}
 		
 		.entry-header {
 			h1.entry-title {
@@ -97,6 +133,23 @@ h2.uwmadison_events_title:before {
 		border-radius: 4px;
 		box-shadow: 0px 6px 13px rgba(210,9,9,.35);
 		
+		.button {
+			background: rgba(0,0,0,0.2);
+			
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			font-size: 0.8rem;
+			padding: 1rem;
+			padding-top: 0.7rem;
+			padding-bottom: 0.7rem;
+			color: rgba(255,255,255,0.9);
+		}
+		
+		a.button:hover {
+			box-shadow: 0px 8px 15px rgba(0,0,0,0.12);
+			transform: translateY(-2px);
+		}
+				
 		.entry-header {
 			h1.entry-title {
 				color: #830000;
@@ -147,5 +200,61 @@ div.tiltWrapper.twocolsize {
 	
 	.flex-item:nth-child(odd) {
 		padding-right: 2rem;
+	}
+}
+
+
+.advancedPageEditorGroup.apewithSidebar {
+	width: 74%;
+	margin-right: 3%;
+	float: left;
+}
+
+div.personFeaturefw {
+	background: #fff;
+	padding: 3rem;
+	padding-left: 0rem;
+	padding-right: 0rem;
+	
+	.personphoto {
+		position: relative;
+		top: -4.5rem;
+		margin: 0 auto;
+		border-radius: 50em;
+		width: 200px;
+		height: 200px;
+	}
+	
+	.personquote {
+		font-style: italic;
+		text-align: center;
+		position: relative;
+		top: -4rem;
+		margin-bottom: -4rem;
+	}
+	
+	h1.entry-title.personsectiontitle {
+		font-weight: 100;
+		font-size: 1.3rem;
+		color: rgba(0,0,0,0.4);
+	}
+	
+	h2 {
+		margin-top: 1rem;
+		font-size: 2rem;
+		letter-spacing: 0.5px;
+	}
+}
+
+.verlag-option {
+	.personFeaturefw {
+		.personsectiontitle {
+			font-family: Verlag-Book;
+
+		}
+		
+		h2 {
+			font-family: Verlag-Black;
+		}
 	}
 }

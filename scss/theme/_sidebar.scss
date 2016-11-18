@@ -396,6 +396,16 @@ div.lineSidebar .sidebar_menu, div.lineSidebar .widget-area {
 	}
 }
 
+div.sidebar_menu.page-widget-sidebar {
+	ul {
+		li {
+			a {
+				padding-left: 1.7rem;
+			}
+		}
+	}
+}
+
 .sidebar_menu, .widget-area {
 	width: 23%;
 	float: left;

@@ -6,7 +6,7 @@
  */
 
 get_header(); ?>
-
+<div class="site-content-inner">
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 		<div class="cf pagePadding">
@@ -40,5 +40,5 @@ get_header(); ?>
 		</div>
 		</main><!-- #main -->
 	</section><!-- #primary -->
-
+</div>
 <?php get_footer(); ?>
