@@ -5,43 +5,51 @@
  * @package UW Madison WP 2015
  */
  
- 
 
 
-// 1. customize ACF path
-add_filter('acf/settings/path', 'my_acf_settings_path');
- 
-function my_acf_settings_path( $path ) {
- 
-    // update path
-    $path = get_template_directory() . '/acf/';
-    
-    // return
-    return $path;
-    
-}
- 
+	// 1. customize ACF path
+	add_filter('acf/settings/path', 'my_acf_settings_path');
+	 
+	function my_acf_settings_path( $path ) {
+	 
+	    // update path
+	    $path = get_template_directory() . '/acf/';
+	    
+	    // return
+	    return $path;
+	    
+	}
+	 
+	
+	// 2. customize ACF dir
+	add_filter('acf/settings/dir', 'my_acf_settings_dir');
+	 
+	function my_acf_settings_dir( $dir ) {
+	 
+	    // update path
+	    $dir = get_template_directory_uri() . '/acf/';
+	    
+	    // return
+	    return $dir;
+	    
+	}
+	 
+	
+	// 3. Hide ACF field group menu item
+	//add_filter('acf/settings/show_admin', '__return_false');
+	
+	
+	// 4. Include ACF
+	include_once( get_template_directory() . '/acf/acf.php' );
 
-// 2. customize ACF dir
-add_filter('acf/settings/dir', 'my_acf_settings_dir');
- 
-function my_acf_settings_dir( $dir ) {
- 
-    // update path
-    $dir = get_template_directory_uri() . '/acf/';
-    
-    // return
-    return $dir;
-    
-}
- 
-
-// 3. Hide ACF field group menu item
-add_filter('acf/settings/show_admin', '__return_false');
 
 
-// 4. Include ACF
-include_once( get_template_directory() . '/acf/acf.php' );
+
+
+//Include the UW Events Calendar
+//if ( !function_exists("uwmadison_events_object") ) {
+	include_once( get_template_directory() . '/uwevents/uwmadison_events.php' );
+//}
 
 
  
@@ -594,6 +602,26 @@ $wp_customize->add_control(
 );
 
 
+$wp_customize->add_setting('uw-madison-wp-2015_tagline_location_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => 'below',
+    'sanitize_callback' => 'sanitize_tagline_location'
+ 
+));
+
+
+$wp_customize->add_control('uw-madison-wp-2015-tagline_location', array(
+    'label'      => __('Tagline Location', 'uw-madison-wp-2015'),
+    'description'=> '',
+    'section'    => 'title_tagline',
+    'type'    => 'radio',
+    'choices' => array(
+            'above' => __( 'Above the Title', 'uw-madison-wp-2015' ),
+            'below' => __( 'Below the Title', 'uw-madison-wp-2015' )
+        ),
+    'settings'   => 'uw-madison-wp-2015_tagline_location_id',
+));
 
 
 $wp_customize->add_setting('uw-madison-wp-2015_campus_title_id', array(
@@ -1252,6 +1280,15 @@ function sanitize_campus_title( $value ) {
     return $value;
 }
 
+
+
+function sanitize_tagline_location( $value ) {
+    if ( !$value )
+        $value = 'below';
+ 
+    return $value;
+}
+
 function sanitize_campus_title_link( $value ) {
     if ( !$value )
         $value = '';
@@ -1515,8 +1552,33 @@ function se_lookup() {
 //Force Deactivation of Normal ACF since ACF Pro is bundled with the theme.
 function deactivate_plugin_conditional() {
     if ( is_plugin_active('advanced-custom-fields/acf.php') ) {
-    deactivate_plugins('advanced-custom-fields/acf.php');    
+    	deactivate_plugins('advanced-custom-fields/acf.php');  
+    	
+    	add_action( 'admin_notices', function(){
+ 	    	echo '<div class="error"><p>It looks like you have the <b>advanced-custom-fields</b> plugin activated. The theme bundles ACF Pro. As a result your plugin will be deactivated while this theme is active.</p></div>';
+ 	  	});  
+ 	  	return;
+ 	  	
     }
+    
+    if ( is_plugin_active('advanced-custom-fields-pro/acf.php') ) {
+    	deactivate_plugins('advanced-custom-fields-pro/acf.php'); 
+    	
+    	add_action( 'admin_notices', function(){
+ 	    	echo '<div class="error"><p>It looks like you have the <b>advanced-custom-fields-pro</b> plugin activated. The theme bundles ACF Pro. As a result your installed acf pro plugin will be deactivated while this theme is active.</p></div>';
+ 	  	});
+ 	  	return;   
+    }
+    
+    if ( is_plugin_active('uw-madison-events-calendar/uwmadison_events.php') ) {
+    	deactivate_plugins('uw-madison-events-calendar/uwmadison_events.php');  
+    	
+    	add_action( 'admin_notices', function(){
+ 	    	echo '<div class="error"><p>It looks like you have the <b>UW Events Calendar</b> plugin activated. The theme bundles this plugin automatically. As a result your plugin will be deactivated while this theme is active.</p></div>';
+ 	  	});
+ 	  	return;  
+    }
+    
 }
 add_action( 'admin_init', 'deactivate_plugin_conditional' );
 
@@ -1555,11 +1617,11 @@ function uw_madison_wp_2015_register_required_plugins() {
         ),*/
         
         // This is an example of how to include a plugin from the WordPress Plugin Repository.
-        array(
+        /*array(
             'name'      => 'UW-Madison Events Calendar',
             'slug'      => 'uw-madison-events-calendar',
             'required'  => false,
-        ),
+        ),*/
 
     );
 
@@ -1671,8 +1733,6 @@ register_default_headers( array(
 /**** Added ACF fields for Header Slides ****/
 if( function_exists('acf_add_local_field_group') ):
 
-
-
 acf_add_local_field_group(array (
 	'key' => 'group_57980a9959a78',
 	'title' => 'Advanced Formatting',
@@ -1749,9 +1809,174 @@ acf_add_local_field_group(array (
 							'max' => '',
 							'layouts' => array (
 								array (
+									'key' => '582d3731a0b9d',
+									'name' => 'title_text',
+									'label' => 'Title Text',
+									'display' => 'block',
+									'sub_fields' => array (
+										array (
+											'key' => 'field_582d376ea0b9e',
+											'label' => 'Text Content',
+											'name' => 'text_content',
+											'type' => 'text',
+											'instructions' => '',
+											'required' => '',
+											'conditional_logic' => '',
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+											'prepend' => '',
+											'append' => '',
+											'maxlength' => '',
+											'readonly' => 0,
+											'disabled' => 0,
+										),
+									),
+									'min' => '',
+									'max' => '',
+								),
+								array (
+									'key' => '582d3799a0b9f',
+									'name' => 'body_text',
+									'label' => 'Body Text',
+									'display' => 'block',
+									'sub_fields' => array (
+										array (
+											'key' => 'field_582d379fa0ba0',
+											'label' => 'Text Content',
+											'name' => 'text_content',
+											'type' => 'wysiwyg',
+											'instructions' => '',
+											'required' => '',
+											'conditional_logic' => '',
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'tabs' => 'visual',
+											'toolbar' => 'basic',
+											'media_upload' => 1,
+										),
+									),
+									'min' => '',
+									'max' => '',
+								),
+								array (
+									'key' => '582dd7ac17e04',
+									'name' => 'button',
+									'label' => 'Button',
+									'display' => 'block',
+									'sub_fields' => array (
+										array (
+											'key' => 'field_582dd7bc17e05',
+											'label' => 'Button Text',
+											'name' => 'button_text',
+											'type' => 'text',
+											'instructions' => '',
+											'required' => 1,
+											'conditional_logic' => '',
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+											'prepend' => '',
+											'append' => '',
+											'maxlength' => '',
+											'readonly' => 0,
+											'disabled' => 0,
+										),
+										array (
+											'key' => 'field_582dd7fc17e07',
+											'label' => 'Button Action',
+											'name' => 'button_action',
+											'type' => 'radio',
+											'instructions' => '',
+											'required' => 1,
+											'conditional_logic' => '',
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'choices' => array (
+												'page' => 'Page',
+												'customurl' => 'Custom URL',
+											),
+											'allow_null' => 0,
+											'other_choice' => 0,
+											'save_other_choice' => 0,
+											'default_value' => '',
+											'layout' => 'vertical',
+										),
+										array (
+											'key' => 'field_582dd7de17e06',
+											'label' => 'Button Link URL',
+											'name' => 'button_link',
+											'type' => 'url',
+											'instructions' => '',
+											'required' => '',
+											'conditional_logic' => array (
+												array (
+													array (
+														'field' => 'field_582dd7fc17e07',
+														'operator' => '==',
+														'value' => 'customurl',
+													),
+												),
+											),
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+										),
+										array (
+											'key' => 'field_582dd83517e08',
+											'label' => 'Link to Page or Post',
+											'name' => 'link_to_page',
+											'type' => 'page_link',
+											'instructions' => '',
+											'required' => '',
+											'conditional_logic' => array (
+												array (
+													array (
+														'field' => 'field_582dd7fc17e07',
+														'operator' => '==',
+														'value' => 'page',
+													),
+												),
+											),
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'post_type' => array (
+											),
+											'taxonomy' => array (
+											),
+											'allow_null' => 0,
+											'multiple' => 0,
+										),
+									),
+									'min' => '',
+									'max' => '',
+								),
+								array (
 									'key' => '57d619a1e7c89',
 									'name' => 'fw_highlighted_content',
-									'label' => 'Highlighted Content',
+									'label' => 'Highlighted Posts/Pages',
 									'display' => 'block',
 									'sub_fields' => array (
 										array (
@@ -1788,8 +2013,8 @@ acf_add_local_field_group(array (
 											'name' => 'fw_highlighted_content_type',
 											'type' => 'flexible_content',
 											'instructions' => '',
-											'required' => 1,
-											'conditional_logic' => 0,
+											'required' => '',
+											'conditional_logic' => '',
 											'wrapper' => array (
 												'width' => '',
 												'class' => '',
@@ -1921,6 +2146,121 @@ acf_add_local_field_group(array (
 													'max' => '',
 												),
 											),
+										),
+									),
+									'min' => '',
+									'max' => '',
+								),
+								array (
+									'key' => '582de7893af65',
+									'name' => 'person_feature',
+									'label' => 'Person Feature',
+									'display' => 'block',
+									'sub_fields' => array (
+										array (
+											'key' => 'field_582de7d63af67',
+											'label' => 'Section Title',
+											'name' => 'section_title',
+											'type' => 'text',
+											'instructions' => '',
+											'required' => '',
+											'conditional_logic' => '',
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+											'prepend' => '',
+											'append' => '',
+											'maxlength' => '',
+											'readonly' => 0,
+											'disabled' => 0,
+										),
+										array (
+											'key' => 'field_582de7a03af66',
+											'label' => 'Person\'s Name',
+											'name' => 'persons_name',
+											'type' => 'text',
+											'instructions' => '',
+											'required' => '',
+											'conditional_logic' => '',
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+											'prepend' => '',
+											'append' => '',
+											'maxlength' => '',
+											'readonly' => 0,
+											'disabled' => 0,
+										),
+										array (
+											'key' => 'field_582de7ff3af68',
+											'label' => 'Person Bio',
+											'name' => 'person_bio',
+											'type' => 'wysiwyg',
+											'instructions' => '',
+											'required' => '',
+											'conditional_logic' => '',
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'tabs' => 'visual',
+											'toolbar' => 'basic',
+											'media_upload' => 0,
+										),
+										array (
+											'key' => 'field_582de90b3af69',
+											'label' => 'Person Photo',
+											'name' => 'person_photo',
+											'type' => 'image',
+											'instructions' => '',
+											'required' => '',
+											'conditional_logic' => '',
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'return_format' => 'id',
+											'preview_size' => 'thumbnail',
+											'library' => 'all',
+											'min_width' => 300,
+											'min_height' => 300,
+											'min_size' => '',
+											'max_width' => '',
+											'max_height' => '',
+											'max_size' => 12,
+											'mime_types' => '',
+										),
+										array (
+											'key' => 'field_582de95a3af6a',
+											'label' => 'Quote',
+											'name' => 'quote',
+											'type' => 'textarea',
+											'instructions' => '',
+											'required' => '',
+											'conditional_logic' => '',
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+											'maxlength' => '',
+											'rows' => 4,
+											'new_lines' => 'wpautop',
+											'readonly' => 0,
+											'disabled' => 0,
 										),
 									),
 									'min' => '',
@@ -2102,6 +2442,112 @@ acf_add_local_field_group(array (
 									'max' => '',
 								),
 								array (
+									'key' => '582ddb526ad7b',
+									'name' => 'button',
+									'label' => 'Button',
+									'display' => 'block',
+									'sub_fields' => array (
+										array (
+											'key' => 'field_582ddb576ad7c',
+											'label' => 'Button Text',
+											'name' => 'button_text',
+											'type' => 'text',
+											'instructions' => '',
+											'required' => 1,
+											'conditional_logic' => '',
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+											'prepend' => '',
+											'append' => '',
+											'maxlength' => '',
+											'readonly' => 0,
+											'disabled' => 0,
+										),
+										array (
+											'key' => 'field_582ddb946ad7d',
+											'label' => 'Button Action',
+											'name' => 'button_action',
+											'type' => 'radio',
+											'instructions' => '',
+											'required' => 1,
+											'conditional_logic' => '',
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'choices' => array (
+												'page' => 'Page',
+												'customurl' => 'Custom URL',
+											),
+											'allow_null' => 0,
+											'other_choice' => 0,
+											'save_other_choice' => 0,
+											'default_value' => '',
+											'layout' => 'vertical',
+										),
+										array (
+											'key' => 'field_582ddbb56ad7e',
+											'label' => 'Button Link URL',
+											'name' => 'button_link',
+											'type' => 'url',
+											'instructions' => '',
+											'required' => '',
+											'conditional_logic' => array (
+												array (
+													array (
+														'field' => 'field_582ddb946ad7d',
+														'operator' => '==',
+														'value' => 'customurl',
+													),
+												),
+											),
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+										),
+										array (
+											'key' => 'field_582ddbdf6ad7f',
+											'label' => 'Link to Page or Post',
+											'name' => 'link_to_page',
+											'type' => 'page_link',
+											'instructions' => '',
+											'required' => '',
+											'conditional_logic' => array (
+												array (
+													array (
+														'field' => 'field_582ddb946ad7d',
+														'operator' => '==',
+														'value' => 'page',
+													),
+												),
+											),
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'post_type' => array (
+											),
+											'taxonomy' => array (
+											),
+											'allow_null' => 0,
+											'multiple' => 0,
+										),
+									),
+									'min' => '',
+									'max' => '',
+								),
+								array (
 									'key' => '57d9a46a7aaea',
 									'name' => 'events',
 									'label' => 'Events',
@@ -2257,6 +2703,112 @@ acf_add_local_field_group(array (
 											'tabs' => 'visual',
 											'toolbar' => 'basic',
 											'media_upload' => 1,
+										),
+									),
+									'min' => '',
+									'max' => '',
+								),
+								array (
+									'key' => '582ddc512b93b',
+									'name' => 'button',
+									'label' => 'Button',
+									'display' => 'block',
+									'sub_fields' => array (
+										array (
+											'key' => 'field_582ddc552b93c',
+											'label' => 'Button Text',
+											'name' => 'button_text',
+											'type' => 'text',
+											'instructions' => '',
+											'required' => 1,
+											'conditional_logic' => '',
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+											'prepend' => '',
+											'append' => '',
+											'maxlength' => '',
+											'readonly' => 0,
+											'disabled' => 0,
+										),
+										array (
+											'key' => 'field_582ddc6e2b93d',
+											'label' => 'Button Action',
+											'name' => 'button_action',
+											'type' => 'radio',
+											'instructions' => '',
+											'required' => 1,
+											'conditional_logic' => '',
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'choices' => array (
+												'page' => 'Page',
+												'customurl' => 'Custom URL',
+											),
+											'allow_null' => 0,
+											'other_choice' => 0,
+											'save_other_choice' => 0,
+											'default_value' => '',
+											'layout' => 'vertical',
+										),
+										array (
+											'key' => 'field_582ddc9f2b93e',
+											'label' => 'Button Link URL',
+											'name' => 'button_link',
+											'type' => 'url',
+											'instructions' => '',
+											'required' => '',
+											'conditional_logic' => array (
+												array (
+													array (
+														'field' => 'field_582ddc6e2b93d',
+														'operator' => '==',
+														'value' => 'customurl',
+													),
+												),
+											),
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+										),
+										array (
+											'key' => 'field_582ddcc02b93f',
+											'label' => 'Link to Page or Post',
+											'name' => 'link_to_page',
+											'type' => 'page_link',
+											'instructions' => '',
+											'required' => '',
+											'conditional_logic' => array (
+												array (
+													array (
+														'field' => 'field_582ddc6e2b93d',
+														'operator' => '==',
+														'value' => 'page',
+													),
+												),
+											),
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'post_type' => array (
+											),
+											'taxonomy' => array (
+											),
+											'allow_null' => 0,
+											'multiple' => 0,
 										),
 									),
 									'min' => '',
@@ -2548,6 +3100,112 @@ acf_add_local_field_group(array (
 									'max' => '',
 								),
 								array (
+									'key' => '582dddf4cce35',
+									'name' => 'button',
+									'label' => 'Button',
+									'display' => 'block',
+									'sub_fields' => array (
+										array (
+											'key' => 'field_582dddf8cce36',
+											'label' => 'Button Text',
+											'name' => 'button_text',
+											'type' => 'text',
+											'instructions' => '',
+											'required' => 1,
+											'conditional_logic' => '',
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+											'prepend' => '',
+											'append' => '',
+											'maxlength' => '',
+											'readonly' => 0,
+											'disabled' => 0,
+										),
+										array (
+											'key' => 'field_582dde10cce37',
+											'label' => 'Button Action',
+											'name' => 'button_action',
+											'type' => 'radio',
+											'instructions' => '',
+											'required' => 1,
+											'conditional_logic' => '',
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'choices' => array (
+												'page' => 'Page',
+												'customurl' => 'Custom URL',
+											),
+											'allow_null' => 0,
+											'other_choice' => 0,
+											'save_other_choice' => 0,
+											'default_value' => '',
+											'layout' => 'vertical',
+										),
+										array (
+											'key' => 'field_582dde28cce38',
+											'label' => 'Button Link URL',
+											'name' => 'button_link',
+											'type' => 'url',
+											'instructions' => '',
+											'required' => '',
+											'conditional_logic' => array (
+												array (
+													array (
+														'field' => 'field_582dde10cce37',
+														'operator' => '==',
+														'value' => 'customurl',
+													),
+												),
+											),
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+										),
+										array (
+											'key' => 'field_582dde61cce39',
+											'label' => 'Link to Page or Post',
+											'name' => 'link_to_page',
+											'type' => 'page_link',
+											'instructions' => '',
+											'required' => '',
+											'conditional_logic' => array (
+												array (
+													array (
+														'field' => 'field_582dde10cce37',
+														'operator' => '==',
+														'value' => 'page',
+													),
+												),
+											),
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'post_type' => array (
+											),
+											'taxonomy' => array (
+											),
+											'allow_null' => 0,
+											'multiple' => 0,
+										),
+									),
+									'min' => '',
+									'max' => '',
+								),
+								array (
 									'key' => '57d9a46a7aaea',
 									'name' => 'events',
 									'label' => 'Events',
@@ -2709,6 +3367,112 @@ acf_add_local_field_group(array (
 									'max' => '',
 								),
 								array (
+									'key' => '582dde8bcce3a',
+									'name' => 'button',
+									'label' => 'Button',
+									'display' => 'block',
+									'sub_fields' => array (
+										array (
+											'key' => 'field_582dde90cce3b',
+											'label' => 'Button Text',
+											'name' => 'button_text',
+											'type' => 'text',
+											'instructions' => '',
+											'required' => 1,
+											'conditional_logic' => '',
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+											'prepend' => '',
+											'append' => '',
+											'maxlength' => '',
+											'readonly' => 0,
+											'disabled' => 0,
+										),
+										array (
+											'key' => 'field_582dde9acce3c',
+											'label' => 'Button Action',
+											'name' => 'button_action',
+											'type' => 'radio',
+											'instructions' => '',
+											'required' => 1,
+											'conditional_logic' => '',
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'choices' => array (
+												'page' => 'Page',
+												'customurl' => 'Custom URL',
+											),
+											'allow_null' => 0,
+											'other_choice' => 0,
+											'save_other_choice' => 0,
+											'default_value' => '',
+											'layout' => 'vertical',
+										),
+										array (
+											'key' => 'field_582ddeaccce3d',
+											'label' => 'Button Link URL',
+											'name' => 'button_link',
+											'type' => 'url',
+											'instructions' => '',
+											'required' => '',
+											'conditional_logic' => array (
+												array (
+													array (
+														'field' => 'field_582dde9acce3c',
+														'operator' => '==',
+														'value' => 'customurl',
+													),
+												),
+											),
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+										),
+										array (
+											'key' => 'field_582ddec8cce3e',
+											'label' => 'Link to Page or Post',
+											'name' => 'link_to_page',
+											'type' => 'page_link',
+											'instructions' => '',
+											'required' => '',
+											'conditional_logic' => array (
+												array (
+													array (
+														'field' => 'field_582dde9acce3c',
+														'operator' => '==',
+														'value' => 'page',
+													),
+												),
+											),
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'post_type' => array (
+											),
+											'taxonomy' => array (
+											),
+											'allow_null' => 0,
+											'multiple' => 0,
+										),
+									),
+									'min' => '',
+									'max' => '',
+								),
+								array (
 									'key' => '57d9a46a7aaea',
 									'name' => 'events',
 									'label' => 'Events',
@@ -2864,6 +3628,112 @@ acf_add_local_field_group(array (
 											'tabs' => 'visual',
 											'toolbar' => 'basic',
 											'media_upload' => 1,
+										),
+									),
+									'min' => '',
+									'max' => '',
+								),
+								array (
+									'key' => '582ddef6cce3f',
+									'name' => 'button',
+									'label' => 'Button',
+									'display' => 'block',
+									'sub_fields' => array (
+										array (
+											'key' => 'field_582ddefacce40',
+											'label' => 'Button Text',
+											'name' => 'button_text',
+											'type' => 'text',
+											'instructions' => '',
+											'required' => 1,
+											'conditional_logic' => '',
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+											'prepend' => '',
+											'append' => '',
+											'maxlength' => '',
+											'readonly' => 0,
+											'disabled' => 0,
+										),
+										array (
+											'key' => 'field_582ddf03cce41',
+											'label' => 'Button Action',
+											'name' => 'button_action',
+											'type' => 'radio',
+											'instructions' => '',
+											'required' => 1,
+											'conditional_logic' => 0,
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'choices' => array (
+												'page' => 'Page',
+												'customurl' => 'Custom URL',
+											),
+											'allow_null' => 0,
+											'other_choice' => 0,
+											'save_other_choice' => 0,
+											'default_value' => '',
+											'layout' => 'vertical',
+										),
+										array (
+											'key' => 'field_582ddf33cce42',
+											'label' => 'Button Link URL',
+											'name' => 'button_link',
+											'type' => 'url',
+											'instructions' => '',
+											'required' => '',
+											'conditional_logic' => array (
+												array (
+													array (
+														'field' => 'field_582ddf03cce41',
+														'operator' => '==',
+														'value' => 'customurl',
+													),
+												),
+											),
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+										),
+										array (
+											'key' => 'field_582ddf4acce43',
+											'label' => 'Link to Page or Post',
+											'name' => 'link_to_page',
+											'type' => 'page_link',
+											'instructions' => '',
+											'required' => '',
+											'conditional_logic' => array (
+												array (
+													array (
+														'field' => 'field_582ddf03cce41',
+														'operator' => '==',
+														'value' => 'page',
+													),
+												),
+											),
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'post_type' => array (
+											),
+											'taxonomy' => array (
+											),
+											'allow_null' => 0,
+											'multiple' => 0,
 										),
 									),
 									'min' => '',

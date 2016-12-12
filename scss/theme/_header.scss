@@ -450,6 +450,10 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 							a {
 								font-size: 11px;
 							}
+							
+							ul.sub-menu {
+								display: none;
+							}
 						}
 					}
 				}
@@ -556,6 +560,16 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 					}
 				}
 			}
+		}
+	}
+}
+
+.site-header .noimageLogo .logoImage {
+	.mainTitle.tagAbove {
+		line-height: 1.3;
+		
+		span {
+			line-height: 1;
 		}
 	}
 }
@@ -1462,6 +1476,10 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 					letter-spacing: 0.3px;
 					top: 3px;
 				}
+				
+				ul.sub-menu {
+								display: none;
+							}
 			}
 
 		}
