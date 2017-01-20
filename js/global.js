@@ -83,7 +83,46 @@ $(".documentationSideBar a").click(function(e) {
 
 	$(".docLoadBar").css("width", "20%");
 
-	$( "#docContent" ).load( linkhref, function() {
+	var newLoadedHtml = $(this).attr("href");
+
+	//if ( history.pushState ) {
+		History.pushState(null, newLoadedHtml, newLoadedHtml);
+	//}
+
+	/*$( "#docContent" ).load( linkhref, function() {
+console.log("called load click");
+		document.title = $("#docContent .entry-title").text();
+		//alert( "Load was performed." );
+		//console.log("grabbed it");
+		$(".docLoadBar").css("width", "100%");
+
+		setTimeout(function() {
+			$(".docLoadBar").css("opacity", "0");
+		},500);
+
+		setTimeout(function() {
+			$(".docLoadBar").css("width", "0%");
+			
+		},1000);
+
+		setTimeout(function() {
+			
+			$(".docLoadBar").css("opacity", "1");
+		},1500);
+	});*/
+
+});
+
+window.onpopstate = function(event) {
+  //alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
+  //console.log(document.location);
+
+	var linkhref = document.location.href;
+	linkhref = linkhref + " #docContent > *";
+
+  $( "#docContent" ).load( linkhref, function() {
+	  console.log("called load pop");
+		document.title = $("#docContent .entry-title").text();
 		//alert( "Load was performed." );
 		//console.log("grabbed it");
 		$(".docLoadBar").css("width", "100%");
@@ -102,8 +141,16 @@ $(".documentationSideBar a").click(function(e) {
 			$(".docLoadBar").css("opacity", "1");
 		},1500);
 	});
-
-});
+};
+	//if ( history.pushState ) {
+		/*History.adapter.bind(window, "statechange", function() {
+        //menuLink.removeClass("active");
+        //$("a[href='" + History.getState().title + "']").addClass("active");
+        $('.documentationSection #docContent').load(document.location.href, function(responseText) {
+            document.title = $(responseText).filter("title").text();
+        }); 
+    });*/
+	//}
 
 
 

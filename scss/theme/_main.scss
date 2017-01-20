@@ -1079,6 +1079,9 @@ article, article.hentry {
 				a {
 					color: rgba(255,255,255,0.9);
 					background: transparent;
+					text-transform: uppercase;
+					letter-spacing: 0.7px;
+					font-size: 0.8rem;
 				}
 
 				.children {
@@ -1162,7 +1165,7 @@ article, article.hentry {
 		height: 120px !important;
 	}
 
-	.site-header .logo-search-container, .site-header .search-youruw .search-youruw-container {
+	.site-header .logo-search-container, .site-header .search-youruw .search-youruw-container, .site-header .main-navigation .site-navigation-container {
 		max-width: 100%;
 	}
 
