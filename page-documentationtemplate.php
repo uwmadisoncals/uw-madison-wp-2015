@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all pages.
+ * Template Name: Documentation
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -11,23 +11,19 @@
  */
 
 get_header(); ?>
-<div class="site-content-inner">
+<div class="">
 
 	<div id="primary" class="content-area <?php $image = get_field('hero_image_pages'); if($image) { echo "heroImage"; } ?>">
 		<main id="main" class="site-main" role="main">
 			<div class="cf pagePadding">
-				<div class="docLoadBar"></div>
+				
 				<?php while ( have_posts() ) : the_post(); ?>
 						
-
-						
-						<?php if(get_field('page_theme') == "documentation") { ?>
-							<div class="documentationSideBar">
-								<?php get_template_part('nav_menu', 'sidebar_expanded'); ?>
-							</div>
-						<?php } ?>
-
-						<div class="documentationMain" id="docContent">
+						<?php $pagefile = get_page_template_slug( $post->ID ); 
+							$pageslug = preg_replace('/\\.[^.\\s]{3,4}$/', '', $pagefile); 
+							if($pageslug == "page-documentationtemplate") { $docs = true; } else {$docs = false;}
+							echo $pageslug; ?>
+						<div class="docwrapper <?php echo $pageslug ?>">
 						
 						<?php
 							
@@ -39,7 +35,7 @@ get_header(); ?>
 								if(!$navhidden || $showwidgets) {
 							?>
 								
-							   <div class="advancedPageEditorGroup apewithSidebar">
+							   <div class="advancedPageEditorGroup">
 								   
 								   <?php } else { ?>
 								    <div class="advancedPageEditorGroup">
@@ -646,12 +642,15 @@ get_header(); ?>
 					
 					
 					<?php } ?>
+
+					<!-- End of docwrapper -->
 				</div>
+				
 				<?php endwhile; // end of the loop. ?>
 								
 				<?php 
-					if ( !is_home() ) {
-						if(get_field('page_theme') != "documentation") {
+					if ( !is_home() && $docs == false ) {
+						
 						if( !get_field('hide_the_side_navigation')) {
 							$side_nav_settings = get_option( 'uw-madison-wp-2015_sidebar_options_id' );
 	
@@ -675,7 +674,7 @@ get_header(); ?>
 						    }
 					    
 					    //}
-						}
+
 					}	  
 				?>
 				

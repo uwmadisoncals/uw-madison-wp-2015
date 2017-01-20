@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
-    imagemin = require('gulp-imagemin'),
+    //imagemin = require('gulp-imagemin'),
     rename = require('gulp-rename'),
     clean = require('gulp-clean'),
     concat = require('gulp-concat'),
@@ -70,7 +70,7 @@ gulp.task('debug', function() {
 // Images
 gulp.task('images', function() {
   return gulp.src('images/**/*')
-    .pipe(imagemin({ progressive: true, svgoPlugins: [{removeViewBox: false}] }))
+    //.pipe(imagemin({ progressive: true, svgoPlugins: [{removeViewBox: false}] }))
     .pipe(livereload(server))
     .pipe(gulp.dest('dist/images'))
     .pipe(notify({ message: 'Images task complete' }));

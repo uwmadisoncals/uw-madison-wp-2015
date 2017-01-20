@@ -1842,6 +1842,44 @@ if(getInternetExplorerVersion() != "-1") {
 	$("body").addClass("IE").addClass(bodyClass);
 }
 
+/**
+ * ----------------------------------------------------------------------------
+ *
+ *  Documentation Page Theme AJAX Logic
+ *
+ * ----------------------------------------------------------------------------
+ */
+
+$(".documentationSideBar a").click(function(e) {
+	e.preventDefault();
+
+	var linkhref = $(this).attr("href");
+	linkhref = linkhref + " #docContent > div";
+
+	$(".docLoadBar").css("width", "20%");
+
+	$( "#docContent" ).load( linkhref, function() {
+		//alert( "Load was performed." );
+		console.log("grabbed it");
+		$(".docLoadBar").css("width", "100%");
+
+		setTimeout(function() {
+			$(".docLoadBar").css("opacity", "0");
+		},500);
+
+		setTimeout(function() {
+			$(".docLoadBar").css("width", "0%");
+			
+		},1000);
+
+		setTimeout(function() {
+			
+			$(".docLoadBar").css("opacity", "1");
+		},1500);
+	});
+
+});
+
 
 
 /**

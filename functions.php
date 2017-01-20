@@ -36,7 +36,7 @@
 	 
 	
 	// 3. Hide ACF field group menu item
-	//add_filter('acf/settings/show_admin', '__return_false');
+	add_filter('acf/settings/show_admin', '__return_false');
 	
 	
 	// 4. Include ACF
@@ -4246,7 +4246,7 @@ acf_add_local_field_group(array (
 
 acf_add_local_field_group(array (
 	'key' => 'group_acf_page-options',
-	'title' => 'Page Options ',
+	'title' => 'Page Options',
 	'fields' => array (
 		array (
 			'key' => 'field_5661e83871c8c',
@@ -4306,6 +4306,34 @@ acf_add_local_field_group(array (
 			'layout' => 'vertical',
 			'toggle' => 0,
 		),
+		array (
+			'key' => 'field_58812bcf7467d',
+			'label' => 'Page Theme',
+			'name' => 'page_theme',
+			'type' => 'select',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array (
+				'default' => 'Default',
+				'documentation' => 'Documentation',
+			),
+			'default_value' => array (
+				0 => 'default',
+			),
+			'allow_null' => 0,
+			'multiple' => 0,
+			'ui' => 0,
+			'ajax' => 0,
+			'placeholder' => '',
+			'disabled' => 0,
+			'readonly' => 0,
+		),
 	),
 	'location' => array (
 		array (
@@ -4313,8 +4341,6 @@ acf_add_local_field_group(array (
 				'param' => 'post_type',
 				'operator' => '==',
 				'value' => 'page',
-				'order_no' => 0,
-				'group_no' => 0,
 			),
 		),
 	),
@@ -4323,12 +4349,9 @@ acf_add_local_field_group(array (
 	'style' => 'default',
 	'label_placement' => 'top',
 	'instruction_placement' => 'label',
-	'hide_on_screen' => array (
-	),
+	'hide_on_screen' => '',
 	'active' => 1,
 	'description' => '',
-	'id' => 'acf_page-options',
-	'local' => 'php',
 ));
 
 acf_add_local_field_group(array (
