@@ -23,7 +23,7 @@ get_header(); ?>
 						
 						<?php if(get_field('page_theme') == "documentation") { ?>
 							<div class="documentationSideBar">
-								<?php get_template_part('nav_menu', 'sidebar_expanded'); ?>
+								<?php get_template_part('nav_menu', 'sidebar_expanded_docs'); ?>
 								<?php wp_reset_query(); ?>
 							</div>
 						<?php } ?>

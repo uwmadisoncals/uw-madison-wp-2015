@@ -1850,17 +1850,35 @@ if(getInternetExplorerVersion() != "-1") {
  * ----------------------------------------------------------------------------
  */
 
+
+
+$(".docs_sidebar > ul > li.page_item_has_children").each(function() {
+	//var licontainschildren = $(this).closest("li");
+	//console.log(licontainschildren);
+
+	//if(licontainschildren == true) {
+		$(this).prepend("<button>+</button>");
+	//}
+});
+
+$(".docs_sidebar > ul > li button").click(function() {
+	//console.log("clicked");
+	$(this).toggleClass("active");
+	$(this).parent().find(".children").toggle();
+
+});
+
 $(".documentationSideBar a").click(function(e) {
 	e.preventDefault();
 
 	var linkhref = $(this).attr("href");
-	linkhref = linkhref + " #docContent";
+	linkhref = linkhref + " #docContent > *";
 
 	$(".docLoadBar").css("width", "20%");
 
 	$( "#docContent" ).load( linkhref, function() {
 		//alert( "Load was performed." );
-		console.log("grabbed it");
+		//console.log("grabbed it");
 		$(".docLoadBar").css("width", "100%");
 
 		setTimeout(function() {

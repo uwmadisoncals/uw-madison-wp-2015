@@ -1040,6 +1040,68 @@ article, article.hentry {
 
 .documentationSection {
 
+	.docs_sidebar {
+		ul {
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		
+			li {
+
+				margin: 0px;
+				padding: 0px;
+				list-style: none;
+				margin-bottom: 0.6rem;
+				margin-left: 20px;
+
+				button {
+					width: 20px;
+					background: none;
+					border: none;
+					box-shadow: none;
+					color: #fff;
+					text-shadow: none;
+					padding: 0px;
+					margin: 0px;
+					
+					margin-left: -20px;
+					line-height: 1rem;
+					font-size: 1.5rem;
+					transition: 0.3s;
+					outline: none;
+				}
+
+				button.active {
+					transform: rotate(45deg);
+					outline: none;
+				}
+
+				a {
+					color: rgba(255,255,255,0.9);
+					background: transparent;
+				}
+
+				.children {
+					display: none;
+					background: transparent;
+					
+					li {
+
+						margin-left: 2rem;
+						background: transparent;
+
+						a {
+							color: rgba(255,255,255,0.9);
+							background: transparent;
+						}
+					}
+				}
+			}
+
+			
+		}
+	}
+
 	.search-youruw .uwresources ul.menu li a, .search-youruw .youruw .youruwTrigger {
 		color: rgba(0,0,0,0.8);
 	}
