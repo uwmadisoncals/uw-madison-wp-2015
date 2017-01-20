@@ -153,7 +153,8 @@ function cals_page_navigation_menu($post, $parent_before = '', $parent_after= ''
 
     wp_list_pages( array(
         'title_li'    => '',
-        'child_of'    => $id
+        'child_of'    => $id,
+		'sort_column'  => 'menu_order, post_title',
     ) );
     ?>
 	</ul>
