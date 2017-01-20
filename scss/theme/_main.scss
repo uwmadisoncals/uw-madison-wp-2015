@@ -1050,6 +1050,11 @@ article, article.hentry {
 		}
 	}
 
+	#content.has_nav article, #content.has_nav article.hentry {
+		width: 100%;
+		float: none;
+	}
+
 	.docLoadBar {
 		position: absolute;
 		top: 0px;

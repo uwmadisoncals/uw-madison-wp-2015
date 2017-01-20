@@ -1854,7 +1854,7 @@ $(".documentationSideBar a").click(function(e) {
 	e.preventDefault();
 
 	var linkhref = $(this).attr("href");
-	linkhref = linkhref + " #docContent > div";
+	linkhref = linkhref + " #docContent";
 
 	$(".docLoadBar").css("width", "20%");
 
