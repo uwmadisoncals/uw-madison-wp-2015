@@ -36,7 +36,7 @@
 	 
 	
 	// 3. Hide ACF field group menu item
-	add_filter('acf/settings/show_admin', '__return_false');
+	//add_filter('acf/settings/show_admin', '__return_false');
 	
 	
 	// 4. Include ACF
@@ -1526,7 +1526,7 @@ function se_lookup() {
     
     
 
-    $search = wpdb::esc_like($_REQUEST['q']);
+	$search = $wpdb->get_results();
 
     $query = 'SELECT ID,post_title FROM ' . $wpdb->posts . '
         WHERE post_title LIKE \'' . $search . '%\'
@@ -4810,7 +4810,7 @@ add_action( 'widgets_init', 'uw_madison_wp_2015_widgets_init' );
 if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
 function my_jquery_enqueue() {
    wp_deregister_script('jquery');
-   wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js", false, null);
+   wp_register_script('jquery', "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js", false, null);
    wp_enqueue_script('jquery');
 }
 
