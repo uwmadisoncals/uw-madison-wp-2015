@@ -118,11 +118,11 @@ var templateUrl = '<?php home_url(); ?>';
 				 	<div class="search-youruw">
 					 	<div class="search-youruw-container">
 
-					 		<?php 
-						 		$campustitle = get_theme_mod( 'uw-madison-wp-2015_campus_title_id' );	
+					 		<?php
+						 		$campustitle = get_theme_mod( 'uw-madison-wp-2015_campus_title_id' );
 						 		$campustitlelink = get_theme_mod( 'uw-madison-wp-2015_campus_title_link_id' );
-						 		
-						 			if($campustitle != "") { 
+
+						 			if($campustitle != "") {
 
 					 					if($campustitlelink != "") { ?>
 					 					<a href="<?php echo $campustitlelink; ?>" class="campusTitle"><?php echo $campustitle; ?></a>
@@ -369,7 +369,7 @@ var templateUrl = '<?php home_url(); ?>';
 										<?php } ?>
 																			<?php } ?>
 							<?php } ?>
-							
+
 							<?php $taglinelocation = get_theme_mod('uw-madison-wp-2015_tagline_location_id');
 								if($taglinelocation == "above") { ?>
 									<div class="mainTitle tagAbove"><span><?php bloginfo( 'description' ); ?></span><?php bloginfo( 'name' ); ?></div></a></div>
@@ -377,7 +377,7 @@ var templateUrl = '<?php home_url(); ?>';
 							<div class="mainTitle"><?php bloginfo( 'name' ); ?><span><?php bloginfo( 'description' ); ?></span></div></a></div>
 
 							<?php } ?>
-						
+
 			<?php } ?>
 
 				</div><!-- .site-branding -->
@@ -533,9 +533,9 @@ var templateUrl = '<?php home_url(); ?>';
 									<div class="mainTitle tagAbove"><span><?php bloginfo( 'description' ); ?></span><?php bloginfo( 'name' ); ?></div></a></div>
 								<?php } else { ?>
 							<div class="mainTitle"><?php bloginfo( 'name' ); ?><span><?php bloginfo( 'description' ); ?></span></div></a></div>
-							
-							<?php } ?>						
-						
+
+							<?php } ?>
+
 			<?php } ?>
 
 				</div><!-- .site-branding -->
@@ -731,6 +731,21 @@ var templateUrl = '<?php home_url(); ?>';
 								 $attachment_id = get_field('hero_image'); $size = "hero-image";
 								 $image = wp_get_attachment_image_src($attachment_id, $size);
 
+								$hidebluroption = get_field('disable_blur_filter');
+								if($hidebluroption) {
+										if( in_array('yes', $hidebluroption) ) {	?>
+												<aside class="hide_blur">
+							<?php } else {
+										}
+								}
+
+								$hideoverlayoption = get_field('hero_image_filter');
+								if($hideoverlayoption) {
+										if( in_array('yes', $hideoverlayoption) ) {	?>
+												<aside class="no_filter">
+							<?php } else {
+										}
+								}
 
 
 								//$imgurl = wp_get_attachment_image_src( $image, $size ); ?>
@@ -907,7 +922,7 @@ var templateUrl = '<?php home_url(); ?>';
 										if($hideoverlayoption) {
 
 											if( in_array('yes', $hideoverlayoption) ) { ?>
-
+												<div class="heroOverlay"></div>
 									<?php 	} else { ?>
 											<div class="heroOverlay"></div>
 									<?php 	}

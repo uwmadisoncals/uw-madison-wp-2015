@@ -2987,10 +2987,13 @@ $(".home .pagePadding .flex-row").first().addClass("top-row");
  */
 function topBlurMeasure() {
   if($("#page").hasClass("photoHeader")) {
-    var mastheadSize = $("#masthead").height();
-    var topBlur = "padding-top:" + (mastheadSize + 30) + "px;";
-    $(".heroOverlay").attr("style",topBlur);
+    if($("body").hasClass("home")){
+      var mastheadSize = $("#masthead").height();
+      var topBlur = "padding-top:" + (mastheadSize + 30) + "px;";
+      $(".heroOverlay").attr("style",topBlur);
+    }
   }
+
 };
 topBlurMeasure();
 $(window).resize(function() { topBlurMeasure(); setTimeout(topBlurMeasure,200) });

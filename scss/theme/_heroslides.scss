@@ -571,7 +571,16 @@ body.home, body.home.blog {
 
 	}
 
-
+ .hide_blur .heroImage:before {
+	 filter:brightness(93%);
+ }
+ .no_filter .heroImage:before {
+	 filter:blur(18px);
+ }
+ .hide_blur .no_filter .heroImage:before,
+ .no_filter .heroImage {
+	 filter:none;
+ }
 
 	.heroImage {
 		min-height: 500px;
@@ -579,15 +588,15 @@ body.home, body.home.blog {
 //		background-position: center center;
 //		background-size: cover;
 		overflow: hidden;
-		filter:brightness(90%);
+		filter:brightness(93%);
 
 		&:before {
 			background-position:top center;
 			background-size: inherit;
 			background:inherit;
 			box-sizing: border-box;
-
-			filter: blur(15px) brightness(90%);
+			filter:blur(18px) brightness(93%);
+//			filter: blur(15px) brightness(90%);
 			content: '';
 			margin: -30px;
 			position: absolute;
@@ -611,7 +620,7 @@ body.home, body.home.blog {
 			background:inherit;
 			background-size: inherit;
 			background-clip:content-box;
-			padding-top:0;// solid transparent;
+			padding-top:999px;// solid transparent;
 			box-sizing: content-box;
 			filter: inherit;
 		}
