@@ -1200,10 +1200,10 @@ function topBlurMeasure() {
       $(".heroOverlay").attr("style",topBlur);
     }
   }
-
+  setTimeout(topBlurMeasure,500);
 };
 topBlurMeasure();
-$(window).resize(function() { topBlurMeasure(); setTimeout(topBlurMeasure,200) });
+$(window).resize(function() { topBlurMeasure() });
 
 
 
