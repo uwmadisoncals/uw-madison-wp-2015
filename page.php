@@ -16,11 +16,19 @@ get_header(); ?>
 	<div id="primary" class="content-area <?php $image = get_field('hero_image_pages'); if($image) { echo "heroImage"; } ?>">
 		<main id="main" class="site-main" role="main">
 			<div class="cf pagePadding">
-				
+				<div class="docLoadBar"></div>
 				<?php while ( have_posts() ) : the_post(); ?>
 						
+
 						
-						
+						<?php if(get_field('page_theme') == "documentation") { ?>
+							<div class="documentationSideBar">
+								<?php get_template_part('nav_menu', 'sidebar_expanded_docs'); ?>
+								<?php wp_reset_query(); ?>
+							</div>
+						<?php } ?>
+
+						<div class="documentationMain" id="docContent">
 						
 						<?php
 							
@@ -639,12 +647,12 @@ get_header(); ?>
 					
 					
 					<?php } ?>
-					
+				</div>
 				<?php endwhile; // end of the loop. ?>
 								
 				<?php 
 					if ( !is_home() ) {
-						
+						if(get_field('page_theme') != "documentation") {
 						if( !get_field('hide_the_side_navigation')) {
 							$side_nav_settings = get_option( 'uw-madison-wp-2015_sidebar_options_id' );
 	
@@ -668,7 +676,7 @@ get_header(); ?>
 						    }
 					    
 					    //}
-
+						}
 					}	  
 				?>
 				

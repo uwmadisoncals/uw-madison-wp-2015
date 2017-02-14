@@ -1526,7 +1526,7 @@ function se_lookup() {
     
     
 
-    $search = wpdb::esc_like($_REQUEST['q']);
+	$search = $wpdb->get_results();
 
     $query = 'SELECT ID,post_title FROM ' . $wpdb->posts . '
         WHERE post_title LIKE \'' . $search . '%\'
@@ -1677,6 +1677,36 @@ add_filter( 'upload_mimes', 'cc_mime_types' );
 
 /**** Add Featured Image Support ****/
 add_theme_support( 'post-thumbnails' );
+
+
+
+
+
+
+/***** FIX 4.7.1 broken MIME detection *****/
+ function ignore_upload_ext($checked, $file, $filename, $mimes){
+
+	//we only need to worry if WP failed the first pass
+	if(!$checked['type']){
+		//rebuild the type info
+		$wp_filetype = wp_check_filetype( $filename, $mimes );
+		$ext = $wp_filetype['ext'];
+		$type = $wp_filetype['type'];
+		$proper_filename = $filename;
+
+		//preserve failure for non-svg images
+		if($type && 0 === strpos($type, 'image/') && $ext !== 'svg'){
+			$ext = $type = false;
+		}
+
+		//everything else gets an OK, so e.g. we've disabled the error-prone finfo-related checks WP just went through. whether or not the upload will be allowed depends on the <code>upload_mimes</code>, etc.
+
+		$checked = compact('ext','type','proper_filename');
+	}
+
+	return $checked;
+}
+add_filter('wp_check_filetype_and_ext', 'ignore_upload_ext', 10, 4);
 
 
 
@@ -4246,7 +4276,7 @@ acf_add_local_field_group(array (
 
 acf_add_local_field_group(array (
 	'key' => 'group_acf_page-options',
-	'title' => 'Page Options ',
+	'title' => 'Page Options',
 	'fields' => array (
 		array (
 			'key' => 'field_5661e83871c8c',
@@ -4306,6 +4336,34 @@ acf_add_local_field_group(array (
 			'layout' => 'vertical',
 			'toggle' => 0,
 		),
+		array (
+			'key' => 'field_58812bcf7467d',
+			'label' => 'Page Theme',
+			'name' => 'page_theme',
+			'type' => 'select',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array (
+				'default' => 'Default',
+				'documentation' => 'Documentation',
+			),
+			'default_value' => array (
+				0 => 'default',
+			),
+			'allow_null' => 0,
+			'multiple' => 0,
+			'ui' => 0,
+			'ajax' => 0,
+			'placeholder' => '',
+			'disabled' => 0,
+			'readonly' => 0,
+		),
 	),
 	'location' => array (
 		array (
@@ -4313,8 +4371,6 @@ acf_add_local_field_group(array (
 				'param' => 'post_type',
 				'operator' => '==',
 				'value' => 'page',
-				'order_no' => 0,
-				'group_no' => 0,
 			),
 		),
 	),
@@ -4323,12 +4379,9 @@ acf_add_local_field_group(array (
 	'style' => 'default',
 	'label_placement' => 'top',
 	'instruction_placement' => 'label',
-	'hide_on_screen' => array (
-	),
+	'hide_on_screen' => '',
 	'active' => 1,
 	'description' => '',
-	'id' => 'acf_page-options',
-	'local' => 'php',
 ));
 
 acf_add_local_field_group(array (
@@ -4787,7 +4840,7 @@ add_action( 'widgets_init', 'uw_madison_wp_2015_widgets_init' );
 if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
 function my_jquery_enqueue() {
    wp_deregister_script('jquery');
-   wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js", false, null);
+   wp_register_script('jquery', "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js", false, null);
    wp_enqueue_script('jquery');
 }
 
