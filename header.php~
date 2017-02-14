@@ -102,7 +102,7 @@ var templateUrl = '<?php home_url(); ?>';
 
 
 
-<div id="page" class="hfeed site <?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { echo "hiddenSlides"; } else { echo "visibleSlides"; } ?> <?php $header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' ); if($header_style == "opaque") { echo "solidHeader"; } else if($header_style == "photo") { echo "photoHeader"; } else { echo "transparentHeader"; } ?> <?php $home_layout_settings = get_theme_mod( 'uw-madison-wp-2015_layout_id' ); if($home_layout_settings == "tiles") { echo "tiledPosts"; }; if($home_layout_settings == "right_sidebar") { echo "postsRightSidebar"; } ?> <?php $header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' ); if($header_layout_settings == "righthand") { echo "rightHandNav"; } else { echo "navBar"; } ?> <?php if( get_field('hide_the_side_navigation')) { echo "hiddenSidebar"; } ?> <?php if( get_field('page_theme') == 'documentation') { echo 'documentationSection'; } ?> <?php $sidebar_settings = get_theme_mod( 'uw-madison-wp-2015_sidebar_style_id' ); if($sidebar_settings == "card") { echo 'cardSidebar'; } else if($sidebar_settings == "dots") { echo 'dotsSidebar'; } else { echo 'lineSidebar'; } ?><?php $fontselection = get_theme_mod( 'uw-madison-wp-2015_fonts_id' ); echo ' '.$fontselection; ?> <?php if(get_field('featured_pages_layouts')) { $page_layout = get_field('featured_pages_layouts'); if($page_layout == 'listr') { echo 'listRightSidebar'; }  } ?> <?php $header_slides_dots = get_theme_mod( 'uw-madison-wp-2015_headerslides_dots_id' ); if($header_slides_dots == true) { echo "hiddenSlideDots"; } ?> <?php $header_slides_arrows = get_theme_mod( 'uw-madison-wp-2015_headerslides_arrows_id' ); if($header_slides_arrows == true) { echo "hiddenSlideArrows"; } ?> <?php $header_slides_transition = get_theme_mod( 'uw-madison-wp-2015_headerslides_transition_id' ); if($header_slides_transition == true) { echo "headerSlidesFade"; } ?> <?php $logo_position = get_theme_mod( 'uw-madison-wp-2015_home_logo_position_id' ); if($logo_position == "center") { echo "hidemainlogo"; } ?> <?php $hideshownav = get_theme_mod( 'uw-madison-wp-2015_hide_show_nav_id' ); if($hideshownav == "yes") { echo "hideMainNav"; } ?>">
+<div id="page" class="hfeed site <?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { echo "hiddenSlides"; } else { echo "visibleSlides"; } ?> <?php $header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' ); if($header_style == "opaque") { echo "solidHeader"; } else if($header_style == "photo") { echo "photoHeader"; } else { echo "transparentHeader"; } ?> <?php $home_layout_settings = get_theme_mod( 'uw-madison-wp-2015_layout_id' ); if($home_layout_settings == "tiles") { echo "tiledPosts"; }; if($home_layout_settings == "right_sidebar") { echo "postsRightSidebar"; } ?> <?php $header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' ); if($header_layout_settings == "righthand") { echo "rightHandNav"; } else { echo "navBar"; } ?> <?php if( get_field('hide_the_side_navigation')) { echo "hiddenSidebar"; } ?> <?php $sidebar_settings = get_theme_mod( 'uw-madison-wp-2015_sidebar_style_id' ); if($sidebar_settings == "card") { echo 'cardSidebar'; } else if($sidebar_settings == "dots") { echo 'dotsSidebar'; } else { echo 'lineSidebar'; } ?><?php $fontselection = get_theme_mod( 'uw-madison-wp-2015_fonts_id' ); echo ' '.$fontselection; ?> <?php if(get_field('featured_pages_layouts')) { $page_layout = get_field('featured_pages_layouts'); if($page_layout == 'listr') { echo 'listRightSidebar'; }  } ?> <?php $header_slides_dots = get_theme_mod( 'uw-madison-wp-2015_headerslides_dots_id' ); if($header_slides_dots == true) { echo "hiddenSlideDots"; } ?> <?php $header_slides_arrows = get_theme_mod( 'uw-madison-wp-2015_headerslides_arrows_id' ); if($header_slides_arrows == true) { echo "hiddenSlideArrows"; } ?> <?php $header_slides_transition = get_theme_mod( 'uw-madison-wp-2015_headerslides_transition_id' ); if($header_slides_transition == true) { echo "headerSlidesFade"; } ?> <?php $logo_position = get_theme_mod( 'uw-madison-wp-2015_home_logo_position_id' ); if($logo_position == "center") { echo "hidemainlogo"; } ?> <?php $hideshownav = get_theme_mod( 'uw-madison-wp-2015_hide_show_nav_id' ); if($hideshownav == "yes") { echo "hideMainNav"; } ?>">
 
 
 
@@ -117,13 +117,18 @@ var templateUrl = '<?php home_url(); ?>';
 
 				 	<div class="search-youruw">
 					 	<div class="search-youruw-container">
-
+<<<<<<< HEAD
 					 		<?php
 						 		$campustitle = get_theme_mod( 'uw-madison-wp-2015_campus_title_id' );
 						 		$campustitlelink = get_theme_mod( 'uw-madison-wp-2015_campus_title_link_id' );
-
 						 			if($campustitle != "") {
-
+=======
+					 		<?php 
+						 		$campustitle = get_theme_mod( 'uw-madison-wp-2015_campus_title_id' );	
+						 		$campustitlelink = get_theme_mod( 'uw-madison-wp-2015_campus_title_link_id' );
+						 		
+						 			if($campustitle != "") { 
+>>>>>>> master
 					 					if($campustitlelink != "") { ?>
 					 					<a href="<?php echo $campustitlelink; ?>" class="campusTitle"><?php echo $campustitle; ?></a>
 					 					<?php } else { ?>
@@ -369,15 +374,21 @@ var templateUrl = '<?php home_url(); ?>';
 										<?php } ?>
 																			<?php } ?>
 							<?php } ?>
-
+							
 							<?php $taglinelocation = get_theme_mod('uw-madison-wp-2015_tagline_location_id');
 								if($taglinelocation == "above") { ?>
 									<div class="mainTitle tagAbove"><span><?php bloginfo( 'description' ); ?></span><?php bloginfo( 'name' ); ?></div></a></div>
 								<?php } else { ?>
 							<div class="mainTitle"><?php bloginfo( 'name' ); ?><span><?php bloginfo( 'description' ); ?></span></div></a></div>
+<<<<<<< HEAD
 
+
+=======
+							
 							<?php } ?>
-
+						
+						
+>>>>>>> master
 			<?php } ?>
 
 				</div><!-- .site-branding -->
@@ -495,7 +506,6 @@ var templateUrl = '<?php home_url(); ?>';
 								<img src="<?php echo get_template_directory_uri(); ?>/images/cl_logo.svg">
 								<?php } else if($logo_noimage_settings == "hybrid") { ?>
 								<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo.svg" class="hybrid">
-								<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" class="hybrid_b">
 
 							<?php } else { ?>
 
@@ -528,15 +538,19 @@ var templateUrl = '<?php home_url(); ?>';
 										<?php } ?>
 																			<?php } ?>
 							<?php } ?>
+<<<<<<< HEAD
+							<div class="mainTitle"><?php bloginfo( 'name' ); ?><span><?php bloginfo( 'description' ); ?></span></div></a></div>
 
+=======
 							<?php $taglinelocation = get_theme_mod('uw-madison-wp-2015_tagline_location_id');
 								if($taglinelocation == "above") { ?>
 									<div class="mainTitle tagAbove"><span><?php bloginfo( 'description' ); ?></span><?php bloginfo( 'name' ); ?></div></a></div>
 								<?php } else { ?>
 							<div class="mainTitle"><?php bloginfo( 'name' ); ?><span><?php bloginfo( 'description' ); ?></span></div></a></div>
-
-							<?php } ?>
-
+							
+							<?php } ?>						
+						
+>>>>>>> master
 			<?php } ?>
 
 				</div><!-- .site-branding -->
@@ -732,21 +746,6 @@ var templateUrl = '<?php home_url(); ?>';
 								 $attachment_id = get_field('hero_image'); $size = "hero-image";
 								 $image = wp_get_attachment_image_src($attachment_id, $size);
 
-								$hidebluroption = get_field('disable_blur_filter');
-								if($hidebluroption) {
-										if( in_array('yes', $hidebluroption) ) {	?>
-												<aside class="hide_blur">
-							<?php } else {
-										}
-								}
-
-								$hideoverlayoption = get_field('hero_image_filter');
-								if($hideoverlayoption) {
-										if( in_array('yes', $hideoverlayoption) ) {	?>
-												<aside class="no_filter">
-							<?php } else {
-										}
-								}
 
 
 								//$imgurl = wp_get_attachment_image_src( $image, $size ); ?>
@@ -923,7 +922,7 @@ var templateUrl = '<?php home_url(); ?>';
 										if($hideoverlayoption) {
 
 											if( in_array('yes', $hideoverlayoption) ) { ?>
-												<div class="heroOverlay"></div>
+
 									<?php 	} else { ?>
 											<div class="heroOverlay"></div>
 									<?php 	}
