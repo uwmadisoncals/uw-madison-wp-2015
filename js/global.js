@@ -102,11 +102,11 @@ console.log("called load click");
 
 		setTimeout(function() {
 			$(".docLoadBar").css("width", "0%");
-			
+
 		},1000);
 
 		setTimeout(function() {
-			
+
 			$(".docLoadBar").css("opacity", "1");
 		},1500);
 	});*/
@@ -133,11 +133,11 @@ window.onpopstate = function(event) {
 
 		setTimeout(function() {
 			$(".docLoadBar").css("width", "0%");
-			
+
 		},1000);
 
 		setTimeout(function() {
-			
+
 			$(".docLoadBar").css("opacity", "1");
 		},1500);
 	});
@@ -148,7 +148,7 @@ window.onpopstate = function(event) {
         //$("a[href='" + History.getState().title + "']").addClass("active");
         $('.documentationSection #docContent').load(document.location.href, function(responseText) {
             document.title = $(responseText).filter("title").text();
-        }); 
+        });
     });*/
 	//}
 
@@ -1305,7 +1305,8 @@ function topBlurMeasure() {
   }
   setTimeout(topBlurMeasure,500);
 };
-topBlurMeasure();
+
+$(window).on("load", topBlurMeasure());
 $(window).resize(function() { topBlurMeasure() });
 
 
