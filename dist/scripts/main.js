@@ -1842,6 +1842,109 @@ if(getInternetExplorerVersion() != "-1") {
 	$("body").addClass("IE").addClass(bodyClass);
 }
 
+/**
+ * ----------------------------------------------------------------------------
+ *
+ *  Documentation Page Theme AJAX Logic
+ *
+ * ----------------------------------------------------------------------------
+ */
+
+
+
+$(".docs_sidebar > ul > li.page_item_has_children").each(function() {
+	//var licontainschildren = $(this).closest("li");
+	//console.log(licontainschildren);
+
+	//if(licontainschildren == true) {
+		$(this).prepend("<button>+</button>");
+	//}
+});
+
+$(".docs_sidebar > ul > li button").click(function() {
+	//console.log("clicked");
+	$(this).toggleClass("active");
+	$(this).parent().find(".children").toggle();
+
+});
+
+$(".documentationSideBar a").click(function(e) {
+	e.preventDefault();
+
+	var linkhref = $(this).attr("href");
+	linkhref = linkhref + " #docContent > *";
+
+	$(".docLoadBar").css("width", "20%");
+
+	var newLoadedHtml = $(this).attr("href");
+
+	//if ( history.pushState ) {
+		History.pushState(null, newLoadedHtml, newLoadedHtml);
+	//}
+
+	/*$( "#docContent" ).load( linkhref, function() {
+console.log("called load click");
+		document.title = $("#docContent .entry-title").text();
+		//alert( "Load was performed." );
+		//console.log("grabbed it");
+		$(".docLoadBar").css("width", "100%");
+
+		setTimeout(function() {
+			$(".docLoadBar").css("opacity", "0");
+		},500);
+
+		setTimeout(function() {
+			$(".docLoadBar").css("width", "0%");
+			
+		},1000);
+
+		setTimeout(function() {
+			
+			$(".docLoadBar").css("opacity", "1");
+		},1500);
+	});*/
+
+});
+
+window.onpopstate = function(event) {
+  //alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
+  //console.log(document.location);
+
+	var linkhref = document.location.href;
+	linkhref = linkhref + " #docContent > *";
+
+  $( "#docContent" ).load( linkhref, function() {
+	  console.log("called load pop");
+		document.title = $("#docContent .entry-title").text();
+		//alert( "Load was performed." );
+		//console.log("grabbed it");
+		$(".docLoadBar").css("width", "100%");
+
+		setTimeout(function() {
+			$(".docLoadBar").css("opacity", "0");
+		},500);
+
+		setTimeout(function() {
+			$(".docLoadBar").css("width", "0%");
+			
+		},1000);
+
+		setTimeout(function() {
+			
+			$(".docLoadBar").css("opacity", "1");
+		},1500);
+	});
+};
+	//if ( history.pushState ) {
+		/*History.adapter.bind(window, "statechange", function() {
+        //menuLink.removeClass("active");
+        //$("a[href='" + History.getState().title + "']").addClass("active");
+        $('.documentationSection #docContent').load(document.location.href, function(responseText) {
+            document.title = $(responseText).filter("title").text();
+        }); 
+    });*/
+	//}
+
 
 
 /**

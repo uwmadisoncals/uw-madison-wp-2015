@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
-    imagemin = require('gulp-imagemin'),
+    //imagemin = require('gulp-imagemin'),
     rename = require('gulp-rename'),
     clean = require('gulp-clean'),
     concat = require('gulp-concat'),
@@ -48,7 +48,7 @@ gulp.task('styles-admin', function() {
 
 // Scripts
 gulp.task('scripts', function() {
-  return gulp.src(['js/jquery.visible.js','js/detect-zoom.js','js/jquery.suggest.js','js/color-thief.min.js','js/color-thief-init.js','js/flickity.js','js/flickity-sync.js','js/isotope.min.js','js/imagesloaded.js','js/detectbrowser.js','js/fastclick.js','js/global.js'])
+  return gulp.src(['js/jquery.visible.js','js/detect-zoom.js','js/jquery.suggest.js','js/color-thief.min.js','js/color-thief-init.js','js/flickity.js','js/flickity-sync.js','js/isotope.min.js','js/imagesloaded.js','js/detectbrowser.js','js/fastclick.js','js/history.js','js/global.js'])
     .pipe(concat('main.js'))
     .pipe(gulp.dest('dist/scripts'))
     .pipe(rename({ suffix: '.min' }))
@@ -70,7 +70,7 @@ gulp.task('debug', function() {
 // Images
 gulp.task('images', function() {
   return gulp.src('images/**/*')
-    .pipe(imagemin({ progressive: true, svgoPlugins: [{removeViewBox: false}] }))
+    //.pipe(imagemin({ progressive: true, svgoPlugins: [{removeViewBox: false}] }))
     .pipe(livereload(server))
     .pipe(gulp.dest('dist/images'))
     .pipe(notify({ message: 'Images task complete' }));

@@ -349,12 +349,15 @@
 	}
 }
 
+
+
 /* Minimum width of 400 pixels. */
 @media screen and (max-width: 430px) {
 	
 	.hidemainlogo.hideMainNav .flickity-viewport, .flickity-viewport .gallery-cell {
 		height: 140px !important;
 	}
+
 	
 	.home .featureHeader .centeredSiteLogo {
 		width: auto;
