@@ -3100,7 +3100,7 @@ function topBlurMeasure() {
   setTimeout(topBlurMeasure,500);
 };
 
-$(window).on("load", topBlurMeasure());
+$(window).on("load", function() { topBlurMeasure() });
 $(window).resize(function() { topBlurMeasure() });
 
 
