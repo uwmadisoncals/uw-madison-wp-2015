@@ -3126,7 +3126,7 @@ $(".home .pagePadding .flex-row").first().addClass("top-row");
  * ----------------------------------------------------------------------------
  */
 function topBlurMeasure() {
-  if($("#page").hasClass("photoHeader")) {
+  if($("#page").hasClass("photoHeader") || $("#page").hasClass("transparentHeader")) {
     if($("body").hasClass("home")){
       var mastheadSize = $("#masthead").height();
       var topBlur = "padding-top:" + (mastheadSize + 30) + "px;";
