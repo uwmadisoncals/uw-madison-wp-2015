@@ -642,7 +642,7 @@ var templateUrl = '<?php home_url(); ?>';
 
 	<div class="featureHeader">
 
-
+     <!-- test comment -->
 
 		<?php $logo_position = get_theme_mod( 'uw-madison-wp-2015_home_logo_position_id' ); if($logo_position == "center") { ?>
 
@@ -670,7 +670,7 @@ var templateUrl = '<?php home_url(); ?>';
 
 
 		<?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { ?>
-
+				<!-- Set to hidden -->
 		<?php } else { ?>
 
 		<?php
@@ -757,7 +757,7 @@ var templateUrl = '<?php home_url(); ?>';
 								<!--svg class="heroImageContainerSVG" aria-label="Featured Image" -->
 
 									<!-- Definition of a mask begins -->
-							        <defs>
+							        <!--<defs>
 							            <mask id="mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
 										    <linearGradient id="g" gradientUnits="objectBoundingBox" x2="0" y2="1">
 										        <stop stop-color="white" stop-opacity="1" offset="0"/>
@@ -767,7 +767,7 @@ var templateUrl = '<?php home_url(); ?>';
 										    </linearGradient>
 										    <rect width="100%" height="100%" fill="url(#g)"/>
 										</mask>
-							        </defs>
+							        </defs>-->
 
 									<!--foreignObject width="100%" height="100%" style="mask: url(#mask); "-->
 
@@ -793,8 +793,8 @@ var templateUrl = '<?php home_url(); ?>';
 									<?php } ?>
 
 
-								</foreignObject -->
-							</svg -->
+								<!--/foreignObject -->
+							<!--/svg -->
 
 
 
@@ -868,15 +868,15 @@ var templateUrl = '<?php home_url(); ?>';
 
 									<?php 	} else { ?>
 
-											<!--div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; "></div></div>
+											<!--div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; "></div></div>-->
 									<?php 	}
 										} else { ?>
-											<!--div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; "></div></div>
+											<!--div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; "></div></div>-->
 									<?php } ?>
 
 
-								</foreignObject>
-							</svg -->
+								<!--/foreignObject -->
+							<!--/svg -->
 
 								<?php if($header_style == "photo") { ?>
 
