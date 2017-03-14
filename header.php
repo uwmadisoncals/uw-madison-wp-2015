@@ -47,7 +47,7 @@ var templateUrl = '<?php home_url(); ?>';
 <?php include("header_include.php"); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> style="background-color: #<?php background_color(); ?>">
 
 	<div class="loadCover">
 		<div class="loadLogo"></div>

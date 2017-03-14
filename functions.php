@@ -4751,7 +4751,7 @@ function uw_madison_wp_2015_setup() {
 
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'uw_madison_wp_2015_custom_background_args', array(
-		'default-color' => 'eaeaea',
+		'default-color' => 'f7f7f7',
 		'default-image' => '',
 	) ) );
 }
