@@ -378,6 +378,51 @@ get_header(); ?>
 											<?php if( have_rows('3c_5050_left_column') ) { ?>
 													<div class="flex-item flex-leftCol">
 												<?php while ( have_rows('3c_5050_left_column') ) : the_row();
+
+
+													if( get_row_layout() == '3c_highlighted_content' ) {
+														 if(have_rows("3c_highlighted_content_type")) { ?>
+														
+														 	<div class="gridonecol gridstyle2">
+															 	
+	
+															  <div class="grid-sizer2col"></div>
+															  <div class="gutter-sizer2col"></div>
+															  
+															
+
+															
+
+														 	<?php while ( have_rows('3c_highlighted_content_type') ) : the_row();
+														  
+
+
+																if(get_row_layout() == 'fw_latest_posts') {
+																	
+																	include 'page_editor_templates/fw_latest_posts.php';
+																		
+																}
+																
+																if(get_row_layout() == '3c_post_by_category') {
+																	
+																	include 'page_editor_templates/3c_post_by_category.php';
+																	
+																}
+																
+																if(get_row_layout() == 'fw_highlighted_page') {
+																	
+																	include 'page_editor_templates/fw_highlighted_page.php';
+																																
+																	
+																}
+															
+														    endwhile; ?>
+														    
+														 	</div>	 
+														<?php }
+														 
+													 }
+
 													
 													
 													 if( get_row_layout() == 'body_text' ) { ?>

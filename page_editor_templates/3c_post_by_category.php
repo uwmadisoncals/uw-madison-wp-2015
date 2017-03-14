@@ -1,30 +1,28 @@
-<?php $terms = get_sub_field('fw_highlighted_category');
+<?php $terms = get_sub_field('3c_post_category'); 
 																	$categories = 0;
 																	
 																	if( $terms ): ?>
 																	
 																		<?php 
 																			
-																			//$terms = array(1, 2, 3, 4);
-																			//echo $terms;
 																			foreach( $terms as $term ) {
-																			//echo "d";
+																			
 																			$categories = $categories.",".$term;	
 																			//echo $term;
 																		} ?>
-
+																		
 																	<?php endif; 
 																	
 																	
-																	$numofposts = get_sub_field('fw_cat_number_of_posts');
+																	//$numofposts = get_sub_field('fw_cat_number_of_posts');
 																	
 																	// The Query
-																	$query1 = new WP_Query( array( 'posts_per_page' => $numofposts, 'cat' => $categories ) );
+																	$query1 = new WP_Query( array( 'posts_per_page' => 1, 'cat' => $categories ) );
 																	
 																	if ( $query1->have_posts() ) {
 																		// The Loop
 																		while ( $query1->have_posts() ) { $query1->the_post(); ?>
-																			<div class="grid-item2col">
+																			<div class="grid-item1col">
 																				
 																			
 																				
