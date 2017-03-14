@@ -515,7 +515,8 @@ body.home, body.home.blog {
 
 		@-moz-document url-prefix() {
 			div.heroImageBlurInner {
-				filter: blur(12px);
+				display: none;
+				/*filter: blur(12px);*/
 				/*filter: url(../../resources.svg#svgBlur);*/
 
 			}

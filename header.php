@@ -129,7 +129,9 @@ var templateUrl = '<?php home_url(); ?>';
 					 					<?php } else { ?>
 					 						<div class="campusTitle"><?php echo $campustitle; ?></div>
 					 					<?php } ?>
-					 			<?php } ?>
+					 			<?php } else { ?>
+								 		<a href="http://wisc.edu" class="campusTitle">UNIVERSITY of WISCONSIN MADISON</a>
+								<?php } ?>
 
 
 
@@ -256,7 +258,7 @@ var templateUrl = '<?php home_url(); ?>';
 							}
 							?>
 
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><!--<span class="forScreenReaders">Logo Image</span>-->
 				<?php
 
 						// Compatibility with versions of WordPress prior to 3.4.
@@ -277,7 +279,7 @@ var templateUrl = '<?php home_url(); ?>';
 
 			<?php } else if($logo_image) { //using new logo image assignment ?>
 
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><!--<span class="forScreenReaders">Logo Image</span>-->
 
 							<img src="<?php echo $logo_image; ?>" class="mainLogoImg" alt="" />
 							<?php if($header_alt_image) { ?>
@@ -290,7 +292,7 @@ var templateUrl = '<?php home_url(); ?>';
 
 						<!-- A Header Image is Not Assigned -->
 
-						<div class="noimageLogo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage nologoImageAssigned"><span class="forScreenReaders">Logo Image</span>
+						<div class="noimageLogo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage nologoImageAssigned"><!--<span class="forScreenReaders">Logo Image</span>-->
 							<?php $logo_noimage_settings = get_theme_mod( 'uw-madison-wp-2015_noimage_crest_id' ); if($logo_noimage_settings == "color") { ?>
 								<!-- Full Color Crest Selected -->
 
@@ -372,9 +374,9 @@ var templateUrl = '<?php home_url(); ?>';
 
 							<?php $taglinelocation = get_theme_mod('uw-madison-wp-2015_tagline_location_id');
 								if($taglinelocation == "above") { ?>
-									<div class="mainTitle tagAbove"><span><?php bloginfo( 'description' ); ?></span><?php bloginfo( 'name' ); ?></div></a></div>
+									<div class="mainTitle tagAbove"><span><?php bloginfo( 'description' ); ?></span><div class="primaryTitle"><span><?php bloginfo( 'name' ); ?><span></div></div></a></div>
 								<?php } else { ?>
-							<div class="mainTitle"><?php bloginfo( 'name' ); ?><span><?php bloginfo( 'description' ); ?></span></div></a></div>
+							<div class="mainTitle"><div class="primaryTitle"><span><?php bloginfo( 'name' ); ?></span></div><span><?php bloginfo( 'description' ); ?></span></div></a></div>
 
 							<?php } ?>
 
@@ -461,7 +463,7 @@ var templateUrl = '<?php home_url(); ?>';
 							}
 							?>
 
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><!--<span class="forScreenReaders">Logo Image</span>-->
 				<?php
 
 						// Compatibility with versions of WordPress prior to 3.4.
@@ -479,7 +481,7 @@ var templateUrl = '<?php home_url(); ?>';
 
 			<?php } else if($logo_image) { //using new logo image assignment ?>
 
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><span class="forScreenReaders">Logo Image</span>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><!--<span class="forScreenReaders">Logo Image</span>-->
 
 							<img src="<?php echo $logo_image; ?>" class="mainLogoImg" alt="" />
 							<?php if($header_alt_image) { ?>
@@ -531,9 +533,9 @@ var templateUrl = '<?php home_url(); ?>';
 
 							<?php $taglinelocation = get_theme_mod('uw-madison-wp-2015_tagline_location_id');
 								if($taglinelocation == "above") { ?>
-									<div class="mainTitle tagAbove"><span><?php bloginfo( 'description' ); ?></span><?php bloginfo( 'name' ); ?></div></a></div>
+									<div class="mainTitle tagAbove"><span><?php bloginfo( 'description' ); ?></span><div class="primaryTitle"><span><?php bloginfo( 'name' ); ?></span></div></div></a></div>
 								<?php } else { ?>
-							<div class="mainTitle"><?php bloginfo( 'name' ); ?><span><?php bloginfo( 'description' ); ?></span></div></a></div>
+							<div class="mainTitle"><div class="primaryTitle"><span><?php bloginfo( 'name' ); ?></span></div><span><?php bloginfo( 'description' ); ?></span></div></a></div>
 
 							<?php } ?>
 

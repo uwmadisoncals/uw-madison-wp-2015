@@ -1681,9 +1681,7 @@ add_theme_support( 'post-thumbnails' );
 
 
 
-
-
-/***** FIX 4.7.1 broken MIME detection *****/
+/***** FIX WP 4.7.1 broken MIME detection *****/
  function ignore_upload_ext($checked, $file, $filename, $mimes){
 
 	//we only need to worry if WP failed the first pass

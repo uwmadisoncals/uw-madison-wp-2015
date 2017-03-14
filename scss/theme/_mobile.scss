@@ -257,9 +257,23 @@
 
 /* Minimum width of 600 pixels. */
 @media screen and (max-width: 600px) {
+
+
 	
 	.hidemainlogo.hideMainNav .flickity-viewport, .flickity-viewport .gallery-cell {
 		height: 240px !important;
+	}
+
+	.page, .single, .blog, .archive {
+		.gallery-cell {
+			/*height: 70px !important;
+			overflow: hidden;*/
+		}
+	}
+
+	.home.page .gallery-cell {
+		height: auto;
+		overflow: visible;
 	}
 	
 	.home .featureHeader .centeredSiteLogo {
@@ -353,11 +367,32 @@
 
 /* Minimum width of 400 pixels. */
 @media screen and (max-width: 430px) {
-	
-	.hidemainlogo.hideMainNav .flickity-viewport, .flickity-viewport .gallery-cell {
-		height: 140px !important;
+
+	.featureHeader .heroImage .heroHeadingWrapper .heroHeading {
+		bottom: 40px;
 	}
 
+	.featureHeader .heroImage .heroHeadingWrapper .heroHeading h1 {
+		font-size:26px;
+	}
+
+	
+	
+	.hidemainlogo.hideMainNav .flickity-viewport, .flickity-viewport .gallery-cell {
+		height: 340px !important;
+
+		
+
+		.heroImage {
+			min-height: 340px !important;
+		}
+	}
+
+	.flickity-prev-next-button, .flickity-page-dots {
+		display: none ;
+	}
+
+	
 	
 	.home .featureHeader .centeredSiteLogo {
 		width: auto;
@@ -387,7 +422,7 @@
 	}
 	
 	.site-header .logoImage.mobileMenuOn {
-		margin-left: 1.4em;
+		margin-left: 2em;
 	}
 
 	.site-header .logoImage.mobileMenuOn.nologoImageAssigned {
@@ -466,7 +501,7 @@
 	}
 	
 	.pagePadding{
-		padding: 0em 1.5em;
+		padding: 3.5em 1.5em;
 	}
 	
 	.uwmadison_events_title{
@@ -478,6 +513,22 @@
 	.page main ul.uwmadison_events{
 		display: inline-block;
 		padding: 0.8em 1em;
+	}
+
+	.mobileNavOn {
+		.rightHandNav {
+			.noimageLogo {
+				margin-top: -13px;
+			}
+		}
+
+		.site-header .search-youruw .campusTitle {
+			left: 13px;
+		}
+	}
+
+	.rightHandNav .site-header .search-youruw .search-youruw-container {
+		padding-right: 10px;
 	}
 	
 	
@@ -514,7 +565,7 @@
 						
 						
 						span {
-							display: block;
+							display: inline;
 							font-size: 12px;
 							font-weight: 400;
 						}
@@ -523,6 +574,41 @@
 			}
 		}
 	}
+}
+	
+
+@media screen and (max-width: 400px) {
+
+	.page, .single, .archive, .blog {
+		.featureHeader {
+			visibility: hidden;
+		}
+	}
+
+	.home.page .featureHeader {
+		visibility: visible;
+	}
+
+	.primaryTitle {
+		span {
+			height: 20px;
+		}
+	}
+	.noimageLogo {
+		/*margin-top: -10px;*/
+	}
+
+	.rightHandNav .site-header .logo-search-container.noimage {
+		height: 105px;
+	}
+
+	.site-header {
+		position: fixed;
+		width: 100%;
+		background: #fff;
+	}
+
+	
 }
 
 

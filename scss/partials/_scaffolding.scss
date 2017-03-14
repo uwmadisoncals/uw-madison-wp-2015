@@ -297,12 +297,20 @@ html {
 		
 		.flex-leftCol {
 			width: 100%;
+			padding: 2rem;
 		}
 		
 		.flex-rightCol {
 			width: 100%;
+			padding: 2rem;
 			
 		}
+
+		
+	}
+
+	.home .pagePadding .flex-row.top-row.right_redbg div.flex-rightCol {
+			margin-top: 0px;
 	}
 }
 

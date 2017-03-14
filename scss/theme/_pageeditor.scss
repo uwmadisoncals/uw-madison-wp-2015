@@ -258,3 +258,10 @@ div.personFeaturefw {
 		}
 	}
 }
+
+@media screen and (max-width: 700px) {
+	.home .pagePadding .flex-row.top-row.right_redbg .flex-rightCol .sidebarFold, .pagePadding .flex-row.top-row.right_redbg .flex-rightCol .sidebarFold {
+		display: none;
+	}
+
+}

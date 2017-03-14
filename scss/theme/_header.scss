@@ -513,7 +513,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 
 				li {
 					a {
-						color: rgba(0,0,0,0.9);
+						color: #fff;
 						font-weight: 400;
 						padding-left: 0px;
 						padding-right: 0px;
@@ -526,9 +526,9 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 					}
 
 					a:hover, a:active, a:focus {
-						color: $uwred !important;
+						color: #fff !important;
 						background: transparent !important;
-						border-bottom: 3px solid $uwred;
+						border-bottom: 3px solid #fff;
 					}
 				}
 			}
@@ -1271,7 +1271,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 
 				.mainTitle {
 
-					color: $uwred;
+					/*color: $uwred;*/
 
 					span {
 						/*color: #000;*/
@@ -1352,6 +1352,21 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 					letter-spacing: 0.6px;
 					opacity: 0.5;
 
+				}
+
+				.primaryTitle {
+					/*height: 22px;*/
+					margin-top: 2px;
+					
+					
+
+					span {
+						box-sizing: border-box;
+						
+						display: inline-block;
+						opacity: 1;
+						
+					}
 				}
 			}
 		}

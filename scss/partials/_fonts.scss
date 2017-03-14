@@ -52,6 +52,11 @@
 
 
 .verlag-option {
+
+	strong {
+		font-family: 'Verlag-Black' !important;
+	}
+
 	.main-title {
 		font-weight: 400;
 	}
@@ -61,7 +66,7 @@
 	}
 
 	.site-header .main-navigation .site-navigation-container li a {
-		font-family: 'Verlag-Book';
+		font-family: 'Verlag-Bold';
 		letter-spacing: 1px;
 
 	}
@@ -108,8 +113,15 @@
 
 
 	.site-header .noimageLogo .logoImage .mainTitle {
+		
 		font-family: 'Verlag-Bold';
 		
+		div.primaryTitle, div.primaryTitle span {
+			font-family: 'Verlag-Bold';
+			line-height: 1;
+			white-space: nowrap;
+			
+		}
 
 		span {
 			font-family: 'Verlag-Book';

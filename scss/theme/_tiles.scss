@@ -92,7 +92,12 @@
 		min-height: 40px;
 		z-index:1;
 	}
+
+.Safari .gridstyle2 .grid-item2col .textContent {
+	transform: translateZ(20px);
+}
 	
+
 .gridstyle2 {
 	
 	.numericdate {
@@ -120,6 +125,7 @@
 		bottom: 0px;
 		z-index:2;
 		overflow: hidden;
+		width: 100% !important;
 		
 -webkit-border-bottom-right-radius: 4px;
 -webkit-border-bottom-left-radius: 4px;
@@ -130,7 +136,8 @@ border-bottom-left-radius: 4px;
 		
 		@-moz-document url-prefix() {
 			div.heroImageBlurInner {
-				filter: blur(12px);
+				display: none;
+				/*filter: blur(12px);*/
 				/*filter: url(../../resources.svg#svgBlur);*/
 				
 			}
@@ -198,6 +205,7 @@ border-bottom-left-radius: 4px;
 			z-index:2;
 			color: rgba(255,255,255,0.9);
 			
+
 			.whiteContent {
 				transform: none;
 			}

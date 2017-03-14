@@ -86,54 +86,14 @@
 																								
 																			
 																							?>
-																							<svg class="heroImageContainerSVG highlightContentBlur" aria-label="Featured Image">
+																							<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php the_post_thumbnail_url('medium') ?>); background-size: cover; background-position: center center; "></div></div>
 
-									<!-- Definition of a mask begins -->
-							        <defs>
-							            <mask id="mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
-										    <linearGradient id="g" gradientUnits="objectBoundingBox" x2="0" y2="1">
-										        <stop stop-color="white" stop-opacity="1" offset="0"/>
-										        <stop stop-color="white" stop-opacity="1" offset="0.6"/>
-										        <stop stop-color="white" stop-opacity="0.7" offset="0.9"/>
-										        <stop stop-color="white" stop-opacity="0" offset="1"/>
-										    </linearGradient>
-										    <rect width="100%" height="100%" fill="url(#g)"/>
-										</mask>
-							        </defs>
-								
-									<foreignObject width="100%" height="100%" style="mask: url(#mask); ">
-								
-								<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php the_post_thumbnail_url('medium') ?>); background-size: cover; background-position: center center; "></div></div>
 
-								
-								</foreignObject>
-								</svg>
 																								  <?php the_post_thumbnail('medium'); ?>
 																							<?php } 
 																								else{ ?>
 																								
-														<svg class="heroImageContainerSVG highlightContentBlur" aria-label="Featured Image">
-
-									<!-- Definition of a mask begins -->
-							        <defs>
-							            <mask id="mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
-										    <linearGradient id="g" gradientUnits="objectBoundingBox" x2="0" y2="1">
-										        <stop stop-color="white" stop-opacity="1" offset="0"/>
-										        <stop stop-color="white" stop-opacity="1" offset="0.6"/>
-										        <stop stop-color="white" stop-opacity="0.7" offset="0.9"/>
-										        <stop stop-color="white" stop-opacity="0" offset="1"/>
-										    </linearGradient>
-										    <rect width="100%" height="100%" fill="url(#g)"/>
-										</mask>
-							        </defs>
-								
-									<foreignObject width="100%" height="100%" style="mask: url(#mask); ">
-								
-								<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg); background-size: cover; background-position: center center; "></div></div>
-
-								
-								</foreignObject>
-								</svg>
+														<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg); background-size: cover; background-position: center center; "></div></div>
 																									<img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg">
 																								<?php }
 																							?>

@@ -1955,10 +1955,11 @@ window.onpopstate = function(event) {
  *
  * ----------------------------------------------------------------------------
  */
- var adjust2;
+ /*var adjust2;
  var adjust;
  var newfontsize;
  var currentfontsize = $(".mainTitle").css("font-size");
+ 
  var fontfirsttime = true;
 
  function adjustTitleSize() {
@@ -1969,7 +1970,9 @@ window.onpopstate = function(event) {
 	 //currentfontsize = String(currentfontsize);
 
 	 if(fontfirsttime) {
+		 //console.log(currentfontsize);
 	 	currentfontsize = currentfontsize.substring(0, currentfontsize.length - 2);
+		
 	 }
 	 var newfontsize = currentfontsize - 1;
 	 $(".mainTitle").css("font-size",newfontsize);
@@ -1982,7 +1985,7 @@ window.onpopstate = function(event) {
 
 	 $(".mainTitle").css("font-size",newfontsize);
 		 setTimeout(function() {
-			 titleContainer = $(".mainTitle").height();
+			 titleContainer = $(".mainTitle").width();
 
 			 if(titleContainer > 50) {
 				 fontfirsttime = false;
@@ -1995,15 +1998,48 @@ window.onpopstate = function(event) {
 		 },50);
 		 currentfontsize = newfontsize;
 		 //console.log(newfontsize);
-
+		fontfirsttime = false;
 
  }
 
 
 
-//adjustTitleSize();
+adjustTitleSize();
 
-//adjust = setInterval(adjustTitleSize(), 5000);
+adjust = setInterval(adjustTitleSize(), 5000);*/
+
+;(function($) {
+    $.fn.textfill = function(options) {
+        var fontSize = options.maxFontPixels;
+        var ourText = $('span:visible:first', this);
+        var maxHeight = $(this).height();
+        var maxWidth = $(this).width();
+        var textHeight;
+        var textWidth;
+		
+        do {
+            ourText.css('font-size', fontSize);
+            textHeight = ourText.height();
+            textWidth = ourText.width();
+            fontSize = fontSize - 1;
+			//console.log("maxheight: " + maxHeight + "  maxWidth: " + maxWidth + "  textHeight: " + textHeight + "  textWidth: " + textWidth);
+        } while ((textHeight > maxHeight || textWidth > maxWidth) && fontSize > 3);
+        return this;
+    }
+})(jQuery);
+
+setTimeout(function() {
+
+$('.primaryTitle').textfill({ maxFontPixels: 26 });
+$(".mainTitle").textfill({maxFontPixels: 12 });
+},100);
+
+$(window).resize(function() {
+	$('.primaryTitle').textfill({ maxFontPixels: 26 });
+	$(".mainTitle").textfill({maxFontPixels: 12 });
+});
+
+
 
 
 
@@ -2086,7 +2122,7 @@ if( mobileBrowser ) {
  * ----------------------------------------------------------------------------
  */
 
-var lastScrollTop = 0;
+/*var lastScrollTop = 0;
 
 var rightHandNav = $("#page").hasClass("rightHandNav");
 
@@ -2167,7 +2203,7 @@ $(window).scroll(function(event){
 
 
    lastScrollTop = st;
-});
+});*/
 
 
 /**
