@@ -1,17 +1,28 @@
-<?php $numofposts = get_sub_field('fw_number_of_posts');  
+<?php $terms = get_sub_field('2c_post_category'); 
+																	$categories = 0;
+																	
+																	if( $terms ): ?>
+																	
+																		<?php 
+																			
+																			foreach( $terms as $term ) {
+																			
+																			$categories = $categories.",".$term;	
+																			//echo $term;
+																		} ?>
+																		
+																	<?php endif; 
+																	
+																	
+																	//$numofposts = get_sub_field('fw_cat_number_of_posts');
 																	
 																	// The Query
-																	$query1 = new WP_Query( array( 'posts_per_page' => $numofposts ) ); ?>
+																	$query1 = new WP_Query( array( 'posts_per_page' => 1, 'cat' => $categories ) );
 																	
-																	
-																	
-																	<?php if ( $query1->have_posts() ) {
-																		// The Loop ?>
-																		
-																																				
-																		<?php while ( $query1->have_posts() ) { $query1->the_post(); ?> 
-																			
-																			<div class="grid-item2col">
+																	if ( $query1->have_posts() ) {
+																		// The Loop
+																		while ( $query1->have_posts() ) { $query1->the_post(); ?>
+																			<div class="grid-item1col">
 																				
 																			
 																				
@@ -88,12 +99,12 @@
 																							?>
 																							<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php the_post_thumbnail_url('medium') ?>); background-size: cover; background-position: center center; "></div></div>
 
-
 																								  <?php the_post_thumbnail('medium'); ?>
 																							<?php } 
 																								else{ ?>
 																								
 														<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg); background-size: cover; background-position: center center; "></div></div>
+
 																									<img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg">
 																								<?php }
 																							?>
@@ -112,7 +123,7 @@
 																								<div class="dateposted"><?php the_time('M') ?> <?php the_time('jS') ?></div>
 																								<div class="numericdate"><?php the_time('Ymd'); ?></div>
 																								<h2><?php the_title(); ?></h2>
-																								<div class="excerpt"><?php the_excerpt(); ?></div>
+																								<div><?php the_excerpt(); ?></div>
 																								
 																																									
 																								

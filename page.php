@@ -191,12 +191,20 @@ get_header(); ?>
 													 
 													 if( get_row_layout() == 'fw_highlighted_content' ) {
 														 if(have_rows("fw_highlighted_content_type")) { ?>
-														
+														  <?php if($offsetC == '3col') { ?>
+														  		<div class="gridthreecol gridstyle2">
+
+																<div class="grid-sizer3col"></div>
+															  <div class="gutter-sizer3col"></div>
+														  	<?php } else { ?>
 														 	<div class="gridtwocol gridstyle2">
+
+																 <div class="grid-sizer2col"></div>
+															  <div class="gutter-sizer2col"></div>
+															 <?php } ?>
 															 	
 	
-															  <div class="grid-sizer2col"></div>
-															  <div class="gutter-sizer2col"></div>
+															  
 															  
 															<?php if($offsetC == "offset") { ?>	  
 			<div class="grid-item2col grid-itemspacer stamp"></div>		
@@ -209,20 +217,30 @@ get_header(); ?>
 
 
 																if(get_row_layout() == 'fw_latest_posts') {
-																	
-																	include 'page_editor_templates/fw_latest_posts.php';
-																		
+																	if($offsetC == "3col") {
+																		include 'page_editor_templates/fw_3col_latest_posts.php';
+																	} else {
+																		include 'page_editor_templates/fw_latest_posts.php';
+																	}	
 																}
 																
 																if(get_row_layout() == 'fw_posts_by_category') {
+																	if($offsetC == "3col") {
+																		include 'page_editor_templates/fw_3col_posts_by_category.php';
+																	} else {
+																		include 'page_editor_templates/fw_posts_by_category.php';
+																	}
 																	
-																	include 'page_editor_templates/fw_posts_by_category.php';
 																	
 																}
 																
 																if(get_row_layout() == 'fw_highlighted_page') {
+																	if($offsetC == "3col") {
+																		include 'page_editor_templates/fw_3col_highlighted_page.php';
+																	} else {
+																		include 'page_editor_templates/fw_highlighted_page.php';
+																	}
 																	
-																	include 'page_editor_templates/fw_highlighted_page.php';
 																																
 																	
 																}
@@ -245,6 +263,49 @@ get_header(); ?>
 											<?php if( have_rows('2c_5050_left_column') ) { ?>
 													<div class="flex-item flex-leftCol">
 												<?php while ( have_rows('2c_5050_left_column') ) : the_row();
+
+												if( get_row_layout() == '2c_highlighted_content' ) {
+														 if(have_rows("2c_highlighted_content_type")) { ?>
+														
+														 	<div class="gridonecol gridstyle2">
+															 	
+	
+															  <div class="grid-sizer2col"></div>
+															  <div class="gutter-sizer2col"></div>
+															  
+															
+
+															
+
+														 	<?php while ( have_rows('2c_highlighted_content_type') ) : the_row();
+														  
+
+
+																if(get_row_layout() == 'fw_latest_posts') {
+																	
+																	include 'page_editor_templates/fw_latest_posts.php';
+																		
+																}
+																
+																if(get_row_layout() == '2c_post_by_category') {
+																	
+																	include 'page_editor_templates/2c_post_by_category.php';
+																	
+																}
+																
+																if(get_row_layout() == 'fw_highlighted_page') {
+																	
+																	include 'page_editor_templates/fw_highlighted_page.php';
+																																
+																	
+																}
+															
+														    endwhile; ?>
+														    
+														 	</div>	 
+														<?php }
+														 
+													 }
 													
 													
 													 if( get_row_layout() == 'body_text' ) { ?>
@@ -312,6 +373,49 @@ get_header(); ?>
 										</svg>
 									</div>
 												<?php while ( have_rows('2c_5050_right_column') ) : the_row();
+
+												if( get_row_layout() == '2c_highlighted_content' ) {
+														 if(have_rows("2c_highlighted_content_type")) { ?>
+														
+														 	<div class="gridonecol gridstyle2">
+															 	
+	
+															  <div class="grid-sizer2col"></div>
+															  <div class="gutter-sizer2col"></div>
+															  
+															
+
+															
+
+														 	<?php while ( have_rows('2c_highlighted_content_type') ) : the_row();
+														  
+
+
+																if(get_row_layout() == 'fw_latest_posts') {
+																	
+																	include 'page_editor_templates/fw_latest_posts.php';
+																		
+																}
+																
+																if(get_row_layout() == '2c_post_by_category') {
+																	
+																	include 'page_editor_templates/2c_post_by_category.php';
+																	
+																}
+																
+																if(get_row_layout() == 'fw_highlighted_page') {
+																	
+																	include 'page_editor_templates/fw_highlighted_page.php';
+																																
+																	
+																}
+															
+														    endwhile; ?>
+														    
+														 	</div>	 
+														<?php }
+														 
+													 }
 													
 													
 													 if( get_row_layout() == 'body_text' ) {
@@ -491,6 +595,50 @@ get_header(); ?>
 										</svg>
 									</div>
 												<?php while ( have_rows('3c_5050_middle_column') ) : the_row();
+
+
+												if( get_row_layout() == '3c_highlighted_content' ) {
+														 if(have_rows("3c_highlighted_content_type")) { ?>
+														
+														 	<div class="gridonecol gridstyle2">
+															 	
+	
+															  <div class="grid-sizer2col"></div>
+															  <div class="gutter-sizer2col"></div>
+															  
+															
+
+															
+
+														 	<?php while ( have_rows('3c_highlighted_content_type') ) : the_row();
+														  
+
+
+																if(get_row_layout() == 'fw_latest_posts') {
+																	
+																	include 'page_editor_templates/fw_latest_posts.php';
+																		
+																}
+																
+																if(get_row_layout() == '3c_post_by_category') {
+																	
+																	include 'page_editor_templates/3c_post_by_category.php';
+																	
+																}
+																
+																if(get_row_layout() == 'fw_highlighted_page') {
+																	
+																	include 'page_editor_templates/fw_highlighted_page.php';
+																																
+																	
+																}
+															
+														    endwhile; ?>
+														    
+														 	</div>	 
+														<?php }
+														 
+													 }
 													
 													
 													 if( get_row_layout() == 'body_text' ) {
@@ -562,6 +710,49 @@ get_header(); ?>
 										</svg>
 									</div>
 												<?php while ( have_rows('3c_5050_right_column') ) : the_row();
+
+												if( get_row_layout() == '3c_highlighted_content' ) {
+														 if(have_rows("3c_highlighted_content_type")) { ?>
+														
+														 	<div class="gridonecol gridstyle2">
+															 	
+	
+															  <div class="grid-sizer2col"></div>
+															  <div class="gutter-sizer2col"></div>
+															  
+															
+
+															
+
+														 	<?php while ( have_rows('3c_highlighted_content_type') ) : the_row();
+														  
+
+
+																if(get_row_layout() == 'fw_latest_posts') {
+																	
+																	include 'page_editor_templates/fw_latest_posts.php';
+																		
+																}
+																
+																if(get_row_layout() == '3c_post_by_category') {
+																	
+																	include 'page_editor_templates/3c_post_by_category.php';
+																	
+																}
+																
+																if(get_row_layout() == 'fw_highlighted_page') {
+																	
+																	include 'page_editor_templates/fw_highlighted_page.php';
+																																
+																	
+																}
+															
+														    endwhile; ?>
+														    
+														 	</div>	 
+														<?php }
+														 
+													 }
 													
 													
 													 if( get_row_layout() == 'body_text' ) {

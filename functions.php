@@ -1761,6 +1761,8 @@ register_default_headers( array(
 /**** Added ACF fields for Header Slides ****/
 if( function_exists('acf_add_local_field_group') ):
 
+
+
 acf_add_local_field_group(array (
 	'key' => 'group_57980a9959a78',
 	'title' => 'Advanced Formatting',
@@ -2023,6 +2025,7 @@ acf_add_local_field_group(array (
 											'choices' => array (
 												'default' => 'Default',
 												'offset' => 'Offset Columns',
+												'3col' => '3 Columns',
 											),
 											'default_value' => array (
 												0 => 'default',
@@ -2658,6 +2661,67 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
+								array (
+									'key' => '58c89dee10dea',
+									'name' => '2c_highlighted_content',
+									'label' => 'Highlighted Post/Page',
+									'display' => 'block',
+									'sub_fields' => array (
+										array (
+											'key' => 'field_58c89e1510deb',
+											'label' => 'Highlighted Content Type',
+											'name' => '2c_highlighted_content_type',
+											'type' => 'flexible_content',
+											'instructions' => '',
+											'required' => 1,
+											'conditional_logic' => 0,
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'button_label' => 'Add Row',
+											'min' => '',
+											'max' => '',
+											'layouts' => array (
+												array (
+													'key' => '58c89e45277fc',
+													'name' => '2c_post_by_category',
+													'label' => 'Post By Category',
+													'display' => 'block',
+													'sub_fields' => array (
+														array (
+															'key' => 'field_58c89e4e10dec',
+															'label' => 'Post Category',
+															'name' => '2c_post_category',
+															'type' => 'taxonomy',
+															'instructions' => '',
+															'required' => 0,
+															'conditional_logic' => 0,
+															'wrapper' => array (
+																'width' => '',
+																'class' => '',
+																'id' => '',
+															),
+															'taxonomy' => 'category',
+															'field_type' => 'checkbox',
+															'allow_null' => 1,
+															'add_term' => 0,
+															'save_terms' => 0,
+															'load_terms' => 0,
+															'return_format' => 'id',
+															'multiple' => 0,
+														),
+													),
+													'min' => '',
+													'max' => '',
+												),
+											),
+										),
+									),
+									'min' => '',
+									'max' => '',
+								),
 							),
 						),
 						array (
@@ -2920,6 +2984,67 @@ acf_add_local_field_group(array (
 											'max_height' => '',
 											'max_size' => '',
 											'mime_types' => '',
+										),
+									),
+									'min' => '',
+									'max' => '',
+								),
+								array (
+									'key' => '58c89e76dc7b7',
+									'name' => '2c_highlighted_content',
+									'label' => 'Highlighted Post/Page',
+									'display' => 'block',
+									'sub_fields' => array (
+										array (
+											'key' => 'field_58c89e8adc7b8',
+											'label' => 'Highlighted Content Type',
+											'name' => '2c_highlighted_content_type',
+											'type' => 'flexible_content',
+											'instructions' => '',
+											'required' => 1,
+											'conditional_logic' => 0,
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'button_label' => 'Add Row',
+											'min' => '',
+											'max' => '',
+											'layouts' => array (
+												array (
+													'key' => '58c89e959b276',
+													'name' => '2c_post_by_category',
+													'label' => 'Post By Category',
+													'display' => 'block',
+													'sub_fields' => array (
+														array (
+															'key' => 'field_58c89ea1dc7b9',
+															'label' => 'Post Category',
+															'name' => '2c_post_category',
+															'type' => 'taxonomy',
+															'instructions' => '',
+															'required' => 0,
+															'conditional_logic' => 0,
+															'wrapper' => array (
+																'width' => '',
+																'class' => '',
+																'id' => '',
+															),
+															'taxonomy' => 'category',
+															'field_type' => 'checkbox',
+															'allow_null' => 1,
+															'add_term' => 0,
+															'save_terms' => 0,
+															'load_terms' => 0,
+															'return_format' => 'id',
+															'multiple' => 0,
+														),
+													),
+													'min' => '',
+													'max' => '',
+												),
+											),
 										),
 									),
 									'min' => '',
@@ -3644,6 +3769,67 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
+								array (
+									'key' => '58c89c94b0968',
+									'name' => '3c_highlighted_content',
+									'label' => 'Highlighted Post/Page',
+									'display' => 'block',
+									'sub_fields' => array (
+										array (
+											'key' => 'field_58c89ca9b0969',
+											'label' => 'Highlighted Content Type',
+											'name' => '3c_highlighted_content_type',
+											'type' => 'flexible_content',
+											'instructions' => '',
+											'required' => 1,
+											'conditional_logic' => 0,
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'button_label' => 'Add Row',
+											'min' => '',
+											'max' => '',
+											'layouts' => array (
+												array (
+													'key' => '58c89cb893135',
+													'name' => '3c_post_by_category',
+													'label' => 'Post By Category',
+													'display' => 'block',
+													'sub_fields' => array (
+														array (
+															'key' => 'field_58c89cd8b096a',
+															'label' => 'Post Category',
+															'name' => '3c_post_category',
+															'type' => 'taxonomy',
+															'instructions' => '',
+															'required' => 0,
+															'conditional_logic' => 0,
+															'wrapper' => array (
+																'width' => '',
+																'class' => '',
+																'id' => '',
+															),
+															'taxonomy' => 'category',
+															'field_type' => 'checkbox',
+															'allow_null' => 1,
+															'add_term' => 0,
+															'save_terms' => 0,
+															'load_terms' => 0,
+															'return_format' => 'id',
+															'multiple' => 0,
+														),
+													),
+													'min' => '',
+													'max' => '',
+												),
+											),
+										),
+									),
+									'min' => '',
+									'max' => '',
+								),
 							),
 						),
 						array (
@@ -3911,6 +4097,67 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
+								array (
+									'key' => '58c89d264162c',
+									'name' => '3c_highlighted_content',
+									'label' => 'Highlighted Post/Page',
+									'display' => 'block',
+									'sub_fields' => array (
+										array (
+											'key' => 'field_58c89d3d4162d',
+											'label' => 'Highlighted Content Type',
+											'name' => '3c_highlighted_content_type',
+											'type' => 'flexible_content',
+											'instructions' => '',
+											'required' => 1,
+											'conditional_logic' => 0,
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'button_label' => 'Add Row',
+											'min' => '',
+											'max' => '',
+											'layouts' => array (
+												array (
+													'key' => '58c89d51197ce',
+													'name' => '3c_post_by_category',
+													'label' => 'Post By Category',
+													'display' => 'block',
+													'sub_fields' => array (
+														array (
+															'key' => 'field_58c89d5a4162e',
+															'label' => 'Post Category',
+															'name' => '3c_post_category',
+															'type' => 'taxonomy',
+															'instructions' => '',
+															'required' => 0,
+															'conditional_logic' => 0,
+															'wrapper' => array (
+																'width' => '',
+																'class' => '',
+																'id' => '',
+															),
+															'taxonomy' => 'category',
+															'field_type' => 'checkbox',
+															'allow_null' => 1,
+															'add_term' => 0,
+															'save_terms' => 0,
+															'load_terms' => 0,
+															'return_format' => 'id',
+															'multiple' => 0,
+														),
+													),
+													'min' => '',
+													'max' => '',
+												),
+											),
+										),
+									),
+									'min' => '',
+									'max' => '',
+								),
 							),
 						),
 					),
@@ -3941,6 +4188,8 @@ acf_add_local_field_group(array (
 	'active' => 1,
 	'description' => '',
 ));
+
+
 
 
 
@@ -5019,6 +5268,11 @@ function wpb_imagelink_setup() {
 }
 
 add_action('admin_init', 'wpb_imagelink_setup', 10);
+
+
+if(is_admin()){
+	include ("email/newsletter.php");
+}
 
 
 /**** Replacing wp-updates.com for my own api ****/

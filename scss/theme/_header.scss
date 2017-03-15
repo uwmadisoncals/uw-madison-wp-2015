@@ -562,6 +562,15 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 							background: transparent !important;
 							border-bottom: 3px solid rgba(255,255,255,0.9);
 						}
+
+						ul.sub-menu, ul.children {
+							li {
+								a:hover, a:active, a:focus {
+									background: rgba(255,255,255,0.2) !important;
+									border-bottom: none;
+								}
+							}
+						}
 					}
 				}
 			}

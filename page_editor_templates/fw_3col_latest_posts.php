@@ -11,7 +11,7 @@
 																																				
 																		<?php while ( $query1->have_posts() ) { $query1->the_post(); ?> 
 																			
-																			<div class="grid-item2col">
+																			<div class="grid-item3col">
 																				
 																			
 																				

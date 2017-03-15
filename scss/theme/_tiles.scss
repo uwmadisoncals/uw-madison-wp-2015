@@ -6,7 +6,7 @@
   margin-left: 4%;
 }
 
-.gridtwocol {
+.gridtwocol, .gridthreecol {
 	margin-top: 4rem;
 	margin-bottom: 4rem;
 }
@@ -30,7 +30,11 @@
 	width: 48%;
 }
 
-.gutter-sizer2col {
+.grid-item3col, .grid-sizer3col {
+	width: 30%;
+}
+
+.gutter-sizer2col, .gutter-sizer3col {
 	width: 4%;
 }
 
@@ -47,6 +51,11 @@
 }
 
 .grid-item2col {
+	min-height: 100px;
+	margin-bottom: 4%;
+}
+
+.grid-item3col {
 	min-height: 100px;
 	margin-bottom: 4%;
 }
@@ -109,7 +118,7 @@
 		display: none;	
 	}
 	
-	.grid-item2col, .grid-item1col {
+	.grid-item2col, .grid-item1col, .grid-item3col {
 		
 		.heroImageContainerSVG {
 		width: 100%;
@@ -545,7 +554,7 @@ border-bottom-left-radius: 4px;
 	}
 	
 	
-	.grid-item2col, .grid-sizer2col, .grid-item1col {
+	.grid-item2col, .grid-sizer2col, .grid-item1col, .grid-item3col {
 		width: 100%;
 	}
 	

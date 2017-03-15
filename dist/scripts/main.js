@@ -2632,12 +2632,34 @@ $(".home .pagePadding .flex-row").first().addClass("top-row");
     }
   });
 
+
+  var $grid3col = $('.gridthreecol').isotope({
+    itemSelector: '.grid-item3col',
+    percentPosition: true,
+    stamp: '.stamp',
+    getSortData: {
+    date: '.numericdate', // text from querySelector
+  	},
+  	sortBy : 'date',
+  	sortAscending: false,
+    masonry: {
+      columnWidth: '.grid-sizer3col',
+      gutter: '.gutter-sizer3col'
+
+    }
+  });
+
   $grid.imagesLoaded().progress( function() {
 	  $grid.isotope('layout');
 	});
 
 	$grid2col.imagesLoaded().progress( function() {
 	  $grid2col.isotope('layout');
+	});
+
+	$grid3col.imagesLoaded().progress( function() {
+		
+	  $grid3col.isotope('layout');
 	});
 
 
@@ -3126,7 +3148,7 @@ $(".home .pagePadding .flex-row").first().addClass("top-row");
  * ----------------------------------------------------------------------------
  */
 function topBlurMeasure() {
-  if($("#page").hasClass("photoHeader") || $("#page").hasClass("transparentHeader")) {
+  if($("#page").hasClass("photoHeader")) {
     if($("body").hasClass("home")){
       var mastheadSize = $("#masthead").height();
       var topBlur = "padding-top:" + (mastheadSize + 30) + "px;";

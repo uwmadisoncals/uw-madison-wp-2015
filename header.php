@@ -319,7 +319,7 @@ var templateUrl = '<?php home_url(); ?>';
 
 										<?php $header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' );
 
-											if($header_style == "photo") {
+											if($header_style != "opaque") {
 										?>
 											<!-- Hybrid Logo / Photo Header Only / Subpages -->
 											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo.svg" class="hybrid">
@@ -674,7 +674,7 @@ var templateUrl = '<?php home_url(); ?>';
 		<?php } else { ?>
 
 		<?php
-			if(is_front_page() || $header_style == "photo") { ?>
+			if(is_front_page() || $header_style != "opaque") { ?>
 				<?php if(is_front_page()) {
 						$args = array( 'post_type' => 'headerslides', 'posts_per_page' => 10 );
 
@@ -754,22 +754,7 @@ var templateUrl = '<?php home_url(); ?>';
 								//$imgurl = wp_get_attachment_image_src( $image, $size ); ?>
 
 								<div class="heroImageIeMask"></div>
-								<!--svg class="heroImageContainerSVG" aria-label="Featured Image" -->
-
-									<!-- Definition of a mask begins -->
-							        <!--<defs>
-							            <mask id="mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
-										    <linearGradient id="g" gradientUnits="objectBoundingBox" x2="0" y2="1">
-										        <stop stop-color="white" stop-opacity="1" offset="0"/>
-										        <stop stop-color="white" stop-opacity="1" offset="0.6"/>
-										        <stop stop-color="white" stop-opacity="0.7" offset="0.9"/>
-										        <stop stop-color="white" stop-opacity="0" offset="1"/>
-										    </linearGradient>
-										    <rect width="100%" height="100%" fill="url(#g)"/>
-										</mask>
-							        </defs>-->
-
-									<!--foreignObject width="100%" height="100%" style="mask: url(#mask); "-->
+							
 
 								<?php
 									$video = get_field('hero_video');
@@ -793,8 +778,6 @@ var templateUrl = '<?php home_url(); ?>';
 									<?php } ?>
 
 
-								<!--/foreignObject -->
-							<!--/svg -->
 
 
 
@@ -875,10 +858,9 @@ var templateUrl = '<?php home_url(); ?>';
 									<?php } ?>
 
 
-								<!--/foreignObject -->
-							<!--/svg -->
+								
 
-								<?php if($header_style == "photo") { ?>
+								<?php if($header_style != "opaque") { ?>
 
 
 									<?php
@@ -972,25 +954,7 @@ var templateUrl = '<?php home_url(); ?>';
 								<?php } ?>
 
 							<?php } else { ?>
-								<!--svg class="heroImageContainerSVG" aria-label="Featured Image">
-
-									<!-- Definition of a mask begins ->
-							        <defs>
-							            <mask id="mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
-										    <linearGradient id="g" gradientUnits="objectBoundingBox" x2="0" y2="1">
-										        <stop stop-color="white" stop-opacity="1" offset="0"/>
-										        <stop stop-color="white" stop-opacity="1" offset="0.6"/>
-										        <stop stop-color="white" stop-opacity="0.7" offset="0.9"/>
-										        <stop stop-color="white" stop-opacity="0" offset="1"/>
-										    </linearGradient>
-										    <rect width="100%" height="100%" fill="url(#g)"/>
-										</mask>
-							        </defs>
-
-									<foreignObject width="100%" height="100%" style="mask: url(#mask); ">
-									<div class="heroImageBlur"><div class="heroImageBlurInner heroImageDefault"></div></div>
-									</foreignObject>
-								</svg -->
+							
 
 									<div class="heroImage heroImageDefault">
 										<div class="heroOverlay"></div>
@@ -1005,25 +969,7 @@ var templateUrl = '<?php home_url(); ?>';
 					<?php endwhile; ?>
 					</div>
 					<?php } else { ?>
-								<!--svg class="heroImageContainerSVG" aria-label="Featured Image">
-
-									<!-- Definition of a mask begins ->
-							        <defs>
-							            <mask id="mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
-										    <linearGradient id="g" gradientUnits="objectBoundingBox" x2="0" y2="1">
-										        <stop stop-color="white" stop-opacity="1" offset="0"/>
-										        <stop stop-color="white" stop-opacity="1" offset="0.6"/>
-										        <stop stop-color="white" stop-opacity="0.7" offset="0.9"/>
-										        <stop stop-color="white" stop-opacity="0" offset="1"/>
-										    </linearGradient>
-										    <rect width="100%" height="100%" fill="url(#g)"/>
-										</mask>
-							        </defs>
-
-									<foreignObject width="100%" height="100%" style="mask: url(#mask); ">
-										<div class="heroImageBlur"><div class="heroImageBlurInner heroImageDefault"></div></div>
-									</foreignObject>
-								</svg -->
+								
 
 								<div class="heroImage heroImageDefault">
 									<div class="heroOverlay"></div>
