@@ -90,6 +90,12 @@
 
 
 																								  <?php the_post_thumbnail('medium'); ?>
+
+																								  <?php } else if(catch_that_thumbnail()) { ?>
+
+                                                                                                  <div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo catch_that_thumbnail(); ?>); background-size: cover; background-position: center center; "></div></div>
+                                                                                                  <img alt=" " src="<?php echo catch_that_thumbnail(); ?>">
+																								  
 																							<?php } 
 																								else{ ?>
 																								
