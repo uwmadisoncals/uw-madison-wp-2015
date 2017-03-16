@@ -1,5 +1,12 @@
 <?php $terms = get_sub_field('2c_post_category'); 
 																	$categories = 0;
+
+                                                                    $offset = 0;
+                                                                    $offsettest = get_sub_field('post_offset');
+
+                                                                    if($offsettest) {
+                                                                        $offset = $offsettest;
+                                                                    }
 																	
 																	if( $terms ): ?>
 																	
@@ -17,7 +24,7 @@
 																	//$numofposts = get_sub_field('fw_cat_number_of_posts');
 																	
 																	// The Query
-																	$query1 = new WP_Query( array( 'posts_per_page' => 1, 'cat' => $categories ) );
+																	$query1 = new WP_Query( array( 'posts_per_page' => 1, 'offset' => $offset, 'cat' => $categories ) );
 																	
 																	if ( $query1->have_posts() ) {
 																		// The Loop
@@ -100,8 +107,12 @@
 																							<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php the_post_thumbnail_url('medium') ?>); background-size: cover; background-position: center center; "></div></div>
 
 																								  <?php the_post_thumbnail('medium'); ?>
-																							<?php } 
-																								else{ ?>
+                                                                                                <?php } else if(catch_that_thumbnail()) { ?>
+
+                                                                                                  <div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo catch_that_thumbnail(); ?>); background-size: cover; background-position: center center; "></div></div>
+                                                                                                  <img alt=" " src="<?php echo catch_that_thumbnail(); ?>">
+																								  
+																							<?php } else { ?>
 																								
 														<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg); background-size: cover; background-position: center center; "></div></div>
 

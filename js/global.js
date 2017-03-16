@@ -237,12 +237,12 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
 setTimeout(function() {
 
 $('.primaryTitle').textfill({ maxFontPixels: 26 });
-$(".mainTitle").textfill({maxFontPixels: 12 });
+$(".subTitle").textfill({maxFontPixels: 12 });
 },100);
 
 $(window).resize(function() {
 	$('.primaryTitle').textfill({ maxFontPixels: 26 });
-	$(".mainTitle").textfill({maxFontPixels: 12 });
+	$(".subTitle").textfill({maxFontPixels: 12 });
 });
 
 

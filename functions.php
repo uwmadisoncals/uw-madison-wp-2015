@@ -2139,6 +2139,29 @@ acf_add_local_field_group(array (
 															'readonly' => 0,
 															'disabled' => 0,
 														),
+														array (
+															'key' => 'field_58caa779b9d79',
+															'label' => 'Offset',
+															'name' => 'post_offset',
+															'type' => 'number',
+															'instructions' => '',
+															'required' => '',
+															'conditional_logic' => '',
+															'wrapper' => array (
+																'width' => '',
+																'class' => '',
+																'id' => '',
+															),
+															'default_value' => 0,
+															'placeholder' => '',
+															'prepend' => '',
+															'append' => '',
+															'min' => '',
+															'max' => '',
+															'step' => '',
+															'readonly' => 0,
+															'disabled' => 0,
+														),
 													),
 													'min' => '',
 													'max' => '',
@@ -2712,6 +2735,29 @@ acf_add_local_field_group(array (
 															'return_format' => 'id',
 															'multiple' => 0,
 														),
+														array (
+															'key' => 'field_58caa53246dbb',
+															'label' => 'Offset',
+															'name' => 'post_offset',
+															'type' => 'number',
+															'instructions' => 'If you want to not pull the latest post choose a number to offset. For example: 2 would pull the third from the latest post.',
+															'required' => '',
+															'conditional_logic' => '',
+															'wrapper' => array (
+																'width' => '',
+																'class' => '',
+																'id' => '',
+															),
+															'default_value' => 0,
+															'placeholder' => '',
+															'prepend' => '',
+															'append' => '',
+															'min' => '',
+															'max' => '',
+															'step' => '',
+															'readonly' => 0,
+															'disabled' => 0,
+														),
 													),
 													'min' => '',
 													'max' => '',
@@ -3039,6 +3085,29 @@ acf_add_local_field_group(array (
 															'load_terms' => 0,
 															'return_format' => 'id',
 															'multiple' => 0,
+														),
+														array (
+															'key' => 'field_58caa51546dba',
+															'label' => 'Offset',
+															'name' => 'post_offset',
+															'type' => 'number',
+															'instructions' => 'If you want to not pull the latest post choose a number to offset. For example: 2 would pull the third from the latest post.',
+															'required' => '',
+															'conditional_logic' => '',
+															'wrapper' => array (
+																'width' => '',
+																'class' => '',
+																'id' => '',
+															),
+															'default_value' => 0,
+															'placeholder' => '',
+															'prepend' => '',
+															'append' => '',
+															'min' => '',
+															'max' => '',
+															'step' => '',
+															'readonly' => 0,
+															'disabled' => 0,
 														),
 													),
 													'min' => '',
@@ -3492,6 +3561,29 @@ acf_add_local_field_group(array (
 															'return_format' => 'id',
 															'multiple' => 0,
 														),
+														array (
+															'key' => 'field_58caa4f546db9',
+															'label' => 'Offset',
+															'name' => 'post_offset',
+															'type' => 'number',
+															'instructions' => 'If you want to not pull the latest post choose a number to offset. For example: 2 would pull the third from the latest post.',
+															'required' => '',
+															'conditional_logic' => '',
+															'wrapper' => array (
+																'width' => '',
+																'class' => '',
+																'id' => '',
+															),
+															'default_value' => 0,
+															'placeholder' => '',
+															'prepend' => '',
+															'append' => '',
+															'min' => '',
+															'max' => '',
+															'step' => '',
+															'readonly' => 0,
+															'disabled' => 0,
+														),
 													),
 													'min' => '',
 													'max' => '',
@@ -3819,6 +3911,29 @@ acf_add_local_field_group(array (
 															'load_terms' => 0,
 															'return_format' => 'id',
 															'multiple' => 0,
+														),
+														array (
+															'key' => 'field_58caa4cf46db8',
+															'label' => 'Offset',
+															'name' => 'post_offset',
+															'type' => 'number',
+															'instructions' => 'If you want to not pull the latest post choose a number to offset. For example: 2 would pull the third from the latest post.',
+															'required' => '',
+															'conditional_logic' => '',
+															'wrapper' => array (
+																'width' => '',
+																'class' => '',
+																'id' => '',
+															),
+															'default_value' => 0,
+															'placeholder' => '',
+															'prepend' => '',
+															'append' => '',
+															'min' => '',
+															'max' => '',
+															'step' => '',
+															'readonly' => 0,
+															'disabled' => 0,
 														),
 													),
 													'min' => '',
@@ -4148,6 +4263,29 @@ acf_add_local_field_group(array (
 															'return_format' => 'id',
 															'multiple' => 0,
 														),
+														array (
+															'key' => 'field_58caa46246db7',
+															'label' => 'Offset',
+															'name' => 'post_offset',
+															'type' => 'number',
+															'instructions' => 'If you want to not pull the latest post choose a number to offset. For example: 2 would pull the third from the latest post.',
+															'required' => '',
+															'conditional_logic' => '',
+															'wrapper' => array (
+																'width' => '',
+																'class' => '',
+																'id' => '',
+															),
+															'default_value' => 0,
+															'placeholder' => '',
+															'prepend' => '',
+															'append' => '',
+															'min' => '',
+															'max' => '',
+															'step' => '',
+															'readonly' => 0,
+															'disabled' => 0,
+														),
 													),
 													'min' => '',
 													'max' => '',
@@ -4188,7 +4326,6 @@ acf_add_local_field_group(array (
 	'active' => 1,
 	'description' => '',
 ));
-
 
 
 
@@ -5253,6 +5390,47 @@ add_action( 'init', 'wpcodex_add_excerpt_support_for_pages' );
   return $init;
 }
 add_filter('tiny_mce_before_init', 'customformatTinyMCE' );
+
+/**
+ *  Find featured image functionality
+ * ----------------------------------------------------------------------------
+ */
+function catch_that_thumbnail() {
+  global $post, $posts;
+  $first_img = '';
+  $first_vid = '';
+  
+  ob_start();
+  ob_end_clean();
+  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $imgmatches);
+  $output = preg_match('/<iframe.*src=\"(.*)\".*><\/iframe>/isU', $post->post_content, $vidmatches);
+
+  if($imgmatches[1]) {
+	  $first_img = $imgmatches[1][0];
+  }
+  
+
+  if($vidmatches) {
+  	$first_vid = $vidmatches[1];
+  }
+
+  if(empty($first_img) && empty($first_vid)) {
+    
+    
+    return false;
+  }  else {
+	
+	if(empty($first_vid)) {
+		
+		return $first_img;
+	} else {
+		return $first_vid;
+	}
+	
+	
+  }
+  
+}
 
 
 /**

@@ -374,9 +374,9 @@ var templateUrl = '<?php home_url(); ?>';
 
 							<?php $taglinelocation = get_theme_mod('uw-madison-wp-2015_tagline_location_id');
 								if($taglinelocation == "above") { ?>
-									<div class="mainTitle tagAbove"><span><?php bloginfo( 'description' ); ?></span><div class="primaryTitle"><span><?php bloginfo( 'name' ); ?><span></div></div></a></div>
+									<div class="mainTitle tagAbove"><div class="subTitle"><span><?php bloginfo( 'description' ); ?></span></div><div class="primaryTitle"><span><?php bloginfo( 'name' ); ?><span></div></div></a></div>
 								<?php } else { ?>
-							<div class="mainTitle"><div class="primaryTitle"><span><?php bloginfo( 'name' ); ?></span></div><span><?php bloginfo( 'description' ); ?></span></div></a></div>
+							<div class="mainTitle"><div class="primaryTitle"><span><?php bloginfo( 'name' ); ?></span></div><div class="subTitle"><span><?php bloginfo( 'description' ); ?></span></div></div></a></div>
 
 							<?php } ?>
 

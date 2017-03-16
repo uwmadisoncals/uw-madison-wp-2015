@@ -1,5 +1,11 @@
-<?php $terms = get_sub_field('fw_highlighted_category');
+<?php $terms = get_sub_field('fw_highlighted_category'); 
 																	$categories = 0;
+                                                                    $offset = 0;
+                                                                    $offsettest = get_sub_field('post_offset');
+
+                                                                    if($offsettest) {
+                                                                        $offset = $offsettest;
+                                                                    }
 																	
 																	if( $terms ): ?>
 																	
@@ -19,7 +25,7 @@
 																	$numofposts = get_sub_field('fw_cat_number_of_posts');
 																	
 																	// The Query
-																	$query1 = new WP_Query( array( 'posts_per_page' => $numofposts, 'cat' => $categories ) );
+																	$query1 = new WP_Query( array( 'posts_per_page' => $numofposts, 'offset' => $offset, 'cat' => $categories ) );
 																	
 																	if ( $query1->have_posts() ) {
 																		// The Loop
