@@ -12,7 +12,8 @@
 																		<?php while ( $query1->have_posts() ) { $query1->the_post(); ?> 
 																			
 																			<div class="grid-item3col">
-																				<?php if( !has_post_thumbnail() && !catch_that_thumbnail() ) { 
+																			<script>console.log('<?php echo catch_that_thumbnail() ?>');</script>
+																				<?php if( !has_post_thumbnail() && catch_that_thumbnail() == false ) { 
 																					$thumb = "noThumb";
 																			  } ?>
 																			

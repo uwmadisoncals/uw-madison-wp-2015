@@ -965,6 +965,16 @@ $(".home .pagePadding .flex-row").first().addClass("top-row");
   var lastScrollLeft = 0;
   var scrollTimeout;
 
+
+  /*$(window).load(function() {
+	$(".tiltWrapper").each(function() {
+		var img = $(this).find('img');
+		if(!img) {
+			$(this).addClass("noThumb");
+		}
+	});
+  });*/
+
   /*$(window).scroll(function() {
 
     var st = $(this).scrollTop();
