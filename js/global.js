@@ -966,14 +966,16 @@ $(".home .pagePadding .flex-row").first().addClass("top-row");
   var scrollTimeout;
 
 
-  /*$(window).load(function() {
-	$(".thumbCheck").each(function() {
-		if($(this).hasClass('noThumb')) {
+  $(window).load(function() {
+	$(".tiltWrapper").each(function() {
+		if($(this).find(".thumbCheck").hasClass("noThumb")) {
 			$(this).closest('.tiltWrapper').addClass("noThumb");
+		} else {
+			$(this).closest('.tiltWrapper').removeClass("noThumb");
 		}
 		
 	});
-  });*/
+  });
 
   /*$(window).scroll(function() {
 
