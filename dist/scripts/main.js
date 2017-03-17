@@ -2815,11 +2815,11 @@ $(".home .pagePadding .flex-row").first().addClass("top-row");
 
 
   /*$(window).load(function() {
-	$(".tiltWrapper").each(function() {
-		var img = $(this).find('img');
-		if(!img) {
-			$(this).addClass("noThumb");
+	$(".thumbCheck").each(function() {
+		if($(this).hasClass('noThumb')) {
+			$(this).closest('.tiltWrapper').addClass("noThumb");
 		}
+		
 	});
   });*/
 

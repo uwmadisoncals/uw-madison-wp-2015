@@ -11,20 +11,14 @@
 																																				
 																		<?php while ( $query1->have_posts() ) { $query1->the_post(); ?> 
 																			
+																			<?php if(catch_that_thumbnail() || has_post_thumbnail()) { $thumbnail = true; } else { $thumbnail = false; $thumbcss = "noThumb"; } ?>
 																			<div class="grid-item3col">
 																			
 																				
 
-																			  <?php if ( has_post_thumbnail() ) { 
-
-																				  } else if(catch_that_thumbnail()) {
-
-																				  } else  {
-																					  $thumb = "noThumb";
-																				  } ?>
 																			
 																				
-																			<div class="tiltWrapper custom custom2col <?php echo $thumb ?>" data-maxangle="3" data-tiltdepth="70">
+																			<div class="tiltWrapper custom custom2col <?php echo $thumbcss ?>" data-maxangle="3" data-tiltdepth="70">
 		  
 																				<a href="<?php the_permalink(); ?>" class="tiltAction"><?php the_title(); ?></a>
 																				
@@ -111,7 +105,7 @@
 																								  
 																							<?php } 
 																								else{ ?>
-																								
+																									<div class="thumbCheck noThumb"></div>
 														<!--<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg); background-size: cover; background-position: center center; "></div></div>
 																									<img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg">-->
 																								<?php }
@@ -122,7 +116,7 @@
 																							
 																						</div>
 																			
-																					<?php if( !has_post_thumbnail() && !catch_that_thumbnail() ) { ?> 
+																					<?php if( $thumbnail == false ) { ?> 
 																						
 																					<div class="textContent">
 																					<div>
