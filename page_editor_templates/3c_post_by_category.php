@@ -149,7 +149,7 @@
 																								<div class="numericdate"><?php the_time('Ymd'); ?></div>
 																								<h2><?php the_title(); ?></h2>
 																								<div class="author">By <?php the_author(); ?></div>
-																								<div class="excerpt"><?php the_excerpt(); ?></div>
+																								
 																								
 																																									
 																								
