@@ -729,7 +729,7 @@ var templateUrl = '<?php home_url(); ?>';
 						<?php } ?>
 
 						<?php $herosource = get_field('content_source'); ?>
-							<script>alert(<?php echo $herosource; ?>);</script>
+							
 							<?php if($herosource == "latestpost") {
 								//Latest Post Slide
 
