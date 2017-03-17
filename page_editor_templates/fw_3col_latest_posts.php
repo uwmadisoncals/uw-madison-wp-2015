@@ -12,10 +12,16 @@
 																		<?php while ( $query1->have_posts() ) { $query1->the_post(); ?> 
 																			
 																			<div class="grid-item3col">
-																			<script>console.log('<?php echo catch_that_thumbnail() ?>');</script>
-																				<?php if( !has_post_thumbnail() && catch_that_thumbnail() == false ) { 
-																					$thumb = "noThumb";
-																			  } ?>
+																			
+																				
+
+																			  <?php if ( has_post_thumbnail() ) { 
+
+																				  } else if(catch_that_thumbnail()) {
+
+																				  } else  {
+																					  $thumb = "noThumb";
+																				  } ?>
 																			
 																				
 																			<div class="tiltWrapper custom custom2col <?php echo $thumb ?>" data-maxangle="3" data-tiltdepth="70">
