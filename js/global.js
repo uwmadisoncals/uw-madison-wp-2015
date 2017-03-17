@@ -975,6 +975,19 @@ $(".home .pagePadding .flex-row").first().addClass("top-row");
 		}
 		
 	});
+
+	$grid.imagesLoaded().progress( function() {
+	  $grid.isotope('layout');
+	});
+
+	$grid2col.imagesLoaded().progress( function() {
+	  $grid2col.isotope('layout');
+	});
+
+	$grid3col.imagesLoaded().progress( function() {
+		
+	  $grid3col.isotope('layout');
+	});
   });
 
   /*$(window).scroll(function() {
