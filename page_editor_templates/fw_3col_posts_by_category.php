@@ -33,8 +33,13 @@
 																			<div class="grid-item3col">
 																				
 																			
+																					
+
+																			 <?php if( !has_post_thumbnail() && !catch_that_thumbnail() ) { 
+																					$thumb = "noThumb";
+																			  } ?>
 																				
-																			<div class="tiltWrapper custom custom2col" data-maxangle="3" data-tiltdepth="70">
+																			<div class="tiltWrapper custom custom2col <?php echo $thumb ?>" data-maxangle="3" data-tiltdepth="70">
 		  
 																				<a href="<?php the_permalink(); ?>" class="tiltAction"><?php the_title(); ?></a>
 																				
@@ -121,9 +126,9 @@
 																							<?php } 
 																								else{ ?>
 																								
-														<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg); background-size: cover; background-position: center center; "></div></div>
+														<!--<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg); background-size: cover; background-position: center center; "></div></div>
 
-																									<img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg">
+																									<img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg">-->
 																								<?php }
 																							?>
 																							
@@ -131,9 +136,8 @@
 																							
 																							
 																						</div>
-																			
+																			<?php if( !has_post_thumbnail() && !catch_that_thumbnail() ) { ?> 
 																						
-																					</div>
 																					<div class="textContent">
 																					<div>
 																						<div class="middleImageSample">
@@ -141,7 +145,40 @@
 																								<div class="dateposted"><?php the_time('M') ?> <?php the_time('jS') ?></div>
 																								<div class="numericdate"><?php the_time('Ymd'); ?></div>
 																								<h2><?php the_title(); ?></h2>
-																								<div class="author">By <?php the_author(); ?></div>
+																								<div class="author">By 
+																								<?php if(get_field('written_by')) { ?>
+																										<?php the_field('written_by'); ?>
+																								<?php } else { ?>
+																										<?php the_author(); ?>
+																								<?php } ?>
+																								
+																								</div>
+																								<div class="excerpt"><?php the_excerpt(); ?></div>
+																																									
+																								
+																							</div>
+																							
+																						</div>
+																					</div>
+																					</div>
+																				</div>
+																			  <?php } else { ?>
+																			  			</div>
+																					<div class="textContent">
+																					<div>
+																						<div class="middleImageSample">
+																							<div class="whiteContent">
+																								<div class="dateposted"><?php the_time('M') ?> <?php the_time('jS') ?></div>
+																								<div class="numericdate"><?php the_time('Ymd'); ?></div>
+																								<h2><?php the_title(); ?></h2>
+																								<div class="author">By 
+																								<?php if(get_field('written_by')) { ?>
+																										<?php the_field('written_by'); ?>
+																								<?php } else { ?>
+																										<?php the_author(); ?>
+																								<?php } ?>
+																								
+																								</div>
 																								
 																																									
 																								
@@ -150,6 +187,9 @@
 																						</div>
 																					</div>
 																				</div>
+																			  <?php } ?>
+																						
+																					
 																				</div>
 																				
 																			</div>

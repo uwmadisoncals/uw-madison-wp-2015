@@ -128,7 +128,7 @@
 																								<div class="numericdate"><?php the_time('Ymd'); ?></div>
 																								<h2><?php the_title(); ?></h2>
 																								<div><?php the_excerpt(); ?></div>
-																								<div class="author"><?php the_author(); ?></div>
+																								
 																																									
 																								
 																							</div>

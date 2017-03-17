@@ -329,7 +329,7 @@ var remotecount = 0;
 																	$( '#quote-source' ).text( '' );
 																	}
 																},
-																cache: false
+																cache: true
 																} );
 
 

@@ -62,7 +62,7 @@ function ecals_mail_3_options(){
                 <strong>Date Range:</strong> <input id="start" name="start" type="text" size="10" maxlength="12" value="<?php echo $start_date?>"/> to <input id="end" name="end" type="text" size="10" maxlength="12" value="<?php echo $end_date?>"/>
                 <span class="submit">
 
-                    <input name="resubmit" value="Resubmit eCALS Newsletter draft to al.nemec@wisc.edu" type="submit">
+                    <input name="resubmit" value="Resubmit eCALS Newsletter draft to ecals@cals.wisc.edu and al.nemec@wisc.edu" type="submit">
                 </span>
                     <input type="hidden" name="ecals_noncename" id="ecals_noncename" value="
   <?php wp_create_nonce( plugin_basename(__FILE__) );?>" />
@@ -105,7 +105,7 @@ function ecals_mail_3(){
 
 	//setup email
 
-	$to ='al.nemec@wisc.edu';
+	$to ='ecals@cals.wisc.edu, al.nemec@wisc.edu';
 	$subject ="eCALS Newsletter - ".date("F d Y", time());
 
 	$boundary = uniqid('np');
