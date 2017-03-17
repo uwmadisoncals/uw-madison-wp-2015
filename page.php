@@ -264,6 +264,28 @@ get_header(); ?>
 													<div class="flex-item flex-leftCol">
 												<?php while ( have_rows('2c_5050_left_column') ) : the_row();
 
+												
+												if( get_row_layout() == 'remote_wp_content' ) {
+													$url = get_sub_field('source_url');
+													$numposts = get_sub_field('number_of_posts');
+													$numposts = $numposts + 1;
+													$requesturi = $url."/wp-json/wp/v2/posts?per_page=".$numposts;
+													
+													?>
+													
+
+													<div class="remoteContent" data-remoteurl="<?php echo $requesturi ?>"></div>
+													
+													
+														
+													
+
+
+													
+													
+
+												<?php }
+
 												if( get_row_layout() == '2c_highlighted_content' ) {
 														 if(have_rows("2c_highlighted_content_type")) { ?>
 														
@@ -482,12 +504,13 @@ get_header(); ?>
 											<?php if( have_rows('3c_5050_left_column') ) { ?>
 													<div class="flex-item flex-leftCol">
 												<?php while ( have_rows('3c_5050_left_column') ) : the_row();
-
+													$columnstyle = "";
+													$columnstyle = get_sub_field('highlighted_content_style'); 
 
 													if( get_row_layout() == '3c_highlighted_content' ) {
 														 if(have_rows("3c_highlighted_content_type")) { ?>
-														
-														 	<div class="gridonecol gridstyle2">
+														 	
+														 	<div class="gridonecol gridstyle2 <?php echo $columnstyle ?>">
 															 	
 	
 															  <div class="grid-sizer2col"></div>
@@ -595,12 +618,13 @@ get_header(); ?>
 										</svg>
 									</div>
 												<?php while ( have_rows('3c_5050_middle_column') ) : the_row();
-
+												$columnstyle = "";
+												$columnstyle = get_sub_field('highlighted_content_style');
 
 												if( get_row_layout() == '3c_highlighted_content' ) {
 														 if(have_rows("3c_highlighted_content_type")) { ?>
 														
-														 	<div class="gridonecol gridstyle2">
+														 	<div class="gridonecol gridstyle2 <?php echo $columnstyle ?>">
 															 	
 	
 															  <div class="grid-sizer2col"></div>
@@ -710,11 +734,12 @@ get_header(); ?>
 										</svg>
 									</div>
 												<?php while ( have_rows('3c_5050_right_column') ) : the_row();
-
+												$columnstyle = "";
+												$columnstyle = get_sub_field('highlighted_content_style');
 												if( get_row_layout() == '3c_highlighted_content' ) {
 														 if(have_rows("3c_highlighted_content_type")) { ?>
 														
-														 	<div class="gridonecol gridstyle2">
+														 	<div class="gridonecol gridstyle2 <?php echo $columnstyle ?>">
 															 	
 	
 															  <div class="grid-sizer2col"></div>

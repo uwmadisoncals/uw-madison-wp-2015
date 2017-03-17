@@ -100,7 +100,7 @@
 																						</div>
 																						
 																						
-																							
+																							<div class="heroGradient"></div>
 																							<?php if ( has_post_thumbnail() ) { 
 																								
 																			
@@ -112,7 +112,11 @@
                                                                                                   <?php } else if(catch_that_thumbnail()) { ?>
 
                                                                                                   <div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo catch_that_thumbnail(); ?>); background-size: cover; background-position: center center; "></div></div>
-                                                                                                  <img alt=" " src="<?php echo catch_that_thumbnail(); ?>">
+                                                                                                  <?php if($columnstyle == "fixedheight") { ?>
+																									<div class="heroImageFixedHeight" data-imgurl="<?php echo catch_that_thumbnail(); ?>" style="background-image: url(<?php echo catch_that_thumbnail(); ?>); background-size: cover; background-position: center center; "></div>
+																								<?php } else { ?>
+																								  <img alt=" " src="<?php echo catch_that_thumbnail(); ?>">
+																								  <?php } ?>
 																								  
 																							<?php } 
 																								else{ ?>
@@ -137,7 +141,7 @@
 																								<div class="dateposted"><?php the_time('M') ?> <?php the_time('jS') ?></div>
 																								<div class="numericdate"><?php the_time('Ymd'); ?></div>
 																								<h2><?php the_title(); ?></h2>
-																								
+																								<div class="author">By <?php the_author(); ?></div>
 																								
 																																									
 																								

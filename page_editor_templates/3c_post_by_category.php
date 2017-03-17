@@ -98,27 +98,39 @@
 																	
 																						</div>
 																						
-																						
+																						<div class="heroGradient"></div>
 																							
 																							<?php if ( has_post_thumbnail() ) { 
 																								
 																			
 																							?>
 																							<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php the_post_thumbnail_url('medium') ?>); background-size: cover; background-position: center center; "></div></div>
-
+																								<?php if($columnstyle == "fixedheight") { ?>
+																									<div class="heroImageFixedHeight" data-imgurl="<?php the_post_thumbnail_url('medium') ?>" style="background-image: url(<?php the_post_thumbnail_url('medium') ?>); background-size: cover; background-position: center center; "></div>
+																								<?php } else { ?>
 																								  <?php the_post_thumbnail('medium'); ?>
+
+																								  <?php } ?>
 
 																							<?php } else if(catch_that_thumbnail()) { ?>
 
                                                                                                   <div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo catch_that_thumbnail(); ?>); background-size: cover; background-position: center center; "></div></div>
-                                                                                                  <img alt=" " src="<?php echo catch_that_thumbnail(); ?>">
+                                                                                                  
+																								  <?php if($columnstyle == "fixedheight") { ?>
+																									<div class="heroImageFixedHeight" data-imgurl="<?php echo catch_that_thumbnail(); ?>" style="background-image: url(<?php echo catch_that_thumbnail(); ?>); background-size: cover; background-position: center center; "></div>
+																								<?php } else { ?>
+																								  <img alt=" " src="<?php echo catch_that_thumbnail(); ?>">
+																								  <?php } ?>
 																								  
 																							<?php } 
 																								else{ ?>
 																								
 														<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg); background-size: cover; background-position: center center; "></div></div>
-
+																									<?php if($columnstyle == "fixedheight") { ?>
+																									<div class="heroImageFixedHeight" data-imgurl="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg); background-size: cover; background-position: center center; "></div>
+																								<?php } else { ?>
 																									<img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg">
+																									<?php } ?>
 																								<?php }
 																							?>
 																							
@@ -136,7 +148,8 @@
 																								<div class="dateposted"><?php the_time('M') ?> <?php the_time('jS') ?></div>
 																								<div class="numericdate"><?php the_time('Ymd'); ?></div>
 																								<h2><?php the_title(); ?></h2>
-																								
+																								<div class="author">By <?php the_author(); ?></div>
+																								<div class="excerpt"><?php the_excerpt(); ?></div>
 																								
 																																									
 																								

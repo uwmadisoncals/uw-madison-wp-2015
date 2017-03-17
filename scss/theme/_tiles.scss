@@ -107,7 +107,7 @@
 		z-index:1;
 	}
 
-.Safari .gridstyle2 .grid-item2col .textContent, .Safari .gridstyle2 .grid-item1col .textContent {
+.Safari .gridstyle2 .textContent, .Safari .gridstyle2 .textContent {
 	transform: translateZ(20px);
 }
 	
@@ -129,6 +129,28 @@
 		bottom: 0px;
 		z-index:2;
 		
+	}
+
+	.heroImageFixedHeight {
+			height: 250px;
+			width: 100%;
+		}
+
+	.heroGradient {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
+background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+		z-index:3;
+		border-radius: 4px;
+		overflow: hidden;
+		width: 100%;
 	}
 		
 	.heroImageBlur {
@@ -157,6 +179,8 @@ border-bottom-left-radius: 4px;
 			}
 			
 		}
+
+
 		
 		
 		.heroImageBlurInner {
@@ -187,6 +211,8 @@ border-bottom-left-radius: 4px;
 		
 
 		}
+
+		
 
 		.heroImageBlurInnerAlt {
 			
@@ -226,9 +252,10 @@ border-bottom-left-radius: 4px;
 			
 			h2 {
 				margin-top: 0px;
+				margin-bottom: 0px;
 				font-weight: 700;
 				color: #fff;
-				font-size: 1.7rem;
+				font-size: 1.4rem;
 				letter-spacing: 0.7px;
 				text-shadow: 0px 4px 20px rgba(0,0,0,0.4);
 			}
@@ -240,11 +267,22 @@ border-bottom-left-radius: 4px;
 				color: rgba(255,255,255,0.4);
 				text-shadow: 0px 4px 20px rgba(0,0,0,0.4);
 			}
+
+			.author {
+				font-size: 0.9rem;
+				margin-top: 0.3rem;
+				
+
+			}
+
+			.excerpt {
+				margin-top: 0.8rem;
+			}
 			
 			p {
-				font-size: 1.1rem;
+				font-size: 1rem;
 				text-shadow: 0px 4px 35px rgba(0,0,0,0.7);
-				color: rgba(255,255,255,0.8);
+				color: rgba(255,255,255,0.6);
 				margin-bottom: 0px;
 				line-height: 1.2;
 			}

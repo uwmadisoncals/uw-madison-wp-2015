@@ -617,6 +617,60 @@ $(window).on("load", function() {
 			  cors = false;
 			}
 		
+   $(".gridstyle2 .tiltWrapper").each(function() {
+		var griditem = $(this);
+		
+			
+			var img = $(this).find("img");
+			img.crossOrigin = 'Anonymous';
+
+			
+			var imgC = img[0];
+			
+			if(imgC) {
+				var imgSrc = imgC.getAttribute("src");
+				//console.log("normal: " + imgSrc);
+			} else {
+				var imgSrc = $(this).find(".heroImageFixedHeight").attr("data-imgurl");
+				//console.log("background: " + imgSrc);
+			}
+			
+			
+
+			var imgN = new Image();
+
+			imgN.crossOrigin = 'Anonymous';
+			imgN.src = imgSrc;
+			//console.log(imgN);
+			imgN.onload = function () {
+				//console.log("blah");
+			 	var colorThief = new ColorThief();
+			 	var color = colorThief.getColor(imgN);
+
+				 var brighter = 100;
+				
+				var color1 = color[0] + brighter;
+				if(color1 > 255) { color1 = 255; }
+
+				var color2 = color[1] + brighter;
+				if(color2 > 255) { color2 = 255; }
+
+				var color3 = color[2] + brighter;
+				if(color3 > 255) { color3 = 255; }
+
+
+			 	var newColor = "rgba(" + color1 + ", " +color2+ ", " +color3+ ", 1.0)";
+				 var newShadow = "0px 18px 65px rgba(" + color1 + ", " +color2+ ", " +color3+ ", 0.5)"
+				 /*console.log("test");
+				console.log(newColor);*/
+				
+			 	$(griditem).find(".author").css("color",newColor);
+				$(griditem).find(".tiltPanel .level1").css("box-shadow", newShadow);
+			}
+			
+			
+   });
+
 	if($("#page").hasClass("tiledPosts")) {
 		$(".grid-item").each(function() {
 
@@ -2070,6 +2124,65 @@ FastClick.attach(document.body);
 	$(this).removeClass("pressed");
  });
 
+
+/**
+ * ----------------------------------------------------------------------------
+ *
+ *  Remote Content scripting
+ *
+ * ----------------------------------------------------------------------------
+ */
+
+var remotecount = 0;
+
+															$(".remoteContent").each(function() {
+																remotecount = remotecount + 1;
+																
+																var remoteelem = "remotelocation"+remotecount;
+																$(this).addClass(remoteelem);
+																var remoteurl = $(this).attr("data-remoteurl");
+																//console.log(remoteelem);
+															
+																$.ajax( {
+																url: remoteurl,
+																success: function ( data ) {
+																	var post = data.shift(); // The data is an array of posts. Grab the first one.
+																	//console.log(data);
+
+																	$(data).each(function() {
+																		//console.log(this.title.rendered);
+
+																		var postdate = new Date(this.date);
+																		
+
+																		var newrow = "<div class='row'><a href='";
+																		newrow = newrow + this.link;
+																		newrow = newrow + "'>"+this.title.rendered+"</a>";
+																		
+																		newrow = newrow + "<p>" + this.excerpt.rendered + "</p>";
+																		
+																		newrow = newrow + "<div class='date'>" + (postdate.getMonth() + 1) + '/' + postdate.getDate() + '/' +  postdate.getFullYear() + "</div>";
+																		$("."+remoteelem).append(newrow);
+									
+																	});
+
+																	$(".remotePost").attr("href", post.link);
+																	$( '.remotePost #quote-title' ).text( post.title.rendered );
+																	$( '#quote-content' ).html( post.excerpt.rendered );
+
+																	// If the Source is available, use it. Otherwise hide it.
+																	if ( typeof post.custom_meta !== 'undefined' && typeof post.custom_meta.Source !== 'undefined' ) {
+																	$( '#quote-source' ).html( 'Source:' + post.custom_meta.Source );
+																	} else {
+																	$( '#quote-source' ).text( '' );
+																	}
+																},
+																cache: false
+																} );
+
+
+															});
+															
 
 
 

@@ -277,6 +277,65 @@ FastClick.attach(document.body);
  });
 
 
+/**
+ * ----------------------------------------------------------------------------
+ *
+ *  Remote Content scripting
+ *
+ * ----------------------------------------------------------------------------
+ */
+
+var remotecount = 0;
+
+															$(".remoteContent").each(function() {
+																remotecount = remotecount + 1;
+																
+																var remoteelem = "remotelocation"+remotecount;
+																$(this).addClass(remoteelem);
+																var remoteurl = $(this).attr("data-remoteurl");
+																//console.log(remoteelem);
+															
+																$.ajax( {
+																url: remoteurl,
+																success: function ( data ) {
+																	var post = data.shift(); // The data is an array of posts. Grab the first one.
+																	//console.log(data);
+
+																	$(data).each(function() {
+																		//console.log(this.title.rendered);
+
+																		var postdate = new Date(this.date);
+																		
+
+																		var newrow = "<div class='row'><a href='";
+																		newrow = newrow + this.link;
+																		newrow = newrow + "'>"+this.title.rendered+"</a>";
+																		
+																		newrow = newrow + "<p>" + this.excerpt.rendered + "</p>";
+																		
+																		newrow = newrow + "<div class='date'>" + (postdate.getMonth() + 1) + '/' + postdate.getDate() + '/' +  postdate.getFullYear() + "</div>";
+																		$("."+remoteelem).append(newrow);
+									
+																	});
+
+																	$(".remotePost").attr("href", post.link);
+																	$( '.remotePost #quote-title' ).text( post.title.rendered );
+																	$( '#quote-content' ).html( post.excerpt.rendered );
+
+																	// If the Source is available, use it. Otherwise hide it.
+																	if ( typeof post.custom_meta !== 'undefined' && typeof post.custom_meta.Source !== 'undefined' ) {
+																	$( '#quote-source' ).html( 'Source:' + post.custom_meta.Source );
+																	} else {
+																	$( '#quote-source' ).text( '' );
+																	}
+																},
+																cache: false
+																} );
+
+
+															});
+															
+
 
 
 /**

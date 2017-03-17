@@ -246,6 +246,33 @@ div.personFeaturefw {
 	}
 }
 
+.remoteContent {
+	margin-top: 1rem;
+
+	.row {
+		margin-bottom: 1.2rem;
+	}
+
+	.date {
+		font-family: "Open Sans";
+		font-weight: bold;
+		font-size: 0.7rem;
+		text-decoration: uppercase;
+		color: rgba(0,0,0,0.4);
+	}
+
+	a {
+		font-size: 1.2rem;
+		font-weight: bold;
+	}
+	p {
+		margin: 0px;
+		line-height: 1.4rem;
+		font-size: 1rem;
+
+	}
+}
+
 .verlag-option {
 	.personFeaturefw {
 		.personsectiontitle {

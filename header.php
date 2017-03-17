@@ -769,8 +769,9 @@ var templateUrl = '<?php home_url(); ?>';
 										if($hidebluroption) {
 
 											if( in_array('yes', $hidebluroption) ) { ?>
-
+												
 									<?php 	} else { ?>
+											
 											<!--div class="heroImageBlur heroVideoBlur"><div class="heroImageBlurInner"></div></div-->
 									<?php 	}
 										} else { ?>
@@ -850,10 +851,11 @@ var templateUrl = '<?php home_url(); ?>';
 											if( in_array('yes', $hidebluroption) ) { ?>
 
 									<?php 	} else { ?>
-
+											
 											<!--div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; "></div></div>-->
 									<?php 	}
 										} else { ?>
+										
 											<!--div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; "></div></div>-->
 									<?php } ?>
 
@@ -909,11 +911,14 @@ var templateUrl = '<?php home_url(); ?>';
 											if( in_array('yes', $hideoverlayoption) ) { ?>
 												<div class="heroOverlay"></div>
 									<?php 	} else { ?>
+									
 											<div class="heroOverlay"></div>
 									<?php 	}
 										} else { ?>
+										
 											<div class="heroOverlay"></div>
 									<?php } ?>
+									<div class="headerFilter"></div>
 									<div class="heroHeadingWrapper">
 
 									<?php
