@@ -4514,10 +4514,128 @@ acf_add_local_field_group(array (
 
 
 
+
 acf_add_local_field_group(array (
 	'key' => 'group_acf_hero-image-fields',
-	'title' => 'Hero Image Fields ',
+	'title' => 'Hero Image Fields',
 	'fields' => array (
+		array (
+			'key' => 'field_58cbf49a1d070',
+			'label' => 'Content Source',
+			'name' => 'content_source',
+			'type' => 'radio',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array (
+				'static' => 'Static',
+				'latestpost' => 'Latest Posts',
+				'specificpost' => 'Specific Post',
+			),
+			'allow_null' => 0,
+			'other_choice' => 0,
+			'save_other_choice' => 0,
+			'default_value' => 'static',
+			'layout' => 'vertical',
+		),
+		array (
+			'key' => 'field_58cbf5ca1d071',
+			'label' => 'Post Categories to Show',
+			'name' => 'hero_post_categories',
+			'type' => 'taxonomy',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => array (
+				array (
+					array (
+						'field' => 'field_58cbf49a1d070',
+						'operator' => '==',
+						'value' => 'latestpost',
+					),
+				),
+			),
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'taxonomy' => 'category',
+			'field_type' => 'checkbox',
+			'allow_null' => 0,
+			'add_term' => 0,
+			'save_terms' => 0,
+			'load_terms' => 0,
+			'return_format' => 'id',
+			'multiple' => 0,
+		),
+		array (
+			'key' => 'field_58cbf61b1d072',
+			'label' => 'Post Offset',
+			'name' => 'hero_post_offset',
+			'type' => 'number',
+			'instructions' => 'Example: 0 Shows the latest post, 1 Shows the second to latest post, 2 Shows the third...',
+			'required' => 0,
+			'conditional_logic' => array (
+				array (
+					array (
+						'field' => 'field_58cbf49a1d070',
+						'operator' => '==',
+						'value' => 'latestpost',
+					),
+				),
+			),
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => 0,
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'min' => '',
+			'max' => '',
+			'step' => '',
+			'readonly' => 0,
+			'disabled' => 0,
+		),
+		array (
+			'key' => 'field_58cbf6961d073',
+			'label' => 'Show Specific Post or Page',
+			'name' => 'show_specific_post',
+			'type' => 'post_object',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => array (
+				array (
+					array (
+						'field' => 'field_58cbf49a1d070',
+						'operator' => '==',
+						'value' => 'specificpost',
+					),
+				),
+			),
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'post_type' => array (
+				0 => 'post',
+				1 => 'page',
+			),
+			'taxonomy' => array (
+			),
+			'allow_null' => 0,
+			'multiple' => 0,
+			'return_format' => 'object',
+			'ui' => 1,
+		),
 		array (
 			'key' => 'field_554146e0cd9b4',
 			'label' => 'Sub Heading Text',
@@ -4525,7 +4643,15 @@ acf_add_local_field_group(array (
 			'type' => 'text',
 			'instructions' => '',
 			'required' => 0,
-			'conditional_logic' => 0,
+			'conditional_logic' => array (
+				array (
+					array (
+						'field' => 'field_58cbf49a1d070',
+						'operator' => '==',
+						'value' => 'static',
+					),
+				),
+			),
 			'wrapper' => array (
 				'width' => '',
 				'class' => '',
@@ -4535,7 +4661,6 @@ acf_add_local_field_group(array (
 			'placeholder' => '',
 			'prepend' => '',
 			'append' => '',
-			'formatting' => 'none',
 			'maxlength' => '',
 			'readonly' => 0,
 			'disabled' => 0,
@@ -4547,7 +4672,15 @@ acf_add_local_field_group(array (
 			'type' => 'checkbox',
 			'instructions' => '',
 			'required' => 0,
-			'conditional_logic' => 0,
+			'conditional_logic' => array (
+				array (
+					array (
+						'field' => 'field_58cbf49a1d070',
+						'operator' => '==',
+						'value' => 'static',
+					),
+				),
+			),
 			'wrapper' => array (
 				'width' => '',
 				'class' => '',
@@ -4568,7 +4701,15 @@ acf_add_local_field_group(array (
 			'type' => 'radio',
 			'instructions' => '',
 			'required' => 0,
-			'conditional_logic' => 0,
+			'conditional_logic' => array (
+				array (
+					array (
+						'field' => 'field_58cbf49a1d070',
+						'operator' => '==',
+						'value' => 'static',
+					),
+				),
+			),
 			'wrapper' => array (
 				'width' => '',
 				'class' => '',
@@ -4579,11 +4720,11 @@ acf_add_local_field_group(array (
 				'pageorpost' => 'Link to a Page or Post',
 				'externalurl' => 'Specify a URL',
 			),
+			'allow_null' => 0,
 			'other_choice' => 0,
 			'save_other_choice' => 0,
 			'default_value' => 'none',
 			'layout' => 'vertical',
-			'allow_null' => 0,
 		),
 		array (
 			'key' => 'field_5541473ccd9b6',
@@ -4652,21 +4793,56 @@ acf_add_local_field_group(array (
 			'type' => 'image',
 			'instructions' => '',
 			'required' => 1,
-			'conditional_logic' => 0,
+			'conditional_logic' => array (
+				array (
+					array (
+						'field' => 'field_58cbf49a1d070',
+						'operator' => '==',
+						'value' => 'static',
+					),
+				),
+			),
 			'wrapper' => array (
 				'width' => '',
 				'class' => '',
 				'id' => '',
 			),
+			'return_format' => 'id',
 			'preview_size' => 'medium',
 			'library' => 'all',
-			'return_format' => 'id',
-			'min_width' => 0,
-			'min_height' => 0,
-			'min_size' => 0,
-			'max_width' => 0,
-			'max_height' => 0,
-			'max_size' => 0,
+			'min_width' => '',
+			'min_height' => '',
+			'min_size' => '',
+			'max_width' => '',
+			'max_height' => '',
+			'max_size' => '',
+			'mime_types' => '',
+		),
+		array (
+			'key' => 'field_55f87f434dc2e',
+			'label' => 'Hero Video',
+			'name' => 'hero_video',
+			'type' => 'file',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array (
+				array (
+					array (
+						'field' => 'field_58cbf49a1d070',
+						'operator' => '==',
+						'value' => 'static',
+					),
+				),
+			),
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'return_format' => 'url',
+			'library' => 'all',
+			'min_size' => '',
+			'max_size' => '',
 			'mime_types' => '',
 		),
 		array (
@@ -4736,25 +4912,6 @@ acf_add_local_field_group(array (
 			'layout' => 'vertical',
 			'toggle' => 0,
 		),
-		array (
-			'key' => 'field_55f87f434dc2e',
-			'label' => 'Hero Video',
-			'name' => 'hero_video',
-			'type' => 'file',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array (
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'library' => 'all',
-			'return_format' => 'url',
-			'min_size' => 0,
-			'max_size' => 0,
-			'mime_types' => '',
-		),
 	),
 	'location' => array (
 		array (
@@ -4789,6 +4946,8 @@ acf_add_local_field_group(array (
 	'active' => 1,
 	'description' => '',
 ));
+
+
 
 acf_add_local_field_group(array (
 	'key' => 'group_acf_page-and-single-attributes',
