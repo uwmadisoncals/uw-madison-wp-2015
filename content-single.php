@@ -16,7 +16,19 @@
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 			
 					<div class="entry-meta">
-						<?php uw_madison_wp_2015_posted_on(); ?>
+				
+						<?php
+							if(get_field('written_by')) { 
+								echo '<span class="posted-on">Posted On ';
+								the_date();
+								echo '</span>';
+								echo '<span class="byline"> By ';
+								the_field('written_by');
+								echo '</span>';
+							} else {
+								uw_madison_wp_2015_posted_on();
+							} ?>
+						
 					</div><!-- .entry-meta -->
 				</div>
 		<?php	} else { ?>
@@ -26,7 +38,17 @@
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	
 					<div class="entry-meta">
-						<?php uw_madison_wp_2015_posted_on(); ?>
+						<?php 
+							if(get_field('written_by')) { 
+								echo '<span class="posted-on">Posted On ';
+								the_date();
+								echo '</span>';
+								echo '<span class="byline"> By ';
+								the_field('written_by');
+								echo '</span>';
+							} else {
+								uw_madison_wp_2015_posted_on();
+							} ?>
 					</div><!-- .entry-meta -->
 			
 		<?php } ?>

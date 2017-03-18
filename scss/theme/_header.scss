@@ -594,6 +594,10 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 			line-height: 1;
 		}
 	}
+
+	.subTitle {
+		line-height: 1;
+	}
 }
 
 .home {
@@ -1302,13 +1306,14 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 
 .site-header {
 	.logo-search-container.noimage {
-		height: 75px;
+		height: 95px;
 	}
 
 
 
 	.noimageLogo {
 		height: 84px;
+		overflow-x: hidden;
 
 		.logoImage {
 			display: block;
@@ -1358,7 +1363,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 				line-height: 0.9;
 				text-transform: uppercase;
 				text-shadow: 0px 3px 11px rgba(0,0,0,0.2);
-
+				
 
 
 				span {
@@ -2284,8 +2289,27 @@ ul.children, ul.sub-menu {
 
 	}
 
+	.archive .featureHeader, .blog .featureHeader, .page .featureHeader, .single .featureHeader {
+		max-height: 65px;
+	}
+
 	.page .rightHandNav .featureHeader, .search .rightHandNav .featureHeader, .archive .rightHandNav .featureHeader, .single .rightHandNav .featureHeader {
-		min-height: 120px;
+		
+		max-height: 105px;
+		overflow: hidden;
+	}
+
+	.home .rightHandNav.visibleSlides .featureHeader, .home .visibleSlides .featureHeader {
+		overflow: visible;
+		max-height: 500px;
+	}
+
+	.single #content, .page #content, .archive #content {
+		padding-top: 0em;
+	}
+
+	div.pagePadding {
+		padding-top: 0rem;
 	}
 
 	#secondary {

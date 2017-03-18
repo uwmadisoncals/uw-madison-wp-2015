@@ -92,6 +92,13 @@ function uw_madison_wp_2015_posted_on() {
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
+	
+
+	/*$attributed = sprintf(
+		_x( 'by %s', 'post author', 'uw-madison-wp-2015' ), 
+		'<span>'.esc_html( the_field('written_by' ) ).'</span>'
+	);*/
+
 	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>';
 
 }

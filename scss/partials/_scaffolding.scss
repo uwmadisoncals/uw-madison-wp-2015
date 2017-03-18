@@ -293,17 +293,24 @@ html {
 		
 		.flex-item {
 			padding: 0rem;
+			margin-left: 0rem;
+			margin-right: 0rem;
 		}
 		
 		.flex-leftCol {
 			width: 100%;
-			padding: 2rem;
+			padding: 0rem;
 		}
 		
 		.flex-rightCol {
 			width: 100%;
-			padding: 2rem;
+			padding: 0rem;
 			
+		}
+
+		.flex-item:nth-child(1), .flex-item:nth-child(2), .flex-item:nth-child(3) {
+			margin-left: 0rem;
+			margin-right: 0rem;
 		}
 
 		

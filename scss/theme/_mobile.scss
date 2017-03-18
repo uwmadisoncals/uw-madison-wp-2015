@@ -368,6 +368,15 @@
 /* Minimum width of 400 pixels. */
 @media screen and (max-width: 430px) {
 
+	.rightHandNav .site-header .logoImage {
+	margin-top: 0.2em;
+}
+
+	.rightHandNav .site-header .site-branding .mobileTrigger {
+		top: 55px;
+	}
+
+	
 	.featureHeader .heroImage .heroHeadingWrapper .heroHeading {
 		bottom: 40px;
 	}
@@ -415,6 +424,10 @@
 	.archive main ul.archived_items li .date{
 		width: 100%;
 		margin-bottom: 0.2em;
+	}
+
+	.featureHeader {
+		overflow: hidden;
 	}
 	
 	.row .span-75{
@@ -579,6 +592,10 @@
 
 @media screen and (max-width: 400px) {
 
+	.rightHandNav .logo-search-container.noimage .site-branding .mobileTrigger, .rightHandNav .site-header .withimage .site-branding .mobileTrigger, .rightHandNav.hiddenSlides .logo-search-container.noimage .site-branding .mobileTrigger, .rightHandNav.solidHeader .logo-search-container.noimage .site-branding .mobileTrigger, .rightHandNav.transparentHeader .logo-search-container.noimage .site-branding .mobileTrigger, .rightHandNav.transparentHeader.hiddenSlides .logo-search-container.noimage .site-branding .mobileTrigger, .rightHandNav.transparentHeader.visibleSlides .logo-search-container.noimage .site-branding .mobileTrigger {
+		top: 55px;
+	}
+
 	.page, .single, .archive, .blog {
 		.featureHeader {
 			visibility: hidden;
@@ -596,6 +613,7 @@
 	}
 	.noimageLogo {
 		/*margin-top: -10px;*/
+		
 	}
 
 	.rightHandNav .site-header .logo-search-container.noimage {

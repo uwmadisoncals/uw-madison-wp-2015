@@ -476,6 +476,11 @@ dl{
 	opacity: 1;
 }
 
+
+.rightHandNav .site-header .logoImage {
+	margin-top: 0.5em;
+}
+
 .site-header {
 	position: absolute;
 	top: 0px;
@@ -887,6 +892,7 @@ article, article.hentry {
 
 .pagePadding {
 	padding: 3.5em 2em;
+	padding-top: 0em;
 }
 
 .postPadding {
@@ -1228,7 +1234,7 @@ article, article.hentry {
 .single, .archive{
 
 	#content{
-		padding-top: 4em;
+		padding-top: 0em;
 	}
 
 }
