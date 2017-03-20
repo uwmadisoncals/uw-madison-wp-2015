@@ -408,7 +408,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 			padding-top: 60px;
 
 			.mobileTrigger {
-				top: 76px;
+				top: 62px;
 			}
 		}
 
@@ -597,6 +597,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 
 	.subTitle {
 		line-height: 1;
+		white-space: nowrap;
 	}
 }
 
@@ -1475,9 +1476,9 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 
 
 					span {
-						display: block;
+						/*display: block;
 						font-size: 13px;
-						font-weight: 400;
+						font-weight: 400;*/
 					}
 				}
 			}
@@ -2305,7 +2306,7 @@ ul.children, ul.sub-menu {
 	}
 
 	.single #content, .page #content, .archive #content {
-		padding-top: 3rem;
+		padding-top: 0rem;
 	}
 
 	div.pagePadding {

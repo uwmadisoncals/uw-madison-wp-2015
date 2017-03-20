@@ -5,7 +5,7 @@
 	height: 40px;
 	
 	position: absolute;
-	top: 16px;
+	top: 28px;
 	left: 16px;
 	z-index:5;
 	padding-right: 16px;
@@ -334,8 +334,12 @@
 	.mobileTrigger { 
 		width: 50px;
 		height: 40px;
-		top: 16px;
+		top: 30px;
 		left: 16px;
+	}
+
+	.rightHandNav .site-header .site-branding .mobileTrigger {
+		top: 76px;
 	}
 	
 	.site-header .logoImage.mobileMenuOn {
@@ -344,6 +348,8 @@
 	
 	.mobileNavOn .site-header .noimageLogo .logoImage{
 		width: 100%;
+
+
 	}
 	
 	.rightHandNav .logo-search-container.noimage .site-branding{
