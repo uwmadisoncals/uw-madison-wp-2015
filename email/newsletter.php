@@ -850,7 +850,7 @@ on <a href="http://ecals.cals.wisc.edu" style="color:#333;text-decoration:none;"
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
                                         <tr>
                                             <td valign="top" class="headerContent">
-                                            	<img src="http://ecals.cals.wisc.edu/wp-content/themes/ecals2013/images/ecals_logo_mail.jpg" style="max-width:600px;" id="headerImage" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext />
+                                            	<img src="https://ecals.cals.wisc.edu/wp-content/themes/madisonwp2015/images/ecals_logo_mail.jpg" style="max-width:600px;" id="headerImage" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext />
                                             </td>
                                         </tr>
                                     </table>
