@@ -628,12 +628,18 @@ $(window).on("load", function() {
 			var imgC = img[0];
 			
 			if(imgC) {
+
 				var imgSrc = imgC.getAttribute("src");
 				//console.log("normal: " + imgSrc);
 			} else {
+				
 				var imgSrc = $(this).find(".heroImageFixedHeight").attr("data-imgurl");
+
 				//console.log("background: " + imgSrc);
 			}
+			
+			if(imgSrc) {
+
 			
 			
 
@@ -667,7 +673,7 @@ $(window).on("load", function() {
 			 	$(griditem).find(".author").css("color",newColor);
 				$(griditem).find(".tiltPanel .level1").css("box-shadow", newShadow);
 			}
-			
+		}
 			
    });
 

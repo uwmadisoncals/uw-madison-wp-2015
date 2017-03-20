@@ -5797,6 +5797,7 @@ function catch_that_thumbnail() {
 
   if($imgmatches[1]) {
 	  $first_img = $imgmatches[1][0];
+	  $first_img = preg_replace("/^http:/i", "", $first_img);
   }
   
 
@@ -5811,7 +5812,6 @@ function catch_that_thumbnail() {
   }  else {
 	
 	if(empty($first_vid)) {
-		
 		return $first_img;
 	} else {
 		return $first_vid;
