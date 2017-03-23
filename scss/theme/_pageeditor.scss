@@ -246,8 +246,51 @@ div.personFeaturefw {
 	}
 }
 
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.loadingWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+}
+
+.loading {
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  border: 0.25rem solid rgba(255, 255, 255, 0.2);
+  border-top-color: $blue;
+  -webkit-animation: spin 1s infinite linear;
+          animation: spin 1s infinite linear;
+}
+
 .remoteContent {
+	position: relative;
 	margin-top: 1rem;
+	min-height: 200px;
 
 	.row {
 		margin-bottom: 1.2rem;

@@ -110,6 +110,12 @@ get_header(); ?>
 				
 													 <?php }
 
+
+													 if( get_row_layout() == 'remote_wp_content' ) {
+													include 'page_editor_templates/wp_remote_content.php';	
+
+												 }
+
 												
 													if( get_row_layout() == 'person_feature' ) {
 														 
@@ -238,6 +244,7 @@ get_header(); ?>
 																	if($offsetC == "3col") {
 																		include 'page_editor_templates/fw_3col_highlighted_page.php';
 																	} else {
+																		
 																		include 'page_editor_templates/fw_highlighted_page.php';
 																	}
 																	
@@ -266,25 +273,9 @@ get_header(); ?>
 
 												
 												if( get_row_layout() == 'remote_wp_content' ) {
-													$url = get_sub_field('source_url');
-													$numposts = get_sub_field('number_of_posts');
-													$numposts = $numposts + 1;
-													$requesturi = $url."/wp-json/wp/v2/posts?per_page=".$numposts;
-													
-													?>
-													
+													include 'page_editor_templates/wp_remote_content.php';	
 
-													<div class="remoteContent" data-remoteurl="<?php echo $requesturi ?>"></div>
-													
-													
-														
-													
-
-
-													
-													
-
-												<?php }
+												 }
 
 												if( get_row_layout() == '2c_highlighted_content' ) {
 														 if(have_rows("2c_highlighted_content_type")) { ?>
@@ -303,9 +294,9 @@ get_header(); ?>
 														  
 
 
-																if(get_row_layout() == 'fw_latest_posts') {
+																if(get_row_layout() == '2c_latest_posts') {
 																	
-																	include 'page_editor_templates/fw_latest_posts.php';
+																	include 'page_editor_templates/2c_latest_posts.php';
 																		
 																}
 																
@@ -315,9 +306,9 @@ get_header(); ?>
 																	
 																}
 																
-																if(get_row_layout() == 'fw_highlighted_page') {
+																if(get_row_layout() == '2c_highlighted_page') {
 																	
-																	include 'page_editor_templates/fw_highlighted_page.php';
+																	include 'page_editor_templates/2c_highlighted_page.php';
 																																
 																	
 																}
@@ -395,6 +386,11 @@ get_header(); ?>
 										</svg>
 									</div>
 												<?php while ( have_rows('2c_5050_right_column') ) : the_row();
+
+												if( get_row_layout() == 'remote_wp_content' ) {
+													include 'page_editor_templates/wp_remote_content.php';	
+
+												 }
 
 												if( get_row_layout() == '2c_highlighted_content' ) {
 														 if(have_rows("2c_highlighted_content_type")) { ?>
@@ -507,6 +503,12 @@ get_header(); ?>
 													$columnstyle = "";
 													$columnstyle = get_sub_field('highlighted_content_style'); 
 
+
+													if( get_row_layout() == 'remote_wp_content' ) {
+													include 'page_editor_templates/wp_remote_content.php';	
+
+												 }
+
 													if( get_row_layout() == '3c_highlighted_content' ) {
 														 if(have_rows("3c_highlighted_content_type")) { ?>
 														 	
@@ -524,9 +526,9 @@ get_header(); ?>
 														  
 
 
-																if(get_row_layout() == 'fw_latest_posts') {
+																if(get_row_layout() == '3c_latest_posts') {
 																	
-																	include 'page_editor_templates/fw_latest_posts.php';
+																	include 'page_editor_templates/3c_latest_posts.php';
 																		
 																}
 																
@@ -536,9 +538,9 @@ get_header(); ?>
 																	
 																}
 																
-																if(get_row_layout() == 'fw_highlighted_page') {
+																if(get_row_layout() == '3c_highlighted_page') {
 																	
-																	include 'page_editor_templates/fw_highlighted_page.php';
+																	include 'page_editor_templates/3c_highlighted_page.php';
 																																
 																	
 																}
@@ -621,6 +623,12 @@ get_header(); ?>
 												$columnstyle = "";
 												$columnstyle = get_sub_field('highlighted_content_style');
 
+
+												if( get_row_layout() == 'remote_wp_content' ) {
+													include 'page_editor_templates/wp_remote_content.php';	
+
+												 }
+
 												if( get_row_layout() == '3c_highlighted_content' ) {
 														 if(have_rows("3c_highlighted_content_type")) { ?>
 														
@@ -638,9 +646,9 @@ get_header(); ?>
 														  
 
 
-																if(get_row_layout() == 'fw_latest_posts') {
+																if(get_row_layout() == '3c_latest_posts') {
 																	
-																	include 'page_editor_templates/fw_latest_posts.php';
+																	include 'page_editor_templates/3c_latest_posts.php';
 																		
 																}
 																
@@ -650,9 +658,9 @@ get_header(); ?>
 																	
 																}
 																
-																if(get_row_layout() == 'fw_highlighted_page') {
+																if(get_row_layout() == '3c_highlighted_page') {
 																	
-																	include 'page_editor_templates/fw_highlighted_page.php';
+																	include 'page_editor_templates/3c_highlighted_page.php';
 																																
 																	
 																}
@@ -736,6 +744,12 @@ get_header(); ?>
 												<?php while ( have_rows('3c_5050_right_column') ) : the_row();
 												$columnstyle = "";
 												$columnstyle = get_sub_field('highlighted_content_style');
+
+												if( get_row_layout() == 'remote_wp_content' ) {
+													include 'page_editor_templates/wp_remote_content.php';	
+
+												 }
+
 												if( get_row_layout() == '3c_highlighted_content' ) {
 														 if(have_rows("3c_highlighted_content_type")) { ?>
 														
@@ -753,9 +767,9 @@ get_header(); ?>
 														  
 
 
-																if(get_row_layout() == 'fw_latest_posts') {
+																if(get_row_layout() == '3c_latest_posts') {
 																	
-																	include 'page_editor_templates/fw_latest_posts.php';
+																	include 'page_editor_templates/3c_latest_posts.php';
 																		
 																}
 																
@@ -765,9 +779,9 @@ get_header(); ?>
 																	
 																}
 																
-																if(get_row_layout() == 'fw_highlighted_page') {
+																if(get_row_layout() == '3c_highlighted_page') {
 																	
-																	include 'page_editor_templates/fw_highlighted_page.php';
+																	include 'page_editor_templates/3c_highlighted_page.php';
 																																
 																	
 																}

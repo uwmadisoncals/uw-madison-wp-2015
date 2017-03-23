@@ -3,7 +3,7 @@
 																	
 																	$highlightpage = get_sub_field('fw_page_to_highlight');
 																	
-																	
+																	echo $highlightpage;
 																	
 																	
 																	// The Query

@@ -1,23 +1,25 @@
-<?php //echo "Highlighted Page";
+<?php 
+																	$categories = 0;
+
+                                                                    $offset = 0;
+                                                                    $offsettest = get_sub_field('post_offset');
+
+                                                                    if($offsettest) {
+                                                                        $offset = $offsettest;
+                                                                    }
 																	
 																	
-																	$highlightpage = get_sub_field('fw_page_to_highlight');
 																	
-																	//echo $highlightpage;
-																	//var_dump($highlightpage);
-																	$highlightpage = $highlightpage[0];
+																	
+																	//$numofposts = get_sub_field('fw_cat_number_of_posts');
 																	
 																	// The Query
-																	$query1 = new WP_Query( array( 'page_id' => $highlightpage ) );
+																	$query1 = new WP_Query( array( 'posts_per_page' => 1, 'offset' => $offset ) );
 																	
 																	if ( $query1->have_posts() ) {
 																		// The Loop
 																		while ( $query1->have_posts() ) { $query1->the_post(); ?>
-																			
-																			
-																			
-																			
-																			<div class="grid-item2col">
+																			<div class="grid-item1col">
 																				
 																			
 																				
@@ -95,8 +97,7 @@
 																							<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php the_post_thumbnail_url('medium') ?>); background-size: cover; background-position: center center; "></div></div>
 
 																								  <?php the_post_thumbnail('medium'); ?>
-
-																								  <?php } else if(catch_that_thumbnail()) { ?>
+                                                                                                <?php } else if(catch_that_thumbnail()) { ?>
 
                                                                                                   <div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo catch_that_thumbnail(); ?>); background-size: cover; background-position: center center; "></div></div>
                                                                                                   <?php if($columnstyle == "fixedheight") { ?>
@@ -105,8 +106,7 @@
 																								  <img alt=" " src="<?php echo catch_that_thumbnail(); ?>">
 																								  <?php } ?>
 																								  
-																							<?php } 
-																								else{ ?>
+																							<?php } else { ?>
 																								
 														<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg); background-size: cover; background-position: center center; "></div></div>
 
@@ -128,6 +128,14 @@
 																								<div class="dateposted"><?php the_time('M') ?> <?php the_time('jS') ?></div>
 																								<div class="numericdate"><?php the_time('Ymd'); ?></div>
 																								<h2><?php the_title(); ?></h2>
+																								<div class="author">By 
+																								<?php if(get_field('written_by')) { ?>
+																										<?php the_field('written_by'); ?>
+																								<?php } else { ?>
+																										<?php the_author(); ?>
+																								<?php } ?>
+																								
+																								</div>
 																								<div><?php the_excerpt(); ?></div>
 																								
 																																									

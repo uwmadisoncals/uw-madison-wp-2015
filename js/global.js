@@ -290,14 +290,17 @@ var remotecount = 0;
 															$(".remoteContent").each(function() {
 																remotecount = remotecount + 1;
 																
+																var spinner = $(this).find(".loadingWrapper");
 																var remoteelem = "remotelocation"+remotecount;
 																$(this).addClass(remoteelem);
 																var remoteurl = $(this).attr("data-remoteurl");
-																//console.log(remoteelem);
+																//console.log(remoteurl);
 															
 																$.ajax( {
 																url: remoteurl,
 																success: function ( data ) {
+
+																	$(spinner).hide();
 																	var post = data.shift(); // The data is an array of posts. Grab the first one.
 																	//console.log(data);
 
