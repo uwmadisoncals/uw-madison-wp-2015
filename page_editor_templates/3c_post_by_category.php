@@ -102,6 +102,25 @@
 																						
 																						<div class="heroGradient"></div>
 																							
+																							<?php if($overrideimage) { ?>
+
+																									<?php 
+
+																										$image = $overrideimage;
+																										$size = 'medium'; // (thumbnail, medium, large, full or custom size)
+
+																										
+
+																										?>
+
+																									<?php if($columnstyle == "fixedheight") { ?>
+																											<div class="heroImageFixedHeight" data-imgurl="<?php echo wp_get_attachment_image_url( $image, $size ) ?>" style="background-image: url(<?php echo wp_get_attachment_image_url( $image, $size ) ?>); background-size: cover; background-position: center center; "></div>
+																										<?php } else { ?>
+																										<?php echo wp_get_attachment_image( $image, $size ); ?>
+																										<?php } ?>
+
+																							<?php } else { ?>
+
 																							<?php if ( has_post_thumbnail() ) { 
 																								
 																			
@@ -133,10 +152,8 @@
 														
 																								<?php }
 																							?>
-																							
-																							
-																							
-																							
+
+																							<?php } ?>
 																						</div>
 																			
 																					<?php if( $thumbnail == false ) { ?> 

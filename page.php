@@ -514,6 +514,9 @@ get_header(); ?>
 													$columnstyle = "";
 													$columnstyle = get_sub_field('highlighted_content_style'); 
 
+													$overrideimage = "";
+													$overrideimage = get_sub_field('override_image');
+
 
 													if( get_row_layout() == 'remote_wp_content' ) {
 													include 'page_editor_templates/wp_remote_content.php';	
@@ -633,6 +636,9 @@ get_header(); ?>
 												<?php while ( have_rows('3c_5050_middle_column') ) : the_row();
 												$columnstyle = "";
 												$columnstyle = get_sub_field('highlighted_content_style');
+
+												$overrideimage = "";
+													$overrideimage = get_sub_field('override_image');
 
 
 												if( get_row_layout() == 'remote_wp_content' ) {
@@ -755,6 +761,9 @@ get_header(); ?>
 												<?php while ( have_rows('3c_5050_right_column') ) : the_row();
 												$columnstyle = "";
 												$columnstyle = get_sub_field('highlighted_content_style');
+
+												$overrideimage = "";
+													$overrideimage = get_sub_field('override_image');
 
 												if( get_row_layout() == 'remote_wp_content' ) {
 													include 'page_editor_templates/wp_remote_content.php';	
