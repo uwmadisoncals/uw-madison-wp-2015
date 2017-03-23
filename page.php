@@ -270,6 +270,11 @@ get_header(); ?>
 											<?php if( have_rows('2c_5050_left_column') ) { ?>
 													<div class="flex-item flex-leftCol">
 												<?php while ( have_rows('2c_5050_left_column') ) : the_row();
+													$columnstyle = "";
+													$columnstyle = get_sub_field('highlighted_content_style'); 
+
+													$overrideimage = "";
+													$overrideimage = get_sub_field('override_image');
 
 												
 												if( get_row_layout() == 'remote_wp_content' ) {
@@ -280,7 +285,7 @@ get_header(); ?>
 												if( get_row_layout() == '2c_highlighted_content' ) {
 														 if(have_rows("2c_highlighted_content_type")) { ?>
 														
-														 	<div class="gridonecol gridstyle2">
+														 	<div class="gridonecol gridstyle2 <?php echo $columnstyle ?>">
 															 	
 	
 															  <div class="grid-sizer2col"></div>
@@ -387,6 +392,12 @@ get_header(); ?>
 									</div>
 												<?php while ( have_rows('2c_5050_right_column') ) : the_row();
 
+													$columnstyle = "";
+													$columnstyle = get_sub_field('highlighted_content_style');
+
+													$overrideimage = "";
+													$overrideimage = get_sub_field('override_image');
+
 												if( get_row_layout() == 'remote_wp_content' ) {
 													include 'page_editor_templates/wp_remote_content.php';	
 
@@ -395,7 +406,7 @@ get_header(); ?>
 												if( get_row_layout() == '2c_highlighted_content' ) {
 														 if(have_rows("2c_highlighted_content_type")) { ?>
 														
-														 	<div class="gridonecol gridstyle2">
+														 	<div class="gridonecol gridstyle2 <?php echo $columnstyle ?>">
 															 	
 	
 															  <div class="grid-sizer2col"></div>
@@ -409,9 +420,9 @@ get_header(); ?>
 														  
 
 
-																if(get_row_layout() == 'fw_latest_posts') {
+																if(get_row_layout() == '2c_latest_posts') {
 																	
-																	include 'page_editor_templates/fw_latest_posts.php';
+																	include 'page_editor_templates/2c_latest_posts.php';
 																		
 																}
 																
@@ -421,9 +432,9 @@ get_header(); ?>
 																	
 																}
 																
-																if(get_row_layout() == 'fw_highlighted_page') {
+																if(get_row_layout() == '2c_highlighted_page') {
 																	
-																	include 'page_editor_templates/fw_highlighted_page.php';
+																	include 'page_editor_templates/2c_highlighted_page.php';
 																																
 																	
 																}

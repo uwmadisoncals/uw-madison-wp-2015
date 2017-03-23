@@ -2906,6 +2906,30 @@ acf_add_local_field_group(array (
 												),
 											),
 										),
+										array (
+											'key' => 'field_58d42e35a5c71',
+											'label' => 'Override Image',
+											'name' => 'override_image',
+											'type' => 'image',
+											'instructions' => 'Manually supply an image for this featured content.',
+											'required' => 0,
+											'conditional_logic' => '',
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'return_format' => 'id',
+											'preview_size' => 'thumbnail',
+											'library' => 'all',
+											'min_width' => 200,
+											'min_height' => 200,
+											'min_size' => '',
+											'max_width' => '',
+											'max_height' => '',
+											'max_size' => '',
+											'mime_types' => '',
+										),
 									),
 									'min' => '',
 									'max' => '',
@@ -3334,7 +3358,7 @@ acf_add_local_field_group(array (
 												array (
 													'key' => '58d3e4f2c62a9',
 													'name' => '2c_latest_posts',
-													'label' => 'Post By Category',
+													'label' => 'Latest Posts',
 													'display' => 'block',
 													'sub_fields' => array (
 														array (
@@ -3398,6 +3422,30 @@ acf_add_local_field_group(array (
 													'max' => '',
 												),
 											),
+										),
+										array (
+											'key' => 'field_58d42dbda5c70',
+											'label' => 'Override Image',
+											'name' => 'override_image',
+											'type' => 'image',
+											'instructions' => 'Manually supply an image for this featured content.',
+											'required' => 0,
+											'conditional_logic' => '',
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'return_format' => 'id',
+											'preview_size' => 'thumbnail',
+											'library' => 'all',
+											'min_width' => 200,
+											'min_height' => 200,
+											'min_size' => '',
+											'max_width' => '',
+											'max_height' => '',
+											'max_size' => '',
+											'mime_types' => '',
 										),
 									),
 									'min' => '',
@@ -5085,7 +5133,6 @@ acf_add_local_field_group(array (
 	'active' => 1,
 	'description' => '',
 ));
-
 
 
 acf_add_local_field_group(array (

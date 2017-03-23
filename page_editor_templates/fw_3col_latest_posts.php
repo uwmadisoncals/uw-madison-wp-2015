@@ -92,7 +92,14 @@
 																							<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php the_post_thumbnail_url('medium') ?>); background-size: cover; background-position: center center; "></div></div>
 
 
-																								  <?php the_post_thumbnail('medium'); ?>
+																								  
+
+
+																										<?php if($columnstyle == "fixedheight") { ?>
+																											<div class="heroImageFixedHeight" data-imgurl="<?php the_post_thumbnail_url('medium') ?>" style="background-image: url(<?php the_post_thumbnail_url('medium') ?>); background-size: cover; background-position: center center; "></div>
+																										<?php } else { ?>
+																										<?php the_post_thumbnail('medium'); ?>
+																										<?php } ?>
 
                                                                                                   <?php } else if(catch_that_thumbnail()) { ?>
 
@@ -106,8 +113,7 @@
 																							<?php } 
 																								else{ ?>
 																									<div class="thumbCheck noThumb"></div>
-														<!--<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg); background-size: cover; background-position: center center; "></div></div>
-																									<img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg">-->
+														
 																								<?php }
 																							?>
 																							

@@ -19,11 +19,12 @@
 																	if ( $query1->have_posts() ) {
 																		// The Loop
 																		while ( $query1->have_posts() ) { $query1->the_post(); ?>
+																			<?php if(catch_that_thumbnail() || has_post_thumbnail()) { $thumbnail = true; $thumbcss = ""; } else { $thumbnail = false; $thumbcss = "noThumb"; } ?>
 																			<div class="grid-item1col">
 																				
 																			
 																				
-																			<div class="tiltWrapper custom custom2col" data-maxangle="3" data-tiltdepth="70">
+																			<div class="tiltWrapper custom custom2col <?php echo $thumbcss ?>" data-maxangle="3" data-tiltdepth="70">
 		  
 																				<a href="<?php the_permalink(); ?>" class="tiltAction"><?php the_title(); ?></a>
 																				
@@ -90,14 +91,42 @@
 																						
 																						
 																							<div class="heroGradient"></div>
+																							<?php if($overrideimage) { ?>
+
+																									<?php 
+
+																										$image = $overrideimage;
+																										$size = 'medium'; // (thumbnail, medium, large, full or custom size)
+
+																										
+
+																										?>
+
+																									<?php if($columnstyle == "fixedheight") { ?>
+																											<div class="heroImageFixedHeight" data-imgurl="<?php echo wp_get_attachment_image_url( $image, $size ) ?>" style="background-image: url(<?php echo wp_get_attachment_image_url( $image, $size ) ?>); background-size: cover; background-position: center center; "></div>
+																										<?php } else { ?>
+																										<?php echo wp_get_attachment_image( $image, $size ); ?>
+																										<?php } ?>
+
+																							<?php } else { ?>
+
 																							<?php if ( has_post_thumbnail() ) { 
 																								
 																			
 																							?>
 																							<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php the_post_thumbnail_url('medium') ?>); background-size: cover; background-position: center center; "></div></div>
 
-																								  <?php the_post_thumbnail('medium'); ?>
-                                                                                                <?php } else if(catch_that_thumbnail()) { ?>
+
+																								  
+
+
+																										<?php if($columnstyle == "fixedheight") { ?>
+																											<div class="heroImageFixedHeight" data-imgurl="<?php the_post_thumbnail_url('medium') ?>" style="background-image: url(<?php the_post_thumbnail_url('medium') ?>); background-size: cover; background-position: center center; "></div>
+																										<?php } else { ?>
+																										<?php the_post_thumbnail('medium'); ?>
+																										<?php } ?>
+
+                                                                                                  <?php } else if(catch_that_thumbnail()) { ?>
 
                                                                                                   <div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo catch_that_thumbnail(); ?>); background-size: cover; background-position: center center; "></div></div>
                                                                                                   <?php if($columnstyle == "fixedheight") { ?>
@@ -106,21 +135,18 @@
 																								  <img alt=" " src="<?php echo catch_that_thumbnail(); ?>">
 																								  <?php } ?>
 																								  
-																							<?php } else { ?>
-																								
-														<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg); background-size: cover; background-position: center center; "></div></div>
-
-																									<img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg">
+																							<?php } 
+																								else{ ?>
+																									<div class="thumbCheck noThumb"></div>
+														
 																								<?php }
 																							?>
-																							
-																							
-																							
-																							
+
+																							<?php } ?>
 																						</div>
 																			
+																					<?php if( $thumbnail == false ) { ?> 
 																						
-																					</div>
 																					<div class="textContent">
 																					<div>
 																						<div class="middleImageSample">
@@ -136,7 +162,32 @@
 																								<?php } ?>
 																								
 																								</div>
-																								<div><?php the_excerpt(); ?></div>
+																								<div class="excerpt"><?php the_excerpt(); ?></div>
+																																									
+																								
+																							</div>
+																							
+																						</div>
+																					</div>
+																					</div>
+																				</div>
+																			  <?php } else { ?>
+																			  			</div>
+																					<div class="textContent">
+																					<div>
+																						<div class="middleImageSample">
+																							<div class="whiteContent">
+																								<div class="dateposted"><?php the_time('M') ?> <?php the_time('jS') ?></div>
+																								<div class="numericdate"><?php the_time('Ymd'); ?></div>
+																								<h2><?php the_title(); ?></h2>
+																								<div class="author">By 
+																								<?php if(get_field('written_by')) { ?>
+																										<?php the_field('written_by'); ?>
+																								<?php } else { ?>
+																										<?php the_author(); ?>
+																								<?php } ?>
+																								
+																								</div>
 																								
 																																									
 																								
@@ -145,6 +196,7 @@
 																						</div>
 																					</div>
 																				</div>
+																			  <?php } ?>
 																				</div>
 																				
 																			</div>
