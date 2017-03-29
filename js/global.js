@@ -1270,6 +1270,11 @@ $(".home .pagePadding .flex-row").first().addClass("top-row");
 	 	var searchTerm = $(this).find("input[name='s']").val();
 	 	var fixedSearchTerm = searchTerm.split(' ').join('+');
 	 	var searchUrl = templateUrl + "/?s=" + fixedSearchTerm + " #main";
+		var historyUrl = templateUrl + "/?s=" + fixedSearchTerm;
+
+		console.log(historyUrl);
+
+		History.pushState(null, historyUrl, historyUrl);
 
 	 	$(".searchUI").addClass("searching");
 

@@ -1072,6 +1072,30 @@ $wp_customize->add_control('uw-madison-wp-2015-breadcrumbs', array(
 
 
 
+/** Posted by location **/
+
+$wp_customize->add_setting('uw-madison-wp-2015_postedby_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => 'upper',
+    'sanitize_callback' => 'sanitize_postedby_options'
+ 
+));
+
+ 
+$wp_customize->add_control('uw-madison-wp-2015-postedby', array(
+    'label'      => __('Posted By Location', 'uw-madison-wp-2015'),
+    'section'    => 'uw-madison-wp-2015-sidebar-options',
+    'type'    => 'radio',
+    'choices' => array(
+            'upper' => __( 'Below Headline', 'uw-madison-wp-2015' ),
+            'lower' => __( 'After Content', 'uw-madison-wp-2015' )
+        ),
+    'settings'   => 'uw-madison-wp-2015_postedby_id',
+));
+
+
+
 $wp_customize->add_setting('uw-madison-wp-2015_sidebar_style_id', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'theme_mod',
@@ -1321,6 +1345,14 @@ function sanitize_dropdown_options( $value ) {
 function sanitize_breadcrumbs_options( $value ) {
     if ( !$value )
         $value = 'hidden';
+ 
+    return $value;
+}
+
+
+function sanitize_postedby_options( $value ) {
+    if ( !$value )
+        $value = 'upper';
  
     return $value;
 }

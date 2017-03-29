@@ -3,7 +3,7 @@
  * @package UW Madison WP 2015
  */
 ?>
-
+<?php $postedbylocation = get_theme_mod('uw-madison-wp-2015_postedby_id'); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php
@@ -26,7 +26,11 @@
 							} else {
 								//uw_madison_wp_2015_posted_on();
 							} ?>
-							<?php uw_madison_wp_2015_posted_on(); ?>
+
+						
+							<?php if($postedbylocation != "lower") {
+								uw_madison_wp_2015_posted_on();
+							}  ?>
 						
 					</div><!-- .entry-meta -->
 				</div>
@@ -46,7 +50,9 @@
 							} else {
 								//uw_madison_wp_2015_posted_on();
 							} ?>
-							<?php uw_madison_wp_2015_posted_on(); ?>
+							<?php if($postedbylocation != "lower") {
+								uw_madison_wp_2015_posted_on();
+							}  ?>
 					</div><!-- .entry-meta -->
 			
 		<?php } ?>
@@ -54,6 +60,39 @@
 
 	<div class="entry-content">
 		<?php the_content(); ?>
+
+		<?php if($postedbylocation == "lower") {
+			//uw_madison_wp_2015_posted_on();
+		
+
+
+		
+			/* translators: used between list items, there is a space after the comma */
+			$categories_list = get_the_category_list( __( ', ', 'uw-madison-wp-2015' ) );
+
+			/* translators: used between list items, there is a space after the comma */
+			$tag_list = get_the_tag_list( '', __( ', ', 'uw-madison-wp-2015' ) );
+			if ( '' != $tag_list ) {
+				$utility_text = __( 'This entry was posted in %1$s and tagged %2$s by <a href="%6$s">%5$s</a>. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'uw-madison-wp-2015' );
+			} elseif ( '' != $categories_list ) {
+				$utility_text = __( 'This entry was posted in %1$s by <a href="%6$s">%5$s</a>. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'uw-madison-wp-2015' );
+			} else {
+				$utility_text = __( 'This entry was posted by <a href="%6$s">%5$s</a>. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'uw-madison-wp-2015' );
+			}
+
+			printf(
+				$utility_text,
+				$categories_list,
+				$tag_list,
+				esc_url( get_permalink() ),
+				the_title_attribute( 'echo=0' ),
+				get_the_author(),
+				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) )
+			);
+		
+
+		}  ?>
+
 		<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'uw-madison-wp-2015' ),
