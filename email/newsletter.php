@@ -16,12 +16,21 @@ function ecals_mail_3_admin_menu() {
 function ecals_mail_3_options(){
 		$hidden_field_name = "hfn";
 
+		
+
 		//check if user has requested to resubmit email
 		if (isset($_POST[$hidden_field_name]) && $_POST[$hidden_field_name]=="Y") {
+			if(isset($_POST['sendto'])) {
+				$adminmsg = 'Email has been sent to '.$_POST['sendto'];
+			} else {
+				$adminemail = get_option('admin_email');
+				$adminmsg = 'Email has been sent to the site administrator ('.$adminemail.').';
+			}
+
 			if (ecals_mail_3()){?>
                 <div id="message" class="updated fade">
                   <p><strong>
-                    <?php _e('Email has been sent.', 'ecals_mail_3_options' ); ?>
+                    <?php _e($adminmsg, 'ecals_mail_3_options' ); ?>
                     </strong></p>
                 </div>
 			<?php }
@@ -47,23 +56,140 @@ function ecals_mail_3_options(){
 
 				$current_week = date("W", time())-1;
 				$num_day_0101 = date("N", strtotime("Jan 1 ".date("Y", time())));
-				$monday_current_week = date("m/d/y", strtotime("Jan 1 ".date("Y", time())) + ((($current_week)*604800) - 86400*($num_day_0101- 1) ));
+				$mailingaddress = get_option('mailingaddresssaved');
+				$mainfeaturecats = get_option( 'mainfeaturecats' );
+				$highlightedcats = get_option( 'highlightedcats' );
+				$leftcolcats = get_option( 'leftcolcats' );
+				$leftcolcatsex = get_option( 'leftcolcatsex' );
+				$rightcolcats = get_option( 'rightcolcats' );
+				$rightcolcatsex = get_option( 'rightcolcatsex' );
 
+				$monday_current_week = date("m/d/y", strtotime("Jan 1 ".date("Y", time())) + ((($current_week)*604800) + (86400) ));
+				//echo $monday_current_week;
 				/*if(isset($_POST["start"]) && isset($_POST["end"])){
 					$start_date = date("m/d/Y", strtotime($_POST["start"]));
 					$end_date = date("m/d/Y", strtotime($_POST["end"]));
 				} else {*/
 					$start_date = date("m/d/Y", strtotime($monday_current_week." - 6 days")); //start on tuesday next week
 					$end_date = date("m/d/Y", strtotime($monday_current_week)); //end monday of current week
-				//} ?>
+					$adminemail = get_option('admin_email'); 
+				//}  ?>
             	<!--<h3 class="title">Resubmit email </h3>-->
+
+				<style>
+					.newsletterShell {
+						border: 1px solid rgba(0,0,0,0.3);
+						padding: 1rem;
+						margin-top: 1rem;
+						max-width: 800px;
+					}
+
+					.feature {
+						display: flex;
+						align-items: center;
+						text-align: center;
+						background: rgba(0,0,0,0.2);
+						height: 200px;
+						padding: 1rem;
+						margin-bottom:1rem;
+					}
+
+					.feature .include {
+						
+						vertical-align: center;
+						text-align: center;
+					}
+
+					.highlights {
+						display: flex;
+						align-items: center;
+						padding: 1rem;
+						background: rgba(0,0,0,0.2);
+						min-height: 80px;
+					}
+
+					.highlights .include {
+						vertical-align: center;
+					}
+
+					.columns {
+						display: flex;
+						margin-top: 1rem;
+					}
+
+					.leftcol, .rightcol {
+						padding: 1rem;
+						flex-basis: 50%;
+						background: rgba(0,0,0,0.2);
+					}
+
+					.leftcol {
+						margin-right: 1rem;
+					}
+				</style>
+
                 <p>Click the button below to create a draft of your most recent posts <strong>(includes posts from <?php echo date("m/d/y", strtotime($start_date)).' to '.date("m/d/y", strtotime($end_date)); ?>)</strong>.
                 <form name="ecals_mail_3_options" method = "post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
                 <strong>Date Range:</strong> <input id="start" name="start" type="text" size="10" maxlength="12" value="<?php echo $start_date?>"/> to <input id="end" name="end" type="text" size="10" maxlength="12" value="<?php echo $end_date?>"/>
-                <span class="submit">
+                send sample message to
+				<input type="text" name="sendto" value="<?php echo $adminemail ?>" placeholder="name@email.com">
+<span class="submit"> and address it from the mailing adddress of <input type="text" name="mailingaddress" value="<?php echo $mailingaddress ?>" placeholder="name@email.com">
+<span class="submit">
 
-                    <input name="resubmit" value="Resubmit eCALS Newsletter draft to ecals@cals.wisc.edu and al.nemec@wisc.edu" type="submit">
+                    <input name="resubmit" value="Send" type="submit">
+					
                 </span>
+				
+				<div class="newsletterShell">
+
+				<div class="header">
+					<div class="feature">
+						<div class="include">
+							<label for="mainfeaturecat">Main Feature Category</label>
+							<input type="text" value="<?php echo $mainfeaturecats ?>" name="mainfeaturecat" placeholder="Category ID's to grab seperated by comma.">
+						</div>
+					</div>
+
+					<div class="highlights">
+						<div class="include">
+							<label for="highlightedcat">Highlighted Categories</label>
+							<input type="text" value="<?php echo $highlightedcats ?>" name="highlightedcat" placeholder="Category ID's to grab seperated by comma.">
+						</div>
+					</div>
+				
+				</div>
+
+				<div class="columns">
+				
+				<div class="leftcol">
+					<div class="include">
+						<label for="leftcolcat">Left Column Categories</label>
+						<input type="text" value="<?php echo $leftcolcats ?>" name="leftcolcat" placeholder="Category ID's to grab seperated by comma.">
+					</div>
+
+					<div class="exclude">
+						<label for="leftcolcatex">Left Column Excluded Categories</label>
+						<input type="text" value="<?php echo $leftcolcatsex ?>" name="leftcolcatex" placeholder="Category ID's to exclude seperated by comma.">
+					</div>
+				</div>
+
+				<div class="rightcol">
+					<div class="include">
+						<label for="rightcolcat">Right Column Categories</label>
+						<input type="text" value="<?php echo $rightcolcats ?>" name="rightcolcat" placeholder="Category ID's to grab seperated by comma.">
+					</div>
+
+					<div class="exclude">
+						<label for="rightcolcatex">Right Column Excluded Categories</label>
+						<input type="text" value="<?php echo $rightcolcatsex ?>" name="rightcolcatex" placeholder="Category ID's to exclude seperated by comma.">
+					</div>
+				</div>
+
+				</div>
+
+				</div>
+				
+				
                     <input type="hidden" name="ecals_noncename" id="ecals_noncename" value="
   <?php wp_create_nonce( plugin_basename(__FILE__) );?>" />
   					<input type="hidden" name=<?php echo $hidden_field_name; ?> value="Y" />
@@ -82,6 +208,41 @@ function ecals_mail_3_options(){
  * @reference http://krijnhoetmer.nl/stuff/php/html-plain-text-mail/ on how to send multipart emails
  **/
 function ecals_mail_3(){
+
+	if(isset($_POST['mailingaddress'])) {
+			$mailingaddress = $_POST['mailingaddress'];
+			update_option( 'mailingaddresssaved', $mailingaddress );
+	} 
+	
+	if(isset($_POST['mainfeaturecat'])) {
+			$mainfeaturecats = $_POST['mainfeaturecat'];
+			update_option( 'mainfeaturecats', $mainfeaturecats );
+	} 
+
+	if(isset($_POST['highlightedcat'])) {
+			$highlightedcats = $_POST['highlightedcat'];
+			update_option( 'highlightedcats', $highlightedcats );
+	} 
+
+	if(isset($_POST['leftcolcat'])) {
+			$leftcolcats = $_POST['leftcolcat'];
+			update_option( 'leftcolcats', $leftcolcats );
+	} 
+
+	if(isset($_POST['leftcolcatex'])) {
+			$leftcolcatsex = $_POST['leftcolcatex'];
+			update_option( 'leftcolcatsex', $leftcolcatsex );
+	} 
+
+	if(isset($_POST['rightcolcat'])) {
+			$rightcolcats = $_POST['rightcolcat'];
+			update_option( 'rightcolcats', $rightcolcats );
+	} 
+
+	if(isset($_POST['rightcolcatex'])) {
+			$rightcolcatsex = $_POST['rightcolcatex'];
+			update_option( 'rightcolcatsex', $rightcolcatsex );
+	} 
 
 	//get vars
 	global $wpdb;
@@ -105,14 +266,35 @@ function ecals_mail_3(){
 
 	//setup email
 
-	$to ='ecals@cals.wisc.edu, al.nemec@wisc.edu';
-	$subject ="eCALS Newsletter - ".date("F d Y", time());
+	if(isset($_POST["sendto"])) {
+		$sendaddr = $_POST["sendto"];
+	} else {
+		$sendaddr = "al.nemec@wisc.edu";
+	}
+
+	if(isset($_POST["mailingaddress"])) {
+		$mailing_address = $_POST["mailingaddress"];
+	} else {
+		
+		if(isset($_POST["sendto"])) {
+			$mailing_address = $_POST["sendto"];
+		} else {
+			$mailing_address = "ecals@cals.wisc.edu";
+		}
+	}
+
+	$site_name = get_bloginfo( 'name' );
+	$site_description = get_bloginfo( 'description' );
+	
+
+	$to = $sendaddr;
+	$subject ="$site_name Newsletter - ".date("F d Y", time());
 
 	$boundary = uniqid('np');
 
 	$headers = "MIME-Version: 1.0\r\n";
-	$headers .= "From: eCALS <ecals@cals.wisc.edu>\r\n";
-	$headers .= "Subject: eCALS <ecals@cals.wisc.edu>\r\n";
+	$headers .= "From: $site_name <$mailing_address>\r\n";
+	$headers .= "Subject: $site_name <$mailing_address>\r\n";
 	$headers .= "Content-Type: multipart/alternative;boundary=" . $boundary . "\r\n";
 
 
@@ -138,6 +320,7 @@ function ecals_mail_3(){
 function ecals_mail_3_plain_text($cats, $start_date, $end_date){
 
 global $wpdb;
+global $post;
 
 $output ='
 ==============================================================
@@ -235,13 +418,23 @@ return $output;
 function ecals_mail_3_html($cats, $start_date, $end_date) {
 
 	global $wpdb;
+	global $post;
+
+	$site_name = get_bloginfo( 'name' );
+	$site_description = get_bloginfo( 'description' );
+	$mainfeaturecats = get_option( 'mainfeaturecats');
+	$highlightedcats = get_option( 'highlightedcats');
+	$leftcolcats = get_option( 'leftcolcats');
+	$rightcolcats = get_option( 'rightcolcats');
+	$leftcolcatsex = get_option( 'leftcolcatsex');
+	$rightcolcatsex = get_option( 'rightcolcatsex');
 
 $message_head =
 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>eCALS Newsletter - '.date("F d Y", time()).'</title>
+        <title>'.$site_name.' Newsletter - '.date("F d Y", time()).'</title>
         <style type="text/css">
 			/* /\/\/\/\/\/\/\/\/ CLIENT-SPECIFIC STYLES /\/\/\/\/\/\/\/\/ */
 			#outlook a{padding:0;} /* Force Outlook to provide a "view in browser" message */
@@ -832,7 +1025,7 @@ $message_body='
                                         <tr>
                                             <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
                                                 The following is a compilation of all the messages posted
-on <a href="http://ecals.cals.wisc.edu" style="color:#333;text-decoration:none;" >eCALS</a> from '.date("m/d/y", strtotime($start_date)).' to '.date("m/d/y", strtotime($end_date)).'.
+on <a href="'.site_url().'" style="color:#333;text-decoration:none;" >'.$site_name.'</a> from '.date("m/d/y", strtotime($start_date)).' to '.date("m/d/y", strtotime($end_date)).'.
                                             </td>
                                             <!-- *|IFNOT:ARCHIVE_PAGE|* -->
                                             <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">
@@ -850,7 +1043,19 @@ on <a href="http://ecals.cals.wisc.edu" style="color:#333;text-decoration:none;"
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
                                         <tr>
                                             <td valign="top" class="headerContent">
-                                            	<img src="https://ecals.cals.wisc.edu/wp-content/themes/madisonwp2015/images/ecals_logo_mail.jpg" style="max-width:600px;" id="headerImage" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext />
+												<div style="background: #ececec;">
+
+													<div style="float: left; width: 40px; padding-right: 14px;">
+														<img src="'.get_stylesheet_directory_uri().'/images/uw-crest-web.png" alt="UW Crest" style="width: 40px; height: auto;">
+													</div>
+
+													<div style="float:left; width: auto;">
+														<h1 style="margin-bottom: 0px;margin-top: 0px; text-transform: uppercase; font-size: 22px; letter-spacing: 0.5px;">'.$site_name.'</h1>
+														<div style="text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">'.$site_description.'</div>
+													</div>
+
+													
+												</div>
                                             </td>
                                         </tr>
                                     </table>
@@ -867,23 +1072,14 @@ on <a href="http://ecals.cals.wisc.edu" style="color:#333;text-decoration:none;"
                                             	';
 
 															 //AROUND CALS FEATURE
-
-															 query_posts(array('category_name' => 'ecals-blog', "showposts" => '1', "post_status" => 'publish')); 
+															 
+															 query_posts(array('cat' => "$mainfeaturecats", "showposts" => '1', "post_status" => 'publish')); 
 															 while (have_posts()) : the_post();
 
-																//img url
-																/*if ( get_post_meta($post->ID, 'image', true)) {
-																	$img_src = site_url().get_post_meta($post->ID, "image", $single = true);
-																} else {
-																	$img_src = get_bloginfo('template_url').'/images/default200x200.jpg';
-																}*/
-
-
-
-						    				//the_post_thumbnail();
-						    				//echo get_the_post_thumbnail($page->ID, 'large');
+																//echo $post->ID;
 						    				$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID),'large' );
-$url = $thumb['0']; $img_src = $url;
+											//var_dump($thumb);
+$url = $thumb['0']; $img_src = $url; 
 
 
 
@@ -891,6 +1087,8 @@ $url = $thumb['0']; $img_src = $url;
 																$e = explode(' ', get_the_excerpt());
 																if(count($e) > 20){
 																	$excerpt = implode(' ', array_slice($e, 0, 25)).' [...]';
+																} else {
+																	$excerpt = get_the_excerpt();
 																}
 
 	$message_body.='
@@ -912,7 +1110,7 @@ $url = $thumb['0']; $img_src = $url;
                                                                 <h2>More Highlights</h2><div>';
                                                                     //AROUND CALS FEATURE
 
-															 query_posts(array('category_name' => 'highlights', "posts_per_page" => '3', "post_status" => 'publish'));
+															 query_posts(array('cat' => "$highlightedcats", "posts_per_page" => '3', "post_status" => 'publish'));
 															 while (have_posts()) : the_post();
 
 															  $message_body.='
@@ -948,7 +1146,23 @@ $message_body.='
                                     <div class="newsGroup" style="background: #fff; margin: 17px;">';
                                             //GET NEWS
 											//$cats = array(array(3,4),array(5,6),array(7,'follow'));
+											
 											$cats = array(153,14,572,4,59,7,'follow');
+											//$cats = array($leftcolcats,'follow');
+											/*$oldcats = explode(",", $leftcolcats);
+											
+											$cats = array();
+											
+											foreach ($oldcats as $cat) {
+												//echo $cat;
+												$newcat = (int)$cat;
+												//echo $newcat;
+												array_push($cats, $newcat);
+											}
+
+											array_push($cats, "follow");*/
+
+											//var_dump($cats);
 
 											$num_printed_cells = 1;
 											for ($i=0; $i<count($cats); $i++){
@@ -971,7 +1185,9 @@ $message_body.='
 													foreach ($categories as $cat){
 														//make list of categories (parent + children cats)
 														$cats_in.= ", '".$cat->cat_ID."'";
+													
 													}
+													
 
 													$query ="SELECT DISTINCT ID, post_title, post_date
 																FROM $wpdb->posts, $wpdb->term_taxonomy, $wpdb->term_relationships
