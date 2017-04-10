@@ -429,6 +429,22 @@ function ecals_mail_3_html($cats, $start_date, $end_date) {
 	$leftcolcatsex = get_option( 'leftcolcatsex');
 	$rightcolcatsex = get_option( 'rightcolcatsex');
 
+	if($leftcolcats == null) {
+		$leftcolcats = '1';
+	}
+	
+	if($rightcolcats == null) {
+		$rightcolcats = '1';
+	}
+	
+	if($rightcolcatsex == null) {
+		$rightcolcatsex = '0';
+	}
+
+	if($leftcolcatsex == null) {
+		$leftcolcatsex = '0';
+	}
+
 $message_head =
 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -452,572 +468,20 @@ $message_head =
 
 			/* /\/\/\/\/\/\/\/\/ TEMPLATE STYLES /\/\/\/\/\/\/\/\/ */
 
-			/* ========== Page Styles ========== */
-
-			#bodyCell{padding:20px;}
-			#templateContainer{width:600px;}
-
-			/**
-			* @tab Page
-			* @section background style
-			* @tip Set the background color and top border for your email. You may want to choose colors that match your companys branding.
-			* @theme page
-			*/
-			body, #bodyTable{
-				/*@editable*/ background-color:#e8e6d9;
-				font-family: Helvetica, Verdana, Arial, sans-serif;
-			}
 			
-			a {
-					
-			}
-			
-			div,a,h1,h2,h3,table {
-				background-color: #fff;
-			}
-
-			/**
-			* @tab Page
-			* @section background style
-			* @tip Set the background color and top border for your email. You may want to choose colors that match your companys branding.
-			* @theme page
-			*/
-			#bodyCell{
-				/*@editable*/ border-top:4px solid #cac8bd;
-			}
-
-			/**
-			* @tab Page
-			* @section email border
-			* @tip Set the border for your email.
-			*/
-			#templateContainer{
-				/*@editable*/ border:1px solid #BBBBBB;
-			}
-
-      .clear {
-        clear:both;
-      }
-
-      
-
-			/**
-			* @tab Page
-			* @section heading 1
-			* @tip Set the styling for all first-level headings in your emails. These should be the largest of your headings.
-			* @style heading 1
-			*/
-			h1{
-				/*@editable*/ color:#202020 !important;
-				display:block;
-				/*@editable*/ font-family:Helvetica;
-				/*@editable*/ font-size:26px;
-				/*@editable*/ font-style:normal;
-				/*@editable*/ font-weight:bold;
-				/*@editable*/ line-height:100%;
-				/*@editable*/ letter-spacing:normal;
-				margin-top:0;
-				margin-right:0;
-				margin-bottom:10px;
-				margin-left:0;
-				/*@editable*/ text-align:left;
-			}
-
-			/**
-			* @tab Page
-			* @section heading 2
-			* @tip Set the styling for all second-level headings in your emails.
-			* @style heading 2
-			*/
-			h2{
-				/*@editable*/ color:#404040 !important;
-				display:block;
-				/*@editable*/ font-family:Helvetica;
-				/*@editable*/ font-size:14px;
-				/*@editable*/ font-style:normal;
-				/*@editable*/ font-weight:bold;
-				/*@editable*/ line-height:100%;
-				/*@editable*/ letter-spacing:1px;
-				text-transform: uppercase;
-				margin-top:0;
-				margin-right:0;
-				margin-bottom:10px;
-				margin-left:0;
-				/*@editable*/ text-align:left;
-			}
-
-			/**
-			* @tab Page
-			* @section heading 3
-			* @tip Set the styling for all third-level headings in your emails.
-			* @style heading 3
-			*/
-			h3{
-				/*@editable*/ color:#606060 !important;
-				display:block;
-				/*@editable*/ font-family:Helvetica;
-				/*@editable*/ font-size:16px;
-				/*@editable*/ font-style:italic;
-				/*@editable*/ font-weight:normal;
-				/*@editable*/ line-height:100%;
-				/*@editable*/ letter-spacing:normal;
-				margin-top:0;
-				margin-right:0;
-				margin-bottom:10px;
-				margin-left:0;
-				/*@editable*/ text-align:left;
-			}
-
-			/**
-			* @tab Page
-			* @section heading 4
-			* @tip Set the styling for all fourth-level headings in your emails. These should be the smallest of your headings.
-			* @style heading 4
-			*/
-			h4{
-				/*@editable*/ color:#808080 !important;
-				display:block;
-				/*@editable*/ font-family:Helvetica;
-				/*@editable*/ font-size:14px;
-				/*@editable*/ font-style:italic;
-				/*@editable*/ font-weight:normal;
-				/*@editable*/ line-height:100%;
-				/*@editable*/ letter-spacing:normal;
-				margin-top:0;
-				margin-right:0;
-				margin-bottom:10px;
-				margin-left:0;
-				/*@editable*/ text-align:left;
-			}
-
-			/* ========== Header Styles ========== */
-
-			/**
-			* @tab Header
-			* @section preheader style
-			* @tip Set the background color and bottom border for your emails preheader area.
-			* @theme header
-			*/
-			#templatePreheader{
-				/*@editable*/ background-color:#ffffff;
-				/*@editable*/ /*border-bottom:1px solid #CCCCCC;*/
-			}
-
-			/**
-			* @tab Header
-			* @section preheader text
-			* @tip Set the styling for your emails preheader text. Choose a size and color that is easy to read.
-			*/
-			.preheaderContent{
-				/*@editable*/ color:#808080;
-				/*@editable*/ font-family:Helvetica;
-				/*@editable*/ font-size:10px;
-				/*@editable*/ line-height:125%;
-				/*@editable*/ text-align:left;
-			}
-
-			/**
-			* @tab Header
-			* @section preheader link
-			* @tip Set the styling for your emails preheader links. Choose a color that helps them stand out from your text.
-			*/
-			.preheaderContent a:link, .preheaderContent a:visited, /* Yahoo! Mail Override */ .preheaderContent a .yshortcuts /* Yahoo! Mail Override */{
-				/*@editable*/ color:#606060;
-				/*@editable*/ font-weight:normal;
-				/*@editable*/ text-decoration:underline;
-			}
-
-			/**
-			* @tab Header
-			* @section header style
-			* @tip Set the background color and borders for your emails header area.
-			* @theme header
-			*/
-			#templateHeader{
-				/*@editable*/ background-color:#ffffff;
-				/*@editable*/ /*border-top:1px solid #FFFFFF;*/
-				/*@editable*/ /*border-bottom:1px solid #CCCCCC;*/
-			}
-
-			/**
-			* @tab Header
-			* @section header text
-			* @tip Set the styling for your emails header text. Choose a size and color that is easy to read.
-			*/
-			.headerContent{
-				/*@editable*/ color:#505050;
-				/*@editable*/ font-family:Helvetica;
-				/*@editable*/ font-size:20px;
-				/*@editable*/ font-weight:bold;
-				/*@editable*/ line-height:100%;
-				/*@editable*/ padding-top:0;
-				/*@editable*/ padding-right:0;
-				/*@editable*/ padding-bottom:0;
-				/*@editable*/ padding-left:0;
-				/*@editable*/ text-align:left;
-				/*@editable*/ vertical-align:middle;
-			}
-
-			/**
-			* @tab Header
-			* @section header link
-			* @tip Set the styling for your emails header links. Choose a color that helps them stand out from your text.
-			*/
-			a:link, .headerContent a:link, .headerContent a:visited, /* Yahoo! Mail Override */ .headerContent a .yshortcuts /* Yahoo! Mail Override */{
-				/*@editable*/ color:#3694cf;
-				/*@editable*/ font-weight:normal;
-				/*@editable*/ text-decoration:underline;
-			}
-
-			#headerImage{
-				height:auto;
-				max-width:600px;
-			}
-
-			/* ========== Body Styles ========== */
-
-			/**
-			* @tab Body
-			* @section body style
-			* @tip Set the background color and borders for your emails body area.
-			*/
-			#templateBody{
-				/*@editable*/ background-color:#ffffff;
-				/*@editable*/ /*border-top:1px solid #FFFFFF;*/
-				/*@editable*/ /*border-bottom:1px solid #CCCCCC;*/
-			}
-
-			/**
-			* @tab Body
-			* @section body text
-			* @tip Set the styling for your emails main content text. Choose a size and color that is easy to read.
-			* @theme main
-			*/
-			.bodyContent{
-				/*@editable*/ color:#505050;
-				/*@editable*/ font-family:Helvetica;
-				/*@editable*/ font-size:16px;
-				/*@editable*/ line-height:150%;
-				padding-top:20px;
-				padding-right:20px;
-				padding-bottom:20px;
-				padding-left:20px;
-				/*@editable*/ text-align:left;
-			}
-
-			/**
-			* @tab Body
-			* @section body link
-			* @tip Set the styling for your emails main content links. Choose a color that helps them stand out from your text.
-			*/
-			.bodyContent a:link, .bodyContent a:visited, /* Yahoo! Mail Override */ .bodyContent a .yshortcuts /* Yahoo! Mail Override */{
-				/*@editable*/ color:#3694cf;
-				/*@editable*/ font-weight:normal;
-				/*@editable*/ text-decoration:underline;
-			}
-
-			.bodyContent img{
-				display:inline;
-				height:auto;
-				max-width:560px;
-			}
-
-			/* ========== Column Styles ========== */
-
-			.templateColumnContainer{display:inline; width:100%;}
-
-			/**
-			* @tab Columns
-			* @section column style
-			* @tip Set the background color and borders for your emails column area.
-			*/
-			#templateColumns{
-				/*@editable*/ background-color:#ffffff;
-				/*@editable*/ /*border-top:1px solid #FFFFFF;*/
-				/*@editable*/ /*border-bottom:1px solid #CCCCCC;*/
-			}
-
-			/**
-			* @tab Columns
-			* @section left column text
-			* @tip Set the styling for your emails left column content text. Choose a size and color that is easy to read.
-			*/
-			.leftColumnContent{
-				/*@editable*/ color:#505050;
-				/*@editable*/ font-family:Helvetica;
-				/*@editable*/ font-size:14px;
-				/*@editable*/ line-height:150%;
-				padding-top:0;
-				padding-right:0;
-				padding-bottom:20px;
-				padding-left:0;
-				/*@editable*/ text-align:left;
-			}
-
-			/**
-			* @tab Columns
-			* @section left column link
-			* @tip Set the styling for your emails left column content links. Choose a color that helps them stand out from your text.
-			*/
-			.leftColumnContent a:link, .leftColumnContent a:visited, /* Yahoo! Mail Override */ .leftColumnContent a .yshortcuts /* Yahoo! Mail Override */{
-				/*@editable*/ color:#3694cf;
-				/*@editable*/ font-weight:normal;
-				/*@editable*/ text-decoration:underline;
-			}
-
-			/**
-			* @tab Columns
-			* @section right column text
-			* @tip Set the styling for your emails right column content text. Choose a size and color that is easy to read.
-			*/
-			.rightColumnContent{
-				/*@editable*/ color:#505050;
-				/*@editable*/ font-family:Helvetica;
-				/*@editable*/ font-size:14px;
-				/*@editable*/ line-height:150%;
-				padding-top:0;
-				padding-right:0;
-				padding-bottom:20px;
-				padding-left:0;
-				/*@editable*/ text-align:left;
-			}
-
-			/**
-			* @tab Columns
-			* @section right column link
-			* @tip Set the styling for your emails right column content links. Choose a color that helps them stand out from your text.
-			*/
-			.rightColumnContent a:link, .rightColumnContent a:visited, /* Yahoo! Mail Override */ .rightColumnContent a .yshortcuts /* Yahoo! Mail Override */{
-				/*@editable*/ color:#3694cf;
-				/*@editable*/ font-weight:normal;
-				/*@editable*/ text-decoration:underline;
-			}
-
-			.leftColumnContent img, .rightColumnContent img{
-				display:inline;
-				height:auto;
-				max-width:260px;
-			}
-
-			/* ========== Footer Styles ========== */
-
-			/**
-			* @tab Footer
-			* @section footer style
-			* @tip Set the background color and borders for your emails footer area.
-			* @theme footer
-			*/
-			#templateFooter{
-				/*@editable*/ background-color:#ffffff;
-				/*@editable*/ border-top:1px solid #FFFFFF;
-			}
-
-			/**
-			* @tab Footer
-			* @section footer text
-			* @tip Set the styling for your emails footer text. Choose a size and color that is easy to read.
-			* @theme footer
-			*/
-			.footerContent{
-				/*@editable*/ color:#808080;
-				/*@editable*/ font-family:Helvetica;
-				/*@editable*/ font-size:10px;
-				/*@editable*/ line-height:150%;
-				padding-top:20px;
-				padding-right:20px;
-				padding-bottom:20px;
-				padding-left:20px;
-				/*@editable*/ text-align:left;
-			}
-
-			/**
-			* @tab Footer
-			* @section footer link
-			* @tip Set the styling for your emails footer links. Choose a color that helps them stand out from your text.
-			*/
-			.footerContent a:link, .footerContent a:visited, /* Yahoo! Mail Override */ .footerContent a .yshortcuts, .footerContent a span /* Yahoo! Mail Override */{
-				/*@editable*/ color:#606060;
-				/*@editable*/ font-weight:normal;
-				/*@editable*/ text-decoration:underline;
-			}
-
-			/* /\/\/\/\/\/\/\/\/ MOBILE STYLES /\/\/\/\/\/\/\/\/ */
-
-            @media only screen and (max-width: 480px){
-
-              
-
-				/* /\/\/\/\/\/\/ CLIENT-SPECIFIC MOBILE STYLES /\/\/\/\/\/\/ */
-				body, table, td, p, a, li, blockquote{-webkit-text-size-adjust:none !important;} /* Prevent Webkit platforms from changing default text sizes */
-                body{width:100% !important; min-width:100% !important;} /* Prevent iOS Mail from adding padding to the body */
-
-				/* /\/\/\/\/\/\/ MOBILE RESET STYLES /\/\/\/\/\/\/ */
-				#bodyCell{padding:10px !important;}
-
-				/* /\/\/\/\/\/\/ MOBILE TEMPLATE STYLES /\/\/\/\/\/\/ */
-
-				/* ======== Page Styles ======== */
-
-				/**
-				* @tab Mobile Styles
-				* @section template width
-				* @tip Make the template fluid for portrait or landscape view adaptability. If a fluid layout doesnt work for you, set the width to 300px instead.
-				*/
-				#templateContainer{
-					max-width:600px !important;
-					/*@editable*/ width:100% !important;
-				}
-
-				/**
-				* @tab Mobile Styles
-				* @section heading 1
-				* @tip Make the first-level headings larger in size for better readability on small screens.
-				*/
-				h1{
-					/*@editable*/ font-size:16px !important;
-					/*@editable*/ line-height:100% !important;
-				}
-
-				/**
-				* @tab Mobile Styles
-				* @section heading 2
-				* @tip Make the second-level headings larger in size for better readability on small screens.
-				*/
-				h2{
-					/*@editable*/ font-size:20px !important;
-					/*@editable*/ line-height:100% !important;
-				}
-
-				/**
-				* @tab Mobile Styles
-				* @section heading 3
-				* @tip Make the third-level headings larger in size for better readability on small screens.
-				*/
-				h3{
-					/*@editable*/ font-size:18px !important;
-					/*@editable*/ line-height:100% !important;
-				}
-
-				/**
-				* @tab Mobile Styles
-				* @section heading 4
-				* @tip Make the fourth-level headings larger in size for better readability on small screens.
-				*/
-				h4{
-					/*@editable*/ font-size:16px !important;
-					/*@editable*/ line-height:100% !important;
-				}
-
-				/* ======== Header Styles ======== */
-
-				#templatePreheader{display:none !important;} /* Hide the template preheader to save space */
-
-				/**
-				* @tab Mobile Styles
-				* @section header image
-				* @tip Make the main header image fluid for portrait or landscape view adaptability, and set the images original width as the max-width. If a fluid setting doesnt work, set the image width to half its original size instead.
-				*/
-				#headerImage{
-					height:auto !important;
-					/*@editable*/ max-width:600px !important;
-					/*@editable*/ width:100% !important;
-				}
-
-				/**
-				* @tab Mobile Styles
-				* @section header text
-				* @tip Make the header content text larger in size for better readability on small screens. We recommend a font size of at least 16px.
-				*/
-				.headerContent{
-					/*@editable*/ font-size:20px !important;
-					/*@editable*/ line-height:125% !important;
-				}
-
-				/* ======== Body Styles ======== */
-
-				/**
-				* @tab Mobile Styles
-				* @section body image
-				* @tip Make the main body image fluid for portrait or landscape view adaptability, and set the images original width as the max-width. If a fluid setting doesnt work, set the image width to half its original size instead.
-				*/
-				#bodyImage{
-					height:auto !important;
-					/*@editable*/ max-width:560px !important;
-					/*@editable*/ width:100% !important;
-				}
-
-				/**
-				* @tab Mobile Styles
-				* @section body text
-				* @tip Make the body content text larger in size for better readability on small screens. We recommend a font size of at least 16px.
-				*/
-				.bodyContent{
-					/*@editable*/ font-size:18px !important;
-					/*@editable*/ line-height:125% !important;
-				}
-
-				/* ======== Column Styles ======== */
-
-				.templateColumnContainer{display:block !important; width:100% !important;}
-
-				/**
-				* @tab Mobile Styles
-				* @section column image
-				* @tip Make the column image fluid for portrait or landscape view adaptability, and set the images original width as the max-width. If a fluid setting doesnt work, set the image width to half its original size instead.
-				*/
-				.columnImage{
-					height:auto !important;
-					/*@editable*/ max-width:260px !important;
-					/*@editable*/ width:100% !important;
-				}
-
-				/**
-				* @tab Mobile Styles
-				* @section left column text
-				* @tip Make the left column content text larger in size for better readability on small screens. We recommend a font size of at least 16px.
-				*/
-				.leftColumnContent{
-					/*@editable*/ font-size:16px !important;
-					/*@editable*/ line-height:125% !important;
-				}
-
-				/**
-				* @tab Mobile Styles
-				* @section right column text
-				* @tip Make the right column content text larger in size for better readability on small screens. We recommend a font size of at least 16px.
-				*/
-				.rightColumnContent{
-					/*@editable*/ font-size:16px !important;
-					/*@editable*/ line-height:125% !important;
-				}
-
-				/* ======== Footer Styles ======== */
-
-				/**
-				* @tab Mobile Styles
-				* @section footer text
-				* @tip Make the body content text larger in size for better readability on small screens.
-				*/
-				.footerContent{
-					/*@editable*/ font-size:14px !important;
-					/*@editable*/ line-height:115% !important;
-				}
-
-				.footerContent a{display:block !important;} /* Place footer social and utility links on their own lines, for easier access */
-			}
 		</style>
 		<meta name="robots" content="noindex,nofollow"></meta>
 		<meta property="og:title" content="eCALS Newsletter - '.date("F d Y", time()).'"></meta>
     </head>';
 
 $message_body='
-    <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+    <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" style="background-color: #ececec; margin:0; padding:0; font-family: Verlag, Helvetica, Verdana, Arial, sans-serif;">
     	<center>
-        	<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
+        	<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable" style="background-color: #ececec;">
             	<tr>
-                	<td align="center" valign="top" id="bodyCell">
+                	<td align="center" valign="top" id="bodyCell" style="border-top:4px solid #727272; padding: 20px;">
                     	<!-- BEGIN TEMPLATE // -->
-                    	<table border="0" cellpadding="0" cellspacing="0" id="templateContainer">
+                    	<table border="0" cellpadding="0" cellspacing="0" id="templateContainer" style="width:600px; border:1px solid #BBBBBB; max-width:600px !important; background-color: #fff;">
                         	<tr>
                             	<td align="center" valign="top">
                                 	<!-- BEGIN PREHEADER // -->
@@ -1045,13 +509,13 @@ on <a href="'.site_url().'" style="color:#333;text-decoration:none;" >'.$site_na
                                             <td valign="top" class="headerContent">
 												<div style="background: #ececec;">
 
-													<div style="float: left; width: 40px; padding-right: 14px;">
-														<img src="'.get_stylesheet_directory_uri().'/images/uw-crest-web.png" alt="UW Crest" style="width: 40px; height: auto;">
+													<div style="float: left; width: 40px; padding-right: 14px; padding-left: 20px;">
+														<img src="'.get_stylesheet_directory_uri().'/images/uw-crest-web.png" alt="UW Crest" style="width: 40px; height: auto; border:0; height:auto; line-height:100%; outline:none; text-decoration:none;">
 													</div>
 
 													<div style="float:left; width: auto;">
-														<h1 style="margin-bottom: 0px;margin-top: 0px; text-transform: uppercase; font-size: 22px; letter-spacing: 0.5px;">'.$site_name.'</h1>
-														<div style="text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">'.$site_description.'</div>
+														<h1 style="margin-bottom: 0px; color: #c5050c; margin-top: 14px; text-transform: uppercase; font-size: 22px; letter-spacing: 0.5px;">'.$site_name.'</h1>
+														<div style="text-transform: uppercase; font-size: 11px; letter-spacing: 1px; color: #727272;">'.$site_description.'</div>
 													</div>
 
 													
@@ -1068,7 +532,7 @@ on <a href="'.site_url().'" style="color:#333;text-decoration:none;" >'.$site_na
                                     <table border="0" cellpadding="0" cellspacing="0" style="border-bottom: none;" width="100%" id="templateBody">
 
                                     	<tr style="border-bottom: none;">
-                                        	<td class="bodyContent" style="padding-top:0; padding-bottom:0;">
+                                        	<td class="bodyContent" style="padding-top:20px; padding-right:20px; padding-bottom:20px;padding-left:20px;">
                                             	';
 
 															 //AROUND CALS FEATURE
@@ -1092,11 +556,11 @@ $url = $thumb['0']; $img_src = $url;
 																}
 
 	$message_body.='
-                                            	<a href="'.get_permalink().'?utm_source=ecals_email_newsletter&utm_medium=email&utm_campaign=ecals_email_newsletter" style="max-height: 200px; overflow:hidden; display:block; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; margin-top:1em;"><img src="'.$img_src.'" style="width:560px;" width="560" id="bodyImage" mc:label="body_image" mc:edit="body_image" mc:allowtext /></a>
+                                            	<a href="'.get_permalink().'?utm_source=ecals_email_newsletter&utm_medium=email&utm_campaign=ecals_email_newsletter" style="max-height: 200px; overflow:hidden; display:block; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; margin-top:1em;"><img src="'.$img_src.'" style="width:560px; border:0; height:auto; line-height:100%; outline:none; text-decoration:none;" width="560" id="bodyImage" mc:label="body_image" mc:edit="body_image" mc:allowtext /></a>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td valign="top" class="bodyContent" mc:edit="body_content01">
+                                            <td valign="top" class="bodyContent" mc:edit="body_content01" style="padding-top:20px; padding-right:20px; padding-bottom:20px;padding-left:20px;">
                                                 <h2><a href="'.get_permalink().'?utm_source=ecals_email_newsletter&utm_medium=email&utm_campaign=ecals_email_newsletter" style="line-height: 1.3em;">'.get_the_title().'</a></h2>
                                                 <h4>'.$excerpt.'</h4>
 
@@ -1106,7 +570,7 @@ $url = $thumb['0']; $img_src = $url;
 
                                                                $message_body.='
 															    <tr>
-                                                                <td valign="top" class="bodyContent" mc:edit="body_content01">
+                                                                <td valign="top" class="bodyContent" mc:edit="body_content01" style="padding-top:20px; padding-right:20px; padding-bottom:20px;padding-left:20px;">
                                                                 <h2>More Highlights</h2><div>';
                                                                     //AROUND CALS FEATURE
 
@@ -1138,18 +602,18 @@ $message_body.='
 
                                     	
                             		<tr valign="top">
-                            			<td width="50%" valign="top">
+                            			<td width="50%" valign="top" style="padding-left: 8px;">
                             		
                                 	<!-- BEGIN COLUMNS // -->
                                 	
                                 	                                	
-                                    <div class="newsGroup" style="background: #fff; margin: 17px;">';
+                                    <div class="newsGroup" style="background: #fff;">';
                                             //GET NEWS
 											//$cats = array(array(3,4),array(5,6),array(7,'follow'));
 											
-											$cats = array(153,14,572,4,59,7,'follow');
+											//$cats = array(153,14,572,4,59,7,'follow');
 											//$cats = array($leftcolcats,'follow');
-											/*$oldcats = explode(",", $leftcolcats);
+											$oldcats = explode(",", $leftcolcats);
 											
 											$cats = array();
 											
@@ -1160,7 +624,7 @@ $message_body.='
 												array_push($cats, $newcat);
 											}
 
-											array_push($cats, "follow");*/
+											array_push($cats, "follow");
 
 											//var_dump($cats);
 
@@ -1193,7 +657,7 @@ $message_body.='
 																FROM $wpdb->posts, $wpdb->term_taxonomy, $wpdb->term_relationships
 																WHERE $wpdb->term_taxonomy.taxonomy = 'category'
 																AND $wpdb->term_taxonomy.term_id IN (".$cats_in.")
-																AND $wpdb->term_taxonomy.term_id NOT IN (355,356,357,358,366,370,373,372,371,369,108,379,380,381,384,385,386,387,388)
+																AND $wpdb->term_taxonomy.term_id NOT IN (".$leftcolcatsex.")
 																AND $wpdb->posts.post_type = 'post'
 																AND ($wpdb->posts.post_status = 'publish')
 																AND post_date >= '$start_date 00:00:00'
@@ -1247,7 +711,7 @@ $message_body.='									<div width="334" align="left" valign="top" style="borde
 
 
 </td>
-                            			<td width="50%" valign="top"> <div class="newsGroup" style="background: #fff; margin: 17px;">';
+                            			<td width="50%" valign="top"> <div class="newsGroup" style="background: #fff; style="padding-left: 8px;">';
 
 
 
@@ -1255,7 +719,20 @@ $message_body.='									<div width="334" align="left" valign="top" style="borde
 
                       //GET NEWS
 //$cats = array(array(3,4),array(5,6),array(7,'follow'));
-$cats = array(47,424,5,3,437,'follow');
+//$cats = array(47,424,5,3,437,'follow');
+
+$oldcats = explode(",", $rightcolcats);
+											
+											$cats = array();
+											
+											foreach ($oldcats as $cat) {
+												//echo $cat;
+												$newcat = (int)$cat;
+												//echo $newcat;
+												array_push($cats, $newcat);
+											}
+
+											array_push($cats, "follow");
 
 $num_printed_cells = 1;
 for ($i=0; $i<count($cats); $i++){
@@ -1284,7 +761,7 @@ for ($i=0; $i<count($cats); $i++){
           FROM $wpdb->posts, $wpdb->term_taxonomy, $wpdb->term_relationships
           WHERE $wpdb->term_taxonomy.taxonomy = 'category'
           AND $wpdb->term_taxonomy.term_id IN (".$cats_in.")
-          AND $wpdb->term_taxonomy.term_id NOT IN (355,356,357,358,366,370,373,372,371,369,374,108,379,380,381,384,385,386,387,388,59,153,14,16)
+          AND $wpdb->term_taxonomy.term_id NOT IN (".$rightcolcatsex.")
           AND $wpdb->posts.post_type = 'post'
           AND ($wpdb->posts.post_status = 'publish')
           AND post_date >= '$start_date 00:00:00'
@@ -1350,15 +827,15 @@ $message_body.='</div></td></tr></table>
                         	<tr>
                             	<td align="center" valign="top">
                                 	<!-- BEGIN FOOTER // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter" style="background-color:#ffffff; border-top:1px solid #FFFFFF;">
                                         <tr>
-                                            <td valign="top" class="footerContent" mc:edit="footer_content00">
-                                                <a href="https://twitter.com/UWMadisonCALS">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/UWMadisonCALS">Friend on Facebook</a>&nbsp;&nbsp;&nbsp;<a href="mailto:?subject=eCALS%20News%20Recommendation&amp;body=%0ATake%20a%20look%20at%20eCALS.%20%3A%0A%0Ahttp%3A%2F%2Fecals%2Ecals%2Ewisc%2Eedu%2F%0A">Forward to Friend</a>&nbsp;
+                                            <td valign="top" class="footerContent" mc:edit="footer_content00" style="display:block; padding-top:20px; padding-right:20px; padding-bottom:20px; padding-left:20px;">
+                                                <a href="https://twitter.com/UWMadisonCALS" style="color:#606060; font-weight:normal; text-decoration:underline;">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/UWMadisonCALS" style="color:#606060; font-weight:normal; text-decoration:underline;">Friend on Facebook</a>&nbsp;&nbsp;&nbsp;<a href="mailto:?subject=eCALS%20News%20Recommendation&amp;body=%0ATake%20a%20look%20at%20eCALS.%20%3A%0A%0Ahttp%3A%2F%2Fecals%2Ecals%2Ewisc%2Eedu%2F%0A" style="color:#606060; font-weight:normal; text-decoration:underline;">Forward to Friend</a>&nbsp;
                                             </td>
                                         </tr>
 
                                         <tr>
-                                            <td valign="top" class="footerContent" style="padding-top:0;" mc:edit="footer_content01">
+                                            <td valign="top" class="footerContent" style="display:block;  padding-right:20px; padding-bottom:20px; padding-left:20px; padding-top:0;" mc:edit="footer_content01">
                                                 <em>&copy; Copyright 2015 The Board of Regents of the University of Wisconsin System</em>
                                                 <br />
 
@@ -1370,7 +847,7 @@ $message_body.='</div></td></tr></table>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td valign="top" class="footerContent" style="padding-top:0;" mc:edit="footer_content02">
+                                            <td valign="top" class="footerContent" style="display:block; padding-right:20px; padding-bottom:20px; padding-left:20px; padding-top:0;" mc:edit="footer_content02">
 
                                             </td>
                                         </tr>
