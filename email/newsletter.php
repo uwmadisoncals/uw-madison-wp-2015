@@ -510,7 +510,7 @@ on <a href="'.site_url().'" style="color:#333;text-decoration:none;" >'.$site_na
 												<div style="background: #ececec;">
 
 													<div style="float: left; width: 40px; padding-right: 14px; padding-left: 20px;">
-														<img src="'.get_stylesheet_directory_uri().'/images/uw-crest-web.png" alt="UW Crest" style="width: 40px; height: auto; border:0; height:auto; line-height:100%; outline:none; text-decoration:none;">
+														<img src="'.get_stylesheet_directory_uri().'/images/uw-crest-web.png" alt="UW Crest" width="40" height="63" style="width: 40px; height: auto; border:0; height:auto; line-height:100%; outline:none; text-decoration:none;">
 													</div>
 
 													<div style="float:left; width: auto;">
