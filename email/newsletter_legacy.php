@@ -1,36 +1,27 @@
 <?php
 /*
-Newsletter Generator
+The eCALS email sender v 2
 */
 
 
-add_action( 'email_newsletter_2017_hook', 'email_newsletter_2017' );
+add_action( 'ecals_mail_3_hook', 'ecals_mail_3' );
 
 /*---ADMIN SECTION FOR ECALS NEWSLETTER--*/
-add_action('admin_menu', 'email_newsletter_2017_admin_menu');
+add_action('admin_menu', 'ecals_mail_3_admin_menu');
 
-function email_newsletter_2017_admin_menu() {
-  add_options_page('Newsletter Beta', 'Newsletter Beta', 'manage_options', __FILE__, 'email_newsletter_2017_options');
+function ecals_mail_3_admin_menu() {
+  add_options_page('Newsletter', 'Newsletter', 'manage_options', __FILE__, 'ecals_mail_3_options');
 }
 
-function email_newsletter_2017_options(){
+function ecals_mail_3_options(){
 		$hidden_field_name = "hfn";
-
-		
 
 		//check if user has requested to resubmit email
 		if (isset($_POST[$hidden_field_name]) && $_POST[$hidden_field_name]=="Y") {
-			if(isset($_POST['sendto'])) {
-				$adminmsg = 'Email has been sent to '.$_POST['sendto'];
-			} else {
-				$adminemail = get_option('admin_email');
-				$adminmsg = 'Email has been sent to the site administrator ('.$adminemail.').';
-			}
-
-			if (email_newsletter_2017()){?>
+			if (ecals_mail_3()){?>
                 <div id="message" class="updated fade">
                   <p><strong>
-                    <?php _e($adminmsg, 'email_newsletter_2017_options' ); ?>
+                    <?php _e('Email has been sent.', 'ecals_mail_3_options' ); ?>
                     </strong></p>
                 </div>
 			<?php }
@@ -43,11 +34,11 @@ function email_newsletter_2017_options(){
     <!--        <div class="tool-box">
             	<h3 class="title">Scheduled Submissions</h3>
                 <p>
-                <?php if (!wp_next_scheduled('email_newsletter_2017_hook')){
+                <?php if (!wp_next_scheduled('ecals_mail_3_hook')){
                 		echo "No submissions are scheduled at this time.";
 					  } else { ?>
 
-                      The next draft of the eCALS newsletter will be sent to anemec@cals.wisc.edu on <strong><?php echo date("m/d/Y", wp_next_scheduled('email_newsletter_2017_hook')); ?></strong>.
+                      The next draft of the eCALS newsletter will be sent to anemec@cals.wisc.edu on <strong><?php echo date("m/d/Y", wp_next_scheduled('ecals_mail_3_hook')); ?></strong>.
                 <?php }	?>
                 </p>
             </div>-->
@@ -56,140 +47,23 @@ function email_newsletter_2017_options(){
 
 				$current_week = date("W", time())-1;
 				$num_day_0101 = date("N", strtotime("Jan 1 ".date("Y", time())));
-				$mailingaddress = get_option('mailingaddresssaved');
-				$mainfeaturecats = get_option( 'mainfeaturecats' );
-				$highlightedcats = get_option( 'highlightedcats' );
-				$leftcolcats = get_option( 'leftcolcats' );
-				$leftcolcatsex = get_option( 'leftcolcatsex' );
-				$rightcolcats = get_option( 'rightcolcats' );
-				$rightcolcatsex = get_option( 'rightcolcatsex' );
+				$monday_current_week = date("m/d/y", strtotime("Jan 1 ".date("Y", time())) + ((($current_week)*604800) - 86400*($num_day_0101- 1) ));
 
-				$monday_current_week = date("m/d/y", strtotime("Jan 1 ".date("Y", time())) + ((($current_week)*604800) + (86400) ));
-				//echo $monday_current_week;
 				/*if(isset($_POST["start"]) && isset($_POST["end"])){
 					$start_date = date("m/d/Y", strtotime($_POST["start"]));
 					$end_date = date("m/d/Y", strtotime($_POST["end"]));
 				} else {*/
 					$start_date = date("m/d/Y", strtotime($monday_current_week." - 6 days")); //start on tuesday next week
 					$end_date = date("m/d/Y", strtotime($monday_current_week)); //end monday of current week
-					$adminemail = get_option('admin_email'); 
-				//}  ?>
+				//} ?>
             	<!--<h3 class="title">Resubmit email </h3>-->
-
-				<style>
-					.newsletterShell {
-						border: 1px solid rgba(0,0,0,0.3);
-						padding: 1rem;
-						margin-top: 1rem;
-						max-width: 800px;
-					}
-
-					.feature {
-						display: flex;
-						align-items: center;
-						text-align: center;
-						background: rgba(0,0,0,0.2);
-						height: 200px;
-						padding: 1rem;
-						margin-bottom:1rem;
-					}
-
-					.feature .include {
-						
-						vertical-align: center;
-						text-align: center;
-					}
-
-					.highlights {
-						display: flex;
-						align-items: center;
-						padding: 1rem;
-						background: rgba(0,0,0,0.2);
-						min-height: 80px;
-					}
-
-					.highlights .include {
-						vertical-align: center;
-					}
-
-					.columns {
-						display: flex;
-						margin-top: 1rem;
-					}
-
-					.leftcol, .rightcol {
-						padding: 1rem;
-						flex-basis: 50%;
-						background: rgba(0,0,0,0.2);
-					}
-
-					.leftcol {
-						margin-right: 1rem;
-					}
-				</style>
-
                 <p>Click the button below to create a draft of your most recent posts <strong>(includes posts from <?php echo date("m/d/y", strtotime($start_date)).' to '.date("m/d/y", strtotime($end_date)); ?>)</strong>.
-                <form name="email_newsletter_2017_options" method = "post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
+                <form name="ecals_mail_3_options" method = "post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
                 <strong>Date Range:</strong> <input id="start" name="start" type="text" size="10" maxlength="12" value="<?php echo $start_date?>"/> to <input id="end" name="end" type="text" size="10" maxlength="12" value="<?php echo $end_date?>"/>
-                send sample message to
-				<input type="text" name="sendto" value="<?php echo $adminemail ?>" placeholder="name@email.com">
-<span class="submit"> and address it from the mailing adddress of <input type="text" name="mailingaddress" value="<?php echo $mailingaddress ?>" placeholder="name@email.com">
-<span class="submit">
+                <span class="submit">
 
-                    <input name="resubmit" value="Send" type="submit">
-					
+                    <input name="resubmit" value="Resubmit eCALS Newsletter draft to ecals@cals.wisc.edu and al.nemec@wisc.edu" type="submit">
                 </span>
-				
-				<div class="newsletterShell">
-
-				<div class="header">
-					<div class="feature">
-						<div class="include">
-							<label for="mainfeaturecat">Main Feature Category</label>
-							<input type="text" value="<?php echo $mainfeaturecats ?>" name="mainfeaturecat" placeholder="Category ID's to grab seperated by comma.">
-						</div>
-					</div>
-
-					<div class="highlights">
-						<div class="include">
-							<label for="highlightedcat">Highlighted Categories</label>
-							<input type="text" value="<?php echo $highlightedcats ?>" name="highlightedcat" placeholder="Category ID's to grab seperated by comma.">
-						</div>
-					</div>
-				
-				</div>
-
-				<div class="columns">
-				
-				<div class="leftcol">
-					<div class="include">
-						<label for="leftcolcat">Left Column Categories</label>
-						<input type="text" value="<?php echo $leftcolcats ?>" name="leftcolcat" placeholder="Category ID's to grab seperated by comma.">
-					</div>
-
-					<div class="exclude">
-						<label for="leftcolcatex">Left Column Excluded Categories</label>
-						<input type="text" value="<?php echo $leftcolcatsex ?>" name="leftcolcatex" placeholder="Category ID's to exclude seperated by comma.">
-					</div>
-				</div>
-
-				<div class="rightcol">
-					<div class="include">
-						<label for="rightcolcat">Right Column Categories</label>
-						<input type="text" value="<?php echo $rightcolcats ?>" name="rightcolcat" placeholder="Category ID's to grab seperated by comma.">
-					</div>
-
-					<div class="exclude">
-						<label for="rightcolcatex">Right Column Excluded Categories</label>
-						<input type="text" value="<?php echo $rightcolcatsex ?>" name="rightcolcatex" placeholder="Category ID's to exclude seperated by comma.">
-					</div>
-				</div>
-
-				</div>
-
-				</div>
-				
-				
                     <input type="hidden" name="ecals_noncename" id="ecals_noncename" value="
   <?php wp_create_nonce( plugin_basename(__FILE__) );?>" />
   					<input type="hidden" name=<?php echo $hidden_field_name; ?> value="Y" />
@@ -207,42 +81,7 @@ function email_newsletter_2017_options(){
  *
  * @reference http://krijnhoetmer.nl/stuff/php/html-plain-text-mail/ on how to send multipart emails
  **/
-function email_newsletter_2017(){
-
-	if(isset($_POST['mailingaddress'])) {
-			$mailingaddress = $_POST['mailingaddress'];
-			update_option( 'mailingaddresssaved', $mailingaddress );
-	} 
-	
-	if(isset($_POST['mainfeaturecat'])) {
-			$mainfeaturecats = $_POST['mainfeaturecat'];
-			update_option( 'mainfeaturecats', $mainfeaturecats );
-	} 
-
-	if(isset($_POST['highlightedcat'])) {
-			$highlightedcats = $_POST['highlightedcat'];
-			update_option( 'highlightedcats', $highlightedcats );
-	} 
-
-	if(isset($_POST['leftcolcat'])) {
-			$leftcolcats = $_POST['leftcolcat'];
-			update_option( 'leftcolcats', $leftcolcats );
-	} 
-
-	if(isset($_POST['leftcolcatex'])) {
-			$leftcolcatsex = $_POST['leftcolcatex'];
-			update_option( 'leftcolcatsex', $leftcolcatsex );
-	} 
-
-	if(isset($_POST['rightcolcat'])) {
-			$rightcolcats = $_POST['rightcolcat'];
-			update_option( 'rightcolcats', $rightcolcats );
-	} 
-
-	if(isset($_POST['rightcolcatex'])) {
-			$rightcolcatsex = $_POST['rightcolcatex'];
-			update_option( 'rightcolcatsex', $rightcolcatsex );
-	} 
+function ecals_mail_3(){
 
 	//get vars
 	global $wpdb;
@@ -266,35 +105,14 @@ function email_newsletter_2017(){
 
 	//setup email
 
-	if(isset($_POST["sendto"])) {
-		$sendaddr = $_POST["sendto"];
-	} else {
-		$sendaddr = "al.nemec@wisc.edu";
-	}
-
-	if(isset($_POST["mailingaddress"])) {
-		$mailing_address = $_POST["mailingaddress"];
-	} else {
-		
-		if(isset($_POST["sendto"])) {
-			$mailing_address = $_POST["sendto"];
-		} else {
-			$mailing_address = "ecals@cals.wisc.edu";
-		}
-	}
-
-	$site_name = get_bloginfo( 'name' );
-	$site_description = get_bloginfo( 'description' );
-	
-
-	$to = $sendaddr;
-	$subject ="$site_name Newsletter - ".date("F d Y", time());
+	$to ='ecals@cals.wisc.edu, al.nemec@wisc.edu';
+	$subject ="eCALS Newsletter - ".date("F d Y", time());
 
 	$boundary = uniqid('np');
 
 	$headers = "MIME-Version: 1.0\r\n";
-	$headers .= "From: $site_name <$mailing_address>\r\n";
-	$headers .= "Subject: $site_name <$mailing_address>\r\n";
+	$headers .= "From: eCALS <ecals@cals.wisc.edu>\r\n";
+	$headers .= "Subject: eCALS <ecals@cals.wisc.edu>\r\n";
 	$headers .= "Content-Type: multipart/alternative;boundary=" . $boundary . "\r\n";
 
 
@@ -302,11 +120,11 @@ function email_newsletter_2017(){
 
 	$message .= "\r\n\r\n--" . $boundary . "\r\n";
 	$message .= "Content-type: text/plain;charset=utf-8\r\n\r\n";
-	$message .= email_newsletter_2017_plain_text($cats, $start_date, $end_date);
+	$message .= ecals_mail_3_plain_text($cats, $start_date, $end_date);
 
 	$message .= "\r\n\r\n--" . $boundary . "\r\n";
 	$message .= "Content-type: text/html;charset=utf-8\r\n\r\n";
-	$message .= email_newsletter_2017_html($cats, $start_date, $end_date);
+	$message .= ecals_mail_3_html($cats, $start_date, $end_date);
 
 	$message .= "\r\n\r\n--" . $boundary . "--";
 
@@ -317,10 +135,9 @@ function email_newsletter_2017(){
 }
 
 
-function email_newsletter_2017_plain_text($cats, $start_date, $end_date){
+function ecals_mail_3_plain_text($cats, $start_date, $end_date){
 
 global $wpdb;
-global $post;
 
 $output ='
 ==============================================================
@@ -415,42 +232,16 @@ return $output;
 
 }
 
-function email_newsletter_2017_html($cats, $start_date, $end_date) {
+function ecals_mail_3_html($cats, $start_date, $end_date) {
 
 	global $wpdb;
-	global $post;
-
-	$site_name = get_bloginfo( 'name' );
-	$site_description = get_bloginfo( 'description' );
-	$mainfeaturecats = get_option( 'mainfeaturecats');
-	$highlightedcats = get_option( 'highlightedcats');
-	$leftcolcats = get_option( 'leftcolcats');
-	$rightcolcats = get_option( 'rightcolcats');
-	$leftcolcatsex = get_option( 'leftcolcatsex');
-	$rightcolcatsex = get_option( 'rightcolcatsex');
-
-	if($leftcolcats == null) {
-		$leftcolcats = '1';
-	}
-	
-	if($rightcolcats == null) {
-		$rightcolcats = '1';
-	}
-	
-	if($rightcolcatsex == null) {
-		$rightcolcatsex = '0';
-	}
-
-	if($leftcolcatsex == null) {
-		$leftcolcatsex = '0';
-	}
 
 $message_head =
 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>'.$site_name.' Newsletter - '.date("F d Y", time()).'</title>
+        <title>eCALS Newsletter - '.date("F d Y", time()).'</title>
         <style type="text/css">
 			/* /\/\/\/\/\/\/\/\/ CLIENT-SPECIFIC STYLES /\/\/\/\/\/\/\/\/ */
 			#outlook a{padding:0;} /* Force Outlook to provide a "view in browser" message */
@@ -468,20 +259,572 @@ $message_head =
 
 			/* /\/\/\/\/\/\/\/\/ TEMPLATE STYLES /\/\/\/\/\/\/\/\/ */
 
+			/* ========== Page Styles ========== */
+
+			#bodyCell{padding:20px;}
+			#templateContainer{width:600px;}
+
+			/**
+			* @tab Page
+			* @section background style
+			* @tip Set the background color and top border for your email. You may want to choose colors that match your companys branding.
+			* @theme page
+			*/
+			body, #bodyTable{
+				/*@editable*/ background-color:#e8e6d9;
+				font-family: Helvetica, Verdana, Arial, sans-serif;
+			}
 			
+			a {
+					
+			}
+			
+			div,a,h1,h2,h3,table {
+				background-color: #fff;
+			}
+
+			/**
+			* @tab Page
+			* @section background style
+			* @tip Set the background color and top border for your email. You may want to choose colors that match your companys branding.
+			* @theme page
+			*/
+			#bodyCell{
+				/*@editable*/ border-top:4px solid #cac8bd;
+			}
+
+			/**
+			* @tab Page
+			* @section email border
+			* @tip Set the border for your email.
+			*/
+			#templateContainer{
+				/*@editable*/ border:1px solid #BBBBBB;
+			}
+
+      .clear {
+        clear:both;
+      }
+
+      
+
+			/**
+			* @tab Page
+			* @section heading 1
+			* @tip Set the styling for all first-level headings in your emails. These should be the largest of your headings.
+			* @style heading 1
+			*/
+			h1{
+				/*@editable*/ color:#202020 !important;
+				display:block;
+				/*@editable*/ font-family:Helvetica;
+				/*@editable*/ font-size:26px;
+				/*@editable*/ font-style:normal;
+				/*@editable*/ font-weight:bold;
+				/*@editable*/ line-height:100%;
+				/*@editable*/ letter-spacing:normal;
+				margin-top:0;
+				margin-right:0;
+				margin-bottom:10px;
+				margin-left:0;
+				/*@editable*/ text-align:left;
+			}
+
+			/**
+			* @tab Page
+			* @section heading 2
+			* @tip Set the styling for all second-level headings in your emails.
+			* @style heading 2
+			*/
+			h2{
+				/*@editable*/ color:#404040 !important;
+				display:block;
+				/*@editable*/ font-family:Helvetica;
+				/*@editable*/ font-size:14px;
+				/*@editable*/ font-style:normal;
+				/*@editable*/ font-weight:bold;
+				/*@editable*/ line-height:100%;
+				/*@editable*/ letter-spacing:1px;
+				text-transform: uppercase;
+				margin-top:0;
+				margin-right:0;
+				margin-bottom:10px;
+				margin-left:0;
+				/*@editable*/ text-align:left;
+			}
+
+			/**
+			* @tab Page
+			* @section heading 3
+			* @tip Set the styling for all third-level headings in your emails.
+			* @style heading 3
+			*/
+			h3{
+				/*@editable*/ color:#606060 !important;
+				display:block;
+				/*@editable*/ font-family:Helvetica;
+				/*@editable*/ font-size:16px;
+				/*@editable*/ font-style:italic;
+				/*@editable*/ font-weight:normal;
+				/*@editable*/ line-height:100%;
+				/*@editable*/ letter-spacing:normal;
+				margin-top:0;
+				margin-right:0;
+				margin-bottom:10px;
+				margin-left:0;
+				/*@editable*/ text-align:left;
+			}
+
+			/**
+			* @tab Page
+			* @section heading 4
+			* @tip Set the styling for all fourth-level headings in your emails. These should be the smallest of your headings.
+			* @style heading 4
+			*/
+			h4{
+				/*@editable*/ color:#808080 !important;
+				display:block;
+				/*@editable*/ font-family:Helvetica;
+				/*@editable*/ font-size:14px;
+				/*@editable*/ font-style:italic;
+				/*@editable*/ font-weight:normal;
+				/*@editable*/ line-height:100%;
+				/*@editable*/ letter-spacing:normal;
+				margin-top:0;
+				margin-right:0;
+				margin-bottom:10px;
+				margin-left:0;
+				/*@editable*/ text-align:left;
+			}
+
+			/* ========== Header Styles ========== */
+
+			/**
+			* @tab Header
+			* @section preheader style
+			* @tip Set the background color and bottom border for your emails preheader area.
+			* @theme header
+			*/
+			#templatePreheader{
+				/*@editable*/ background-color:#ffffff;
+				/*@editable*/ /*border-bottom:1px solid #CCCCCC;*/
+			}
+
+			/**
+			* @tab Header
+			* @section preheader text
+			* @tip Set the styling for your emails preheader text. Choose a size and color that is easy to read.
+			*/
+			.preheaderContent{
+				/*@editable*/ color:#808080;
+				/*@editable*/ font-family:Helvetica;
+				/*@editable*/ font-size:10px;
+				/*@editable*/ line-height:125%;
+				/*@editable*/ text-align:left;
+			}
+
+			/**
+			* @tab Header
+			* @section preheader link
+			* @tip Set the styling for your emails preheader links. Choose a color that helps them stand out from your text.
+			*/
+			.preheaderContent a:link, .preheaderContent a:visited, /* Yahoo! Mail Override */ .preheaderContent a .yshortcuts /* Yahoo! Mail Override */{
+				/*@editable*/ color:#606060;
+				/*@editable*/ font-weight:normal;
+				/*@editable*/ text-decoration:underline;
+			}
+
+			/**
+			* @tab Header
+			* @section header style
+			* @tip Set the background color and borders for your emails header area.
+			* @theme header
+			*/
+			#templateHeader{
+				/*@editable*/ background-color:#ffffff;
+				/*@editable*/ /*border-top:1px solid #FFFFFF;*/
+				/*@editable*/ /*border-bottom:1px solid #CCCCCC;*/
+			}
+
+			/**
+			* @tab Header
+			* @section header text
+			* @tip Set the styling for your emails header text. Choose a size and color that is easy to read.
+			*/
+			.headerContent{
+				/*@editable*/ color:#505050;
+				/*@editable*/ font-family:Helvetica;
+				/*@editable*/ font-size:20px;
+				/*@editable*/ font-weight:bold;
+				/*@editable*/ line-height:100%;
+				/*@editable*/ padding-top:0;
+				/*@editable*/ padding-right:0;
+				/*@editable*/ padding-bottom:0;
+				/*@editable*/ padding-left:0;
+				/*@editable*/ text-align:left;
+				/*@editable*/ vertical-align:middle;
+			}
+
+			/**
+			* @tab Header
+			* @section header link
+			* @tip Set the styling for your emails header links. Choose a color that helps them stand out from your text.
+			*/
+			a:link, .headerContent a:link, .headerContent a:visited, /* Yahoo! Mail Override */ .headerContent a .yshortcuts /* Yahoo! Mail Override */{
+				/*@editable*/ color:#3694cf;
+				/*@editable*/ font-weight:normal;
+				/*@editable*/ text-decoration:underline;
+			}
+
+			#headerImage{
+				height:auto;
+				max-width:600px;
+			}
+
+			/* ========== Body Styles ========== */
+
+			/**
+			* @tab Body
+			* @section body style
+			* @tip Set the background color and borders for your emails body area.
+			*/
+			#templateBody{
+				/*@editable*/ background-color:#ffffff;
+				/*@editable*/ /*border-top:1px solid #FFFFFF;*/
+				/*@editable*/ /*border-bottom:1px solid #CCCCCC;*/
+			}
+
+			/**
+			* @tab Body
+			* @section body text
+			* @tip Set the styling for your emails main content text. Choose a size and color that is easy to read.
+			* @theme main
+			*/
+			.bodyContent{
+				/*@editable*/ color:#505050;
+				/*@editable*/ font-family:Helvetica;
+				/*@editable*/ font-size:16px;
+				/*@editable*/ line-height:150%;
+				padding-top:20px;
+				padding-right:20px;
+				padding-bottom:20px;
+				padding-left:20px;
+				/*@editable*/ text-align:left;
+			}
+
+			/**
+			* @tab Body
+			* @section body link
+			* @tip Set the styling for your emails main content links. Choose a color that helps them stand out from your text.
+			*/
+			.bodyContent a:link, .bodyContent a:visited, /* Yahoo! Mail Override */ .bodyContent a .yshortcuts /* Yahoo! Mail Override */{
+				/*@editable*/ color:#3694cf;
+				/*@editable*/ font-weight:normal;
+				/*@editable*/ text-decoration:underline;
+			}
+
+			.bodyContent img{
+				display:inline;
+				height:auto;
+				max-width:560px;
+			}
+
+			/* ========== Column Styles ========== */
+
+			.templateColumnContainer{display:inline; width:100%;}
+
+			/**
+			* @tab Columns
+			* @section column style
+			* @tip Set the background color and borders for your emails column area.
+			*/
+			#templateColumns{
+				/*@editable*/ background-color:#ffffff;
+				/*@editable*/ /*border-top:1px solid #FFFFFF;*/
+				/*@editable*/ /*border-bottom:1px solid #CCCCCC;*/
+			}
+
+			/**
+			* @tab Columns
+			* @section left column text
+			* @tip Set the styling for your emails left column content text. Choose a size and color that is easy to read.
+			*/
+			.leftColumnContent{
+				/*@editable*/ color:#505050;
+				/*@editable*/ font-family:Helvetica;
+				/*@editable*/ font-size:14px;
+				/*@editable*/ line-height:150%;
+				padding-top:0;
+				padding-right:0;
+				padding-bottom:20px;
+				padding-left:0;
+				/*@editable*/ text-align:left;
+			}
+
+			/**
+			* @tab Columns
+			* @section left column link
+			* @tip Set the styling for your emails left column content links. Choose a color that helps them stand out from your text.
+			*/
+			.leftColumnContent a:link, .leftColumnContent a:visited, /* Yahoo! Mail Override */ .leftColumnContent a .yshortcuts /* Yahoo! Mail Override */{
+				/*@editable*/ color:#3694cf;
+				/*@editable*/ font-weight:normal;
+				/*@editable*/ text-decoration:underline;
+			}
+
+			/**
+			* @tab Columns
+			* @section right column text
+			* @tip Set the styling for your emails right column content text. Choose a size and color that is easy to read.
+			*/
+			.rightColumnContent{
+				/*@editable*/ color:#505050;
+				/*@editable*/ font-family:Helvetica;
+				/*@editable*/ font-size:14px;
+				/*@editable*/ line-height:150%;
+				padding-top:0;
+				padding-right:0;
+				padding-bottom:20px;
+				padding-left:0;
+				/*@editable*/ text-align:left;
+			}
+
+			/**
+			* @tab Columns
+			* @section right column link
+			* @tip Set the styling for your emails right column content links. Choose a color that helps them stand out from your text.
+			*/
+			.rightColumnContent a:link, .rightColumnContent a:visited, /* Yahoo! Mail Override */ .rightColumnContent a .yshortcuts /* Yahoo! Mail Override */{
+				/*@editable*/ color:#3694cf;
+				/*@editable*/ font-weight:normal;
+				/*@editable*/ text-decoration:underline;
+			}
+
+			.leftColumnContent img, .rightColumnContent img{
+				display:inline;
+				height:auto;
+				max-width:260px;
+			}
+
+			/* ========== Footer Styles ========== */
+
+			/**
+			* @tab Footer
+			* @section footer style
+			* @tip Set the background color and borders for your emails footer area.
+			* @theme footer
+			*/
+			#templateFooter{
+				/*@editable*/ background-color:#ffffff;
+				/*@editable*/ border-top:1px solid #FFFFFF;
+			}
+
+			/**
+			* @tab Footer
+			* @section footer text
+			* @tip Set the styling for your emails footer text. Choose a size and color that is easy to read.
+			* @theme footer
+			*/
+			.footerContent{
+				/*@editable*/ color:#808080;
+				/*@editable*/ font-family:Helvetica;
+				/*@editable*/ font-size:10px;
+				/*@editable*/ line-height:150%;
+				padding-top:20px;
+				padding-right:20px;
+				padding-bottom:20px;
+				padding-left:20px;
+				/*@editable*/ text-align:left;
+			}
+
+			/**
+			* @tab Footer
+			* @section footer link
+			* @tip Set the styling for your emails footer links. Choose a color that helps them stand out from your text.
+			*/
+			.footerContent a:link, .footerContent a:visited, /* Yahoo! Mail Override */ .footerContent a .yshortcuts, .footerContent a span /* Yahoo! Mail Override */{
+				/*@editable*/ color:#606060;
+				/*@editable*/ font-weight:normal;
+				/*@editable*/ text-decoration:underline;
+			}
+
+			/* /\/\/\/\/\/\/\/\/ MOBILE STYLES /\/\/\/\/\/\/\/\/ */
+
+            @media only screen and (max-width: 480px){
+
+              
+
+				/* /\/\/\/\/\/\/ CLIENT-SPECIFIC MOBILE STYLES /\/\/\/\/\/\/ */
+				body, table, td, p, a, li, blockquote{-webkit-text-size-adjust:none !important;} /* Prevent Webkit platforms from changing default text sizes */
+                body{width:100% !important; min-width:100% !important;} /* Prevent iOS Mail from adding padding to the body */
+
+				/* /\/\/\/\/\/\/ MOBILE RESET STYLES /\/\/\/\/\/\/ */
+				#bodyCell{padding:10px !important;}
+
+				/* /\/\/\/\/\/\/ MOBILE TEMPLATE STYLES /\/\/\/\/\/\/ */
+
+				/* ======== Page Styles ======== */
+
+				/**
+				* @tab Mobile Styles
+				* @section template width
+				* @tip Make the template fluid for portrait or landscape view adaptability. If a fluid layout doesnt work for you, set the width to 300px instead.
+				*/
+				#templateContainer{
+					max-width:600px !important;
+					/*@editable*/ width:100% !important;
+				}
+
+				/**
+				* @tab Mobile Styles
+				* @section heading 1
+				* @tip Make the first-level headings larger in size for better readability on small screens.
+				*/
+				h1{
+					/*@editable*/ font-size:16px !important;
+					/*@editable*/ line-height:100% !important;
+				}
+
+				/**
+				* @tab Mobile Styles
+				* @section heading 2
+				* @tip Make the second-level headings larger in size for better readability on small screens.
+				*/
+				h2{
+					/*@editable*/ font-size:20px !important;
+					/*@editable*/ line-height:100% !important;
+				}
+
+				/**
+				* @tab Mobile Styles
+				* @section heading 3
+				* @tip Make the third-level headings larger in size for better readability on small screens.
+				*/
+				h3{
+					/*@editable*/ font-size:18px !important;
+					/*@editable*/ line-height:100% !important;
+				}
+
+				/**
+				* @tab Mobile Styles
+				* @section heading 4
+				* @tip Make the fourth-level headings larger in size for better readability on small screens.
+				*/
+				h4{
+					/*@editable*/ font-size:16px !important;
+					/*@editable*/ line-height:100% !important;
+				}
+
+				/* ======== Header Styles ======== */
+
+				#templatePreheader{display:none !important;} /* Hide the template preheader to save space */
+
+				/**
+				* @tab Mobile Styles
+				* @section header image
+				* @tip Make the main header image fluid for portrait or landscape view adaptability, and set the images original width as the max-width. If a fluid setting doesnt work, set the image width to half its original size instead.
+				*/
+				#headerImage{
+					height:auto !important;
+					/*@editable*/ max-width:600px !important;
+					/*@editable*/ width:100% !important;
+				}
+
+				/**
+				* @tab Mobile Styles
+				* @section header text
+				* @tip Make the header content text larger in size for better readability on small screens. We recommend a font size of at least 16px.
+				*/
+				.headerContent{
+					/*@editable*/ font-size:20px !important;
+					/*@editable*/ line-height:125% !important;
+				}
+
+				/* ======== Body Styles ======== */
+
+				/**
+				* @tab Mobile Styles
+				* @section body image
+				* @tip Make the main body image fluid for portrait or landscape view adaptability, and set the images original width as the max-width. If a fluid setting doesnt work, set the image width to half its original size instead.
+				*/
+				#bodyImage{
+					height:auto !important;
+					/*@editable*/ max-width:560px !important;
+					/*@editable*/ width:100% !important;
+				}
+
+				/**
+				* @tab Mobile Styles
+				* @section body text
+				* @tip Make the body content text larger in size for better readability on small screens. We recommend a font size of at least 16px.
+				*/
+				.bodyContent{
+					/*@editable*/ font-size:18px !important;
+					/*@editable*/ line-height:125% !important;
+				}
+
+				/* ======== Column Styles ======== */
+
+				.templateColumnContainer{display:block !important; width:100% !important;}
+
+				/**
+				* @tab Mobile Styles
+				* @section column image
+				* @tip Make the column image fluid for portrait or landscape view adaptability, and set the images original width as the max-width. If a fluid setting doesnt work, set the image width to half its original size instead.
+				*/
+				.columnImage{
+					height:auto !important;
+					/*@editable*/ max-width:260px !important;
+					/*@editable*/ width:100% !important;
+				}
+
+				/**
+				* @tab Mobile Styles
+				* @section left column text
+				* @tip Make the left column content text larger in size for better readability on small screens. We recommend a font size of at least 16px.
+				*/
+				.leftColumnContent{
+					/*@editable*/ font-size:16px !important;
+					/*@editable*/ line-height:125% !important;
+				}
+
+				/**
+				* @tab Mobile Styles
+				* @section right column text
+				* @tip Make the right column content text larger in size for better readability on small screens. We recommend a font size of at least 16px.
+				*/
+				.rightColumnContent{
+					/*@editable*/ font-size:16px !important;
+					/*@editable*/ line-height:125% !important;
+				}
+
+				/* ======== Footer Styles ======== */
+
+				/**
+				* @tab Mobile Styles
+				* @section footer text
+				* @tip Make the body content text larger in size for better readability on small screens.
+				*/
+				.footerContent{
+					/*@editable*/ font-size:14px !important;
+					/*@editable*/ line-height:115% !important;
+				}
+
+				.footerContent a{display:block !important;} /* Place footer social and utility links on their own lines, for easier access */
+			}
 		</style>
 		<meta name="robots" content="noindex,nofollow"></meta>
 		<meta property="og:title" content="eCALS Newsletter - '.date("F d Y", time()).'"></meta>
     </head>';
 
 $message_body='
-    <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" style="background-color: #ececec; margin:0; padding:0; font-family: Verlag, Helvetica, Verdana, Arial, sans-serif;">
+    <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
     	<center>
-        	<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable" style="background-color: #ececec;">
+        	<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
             	<tr>
-                	<td align="center" valign="top" id="bodyCell" style="border-top:4px solid #727272; padding: 20px;">
+                	<td align="center" valign="top" id="bodyCell">
                     	<!-- BEGIN TEMPLATE // -->
-                    	<table border="0" cellpadding="0" cellspacing="0" id="templateContainer" style="width:600px; border:1px solid #BBBBBB; max-width:600px !important; background-color: #fff;">
+                    	<table border="0" cellpadding="0" cellspacing="0" id="templateContainer">
                         	<tr>
                             	<td align="center" valign="top">
                                 	<!-- BEGIN PREHEADER // -->
@@ -489,7 +832,7 @@ $message_body='
                                         <tr>
                                             <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
                                                 The following is a compilation of all the messages posted
-on <a href="'.site_url().'" style="color:#333;text-decoration:none;" >'.$site_name.'</a> from '.date("m/d/y", strtotime($start_date)).' to '.date("m/d/y", strtotime($end_date)).'.
+on <a href="http://ecals.cals.wisc.edu" style="color:#333;text-decoration:none;" >eCALS</a> from '.date("m/d/y", strtotime($start_date)).' to '.date("m/d/y", strtotime($end_date)).'.
                                             </td>
                                             <!-- *|IFNOT:ARCHIVE_PAGE|* -->
                                             <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">
@@ -507,19 +850,7 @@ on <a href="'.site_url().'" style="color:#333;text-decoration:none;" >'.$site_na
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
                                         <tr>
                                             <td valign="top" class="headerContent">
-												<div style="background: #ececec;">
-
-													<div style="float: left; width: 40px; padding-right: 14px; padding-left: 20px;">
-														<img src="'.get_stylesheet_directory_uri().'/images/uw-crest-web.png" alt="UW Crest" style="width: 40px; height: auto; border:0; height:auto; line-height:100%; outline:none; text-decoration:none;">
-													</div>
-
-													<div style="float:left; width: auto;">
-														<h1 style="margin-bottom: 0px; color: #c5050c; margin-top: 14px; text-transform: uppercase; font-size: 22px; letter-spacing: 0.5px;">'.$site_name.'</h1>
-														<div style="text-transform: uppercase; font-size: 11px; letter-spacing: 1px; color: #727272;">'.$site_description.'</div>
-													</div>
-
-													
-												</div>
+                                            	<img src="https://ecals.cals.wisc.edu/wp-content/themes/madisonwp2015/images/ecals_logo_mail.jpg" style="max-width:600px;" id="headerImage" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext />
                                             </td>
                                         </tr>
                                     </table>
@@ -532,18 +863,27 @@ on <a href="'.site_url().'" style="color:#333;text-decoration:none;" >'.$site_na
                                     <table border="0" cellpadding="0" cellspacing="0" style="border-bottom: none;" width="100%" id="templateBody">
 
                                     	<tr style="border-bottom: none;">
-                                        	<td class="bodyContent" style="padding-top:20px; padding-right:20px; padding-bottom:20px;padding-left:20px;">
+                                        	<td class="bodyContent" style="padding-top:0; padding-bottom:0;">
                                             	';
 
 															 //AROUND CALS FEATURE
-															 
-															 query_posts(array('cat' => "$mainfeaturecats", "showposts" => '1', "post_status" => 'publish')); 
+
+															 query_posts(array('category_name' => 'ecals-blog', "showposts" => '1', "post_status" => 'publish')); 
 															 while (have_posts()) : the_post();
 
-																//echo $post->ID;
+																//img url
+																/*if ( get_post_meta($post->ID, 'image', true)) {
+																	$img_src = site_url().get_post_meta($post->ID, "image", $single = true);
+																} else {
+																	$img_src = get_bloginfo('template_url').'/images/default200x200.jpg';
+																}*/
+
+
+
+						    				//the_post_thumbnail();
+						    				//echo get_the_post_thumbnail($page->ID, 'large');
 						    				$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID),'large' );
-											//var_dump($thumb);
-$url = $thumb['0']; $img_src = $url; 
+$url = $thumb['0']; $img_src = $url;
 
 
 
@@ -551,16 +891,14 @@ $url = $thumb['0']; $img_src = $url;
 																$e = explode(' ', get_the_excerpt());
 																if(count($e) > 20){
 																	$excerpt = implode(' ', array_slice($e, 0, 25)).' [...]';
-																} else {
-																	$excerpt = get_the_excerpt();
 																}
 
 	$message_body.='
-                                            	<a href="'.get_permalink().'?utm_source=ecals_email_newsletter&utm_medium=email&utm_campaign=ecals_email_newsletter" style="max-height: 200px; overflow:hidden; display:block; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; margin-top:1em;"><img src="'.$img_src.'" style="width:560px; border:0; height:auto; line-height:100%; outline:none; text-decoration:none;" width="560" id="bodyImage" mc:label="body_image" mc:edit="body_image" mc:allowtext /></a>
+                                            	<a href="'.get_permalink().'?utm_source=ecals_email_newsletter&utm_medium=email&utm_campaign=ecals_email_newsletter" style="max-height: 200px; overflow:hidden; display:block; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; margin-top:1em;"><img src="'.$img_src.'" style="width:560px;" width="560" id="bodyImage" mc:label="body_image" mc:edit="body_image" mc:allowtext /></a>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td valign="top" class="bodyContent" mc:edit="body_content01" style="padding-top:20px; padding-right:20px; padding-bottom:20px;padding-left:20px;">
+                                            <td valign="top" class="bodyContent" mc:edit="body_content01">
                                                 <h2><a href="'.get_permalink().'?utm_source=ecals_email_newsletter&utm_medium=email&utm_campaign=ecals_email_newsletter" style="line-height: 1.3em;">'.get_the_title().'</a></h2>
                                                 <h4>'.$excerpt.'</h4>
 
@@ -570,11 +908,11 @@ $url = $thumb['0']; $img_src = $url;
 
                                                                $message_body.='
 															    <tr>
-                                                                <td valign="top" class="bodyContent" mc:edit="body_content01" style="padding-top:20px; padding-right:20px; padding-bottom:20px;padding-left:20px;">
+                                                                <td valign="top" class="bodyContent" mc:edit="body_content01">
                                                                 <h2>More Highlights</h2><div>';
                                                                     //AROUND CALS FEATURE
 
-															 query_posts(array('cat' => "$highlightedcats", "posts_per_page" => '3', "post_status" => 'publish'));
+															 query_posts(array('category_name' => 'highlights', "posts_per_page" => '3', "post_status" => 'publish'));
 															 while (have_posts()) : the_post();
 
 															  $message_body.='
@@ -602,31 +940,15 @@ $message_body.='
 
                                     	
                             		<tr valign="top">
-                            			<td width="50%" valign="top" style="padding-left: 8px;">
+                            			<td width="50%" valign="top">
                             		
                                 	<!-- BEGIN COLUMNS // -->
                                 	
                                 	                                	
-                                    <div class="newsGroup" style="background: #fff;">';
+                                    <div class="newsGroup" style="background: #fff; margin: 17px;">';
                                             //GET NEWS
 											//$cats = array(array(3,4),array(5,6),array(7,'follow'));
-											
-											//$cats = array(153,14,572,4,59,7,'follow');
-											//$cats = array($leftcolcats,'follow');
-											$oldcats = explode(",", $leftcolcats);
-											
-											$cats = array();
-											
-											foreach ($oldcats as $cat) {
-												//echo $cat;
-												$newcat = (int)$cat;
-												//echo $newcat;
-												array_push($cats, $newcat);
-											}
-
-											array_push($cats, "follow");
-
-											//var_dump($cats);
+											$cats = array(153,14,572,4,59,7,'follow');
 
 											$num_printed_cells = 1;
 											for ($i=0; $i<count($cats); $i++){
@@ -649,15 +971,13 @@ $message_body.='
 													foreach ($categories as $cat){
 														//make list of categories (parent + children cats)
 														$cats_in.= ", '".$cat->cat_ID."'";
-													
 													}
-													
 
 													$query ="SELECT DISTINCT ID, post_title, post_date
 																FROM $wpdb->posts, $wpdb->term_taxonomy, $wpdb->term_relationships
 																WHERE $wpdb->term_taxonomy.taxonomy = 'category'
 																AND $wpdb->term_taxonomy.term_id IN (".$cats_in.")
-																AND $wpdb->term_taxonomy.term_id NOT IN (".$leftcolcatsex.")
+																AND $wpdb->term_taxonomy.term_id NOT IN (355,356,357,358,366,370,373,372,371,369,108,379,380,381,384,385,386,387,388)
 																AND $wpdb->posts.post_type = 'post'
 																AND ($wpdb->posts.post_status = 'publish')
 																AND post_date >= '$start_date 00:00:00'
@@ -711,7 +1031,7 @@ $message_body.='									<div width="334" align="left" valign="top" style="borde
 
 
 </td>
-                            			<td width="50%" valign="top"> <div class="newsGroup" style="background: #fff; style="padding-left: 8px;">';
+                            			<td width="50%" valign="top"> <div class="newsGroup" style="background: #fff; margin: 17px;">';
 
 
 
@@ -719,20 +1039,7 @@ $message_body.='									<div width="334" align="left" valign="top" style="borde
 
                       //GET NEWS
 //$cats = array(array(3,4),array(5,6),array(7,'follow'));
-//$cats = array(47,424,5,3,437,'follow');
-
-$oldcats = explode(",", $rightcolcats);
-											
-											$cats = array();
-											
-											foreach ($oldcats as $cat) {
-												//echo $cat;
-												$newcat = (int)$cat;
-												//echo $newcat;
-												array_push($cats, $newcat);
-											}
-
-											array_push($cats, "follow");
+$cats = array(47,424,5,3,437,'follow');
 
 $num_printed_cells = 1;
 for ($i=0; $i<count($cats); $i++){
@@ -761,7 +1068,7 @@ for ($i=0; $i<count($cats); $i++){
           FROM $wpdb->posts, $wpdb->term_taxonomy, $wpdb->term_relationships
           WHERE $wpdb->term_taxonomy.taxonomy = 'category'
           AND $wpdb->term_taxonomy.term_id IN (".$cats_in.")
-          AND $wpdb->term_taxonomy.term_id NOT IN (".$rightcolcatsex.")
+          AND $wpdb->term_taxonomy.term_id NOT IN (355,356,357,358,366,370,373,372,371,369,374,108,379,380,381,384,385,386,387,388,59,153,14,16)
           AND $wpdb->posts.post_type = 'post'
           AND ($wpdb->posts.post_status = 'publish')
           AND post_date >= '$start_date 00:00:00'
@@ -827,15 +1134,15 @@ $message_body.='</div></td></tr></table>
                         	<tr>
                             	<td align="center" valign="top">
                                 	<!-- BEGIN FOOTER // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter" style="background-color:#ffffff; border-top:1px solid #FFFFFF;">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
                                         <tr>
-                                            <td valign="top" class="footerContent" mc:edit="footer_content00" style="display:block; padding-top:20px; padding-right:20px; padding-bottom:20px; padding-left:20px;">
-                                                <a href="https://twitter.com/UWMadisonCALS" style="color:#606060; font-weight:normal; text-decoration:underline;">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/UWMadisonCALS" style="color:#606060; font-weight:normal; text-decoration:underline;">Friend on Facebook</a>&nbsp;&nbsp;&nbsp;<a href="mailto:?subject=eCALS%20News%20Recommendation&amp;body=%0ATake%20a%20look%20at%20eCALS.%20%3A%0A%0Ahttp%3A%2F%2Fecals%2Ecals%2Ewisc%2Eedu%2F%0A" style="color:#606060; font-weight:normal; text-decoration:underline;">Forward to Friend</a>&nbsp;
+                                            <td valign="top" class="footerContent" mc:edit="footer_content00">
+                                                <a href="https://twitter.com/UWMadisonCALS">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/UWMadisonCALS">Friend on Facebook</a>&nbsp;&nbsp;&nbsp;<a href="mailto:?subject=eCALS%20News%20Recommendation&amp;body=%0ATake%20a%20look%20at%20eCALS.%20%3A%0A%0Ahttp%3A%2F%2Fecals%2Ecals%2Ewisc%2Eedu%2F%0A">Forward to Friend</a>&nbsp;
                                             </td>
                                         </tr>
 
                                         <tr>
-                                            <td valign="top" class="footerContent" style="display:block;  padding-right:20px; padding-bottom:20px; padding-left:20px; padding-top:0;" mc:edit="footer_content01">
+                                            <td valign="top" class="footerContent" style="padding-top:0;" mc:edit="footer_content01">
                                                 <em>&copy; Copyright 2015 The Board of Regents of the University of Wisconsin System</em>
                                                 <br />
 
@@ -847,7 +1154,7 @@ $message_body.='</div></td></tr></table>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td valign="top" class="footerContent" style="display:block; padding-right:20px; padding-bottom:20px; padding-left:20px; padding-top:0;" mc:edit="footer_content02">
+                                            <td valign="top" class="footerContent" style="padding-top:0;" mc:edit="footer_content02">
 
                                             </td>
                                         </tr>
