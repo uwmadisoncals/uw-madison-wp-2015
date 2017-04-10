@@ -477,6 +477,11 @@ $message_head =
 
 $message_body='
     <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" style="background-color: #ececec; margin:0; padding:0; font-family: Verlag, Helvetica, Verdana, Arial, sans-serif;">
+	  <!--[if mso]>
+<style type="text/css">
+body, table, td {font-family: Arial, Helvetica, sans-serif !important;}
+</style>
+<![endif]-->
     	<center>
         	<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable" style="background-color: #ececec;">
             	<tr>
@@ -607,7 +612,7 @@ $message_body.='
 
                                     	
                             		<tr valign="top">
-                            			<td width="50%" valign="top" style="padding-left: 8px;">
+                            			<td width="50%" valign="top" style="padding-left: 20px;">
                             		
                                 	<!-- BEGIN COLUMNS // -->
                                 	
@@ -678,7 +683,7 @@ $message_body.='
 													//if there are posts in the category, print them
 													if ($wpdb->num_rows > 0) {
 
-$message_body.='									<div class="newsCategory" style="background: #fff;border-collapse:collapse;vertical-align:top; margin-top: 22px; margin-bottom: 8px; padding: 14px;" >
+$message_body.='									<div class="newsCategory" style="background: #fff;border-collapse:collapse;vertical-align:top; margin-top: 22px; margin-bottom: 8px;" >
                                                           <h1 class="box-title" style="background: #fff;font-size:14px;font-weight:normal;margin-top:10px; margin-bottom: 0px; color:#616161;" ><a href="'.get_category_link($cats[$i]).'" style="background: #fff;text-decoration:none; color:#616161; margin-top: 20px;" >'.strtoupper(get_cat_name($cats[$i])).'</a></h1>
 
                                                       <div style="color:#C90;text-align:left;font-size:13px; margin-left: 0px; padding-left: 0px;" >';
@@ -716,7 +721,7 @@ $message_body.='									<div width="334" align="left" valign="top" style="borde
 
 
 </td>
-                            			<td width="50%" valign="top"> <div class="newsGroup" style="background: #fff; style="padding-left: 8px;">';
+                            			<td width="50%" valign="top"> <div class="newsGroup" style="background: #fff; style="padding-left: 20px;">';
 
 
 
@@ -782,7 +787,7 @@ for ($i=0; $i<count($cats); $i++){
     //if there are posts in the category, print them
     if ($wpdb->num_rows > 0) {
 
-$message_body.='									<div class="newsCategory" style="border-collapse:collapse;vertical-align:top; margin-top: 22px;margin-bottom: 8px; padding: 14px;" >
+$message_body.='									<div class="newsCategory" style="border-collapse:collapse;vertical-align:top; margin-top: 22px;margin-bottom: 8px;" >
                                     <h1 class="box-title" style="font-size:14px;font-weight:normal;margin-top:10px; margin-bottom: 0px; color:#616161;" ><a href="'.get_category_link($cats[$i]).'" style="text-decoration:none; color:#616161; margin-top: 20px;" >'.strtoupper(get_cat_name($cats[$i])).'</a></h1>
 
                                 <div style="color:#C90;font-size:13px; margin-left: 0px; padding-left: 0px;" >';
