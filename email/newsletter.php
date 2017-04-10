@@ -421,6 +421,7 @@ function email_newsletter_2017_html($cats, $start_date, $end_date) {
 	global $post;
 
 	$site_name = get_bloginfo( 'name' );
+	$site_url = site_url();
 	$site_description = get_bloginfo( 'description' );
 	$mainfeaturecats = get_option( 'mainfeaturecats');
 	$highlightedcats = get_option( 'highlightedcats');
@@ -493,7 +494,7 @@ on <a href="'.site_url().'" style="color:#333;text-decoration:none;" >'.$site_na
                                             </td>
                                             <!-- *|IFNOT:ARCHIVE_PAGE|* -->
                                             <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">
-                                                Email not displaying correctly?<br /><a href="http://ecals.cals.wisc.edu/" target="_blank">Read these stories online</a>.
+                                                Email not displaying correctly?<br /><a href="'.$site_url.'" target="_blank">Read these stories online</a>.
                                             </td>
                                             <!-- *|END:IF|* -->
                                         </tr>
@@ -507,19 +508,23 @@ on <a href="'.site_url().'" style="color:#333;text-decoration:none;" >'.$site_na
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
                                         <tr>
                                             <td valign="top" class="headerContent">
-												<div style="background: #ececec;">
+												
+													<table width="100%" style="background: #ececec;">
+														<tr>
+															<td width="50" style="padding-left: 20px; padding-top: 10px; padding-bottom: 10px;">
+																<img src="'.get_stylesheet_directory_uri().'/images/uw-crest-web.png" alt="UW Crest" width="40" height="63" style="width: 40px; height: auto; border:0; height:auto; line-height:100%; outline:none; text-decoration:none;">
+															</td>
 
-													<div style="float: left; width: 40px; padding-right: 14px; padding-left: 20px;">
-														<img src="'.get_stylesheet_directory_uri().'/images/uw-crest-web.png" alt="UW Crest" width="40" height="63" style="width: 40px; height: auto; border:0; height:auto; line-height:100%; outline:none; text-decoration:none;">
-													</div>
-
-													<div style="float:left; width: auto;">
-														<h1 style="margin-bottom: 0px; color: #c5050c; margin-top: 14px; text-transform: uppercase; font-size: 22px; letter-spacing: 0.5px;">'.$site_name.'</h1>
+															<td style="padding-right: 20px; padding-left: 8px;">
+																<h1 style="margin-bottom: 0px; color: #c5050c; margin-top: 14px; text-transform: uppercase; font-size: 22px; letter-spacing: 0.5px;">'.$site_name.'</h1>
 														<div style="text-transform: uppercase; font-size: 11px; letter-spacing: 1px; color: #727272;">'.$site_description.'</div>
-													</div>
+															</td>
+														</tr>
+													</table>
+													
 
 													
-												</div>
+												
                                             </td>
                                         </tr>
                                     </table>
