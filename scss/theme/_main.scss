@@ -1047,6 +1047,10 @@ article, article.hentry {
 
 .documentationSection {
 
+	.site-header .logo-search-container.noimage, .site-header .logo-search-container {
+		height: 83px;
+	}
+
 	.docs_sidebar {
 		ul {
 			margin: 0px;
@@ -1177,7 +1181,7 @@ article, article.hentry {
 	}
 
 	.site-content-inner .site-main {
-		/*padding-top: 0px;*/ 
+		padding-top: 0px; 
 	}
 
 	.site-content-inner {
