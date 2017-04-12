@@ -261,7 +261,7 @@
 
 	
 	.hidemainlogo.hideMainNav .flickity-viewport, .flickity-viewport .gallery-cell {
-		height: 240px !important;
+		/*height: 240px !important;*/
 	}
 
 	.page, .single, .blog, .archive {
@@ -361,7 +361,7 @@
 	}
 	
 	.site-content-inner .site-main{
-		padding-top: 0;
+		/*padding-top: 0;*/
 	}
 	
 	.pagePadding {
@@ -608,7 +608,7 @@
 		}
 	}
 
-	.home.page .featureHeader {
+	.home.page .featureHeader, .home.blog .featureHeader {
 		visibility: visible;
 	}
 
