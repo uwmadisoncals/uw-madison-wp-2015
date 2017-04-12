@@ -6568,7 +6568,7 @@ add_action('admin_init', 'wpb_imagelink_setup', 10);
 if(is_admin()){
 	include ("email/newsletter.php");
 
-	include ("email/newsletter_legacy.php");
+	//include ("email/newsletter_legacy.php");
 }
 
 
