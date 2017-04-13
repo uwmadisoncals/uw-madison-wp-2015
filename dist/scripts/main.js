@@ -678,7 +678,7 @@ $(window).on("load", function() {
    });
 
 	if($("#page").hasClass("tiledPosts")) {
-		$(".grid-item").each(function() {
+		/*$(".grid-item").each(function() {
 
 			var griditem = $(this);
 
@@ -693,9 +693,7 @@ $(window).on("load", function() {
 			
 			
 
-			/*var colorThief = new ColorThief();
-			var color = colorThief.getColor(imgSrc);*/
-			
+		
 			
 
 			var imgN = new Image();
@@ -714,7 +712,7 @@ $(window).on("load", function() {
 			
 			
 			
-		});
+		});*/
 	}
 	
 });
