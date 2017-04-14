@@ -537,7 +537,12 @@ $wp_customize->add_section( 'uw-madison-wp-2015-social-options' , array(
     	'title'      => __( 'Social', 'uw-madison-wp-2015' ),
     	'priority'   => 70,
 	) );
-	
+
+
+$wp_customize->add_section( 'uw-madison-wp-2015-analytics-options' , array(
+    	'title'      => __( 'Analytics', 'uw-madison-wp-2015' ),
+    	'priority'   => 80,
+	) );	
 	
 $wp_customize->add_setting('uw-madison-wp-2015_header_alt_image_id', array(
     'capability'     => 'edit_theme_options',
@@ -735,6 +740,43 @@ $wp_customize->add_control('uw-madison-wp-2015-logo_width', array(
     'type'    => 'text',
     'settings'   => 'uw-madison-wp-2015_logo_width_id',
 ));*/
+
+/*** Google Analytics ***/
+
+$wp_customize->add_setting('uw-madison-wp-2015_ga_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => '',
+    'sanitize_callback' => 'sanitize_ga_options'
+ 
+));
+
+$wp_customize->add_control('uw-madison-wp-2015-ga', array(
+    'label'      => __('Google Analytics', 'uw-madison-wp-2015'),
+    'description'=> 'Enter your Tracking ID.',
+    'section'    => 'uw-madison-wp-2015-analytics-options',
+    'type'    => 'text',
+    'settings'   => 'uw-madison-wp-2015_ga_id',
+));
+
+
+/*** Facebook Pixel Analytics ***/
+
+$wp_customize->add_setting('uw-madison-wp-2015_fp_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => '',
+    'sanitize_callback' => 'sanitize_fp_options'
+ 
+));
+
+$wp_customize->add_control('uw-madison-wp-2015-fp', array(
+    'label'      => __('Facebook Pixel Analytics', 'uw-madison-wp-2015'),
+    'description'=> 'Enter your Pixel ID.',
+    'section'    => 'uw-madison-wp-2015-analytics-options',
+    'type'    => 'text',
+    'settings'   => 'uw-madison-wp-2015_fp_id',
+));
 
 
 	
@@ -1379,6 +1421,21 @@ function sanitize_header_slides_options( $value ) {
 }
 
 function sanitize_twitter_options( $value ) {
+    if ( !$value )
+        $value = '';
+ 
+    return $value;
+}
+
+
+function sanitize_ga_options( $value ) {
+    if ( !$value )
+        $value = '';
+ 
+    return $value;
+}
+
+function sanitize_fp_options( $value ) {
     if ( !$value )
         $value = '';
  

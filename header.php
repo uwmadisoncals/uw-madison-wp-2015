@@ -45,10 +45,45 @@ var templateUrl = '<?php home_url(); ?>';
 <?php wp_head(); ?>
 
 <?php include("header_include.php"); ?>
+
+
+<?php $fp_tracking = get_theme_mod("uw-madison-wp-2015_fp_id");  if($fp_tracking) { ?>
+
+	<!-- Facebook Pixel Code -->
+	<script>
+	!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+	n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+	document,'script','https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '<?php echo $fp_tracking ?>'); // Insert your pixel ID here.
+	fbq('track', 'PageView');
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=<?php echo $fp_tracking ?>&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- DO NOT MODIFY -->
+	<!-- End Facebook Pixel Code -->
+
+<?php } ?>
+
 </head>
 
 <body <?php body_class(); ?> style="background-color: #<?php background_color(); ?>">
+<?php $ga_tracking = get_theme_mod("uw-madison-wp-2015_ga_id");  if($ga_tracking) { ?>
 
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	ga('create', '<?php echo $ga_tracking ?>', 'auto');
+	ga('send', 'pageview');
+
+	</script>
+
+<?php } ?>
 	<div class="loadCover">
 		<div class="loadLogo"></div>
 	</div>
