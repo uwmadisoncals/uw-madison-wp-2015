@@ -29,7 +29,7 @@
 																	if ( $query1->have_posts() ) {
 																		// The Loop
 																		while ( $query1->have_posts() ) { $query1->the_post(); ?>
-																			<?php if(catch_that_thumbnail() || has_post_thumbnail()) { $thumbnail = true; $thumbcss = ""; } else { $thumbnail = false; $thumbcss = "noThumb"; } ?>
+																			<?php if(catch_that_thumbnail() || has_post_thumbnail() || $overrideimage) { $thumbnail = true; $thumbcss = ""; } else { $thumbnail = false; $thumbcss = "noThumb"; } ?>
 																			<div class="grid-item1col">
 																				
 																			
@@ -105,7 +105,7 @@
 																							<?php if($overrideimage) { ?>
 
 																									<?php 
-
+																										
 																										$image = $overrideimage;
 																										$size = 'medium'; // (thumbnail, medium, large, full or custom size)
 
