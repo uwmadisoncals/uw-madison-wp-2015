@@ -17,6 +17,7 @@
 			
 					<div class="entry-meta">
 				
+						
 						<?php
 							if(get_field('written_by')) { 
 								
@@ -30,7 +31,11 @@
 						
 							<?php if($postedbylocation != "lower") {
 								uw_madison_wp_2015_posted_on();
-							}  ?>
+							} else { ?>
+								<div class="posted-on"><?php the_date(); ?></div>
+
+							
+							<?php	}  ?>
 						
 					</div><!-- .entry-meta -->
 				</div>
@@ -52,7 +57,10 @@
 							} ?>
 							<?php if($postedbylocation != "lower") {
 								uw_madison_wp_2015_posted_on();
-							}  ?>
+							} else { ?>
+								<div class="posted-on"><?php the_date(); ?></div>
+
+						<?php	} ?>
 					</div><!-- .entry-meta -->
 			
 		<?php } ?>
