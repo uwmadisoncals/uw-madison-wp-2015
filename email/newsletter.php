@@ -631,7 +631,7 @@ $message_body.='
 
                                     	
                             		<tr valign="top">
-                            			<td width="50%" valign="top" style="padding-left: 20px;">
+                            			<td width="50%" valign="top" style="padding-left: 20px; padding-right: 10px;">
                             		
                                 	<!-- BEGIN COLUMNS // -->
                                 	
@@ -740,7 +740,7 @@ $message_body.='									<div width="334" align="left" valign="top" style="borde
 
 
 </td>
-                            			<td width="50%" valign="top" style="padding-left: 20px;"> <div class="newsGroup" style="background: #fff;">';
+                            			<td width="50%" valign="top" style="padding-left: 10px; padding-right: 20px;"> <div class="newsGroup" style="background: #fff;">';
 
 
 
