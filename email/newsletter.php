@@ -63,6 +63,7 @@ function email_newsletter_2017_options(){
 				$leftcolcatsex = get_option( 'leftcolcatsex' );
 				$rightcolcats = get_option( 'rightcolcats' );
 				$rightcolcatsex = get_option( 'rightcolcatsex' );
+				$campaignvars = get_option( 'campaignvars' );
 
 				$monday_current_week = date("m/d/y", strtotime("Jan 1 ".date("Y", time())) + ((($current_week)*604800) + (86400) ));
 				//echo $monday_current_week;
@@ -193,6 +194,13 @@ function email_newsletter_2017_options(){
                     <input type="hidden" name="ecals_noncename" id="ecals_noncename" value="
   <?php wp_create_nonce( plugin_basename(__FILE__) );?>" />
   					<input type="hidden" name=<?php echo $hidden_field_name; ?> value="Y" />
+
+					  <div style="margin-top: 1rem;">
+					  <label for="campaignvars"><strong>Email Campaign Variables</strong></label>
+					  <p style="padding-top: 0px; margin-top: 0px;">Any url parameters entered here willl be attached to all links within the newsletter.</p>
+					  <input type="text" style="min-width: 400px;" id="campaignvars" name="campaignvars" value="<?php echo $campaignvars ?>" placeholder="">
+					  </div>
+
                   </form>
                 </p>
             </div>
@@ -243,6 +251,11 @@ function email_newsletter_2017(){
 			$rightcolcatsex = $_POST['rightcolcatex'];
 			update_option( 'rightcolcatsex', $rightcolcatsex );
 	} 
+
+	if(isset($_POST['campaignvars'])) {
+			$campaignvars = $_POST['campaignvars'];
+			update_option( 'campaignvars', $campaignvars );
+	}
 
 	//get vars
 	global $wpdb;
@@ -430,6 +443,8 @@ function email_newsletter_2017_html($cats, $start_date, $end_date) {
 	$leftcolcatsex = get_option( 'leftcolcatsex');
 	$rightcolcatsex = get_option( 'rightcolcatsex');
 
+	$campaignvars = get_option( 'campaignvars');
+
 	if($leftcolcats == null) {
 		$leftcolcats = '1';
 	}
@@ -444,6 +459,10 @@ function email_newsletter_2017_html($cats, $start_date, $end_date) {
 
 	if($leftcolcatsex == null) {
 		$leftcolcatsex = '0';
+	}
+
+	if($campaignvars == null) {
+		$campaignvars = '';
 	}
 
 $message_head =
@@ -551,9 +570,9 @@ on <a href="'.site_url().'" style="color:#333;text-decoration:none;" >'.$site_na
 															 while (have_posts()) : the_post();
 
 																//echo $post->ID;
-						    				$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID),'large' );
-											//var_dump($thumb);
-$url = $thumb['0']; $img_src = $url; 
+						    									$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID),'large' );
+																//var_dump($thumb);
+																$url = $thumb['0']; $img_src = $url; 
 
 
 
@@ -566,13 +585,13 @@ $url = $thumb['0']; $img_src = $url;
 																}
 
 	$message_body.='
-                                            	<a href="'.get_permalink().'?utm_source=ecals_email_newsletter&utm_medium=email&utm_campaign=ecals_email_newsletter" style="max-height: 200px; overflow:hidden; display:block; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; margin-top:1em;"><img src="'.$img_src.'" style="width:560px; border:0; height:auto; line-height:100%; outline:none; text-decoration:none;" width="560" id="bodyImage" mc:label="body_image" mc:edit="body_image" mc:allowtext /></a>
+                                            	<a href="'.get_permalink().''.$campaignvars.'" style="max-height: 200px; overflow:hidden; display:block; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; margin-top:1em;"><img src="'.$img_src.'" style="width:560px; border:0; height:auto; line-height:100%; outline:none; text-decoration:none;" width="560" id="bodyImage" mc:label="body_image" mc:edit="body_image" mc:allowtext /></a>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td valign="top" class="bodyContent" mc:edit="body_content01" style="padding-top:20px; padding-right:20px; padding-bottom:20px;padding-left:20px;">
-                                                <h2><a href="'.get_permalink().'?utm_source=ecals_email_newsletter&utm_medium=email&utm_campaign=ecals_email_newsletter" style="line-height: 1.3em;">'.get_the_title().'</a></h2>
-                                                <h4>'.$excerpt.'</h4>
+                                            <td valign="top" class="bodyContent" mc:edit="body_content01" style="padding-top:6px; padding-right:20px; padding-bottom:20px;padding-left:20px;">
+                                                <h2 style="margin-top: 0px; margin-bottom: 0px;"><a href="'.get_permalink().''.$campaignvars.'" style="line-height: 1.3em;">'.get_the_title().'</a></h2>
+                                                <h4 style="margin-top: 4px;">'.$excerpt.'</h4>
 
                                             </td>
                                         </tr>';
@@ -589,7 +608,7 @@ $url = $thumb['0']; $img_src = $url;
 
 															  $message_body.='
 
-                                                                <div style="margin-left: 0px; padding-left: 0px; list-style: none;"><a href="'.get_permalink().'?utm_source=ecals_email_newsletter&utm_medium=email&utm_campaign=ecals_email_newsletter" style="display: block; margin-left: 0px; padding-left: 0px; list-style: none;">'.get_the_title().'</a></div>';
+                                                                <div style="margin-left: 0px; padding-left: 0px; list-style: none;"><a href="'.get_permalink().''.$campaignvars.'" style="display: block; margin-left: 0px; padding-left: 0px; list-style: none;">'.get_the_title().'</a></div>';
                                                                  endwhile;
 
 
@@ -693,7 +712,7 @@ $message_body.='									<div class="newsCategory" style="background: #fff;borde
 
 $message_body.='                                         <div style="text-align: left; padding-left: 0px; margin-left: 0px;">
 
-															<a href="'.get_permalink($post->ID).'?utm_source=ecals_email_newsletter&utm_medium=email&utm_campaign=ecals_email_newsletter" style="display: block; padding-bottom: 5px; text-align:left; padding-right: 20px;"  title="Link to '.get_the_title($post->ID).'">'.get_the_title($post->ID).'</a>
+															<a href="'.get_permalink($post->ID).''.$campaignvars.'" style="display: block; padding-bottom: 5px; text-align:left; padding-right: 20px;"  title="Link to '.get_the_title($post->ID).'">'.get_the_title($post->ID).'</a>
                                                         </div>';
 																	endforeach;
 $message_body.=' 										</div>
@@ -721,7 +740,7 @@ $message_body.='									<div width="334" align="left" valign="top" style="borde
 
 
 </td>
-                            			<td width="50%" valign="top"> <div class="newsGroup" style="background: #fff; style="padding-left: 20px;">';
+                            			<td width="50%" valign="top" style="padding-left: 20px;"> <div class="newsGroup" style="background: #fff;">';
 
 
 
@@ -796,7 +815,7 @@ $message_body.='									<div class="newsCategory" style="border-collapse:collap
 
 
 $message_body.='                                         <div style="text-align: left;  margin-left: 0px; padding-left: 0px;">
-<a href="'.get_permalink($post->ID).'?utm_source=ecals_email_newsletter&utm_medium=email&utm_campaign=ecals_email_newsletter" style="display: block; text-align: left; padding-right: 20px; padding-bottom: 5px;"  title="Link to '.get_the_title($post->ID).'">'.get_the_title($post->ID).'</a>
+<a href="'.get_permalink($post->ID).''.$campaignvars.'" style="display: block; text-align: left; padding-right: 20px; padding-bottom: 5px;"  title="Link to '.get_the_title($post->ID).'">'.get_the_title($post->ID).'</a>
                                   </div>';
             endforeach;
 $message_body.=' 										</div>
