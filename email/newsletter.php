@@ -705,17 +705,17 @@ $message_body.='
 $message_body.='									<div class="newsCategory" style="background: #fff;border-collapse:collapse;vertical-align:top; margin-top: 22px; margin-bottom: 8px;" >
                                                           <h1 class="box-title" style="background: #fff;font-size:14px;font-weight:normal;margin-top:10px; margin-bottom: 0px; color:#616161;" ><a href="'.get_category_link($cats[$i]).'" style="background: #fff;text-decoration:none; color:#616161; margin-top: 20px;" >'.strtoupper(get_cat_name($cats[$i])).'</a></h1>
 
-                                                      <div style="color:#C90;text-align:left;font-size:13px; margin-left: 0px; padding-left: 0px;" >';
+                                                      <table style="color:#C90;text-align:left;font-size:13px; margin-left: 0px; padding-left: 0px;" >';
 																	foreach ($posts as $post) :
 																		setup_postdata($post);
 
 
-$message_body.='                                         <div style="text-align: left; padding-left: 0px; margin-left: 0px;">
+$message_body.='                                         <tr><td style="text-align: left; padding-left: 0px; margin-left: 0px; padding-bottom: 5px;">
 
-															<a href="'.get_permalink($post->ID).''.$campaignvars.'" style="display: block; padding-bottom: 5px; text-align:left; padding-right: 20px;"  title="Link to '.get_the_title($post->ID).'">'.get_the_title($post->ID).'</a>
-                                                        </div>';
+															<a href="'.get_permalink($post->ID).''.$campaignvars.'" style="display: block; text-align:left; padding-right: 20px;"  title="Link to '.get_the_title($post->ID).'">'.get_the_title($post->ID).'</a>
+                                                        </td></tr>';
 																	endforeach;
-$message_body.=' 										</div>
+$message_body.=' 										</table>
 													</div>';
 
 													//increase count of printed cells
@@ -809,16 +809,16 @@ for ($i=0; $i<count($cats); $i++){
 $message_body.='									<div class="newsCategory" style="border-collapse:collapse;vertical-align:top; margin-top: 22px;margin-bottom: 8px;" >
                                     <h1 class="box-title" style="font-size:14px;font-weight:normal;margin-top:10px; margin-bottom: 0px; color:#616161;" ><a href="'.get_category_link($cats[$i]).'" style="text-decoration:none; color:#616161; margin-top: 20px;" >'.strtoupper(get_cat_name($cats[$i])).'</a></h1>
 
-                                <div style="color:#C90;font-size:13px; margin-left: 0px; padding-left: 0px;" >';
+                                <table style="color:#C90;font-size:13px; margin-left: 0px; padding-left: 0px;" >';
             foreach ($posts as $post) :
               setup_postdata($post);
 
 
-$message_body.='                                         <div style="text-align: left;  margin-left: 0px; padding-left: 0px;">
-<a href="'.get_permalink($post->ID).''.$campaignvars.'" style="display: block; text-align: left; padding-right: 20px; padding-bottom: 5px;"  title="Link to '.get_the_title($post->ID).'">'.get_the_title($post->ID).'</a>
-                                  </div>';
+$message_body.='                                         <tr><td style="text-align: left;  margin-left: 0px; padding-left: 0px; padding-bottom: 5px;">
+<a href="'.get_permalink($post->ID).''.$campaignvars.'" style="display: block; text-align: left; padding-right: 20px;"  title="Link to '.get_the_title($post->ID).'">'.get_the_title($post->ID).'</a>
+                                  </td></tr>';
             endforeach;
-$message_body.=' 										</div>
+$message_body.=' 										</table>
     </div>';
 
     //increase count of printed cells
