@@ -85,20 +85,57 @@
 			box-shadow: 0px 18px 64px rgba(0,0,0,0.4);
 		}
 
+		.whiteContent {
+			padding: 0px;
+			border-radius: 4px;
+			background: $uwred;
+
+			h2, .dateposted, .numericdate {
+				padding-left: 1rem;
+				padding-right: 1rem;
+			}
+
+			.dateposted {
+				padding-top: 1rem;
+				font-size: 0.7rem;
+				text-transform: uppercase;
+				font-family: "Open Sans";
+				font-weight: bold;
+				color: rgba(255,255,255,0.6);
+
+			}
+
+			.excerpt {
+				background: #fff;
+				padding: 1rem;
+				border-bottom-left-radius: 4px;
+				border-bottom-right-radius: 4px;
+
+				p:first-child {
+					margin-top: 0px;
+				}
+			}
+		}
+
 		.textContent {
 			
 			position: relative;
-			color: rgba(0,0,0,0.8);
+			color: rgba(0,0,0,0.7);
 
 			.dateposted {
-				color: rgba(0,0,0,0.5);
+				/*color: rgba(0,0,0,0.5);*/
 			}
 
 			h2 {
-				color: $uwred;
+				color: rgba(255,255,255,0.9);
+				font-size: 1rem;
+				text-shadow: none;
+				text-transform: uppercase;
+				font-family: "Verlag-Black";
 			}
 
 			.excerpt p {
+				font-size: 1rem;
 				color: rgba(0,0,0,0.75);
 				text-shadow: 0px 8px 12px rgba(0,0,0,0.1);
 			}
@@ -666,6 +703,12 @@ border-bottom-left-radius: 4px;
 	}	
 	
 	.grid-item2col, .grid-item1col {
+
+		.noThumb {
+			.excerpt {
+				display: block;
+			}
+		}
 		.excerpt {
 			display: none;
 		}
