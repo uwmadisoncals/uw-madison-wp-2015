@@ -2721,7 +2721,7 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
  */
 
 
-$(".home .pagePadding .flex-row").first().addClass("top-row");
+$(".home .advancedPageEditorGroup > div").first().find(".flex-row").addClass("top-row");
 
   var $grid = $('.grid').isotope({
     itemSelector: '.grid-item',
@@ -3172,6 +3172,10 @@ $(".home .pagePadding .flex-row").first().addClass("top-row");
 	 $( window ).resize(function() {
 	 	setPageHeight();
 	 });
+
+
+
+
 
 
 

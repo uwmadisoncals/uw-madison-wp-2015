@@ -1,9 +1,9 @@
-.home .pagePadding .flex-row:first-child {
+.home .flex-row:first-child {
 	margin-top: 0em;
 	
 }
 
-.home .pagePadding .flex-row.top-row.right_redbg .flex-rightCol {
+.home .flex-row.top-row.right_redbg .flex-rightCol {
 	margin-top: -3.65em;
 	-webkit-border-top-left-radius: 0px;
 -webkit-border-top-right-radius: 0px;
@@ -314,6 +314,14 @@ div.personFeaturefw {
 		font-size: 1rem;
 
 	}
+}
+
+.leftcolumnPadding {
+	padding-right: 2rem;
+}
+
+.rightcolumnPadding {
+	padding-left: 2rem;
 }
 
 .verlag-option {

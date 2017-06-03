@@ -11,17 +11,30 @@
  */
 
 get_header(); ?>
-<div class="site-content-inner">
+
+			
+				
+				<?php while ( have_posts() ) : the_post(); ?>
+						<?php
+							
+							$editor = get_field('page_editor');
+							//$navhidden = get_field('hide_the_side_navigation');
+							//$showwidgets = get_field('show_page_widgets');
+							
+							if($editor != 'advanced') {  ?>
+							
+								  <div class="site-content-inner">
 
 	<div id="primary" class="content-area <?php $image = get_field('hero_image_pages'); if($image) { echo "heroImage"; } ?>">
 		<main id="main" class="site-main" role="main">
 			<div class="cf pagePadding">
-				<div class="docLoadBar"></div>
-				<?php while ( have_posts() ) : the_post(); ?>
-						
+								 
+
+							<?php } ?>
 
 						
 						<?php if(get_field('page_theme') == "documentation") { ?>
+							<div class="docLoadBar"></div>
 							<div class="documentationSideBar">
 								<?php get_template_part('nav_menu', 'sidebar_expanded_docs'); ?>
 								<?php wp_reset_query(); ?>
@@ -39,7 +52,7 @@ get_header(); ?>
 							if($editor == 'advanced') {  
 								if(!$navhidden || $showwidgets) {
 							?>
-								
+								<div class="site-content-inner">
 							   <div class="advancedPageEditorGroup apewithSidebar">
 								   
 								   <?php } else { ?>
@@ -55,19 +68,67 @@ get_header(); ?>
 										/********  CONTENT LAYOUTS   ********/
 								
 										// check current row layout
-								        if( get_row_layout() == 'full_width' ) {
+								        if( get_row_layout() == 'full_width' ) { ?>
 											
 											
+
+
+											<?php if(get_sub_field('row_background') == "color" || get_sub_field('row_background') == "image") { ?>
+													
+												
+
+													<?php if(get_sub_field('row_background') == "color") { ?>
+														<div style="background: <?php the_sub_field('row_background_color'); ?>">
+													<?php } else { ?>
+														
+														<?php 
+
+															$image = get_sub_field('row_background_image');
+															$size = 'large'; // (thumbnail, medium, large, full or custom size)
+
+															if( $image ) { ?>
+																<?php $bgposition = get_sub_field('row_background_image_position');
+																		
+																		
+																		if($bgposition) {
+																			if($bgposition == "fixed") {
+																				$bgimagestyle = 'background-attachment: fixed; ';
+																			} else {
+																				$bgimagestyle = 'background-attachment: scroll; ';
+																			}
+																		} else {
+																			$bgimagestyle = 'background-attachment: scroll; ';
+																		}
+																
+																 ?>
+
+															<div style="background: url(<?php echo wp_get_attachment_image_url( $image, $size ); ?>) no-repeat; background-size: cover; background-position: center center; <?php echo $bgimagestyle; ?>">
+															
+															<?php }
+
+															?>
+
+														
+													<?php } ?>
+
+													
+
+							   										
+
+											<?php } ?>
+
+
+
 																						
-											if( have_rows('full_width_content_options') ) {
-												
-												while ( have_rows('full_width_content_options') ) : the_row();
+											<?php if( have_rows('full_width_content_options') ) { ?>
+												<div class="flex-row-wrapper">
+												<?php while ( have_rows('full_width_content_options') ) : the_row(); ?>
 												
 												
 													
 													
 													
-													 if( get_row_layout() == 'body_text' ) { ?>
+													 <?php if( get_row_layout() == 'body_text' ) { ?>
 														
 														 <?php the_sub_field("text_content"); ?>
 														 
@@ -122,7 +183,7 @@ get_header(); ?>
 															 
 															 ?>
 															 
-								    </div></div></main></div></div>
+								    
 								    
 								    
 														 	
@@ -182,12 +243,7 @@ get_header(); ?>
 														 	
 				
 								    
-								    <div class="site-content-inner">
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-			<div class="cf pagePadding">
-				<div class="advancedPageEditorGroup">
+								    
 														 	
 														<?php 
 													}
@@ -255,18 +311,86 @@ get_header(); ?>
 														    endwhile; ?>
 														    
 														 	</div>	 
+														
+
+														
 														<?php }
 														 
-													 }
-												endwhile;
-												
-											}
-								        	
-											/********  2 Columns   ********/
-								        } else if( get_row_layout() == '2_column (50/50)' ) { ?>
+													 } ?>
+													 
+												<?php endwhile; ?>
+												</div> <!-- closing flex-row-wrapper -->
+											<?php } ?>
+								        	<?php if(get_sub_field('row_background') == "color" || get_sub_field('row_background') == "image") { ?></div> <?php } ?>
+										<?php	/********  2 Columns   ********/
+								         } else if( get_row_layout() == '2_column (50/50)' ) { ?>
 											
-											<div class="flex-row flex-<?php the_sub_field('column_sizes'); ?> left_<?php the_sub_field('left_column_style'); ?> right_<?php the_sub_field('right_column_style'); ?>">
+											<?php if(get_sub_field('row_background') == "color" || get_sub_field('row_background') == "image") { ?>
+													
 												
+
+													<?php if(get_sub_field('row_background') == "color") { ?>
+														<div style="background: <?php the_sub_field('row_background_color'); ?>">
+													<?php } else { ?>
+														
+														<?php 
+
+															$image = get_sub_field('row_background_image');
+															$size = 'large'; // (thumbnail, medium, large, full or custom size)
+
+															if( $image ) { ?>
+																<?php $bgposition = get_sub_field('row_background_image_position');
+																		
+																		
+																		if($bgposition) {
+																			if($bgposition == "fixed") {
+																				$bgimagestyle = 'background-attachment: fixed; ';
+																			} else {
+																				$bgimagestyle = 'background-attachment: scroll; ';
+																			}
+																		} else {
+																			$bgimagestyle = 'background-attachment: scroll; ';
+																		}
+																
+																 ?>
+
+															<div style="background: url(<?php echo wp_get_attachment_image_url( $image, $size ); ?>) no-repeat; background-size: cover; background-position: center center; <?php echo $bgimagestyle; ?>">
+															
+															<?php }
+
+															?>
+
+														
+													<?php } ?>
+
+													
+
+													
+							   										
+
+											<?php } ?>
+
+											<?php
+
+											// vars	
+											$rstyles = get_sub_field('row_styles');
+											$classes = "";
+
+											// check
+											if( $rstyles ): ?>
+												
+													<?php foreach( $rstyles as $rstyle ): ?>
+														<?php $classes = $classes. ' '.$rstyle; ?>
+													<?php endforeach; ?>
+												
+											<?php endif; ?>
+
+											<div class="flex-row-wrapper">
+											
+											<div class="flex-row flex-<?php the_sub_field('column_sizes'); ?> left_<?php the_sub_field('left_column_style'); ?> right_<?php the_sub_field('right_column_style'); ?> background-<?php the_sub_field('row_background'); ?> <?php echo $classes; ?>">
+												
+												
+
 											<?php if( have_rows('2c_5050_left_column') ) { ?>
 													<div class="flex-item flex-leftCol">
 												<?php while ( have_rows('2c_5050_left_column') ) : the_row();
@@ -327,8 +451,12 @@ get_header(); ?>
 													
 													
 													 if( get_row_layout() == 'body_text' ) { ?>
+
+													 	<div class="leftcolumnPadding"> 
 														
 														 <?php the_sub_field("text_content"); ?>
+
+														 </div>
 														 
 													 <?php } else if( get_row_layout() == 'title_text' ) { ?>
 														<header class="entry-header small-header">
@@ -440,18 +568,19 @@ get_header(); ?>
 																}
 															
 														    endwhile; ?>
-														    
+																
 														 	</div>	 
 														<?php }
 														 
 													 }
 													
 													
-													 if( get_row_layout() == 'body_text' ) {
-														
-														 the_sub_field("text_content");
+													 if( get_row_layout() == 'body_text' ) { ?>
+														<div class="rightcolumnPadding"> 
+														 <?php the_sub_field("text_content"); ?>
+														 </div>
 														 
-													 } else if( get_row_layout() == 'title_text' ) { ?>
+												<?php	 } else if( get_row_layout() == 'title_text' ) { ?>
 														
 														 <header class="entry-header small-header">
 														 <h1 class="entry-title"><?php the_sub_field("title_text_content"); ?></h1> </header>
@@ -494,18 +623,68 @@ get_header(); ?>
 
 														 
 													 <?php }
+													
 												endwhile; ?>
 													</div>
 											<?php } ?>
 											
 											
-								        	
+								        	</div>
 											</div>
+											<?php if(get_sub_field('row_background') == "color" || get_sub_field('row_background') == "image") { ?></div> <?php } ?>
 								        	<?php 
 											
 											 /********  3 Columns   ********/
 								        } else if( get_row_layout() == '3_column' ) { ?>
-											
+
+										<?php if(get_sub_field('row_background') == "color" || get_sub_field('row_background') == "image") { ?>
+													
+													
+
+													<?php if(get_sub_field('row_background') == "color") { ?>
+														<div style="background: <?php the_sub_field('row_background_color'); ?>">
+													<?php } else { ?>
+														
+														<?php 
+
+															$image = get_sub_field('row_background_image');
+															$size = 'large'; // (thumbnail, medium, large, full or custom size)
+
+															if( $image ) { ?>
+																<?php $bgposition = get_sub_field('row_background_image_position');
+																		
+																		
+																		if($bgposition) {
+																			if($bgposition == "fixed") {
+																				$bgimagestyle = 'background-attachment: fixed; ';
+																			} else {
+																				$bgimagestyle = 'background-attachment: scroll; ';
+																			}
+																		} else {
+																			$bgimagestyle = 'background-attachment: scroll; ';
+																		}
+																
+																 ?>
+
+															<div style="background: url(<?php echo wp_get_attachment_image_url( $image, $size ); ?>) no-repeat; background-size: cover; background-position: center center; <?php echo $bgimagestyle; ?>">
+															
+															<?php }
+
+															?>
+
+														
+													<?php } ?>
+
+													
+
+													
+							   										
+
+											<?php } ?>
+
+
+										<div class="flex-row-wrapper">
+											<?php  ?>
 											<div class="flex-row flex-<?php the_sub_field('column_sizes'); ?> left_<?php the_sub_field('left_column_style'); ?> right_<?php the_sub_field('right_column_style'); ?>">
 												
 											<?php if( have_rows('3c_5050_left_column') ) { ?>
@@ -612,6 +791,7 @@ get_header(); ?>
 													 <?php }
 
 												endwhile; ?>
+														
 													</div>
 											<?php }
 												
@@ -866,16 +1046,28 @@ get_header(); ?>
 											<?php } ?>
 											
 											
-								        	
+								        	</div>
 											</div>
+											<?php if(get_sub_field('row_background') == "color" || get_sub_field('row_background') == "image") { ?></div> <?php } ?>
 								        	<?php 
-											
+											 
 											} 
 								
 								    endwhile; ?>
-								    
+										
 							   		</div>
 									
+
+									<?php if($editor == 'advanced') {  
+								if(!$navhidden || $showwidgets) { ?>
+									</div>
+									
+								   
+								   <?php } else { ?>
+								  
+								   <?php } 
+								   }?>
+
 								<?php } else { // no layouts found ?>
 									<h1>You should add some content.</h1>
 									
@@ -916,6 +1108,7 @@ get_header(); ?>
 										</svg>
 								</div>
 
+								
 							
 							
 							
@@ -925,6 +1118,7 @@ get_header(); ?>
 							
 							
 						<?php } ?>
+						
 						<?php 
 							
 							$breadcrumb_settings = get_theme_mod( 'uw-madison-wp-2015_breadcrumbs_id' );
@@ -942,7 +1136,7 @@ get_header(); ?>
 					
 					
 					<?php } ?>
-				</div>
+				 </div>
 				<?php endwhile; // end of the loop. ?>
 								
 				<?php 
@@ -975,12 +1169,26 @@ get_header(); ?>
 					}	  
 				?>
 				
-				
+				<?php
+							
+							//$editor = get_field('page_editor');
+							//$navhidden = get_field('hide_the_side_navigation');
+							//$showwidgets = get_field('show_page_widgets');
+							
+							if($editor != 'advanced') {  ?>
+								</div>
+								</main>
+								</div>
+								</div>
+
+							
+								
+							<?php } ?>
 			
-			</div>
+		<!--	</div>-->
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+	<!--	</main> --><!-- #main -->
+	<!-- </div> --><!-- #primary -->
 
-</div><!-- .site-content-inner -->
+<!--</div>--><!-- .site-content-inner -->
 <?php get_footer(); ?>

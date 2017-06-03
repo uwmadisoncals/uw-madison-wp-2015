@@ -765,494 +765,18 @@ var templateUrl = '<?php home_url(); ?>';
 
 						<?php $herosource = get_field('content_source'); ?>
 							<?php $herovalign = get_field('hero_image_vertical_alignment'); ?>
-								<?php //echo $herovalign ?>
-							<?php if($herosource == "latestpost") {
-								//Latest Post Slide
-
-
-																	$heroterms = get_field('hero_post_categories'); 
-																	$herocategories = 0;
-
-																	$offset = 0;
-                                                                    $offsettest = get_field('hero_post_offset');
-
-                                                                    if($offsettest) {
-                                                                        $offset = $offsettest;
-                                                                    }
-																	
-																	if( $heroterms ): ?>
-																	
-																		<?php 
-																			
-																			foreach( $heroterms as $heroterm ) {
-																			
-																			$herocategories = $herocategories.",".$heroterm;	
-																			//echo $term;
-																		} ?>
-																		
-																	<?php endif; 
-																	
-																	
-																	//$numofposts = get_sub_field('fw_cat_number_of_posts');
-																	
-																	// The Query
-																	$query2 = new WP_Query( array( 'posts_per_page' => 1, 'offset' => $offset, 'cat' => $herocategories ) );
-								//$query2 = new WP_Query( $args2 );
-
-								if ( $query2->have_posts() ) {
-									// The 2nd Loop
-									while ( $query2->have_posts() ) {
-										$query2->the_post(); ?>
-
-											<?php
-
-										$hidebluroption = get_field('disable_blur_filter');
-
-										if($hidebluroption) {
-
-
-											if( in_array('yes', $hidebluroption) ) { ?>
-
-									<?php 	} else { ?>
-											
-											<!--div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; "></div></div>-->
-									<?php 	}
-										} else { ?>
-										
-											<!--div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; "></div></div>-->
-									<?php } ?>
-
+								
 
 								
 
-								<?php if($header_style != "opaque") { ?>
-
-
-									<?php
-
-										$hidebluroption = get_field('disable_blur_filter');
-
-										if($hidebluroption) {
-
-											if( in_array('yes', $hidebluroption) ) { ?>
-
-									<?php 	} else { ?>
-											<!--div class="heroImageBlur secondaryBlur"><div class="heroImageBlurInnerAlt" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php  if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center;"></div></div-->
-									<?php 	}
-										} else { ?>
-											<!--div class="heroImageBlur secondaryBlur"><div class="heroImageBlurInnerAlt" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php  if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center;"></div></div-->
-									<?php } ?>
-
-
-
-								<?php } ?>
-
-								<?php if(is_front_page()) { ?>
-									
-									
-									<?php if($home_photo_header_size) { ?>
-											<div class="heroImage" style="background: url(<?php the_post_thumbnail_url('large') ?>); background-size: cover; background-position: <?php  if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; min-height:<?php echo $home_photo_header_size ?>px;">
-									<?php } else { ?>
-											<div class="heroImage" style="background: url(<?php the_post_thumbnail_url('large') ?>); background-size: cover; background-position: <?php  if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center;">
-									<?php } ?>
-
-
-
-								<?php } else { ?>
-										<?php if($photo_header_size) { ?>
-											<div class="heroImage" style="background: url(<?php the_post_thumbnail_url('large') ?>); background-size: cover; background-position: <?php if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; min-height:<?php echo $photo_header_size ?>px;">
-										<?php } else { ?>
-											<div class="heroImage" style="background: url(<?php the_post_thumbnail_url('large') ?>); background-size: cover; background-position: <?php if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center;">
-										<?php } ?>
-								<?php } ?>
-
-									<?php
-
-										$hideoverlayoption = get_field('hero_image_filter');
-
-										if($hideoverlayoption) {
-
-											if( in_array('yes', $hideoverlayoption) ) { ?>
-												<div class="heroOverlay"></div>
-									<?php 	} else { ?>
-									
-											<div class="heroOverlay"></div>
-									<?php 	}
-										} else { ?>
-										
-											<div class="heroOverlay"></div>
-									<?php } ?>
-									<div class="headerFilter"></div>
-									<div class="heroHeadingWrapper">
-
-									<a href="<?php the_permalink(); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
-
-									
-									</div>
-								</div>
-								</div>
-										
-									<?php }
-
-									// Restore original Post Data
-									wp_reset_postdata();
-								}
+							<?php  if($herosource == "latestpost") {
+								 	include 'inc/header_latest_posts.php'; 
 							} else if($herosource == "specificpost") { //Specific Post Header Slides?>
-								<?php // The Query
-								$post_object = get_field('show_specific_post');
-
-								//$query2 = new WP_Query( $args2 );
-
-								if ( $post_object ) {
-									// The 2nd Loop
-									$post = $post_object;
-									setup_postdata( $post ); ?>
-
-											<?php
-
-										$hidebluroption = get_field('disable_blur_filter');
-
-										if($hidebluroption) {
-
-
-											if( in_array('yes', $hidebluroption) ) { ?>
-
-									<?php 	} else { ?>
-											
-											<!--div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php  if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; "></div></div>-->
-									<?php 	}
-										} else { ?>
-										
-											<!--div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; "></div></div>-->
-									<?php } ?>
-
-
-								
-
-								<?php if($header_style != "opaque") { ?>
-
-
-									<?php
-
-										$hidebluroption = get_field('disable_blur_filter');
-
-										if($hidebluroption) {
-
-											if( in_array('yes', $hidebluroption) ) { ?>
-
-									<?php 	} else { ?>
-											<!--div class="heroImageBlur secondaryBlur"><div class="heroImageBlurInnerAlt" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php  if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center;"></div></div-->
-									<?php 	}
-										} else { ?>
-											<!--div class="heroImageBlur secondaryBlur"><div class="heroImageBlurInnerAlt" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php  if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center;"></div></div-->
-									<?php } ?>
-
-
-
-								<?php } ?>
-
-								<?php if(is_front_page()) { ?>
-
-									<?php if($home_photo_header_size) { ?>
-											<div class="heroImage" style="background: url(<?php the_post_thumbnail_url('large') ?>); background-size: cover; background-position: <?php  if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; min-height:<?php echo $home_photo_header_size ?>px;">
-									<?php } else { ?>
-											<div class="heroImage" style="background: url(<?php the_post_thumbnail_url('large') ?>); background-size: cover; background-position: <?php  if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center;">
-									<?php } ?>
-
-
-
-								<?php } else { ?>
-										<?php if($photo_header_size) { ?>
-											<div class="heroImage" style="background: url(<?php the_post_thumbnail_url('large') ?>); background-size: cover; background-position: <?php  if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; min-height:<?php echo $photo_header_size ?>px;">
-										<?php } else { ?>
-											<div class="heroImage" style="background: url(<?php the_post_thumbnail_url('large') ?>); background-size: cover; background-position: <?php if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center;">
-										<?php } ?>
-								<?php } ?>
-
-									<?php
-
-										$hideoverlayoption = get_field('hero_image_filter');
-
-										if($hideoverlayoption) {
-
-											if( in_array('yes', $hideoverlayoption) ) { ?>
-												<div class="heroOverlay"></div>
-									<?php 	} else { ?>
-									
-											<div class="heroOverlay"></div>
-									<?php 	}
-										} else { ?>
-										
-											<div class="heroOverlay"></div>
-									<?php } ?>
-									<div class="headerFilter"></div>
-									<div class="heroHeadingWrapper">
-
-									<a href="<?php the_permalink(); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
-
-									
-									</div>
-								</div>
-								</div>
-									<?php }
-
-									// Restore original Post Data
-									wp_reset_postdata();
-								 ?>
+									<?php include 'inc/header_specific_post.php'; ?>
+							<?php } else if($herosource == "search") { ?>
+									<?php include 'inc/header_search.php'; ?>
 							<?php } else { ?>
-
-						<?php
-							//Static Header Slides
-
-							$image = get_field('hero_image');
-							$size = 'hero-image'; // (thumbnail, medium, large, full or custom size)
-
-							if( $image ) {
-
-								 $attachment_id = get_field('hero_image'); $size = "hero-image";
-								 $image = wp_get_attachment_image_src($attachment_id, $size);
-
-								$hidebluroption = get_field('disable_blur_filter');
-								if($hidebluroption) {
-										if( in_array('yes', $hidebluroption) ) {	?>
-												<aside class="hide_blur">
-							<?php } else {
-										}
-								}
-
-								$hideoverlayoption = get_field('hero_image_filter');
-								if($hideoverlayoption) {
-										if( in_array('yes', $hideoverlayoption) ) {	?>
-												<aside class="no_filter">
-							<?php } else {
-										}
-								}
-
-
-								//$imgurl = wp_get_attachment_image_src( $image, $size ); ?>
-
-								<div class="heroImageIeMask"></div>
-
-
-
-								<!-- Content Type Selection -->
-							
-
-								<?php
-									$video = get_field('hero_video');
-
-									if( $video ) { ?>
-									<!-- If a Hero Video is set -->
-
-									<?php
-
-										$hidebluroption = get_field('disable_blur_filter');
-
-										if($hidebluroption) {
-
-											if( in_array('yes', $hidebluroption) ) { ?>
-												
-									<?php 	} else { ?>
-											
-											<!--div class="heroImageBlur heroVideoBlur"><div class="heroImageBlurInner"></div></div-->
-									<?php 	}
-										} else { ?>
-											<!--div class="heroImageBlur heroVideoBlur"><div class="heroImageBlurInner"></div></div-->
-									<?php } ?>
-
-
-
-
-
-								<div class="heroImage heroVideo" style="background: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center;">
-									<video autoplay loop id="bgvid">
-										    <source src="<?php echo $video ?>" type="video/mp4">
-									</video>
-
-									<?php
-
-										$hideoverlayoption = get_field('hero_image_filter');
-
-										if($hideoverlayoption) {
-
-											if( in_array('yes', $hideoverlayoption) ) { ?>
-
-									<?php 	} else { ?>
-											<div class="heroOverlay"></div>
-									<?php 	}
-										} else { ?>
-											<div class="heroOverlay"></div>
-									<?php } ?>
-									<div class="heroHeadingWrapper">
-
-									<?php
-									$hidetextoption = get_field('hide_slide_text');
-
-									$linkoption = get_field('link_to'); ?>
-
-									<?php if($hidetextoption) {  ?>
-
-										<?php if( in_array('hide', $hidetextoption) ) { ?>
-
-										<?php } else { ?>
-
-												<?php if($linkoption == 'pageorpost') { ?>
-												<a href="<?php the_field('link_to_a_page_or_post'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
-										<?php } else if($linkoption == 'externalurl') { ?>
-												<a href="http://<?php the_field('specify_a_url'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
-										<?php } else { ?>
-												<div class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></div>
-										<?php } ?>
-										<?php } ?>
-
-									<?php } else { ?>
-
-										<?php if($linkoption == 'pageorpost') { ?>
-												<a href="<?php the_field('link_to_a_page_or_post'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
-										<?php } else if($linkoption == 'externalurl') { ?>
-												<a href="http://<?php the_field('specify_a_url'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
-										<?php } else { ?>
-												<div class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></div>
-										<?php } ?>
-
-									<?php } ?>
-									</div>
-								</div>
-
-									<?php } else { ?>
-									<!-- If a Hero Video is NOT set -->
-
-
-									<?php
-
-										$hidebluroption = get_field('disable_blur_filter');
-
-										if($hidebluroption) {
-
-
-											if( in_array('yes', $hidebluroption) ) { ?>
-
-									<?php 	} else { ?>
-											
-											<!--div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; "></div></div>-->
-									<?php 	}
-										} else { ?>
-										
-											<!--div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; "></div></div>-->
-									<?php } ?>
-
-
-								
-
-								<?php if($header_style != "opaque") { ?>
-
-
-									<?php
-
-										$hidebluroption = get_field('disable_blur_filter');
-
-										if($hidebluroption) {
-
-											if( in_array('yes', $hidebluroption) ) { ?>
-
-									<?php 	} else { ?>
-											<!--div class="heroImageBlur secondaryBlur"><div class="heroImageBlurInnerAlt" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center;"></div></div-->
-									<?php 	}
-										} else { ?>
-											<!--div class="heroImageBlur secondaryBlur"><div class="heroImageBlurInnerAlt" style="background-image: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center;"></div></div-->
-									<?php } ?>
-
-
-
-								<?php } ?>
-
-								<?php if(is_front_page()) { ?>
-
-									<?php if($home_photo_header_size) { ?>
-											<div class="heroImage" style="background: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; min-height:<?php echo $home_photo_header_size ?>px;">
-									<?php } else { ?>
-											<div class="heroImage" style="background: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center;">
-									<?php } ?>
-
-
-
-								<?php } else { ?>
-										<?php if($photo_header_size) { ?>
-											<div class="heroImage" style="background: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center; min-height:<?php echo $photo_header_size ?>px;">
-										<?php } else { ?>
-											<div class="heroImage" style="background: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center;">
-										<?php } ?>
-								<?php } ?>
-
-									<?php
-
-										$hideoverlayoption = get_field('hero_image_filter');
-
-										if($hideoverlayoption) {
-
-											if( in_array('yes', $hideoverlayoption) ) { ?>
-												<div class="heroOverlay"></div>
-									<?php 	} else { ?>
-									
-											<div class="heroOverlay"></div>
-									<?php 	}
-										} else { ?>
-										
-											<div class="heroOverlay"></div>
-									<?php } ?>
-									<div class="headerFilter"></div>
-									<div class="heroHeadingWrapper">
-
-									<?php
-
-									$hidetextoption = get_field('hide_slide_text');
-
-									$linkoption = get_field('link_to'); ?>
-
-									<?php if($hidetextoption) {  ?>
-
-										<?php if( in_array('hide', $hidetextoption) ) { ?>
-
-										<?php } else { ?>
-
-												<?php if($linkoption == 'pageorpost') { ?>
-												<a href="<?php the_field('link_to_a_page_or_post'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
-										<?php } else if($linkoption == 'externalurl') { ?>
-												<a href="http://<?php the_field('specify_a_url'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
-										<?php } else { ?>
-												<div class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></div>
-										<?php } ?>
-										<?php } ?>
-
-									<?php } else { ?>
-
-										<?php if($linkoption == 'pageorpost') { ?>
-												<a href="<?php the_field('link_to_a_page_or_post'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
-										<?php } else if($linkoption == 'externalurl') { ?>
-												<a href="http://<?php the_field('specify_a_url'); ?>" class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></a>
-										<?php } else { ?>
-												<div class="heroHeading"><h1><span><?php the_field('sub_heading_text') ?></span> <?php the_title(); ?></h1></div>
-										<?php } ?>
-
-									<?php } ?>
-									</div>
-								</div>
-
-								<?php } ?>
-
-							<?php } else { ?>
-							
-
-									<div class="heroImage heroImageDefault">
-										<div class="heroOverlay"></div>
-										<div class="heroHeadingWrapper">
-											<div class="heroHeading"><h1><span>A Wordpress theme for UW Madison</span> Madison 2015 Theme</h1></div>
-										</div>
-									</div>
-							<?php } ?>
-
-
-						</div>
+									<?php include 'inc/header_static.php'; ?>
 						<?php } //end content source ?>
 					<?php endwhile; ?>
 					</div>
@@ -1374,7 +898,34 @@ background: linear-gradient(to bottom,  rgba(255,255,255,0.4) 0%, #<?php echo $b
 									// Restore original Post Data
 									wp_reset_postdata();
 								 ?>
-							<?php } else { 
+							<?php } else if($herosource == "search") { 
+
+							
+
+								$video = get_field('hero_video');
+
+
+
+								$image = get_field('hero_image');
+							$size = 'hero-image'; // (thumbnail, medium, large, full or custom size)
+
+							if( $video ) { ?>
+									<div class="gallery-cell">
+										<video autoplay loop id="bgvid">
+										    <source src="<?php echo $video ?>" type="video/mp4">
+										</video>
+									</div>
+							<?php } else {
+
+								 $attachment_id = get_field('hero_image'); $size = "hero-image";
+								 $image = wp_get_attachment_image_src($attachment_id, $size); ?>
+								 <div class="gallery-cell" style="background: url(<?php echo $image[0]; ?>) no-repeat; background-size: cover; background-position: center center">
+
+								 </div>
+
+							<?php }
+
+							  } else if($herosource == "static") { 
 
 							
 

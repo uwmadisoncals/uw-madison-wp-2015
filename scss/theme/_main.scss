@@ -1216,10 +1216,32 @@ article, article.hentry {
 		min-height: 100vh;
 	}
 
+	
+
+	.documentationMain:before,
+	.documentationMain:after {
+		content: " "; /* 1 */
+		display: table; /* 2 */
+	}
+
+	.documentationMain:after {
+		clear: both;
+	}
+
+	/**
+	* For IE 6/7 only
+	* Include this rule to trigger hasLayout and contain floats.
+	*/
+	.documentationMain {
+		*zoom: 1;
+	}
+
 	.advancedPageEditorGroup.apewithSidebar {
 		width: 100%;
 		float: none;
 	}
+
+	
 }
 
 .home {

@@ -1852,7 +1852,7 @@ if( function_exists('acf_add_local_field_group') ):
 
 
 
-acf_add_local_field_group(array (
+/*acf_add_local_field_group(array (
 	'key' => 'group_57980a9959a78',
 	'title' => 'Advanced Formatting',
 	'fields' => array (
@@ -5294,7 +5294,7 @@ acf_add_local_field_group(array (
 	'active' => 1,
 	'description' => '',
 ));
-
+*/
 
 
 acf_add_local_field_group(array (
@@ -5346,7 +5346,7 @@ acf_add_local_field_group(array (
 
 
 
-acf_add_local_field_group(array (
+/*acf_add_local_field_group(array (
 	'key' => 'group_acf_hero-image-fields',
 	'title' => 'Hero Image Fields',
 	'fields' => array (
@@ -5777,7 +5777,7 @@ acf_add_local_field_group(array (
 	'active' => 1,
 	'description' => '',
 ));
-
+*/
 
 
 acf_add_local_field_group(array (

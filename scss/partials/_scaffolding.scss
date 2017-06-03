@@ -95,11 +95,29 @@ html {
 }
 
 
+.flex-row-wrapper {
+	margin: 0 auto;
+	max-width: 1120px;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+
+	.overhangbottom {
+		margin-bottom: -2rem;
+	}
+
+	.overhangtop {
+		margin-top: -2rem;
+	}
+}
+
 .flex-row {
 	display: flex;
 	flex-wrap: wrap;
-	margin-bottom: 1rem;
 	
+	/*margin-bottom: 1rem;*/
+	 
 	
 	.flex-item {
 		padding-top: 2rem;
@@ -292,19 +310,19 @@ html {
 		display: block;
 		
 		.flex-item {
-			padding: 0rem;
+			padding-bottom: 0rem; 
 			margin-left: 0rem;
 			margin-right: 0rem;
 		}
 		
 		.flex-leftCol {
 			width: 100%;
-			padding: 0rem;
+			padding-right: 0rem;
 		}
 		
 		.flex-rightCol {
 			width: 100%;
-			padding: 0rem;
+			padding-left: 0rem;
 			
 		}
 
