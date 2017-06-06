@@ -50,6 +50,7 @@ get_header(); ?>
 							$showwidgets = get_field('show_page_widgets');
 							
 							if($editor == 'advanced') {  
+								
 								if(!$navhidden || $showwidgets) {
 							?>
 								<div class="site-content-inner">
@@ -59,6 +60,17 @@ get_header(); ?>
 								    <div class="advancedPageEditorGroup">
 								   <?php } ?>
 								<?php 
+
+							 
+							
+							$breadcrumb_settings = get_theme_mod( 'uw-madison-wp-2015_breadcrumbs_id' );
+							
+							
+							if($breadcrumb_settings == "shown") {
+								
+								 get_template_part('breadcrumb', 'menu'); 
+							}
+						
 								// check if the flexible content field has rows of data
 								if( have_rows('page_content_options') ) {
 									

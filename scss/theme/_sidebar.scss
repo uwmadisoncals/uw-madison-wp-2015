@@ -38,6 +38,10 @@ div.lineSidebar .sidebar_menu, div.lineSidebar .widget-area {
 	}
 }
 
+.sidebar_menu {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
 
 .sidebar_menu.expanded {
 	h1 {
@@ -338,6 +342,12 @@ div.lineSidebar .sidebar_menu, div.lineSidebar .widget-area {
 
 		ul#nav_explore {
 			padding-left: 0em;
+
+			li {
+				a.current_link {
+					border-left: 4px solid $blue;
+				}
+			}
 		}
 
 		ul.currentSub {
@@ -354,7 +364,11 @@ div.lineSidebar .sidebar_menu, div.lineSidebar .widget-area {
 			li:last-child a {
 				padding-bottom: 0px !important;
 			}
+
+			
 		}
+
+		
 
 		ul {
 			margin: 0px;

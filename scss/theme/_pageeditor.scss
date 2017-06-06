@@ -203,11 +203,27 @@ div.tiltWrapper.twocolsize {
 	}
 }
 
+.advancedPageEditorGroup {
+
+	.breadcrumb {
+		padding-top: 2rem;
+		max-width: 1070px;
+		margin: 0 auto;
+	}
+}
 
 .advancedPageEditorGroup.apewithSidebar {
+	
 	width: 74%;
 	margin-right: 3%;
 	float: left;
+
+	.breadcrumb {
+
+		max-width: 1070px;
+		margin: 0 auto;
+		padding-left: 1.5rem;
+	}
 }
 
 div.personFeaturefw {

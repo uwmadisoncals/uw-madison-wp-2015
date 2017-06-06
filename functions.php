@@ -1768,6 +1768,8 @@ add_filter( 'upload_mimes', 'cc_mime_types' );
 add_theme_support( 'post-thumbnails' );
 
 
+/**** Add editor styles ***/
+add_editor_style( 'css/custom-editor-style.css' );
 
 
 /***** FIX WP 4.7.1 broken MIME detection *****/
@@ -1850,7 +1852,7 @@ register_default_headers( array(
 /**** Added ACF fields for Header Slides ****/
 if( function_exists('acf_add_local_field_group') ):
 
-include 'acf_fields/advanced_page_editor_fields.php'; 
+	include 'acf_fields/advanced_page_editor_fields.php'; 
 
 /*acf_add_local_field_group(array (
 	'key' => 'group_57980a9959a78',
