@@ -450,10 +450,19 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 
 
 				.uwresources {
+
+					ul, ol {
+						list-style: none;
+						margin-left: 0px;
+					} 
+
 					ul.menu {
+						
+
 						li {
 							a {
 								font-size: 11px;
+								top: 0px;
 							}
 							
 							ul.sub-menu {
@@ -1497,6 +1506,12 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 	.youruwGroup {
 		display: flex;
 		flex-wrap: nowrap;
+
+		ul.menu {
+			list-style: none;
+						margin-left: 0px;
+						margin-bottom: 0px;
+		}
 	}
 
 
