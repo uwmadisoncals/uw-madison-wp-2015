@@ -139,12 +139,38 @@
 																					<div class="textContent">
 																					<div>
 																						<div class="middleImageSample">
-																							<div class="whiteContent">
-																								<div class="dateposted"><?php the_time('M') ?> <?php the_time('jS') ?></div>
-																								<div class="numericdate"><?php the_time('Ymd'); ?></div>
-																								<h2><?php the_title(); ?></h2>
+																							<div class="whiteContent <?php $hidedate = get_sub_field('2c_page_to_highlight_hide_date'); if($hidedate) {echo 'hidedate ';} $hideexcerpt = get_sub_field('2c_page_to_highlight_hide_excerpt'); if($hideexcerpt) {echo 'hideexcerpt ';} ?>">
 																								
-																								<div class="excerpt"><?php the_excerpt(); ?></div>
+																								<div class="numericdate"><?php the_time('Ymd'); ?></div>
+
+																							
+
+																								<?php
+
+																								// vars	
+																								$hidedate = get_sub_field('2c_page_to_highlight_hide_date'); ?>
+																								
+
+																								
+																										<?php if(!$hidedate) { ?>
+																												<div class="dateposted"><?php the_time('M') ?> <?php the_time('jS') ?></div>
+																										<?php } ?>
+
+																								<h2><?php the_title(); ?></h2>
+
+																								<?php
+
+																								// vars	
+																								$hideexcerpt = get_sub_field('2c_page_to_highlight_hide_excerpt'); ?>
+																								
+
+																								
+																										<?php if(!$hideexcerpt) { ?>
+																												<div class="excerpt"><?php the_excerpt(); ?></div>
+																										<?php } ?>
+
+																									
+																								
 																																									
 																								
 																							</div>
