@@ -58,7 +58,16 @@
 												
 											<?php endif; ?>
 
-											<div class="flex-row-wrapper">
+											<?php $rowspacing = get_sub_field('row_spacing'); 
+																 	
+																 	   if($rowspacing == false) {
+																			$rowspacingclass = "removepadding";
+																		} else {
+																			$rowspacingclass = "";
+																		}
+																 ?>
+
+												<div class="flex-row-wrapper <?php echo $rowspacingclass ?>">
 											
 											<div class="flex-row flex-<?php the_sub_field('column_sizes'); ?> left_<?php the_sub_field('left_column_style'); ?> right_<?php the_sub_field('right_column_style'); ?> background-<?php the_sub_field('row_background'); ?> <?php echo $classes; ?>">
 												

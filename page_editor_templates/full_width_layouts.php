@@ -27,8 +27,10 @@
 																		}
 																
 																 ?>
+																
+																
 
-															<div style="background: url(<?php echo wp_get_attachment_image_url( $image, $size ); ?>) no-repeat; background-size: cover; background-position: center center; <?php echo $bgimagestyle; ?>">
+															<div style="background: url(<?php echo wp_get_attachment_image_url( $image, $size ); ?>) no-repeat; background-size: cover; background-position: center center; <?php echo $bgimagestyle; ?>" >
 															
 															<?php }
 
@@ -47,7 +49,16 @@
 
 																						
 											<?php if( have_rows('full_width_content_options') ) { ?>
-												<div class="flex-row-wrapper">
+												 <?php $rowspacing = get_sub_field('row_spacing'); 
+																 	
+																 	   if($rowspacing == false) {
+																			$rowspacingclass = "removepadding";
+																		} else {
+																			$rowspacingclass = "";
+																		}
+																 ?>
+
+												<div class="flex-row-wrapper <?php echo $rowspacingclass ?>">
 												<?php while ( have_rows('full_width_content_options') ) : the_row(); ?>
 												
 												
