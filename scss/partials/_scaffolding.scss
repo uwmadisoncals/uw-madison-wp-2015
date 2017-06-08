@@ -94,9 +94,15 @@ html {
 
 }
 
-.flex-row-wrapper.removepadding {
+.flex-row-wrapper.removetoppadding {
 	padding-top: 0rem;
+	
+}
+
+
+.flex-row-wrapper.removebottompadding {
 	padding-bottom: 0rem;
+	
 }
 
 .flex-row-wrapper {

@@ -58,16 +58,25 @@
 												
 											<?php endif; ?>
 
-											<?php $rowspacing = get_sub_field('row_spacing'); 
+											 <?php $rowspacingtop = get_sub_field('row_spacing_top'); 
 																 	
-																 	   if($rowspacing == false) {
-																			$rowspacingclass = "removepadding";
+																 	   if($rowspacingtop == true) {
+																			$rowspacingtopclass = "removetoppadding";
 																		} else {
-																			$rowspacingclass = "";
+																			$rowspacingtopclass = "";
 																		}
 																 ?>
 
-												<div class="flex-row-wrapper <?php echo $rowspacingclass ?>">
+																  <?php $rowspacingbottom = get_sub_field('row_spacing_bottom'); 
+																 	
+																 	   if($rowspacingbottom == true) {
+																			$rowspacingbottomclass = "removebottompadding";
+																		} else {
+																			$rowspacingbottomclass = "";
+																		}
+																 ?>
+
+												<div class="flex-row-wrapper <?php echo $rowspacingtopclass ?> <?php echo $rowspacingbottomclass ?>">
 											
 											<div class="flex-row flex-<?php the_sub_field('column_sizes'); ?> left_<?php the_sub_field('left_column_style'); ?> right_<?php the_sub_field('right_column_style'); ?> background-<?php the_sub_field('row_background'); ?> <?php echo $classes; ?>">
 												

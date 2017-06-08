@@ -49,16 +49,25 @@
 
 																						
 											<?php if( have_rows('full_width_content_options') ) { ?>
-												 <?php $rowspacing = get_sub_field('row_spacing'); 
+												 <?php $rowspacingtop = get_sub_field('row_spacing_top'); 
 																 	
-																 	   if($rowspacing == false) {
-																			$rowspacingclass = "removepadding";
+																 	   if($rowspacingtop == true) {
+																			$rowspacingtopclass = "removetoppadding";
 																		} else {
-																			$rowspacingclass = "";
+																			$rowspacingtopclass = "";
 																		}
 																 ?>
 
-												<div class="flex-row-wrapper <?php echo $rowspacingclass ?>">
+																  <?php $rowspacingbottom = get_sub_field('row_spacing_bottom'); 
+																 	
+																 	   if($rowspacingbottom == true) {
+																			$rowspacingbottomclass = "removebottompadding";
+																		} else {
+																			$rowspacingbottomclass = "";
+																		}
+																 ?>
+
+												<div class="flex-row-wrapper <?php echo $rowspacingtopclass ?> <?php echo $rowspacingbottomclass ?>">
 												<?php while ( have_rows('full_width_content_options') ) : the_row(); ?>
 												
 												
