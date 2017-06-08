@@ -104,6 +104,14 @@
 	min-height: 0px;
 }
 
+.page, .post, .single {
+	.main-navigation {
+		ul {
+			margin-bottom: 0px;
+		}
+	}
+}
+
 .photoHeader.visibleSlides {
 	header#masthead.site-header {
 	//	height:135px!important;
@@ -1532,7 +1540,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 					text-transform: uppercase;
 					font-size: 13px;
 					letter-spacing: 0.3px;
-					top: 3px;
+					top: 0px;
 				}
 				
 				ul.sub-menu {
