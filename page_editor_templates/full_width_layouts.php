@@ -46,10 +46,7 @@
 											<?php } ?>
 
 
-
-																						
-											<?php if( have_rows('full_width_content_options') ) { ?>
-												 <?php $rowspacingtop = get_sub_field('row_spacing_top'); 
+											 <?php $rowspacingtop = get_sub_field('row_spacing_top'); 
 																 	
 																 	   if($rowspacingtop == true) {
 																			$rowspacingtopclass = "removetoppadding";
@@ -66,6 +63,11 @@
 																			$rowspacingbottomclass = "";
 																		}
 																 ?>
+																						
+											<?php if( have_rows('full_width_content_options') ) { ?>
+												
+
+												
 
 												<div class="flex-row-wrapper <?php echo $rowspacingtopclass ?> <?php echo $rowspacingbottomclass ?>">
 												<?php while ( have_rows('full_width_content_options') ) : the_row(); ?>
