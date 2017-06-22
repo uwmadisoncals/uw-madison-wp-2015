@@ -52,6 +52,48 @@ h2.uwmadison_events_title:before {
     background: #c5050c;
 }
 
+ul.uwmadison_events { 
+	list-style: none;
+	margin-left: 0px;
+	margin-top: 1rem;
+}
+
+ul.uwmadison_events > li {
+	padding-left: 30px;
+	background: url("../images/calendar_icon_dark.svg") no-repeat;
+	background-position: left 3px;
+	background-size: 20px 20px;
+}
+
+.right_redbg, .left_redbg {
+	ul.uwmadison_events > li {
+		padding-left: 30px;
+		background: url("../images/calendar_icon.svg") no-repeat;
+		background-position: left 3px;
+		background-size: 20px 20px;
+	}
+
+	ul.uwmadison_events_group {
+		margin-left: 0px;
+		list-style: none;
+
+		.uwmadison_event_subtitle {
+			color: rgba(255,255,255,0.6);
+			font-size: 1rem;
+		}
+	}
+}
+
+ul.uwmadison_events_group {
+	margin-left: 0px;
+	list-style: none;
+
+	.uwmadison_event_subtitle {
+		color: rgba(0,0,0,0.6);
+		font-size: 1rem;
+	}
+}
+
 .flex-6633.right_redbg, .flex-7525.right_redbg {
 	.flex-rightCol {
 		.button {

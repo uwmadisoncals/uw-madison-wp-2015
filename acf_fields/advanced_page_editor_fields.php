@@ -57,6 +57,25 @@ acf_add_local_field_group(array (
 					'display' => 'block',
 					'sub_fields' => array (
 						array (
+							'key' => 'field_593a13cf3e396',
+							'label' => 'Sample Text',
+							'name' => 'sample_text',
+							'type' => 'text',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array (
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'placeholder' => '',
+							'prepend' => '',
+							'append' => '',
+							'maxlength' => '',
+						),
+						array (
 							'key' => 'field_593997f72085c',
 							'label' => 'Row Spacing Top',
 							'name' => 'row_spacing_top',
@@ -728,6 +747,25 @@ acf_add_local_field_group(array (
 											'placeholder' => '',
 										),
 										array (
+											'key' => 'field_594b33168438e',
+											'label' => 'Source Categories',
+											'name' => 'source_categories',
+											'type' => 'text',
+											'instructions' => '',
+											'required' => 0,
+											'conditional_logic' => 0,
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+											'prepend' => '',
+											'append' => '',
+											'maxlength' => '',
+										),
+										array (
 											'key' => 'field_58d3f8cd13a59',
 											'label' => 'Number of Posts',
 											'name' => 'number_of_posts',
@@ -749,6 +787,32 @@ acf_add_local_field_group(array (
 											'step' => '',
 											'readonly' => 0,
 											'disabled' => 0,
+										),
+										array (
+											'key' => 'field_594b334d8438f',
+											'label' => 'Style',
+											'name' => 'style',
+											'type' => 'select',
+											'instructions' => '',
+											'required' => 0,
+											'conditional_logic' => 0,
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'choices' => array (
+												'default' => 'Default',
+												'photocard' => 'Photo Card',
+											),
+											'default_value' => array (
+											),
+											'allow_null' => 0,
+											'multiple' => 0,
+											'ui' => 0,
+											'ajax' => 0,
+											'return_format' => 'value',
+											'placeholder' => '',
 										),
 									),
 									'min' => '',
@@ -1555,6 +1619,25 @@ acf_add_local_field_group(array (
 											'readonly' => 0,
 											'disabled' => 0,
 										),
+										array (
+											'key' => 'field_594b3943c8539',
+											'label' => 'Source Categories',
+											'name' => 'source_categories',
+											'type' => 'text',
+											'instructions' => '',
+											'required' => 0,
+											'conditional_logic' => 0,
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+											'prepend' => '',
+											'append' => '',
+											'maxlength' => '',
+										),
 									),
 									'min' => '',
 									'max' => '',
@@ -2114,6 +2197,25 @@ acf_add_local_field_group(array (
 											'readonly' => 0,
 											'disabled' => 0,
 										),
+										array (
+											'key' => 'field_594b3971c853a',
+											'label' => 'Source Categories',
+											'name' => 'source_categories',
+											'type' => 'text',
+											'instructions' => '',
+											'required' => 0,
+											'conditional_logic' => 0,
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+											'prepend' => '',
+											'append' => '',
+											'maxlength' => '',
+										),
 									),
 									'min' => '',
 									'max' => '',
@@ -2410,15 +2512,12 @@ acf_add_local_field_group(array (
 							'required' => 0,
 							'conditional_logic' => 0,
 							'wrapper' => array (
-								'width' => 33,
+								'width' => '33',
 								'class' => 'typeContainer',
 								'id' => '',
 							),
-							'button_label' => 'Add Content',
-							'min' => '',
-							'max' => '',
 							'layouts' => array (
-								array (
+								'57d863756b082' => array (
 									'key' => '57d863756b082',
 									'name' => 'title_text',
 									'label' => 'Title Text',
@@ -2449,7 +2548,7 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
-								array (
+								'57d85bdd2c2b0' => array (
 									'key' => '57d85bdd2c2b0',
 									'name' => 'body_text',
 									'label' => 'Body Text',
@@ -2478,7 +2577,7 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
-								array (
+								'582dddf4cce35' => array (
 									'key' => '582dddf4cce35',
 									'name' => 'button',
 									'label' => 'Button',
@@ -2586,7 +2685,7 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
-								array (
+								'57d9a46a7aaea' => array (
 									'key' => '57d9a46a7aaea',
 									'name' => 'events',
 									'label' => 'Events',
@@ -2635,7 +2734,7 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
-								array (
+								'57d9a59dc0e35' => array (
 									'key' => '57d9a59dc0e35',
 									'name' => 'photo',
 									'label' => 'Photo',
@@ -2669,7 +2768,7 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
-								array (
+								'58c843007a930' => array (
 									'key' => '58c843007a930',
 									'name' => '3c_highlighted_content',
 									'label' => 'Highlighted Post/Page',
@@ -2871,7 +2970,7 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
-								array (
+								'58d400cd3902a' => array (
 									'key' => '58d400cd3902a',
 									'name' => 'remote_wp_content',
 									'label' => 'Remote WordPress Content',
@@ -2916,11 +3015,33 @@ acf_add_local_field_group(array (
 											'readonly' => 0,
 											'disabled' => 0,
 										),
+										array (
+											'key' => 'field_594b39aec853b',
+											'label' => 'Source Categories',
+											'name' => 'source_categories',
+											'type' => 'text',
+											'instructions' => '',
+											'required' => 0,
+											'conditional_logic' => 0,
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+											'prepend' => '',
+											'append' => '',
+											'maxlength' => '',
+										),
 									),
 									'min' => '',
 									'max' => '',
 								),
 							),
+							'button_label' => 'Add Content',
+							'min' => '',
+							'max' => '',
 						),
 						array (
 							'key' => 'field_57df5345e7341',
@@ -2931,15 +3052,12 @@ acf_add_local_field_group(array (
 							'required' => 0,
 							'conditional_logic' => 0,
 							'wrapper' => array (
-								'width' => 33,
+								'width' => '33',
 								'class' => 'typeContainer',
 								'id' => '',
 							),
-							'button_label' => 'Add Content',
-							'min' => '',
-							'max' => '',
 							'layouts' => array (
-								array (
+								'57d863756b082' => array (
 									'key' => '57d863756b082',
 									'name' => 'title_text',
 									'label' => 'Title Text',
@@ -2970,7 +3088,7 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
-								array (
+								'57d85bdd2c2b0' => array (
 									'key' => '57d85bdd2c2b0',
 									'name' => 'body_text',
 									'label' => 'Body Text',
@@ -2999,7 +3117,7 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
-								array (
+								'582dde8bcce3a' => array (
 									'key' => '582dde8bcce3a',
 									'name' => 'button',
 									'label' => 'Button',
@@ -3107,7 +3225,7 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
-								array (
+								'57d9a46a7aaea' => array (
 									'key' => '57d9a46a7aaea',
 									'name' => 'events',
 									'label' => 'Events',
@@ -3156,7 +3274,7 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
-								array (
+								'57d9a59dc0e35' => array (
 									'key' => '57d9a59dc0e35',
 									'name' => 'photo',
 									'label' => 'Photo',
@@ -3190,7 +3308,7 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
-								array (
+								'58c89c94b0968' => array (
 									'key' => '58c89c94b0968',
 									'name' => '3c_highlighted_content',
 									'label' => 'Highlighted Post/Page',
@@ -3392,7 +3510,7 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
-								array (
+								'58d3f78c27438' => array (
 									'key' => '58d3f78c27438',
 									'name' => 'remote_wp_content',
 									'label' => 'Remote WordPress Content',
@@ -3437,11 +3555,33 @@ acf_add_local_field_group(array (
 											'readonly' => 0,
 											'disabled' => 0,
 										),
+										array (
+											'key' => 'field_594b39c1c853c',
+											'label' => 'Source Categories',
+											'name' => 'source_categories',
+											'type' => 'text',
+											'instructions' => '',
+											'required' => 0,
+											'conditional_logic' => 0,
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+											'prepend' => '',
+											'append' => '',
+											'maxlength' => '',
+										),
 									),
 									'min' => '',
 									'max' => '',
 								),
 							),
+							'button_label' => 'Add Content',
+							'min' => '',
+							'max' => '',
 						),
 						array (
 							'key' => 'field_57df5275e733a',
@@ -3452,15 +3592,12 @@ acf_add_local_field_group(array (
 							'required' => 0,
 							'conditional_logic' => 0,
 							'wrapper' => array (
-								'width' => 33,
+								'width' => '33',
 								'class' => 'typeContainer',
 								'id' => '',
 							),
-							'button_label' => 'Add Content',
-							'min' => '',
-							'max' => '',
 							'layouts' => array (
-								array (
+								'57d863bacac17' => array (
 									'key' => '57d863bacac17',
 									'name' => 'title_text',
 									'label' => 'Title Text',
@@ -3491,7 +3628,7 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
-								array (
+								'57d85bf6925ce' => array (
 									'key' => '57d85bf6925ce',
 									'name' => 'body_text',
 									'label' => 'Body Text',
@@ -3520,7 +3657,7 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
-								array (
+								'582ddef6cce3f' => array (
 									'key' => '582ddef6cce3f',
 									'name' => 'button',
 									'label' => 'Button',
@@ -3628,7 +3765,7 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
-								array (
+								'57d9a4c27aaed' => array (
 									'key' => '57d9a4c27aaed',
 									'name' => 'events',
 									'label' => 'Events',
@@ -3677,7 +3814,7 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
-								array (
+								'57d9a5eec0e37' => array (
 									'key' => '57d9a5eec0e37',
 									'name' => 'photo',
 									'label' => 'Photo',
@@ -3711,7 +3848,7 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
-								array (
+								'58c89d264162c' => array (
 									'key' => '58c89d264162c',
 									'name' => '3c_highlighted_content',
 									'label' => 'Highlighted Post/Page',
@@ -3913,7 +4050,7 @@ acf_add_local_field_group(array (
 									'min' => '',
 									'max' => '',
 								),
-								array (
+								'58d3f7f92743b' => array (
 									'key' => '58d3f7f92743b',
 									'name' => 'remote_wp_content',
 									'label' => 'Remote WordPress Content',
@@ -3958,11 +4095,33 @@ acf_add_local_field_group(array (
 											'readonly' => 0,
 											'disabled' => 0,
 										),
+										array (
+											'key' => 'field_594b39d3c853d',
+											'label' => 'Source Categories',
+											'name' => 'source_categories',
+											'type' => 'text',
+											'instructions' => '',
+											'required' => 0,
+											'conditional_logic' => 0,
+											'wrapper' => array (
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'default_value' => '',
+											'placeholder' => '',
+											'prepend' => '',
+											'append' => '',
+											'maxlength' => '',
+										),
 									),
 									'min' => '',
 									'max' => '',
 								),
 							),
+							'button_label' => 'Add Content',
+							'min' => '',
+							'max' => '',
 						),
 					),
 					'min' => '',

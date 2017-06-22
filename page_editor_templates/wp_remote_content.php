@@ -1,9 +1,15 @@
 <?php $url = get_sub_field('source_url');
+		$categories = get_sub_field('source_categories');
 
 													$numposts = get_sub_field('number_of_posts');
 													$numposts = $numposts + 1;
-													$requesturi = $url."/wp-json/wp/v2/posts?per_page=".$numposts;
-													
+													if($categories == "") {
+														$requesturi = $url."/wp-json/wp/v2/posts?per_page=".$numposts;
+													} else {
+														$requesturi = $url."/wp-json/wp/v2/posts?per_page=".$numposts."&categories=".$categories;
+													}
+													//$requesturi = $url."/wp-json/wp/v2/posts?per_page=".$numposts."&categories=".$categories;
+													//console.log($requesturi);
 													?>
 													
 
