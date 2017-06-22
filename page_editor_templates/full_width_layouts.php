@@ -73,10 +73,12 @@
 												<?php while ( have_rows('full_width_content_options') ) : the_row(); ?>
 												
 												
+													<?php if( get_row_layout() == 'accordion_panel' ) { ?>
 													
-													
-													
-													 <?php if( get_row_layout() == 'body_text' ) { ?>
+														<?php include 'accordion.php'; ?>
+														 
+														 
+													 <?php } else if( get_row_layout() == 'body_text' ) { ?>
 														
 														 <?php the_sub_field("text_content"); ?>
 														 

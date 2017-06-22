@@ -82,8 +82,6 @@ get_header(); ?>
 										// check current row layout
 								        if( get_row_layout() == 'full_width' ) { ?>
 											<?php include 'page_editor_templates/full_width_layouts.php'; ?>
-											
-
 
 										<?php	/********  2 Columns   ********/
 								         } else if( get_row_layout() == '2_column (50/50)' ) { ?>

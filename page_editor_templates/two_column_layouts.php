@@ -139,9 +139,12 @@
 														<?php }
 														 
 													 }
-													
-													
-													 if( get_row_layout() == 'body_text' ) { ?>
+
+													 if( get_row_layout() == 'accordion_panel' ) { ?>
+
+													 	<?php include 'accordion.php'; ?>
+														 
+													 <?php } else if( get_row_layout() == 'body_text' ) { ?>
 
 													 	<div class="leftcolumnPadding"> 
 														
@@ -266,7 +269,11 @@
 													 }
 													
 													
-													 if( get_row_layout() == 'body_text' ) { ?>
+													 if( get_row_layout() == 'accordion_panel' ) { ?>
+
+													 	<?php include 'accordion.php'; ?>
+														 
+													 <?php } else if( get_row_layout() == 'body_text' ) { ?>
 														<div class="rightcolumnPadding"> 
 														 <?php the_sub_field("text_content"); ?>
 														 </div>

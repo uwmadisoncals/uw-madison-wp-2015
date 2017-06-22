@@ -2715,6 +2715,33 @@ $(".sidebar_menu.expanded .current_link").closest(".children").prev().addClass("
 /**
  * ----------------------------------------------------------------------------
  *
+ *  Accordion Logic
+ *
+ * ----------------------------------------------------------------------------
+ */
+
+$(".accordion_title").click(function(e) {
+	e.preventDefault();
+
+	var link = $(this);
+	var symbol = $(this).find(".symbol");
+	var thiscontent = $(this).next(".accordion_content");
+	var thisrow = $(this).closest(".accordion_row");
+	var wrapper = $(this).closest(".accordion_wrapper");
+
+	
+	$(wrapper).find(".accordion_content").slideUp();
+	$(wrapper).find(".accordion_title").removeClass("open").find(".symbol").text("+");
+	$(link).addClass("open");
+	$(symbol).text("-");
+	$(thiscontent).slideDown();
+});
+
+
+
+/**
+ * ----------------------------------------------------------------------------
+ *
  *  Setup Isotope for Tiles Homepage Layout
  *
  * ----------------------------------------------------------------------------
