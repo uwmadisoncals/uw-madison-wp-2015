@@ -464,17 +464,24 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 						margin-left: 0px;
 					} 
 
+					ul.menu > li > a {
+						font-size: 11px;
+					}
+
 					ul.menu {
 						
 
 						li {
+							border-right: 1px solid rgba(255,255,255,0.2);
+
 							a {
-								font-size: 11px;
+								padding-right: 1rem;
+								
 								top: 0px;
 							}
 							
 							ul.sub-menu {
-								display: none;
+								
 							}
 						}
 					}
@@ -1531,8 +1538,10 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 			flex-wrap: nowrap;
 
 			li {
-
-				margin-right: 1.5rem;
+				height: 35px;
+				margin-right: 1rem;
+				position: relative;
+				
 
 				a {
 					position: relative;
@@ -1541,11 +1550,60 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 					font-size: 13px;
 					letter-spacing: 0.3px;
 					top: 0px;
+					
+					
+					
 				}
 				
 				ul.sub-menu {
-								display: none;
+								position: absolute;
+								top: 37px;
+								left: 50%;
+								width: 200px;
+								opacity: 0;
+								list-style: none;
+								pointer-events: none;
+								transform: translateY(15px) translateX(-50%);
+								transition: 0.3s;
+								background: #fff;
+								border-radius: 4px;
+								
+
+								li  {
+									margin-right: 0rem;
+									height: auto;
+									a {
+										display: block;
+										color: rgba(0,0,0,0.9);
+										font-size: 0.8rem;
+										padding: 1rem;
+										padding-top: 0.4rem;
+										padding-bottom: 0.4rem;
+										font-family: "Verlag-Black";
+									}
+								}
 							}
+
+									ul.sub-menu:after {
+						bottom: 100%;
+						left: 50%;
+						border: solid transparent;
+						content: " ";
+						height: 0;
+						width: 0;
+						position: absolute;
+						pointer-events: none;
+						border-color: rgba(255, 255, 255, 0);
+						border-bottom-color: #ffffff;
+						border-width: 10px;
+						margin-left: -10px;
+					}
+				
+				ul.sub-menu.visible {
+					pointer-events: auto;
+					transform: translateY(0px) translateX(-50%);
+					opacity: 1;
+				}
 			}
 
 		}

@@ -2,7 +2,7 @@
 ?>
 <div class="fundraising_wrapper">
 
-    <a href="http://www.allwaysforward.org/schools-colleges/cals/" target="_blank" class="fundraising_link">All Ways Forward</a>
+    <a href="<?php the_sub_field("campaign_url"); ?>" target="_blank" class="fundraising_link">All Ways Forward</a>
 
     <div class="fundraising_left">
         <div class="forwardimage"></div>
