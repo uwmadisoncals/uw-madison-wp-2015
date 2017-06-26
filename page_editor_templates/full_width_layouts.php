@@ -63,13 +63,23 @@
 																			$rowspacingbottomclass = "";
 																		}
 																 ?>
+
+
+																  <?php $rowwidthlimit = get_sub_field('row_width_limit'); 
+																 	
+																 	   if($rowwidthlimit == true) {
+																			$rowwidthlimitclass = "removewidthlimit";
+																		} else {
+																			$rowwidthlimitclass = "";
+																		}
+																 ?>
 																						
 											<?php if( have_rows('full_width_content_options') ) { ?>
 												
 
 												
 
-												<div class="flex-row-wrapper <?php echo $rowspacingtopclass ?> <?php echo $rowspacingbottomclass ?>">
+												<div class="flex-row-wrapper <?php echo $rowspacingtopclass ?> <?php echo $rowspacingbottomclass ?> <?php echo $rowwidthlimitclass ?>">
 												<?php while ( have_rows('full_width_content_options') ) : the_row(); ?>
 												
 												
@@ -84,7 +94,7 @@
 														 
 													 <?php } else if( get_row_layout() == 'title_text' ) { ?>
 														<header class="entry-header small-header">
-														 <h1 class="entry-title"><?php the_sub_field("text_content"); ?></h1>
+														 <h1 class="entry-title <?php the_sub_field('heading_size'); ?>"><?php the_sub_field("text_content"); ?></h1>
 														</header>
 														 
 													 <?php } else if( get_row_layout() == 'button' ) { ?>
@@ -103,7 +113,13 @@
 															 	$eventsnum = get_sub_field("number_of_events");
 															 	
 															 uwmadison_events($eventsurl, array('limit' => $eventsnum,'title' => 'Events', 'grouped' => TRUE)) ?>
-														 
+
+													<?php } else if( get_row_layout() == 'fund_raising' ) { ?>
+														  		<?php include 'fundraising.php'; ?>
+															
+													<?php } else if( get_row_layout() == 'social' ) { ?>
+														  
+																<?php include 'social.php'; ?>
 													 <?php } else if( get_row_layout() == 'photo' ) { ?>
 														
 														  <?php 

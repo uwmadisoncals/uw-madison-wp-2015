@@ -146,6 +146,14 @@ ul.uwmadison_events_group {
 				font-size: 1.1rem;
 				letter-spacing: 0.9px;
 			}
+
+			h1.entry-title.small {
+				font-size: 1.3rem;
+			}
+
+			h1.entry-title.large {
+				font-size: 2.5rem;
+			}
 		}
 		
 		h2.uwmadison_events_title {
@@ -198,6 +206,14 @@ ul.uwmadison_events_group {
 				font-size: 1.1rem;
 				letter-spacing: 0.9px;
 			}
+
+			h1.entry-title.small {
+				font-size: 1.3rem;
+			}
+
+			h1.entry-title.large {
+				font-size: 2.5rem;
+			}
 		}
 		
 		h2.uwmadison_events_title {
@@ -219,10 +235,97 @@ ul.uwmadison_events_group {
 	}
 }
 
+.social_wrapper {
+
+
+
+	.social_inner {
+		max-width: 1124px;
+		margin: 0 auto;
+		position: relative;
+	}
+
+}
+
+
+.fundraising_wrapper {
+	display: flex;
+	position: relative;
+
+	.fundraising_link {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		z-index:3;
+		text-indent: -100000px;
+	}
+
+	.fundraising_left {
+		flex-basis: 45%;
+		position: relative;
+
+		.forwardimage {
+			position: absolute;
+			top: -26px;
+			left: 0px;
+			right: -120px;
+			bottom: 0px;
+			z-index:1;
+			background: url("../images/allwaysforward.png") no-repeat;
+			background-size: cover;
+			background-position: top right;
+		}
+	}
+
+	.fundraising_right {
+		flex-basis: 55%;
+		
+
+		.fund_right_top {
+			
+			background: $uwred;
+			font-family: "Verlag-Black";
+			color: #fff;
+			font-size: 1.6rem;
+			padding: 1rem;
+			line-height: 1.2;
+			padding-left: 100px;
+			
+			text-transform: uppercase;
+
+			.space {
+				display: inline-block;
+				width: 20px;
+				
+			}
+		}
+
+		.fund_right_bottom {
+			
+			background: #fff;
+			padding: 1rem;
+padding-left: 100px;
+			svg {
+				height: 100%;
+			}
+		}
+	}
+}
+
 .entry-header.small-header {
 	.entry-title {
 		font-size: 1.8rem;
 	}
+
+	h1.entry-title.small {
+				font-size: 1.3rem;
+			}
+
+			h1.entry-title.large {
+				font-size: 2.5rem;
+			}
 }
 
 div.tiltWrapper.twocolsize {

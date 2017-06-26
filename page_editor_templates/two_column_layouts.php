@@ -154,7 +154,7 @@
 														 
 													 <?php } else if( get_row_layout() == 'title_text' ) { ?>
 														<header class="entry-header small-header">
-														 <h1 class="entry-title"><?php the_sub_field("title_text_content"); ?></h1>
+														 <h1 class="entry-title <?php the_sub_field('heading_size'); ?>"><?php the_sub_field("title_text_content"); ?></h1>
 														</header>
 														 
 													 <?php } else if( get_row_layout() == 'button' ) { ?>
@@ -281,7 +281,7 @@
 												<?php	 } else if( get_row_layout() == 'title_text' ) { ?>
 														
 														 <header class="entry-header small-header">
-														 <h1 class="entry-title"><?php the_sub_field("title_text_content"); ?></h1> </header>
+														 <h1 class="entry-title <?php the_sub_field('heading_size'); ?>"><?php the_sub_field("title_text_content"); ?></h1> </header>
 														 
 													 <?php } else if( get_row_layout() == 'button' ) { ?>
 															<?php $buttonlink = get_sub_field("button_action"); 
