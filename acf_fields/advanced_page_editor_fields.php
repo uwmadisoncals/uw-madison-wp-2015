@@ -551,11 +551,8 @@ acf_add_local_field_group(array (
 												'class' => '',
 												'id' => '',
 											),
-											'button_label' => 'Add Highlighted Content',
-											'min' => '',
-											'max' => '',
 											'layouts' => array (
-												array (
+												'57d61abf52cc2' => array (
 													'key' => '57d61abf52cc2',
 													'name' => 'fw_latest_posts',
 													'label' => 'Latest Posts',
@@ -588,7 +585,7 @@ acf_add_local_field_group(array (
 													'min' => '',
 													'max' => '',
 												),
-												array (
+												'57d61edb19fe9' => array (
 													'key' => '57d61edb19fe9',
 													'name' => 'fw_posts_by_category',
 													'label' => 'Posts by Category',
@@ -666,7 +663,7 @@ acf_add_local_field_group(array (
 													'min' => '',
 													'max' => '',
 												),
-												array (
+												'57d61f8419fec' => array (
 													'key' => '57d61f8419fec',
 													'name' => 'fw_highlighted_page',
 													'label' => 'Highlighted Page',
@@ -699,7 +696,57 @@ acf_add_local_field_group(array (
 													'min' => '',
 													'max' => '',
 												),
+												'5951d75dae4dc' => array (
+													'key' => '5951d75dae4dc',
+													'name' => 'remote_posts',
+													'label' => 'Remote Posts',
+													'display' => 'block',
+													'sub_fields' => array (
+														array (
+															'key' => 'field_5951d785ae4dd',
+															'label' => 'Remote URL',
+															'name' => 'remote_url',
+															'type' => 'url',
+															'instructions' => '',
+															'required' => 1,
+															'conditional_logic' => 0,
+															'wrapper' => array (
+																'width' => '',
+																'class' => '',
+																'id' => '',
+															),
+															'default_value' => '',
+															'placeholder' => '',
+														),
+														array (
+															'key' => 'field_5951d7d5ae4df',
+															'label' => 'Category ID',
+															'name' => 'category_id',
+															'type' => 'number',
+															'instructions' => '',
+															'required' => 0,
+															'conditional_logic' => 0,
+															'wrapper' => array (
+																'width' => '',
+																'class' => '',
+																'id' => '',
+															),
+															'default_value' => '',
+															'placeholder' => '',
+															'prepend' => '',
+															'append' => '',
+															'min' => '',
+															'max' => '',
+															'step' => '',
+														),
+													),
+													'min' => '',
+													'max' => '',
+												),
 											),
+											'button_label' => 'Add Highlighted Content',
+											'min' => '',
+											'max' => '',
 										),
 									),
 									'min' => '',

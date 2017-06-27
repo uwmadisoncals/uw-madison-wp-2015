@@ -251,6 +251,12 @@ ul.uwmadison_events_group {
 	}
 }
 
+@-moz-document url-prefix() {
+	svg .pulse {
+		display: none !important;
+	}
+}
+
 .social_wrapper {
 	position: relative;
 	width: 100%;
@@ -356,6 +362,7 @@ ul.uwmadison_events_group {
 
 		svg {
 			width: 100%;
+			
 
 			.pulse {
 				opacity: 0;
@@ -467,6 +474,19 @@ ul.uwmadison_events_group {
 	}
 }
 
+.fundraising_wrapper.hover {
+	.fundraising_left {
+		.forwardimage {
+			right: -140px;
+		}
+	}
+
+	.fundraising_right {
+		.fund_right_top {
+			text-decoration: underline;
+		}
+	}
+}
 
 .fundraising_wrapper {
 	display: flex;
@@ -496,6 +516,7 @@ ul.uwmadison_events_group {
 			background: url("../images/allwaysforward.png") no-repeat;
 			background-size: cover;
 			background-position: top right;
+			transition: 0.5s;
 		}
 	}
 
@@ -509,8 +530,9 @@ ul.uwmadison_events_group {
 			font-family: "Verlag-Black";
 			color: #fff;
 			font-size: 1.6rem;
-			padding: 1rem;
+			padding: 2.5rem;
 			line-height: 1.2;
+			padding-right: 1rem;
 			padding-left: 100px;
 			
 			text-transform: uppercase;
@@ -735,12 +757,14 @@ div.personFeaturefw {
     -webkit-transform: scale(0);
             transform: scale(0);
 			transform-origin: center center;
+			-moz-transform-origin: center center;
 			opacity: 1;
   }
   30% {
     -webkit-transform: scale(1);
             transform: scale(1);
 			transform-origin: center center;
+			-moz-transform-origin: center center;
 			opacity: 0;
   }
 

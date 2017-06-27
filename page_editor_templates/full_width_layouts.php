@@ -273,6 +273,21 @@
 																																
 																	
 																}
+
+
+																if(get_row_layout() == 'remote_posts') {
+																	
+																	if($offsetC == "3col") {
+																		
+																		include 'highlighted_remote_posts_3col.php';
+																	} else {
+																		
+																		include 'highlighted_remote_posts.php';
+																	}
+																	
+																																
+																	
+																}
 															
 														    endwhile; ?>
 														    

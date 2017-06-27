@@ -714,6 +714,10 @@ $(window).on("load", function() {
 			
 		});*/
 	}
+
+	
+
+
 	
 });
 /*!
@@ -2137,6 +2141,124 @@ FastClick.attach(document.body);
  * ----------------------------------------------------------------------------
  */
 
+function evaluateColor() {
+		var cors = false;
+	
+			//Detect browser support for CORS
+			if ('withCredentials' in new XMLHttpRequest()) {
+			    /* supports cross-domain requests */
+			    //console.log("CORS supported (XHR)");
+			    cors = true;
+			}
+			else if(typeof XDomainRequest !== "undefined"){
+			  //Use IE-specific "CORS" code with XDR
+			  //console.log("CORS supported (XDR)");
+			  cors = true;
+			}else{
+			  //Time to retreat with a fallback or polyfill
+			  //console.log("No CORS Support!");
+			  cors = false;
+			}
+		
+   $(".gridstyle2 .tiltWrapper").each(function() {
+		var griditem = $(this);
+		
+			
+			var img = $(this).find("img");
+			img.crossOrigin = 'Anonymous';
+
+			
+			var imgC = img[0];
+			
+			if(imgC) {
+
+				var imgSrc = imgC.getAttribute("src");
+				//console.log("normal: " + imgSrc);
+			} else {
+				
+				var imgSrc = $(this).find(".heroImageFixedHeight").attr("data-imgurl");
+
+				//console.log("background: " + imgSrc);
+			}
+			
+			if(imgSrc) {
+
+			
+			
+
+			var imgN = new Image();
+
+			imgN.crossOrigin = 'Anonymous';
+			imgN.src = imgSrc;
+			//console.log(imgN);
+			imgN.onload = function () {
+				//console.log("blah");
+			 	var colorThief = new ColorThief();
+			 	var color = colorThief.getColor(imgN);
+
+				 var brighter = 100;
+				
+				var color1 = color[0] + brighter;
+				if(color1 > 255) { color1 = 255; }
+
+				var color2 = color[1] + brighter;
+				if(color2 > 255) { color2 = 255; }
+
+				var color3 = color[2] + brighter;
+				if(color3 > 255) { color3 = 255; }
+
+
+			 	var newColor = "rgba(" + color1 + ", " +color2+ ", " +color3+ ", 1.0)";
+				 var newShadow = "0px 18px 65px rgba(" + color1 + ", " +color2+ ", " +color3+ ", 0.5)"
+				 /*console.log("test");
+				console.log(newColor);*/
+				
+			 	$(griditem).find(".author").css("color",newColor);
+				$(griditem).find(".tiltPanel .level1").css("box-shadow", newShadow);
+			}
+		}
+			
+   });
+
+	if($("#page").hasClass("tiledPosts")) {
+		/*$(".grid-item").each(function() {
+
+			var griditem = $(this);
+
+			var img = $(this).find("img");
+			img.crossOrigin = 'Anonymous';
+
+			
+			var imgC = img[0];
+			
+
+			var imgSrc = imgC.getAttribute("src");
+			
+			
+
+		
+			
+
+			var imgN = new Image();
+			imgN.onload = function () {
+			 	var colorThief = new ColorThief();
+			 	var color = colorThief.getColor(imgN);
+			 	var newColor = "rgba(" + color[0] + ", " +color[1]+ ", " +color[2]+ ", 1.0)";
+
+			 	$(griditem).find("h2").css("color",newColor);
+			}
+			
+			imgN.crossOrigin = 'Anonymous';
+			imgN.src = imgSrc;
+
+			
+			
+			
+			
+		});*/
+	}
+}
+
 var remotecount = 0;
 
 															$(".remoteContent").each(function() {
@@ -2183,6 +2305,76 @@ var remotecount = 0;
 																	} else {
 																	$( '#quote-source' ).text( '' );
 																	}
+																},
+																cache: true
+																} );
+
+
+															});
+
+
+
+var highlightedremotecount = 0;
+
+															$(".highlightremoteContent").each(function() {
+
+																var elemcontainer = $(this);
+																highlightedremotecount = highlightedremotecount + 1;
+																
+																var spinner = $(this).find(".loadingWrapper");
+																var remoteelem = "highlightedremotelocation"+highlightedremotecount;
+				
+																$(this).addClass(remoteelem);
+																var remoteurl = $(this).attr("data-remoteurl");
+																//console.log(remoteurl);
+															
+																$.ajax( {
+																url: remoteurl,
+																success: function ( data ) {
+
+																	$(spinner).hide();
+																	var post = data.shift(); // The data is an array of posts. Grab the first one.
+																	//onsole.log(remoteelem);
+
+																	
+
+																	var remoteDate = new Date(post.date);
+
+																	var day = remoteDate.getDate();
+  																	var monthIndex = remoteDate.getMonth();
+  																	var year = remoteDate.getFullYear();
+
+																	$(elemcontainer).find(".remotePost").attr("href", post.link);
+																	$(elemcontainer).find(".whiteContent h2").text( post.title.rendered );
+																	$(elemcontainer).find( '.whiteContent .excerpt' ).html( post.excerpt.rendered );
+																	$(elemcontainer).find(".whiteContent .numericdate").text(year +""+ monthIndex +""+ day);
+																	$(elemcontainer).find(".whiteContent .dateposted").text(monthIndex +" "+ day + ", " + year);
+
+																	//console.log(day + "" + monthIndex + "" + year);
+
+																	var mediaurl = post._links['wp:featuredmedia'][0].href;
+																		//console.log(mediaurl);
+																		$.ajax( {
+																			url: mediaurl,
+																			success: function ( mediadata ) {
+
+																			
+																			var mediareadyurl = mediadata.guid.rendered;
+																			//onsole.log(mediareadyurl);
+																			var bgimg = "background: url("+mediareadyurl+") no-repeat; background-size: cover; background-position: center center; ";
+																			$(elemcontainer).find(".mediaImg").attr("src",mediadata.guid.rendered);
+																			$(elemcontainer).find(".heroImageBlurInner").attr("style",bgimg);
+																			$(elemcontainer).find(".heroImageFixedHeight").attr("style",bgimg);
+
+																			$grid.isotope('layout');
+																			$grid2col.isotope('layout');
+																			$grid3col.isotope('layout');
+
+																			evaluateColor();
+																		}
+																		});
+
+																	
 																},
 																cache: true
 																} );
@@ -3103,6 +3295,14 @@ $(".home .advancedPageEditorGroup > div").first().find(".flex-row").addClass("to
   });
 
 
+
+$(".fundraising_link").mouseover(function() {
+	$(this).closest(".fundraising_wrapper").addClass("hover");
+});
+
+$(".fundraising_link").mouseout(function() {
+	$(this).closest(".fundraising_wrapper").removeClass("hover");
+});
 
 
 /**
