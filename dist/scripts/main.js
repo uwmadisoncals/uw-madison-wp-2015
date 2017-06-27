@@ -2366,11 +2366,18 @@ var highlightedremotecount = 0;
 																			$(elemcontainer).find(".heroImageBlurInner").attr("style",bgimg);
 																			$(elemcontainer).find(".heroImageFixedHeight").attr("style",bgimg);
 
-																			$grid.isotope('layout');
+																			setTimeout(function() {
+																				$grid.isotope('layout');
+																				$grid2col.isotope('layout');
+																				$grid3col.isotope('layout');
+
+																				evaluateColor();
+																			},500);
+																			/*$grid.isotope('layout');
 																			$grid2col.isotope('layout');
 																			$grid3col.isotope('layout');
 
-																			evaluateColor();
+																			evaluateColor();*/
 																		}
 																		});
 
