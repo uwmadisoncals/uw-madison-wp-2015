@@ -342,6 +342,18 @@ ul.uwmadison_events_group {
 		
 	}
 
+	.social_lines {
+		overflow-x: hidden;
+		overflow-y: hidden;
+
+		position: absolute;
+		top: -15%;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		z-index:1;
+	}
+
 	.social_line_1, .social_line_2, .social_line_3, .social_line_4, .social_line_5, {
 		position: absolute;
 		z-index:1;
@@ -349,12 +361,12 @@ ul.uwmadison_events_group {
 		left: 0px;
 		right: 0px;
 
-		
+		will-change: transform, opacity;
 	}
 
 	.social_line_1 {
 		z-index:2;
-		top: -10%;
+		top: 5%;
 		
 
 
@@ -365,6 +377,7 @@ ul.uwmadison_events_group {
 			
 
 			.pulse {
+				will-change: transform, opacity;
 				opacity: 0;
 				
 				
@@ -373,34 +386,34 @@ ul.uwmadison_events_group {
 	}
 
 	.social_line_2 {
-		top: 15%;
+		top: 20%;
 		height: 250px;
-		background: url("../images/social_path_2.png") no-repeat;
+		background: url("../../dist/images/social_path_2.png") no-repeat;
 		background-size: 100% auto;
 		
 	}
 
 	.social_line_3 {
-		top: 25%;
+		top: 30%;
 		height: 250px;
-		background: url("../images/social_path_3.png") no-repeat;
+		background: url("../../dist/images/social_path_3.png") no-repeat;
 		background-size: 100% auto;
 		
 	}
 
 	.social_line_4 {
-		top: 35%;
+		top:40%;
 		height: 250px;
-		background: url("../images/social_path_4.png") no-repeat;
+		background: url("../../dist/images/social_path_4.png") no-repeat;
 		background-size: 100% auto;
 
 		
 	}
 
 	.social_line_5 {
-		top: 45%;
+		top: 50%;
 		height: 250px;
-		background: url("../images/social_path_5.png") no-repeat;
+		background: url("../../dist/images/social_path_5.png") no-repeat;
 		background-size: 100% auto;
 
 	}
@@ -513,7 +526,7 @@ ul.uwmadison_events_group {
 			right: -120px;
 			bottom: 0px;
 			z-index:1;
-			background: url("../images/allwaysforward.png") no-repeat;
+			background: url("../../dist/images/allwaysforward.png") no-repeat;
 			background-size: cover;
 			background-position: top right;
 			transition: 0.5s;
