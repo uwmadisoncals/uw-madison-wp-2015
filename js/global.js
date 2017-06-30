@@ -506,7 +506,9 @@ var highlightedremotecount = 0;
 																			var mediareadyurl = mediadata.guid.rendered;
 																			//onsole.log(mediareadyurl);
 																			var bgimg = "background: url("+mediareadyurl+") no-repeat; background-size: cover; background-position: center center; ";
-																			$(elemcontainer).find(".mediaImg").attr("src",mediadata.guid.rendered);
+																			
+																			$(elemcontainer).find(".mediaImg").attr("src",mediadata.media_details.sizes.medium_large.source_url);
+																			//$(elemcontainer).find(".mediaImg").attr("src",mediadata.guid.rendered);
 																			$(elemcontainer).find(".heroImageBlurInner").attr("style",bgimg);
 																			$(elemcontainer).find(".heroImageFixedHeight").attr("style",bgimg);
 
