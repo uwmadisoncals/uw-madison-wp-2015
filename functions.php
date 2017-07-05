@@ -6215,6 +6215,11 @@ if(is_admin()){
 }
 
 
+
+
+
+
+
 /**** Replacing wp-updates.com for my own api ****/
 //require_once('wp-updates-theme.php');
 //new WPUpdatesThemeUpdater_1555( 'http://wp-updates.com/api/2/theme', basename( get_template_directory() ) );

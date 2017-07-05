@@ -1387,3 +1387,13 @@ a.button.pressed {
 	transform: translateY(0px);
 	text-decoration: none;
 }
+
+
+body.parent-pageid-1560, body.parent-pageid-58602 {
+	
+	.entry-content {
+		#header, #footer {
+			display: none;
+		}
+	}
+}

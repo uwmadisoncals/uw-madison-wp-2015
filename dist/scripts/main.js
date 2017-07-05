@@ -2368,19 +2368,29 @@ var highlightedremotecount = 0;
 																			$(elemcontainer).find(".heroImageBlurInner").attr("style",bgimg);
 																			$(elemcontainer).find(".heroImageFixedHeight").attr("style",bgimg);
 
-																			setTimeout(function() {
+																			/*setTimeout(function() {
 																				$grid.isotope('layout');
 																				$grid2col.isotope('layout');
 																				$grid3col.isotope('layout');
 
 																				evaluateColor();
-																			},500);
+																			},500);*/
 																			/*$grid.isotope('layout');
 																			$grid2col.isotope('layout');
 																			$grid3col.isotope('layout');
 
 																			evaluateColor();*/
+																		},
+																		
+																		complete: function () {
+																			setTimeout(function() {
+																				$grid.isotope('layout');
+																				$grid2col.isotope('layout');
+																				$grid3col.isotope('layout');
+																			evaluateColor();
+																			},200);
 																		}
+
 																		});
 
 																	
@@ -2392,6 +2402,27 @@ var highlightedremotecount = 0;
 															});
 															
 
+
+
+/**
+ * 
+ * 
+ *  Setup Facstaff pages
+ * 
+ */
+
+$("body.parent-pageid-1560, body.parent-pageid-1562, body.parent-pageid-58602").find(".entry-content link").remove();
+
+$("body.parent-pageid-1560 .entry-content > p, body.parent-pageid-1562 .entry-content > p, body.parent-pageid-58602 .entry-content > p").remove();
+
+$("body.parent-pageid-1560 .entry-content #main a, body.parent-pageid-1562 .entry-content #main a, body.parent-pageid-58602 .entry-content #main a").each(function() {
+	var item = $(this);
+	var itemext = $(this).attr("href");
+	
+	itemext = itemext.replace(/\.[^/.]+$/, "");
+
+	$(item).attr("href", itemext);
+});
 
 
 /**
