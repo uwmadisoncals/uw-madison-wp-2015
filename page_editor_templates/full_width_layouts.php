@@ -178,7 +178,7 @@
 																		
 																		<?php if(get_sub_field("quote")) {  ?>
 																	 	
-																		 <div class="personquote"><?php the_sub_field("quote"); ?></div>
+																		 <div class="personquote"><span>"</span><div class="mainquote"><?php the_sub_field("quote"); ?></div></div>
 																		
 																		<?php } ?>
 																 	</div>

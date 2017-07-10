@@ -2213,7 +2213,7 @@ function evaluateColor() {
 				 /*console.log("test");
 				console.log(newColor);*/
 				
-			 	$(griditem).find(".author").css("color",newColor);
+			 	$(griditem).find(".author, .category").css("color",newColor);
 				$(griditem).find(".tiltPanel .level1").css("box-shadow", newShadow);
 			}
 		}
@@ -2340,20 +2340,48 @@ var highlightedremotecount = 0;
 
 																	var remoteDate = new Date(post.date);
 
+																	var m_names = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+
 																	var day = remoteDate.getDate();
+																	var curr_date = remoteDate.getDate();
   																	var monthIndex = remoteDate.getMonth();
   																	var year = remoteDate.getFullYear();
 
+																	  var sup = "";
+																	if (curr_date == 1 || curr_date == 21 || curr_date ==31)
+																	{
+																		sup = "st";
+																	}
+																	else if (curr_date == 2 || curr_date == 22)
+																	{
+																		sup = "nd";
+																	}
+																	else if (curr_date == 3 || curr_date == 23)
+																	{
+																		sup = "rd";
+																	}
+																	else
+																	{
+																		sup = "th";
+																	}
+
+																	
+
 																	$(elemcontainer).find(".remotePost").attr("href", post.link);
-																	$(elemcontainer).find(".whiteContent h2").text( post.title.rendered );
+																	$(elemcontainer).find(".whiteContent h2").html( post.title.rendered );
 																	$(elemcontainer).find( '.whiteContent .excerpt' ).html( post.excerpt.rendered );
 																	$(elemcontainer).find(".whiteContent .numericdate").text(year +""+ monthIndex +""+ day);
-																	$(elemcontainer).find(".whiteContent .dateposted").text(monthIndex +" "+ day + ", " + year);
+																	$(elemcontainer).find(".whiteContent .dateposted").text(m_names[monthIndex] +" "+ curr_date + sup +", " + year);
 
-																	//console.log(day + "" + monthIndex + "" + year);
+																	
 
+																	var authorurl = post._links['author'][0].href;
 																	var mediaurl = post._links['wp:featuredmedia'][0].href;
-																		//console.log(mediaurl);
+
+																	var categoryurl = "https://ecals.cals.wisc.edu/wp-json/wp/v2/categories/"+post.categories[0];
+																		//console.log(categoryurl);
+																		
+																		//pull featured media
 																		$.ajax( {
 																			url: mediaurl,
 																			success: function ( mediadata ) {
@@ -2368,18 +2396,6 @@ var highlightedremotecount = 0;
 																			$(elemcontainer).find(".heroImageBlurInner").attr("style",bgimg);
 																			$(elemcontainer).find(".heroImageFixedHeight").attr("style",bgimg);
 
-																			/*setTimeout(function() {
-																				$grid.isotope('layout');
-																				$grid2col.isotope('layout');
-																				$grid3col.isotope('layout');
-
-																				evaluateColor();
-																			},500);*/
-																			/*$grid.isotope('layout');
-																			$grid2col.isotope('layout');
-																			$grid3col.isotope('layout');
-
-																			evaluateColor();*/
 																		},
 																		
 																		complete: function () {
@@ -2387,9 +2403,53 @@ var highlightedremotecount = 0;
 																				$grid.isotope('layout');
 																				$grid2col.isotope('layout');
 																				$grid3col.isotope('layout');
-																			evaluateColor();
+																				evaluateColor();
 																			},200);
-																		}
+																		},
+																		cache: true
+
+																	});
+																	
+																	//pull author
+																		$.ajax( {
+																			url: authorurl,
+																			success: function ( authordata ) {
+
+																			
+																			
+																			//onsole.log(mediareadyurl);
+																			//var bgimg = "background: url("+mediareadyurl+") no-repeat; background-size: cover; background-position: center center; ";
+																			
+																			$(elemcontainer).find(".author").text("By "+authordata.name);
+																			
+																			//$(elemcontainer).find(".mediaImg").attr("src",mediadata.guid.rendered);
+																			//$(elemcontainer).find(".heroImageBlurInner").attr("style",bgimg);
+																			//$(elemcontainer).find(".heroImageFixedHeight").attr("style",bgimg);
+
+																		},
+																		
+																		complete: function () {
+																			//all done
+																		},
+																		cache: true
+
+																	});
+																	
+																	//console.log(categoryurl);
+
+																	//pull category
+																		$.ajax( {
+																			url: categoryurl,
+																			success: function ( catdata ) {
+
+																			$(elemcontainer).find(".category").text(catdata.name);
+																		
+																		},
+																		
+																		complete: function () {
+																			//all done
+																		},
+																		cache: true
 
 																		});
 
@@ -2405,10 +2465,11 @@ var highlightedremotecount = 0;
 
 
 /**
- * 
+ * --------------------------------------------------
  * 
  *  Setup Facstaff pages
  * 
+ * --------------------------------------------------
  */
 
 $("body.parent-pageid-1560, body.parent-pageid-1562, body.parent-pageid-58602").find(".entry-content link").remove();

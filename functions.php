@@ -43,6 +43,7 @@
 	include_once( get_template_directory() . '/acf/acf.php' );
 
 
+	include_once( get_template_directory() . '/google-cse/google-cse.php' );
 
 
 

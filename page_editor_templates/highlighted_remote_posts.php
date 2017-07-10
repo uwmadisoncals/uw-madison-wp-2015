@@ -1,5 +1,10 @@
 <?php $url = get_sub_field('remote_url'); 
         $category = get_sub_field('category_id');
+		$hideauthor = get_sub_field('hideauthor');
+		$hidecat = get_sub_field('hidecat');
+		$hidedate = get_sub_field('hidedate');
+
+		
 																	
 																	
 																	
@@ -15,7 +20,7 @@
 																	
 																	
 																	
-																			<div class="grid-item2col highlightremoteContent" data-remoteurl="<?php echo $requesturi ?>">
+																			<div class="grid-item2col highlightremoteContent <?php if($hideauthor == "1") { echo "hideauthor"; } ?> <?php if($hidecat == "1") { echo "hidecat"; } ?> <?php if($hidedate == "1") { echo "hidedate"; } ?>" data-remoteurl="<?php echo $requesturi ?>">
 																				<div class="loadingWrapper"><div class="loading"></div></div>
 																			
 																				
@@ -108,14 +113,14 @@
 																					<div>
 																						<div class="middleImageSample">
 																							<div class="whiteContent">
-																								<div class="dateposted">Readable Date</div>
+																								<div class="dateposted"></div>
 																								<div class="numericdate">Ymd Time</div>
-																								<h2>Title</h2>
-																								<div class="excerpt">Excerpt</div>
-																								<div class="author">By 
-																								Author Name
+																								<div class="category"></div>
 																								
-																								</div>
+																								<h2>Title</h2>
+																								<div class="author"></div>
+																								<div class="excerpt"></div>
+																								
 																																									
 																								
 																							</div>
