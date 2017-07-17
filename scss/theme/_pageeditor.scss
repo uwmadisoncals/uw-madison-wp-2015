@@ -740,6 +740,59 @@ div.personFeaturefw {
 	}
 }
 
+.directoryListing {
+	list-style: none;
+	margin-left: 0px;
+
+	li {
+		display: flex;
+		margin-bottom: 2rem;
+		
+		border-bottom: 1px solid rgba(0,0,0,0.2);
+
+		.personPhoto {
+			flex-basis: 120px;
+			padding-right: 1.5rem;
+
+			img {
+				border-radius: 100rem;
+			}
+		}
+
+		.personInfo {
+
+			flex-grow: 1;
+			padding-top: 1rem;
+
+			.name {
+				font-size: 2rem;
+				line-height: 1;
+			}
+
+			.jobtitle {
+				font-size: 0.9rem;
+				color: rgba(0,0,0,0.6);
+			}
+
+			
+		}
+
+		.aux {
+				margin-top: 1rem;
+				font-size: 1rem;
+
+				.location {
+					
+
+					p {
+						margin-top: 0px;
+						font-size: 1rem;
+					}
+				}
+			}
+	}
+}
+
 @-webkit-keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);

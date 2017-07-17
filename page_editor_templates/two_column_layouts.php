@@ -91,7 +91,11 @@
 													$overrideimage = "";
 													$overrideimage = get_sub_field('override_image');
 
-												
+												if( get_row_layout() == 'directory_listing' ) {
+													include 'directory_listing.php';	
+
+												 }
+												 
 												if( get_row_layout() == 'remote_wp_content' ) {
 													include 'wp_remote_content.php';	
 
@@ -219,6 +223,11 @@
 
 													$overrideimage = "";
 													$overrideimage = get_sub_field('override_image');
+
+												if( get_row_layout() == 'directory_listing' ) {
+													include 'directory_listing.php';	
+
+												 }
 
 												if( get_row_layout() == 'remote_wp_content' ) {
 													include 'wp_remote_content.php';	

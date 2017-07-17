@@ -66,6 +66,29 @@ function create_post_type() {
 			),
 		'public' => true,
 		'has_archive' => true,
+		'menu_icon' => 'dashicons-slides',
+		'supports' => array(
+	  'title',
+	  'editor',
+	  'excerpt',
+	  'revisions',
+	  'thumbnail',
+	  'author',
+	  'page-attributes',
+	  )
+		)
+	);
+
+
+	register_post_type( 'directory',
+		array(
+			'labels' => array(
+				'name' => __( 'Directory', 'uw_madison_wp_2015' ),
+				'singular_name' => __( 'Directory', 'uw_madison_wp_2015' )
+			),
+		'public' => true,
+		'has_archive' => true,
+		'menu_icon' => 'dashicons-groups',
 		'supports' => array(
 	  'title',
 	  'editor',
@@ -78,6 +101,44 @@ function create_post_type() {
 		)
 	);
 }
+
+/*** Adding taxonomy for the Directory  ***/
+
+// hook into the init action and call create_book_taxonomies when it fires
+add_action( 'init', 'create_directory_taxonomies', 0 );
+
+// create two taxonomies, genres and writers for the post type "book"
+function create_directory_taxonomies() {
+	// Add new taxonomy, make it hierarchical (like categories)
+	$labels = array(
+		'name'              => _x( 'Groups', 'taxonomy general name', 'uw_madison_wp_2015' ),
+		'singular_name'     => _x( 'Group', 'taxonomy singular name', 'uw_madison_wp_2015' ),
+		'search_items'      => __( 'Search Groups', 'uw_madison_wp_2015' ),
+		'all_items'         => __( 'All Groups', 'uw_madison_wp_2015' ),
+		'parent_item'       => __( 'Parent Group', 'uw_madison_wp_2015' ),
+		'parent_item_colon' => __( 'Parent Group:', 'uw_madison_wp_2015' ),
+		'edit_item'         => __( 'Edit Group', 'uw_madison_wp_2015' ),
+		'update_item'       => __( 'Update Group', 'uw_madison_wp_2015' ),
+		'add_new_item'      => __( 'Add New Group', 'uw_madison_wp_2015' ),
+		'new_item_name'     => __( 'New Group Name', 'uw_madison_wp_2015' ),
+		'menu_name'         => __( 'Group', 'uw_madison_wp_2015' ),
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'group' ),
+	);
+
+	register_taxonomy( 'group', array( 'directory' ), $args );
+
+	
+}
+
+
 
 function my_rewrite_flush() {
     create_post_type();
@@ -1854,6 +1915,8 @@ register_default_headers( array(
 if( function_exists('acf_add_local_field_group') ):
 
 	include 'acf_fields/advanced_page_editor_fields.php'; 
+
+	include 'acf_fields/directory_fields.php'; 
 
 /*acf_add_local_field_group(array (
 	'key' => 'group_57980a9959a78',
