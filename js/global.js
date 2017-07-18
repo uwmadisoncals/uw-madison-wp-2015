@@ -49,6 +49,102 @@ if(getInternetExplorerVersion() != "-1") {
 	$("body").addClass("IE").addClass(bodyClass);
 }
 
+
+/**
+ * 
+ * 
+ * 	Directory Filter Scripts
+ * 
+ * 
+ */
+
+ //Regular Expression Search Filter Auto Complete
+		$(".directorys").keyup(function () {
+			var filter = $(this).val(), count = 0;
+			$(this).attr("value",filter);
+
+			var searchinput = $(this);
+		
+			var resultscounted = 0;
+			
+		            
+			$(searchinput).closest(".directoryWrapper").find(".directoryListing:first li").each(function () {
+				
+			
+		        if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+		        	$(this).addClass("hidden"); 
+		        	$(this).removeClass("visible"); 
+			       
+			        
+		        } else {
+				
+					
+					
+					//$(".cleartrigger").fadeIn(300);
+				/*$('.instructions').fadeOut('fast', function() {
+		        		// Animation complete
+					
+		     		 });*/
+				
+		            $(this).removeClass("hidden");
+		            $(this).addClass("visible");
+		            
+		            $(".filtered .visible").each(function(index) {
+					$(this).attr("data-counted",resultscounted);
+					resultscounted = resultscounted + 1;
+					
+					
+					});
+		            
+		            count++;
+		           
+		            
+		        }
+		    });
+		    
+		    
+		  /* $(".filtered li.visible").each(function () {
+		    	//console.log('ran');
+		    		$(this).addClass("checking");
+		    		var currentobj = $(this);
+		    		var currenttextobj = $(this).text();
+		    		
+		    		//var nexttextobj = $(this).next("li.visible").text();
+		    		$(".filtered li.visible").not($(".checking")).each(function () {
+			    		var nexttextobj = $(this).text();
+			    		if(currenttextobj == nexttextobj) {
+				    		//console.log(currenttextobj +" "+ nexttextobj);
+				    		$(this).addClass("duplicate");
+				    		currentobj.removeClass("checking");
+			    		}
+		    		});
+		    		
+	
+		    });*/
+		    
+		   
+		    
+		    /*$("#filter-count").text(count+peoplecount);
+		    
+		    if((count + peoplecount) > 0) {
+			            $(".filtered").show();
+			            $("#s").addClass("notEmpty");
+			            //$(".searchClear").show();
+		            } else {
+		            $("#s").removeClass("notEmpty");
+			            $(".filtered").stop().fadeOut(300);
+			            
+		            }
+		          if(filter.length > 0) {
+			        $(".searchClear").show();
+		        }  else {
+			        $(".searchClear").hide();
+		        }*/
+		            
+    	});
+
+
+
 /**
  * ----------------------------------------------------------------------------
  *

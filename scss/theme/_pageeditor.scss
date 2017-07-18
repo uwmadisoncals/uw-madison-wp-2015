@@ -740,9 +740,49 @@ div.personFeaturefw {
 	}
 }
 
+.directoryFilter {
+	display: flex;
+	margin-bottom: 1.5rem;
+
+	.searchIcon {
+		padding-top: 0.2rem;
+		padding-right: 0.4rem;
+	}
+
+	.searchField {
+		flex-grow: 1;
+
+		input {
+			display: block;
+			background: transparent;
+			padding: 0.3rem;
+			font-size: 1.2rem;
+			border: none;
+			border-bottom: 1px solid rgba(0,0,0,0.3);
+			border-radius: 0px;
+			width: 100%;
+			box-shadow: 0px;
+
+		}
+
+		input:focus {
+			outline: none;
+			border-color: $blue;
+		}
+	}
+}
+
 .directoryListing {
 	list-style: none;
 	margin-left: 0px;
+
+	li.visible {
+
+	}
+
+	li.hidden {
+		display: none;
+	}
 
 	li {
 		display: flex;

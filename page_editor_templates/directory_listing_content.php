@@ -9,7 +9,9 @@ if( $image ) {
 
 	echo wp_get_attachment_image( $image, $size );
 
-}
+} else { ?>
+    <img src="<?php echo get_template_directory_uri(); ?>/dist/images/personplaceholder.png" alt="person">
+<?php }
 
 ?></div>
         <div class="personInfo">
