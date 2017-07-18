@@ -15,7 +15,9 @@ $directoryfilter = get_sub_field('listing_filter'); ?>
 
 if($listingoptions == "listall") { ?>
 
-    <?php $args = array( 'post_type' => 'directory', 'posts_per_page' => -1 ); 
+    <?php $args = array( 'post_type' => 'directory', 'posts_per_page' => -1, 'meta_key'	=> 'last_name',
+	        'orderby' => 'meta_value',
+	        'order'	=> 'ASC', ); 
     $loop = new WP_Query( $args ); ?>
     <ul class="directoryListing">
     <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
@@ -49,7 +51,12 @@ if( $terms ): ?>
 	<?php endforeach; ?>
 
 
-    <?php $args = array( 'post_type' => 'directory', 'posts_per_page' => -1, 'tax_query' => array(
+    <?php $args = array( 'post_type' => 'directory', 
+            'posts_per_page' => -1, 
+            'meta_key'	=> 'last_name',
+	        'orderby' => 'meta_value',
+	        'order'	=> 'ASC', 
+            'tax_query' => array(
             'relation' => 'OR',
             array(
                 'taxonomy' => 'group',

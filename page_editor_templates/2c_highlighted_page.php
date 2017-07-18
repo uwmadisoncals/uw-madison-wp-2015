@@ -84,7 +84,7 @@
 																									<?php
 
 																										$image = $overrideimage;
-																										$size = 'medium'; // (thumbnail, medium, large, full or custom size)
+																										$size = 'large'; // (thumbnail, medium, large, full or custom size)
 
 																										
 
