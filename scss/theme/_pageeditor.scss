@@ -257,6 +257,64 @@ ul.uwmadison_events_group {
 	}
 }
 
+#content.has_nav article.directory {
+	width: 100%;
+}
+
+.singleDirectoryWrapper {
+	display:flex;
+
+	.singleDirectoryInfo {
+		flex-grow: 1;
+		font-size: 1.5rem;
+
+		h2 {
+			display: block;
+			font-size: 1rem;
+			text-transform: uppercase;
+			font-family: "Verlag-Black";
+			letter-spacing: 0.4px;
+		}
+	}
+
+	
+
+	.singleDirectoryPhoto {
+		flex-basis: 50%;
+		 img {
+			 max-height: 400px;
+		 }
+	}
+}
+
+.biopub {
+		display: flex;
+		margin-top: 2rem;
+
+		h2 {
+			display: block;
+			font-size: 1rem;
+			text-transform: uppercase;
+			font-family: "Verlag-Black";
+			letter-spacing: 0.4px;
+		}
+	}
+
+	
+
+	.biopub > div {
+		flex-basis: 50%;
+	}
+
+	.biopub > div:first-child {
+		padding-right: 3rem;
+	}
+
+	.biopub > div:last-child {
+		padding-left: 3rem;
+		border-left: 1px solid rgba(0,0,0,0.2);
+	}
+
 .social_wrapper {
 	position: relative;
 	width: 100%;
@@ -271,9 +329,10 @@ ul.uwmadison_events_group {
 	}
 
 	.social_text {
-		font-size: 2.5rem;
+		font-size: 1.5rem;
 
 		p {
+				
 				line-height: 1.2;
 			}
 	}
@@ -712,8 +771,9 @@ div.personFeaturefw {
 		display: inline-block;
 		color: $uwred;
 		font-size: 3rem;
-		position: relative;
-		top: 8px;
+		position: absolute;
+		margin-left: -32px;
+		top: -6px;
 		font-family: "Verlag-Black";
 	}
 	
@@ -807,6 +867,12 @@ div.personFeaturefw {
 			.name {
 				font-size: 2rem;
 				line-height: 1;
+				margin-right: 1rem;
+
+				a {
+					display: block;
+					line-height: 1;
+				}
 			}
 
 			.jobtitle {

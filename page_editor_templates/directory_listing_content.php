@@ -1,5 +1,9 @@
-<?php //directory include ?>
+<?php //directory include  
+$hideprofilephotos = get_sub_field('hide_profile_photos'); ?>
     <li>
+        <?php if($hideprofilephotos) { ?>
+
+        <?php } else { ?>
         <div class="personPhoto"><?php 
 
 $image = get_field('profile_photo');
@@ -14,8 +18,9 @@ if( $image ) {
 <?php }
 
 ?></div>
+<?php } ?>
         <div class="personInfo">
-        <div class="name"> <?php the_field('first_name'); ?> <?php the_field('last_name'); ?> </div>
+        <div class="name"><a href="<?php the_permalink(); ?>"><?php the_field('first_name'); ?> <?php the_field('last_name'); ?></a></div>
         
         <em class="jobtitle"><?php the_field('position_title'); ?></em>
 

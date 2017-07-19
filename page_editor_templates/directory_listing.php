@@ -1,7 +1,8 @@
 <?php //Directory Listing Include
 
 $listingoptions = get_sub_field('listing_options');
-$directoryfilter = get_sub_field('listing_filter'); ?>
+$directoryfilter = get_sub_field('listing_filter'); 
+ ?>
 
 <div class="directoryWrapper">
 
