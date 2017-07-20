@@ -784,6 +784,32 @@ $wp_customize->add_control('uw-madison-wp-2015-hide_show_nav', array(
 
 
 
+/*** Nav Text Size ***/
+
+$wp_customize->add_setting('uw-madison-wp-2015_nav_text_size_id', array(
+    'capability'     => 'edit_theme_options',
+    'default'		 => 'default',
+    'type'           => 'theme_mod',
+    'sanitize_callback' => 'sanitize_nav_text_size'
+ 
+));
+
+
+$wp_customize->add_control('uw-madison-wp-2015-nav_text_size', array(
+    'label'      => __('Navigation Font Size', 'uw-madison-wp-2015'),
+    'description'=> 'Select a navigation font size.',
+    'section'    => 'uw-madison-wp-2015-navigation-options',
+    'type'    => 'radio',
+    'choices' => array(
+            'default' => __( 'Normal (default)', 'uw-madison-wp-2015' ),
+            'large' => __( 'Large', 'uw-madison-wp-2015' )
+        ),
+    'settings'   => 'uw-madison-wp-2015_nav_text_size_id',
+    'priority'	=> 1
+));
+
+
+
 /*** adjust logo image width if desired ***/
 
 /*$wp_customize->add_setting('uw-madison-wp-2015_logo_width_id', array(
@@ -1382,6 +1408,13 @@ $wp_customize->add_control('uw-madison-wp-2015-sidebar-options', array(
 function sanitize_hide_show_nav( $value ) {
     if ( !$value )
         $value = 'no';
+ 
+    return $value;
+}
+
+function sanitize_nav_text_size( $value ) {
+    if ( !$value )
+        $value = 'default';
  
     return $value;
 }

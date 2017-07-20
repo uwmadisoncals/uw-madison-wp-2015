@@ -78,6 +78,24 @@
 }
 
 .gridstyle2 {
+	.tiltWrapper {
+		.whiteContent.hidedate {
+			.dateposted {
+				display: none;
+			}
+
+			
+		}
+
+		.whiteContent.hideexcerpt {
+			.excerpt {
+				display: none;
+			}
+
+			
+		}
+	}
+
 	.tiltWrapper.noThumb {
 		.tiltPanel {
 			background: #fff;
@@ -86,12 +104,16 @@
 		}
 
 		.whiteContent.hidedate {
+			
+
 			h2 {
 				padding-top: 1rem;
 			}
 		}
 
 		.whiteContent.hideexcerpt {
+			
+
 			h2 {
 				padding-bottom: 1rem;
 			}
@@ -395,7 +417,7 @@ border-bottom-left-radius: 4px;
 	
 }
 
-.gridstyle2 .grid-item2col.hidedate .textContent .dateposted, .gridstyle2 .grid-item2col.hideauthor .textContent .author, .gridstyle2 .grid-item2col.hidecat .textContent .category {
+.gridstyle2 .grid-item2col.hidedate .textContent .dateposted, .gridstyle2 .grid-item2col.hideexcerpt .textContent .excerpt, .gridstyle2 .grid-item2col.hideauthor .textContent .author, .gridstyle2 .grid-item2col.hidecat .textContent .category {
 	display: none;
 }
 

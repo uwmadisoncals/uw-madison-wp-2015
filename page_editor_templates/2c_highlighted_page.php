@@ -184,7 +184,7 @@
 																					<div class="textContent">
 																					<div>
 																						<div class="middleImageSample">
-																							<div class="whiteContent">
+																							<div class="whiteContent <?php $hidedate = get_sub_field('2c_page_to_highlight_hide_date'); if($hidedate) {echo 'hidedate ';} $hideexcerpt = get_sub_field('2c_page_to_highlight_hide_excerpt'); if($hideexcerpt) {echo 'hideexcerpt ';}  ?>">
 																								<div class="dateposted"><?php the_time('M') ?> <?php the_time('jS') ?></div>
 																								<div class="numericdate"><?php the_time('Ymd'); ?></div>
 																								<h2><?php the_title(); ?></h2>

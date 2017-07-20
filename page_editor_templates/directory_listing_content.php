@@ -32,7 +32,7 @@ if( $image ) {
              <div class="aux">
             <div class="phone"><?php the_field('phone_number'); ?></div>
             <div class="email"><a href="mailto:<?php the_field('email_address'); ?>"><?php the_field('email_address'); ?></a></div>
-            <div class="location"><?php the_field('office_location'); ?></div>
+            
             </div>
         </div>
 

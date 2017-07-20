@@ -3,6 +3,7 @@
 		$hideauthor = get_sub_field('hideauthor');
 		$hidecat = get_sub_field('hidecat');
 		$hidedate = get_sub_field('hidedate');
+		$hideexcerpt = get_sub_field('hide_excerpt');
 
 		
 																	
@@ -20,7 +21,7 @@
 																	
 																	
 																	
-																			<div class="grid-item2col highlightremoteContent <?php if($hideauthor == "1") { echo "hideauthor"; } ?> <?php if($hidecat == "1") { echo "hidecat"; } ?> <?php if($hidedate == "1") { echo "hidedate"; } ?>" data-remoteurl="<?php echo $requesturi ?>">
+																			<div class="grid-item2col highlightremoteContent <?php if($hideauthor == "1") { echo "hideauthor"; } ?> <?php if($hidecat == "1") { echo "hidecat"; } ?> <?php if($hidedate == "1") { echo "hidedate"; } ?> <?php if($hideexcerpt == "1") { echo "hideexcerpt"; } ?>" data-remoteurl="<?php echo $requesturi ?>">
 																				<div class="loadingWrapper"><div class="loading"></div></div>
 																			
 																				
