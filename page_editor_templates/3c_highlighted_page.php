@@ -1,6 +1,6 @@
 <?php 
 																$highlightpage = get_sub_field('3c_page_to_highlight');
-															
+																$hidedate = get_sub_field('hidedate');
 																	
 																	// The Query
 																	$query1 = new WP_Query( array( 'page_id' => $highlightpage, 'posts_per_page' => 1 ) );
@@ -139,7 +139,7 @@
 																					<div class="textContent">
 																					<div>
 																						<div class="middleImageSample">
-																							<div class="whiteContent">
+																							<div class="whiteContent <?php if($hidedate) { echo "hidedate"; } ?>">
 																								<div class="dateposted"><?php the_time('M') ?> <?php the_time('jS') ?></div>
 																								<div class="numericdate"><?php the_time('Ymd'); ?></div>
 																								<h2><?php the_title(); ?></h2>
@@ -158,7 +158,7 @@
 																					<div class="textContent">
 																					<div>
 																						<div class="middleImageSample">
-																							<div class="whiteContent">
+																							<div class="whiteContent <?php if($hidedate) { echo "hidedate"; } ?>">
 																								<div class="dateposted"><?php the_time('M') ?> <?php the_time('jS') ?></div>
 																								<div class="numericdate"><?php the_time('Ymd'); ?></div>
 																								<h2><?php the_title(); ?></h2>

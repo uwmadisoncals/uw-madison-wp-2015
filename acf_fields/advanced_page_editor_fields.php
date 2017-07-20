@@ -3840,11 +3840,8 @@ acf_add_local_field_group(array (
 												'class' => '',
 												'id' => '',
 											),
-											'button_label' => 'Add Highlighted Content',
-											'min' => '',
-											'max' => '',
 											'layouts' => array (
-												array (
+												'58d2d7ab442ac' => array (
 													'key' => '58d2d7ab442ac',
 													'name' => '3c_post_by_category',
 													'label' => 'Post By Category',
@@ -3899,7 +3896,7 @@ acf_add_local_field_group(array (
 													'min' => '',
 													'max' => '',
 												),
-												array (
+												'58c8433331f0a' => array (
 													'key' => '58c8433331f0a',
 													'name' => '3c_latest_posts',
 													'label' => 'Latest Post',
@@ -3932,7 +3929,7 @@ acf_add_local_field_group(array (
 													'min' => '',
 													'max' => '',
 												),
-												array (
+												'58d2d7ea442af' => array (
 													'key' => '58d2d7ea442af',
 													'name' => '3c_highlighted_page',
 													'label' => 'Specific Page/Post',
@@ -3961,11 +3958,33 @@ acf_add_local_field_group(array (
 															'return_format' => 'id',
 															'ui' => 1,
 														),
+														array (
+															'key' => 'field_597119b577b2e',
+															'label' => 'Hide Date',
+															'name' => 'hidedate',
+															'type' => 'true_false',
+															'instructions' => '',
+															'required' => 0,
+															'conditional_logic' => 0,
+															'wrapper' => array (
+																'width' => '',
+																'class' => '',
+																'id' => '',
+															),
+															'message' => '',
+															'default_value' => 0,
+															'ui' => 1,
+															'ui_on_text' => 'Date Hidden',
+															'ui_off_text' => 'Date Shown',
+														),
 													),
 													'min' => '',
 													'max' => '',
 												),
 											),
+											'button_label' => 'Add Highlighted Content',
+											'min' => '',
+											'max' => '',
 										),
 										array (
 											'key' => 'field_58d432db6c49b',
@@ -4380,11 +4399,8 @@ acf_add_local_field_group(array (
 												'class' => '',
 												'id' => '',
 											),
-											'button_label' => 'Add Row',
-											'min' => '',
-											'max' => '',
 											'layouts' => array (
-												array (
+												'58c89cb893135' => array (
 													'key' => '58c89cb893135',
 													'name' => '3c_post_by_category',
 													'label' => 'Post By Category',
@@ -4439,7 +4455,7 @@ acf_add_local_field_group(array (
 													'min' => '',
 													'max' => '',
 												),
-												array (
+												'58d2d75b442a6' => array (
 													'key' => '58d2d75b442a6',
 													'name' => '3c_latest_posts',
 													'label' => 'Latest Posts',
@@ -4472,7 +4488,7 @@ acf_add_local_field_group(array (
 													'min' => '',
 													'max' => '',
 												),
-												array (
+												'58d2d76e442a9' => array (
 													'key' => '58d2d76e442a9',
 													'name' => '3c_highlighted_page',
 													'label' => 'Specific Page/Post',
@@ -4501,11 +4517,33 @@ acf_add_local_field_group(array (
 															'return_format' => 'id',
 															'ui' => 1,
 														),
+														array (
+															'key' => 'field_5971199077b2d',
+															'label' => 'Hide Date',
+															'name' => 'hidedate',
+															'type' => 'true_false',
+															'instructions' => '',
+															'required' => 0,
+															'conditional_logic' => 0,
+															'wrapper' => array (
+																'width' => '',
+																'class' => '',
+																'id' => '',
+															),
+															'message' => '',
+															'default_value' => 0,
+															'ui' => 1,
+															'ui_on_text' => 'Date Hidden',
+															'ui_off_text' => 'Date Shown',
+														),
 													),
 													'min' => '',
 													'max' => '',
 												),
 											),
+											'button_label' => 'Add Row',
+											'min' => '',
+											'max' => '',
 										),
 										array (
 											'key' => 'field_58d432c26c49a',
@@ -4920,11 +4958,8 @@ acf_add_local_field_group(array (
 												'class' => '',
 												'id' => '',
 											),
-											'button_label' => 'Add Row',
-											'min' => '',
-											'max' => '',
 											'layouts' => array (
-												array (
+												'58c89d51197ce' => array (
 													'key' => '58c89d51197ce',
 													'name' => '3c_post_by_category',
 													'label' => 'Post By Category',
@@ -4979,7 +5014,7 @@ acf_add_local_field_group(array (
 													'min' => '',
 													'max' => '',
 												),
-												array (
+												'58d2d58b56772' => array (
 													'key' => '58d2d58b56772',
 													'name' => '3c_latest_posts',
 													'label' => 'Latest Posts',
@@ -5012,7 +5047,7 @@ acf_add_local_field_group(array (
 													'min' => '',
 													'max' => '',
 												),
-												array (
+												'58d2d5d756775' => array (
 													'key' => '58d2d5d756775',
 													'name' => '3c_highlighted_page',
 													'label' => 'Specific Page',
@@ -5041,11 +5076,33 @@ acf_add_local_field_group(array (
 															'return_format' => 'id',
 															'ui' => 1,
 														),
+														array (
+															'key' => 'field_5971196477b2c',
+															'label' => 'Hide Date',
+															'name' => 'hidedate',
+															'type' => 'true_false',
+															'instructions' => '',
+															'required' => 0,
+															'conditional_logic' => 0,
+															'wrapper' => array (
+																'width' => '',
+																'class' => '',
+																'id' => '',
+															),
+															'message' => '',
+															'default_value' => 0,
+															'ui' => 1,
+															'ui_on_text' => 'Date Hidden',
+															'ui_off_text' => 'Date Shown',
+														),
 													),
 													'min' => '',
 													'max' => '',
 												),
 											),
+											'button_label' => 'Add Row',
+											'min' => '',
+											'max' => '',
 										),
 										array (
 											'key' => 'field_58d432a16c499',
