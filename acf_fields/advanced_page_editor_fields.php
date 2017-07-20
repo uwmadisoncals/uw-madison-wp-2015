@@ -1241,6 +1241,7 @@ acf_add_local_field_group(array (
 												'listall' => 'List Full Directory',
 												'listgroups' => 'List Specific Groups',
 												'listindividual' => 'List Select Individuals',
+												'listbygroups' => 'List All by Groups',
 											),
 											'default_value' => array (
 												0 => 'listall',
@@ -1559,7 +1560,7 @@ acf_add_local_field_group(array (
 							'required' => 0,
 							'conditional_logic' => 0,
 							'wrapper' => array (
-								'width' => 50,
+								'width' => '50',
 								'class' => 'typeContainer',
 								'id' => '',
 							),
@@ -1574,10 +1575,8 @@ acf_add_local_field_group(array (
 							'multiple' => 0,
 							'ui' => 0,
 							'ajax' => 0,
-							'placeholder' => '',
-							'disabled' => 0,
-							'readonly' => 0,
 							'return_format' => 'value',
+							'placeholder' => '',
 						),
 						array (
 							'key' => 'field_57d8982a0b139',
@@ -2299,6 +2298,7 @@ acf_add_local_field_group(array (
 												'listall' => 'List Full Directory',
 												'listgroups' => 'List Specific Groups',
 												'listindividual' => 'List Select Individuals',
+												'listbygroups' => 'List All by Groups',
 											),
 											'default_value' => array (
 												0 => 'listall',
@@ -3111,6 +3111,7 @@ acf_add_local_field_group(array (
 												'listall' => 'List Full Directory',
 												'listgroups' => 'List Specific Groups',
 												'listindividual' => 'List Select Individuals',
+												'listbygroups' => 'List All by Groups',
 											),
 											'default_value' => array (
 												0 => 'listall',
