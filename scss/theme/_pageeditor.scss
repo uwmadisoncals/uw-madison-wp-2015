@@ -1084,9 +1084,128 @@ div.personFeaturefw {
 	}
 }
 
+.searchUI label .search-field {
+	
+		font-family: 'Verlag-Book';
+	
+}
+
+
 @media screen and (max-width: 700px) {
 	.home .pagePadding .flex-row.top-row.right_redbg .flex-rightCol .sidebarFold, .pagePadding .flex-row.top-row.right_redbg .flex-rightCol .sidebarFold {
 		display: none;
 	}
 
+	.home .flex-row.top-row.right_redbg .flex-rightCol .sidebarFold {
+		display: none;
+	}
+
+	.home .flex-row.top-row.right_redbg .flex-rightCol {
+		margin-top: 0px;
+		border-radius: 4px;
+	}
+
+	.right_redbg .flex-rightCol, .left_redbg .flex-leftCol {
+		padding: 2rem;
+		
+	}
+
+	.fundraising_wrapper {
+		display: block;
+
+		.fundraising_left {
+			display: none;
+		}
+
+		.fundraising_right, .fundraising_right > div {
+			box-sizing: border-box;
+
+			.fund_right_top {
+				padding: 2.5rem;
+			}
+
+			.fund_right_bottom {
+				padding: 2.5rem;
+			}
+		}
+	}
+
+	.searchFormIcon {
+		div {
+			width: auto !important;
+		}
+	}
+
+	.personquote {
+		display: none;
+	}
+
+	div.personFeaturefw .personphoto {
+		top: 0px;
+		width: 180px;
+		height: 180px;
+		left: -30px;
+
+	}
+
+	.fundraising_wrapper .fundraising_right .fund_right_top {
+		font-size: 1.4rem;
+	}
+
+	.fundraising_wrapper .fundraising_right .fund_right_bottom svg {
+		max-width: 100%;
+	}
+
+	.searchUI #ajaxResults {
+		padding-left: 0rem;
+		padding-right: 0rem; 
+	}
+
+	.advancedPageEditorGroup.apewithSidebar {
+		width: 100%;
+		margin-right: 0px;
+	}
+
+	.sidebar_menu, .widget-area {
+		max-width: 90%;
+		margin-left: 1.5rem;
+		width: 100%;
+	}
+
+}
+
+.apesetup {
+	.sidebar_menu, .widget-area {
+		margin-top: 2rem;
+	}
+}
+
+
+@media screen and (max-width: 500px) {
+
+	div.personFeaturefw .personphoto {
+		display: none;
+	}
+
+	div.personFeaturefw .span-66 {
+		padding: 2rem;
+		width: 100%;
+	}
+
+	.social_image {
+		display: none;
+	}
+
+	.social_wrapper .social_post.socialimage .social_text {
+		flex-basis: 100%;
+	}
+
+	
+
+}
+
+@media screen and (max-width: 430px) {
+	.searchUI .searchClose {
+		top: 46px;
+	}
 }
