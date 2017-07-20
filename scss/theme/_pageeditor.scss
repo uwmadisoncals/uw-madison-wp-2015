@@ -1090,6 +1090,13 @@ div.personFeaturefw {
 	
 }
 
+.right_redbg, .left_redbg {
+	a, a:visited {
+		color: #fff;
+		text-decoration: underline;
+	}
+}
+
 
 @media screen and (max-width: 700px) {
 	.home .pagePadding .flex-row.top-row.right_redbg .flex-rightCol .sidebarFold, .pagePadding .flex-row.top-row.right_redbg .flex-rightCol .sidebarFold {
