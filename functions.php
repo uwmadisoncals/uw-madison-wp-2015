@@ -943,6 +943,25 @@ $wp_customize->add_control('uw-madison-wp-2015-linkedin', array(
     'settings'   => 'uw-madison-wp-2015_linkedin_id',
 ));
 
+
+/*** Instagram ***/
+$wp_customize->add_setting('uw-madison-wp-2015_instagram_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => '',
+    'sanitize_callback' => 'sanitize_instagram_options'
+ 
+));
+
+ 
+$wp_customize->add_control('uw-madison-wp-2015-instagram', array(
+    'label'      => __('Instagram', 'uw-madison-wp-2015'),
+    'description'=> 'Enter your instagram URL.',
+    'section'    => 'uw-madison-wp-2015-social-options',
+    'type'    => 'text',
+    'settings'   => 'uw-madison-wp-2015_instagram_id',
+));
+
 /*** Youtube ***/
 $wp_customize->add_setting('uw-madison-wp-2015_youtube_id', array(
     'capability'     => 'edit_theme_options',
@@ -1535,6 +1554,13 @@ function sanitize_header_slides_options( $value ) {
 }
 
 function sanitize_twitter_options( $value ) {
+    if ( !$value )
+        $value = '';
+ 
+    return $value;
+}
+
+function sanitize_instagram_options( $value ) {
     if ( !$value )
         $value = '';
  
