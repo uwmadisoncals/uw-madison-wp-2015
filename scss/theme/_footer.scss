@@ -17,6 +17,14 @@ footer {
 	.site-info {
 		float: left;
 		width: 45%;
+		font-size: 1rem;
+		font-family: "Verlag-Light";
+		font-weight: 400;
+
+		a {
+		font-family: "Verlag-Light";
+		font-weight: 400;
+		}
 		
 	}
 
@@ -148,7 +156,7 @@ footer {
 						height: 100%;
 						
 						path {
-							fill: rgba(255,255,255,0.2);
+							fill: rgba(255,255,255,0.3);
 						}
 					}
 				}

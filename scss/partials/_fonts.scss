@@ -33,6 +33,18 @@
          url('../../css/webfont/VerlagBook.svg#VerlagBook') format('svg');
 }
 
+
+/* Verlag Light */
+@font-face {
+  font-family: 'Verlag-Light';
+    src: url('../../css/webfont/Verlag-Light.eot');
+    src: url('../../css/webfont/Verlag-Light.eot') format('embedded-opentype'),
+        
+         url('../../css/webfont/Verlag-Light.woff') format('woff'),
+         url('../../css/webfont/Verlag-Light.ttf') format('truetype'),
+         url('../../css/webfont/Verlag-Light.svg#Verlag-Light') format('svg');
+}
+
 /* Verlag Bold */
 @font-face {
  font-family: 'Verlag-Bold';

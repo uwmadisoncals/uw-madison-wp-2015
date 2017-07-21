@@ -48,7 +48,7 @@
 		</div>
 
 		<div class="site-info">
-			<a href="http://www.wisconsin.edu/">&copy; Board of Regents of the University of Wisconsin System</a>
+			<a href="http://www.wisconsin.edu/">&copy;<?php echo date("Y"); ?> Board of Regents of the University of Wisconsin System</a>
 		</div><!-- .site-info -->
 		
 		<div class="social">
