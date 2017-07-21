@@ -63,6 +63,12 @@
 					if($facebook != "") { ?>
 						<li class="facebook_social"><a href="http://facebook.com/<?php echo $facebook ?>" target="_blank" class="facebook_social"><svg enable-background="new 0 0 56.693 56.693" height="56.693px" id="Layer_1" version="1.1" viewBox="0 0 56.693 56.693" width="56.693px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M40.43,21.739h-7.645v-5.014c0-1.883,1.248-2.322,2.127-2.322c0.877,0,5.395,0,5.395,0V6.125l-7.43-0.029  c-8.248,0-10.125,6.174-10.125,10.125v5.518h-4.77v8.53h4.77c0,10.947,0,24.137,0,24.137h10.033c0,0,0-13.32,0-24.137h6.77  L40.43,21.739z"/></svg></a></li>
 					<?php } ?>
+
+
+				<?php $flickr = get_theme_mod( 'uw-madison-wp-2015_flickr_id' );
+					if($flickr != "") { ?>
+						<li class="flickr_social"><a href="<?php echo $flickr ?>" target="_blank" class="flickr_social"><svg height="60px" version="1.1" viewBox="0 0 60 60" width="60px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><defs/><g fill="none" fill-rule="evenodd" id="flat" stroke="none" stroke-width="1"><g id="flickr"><path d="M30,60 C46.5685433,60 60,46.5685433 60,30 C60,13.4314567 46.5685433,0 30,0 C13.4314567,0 0,13.4314567 0,30 C0,46.5685433 13.4314567,60 30,60 Z" fill="#262626" id="Flickr"/><path d="M20.7692308,36.9230769 C24.5927408,36.9230769 27.6923077,33.82351 27.6923077,30 C27.6923077,26.17649 24.5927408,23.0769231 20.7692308,23.0769231 C16.9457208,23.0769231 13.8461538,26.17649 13.8461538,30 C13.8461538,33.82351 16.9457208,36.9230769 20.7692308,36.9230769 Z M39.2307692,36.9230769 C43.0542792,36.9230769 46.1538462,33.82351 46.1538462,30 C46.1538462,26.17649 43.0542792,23.0769231 39.2307692,23.0769231 C35.4072592,23.0769231 32.3076923,26.17649 32.3076923,30 C32.3076923,33.82351 35.4072592,36.9230769 39.2307692,36.9230769 Z" fill="#FFFFFF"/></g></g></svg></a></li>
+					<?php } ?>
 					
 					
 				<?php $linkedin = get_theme_mod( 'uw-madison-wp-2015_linkedin_id' );

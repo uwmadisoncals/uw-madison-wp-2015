@@ -888,6 +888,25 @@ $wp_customize->add_control('uw-madison-wp-2015-twitter', array(
 ));
 
 
+/*** Flickr ***/
+$wp_customize->add_setting('uw-madison-wp-2015_flickr_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => '',
+    'sanitize_callback' => 'sanitize_flickr_options'
+ 
+));
+
+ 
+$wp_customize->add_control('uw-madison-wp-2015-flickr', array(
+    'label'      => __('Flickr', 'uw-madison-wp-2015'),
+    'description'=> 'Enter your flickr URL.',
+    'section'    => 'uw-madison-wp-2015-social-options',
+    'type'    => 'text',
+    'settings'   => 'uw-madison-wp-2015_flickr_id',
+));
+
+
 /*** Facebook ***/
 $wp_customize->add_setting('uw-madison-wp-2015_facebook_id', array(
     'capability'     => 'edit_theme_options',
@@ -1522,6 +1541,13 @@ function sanitize_twitter_options( $value ) {
     return $value;
 }
 
+function sanitize_flickr_options( $value ) {
+    if ( !$value )
+        $value = '';
+ 
+    return $value;
+}
+
 
 function sanitize_ga_options( $value ) {
     if ( !$value )
@@ -1898,7 +1924,7 @@ add_filter('wp_check_filetype_and_ext', 'ignore_upload_ext', 10, 4);
  * Register and enqueue a custom stylesheet in the WordPress admin.
  */
 function pageeditor_enqueue_custom_admin_style() {
-        wp_register_style( 'custom_wp_admin_css', get_template_directory_uri() . '/dist/styles/admin-styles-7202017.min.css', false, '1.0.0' );
+        wp_register_style( 'custom_wp_admin_css', get_template_directory_uri() . '/dist/styles/admin-styles-7212017.min.css', false, '1.0.0' );
         wp_enqueue_style( 'custom_wp_admin_css' );
 }
 add_action( 'admin_enqueue_scripts', 'pageeditor_enqueue_custom_admin_style' );
@@ -6153,13 +6179,13 @@ add_filter( 'clean_url', 'madisonwp2015_async_scripts', 11, 1 );
 function uw_madison_wp_2015_scripts() {
 	wp_enqueue_style( 'uw-madison-wp-2015-style', get_stylesheet_uri() );
 	
-	wp_enqueue_style( 'uw-madison-wp-2015-mainstyles', get_template_directory_uri().'/dist/styles/master-7202017.min.css' );
+	wp_enqueue_style( 'uw-madison-wp-2015-mainstyles', get_template_directory_uri().'/dist/styles/master-7212017.min.css' );
 	
 	
 
 	wp_enqueue_script( 'uw-madison-wp-2015-navigation', get_template_directory_uri() . '/js/navigation.js#asyncload', array(), '20120206', true );
 	
-	wp_enqueue_script( 'uw-madison-wp-2015-main', get_template_directory_uri() . '/dist/scripts/main-7202017.min.js#asyncload', array(), '20150429', true );
+	wp_enqueue_script( 'uw-madison-wp-2015-main', get_template_directory_uri() . '/dist/scripts/main-7212017.min.js#asyncload', array(), '20150429', true );
 
 	wp_enqueue_script( 'uw-madison-wp-2015-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js#asyncload', array(), '20130115', true );
 

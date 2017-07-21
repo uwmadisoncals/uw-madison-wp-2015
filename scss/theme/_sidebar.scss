@@ -361,11 +361,42 @@ div.lineSidebar .sidebar_menu, div.lineSidebar .widget-area {
 			}
 		}
 
+		ul#nav_explore {
+			li a .nav_text {
+				/*margin-left: 0.8em;*/
+			}
+		}
+
+		ul#nav_explore li a.current_link .nav_text {
+			font-family: "Verlag-Bold" !important;
+		}
+
+		ul.children {
+			background: #fff;
+			box-shadow: 0px 1px 6px rgba(0,0,0,0.12);
+			border-top-right-radius: 4px;
+			border-bottom-right-radius: 4px;
+		}
+
+		ul#nav_explore li a, ul#nav_explore li ul#nav_explore li a {
+			padding-top: 0.4em;
+			padding-bottom: 0.4em;
+		}
+
+		ul#nav_explore > li a.current_link .nav_text {
+			margin-left: 0.8em;
+		}
+
+		ul#nav_explore ul#nav_explore.currentSub > li a .nav_text {
+			margin-left: 1.2em;
+		}
+
 		ul.currentSub {
 			border-left: 4px solid $blue;
 
 			li a .nav_text {
-				margin-left: 0.4em !important;
+				
+				/*margin-left: 1.4em !important;*/
 			}
 
 			li:first-child a {

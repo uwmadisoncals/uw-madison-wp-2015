@@ -853,6 +853,29 @@ $(window).click(function(e) {
 
 
 
+$(".uwresources .menu li.menu-item-has-children").each(function() {
+	var resourcescount = 0;
+	var liparent = $(this);
+	var submenu = $(this).find(".sub-menu");
+	var submenuli = $(this).find(".sub-menu li");
+
+	$(submenuli).each(function() {
+		resourcescount = resourcescount + 1;
+	});
+
+	if(resourcescount > 8) {
+		$(submenu).addClass("two-column");
+	}
+	$(liparent).attr("data-items", resourcescount);
+
+	resourcescount = 0;
+	
+});
+
+
+
+
+
 /**
  * ----------------------------------------------------------------------------
  *
