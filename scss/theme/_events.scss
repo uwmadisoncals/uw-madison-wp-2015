@@ -1,9 +1,26 @@
+.page {
+
+
+
+li.uwmadison_event {
+		line-height: 1rem;
+		font-size: 1rem;
+
+		.event-title-and-subtitle {
+			line-height: 1;
+		}
+	}
+
+}
+
 .page main ul.uwmadison_events{
 
 	margin: 0em;
 	margin-top: 1em;
 	padding: 0em;
-	list-style-type: none;	
+	list-style-type: none;
+	
+	
 	
 	.uwmadison_event_date{
 		text-transform: uppercase;
@@ -26,6 +43,7 @@
 		width: 100%;
 		display: inline-block;
 		margin-bottom: 0.7em;
+		
 	}
 	
 	.event-title-and-subtitle{
