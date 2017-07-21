@@ -937,7 +937,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_linkedin_id', array(
  
 $wp_customize->add_control('uw-madison-wp-2015-linkedin', array(
     'label'      => __('LinkedIn', 'uw-madison-wp-2015'),
-    'description'=> 'Enter your linkedin username.',
+    'description'=> 'Enter your linkedin URL.',
     'section'    => 'uw-madison-wp-2015-social-options',
     'type'    => 'text',
     'settings'   => 'uw-madison-wp-2015_linkedin_id',
