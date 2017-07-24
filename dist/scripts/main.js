@@ -3642,7 +3642,60 @@ $(".fundraising_link").mouseout(function() {
  	var searchUiHeight = $(".searchUI").height();
  	var remainingHeight = $(window).height();
  	var resultsMinHeight = remainingHeight - searchUiHeight;
- 	var bodyHeight = $("body").height();
+	 var bodyHeight = $("body").height();
+
+	var searchdelay;
+	var searchok = true;
+	 
+	$(".search-form #s").keyup(function() {
+		var value = $(this).val();
+		
+		if(value.length > 2) {
+
+			if(searchok) {
+				clearTimeout(searchdelay);
+				//console.log("search now");
+				searchok = false;
+
+				searchdelay = setTimeout(function() {
+					//delay search
+
+					runSearch();
+ 
+					searchok = true;
+				},1000); 
+			}
+
+			
+		}
+	});
+
+	function runSearch() {
+		var searchTerm = $(".search-form #s").val();
+	 	var fixedSearchTerm = searchTerm.split(' ').join('+');
+	 	var searchUrl = templateUrl + "/?s=" + fixedSearchTerm + " #main";
+		var historyUrl = templateUrl + "/?s=" + fixedSearchTerm;
+
+		console.log(historyUrl);
+
+		History.pushState(null, historyUrl, historyUrl);
+
+	 	$(".searchUI").addClass("searching");
+
+
+
+	 	$( "#ajaxResults" ).load( searchUrl, function() {
+		  //completed loading results
+		  $("#ajaxResults").css("height",resultsMinHeight);
+		  $(".searchUI").removeClass("searching");
+
+		  setTimeout(function() {
+			  window.scrollTo(0, 0);
+			  $("#ajaxResults").css("height","auto");
+			  $(".searchUI").css("position","absolute");
+		  },500);
+		});
+	}
 
  	$(".searchUI form.search-form").submit(function(e) {
 	 	e.preventDefault();

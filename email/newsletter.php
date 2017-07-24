@@ -307,7 +307,7 @@ function email_newsletter_2017(){
 
 	$headers = "MIME-Version: 1.0\r\n";
 	$headers .= "From: $site_name <$mailing_address>\r\n";
-	$headers .= "Subject: $site_name <$mailing_address>\r\n";
+	//$headers .= "Subject: $site_name <$mailing_address>\r\n";
 	$headers .= "Content-Type: multipart/alternative;boundary=" . $boundary . "\r\n";
 
 
