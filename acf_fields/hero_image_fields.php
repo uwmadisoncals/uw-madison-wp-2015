@@ -22,12 +22,14 @@ acf_add_local_field_group(array (
 				'latestpost' => 'Latest Posts',
 				'specificpost' => 'Specific Post',
 				'search' => 'Site Search',
+				'remote' => 'Remote WP Content',
 			),
 			'allow_null' => 0,
 			'other_choice' => 0,
 			'save_other_choice' => 0,
 			'default_value' => 'static',
 			'layout' => 'vertical',
+			'return_format' => 'value',
 		),
 		array (
 			'key' => 'field_58cbf5ca1d071',
@@ -179,6 +181,9 @@ acf_add_local_field_group(array (
 			),
 			'layout' => 'vertical',
 			'toggle' => 0,
+			'allow_custom' => 0,
+			'save_custom' => 0,
+			'return_format' => 'value',
 		),
 		array (
 			'key' => 'field_554146f2cd9b5',
@@ -211,6 +216,7 @@ acf_add_local_field_group(array (
 			'save_other_choice' => 0,
 			'default_value' => 'none',
 			'layout' => 'vertical',
+			'return_format' => 'value',
 		),
 		array (
 			'key' => 'field_5541473ccd9b6',
@@ -241,6 +247,7 @@ acf_add_local_field_group(array (
 			'multiple' => 0,
 			'taxonomy' => array (
 			),
+			'allow_archives' => 1,
 		),
 		array (
 			'key' => 'field_554147f9cd9b7',
@@ -346,6 +353,120 @@ acf_add_local_field_group(array (
 			'mime_types' => '',
 		),
 		array (
+			'key' => 'field_5978f58469076',
+			'label' => 'Remote URL',
+			'name' => 'remote_url',
+			'type' => 'url',
+			'instructions' => 'Enter the primary domain for the site. For example: https://news.cals.wisc.edu',
+			'required' => 1,
+			'conditional_logic' => array (
+				array (
+					array (
+						'field' => 'field_58cbf49a1d070',
+						'operator' => '==',
+						'value' => 'remote',
+					),
+				),
+			),
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+		),
+		array (
+			'key' => 'field_5978f67169079',
+			'label' => 'Remote Image Fallback',
+			'name' => 'remote_image_fallback',
+			'type' => 'image',
+			'instructions' => 'Select an image to use when no remote image is found.',
+			'required' => 1,
+			'conditional_logic' => array (
+				array (
+					array (
+						'field' => 'field_58cbf49a1d070',
+						'operator' => '==',
+						'value' => 'remote',
+					),
+				),
+			),
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'return_format' => 'id',
+			'preview_size' => 'thumbnail',
+			'library' => 'all',
+			'min_width' => '',
+			'min_height' => '',
+			'min_size' => '',
+			'max_width' => '',
+			'max_height' => '',
+			'max_size' => '',
+			'mime_types' => '',
+		),
+		array (
+			'key' => 'field_5978f5c569077',
+			'label' => 'Remote Content Offset',
+			'name' => 'remote_content_offset',
+			'type' => 'number',
+			'instructions' => '0 is the default which shows the latest post. 1 would show the second to latest post.',
+			'required' => 0,
+			'conditional_logic' => array (
+				array (
+					array (
+						'field' => 'field_58cbf49a1d070',
+						'operator' => '==',
+						'value' => 'remote',
+					),
+				),
+			),
+			'wrapper' => array (
+				'width' => '50',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'min' => 0,
+			'max' => '',
+			'step' => '',
+		),
+		array (
+			'key' => 'field_5978f61369078',
+			'label' => 'Remote Category ID',
+			'name' => 'remote_category_id',
+			'type' => 'number',
+			'instructions' => 'Enter the category ID to retrieve.',
+			'required' => 0,
+			'conditional_logic' => array (
+				array (
+					array (
+						'field' => 'field_58cbf49a1d070',
+						'operator' => '==',
+						'value' => 'remote',
+					),
+				),
+			),
+			'wrapper' => array (
+				'width' => '50',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'min' => '',
+			'max' => '',
+			'step' => '',
+		),
+		array (
 			'key' => 'field_57696007ab6c2',
 			'label' => 'Hero Image Vertical Alignment',
 			'name' => 'hero_image_vertical_alignment',
@@ -368,6 +489,7 @@ acf_add_local_field_group(array (
 			'default_value' => 'center',
 			'layout' => 'vertical',
 			'allow_null' => 0,
+			'return_format' => 'value',
 		),
 		array (
 			'key' => 'field_576960b2ab6c3',
@@ -389,6 +511,9 @@ acf_add_local_field_group(array (
 			),
 			'layout' => 'vertical',
 			'toggle' => 0,
+			'allow_custom' => 0,
+			'save_custom' => 0,
+			'return_format' => 'value',
 		),
 		array (
 			'key' => 'field_57696121ab6c4',
@@ -411,6 +536,9 @@ acf_add_local_field_group(array (
 			),
 			'layout' => 'vertical',
 			'toggle' => 0,
+			'allow_custom' => 0,
+			'save_custom' => 0,
+			'return_format' => 'value',
 		),
 	),
 	'location' => array (
@@ -424,7 +552,7 @@ acf_add_local_field_group(array (
 	),
 	'menu_order' => 0,
 	'position' => 'normal',
-	'style' => 'seamless',
+	'style' => 'default',
 	'label_placement' => 'top',
 	'instruction_placement' => 'label',
 	'hide_on_screen' => array (

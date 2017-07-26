@@ -775,6 +775,8 @@ var templateUrl = '<?php home_url(); ?>';
 									<?php include 'inc/header_specific_post.php'; ?>
 							<?php } else if($herosource == "search") { ?>
 									<?php include 'inc/header_search.php'; ?>
+							<?php } else if($herosource == "remote") { ?>
+									<?php include 'inc/header_remote.php'; ?>
 							<?php } else { ?>
 									<?php include 'inc/header_static.php'; ?>
 						<?php } //end content source ?>
@@ -806,8 +808,8 @@ var templateUrl = '<?php home_url(); ?>';
 		<div id="content" class="site-content row">
 			<?php $header_frosted_glass = get_theme_mod( 'uw-madison-wp-2015_headerslides_frostedglass_id' ); if($header_frosted_glass == true) {  ?>
 			<div class="whiteGradient">
-				<div class="frostedShelf" <?php if($background_color) { ?>style="background: -moz-linear-gradient(top,  rgba(255,255,255,0.4) 0%, #<?php echo $background_color; ?> 100%); background: -webkit-linear-gradient(top,  rgba(255,255,255,0.4) 0%, #<?php echo $background_color; ?> 100%);
-background: linear-gradient(to bottom,  rgba(255,255,255,0.4) 0%, #<?php echo $background_color; ?> 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66ffffff', endColorstr='#<?php echo $background_color; ?>',GradientType=0 );" <?php } ?>></div>
+				<div class="frostedShelf" <?php if($background_color) { ?>style="background: -moz-linear-gradient(top,  rgba(255,255,255,0.6) 0%, #<?php echo $background_color; ?> 100%); background: -webkit-linear-gradient(top,  rgba(255,255,255,0.6) 0%, #<?php echo $background_color; ?> 100%);
+background: linear-gradient(to bottom,  rgba(255,255,255,0.6) 0%, #<?php echo $background_color; ?> 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66ffffff', endColorstr='#<?php echo $background_color; ?>',GradientType=0 );" <?php } ?>></div>
 				<div class="frostedImage">
 					<?php $args = array( 'post_type' => 'headerslides', 'posts_per_page' => 10 );
 
@@ -920,6 +922,34 @@ background: linear-gradient(to bottom,  rgba(255,255,255,0.4) 0%, #<?php echo $b
 								 $attachment_id = get_field('hero_image'); $size = "hero-image";
 								 $image = wp_get_attachment_image_src($attachment_id, $size); ?>
 								 <div class="gallery-cell" style="background: url(<?php echo $image[0]; ?>) no-repeat; background-size: cover; background-position: center center">
+
+								 </div>
+
+							<?php }
+
+
+							} else if($herosource == "remote") { 
+
+							
+
+								$video = get_field('hero_video');
+
+
+
+								$image = get_field('remote_image_fallback');
+							$size = 'hero-image'; // (thumbnail, medium, large, full or custom size)
+
+							if( $video ) { ?>
+									<div class="gallery-cell">
+										<video autoplay loop id="bgvid">
+										    <source src="<?php echo $video ?>" type="video/mp4">
+										</video>
+									</div>
+							<?php } else {
+
+								 $attachment_id = get_field('remote_image_fallback'); $size = "hero-image";
+								 $image = wp_get_attachment_image_src($attachment_id, $size); ?>
+								 <div class="gallery-cell" style="background: url() no-repeat; background-size: cover; background-position: center center">
 
 								 </div>
 

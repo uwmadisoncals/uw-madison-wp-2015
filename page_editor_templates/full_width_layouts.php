@@ -8,9 +8,13 @@
 													<?php } else { ?>
 														
 														<?php 
-
+															$imageposition = get_sub_field('row_background_image_verticalpos');
 															$image = get_sub_field('row_background_image');
 															$size = 'large'; // (thumbnail, medium, large, full or custom size)
+
+															if(!$imageposition) {
+																$imageposition = "center";
+															}
 
 															if( $image ) { ?>
 																<?php $bgposition = get_sub_field('row_background_image_position');
@@ -30,7 +34,7 @@
 																
 																
 
-															<div style="background: url(<?php echo wp_get_attachment_image_url( $image, $size ); ?>) no-repeat; background-size: cover; background-position: center center; <?php echo $bgimagestyle; ?>" >
+															<div style="background: url(<?php echo wp_get_attachment_image_url( $image, $size ); ?>) no-repeat; background-size: cover; background-position: <?php echo $imageposition; ?> center; <?php echo $bgimagestyle; ?>" >
 															
 															<?php }
 

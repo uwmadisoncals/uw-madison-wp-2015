@@ -673,6 +673,156 @@ var highlightedremotecount = 0;
 
 
 															});
+
+
+var heroremotecount = 0;
+	$(".remoteHero").each(function() {
+
+																var elemcontainer = $(this);
+																heroremotecount = heroremotecount + 1;
+																
+																var spinner = $(this).find(".loadingWrapper");
+																var remoteelem = "heroremotelocation"+heroremotecount;
+				
+																$(this).addClass(remoteelem);
+																var remoteurl = $(this).attr("data-remoteurl");
+
+																var headersize = $(this).attr("data-headersize");
+																//console.log(remoteurl);
+															
+																$.ajax( {
+																url: remoteurl,
+																success: function ( data ) {
+
+																	$(spinner).hide();
+																	var post = data.shift(); // The data is an array of posts. Grab the first one.
+																	//onsole.log(remoteelem);
+
+																	
+
+																	var remoteDate = new Date(post.date);
+
+																	var m_names = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+
+																	var day = remoteDate.getDate();
+																	var curr_date = remoteDate.getDate();
+  																	var monthIndex = remoteDate.getMonth();
+  																	var year = remoteDate.getFullYear();
+
+																	  var sup = "";
+																	if (curr_date == 1 || curr_date == 21 || curr_date ==31)
+																	{
+																		sup = "st";
+																	}
+																	else if (curr_date == 2 || curr_date == 22)
+																	{
+																		sup = "nd";
+																	}
+																	else if (curr_date == 3 || curr_date == 23)
+																	{
+																		sup = "rd";
+																	}
+																	else
+																	{
+																		sup = "th";
+																	}
+
+																	
+
+																	$(elemcontainer).find(".heroHeading").attr("href", post.link);
+																	$(elemcontainer).find(".heroHeading h1").html( post.title.rendered );
+																	//$(elemcontainer).find( '.whiteContent .excerpt' ).html( post.excerpt.rendered );
+																	//$(elemcontainer).find(".whiteContent .numericdate").text(year +""+ monthIndex +""+ day);
+																	//$(elemcontainer).find(".whiteContent .dateposted").text(m_names[monthIndex] +" "+ curr_date + sup +", " + year);
+
+																	
+
+																	var authorurl = post._links['author'][0].href;
+																	var mediaurl = post._links['wp:featuredmedia'][0].href;
+
+																	var categoryurl = "https://ecals.cals.wisc.edu/wp-json/wp/v2/categories/"+post.categories[0];
+																		//console.log(categoryurl);
+																		
+																		//pull featured media
+																		$.ajax( {
+																			url: mediaurl,
+																			success: function ( mediadata ) {
+
+																			
+																			var mediareadyurl = mediadata.guid.rendered;
+																			//onsole.log(mediareadyurl);
+																			var bgimg = "background: url("+mediadata.media_details.sizes.large.source_url+") no-repeat; background-size: cover; background-position: center center; min-height:"+headersize+"px; ";
+																			
+																			//console.log($(elemcontainer).html());
+																			$(elemcontainer).attr("style",bgimg);
+																			//$(elemcontainer).find(".mediaImg").attr("src",mediadata.guid.rendered);
+																			//$(elemcontainer).find(".heroImageBlurInner").attr("style",bgimg);
+																			//$(elemcontainer).find(".heroImageFixedHeight").attr("style",bgimg);
+
+																		},
+																		
+																		complete: function () {
+																			setTimeout(function() {
+																				$grid.isotope('layout');
+																				$grid2col.isotope('layout');
+																				$grid3col.isotope('layout');
+																				evaluateColor();
+																			},200);
+																		},
+																		cache: true
+
+																	});
+																	
+																	//pull author
+																		$.ajax( {
+																			url: authorurl,
+																			success: function ( authordata ) {
+
+																			
+																			
+																			//onsole.log(mediareadyurl);
+																			//var bgimg = "background: url("+mediareadyurl+") no-repeat; background-size: cover; background-position: center center; ";
+																			
+																			$(elemcontainer).find(".author").text("By "+authordata.name);
+																			
+																			//$(elemcontainer).find(".mediaImg").attr("src",mediadata.guid.rendered);
+																			//$(elemcontainer).find(".heroImageBlurInner").attr("style",bgimg);
+																			//$(elemcontainer).find(".heroImageFixedHeight").attr("style",bgimg);
+
+																		},
+																		
+																		complete: function () {
+																			//all done
+																		},
+																		cache: true
+
+																	});
+																	
+																	//console.log(categoryurl);
+
+																	//pull category
+																		$.ajax( {
+																			url: categoryurl,
+																			success: function ( catdata ) {
+
+																			$(elemcontainer).find(".category").text(catdata.name);
+																		
+																		},
+																		
+																		complete: function () {
+																			//all done
+																		},
+																		cache: true
+
+																		});
+
+																	
+																},
+																cache: true
+																} );
+
+
+															});
 															
 
 
