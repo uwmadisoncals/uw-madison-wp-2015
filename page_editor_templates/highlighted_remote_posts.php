@@ -1,5 +1,6 @@
 <?php $url = get_sub_field('remote_url'); 
         $category = get_sub_field('category_id');
+		$offset = get_sub_field('offset_post');
 		$hideauthor = get_sub_field('hideauthor');
 		$hidecat = get_sub_field('hidecat');
 		$hidedate = get_sub_field('hidedate');
@@ -16,6 +17,12 @@
                                                                     } else {
                                                                         $requesturi = $url."/wp-json/wp/v2/posts?per_page=1&categories=".$category;
                                                                     } ?>
+
+																	<?php if($offset != "") {
+                                                                        $requesturi = $requesturi."&offset=".$offset;
+                                                                    }
+																	//echo $requesturi;
+																	?>
 
                                                                    
 																	
