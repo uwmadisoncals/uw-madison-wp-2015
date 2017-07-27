@@ -102,7 +102,48 @@ if(getInternetExplorerVersion() != "-1") {
 		            
 		});
 		
+$(".directorygroups").keyup(function () {
+			var filter = $(this).val(), count = 0;
+			$(this).attr("value",filter);
 
+			var searchinput = $(this);
+		
+			var resultscounted = 0;
+			
+		            
+			$(searchinput).closest(".directoryWrapper").find(".accordion_wrapper .accordion_row").each(function () {
+				
+			
+		        if ($(this).find(".accordion_title").text().search(new RegExp(filter, "i")) < 0) {
+		        	$(this).addClass("hidden"); 
+		        	$(this).removeClass("visible"); 
+			       
+			        
+		        } else {
+				
+					
+				
+				
+		            $(this).removeClass("hidden");
+		            $(this).addClass("visible");
+		            
+		            $(".filtered .visible").each(function(index) {
+					$(this).attr("data-counted",resultscounted);
+					resultscounted = resultscounted + 1;
+					
+					
+					});
+		            
+		            count++;
+		           
+		            
+		        }
+		    });
+		    
+		    
+		 
+		            
+		});
 
 
 
