@@ -806,7 +806,7 @@ div.personFeaturefw {
 	}
 }
 
-.directoryFilter {
+.directoryFilter, .contentFilter {
 	display: flex;
 	margin-bottom: 1.5rem;
 
@@ -835,6 +835,16 @@ div.personFeaturefw {
 			outline: none;
 			border-color: $blue;
 		}
+	}
+}
+
+.contentListing {
+	.visible {
+
+	}
+
+	.hidden {
+		display: none;
 	}
 }
 

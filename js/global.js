@@ -100,6 +100,54 @@ if(getInternetExplorerVersion() != "-1") {
 		    
 		 
 		            
+		});
+		
+
+
+
+
+		$(".contentfilters").keyup(function () {
+			
+			var filter = $(this).val(), count = 0;
+			$(this).attr("value",filter);
+
+			var searchinput = $(this);
+		
+			var resultscounted = 0;
+			
+		            
+			$(searchinput).closest(".contentFilterWrapper").find(".contentListing li, .contentListing p, .contentListing > div").each(function () {
+				
+			
+		        if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+		        	$(this).addClass("hidden"); 
+		        	$(this).removeClass("visible"); 
+			       
+			        
+		        } else {
+				
+					
+				
+				
+		            $(this).removeClass("hidden");
+		            $(this).addClass("visible");
+		            
+		            $(".filtered .visible").each(function(index) {
+					$(this).attr("data-counted",resultscounted);
+					resultscounted = resultscounted + 1;
+					
+					
+					});
+		            
+		            count++;
+		           
+		            
+		        }
+		    });
+		    
+		    
+		 
+		            
     	});
 
 
