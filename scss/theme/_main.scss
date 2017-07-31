@@ -1435,6 +1435,39 @@ body.parent-pageid-1560, body.parent-pageid-1562, body.parent-pageid-58602 {
 	font-size: 2rem !important;
 }
 
+div.gs-web-image-box, div.gs-promotion-image-box {
+	padding-right: 10px;
+	padding-bottom: 10px;
+	max-width: 100px;
+	width: auto;
+}
+
+.search table tbody tr td {
+	padding: 0px;
+}
+
+.search table tbody tr:first-child {
+	border-bottom-width: 1px;
+}
+
+.cse .gsc-webResult.gsc-result:hover, .cse .gsc-webResult.gsc-result, .gsc-webResult.gsc-result:hover, .gsc-webResult.gsc-result, .gsc-webResult.gsc-result.gsc-promotion:hover, .gsc-results .gsc-imageResult-classic:hover, .gsc-results .gsc-imageResult-column:hover {
+	border-left: none !important;
+}
+
+.search {
+.cse .gs-promotion a.gs-title:visited, .gs-promotion a.gs-title:visited, .cse .gs-promotion a.gs-title:visited *, .gs-promotion a.gs-title:visited *, .cse .gs-promotion .gs-snippet a:visited, .gs-promotion .gs-snippet a:visited {
+	color: $blue-visited !important; 
+}
+
+.cse .gs-promotion a.gs-title:link, .gs-promotion a.gs-title:link, .cse .gs-promotion a.gs-title:link *, .gs-promotion a.gs-title:link *, .cse .gs-promotion .gs-snippet a:link, .gs-promotion .gs-snippet a:link {
+	color: $blue-visited !important; 
+}
+
+.cse .gs-promotion .gs-visibleUrl, .gs-promotion .gs-visibleUrl {
+	color: $uwred;
+}
+}
+
 .gsc-search-box table tbody tr:first-child {
 	border: none;
 }
