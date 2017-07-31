@@ -1,4 +1,10 @@
-<form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
+<?php $gcse = get_theme_mod("uw-madison-wp-2015_gcse_id"); ?>
+<?php if($gcse != "") { ?>
+		
+
+<?php } ?>
+
+<form role="search" method="get" class="search-form <?php if($gcse != "") { echo "gcse-form"; } else { echo "nogcse"; } ?>" action="<?php echo home_url( '/' ); ?>">
 	<label class="searchLabel">
 	<div class="searchFormIcon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="-296 387 19 19" enable-background="new -296 387 19 19" xml:space="preserve">
@@ -31,7 +37,9 @@
 <div class="radiate"></div>
 </div>
 		<span class="screen-reader-text"><?php echo _x( 'Search for:', 'label', 'uw_madison_wp_2015' ) ?></span>
-		<input type="text" class="search-field" placeholder="<?php echo esc_attr_x( 'Search …', 'placeholder', 'uw_madison_wp_2015' ) ?>" value="<?php echo get_search_query() ?>" id="s" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
+		
+		<input type="text" class="search-field nongcse" placeholder="<?php echo esc_attr_x( 'Search …', 'placeholder', 'uw_madison_wp_2015' ) ?>" value="<?php echo get_search_query() ?>" id="s" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
+		
 		<div class="tabSuggest">Press <strong>tab</strong> to complete the suggestion.</div>
 	</label>
 	<input type="submit" class="search-submit" value="<?php echo esc_attr_x( 'Search', 'submit button' ) ?>" />

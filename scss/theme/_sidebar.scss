@@ -43,6 +43,26 @@ div.lineSidebar .sidebar_menu, div.lineSidebar .widget-area {
 	padding-bottom: 2rem;
 }
 
+#cals_uwds_search_results {
+	margin-top: 2rem;
+}
+
+.search .cardSidebar .sidebar_menu {
+	width: 100%;
+	margin-left: 2rem;
+	margin-top: 2rem;
+
+	ul {
+		list-style: none;
+
+		li {
+			margin-bottom: 1rem;
+		}
+	}
+}
+
+
+
 .sidebar_menu.expanded {
 	h1 {
 		a {

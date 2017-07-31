@@ -162,7 +162,7 @@
 		color: rgba(0,0,0,0.8);
 	}
 
-.page .verlag-option .entry-header h1:before, .post .verlag-option .entry-header h1:before, .single .verlag-option .entry-header h1:before {
+.entry-header h1:before, .page .verlag-option .entry-header h1:before, .post .verlag-option .entry-header h1:before, .single .verlag-option .entry-header h1:before {
 	content: "";
 	display: block;
 	width: 1em;

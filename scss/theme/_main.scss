@@ -378,6 +378,35 @@ dl{
 	}
 }
 
+.search-results .site-content-inner .site-main h1.entry-title {
+		text-align: center;
+		font-size: 1em;
+		font-weight: 700;
+		color: rgba(0,0,0,0.85);
+		text-transform: uppercase;
+		letter-spacing: 0.4px;
+	
+
+}
+
+.centered-header {
+	text-align: center;
+
+	h1.entry-title {
+		font-size: 2rem;
+		color: rgba(0,0,0,0.8);
+	}
+
+	h1.entry-title:before {
+		margin: 0 auto;
+		margin-bottom: 0.3rem;
+	}
+}
+
+.search-results .pagePadding .span-33 {
+	padding-left: 2rem;
+}
+
 .page-template-page-featured_pages-php .hiddenSidebar .site-main .entry-header {
 	display: block;
 
@@ -1396,4 +1425,59 @@ body.parent-pageid-1560, body.parent-pageid-1562, body.parent-pageid-58602 {
 			display: none;
 		}
 	}
+}
+
+.cse input.gsc-input, input.gsc-input {
+	background: transparent !important;
+	border: none !important;
+	border-radius: 0px !important;
+	border-bottom: 1px solid $uwred !important;
+	font-size: 2rem !important;
+}
+
+.gsc-search-box table tbody tr:first-child {
+	border: none;
+}
+
+.cse div.gsc-control-cse, div.gsc-control-cse {
+	border: none;
+	background: transparent;
+	padding: 0.4rem;
+}
+
+.cse table.gsc-resultsHeader, table.gsc-resultsHeader{
+	display: none;
+}
+
+table.gsc-above-wrapper-area-container {
+	margin: 0px;
+}
+
+
+.cse input.gsc-search-button, input.gsc-search-button, .gsc-search-box input.gsc-search-button {
+	display: inline-block;
+	padding: 1em;
+	padding-top: 0.6em;
+	padding-bottom: 0.5em;
+	font-weight: normal;
+	text-shadow: none;
+	height: auto;
+	color: #fff;
+	background: $uwred;
+	border-radius: 3px;
+	box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+	transition: 0.2s all;
+	font-size: 0.8rem;
+	border: none;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.gsc-control-cse .gs-spelling, .gsc-control-cse .gs-result div.gs-title, .gsc-control-cse .gs-result div.gs-title * {
+	font-size: 1.4rem;
+	color: $blue;
+}
+
+.cse div.gs-webResult.gs-result a.gs-title:link, div.gs-webResult.gs-result a.gs-title:link, .cse div.gs-webResult.gs-result a.gs-title:link b, div.gs-webResult.gs-result a.gs-title:link b, div.cse .gs-webResult.gs-result a.gs-title:visited, div.gs-webResult.gs-result a.gs-title:visited, .cse div.gs-webResult.gs-result a.gs-title:visited b, div.gs-webResult.gs-result a.gs-title:visited b, .cse div.gs-webResult.gs-result a.gs-title:hover, div.gs-webResult.gs-result a.gs-title:hover, .cse div.gs-webResult.gs-result a.gs-title:hover b, div.gs-webResult.gs-result a.gs-title:hover b, div.gs-imageResult a.gs-title:link, div.gs-imageResult a.gs-title:link b, div.gs-imageResult a.gs-title:visited, div.gs-imageResult a.gs-title:visited b, div.gs-imageResult a.gs-title:hover, div.gs-imageResult a.gs-title:hover b, .cse .gsc-cursor-page, .gsc-cursor-page, .cse .gsc-trailing-more-results:link, .gsc-trailing-more-results:link, .cse .gs-spelling a, .gs-spelling a {
+	color: $blue;
 }

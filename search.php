@@ -6,10 +6,29 @@
  */
 
 get_header(); ?>
+
+<?php $gcse = get_theme_mod("uw-madison-wp-2015_gcse_id"); ?>
 <div class="site-content-inner">
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 		<div class="cf pagePadding">
+
+
+			<header class="entry-header centered-header">
+				<h1 class="entry-title">CALS Search</h1>
+			</header>
+<?php if($gcse != "") { ?>
+			<gcse:searchbox queryParameterName="s"></gcse:searchbox>
+<?php } ?>
+			<div class="row">
+				<div class="span-66">
+		<?php if($gcse != "") { ?>
+			
+
+			
+			<gcse:searchresults></gcse:searchresults>
+		<?php } else { ?>
+
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
@@ -37,6 +56,19 @@ get_header(); ?>
 			<?php get_template_part( 'content', 'none' ); ?>
 
 		<?php endif; ?>
+
+		<?php } ?>
+				</div>
+				<div class="span-33 cardSidebar ">
+					
+
+					<div class="sidebar_menu">
+						<h1>Directory Matches</h1>
+						<div id="cals_uwds_search_results"></div>
+					</div>
+				</div>
+
+			</div>
 		</div>
 		</main><!-- #main -->
 	</section><!-- #primary -->

@@ -633,10 +633,16 @@ padding-left: 100px;
 	}
 }
 
+
+
 .entry-header.small-header {
 	.entry-title {
 		font-size: 1.8rem;
 	}
+
+	h1.entry-title.small {
+				font-size: 1rem;
+			}
 
 	h1.entry-title.small {
 				font-size: 1.3rem;
