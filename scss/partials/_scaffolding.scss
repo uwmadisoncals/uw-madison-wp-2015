@@ -329,6 +329,15 @@ html {
 
 /* Minimum width of 700 pixels. */
 @media screen and (max-width: 700px) {
+
+	.flex-5050.left_redbg {
+	
+	.flex-leftCol {
+		width: 100%;
+		margin-right: 0%;
+	}
+}
+
 	.flex-2575, .flex-7525, .flex-3366, .flex-6633, .flex-5050, .flex-333333 {
 		display: block;
 		
