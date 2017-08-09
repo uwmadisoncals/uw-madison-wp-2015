@@ -257,6 +257,8 @@ console.log("called load click");
 
 });
 
+
+if($("#page").hasClass("documentationSection")) {
 window.onpopstate = function(event) {
   //alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
   //console.log(document.location);
@@ -286,6 +288,7 @@ window.onpopstate = function(event) {
 		},1500);
 	});
 };
+}
 	//if ( history.pushState ) {
 		/*History.adapter.bind(window, "statechange", function() {
         //menuLink.removeClass("active");
