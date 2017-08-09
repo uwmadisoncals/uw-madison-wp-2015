@@ -366,16 +366,16 @@ var templateUrl = '<?php home_url(); ?>';
 									$header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' );
 								if($header_style == "opaque") { ?>
 									<!-- Hybrid Selected with Opaque Header -->
-									<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" class="hybrid">
-									<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" class="hybrid_b">
+									<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" alt=" " class="hybrid">
+									<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" alt=" " class="hybrid_b">
 
 								<?php } else { ?>
 								<!-- Hybrid Logo with Transparent or Photo Header -->
 
 									<?php if(is_front_page()) { ?>
 									<!-- Hybrid Logo / Transparent Header or Photo Header / Homepage -->
-										<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo.svg" class="hybrid">
-										<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" class="hybrid_b">
+										<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo.svg" alt=" " class="hybrid">
+										<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" alt=" " class="hybrid_b">
 									<?php } else { ?>
 									<!-- Hybrid Logo / Transparent Header or Photo Header / Subpages -->
 
@@ -384,12 +384,12 @@ var templateUrl = '<?php home_url(); ?>';
 											if($header_style != "opaque") {
 										?>
 											<!-- Hybrid Logo / Photo Header Only / Subpages -->
-											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo.svg" class="hybrid">
-											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" class="hybrid_b">
+											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo.svg" alt=" " class="hybrid">
+											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" alt=" " class="hybrid_b">
 										<?php } else { ?>
 											<!-- Hybrid Logo / Transparent Header Only / Subpages -->
-											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" class="hybrid">
-											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" class="hybrid_b">
+											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" alt=" " class="hybrid">
+											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" alt=" " class="hybrid_b">
 										<?php } ?>
 									<?php } ?>
 								<?php } ?>
@@ -405,30 +405,30 @@ var templateUrl = '<?php home_url(); ?>';
 										<!-- Outline Crest / Homepage / Opaque Header -->
 											<?php if($header_layout_settings == "righthand") { ?>
 											<!-- Outline Crest / Homepage / Opaque Header / Right Hand Nav -->
-												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg">
+												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg" alt=" ">
 											<?php } else { ?>
 											<!-- Outline Crest / Homepage / Opaque Header / Bar Nav -->
-												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg">
+												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg" alt=" ">
 											<?php } ?>
 										<?php } else { ?>
 										<!-- Outline Crest / Homepage / Transparent Header -->
 											<?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { ?>
 												<!-- Outline Crest / Homepage / Hidden Slides -->
-												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg">
+												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg" alt=" ">
 											<?php } else { ?>
 												<!-- Outline Crest / Homepage / Visible Slides -->
-												<img class="monochrome" src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg">
+												<img class="monochrome" src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg" alt=" ">
 											<?php } ?>
 										<?php } ?>
 									<?php } else { ?>
 									<!-- Outline Crest on Subpages -->
 										<?php if($header_layout_settings == "righthand") { ?>
 												<!-- Outline Crest / Right Hand Nav / Subpages  -->
-												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg">
+												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg" alt=" ">
 
 										<?php } else { ?>
 												<!-- Outline Crest / Bar Nav / Subpages -->
-												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg">
+												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg" alt=" ">
 
 										<?php } ?>
 																			<?php } ?>

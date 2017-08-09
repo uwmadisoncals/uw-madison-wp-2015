@@ -1,5 +1,6 @@
 // Load plugins
 var gulp = require('gulp'),
+    svgo = require('gulp-svgo'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
@@ -71,6 +72,7 @@ gulp.task('debug', function() {
 gulp.task('images', function() {
   return gulp.src('images/**/*')
     //.pipe(imagemin({ progressive: true, svgoPlugins: [{removeViewBox: false}] }))
+    .pipe(svgo())
     .pipe(livereload(server))
     .pipe(gulp.dest('dist/images'))
     .pipe(notify({ message: 'Images task complete' }));
