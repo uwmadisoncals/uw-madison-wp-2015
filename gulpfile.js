@@ -1,6 +1,6 @@
 // Load plugins
 var gulp = require('gulp'),
-    svgo = require('gulp-svgo'),
+    svgmin = require('gulp-svgmin'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
@@ -70,9 +70,9 @@ gulp.task('debug', function() {
 
 // Images
 gulp.task('images', function() {
-  return gulp.src('images/**/*')
+  return gulp.src('images/**/*.jpg')
     //.pipe(imagemin({ progressive: true, svgoPlugins: [{removeViewBox: false}] }))
-    .pipe(svgo())
+    
     .pipe(livereload(server))
     .pipe(gulp.dest('dist/images'))
     .pipe(notify({ message: 'Images task complete' }));
@@ -101,13 +101,17 @@ gulp.task('reload', function() {
 
 //SVG Processing
 gulp.task('svg', function () {
-  return gulp.src('svg/*.svg')
+  return gulp.src('images/**/*.svg')
              .pipe(svgmin([{
                   removeDoctype: true
               }, {
                   removeComments: true
-              }]))
-             .pipe(gulp.dest('dist/svg/'))
+              }, {
+                cleanupIDs: true
+              }
+              ]))
+             .pipe(gulp.dest('dist/images'))
+             .pipe(notify({ message: 'SVGO task complete' }));
 });
 
 
@@ -120,7 +124,7 @@ gulp.task('clean', function() {
 
 // Default task
 gulp.task('default', ['clean'], function() {
-    gulp.start('styles', 'styles-admin', 'scripts', 'images', 'watch');
+    gulp.start('styles', 'styles-admin', 'scripts', 'images', 'svg', 'watch');
 });
 
 // Watch
@@ -142,7 +146,7 @@ gulp.task('watch', function() {
     gulp.watch('images/**/*', ['images']);
 
     // Watch image files
-    gulp.watch('svg/**/*', ['svg']);
+    gulp.watch('images/**/*.svg', ['svg']);
 
     // Watch php files
     gulp.watch('**/*.php', ['reload']);
