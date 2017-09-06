@@ -229,7 +229,7 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
     <title>circles</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+    <g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-426.000000, -322.000000)" fill="#D8D8D8">
             <g id="circles" sketch:type="MSLayerGroup" transform="translate(426.000000, 322.000000)">
                 <circle id="Oval-1" sketch:type="MSShapeGroup" cx="12" cy="12" r="12"></circle>
@@ -244,7 +244,7 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
     <title>tiles</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+    <g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-426.000000, -378.000000)" fill="#D8D8D8">
             <g id="tiles" sketch:type="MSLayerGroup" transform="translate(426.000000, 378.000000)">
                 <rect id="Rectangle-1" sketch:type="MSShapeGroup" x="0" y="0" width="24" height="31"></rect>
@@ -261,7 +261,7 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
     <title>left-sidebar</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+    <g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-426.000000, -467.000000)" fill="#D8D8D8">
             <g id="left-sidebar" sketch:type="MSLayerGroup" transform="translate(426.000000, 467.000000)">
                 <rect id="Rectangle-6" sketch:type="MSShapeGroup" x="0" y="0" width="24" height="45"></rect>
@@ -277,7 +277,7 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
     <title>left-sidebar</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+    <g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-426.000000, -467.000000)" fill="#D8D8D8">
             <g id="right-sidebar" sketch:type="MSLayerGroup" transform="translate(426.000000, 467.000000)">
                 <rect id="Rectangle-6" sketch:type="MSShapeGroup" x="0" y="0" width="24" height="45"></rect>
@@ -421,7 +421,7 @@ class Header_Layout_Picker_Custom_Control extends WP_Customize_Control
     <title>Untitled</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+    <g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g id="Main-Navigation" sketch:type="MSLayerGroup" transform="translate(0.000000, 79.000000)" fill="#898989" fill-opacity="0.265285326">
             <rect id="Rectangle-3" sketch:type="MSShapeGroup" x="0" y="0" width="277" height="22"></rect>
         </g>
@@ -433,7 +433,7 @@ class Header_Layout_Picker_Custom_Control extends WP_Customize_Control
     <title>Untitled</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+    <g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g id="Main-Navigation" sketch:type="MSLayerGroup" fill="#898989" fill-opacity="0.265285326">
             <rect id="Rectangle-3" sketch:type="MSShapeGroup" x="0" y="0" width="277" height="14"></rect>
         </g>
@@ -581,7 +581,7 @@ $wp_customize->add_section( 'uw-madison-wp-2015-home-options' , array(
 	) ); 
 
 $wp_customize->add_section( 'uw-madison-wp-2015-header-options' , array(
-    	'title'      => __( 'Hero Image Options', 'uw-madison-wp-2015' ),
+    	'title'      => __( 'Header Slide Options', 'uw-madison-wp-2015' ),
     	'priority'   => 60,
 	) ); 
 
@@ -754,7 +754,7 @@ $wp_customize->add_control('uw-madison-wp-2015-home_logo_position', array(
     'type'    => 'radio',
     'choices' => array(
             'top-left' => __( 'Top Left (default)', 'uw-madison-wp-2015' ),
-            'center' => __( 'Center of the Hero Image', 'uw-madison-wp-2015' )
+            'center' => __( 'Center of the Header Slide', 'uw-madison-wp-2015' )
         ),
     'settings'   => 'uw-madison-wp-2015_home_logo_position_id',
     'priority'	=> 10
@@ -1161,7 +1161,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_headerslides_frostedglass_id', ar
 
 
 $wp_customize->add_control('uw-madison-wp-2015-headerslides_frostedglass', array(
-    'label'      => __('Frosted Glass Effect on Hompage', 'uw-madison-wp-2015'),
+    'label'      => __('Frosted Glass Effect on Homepage', 'uw-madison-wp-2015'),
     'section'    => 'uw-madison-wp-2015-header-options',
     'type'    => 'checkbox',
     'settings'   => 'uw-madison-wp-2015_headerslides_frostedglass_id',
@@ -1344,7 +1344,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_header_slides_options_id', array(
 
  
 $wp_customize->add_control('uw-madison-wp-2015-header_slides_options', array(
-    'label'      => __('Hero Image on Homepage', 'uw-madison-wp-2015'),
+    'label'      => __('Header Slides on Homepage', 'uw-madison-wp-2015'),
     'section'    => 'uw-madison-wp-2015-header-options',
     'type'    => 'radio',
     'choices' => array(
@@ -1417,8 +1417,8 @@ $wp_customize->add_control( new Photo_Header_Size_Custom_Control(
 	$wp_customize, 
 	'uw-madison-wp-2015-home_photo_header_size', 
 	array(
-		'label'	=> __( 'Hero Image Size on Homepage', 'uw-madison-wp-2015' ),
-		'description' => 'In effect when transparent and photo Header style is selected.',
+		'label'	=> __( 'Header Slide Height on Homepage', 'uw-madison-wp-2015' ),
+		'description' => '',
 		'section' => 'uw-madison-wp-2015-header-options',
 		'settings' => 'uw-madison-wp-2015-home_photo_header_size_id',
 		'priority'   => 2,
@@ -1430,8 +1430,8 @@ $wp_customize->add_control( new Photo_Header_Size_Custom_Control(
 	$wp_customize, 
 	'uw-madison-wp-2015-photo_header_size', 
 	array(
-		'label'	=> __( 'Hero Image Size on Subpages', 'uw-madison-wp-2015' ),
-		'description' => 'Only in effect when Photo Header Style is selected.',
+		'label'	=> __( 'Header Slide Height on Subpages', 'uw-madison-wp-2015' ),
+		'description' => '',
 		'section' => 'uw-madison-wp-2015-header-options',
 		'settings' => 'uw-madison-wp-2015_photo_header_size_id',
 		'priority'   => 3,

@@ -82,7 +82,7 @@
 
 
 								<div class="heroImage heroVideo remoteHero" data-remoteurl="<?php echo $requesturi ?>" style="background: url(<?php echo $image[0] ?>); background-size: cover; background-position: <?php $herovalign = get_field('hero_image_vertical_alignment'); if($herovalign) { echo $herovalign; } else { echo "center"; } ?> center;">
-									<video autoplay loop id="bgvid">
+									<video autoplay loop class="bgvid">
 										    <source src="<?php echo $video ?>" type="video/mp4">
 									</video>
 

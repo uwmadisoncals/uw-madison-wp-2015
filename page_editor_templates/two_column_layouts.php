@@ -102,6 +102,12 @@
 												 }
 
 												if( get_row_layout() == '2c_highlighted_content' ) {
+
+														$authorvisible = get_sub_field("hide_author");
+													
+
+														
+
 														 if(have_rows("2c_highlighted_content_type")) { ?>
 														
 														 	<div class="gridonecol gridstyle2 <?php echo $columnstyle ?>">
@@ -235,6 +241,10 @@
 												 }
 
 												if( get_row_layout() == '2c_highlighted_content' ) {
+
+													$authorvisible = get_sub_field("hide_author");
+													
+
 														 if(have_rows("2c_highlighted_content_type")) { ?>
 														
 														 	<div class="gridonecol gridstyle2 <?php echo $columnstyle ?>">

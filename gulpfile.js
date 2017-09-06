@@ -69,8 +69,28 @@ gulp.task('debug', function() {
 });
 
 // Images
-gulp.task('images', function() {
+gulp.task('jpgs', function() {
   return gulp.src('images/**/*.jpg')
+    //.pipe(imagemin({ progressive: true, svgoPlugins: [{removeViewBox: false}] }))
+    
+    .pipe(livereload(server))
+    .pipe(gulp.dest('dist/images'))
+    .pipe(notify({ message: 'Images task complete' }));
+});
+
+// PNGs
+gulp.task('pngs', function() {
+  return gulp.src('images/**/*.png')
+    //.pipe(imagemin({ progressive: true, svgoPlugins: [{removeViewBox: false}] }))
+    
+    .pipe(livereload(server))
+    .pipe(gulp.dest('dist/images'))
+    .pipe(notify({ message: 'Images task complete' }));
+});
+
+// GIFs
+gulp.task('gifs', function() {
+  return gulp.src('images/**/*.gif')
     //.pipe(imagemin({ progressive: true, svgoPlugins: [{removeViewBox: false}] }))
     
     .pipe(livereload(server))
@@ -124,7 +144,7 @@ gulp.task('clean', function() {
 
 // Default task
 gulp.task('default', ['clean'], function() {
-    gulp.start('styles', 'styles-admin', 'scripts', 'images', 'svg', 'watch');
+    gulp.start('styles', 'styles-admin', 'scripts', 'jpgs', 'gifs', 'pngs', 'svg', 'watch');
 });
 
 // Watch
@@ -143,7 +163,13 @@ gulp.task('watch', function() {
     gulp.watch('js/**/*.js', ['scripts']);
 
     // Watch image files
-    gulp.watch('images/**/*', ['images']);
+    gulp.watch('images/**/*.jpg', ['jpgs']);
+
+    // Watch image files
+    gulp.watch('images/**/*.png', ['pngs']);
+
+    // Watch image files
+    gulp.watch('images/**/*.gif', ['gifs']);
 
     // Watch image files
     gulp.watch('images/**/*.svg', ['svg']);

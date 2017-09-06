@@ -12,10 +12,10 @@
 	<label class="searchLabel">
 	<div class="searchFormIcon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="-296 387 19 19" enable-background="new -296 387 19 19" xml:space="preserve">
-<g id="circle2">
+<g>
 	<circle fill="#AAAAAA" cx="-286.6" cy="396.4" r="8.9"/>
 </g>
-<g id="circle">
+<g>
 	<circle fill="#117DBA" cx="-286.5" cy="396.5" r="9.5"/>
 </g>
 <g id="glass" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">

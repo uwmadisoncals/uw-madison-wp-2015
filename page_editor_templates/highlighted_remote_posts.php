@@ -54,7 +54,7 @@
 																							            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
 																							        </radialGradient>
 																							    </defs>
-																							    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+																							    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
 																							        <g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-426.000000, -322.000000)" fill="url(#radialGradient-1)">
 																							            <circle id="glare" sketch:type="MSShapeGroup" cx="491" cy="387" r="65"></circle>
 																							        </g>

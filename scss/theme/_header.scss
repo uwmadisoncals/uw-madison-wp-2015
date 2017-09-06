@@ -2129,7 +2129,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 	}
 
 
-.featureHeader video#bgvid {
+.featureHeader video#bgvid, .featureHeader video.bgvid {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -2148,7 +2148,7 @@ div.rightHandNav.solidHeader .site-header .main-navigation ul.menu li a:hover {
 	background: rgba(0,0,0,.6);
 }
 
-.mobile #bgvid {
+.mobile #bgvid, .mobile .bgvid {
 	display: none;
 }
 
@@ -2593,7 +2593,7 @@ ul.children, ul.sub-menu {
 }
 
 @media screen and (max-width: 900px) {
-	#bgvid {
+	#bgvid, .bgvid {
 		display: none;
 	}
 }
