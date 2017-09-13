@@ -1142,8 +1142,8 @@ div.personFeaturefw {
 	}
 
 .flip-container, .front, .back {
-	width: 320px;
-	height: 480px;
+	width: auto;
+	height: 300px;
 }
 
 /* flip speed goes here */
@@ -1161,6 +1161,8 @@ div.personFeaturefw {
 	position: absolute;
 	top: 0;
 	left: 0;
+	height: 300px;
+	width: 100%;
 }
 
 /* front pane, placed above back */

@@ -24,13 +24,13 @@
 
 <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
 	<div class="flipper">
-		<div class="front">
+		<div class="front" style="background: url(<?php echo $front_img_url ?>) no-repeat; background-size: cover; background-position: center center;">
             <!-- front content -->
-            <?php echo $front_img_elem; ?>
+           
 		</div>
-		<div class="back">
+		<div class="back" style="background: url(<?php echo $back_img_url ?>) no-repeat; background-size: cover; background-position: center center;">
             <!-- back content -->
-            <?php echo $back_img_elem; ?>
+           
 		</div>
 	</div>
 </div>
