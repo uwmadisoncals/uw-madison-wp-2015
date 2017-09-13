@@ -1157,12 +1157,13 @@ div.personFeaturefw {
 /* hide back of pane during swap */
 .front, .back {
 	backface-visibility: hidden;
-
+	border-radius: 4px;
 	position: absolute;
 	top: 0;
 	left: 0;
 	height: 300px;
 	width: 100%;
+	box-shadow: 0px 6px 14px rgba(0,0,0,0.2);
 }
 
 /* front pane, placed above back */
