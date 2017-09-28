@@ -873,6 +873,25 @@ $wp_customize->add_control('uw-madison-wp-2015-ga', array(
 ));
 
 
+/*** Eloqua Analytics ***/
+
+$wp_customize->add_setting('uw-madison-wp-2015_eq_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => '',
+    'sanitize_callback' => 'sanitize_eq_options'
+ 
+));
+
+$wp_customize->add_control('uw-madison-wp-2015-eq', array(
+    'label'      => __('Eloqua Analytics', 'uw-madison-wp-2015'),
+    'description'=> 'Enter your Eloqua tracking ID.',
+    'section'    => 'uw-madison-wp-2015-analytics-options',
+    'type'    => 'text',
+    'settings'   => 'uw-madison-wp-2015_eq_id',
+));
+
+
 /*** Facebook Pixel Analytics ***/
 
 $wp_customize->add_setting('uw-madison-wp-2015_fp_id', array(
@@ -1607,6 +1626,13 @@ function sanitize_ga_options( $value ) {
     return $value;
 }
 
+function sanitize_eq_options( $value ) {
+    if ( !$value )
+        $value = '';
+ 
+    return $value;
+}
+
 function sanitize_fp_options( $value ) {
     if ( !$value )
         $value = '';
@@ -1688,16 +1714,13 @@ function sanitize_alt_logo_options( $value ) {
 
 function sanitize_main_logo_options( $value ) {
     if ( !$value )
-        $value = '';
- 
+		$value = '';
+		
     return $value;
 }
 
 }
 add_action( 'customize_register', 'mytheme_customize_register' );
-
-
-
 
 
 /*function mytheme_customize_css()
@@ -1733,7 +1756,6 @@ function se_wp_head() {
 	
 	var se_ajax_url = '<?php echo admin_url('admin-ajax.php','http'); ?>?action=se_lookup';
 	var se_ajax_url_https = '<?php echo admin_url('admin-ajax.php','https'); ?>?action=se_lookup';
-	
 	var se_ajax_url = "//"+se_ajax_url.replace(/.*?:\/\//g, "");
 	
 	//console.log(se_ajax_url);
@@ -1784,8 +1806,6 @@ add_action('wp_ajax_nopriv_se_lookup', 'se_lookup');
 
 function se_lookup() {
     global $wpdb;
-    
-    
 
 	$search = $wpdb->get_results();
 
@@ -1981,7 +2001,6 @@ function pageeditor_enqueue_custom_admin_style() {
 add_action( 'admin_enqueue_scripts', 'pageeditor_enqueue_custom_admin_style' );
 
 
-
 /*** Setting default header for theme ****/
 $defaults = array(
 	'default-image'          => get_template_directory_uri() . '/images/default-logo-bw.svg',
@@ -2002,7 +2021,6 @@ $header_image = get_header_image();
 if($header_image) {
 	add_theme_support( 'custom-header', $defaults );
 }
-
 
 register_default_headers( array(
 	'colorcrest' => array(

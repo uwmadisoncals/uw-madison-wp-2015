@@ -69,6 +69,26 @@ var templateUrl = '<?php home_url(); ?>';
 
 <?php } ?>
 
+<?php $eq_tracking = get_theme_mod("uw-madison-wp-2015_eq_id");  if($eq_tracking) { ?>
+<script>
+    var _elqQ = _elqQ || [];
+    _elqQ.push(['elqSetSiteId', '<?php echo $eq_tracking ?>']);
+    _elqQ.push(['elqTrackPageView']);
+    
+    (function () {
+        function async_load() {
+            var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+            s.src = '//img04.en25.com/i/elqCfg.min.js';
+            var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+        }
+        if (window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
+        else if (window.attachEvent) window.attachEvent('onload', async_load); 
+    })();
+</script>
+
+<?php } ?>
+
+
 <?php $ga_tracking = get_theme_mod("uw-madison-wp-2015_ga_id");  if($ga_tracking) { ?>
 
 	<script>
