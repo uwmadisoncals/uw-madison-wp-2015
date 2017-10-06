@@ -49,7 +49,49 @@ get_header(); ?>
 							$navhidden = get_field('hide_the_side_navigation');
 							$showwidgets = get_field('show_page_widgets');
 							
-							if($editor == 'advanced') {  
+							if($editor == 'advanced') { 
+								
+								
+								if(get_field('hero_image_pages')) { ?>
+									<div class="heroWatermark">
+										
+										<?php 
+			
+										$image = get_field('hero_image_pages');
+										$size = 'full'; // (thumbnail, medium, large, full or custom size)
+										
+										if( $image ) { ?>
+										
+											<?php echo wp_get_attachment_image( $image, $size ); ?>
+										
+											<div class="whiteBlend">
+													<svg width="473px" height="285px" viewBox="0 0 473 285" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" preserveAspectRatio="none">
+													<title>blendwatermark</title>
+													<desc>Created with Sketch.</desc>
+													<defs>
+														<radialGradient cx="50%" cy="11.3342605%" fx="50%" fy="11.3342605%" r="82.2567483%" width="100%" id="radialGradient-1">
+															<stop stop-color="#<?php background_color(); ?>" stop-opacity="0.7" offset="0%"></stop>
+															<stop stop-color="#<?php background_color(); ?>" offset="100%"></stop>
+														</radialGradient>
+													</defs>
+													<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+														<g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-554.000000, -372.000000)" fill="url(#radialGradient-1)">
+															<rect id="blendwatermark" sketch:type="MSShapeGroup" x="554" y="372" width="473" height="285"></rect>
+														</g>
+													</g>
+													</svg>
+											</div>
+			
+											
+										
+										
+										
+										
+											<?php } //completed check for editor type ?>
+										</div>
+										
+										
+									<?php } 
 								
 								if(!$navhidden || $showwidgets) {
 							?>
@@ -142,8 +184,8 @@ get_header(); ?>
 									    <desc>Created with Sketch.</desc>
 									    <defs>
 									        <radialGradient cx="50%" cy="11.3342605%" fx="50%" fy="11.3342605%" r="82.2567483%" width="100%" id="radialGradient-1">
-									            <stop stop-color="#FFFFFF" stop-opacity="0.7" offset="0%"></stop>
-									            <stop stop-color="#FFFFFF" offset="100%"></stop>
+									            <stop stop-color="#<?php background_color(); ?>" stop-opacity="0.7" offset="0%"></stop>
+									            <stop stop-color="#<?php background_color(); ?>" offset="100%"></stop>
 									        </radialGradient>
 									    </defs>
 									    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
