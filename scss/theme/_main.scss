@@ -1514,3 +1514,14 @@ table.gsc-above-wrapper-area-container {
 .cse div.gs-webResult.gs-result a.gs-title:link, div.gs-webResult.gs-result a.gs-title:link, .cse div.gs-webResult.gs-result a.gs-title:link b, div.gs-webResult.gs-result a.gs-title:link b, div.cse .gs-webResult.gs-result a.gs-title:visited, div.gs-webResult.gs-result a.gs-title:visited, .cse div.gs-webResult.gs-result a.gs-title:visited b, div.gs-webResult.gs-result a.gs-title:visited b, .cse div.gs-webResult.gs-result a.gs-title:hover, div.gs-webResult.gs-result a.gs-title:hover, .cse div.gs-webResult.gs-result a.gs-title:hover b, div.gs-webResult.gs-result a.gs-title:hover b, div.gs-imageResult a.gs-title:link, div.gs-imageResult a.gs-title:link b, div.gs-imageResult a.gs-title:visited, div.gs-imageResult a.gs-title:visited b, div.gs-imageResult a.gs-title:hover, div.gs-imageResult a.gs-title:hover b, .cse .gsc-cursor-page, .gsc-cursor-page, .cse .gsc-trailing-more-results:link, .gsc-trailing-more-results:link, .cse .gs-spelling a, .gs-spelling a {
 	color: $blue;
 }
+
+div#page.inset {
+	box-shadow: 0px 5px 14px rgba(0,0,0,0.2);
+	background: #f7f7f7;
+	position: relative;
+}
+
+.home div.featureHeader {
+	margin-top: 0rem !important;
+}
+

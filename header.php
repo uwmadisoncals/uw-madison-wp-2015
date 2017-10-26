@@ -129,7 +129,24 @@ var templateUrl = '<?php home_url(); ?>';
 <body <?php body_class(); ?> style="background-color: #<?php background_color(); ?>">
 
 
+<?php $max_page_width = get_theme_mod( 'uw-madison-wp-2015_maxpgwidth_id' ); 
+		
+		if($max_page_width) {
 
+			if($max_page_width == "1500") {
+				$page_width_value = "";
+				$page_width_class = "";
+			} else {
+				$page_width_value = 'margin: 0 auto; max-width: '.$max_page_width.'px';
+				$page_width_class = "inset";
+			}
+
+		} else {
+			$page_width_value = "";
+			$page_width_class = "";
+		}
+
+?>
 
 	<div class="loadCover">
 		<div class="loadLogo"></div>
@@ -184,7 +201,7 @@ var templateUrl = '<?php home_url(); ?>';
 
 
 
-<div id="page" class="hfeed site <?php $editor = get_field('page_editor'); if($editor == "advanced") { echo "apesetup"; } ?> <?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { echo "hiddenSlides"; } else { echo "visibleSlides"; } ?> <?php $header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' ); if($header_style == "opaque") { echo "solidHeader"; } else if($header_style == "photo") { echo "photoHeader"; } else { echo "photoHeader"; } ?> <?php $home_layout_settings = get_theme_mod( 'uw-madison-wp-2015_layout_id' ); if($home_layout_settings == "tiles") { echo "tiledPosts"; }; if($home_layout_settings == "right_sidebar") { echo "postsRightSidebar"; } ?> <?php $header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' ); if($header_layout_settings == "righthand") { echo "rightHandNav"; } else { echo "navBar"; } ?> <?php if( get_field('hide_the_side_navigation')) { echo "hiddenSidebar"; } ?> <?php if( get_field('page_theme') == 'documentation') { echo 'documentationSection'; } ?> <?php $sidebar_settings = get_theme_mod( 'uw-madison-wp-2015_sidebar_style_id' ); if($sidebar_settings == "card") { echo 'cardSidebar'; } else if($sidebar_settings == "dots") { echo 'dotsSidebar'; } else { echo 'lineSidebar'; } ?><?php $fontselection = get_theme_mod( 'uw-madison-wp-2015_fonts_id' ); echo ' '.$fontselection; ?> <?php if(get_field('featured_pages_layouts')) { $page_layout = get_field('featured_pages_layouts'); if($page_layout == 'listr') { echo 'listRightSidebar'; }  } ?> <?php $header_slides_dots = get_theme_mod( 'uw-madison-wp-2015_headerslides_dots_id' ); if($header_slides_dots == true) { echo "hiddenSlideDots"; } ?> <?php $header_slides_arrows = get_theme_mod( 'uw-madison-wp-2015_headerslides_arrows_id' ); if($header_slides_arrows == true) { echo "hiddenSlideArrows"; } ?> <?php $header_slides_transition = get_theme_mod( 'uw-madison-wp-2015_headerslides_transition_id' ); if($header_slides_transition == true) { echo "headerSlidesFade"; } ?> <?php $logo_position = get_theme_mod( 'uw-madison-wp-2015_home_logo_position_id' ); if($logo_position == "center") { echo "hidemainlogo"; } ?> <?php $navtextsize = get_theme_mod( 'uw-madison-wp-2015_nav_text_size_id' ); if($navtextsize == "large") { echo "largeNavText"; } ?> <?php $hideshownav = get_theme_mod( 'uw-madison-wp-2015_hide_show_nav_id' ); if($hideshownav == "yes") { echo "hideMainNav"; } ?>">
+<div id="page" style="<?php echo $page_width_value; ?>" class="hfeed site <?php echo $page_width_class; ?> <?php $editor = get_field('page_editor'); if($editor == "advanced") { echo "apesetup"; } ?> <?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { echo "hiddenSlides"; } else { echo "visibleSlides"; } ?> <?php $header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' ); if($header_style == "opaque") { echo "solidHeader"; } else if($header_style == "photo") { echo "photoHeader"; } else { echo "photoHeader"; } ?> <?php $home_layout_settings = get_theme_mod( 'uw-madison-wp-2015_layout_id' ); if($home_layout_settings == "tiles") { echo "tiledPosts"; }; if($home_layout_settings == "right_sidebar") { echo "postsRightSidebar"; } ?> <?php $header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' ); if($header_layout_settings == "righthand") { echo "rightHandNav"; } else { echo "navBar"; } ?> <?php if( get_field('hide_the_side_navigation')) { echo "hiddenSidebar"; } ?> <?php if( get_field('page_theme') == 'documentation') { echo 'documentationSection'; } ?> <?php $sidebar_settings = get_theme_mod( 'uw-madison-wp-2015_sidebar_style_id' ); if($sidebar_settings == "card") { echo 'cardSidebar'; } else if($sidebar_settings == "dots") { echo 'dotsSidebar'; } else { echo 'lineSidebar'; } ?><?php $fontselection = get_theme_mod( 'uw-madison-wp-2015_fonts_id' ); echo ' '.$fontselection; ?> <?php if(get_field('featured_pages_layouts')) { $page_layout = get_field('featured_pages_layouts'); if($page_layout == 'listr') { echo 'listRightSidebar'; }  } ?> <?php $header_slides_dots = get_theme_mod( 'uw-madison-wp-2015_headerslides_dots_id' ); if($header_slides_dots == true) { echo "hiddenSlideDots"; } ?> <?php $header_slides_arrows = get_theme_mod( 'uw-madison-wp-2015_headerslides_arrows_id' ); if($header_slides_arrows == true) { echo "hiddenSlideArrows"; } ?> <?php $header_slides_transition = get_theme_mod( 'uw-madison-wp-2015_headerslides_transition_id' ); if($header_slides_transition == true) { echo "headerSlidesFade"; } ?> <?php $logo_position = get_theme_mod( 'uw-madison-wp-2015_home_logo_position_id' ); if($logo_position == "center") { echo "hidemainlogo"; } ?> <?php $navtextsize = get_theme_mod( 'uw-madison-wp-2015_nav_text_size_id' ); if($navtextsize == "large") { echo "largeNavText"; } ?> <?php $hideshownav = get_theme_mod( 'uw-madison-wp-2015_hide_show_nav_id' ); if($hideshownav == "yes") { echo "hideMainNav"; } ?>">
 
 
 
@@ -352,9 +369,9 @@ var templateUrl = '<?php home_url(); ?>';
 							$header_image_height = HEADER_IMAGE_HEIGHT;
 						}
 						?>
-					<img src="<?php header_image(); ?>" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" class="mainLogoImg" alt="" />
+					<img src="<?php header_image(); ?>" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" class="mainLogoImg" alt="Logo" />
 					<?php if($header_alt_image) { ?>
-					<img src="<?php echo $header_alt_image; ?>" class="altLogoImg" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" alt="" />
+					<img src="<?php echo $header_alt_image; ?>" class="altLogoImg" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" alt="Logo" />
 					<?php } ?>
 				<?php /*endif;*/ // end check for featured image or standard header ?>
 			</a>
@@ -363,9 +380,9 @@ var templateUrl = '<?php home_url(); ?>';
 
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><!--<span class="forScreenReaders">Logo Image</span>-->
 
-							<img src="<?php echo $logo_image; ?>" class="mainLogoImg" alt="" />
+							<img src="<?php echo $logo_image; ?>" class="mainLogoImg" alt="Logo" />
 							<?php if($header_alt_image) { ?>
-							<img src="<?php echo $header_alt_image; ?>" class="altLogoImg" alt="" />
+							<img src="<?php echo $header_alt_image; ?>" class="altLogoImg" alt="Logo" />
 							<?php } ?>
 						<?php /*endif;*/ // end check for featured image or standard header ?>
 					</a>
@@ -386,16 +403,16 @@ var templateUrl = '<?php home_url(); ?>';
 									$header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' );
 								if($header_style == "opaque") { ?>
 									<!-- Hybrid Selected with Opaque Header -->
-									<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" alt=" " class="hybrid">
-									<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" alt=" " class="hybrid_b">
+									<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" alt="Logo" class="hybrid">
+									<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" alt="Logo" class="hybrid_b">
 
 								<?php } else { ?>
 								<!-- Hybrid Logo with Transparent or Photo Header -->
 
 									<?php if(is_front_page()) { ?>
 									<!-- Hybrid Logo / Transparent Header or Photo Header / Homepage -->
-										<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo.svg" alt=" " class="hybrid">
-										<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" alt=" " class="hybrid_b">
+										<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo.svg" alt="Logo" class="hybrid">
+										<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" alt="Logo" class="hybrid_b">
 									<?php } else { ?>
 									<!-- Hybrid Logo / Transparent Header or Photo Header / Subpages -->
 
@@ -404,12 +421,12 @@ var templateUrl = '<?php home_url(); ?>';
 											if($header_style != "opaque") {
 										?>
 											<!-- Hybrid Logo / Photo Header Only / Subpages -->
-											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo.svg" alt=" " class="hybrid">
-											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" alt=" " class="hybrid_b">
+											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo.svg" alt="Logo" class="hybrid">
+											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" alt="Logo" class="hybrid_b">
 										<?php } else { ?>
 											<!-- Hybrid Logo / Transparent Header Only / Subpages -->
-											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" alt=" " class="hybrid">
-											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" alt=" " class="hybrid_b">
+											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" alt="Logo" class="hybrid">
+											<img src="<?php echo get_template_directory_uri(); ?>/images/hybrid_logo_dark.svg" alt="Logo" class="hybrid_b">
 										<?php } ?>
 									<?php } ?>
 								<?php } ?>
@@ -425,30 +442,30 @@ var templateUrl = '<?php home_url(); ?>';
 										<!-- Outline Crest / Homepage / Opaque Header -->
 											<?php if($header_layout_settings == "righthand") { ?>
 											<!-- Outline Crest / Homepage / Opaque Header / Right Hand Nav -->
-												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg" alt=" ">
+												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg" alt="Logo">
 											<?php } else { ?>
 											<!-- Outline Crest / Homepage / Opaque Header / Bar Nav -->
-												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg" alt=" ">
+												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg" alt="Logo">
 											<?php } ?>
 										<?php } else { ?>
 										<!-- Outline Crest / Homepage / Transparent Header -->
 											<?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { ?>
 												<!-- Outline Crest / Homepage / Hidden Slides -->
-												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg" alt=" ">
+												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg" alt="Logo">
 											<?php } else { ?>
 												<!-- Outline Crest / Homepage / Visible Slides -->
-												<img class="monochrome" src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg" alt=" ">
+												<img class="monochrome" src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg" alt="Logo">
 											<?php } ?>
 										<?php } ?>
 									<?php } else { ?>
 									<!-- Outline Crest on Subpages -->
 										<?php if($header_layout_settings == "righthand") { ?>
 												<!-- Outline Crest / Right Hand Nav / Subpages  -->
-												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg" alt=" ">
+												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo_b.svg" alt="Logo">
 
 										<?php } else { ?>
 												<!-- Outline Crest / Bar Nav / Subpages -->
-												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg" alt=" ">
+												<img src="<?php echo get_template_directory_uri(); ?>/images/bw_logo.svg" alt="Logo">
 
 										<?php } ?>
 																			<?php } ?>
@@ -557,7 +574,7 @@ var templateUrl = '<?php home_url(); ?>';
 							$header_image_height = HEADER_IMAGE_HEIGHT;
 						}
 						?>
-					<img src="<?php header_image(); ?>" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" alt="" />
+					<img src="<?php header_image(); ?>" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" alt="Logo" />
 				<?php /*endif;*/ // end check for featured image or standard header ?>
 			</a>
 
@@ -565,9 +582,9 @@ var templateUrl = '<?php home_url(); ?>';
 
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logoImage"><!--<span class="forScreenReaders">Logo Image</span>-->
 
-							<img src="<?php echo $logo_image; ?>" class="mainLogoImg" alt="" />
+							<img src="<?php echo $logo_image; ?>" class="mainLogoImg" alt="Logo" />
 							<?php if($header_alt_image) { ?>
-							<img src="<?php echo $header_alt_image; ?>" class="altLogoImg" alt="" />
+							<img src="<?php echo $header_alt_image; ?>" class="altLogoImg" alt="Logo" />
 							<?php } ?>
 						<?php /*endif;*/ // end check for featured image or standard header ?>
 					</a>
@@ -731,7 +748,7 @@ var templateUrl = '<?php home_url(); ?>';
 				<?php if($logo_image) { ?>
 
 
-					<img src="<?php echo $logo_image; ?>" alt="" class="centeredSiteLogo" />
+					<img src="<?php echo $logo_image; ?>" alt="Logo" class="centeredSiteLogo" />
 
 				<?php } else { ?>
 						<?php
@@ -745,7 +762,7 @@ var templateUrl = '<?php home_url(); ?>';
 							$header_image_height = HEADER_IMAGE_HEIGHT;
 						}
 						?>
-					<img src="<?php header_image(); ?>" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" alt="" class="centeredSiteLogo" />
+					<img src="<?php header_image(); ?>" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" alt="Logo" class="centeredSiteLogo" />
 				<?php } ?>
 
 		<?php } ?>
@@ -855,8 +872,9 @@ var templateUrl = '<?php home_url(); ?>';
 		<div id="content" class="site-content row">
 			<?php $header_frosted_glass = get_theme_mod( 'uw-madison-wp-2015_headerslides_frostedglass_id' ); if($header_frosted_glass == true) {  ?>
 			<div class="whiteGradient">
-				<div class="frostedShelf" <?php if($background_color) { ?>style="background: -moz-linear-gradient(top,  rgba(255,255,255,0.6) 0%, #<?php echo $background_color; ?> 100%); background: -webkit-linear-gradient(top,  rgba(255,255,255,0.6) 0%, #<?php echo $background_color; ?> 100%);
-background: linear-gradient(to bottom,  rgba(255,255,255,0.6) 0%, #<?php echo $background_color; ?> 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66ffffff', endColorstr='#<?php echo $background_color; ?>',GradientType=0 );" <?php } ?>></div>
+				<div class="frostedShelf" <?php if($background_color) {  if($page_width_class == "inset") { ?> style="background: -moz-linear-gradient(top,  rgba(255,255,255,0.6) 0%, #f7f7f7 100%); background: -webkit-linear-gradient(top,  rgba(255,255,255,0.6) 0%, #f7f7f7 100%);
+background: linear-gradient(to bottom,  rgba(255,255,255,0.6) 0%, #f7f7f7 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66ffffff', endColorstr='#f7f7f7',GradientType=0 );" <? } else { ?> style="background: -moz-linear-gradient(top,  rgba(255,255,255,0.6) 0%, #<?php echo $background_color; ?> 100%); background: -webkit-linear-gradient(top,  rgba(255,255,255,0.6) 0%, #<?php echo $background_color; ?> 100%);
+background: linear-gradient(to bottom,  rgba(255,255,255,0.6) 0%, #<?php echo $background_color; ?> 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66ffffff', endColorstr='#<?php echo $background_color; ?>',GradientType=0 );"<?php } ?> <?php } ?>></div>
 				<div class="frostedImage">
 					<?php $args = array( 'post_type' => 'headerslides', 'posts_per_page' => 10 );
 

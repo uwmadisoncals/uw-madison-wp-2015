@@ -520,6 +520,44 @@ class Photo_Header_Size_Custom_Control extends WP_Customize_Control
 
 
 
+/**
+ * Class to create a custom max page width
+ */
+class Page_Width_Custom_Control extends WP_Customize_Control
+{
+      /**
+       * Render the content on the theme customizer page
+       */
+      public $type = 'size';
+       
+      public function render_content()
+       {
+            ?>
+            	
+            
+                <label>
+                  <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+                  <em><?php echo esc_html( $this->description ); ?></em>
+                 </label>
+
+                 
+                 <div style="margin-top: 1em;">
+                 <input id="<?php echo $this->id; ?>" name="<?php echo $this->id; ?>" type="range" min="800" max="1500" step="10" value="<?php echo $this->value(); ?>" <?php $this->link(); ?> />
+                 </div>
+                  
+                  
+                  <div class="layoutClear"></div>
+                
+                
+                
+            <?php
+       }
+}
+
+
+
+
+
 class WP_Customize_Layout_Control extends WP_Customize_Control {
 		public $type = 'textarea';
  
@@ -1284,6 +1322,42 @@ $wp_customize->add_control('uw-madison-wp-2015-breadcrumbs', array(
 
 
 
+/*** max page width option */
+$wp_customize->add_setting('uw-madison-wp-2015_maxpgwidth_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => '1500',
+    'sanitize_callback' => 'sanitize_maxpgwidth_options'
+ 
+));
+
+ 
+/*$wp_customize->add_control('uw-madison-wp-2015-maxpgwidth', array(
+    'label'      => __('Max Page Width', 'uw-madison-wp-2015'),
+    'section'    => 'uw-madison-wp-2015-sidebar-options',
+    'type'    => 'radio',
+    'choices' => array(
+            'shown' => __( 'Shown', 'uw-madison-wp-2015' ),
+            'hidden' => __( 'Hidden', 'uw-madison-wp-2015' )
+        ),
+    'settings'   => 'uw-madison-wp-2015_maxpgwidth_id',
+));*/
+
+
+$wp_customize->add_control( new Page_Width_Custom_Control( 
+	$wp_customize, 
+	'uw-madison-wp-2015-maxpgwidth', 
+	array(
+		'label'	=> __( 'Max Page Width', 'uw-madison-wp-2015' ),
+		'description' => '',
+		'section' => 'uw-madison-wp-2015-sidebar-options',
+		'settings' => 'uw-madison-wp-2015_maxpgwidth_id',
+		'priority'   => 2,
+	) 
+));
+
+
+
 /** Posted by location **/
 
 $wp_customize->add_setting('uw-madison-wp-2015_postedby_id', array(
@@ -1523,7 +1597,12 @@ function sanitize_campus_title( $value ) {
     return $value;
 }
 
-
+function sanitize_maxpgwidth_options( $value ) {
+    if ( !$value )
+        $value = '1500';
+ 
+    return $value;
+}
 
 function sanitize_tagline_location( $value ) {
     if ( !$value )
