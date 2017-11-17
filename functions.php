@@ -6140,6 +6140,11 @@ acf_add_local_field_group(array (
 
 endif;
 
+/** fix jetpack gallery width */
+if ( ! isset( $content_width ) )
+/**set width below **/
+ $content_width = 1020;
+
 
 
 /**
