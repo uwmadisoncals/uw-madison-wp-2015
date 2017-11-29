@@ -101,6 +101,11 @@
 
 												 }
 
+												 if( get_row_layout() == 'periodic_table' ) {
+													include 'periodic_table.php';	
+
+												 }
+
 												if( get_row_layout() == '2c_highlighted_content' ) {
 
 														$authorvisible = get_sub_field("hide_author");
@@ -237,6 +242,11 @@
 
 												if( get_row_layout() == 'remote_wp_content' ) {
 													include 'wp_remote_content.php';	
+
+												 }
+
+												 if( get_row_layout() == 'periodic_table' ) {
+													include 'periodic_table.php';	
 
 												 }
 

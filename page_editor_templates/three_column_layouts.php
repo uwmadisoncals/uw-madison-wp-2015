@@ -86,6 +86,11 @@
 
 												 }
 
+												 if( get_row_layout() == 'periodic_table' ) {
+													include 'periodic_table.php';	
+
+												 }
+
 													if( get_row_layout() == '3c_highlighted_content' ) {
 														 if(have_rows("3c_highlighted_content_type")) { ?>
 														 	
@@ -215,6 +220,11 @@
 
 												 }
 
+												 if( get_row_layout() == 'periodic_table' ) {
+													include 'periodic_table.php';	
+
+												 }
+
 												if( get_row_layout() == '3c_highlighted_content' ) {
 														 if(have_rows("3c_highlighted_content_type")) { ?>
 														
@@ -341,6 +351,11 @@
 
 												 if( get_row_layout() == 'interactive_card' ) {
 													include 'interactive_card.php';	
+
+												 }
+
+												 if( get_row_layout() == 'periodic_table' ) {
+													include 'periodic_table.php';	
 
 												 }
 

@@ -167,6 +167,11 @@
 
 												 }
 
+												 if( get_row_layout() == 'periodic_table' ) {
+													include 'periodic_table.php';	
+
+												 }
+
 												
 													if( get_row_layout() == 'person_feature' ) {
 														 
