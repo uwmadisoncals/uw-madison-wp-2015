@@ -1,10 +1,162 @@
 <?php //periodic table ?>
 
+
+
+<style>
+  .periodic-row:nth-child(2) .cell:nth-child(1) .element,
+  .periodic-row:nth-child(3) .cell:nth-child(1) .element,
+  .periodic-row:nth-child(4) .cell:nth-child(1) .element,
+  .periodic-row:nth-child(5) .cell:nth-child(1) .element,
+  .periodic-row:nth-child(6) .cell:nth-child(1) .element,
+  .periodic-row:nth-child(7) .cell:nth-child(1) .element {
+    background-color: <?php the_sub_field("alkalai_metals"); ?>;
+  }
+
+
+  .periodic-row:nth-child(1) .cell:nth-child(1) .element,
+  .periodic-row:nth-child(2) .cell:nth-child(14) .element,
+  .periodic-row:nth-child(2) .cell:nth-child(15) .element,
+  .periodic-row:nth-child(2) .cell:nth-child(16) .element,
+  .periodic-row:nth-child(3) .cell:nth-child(15) .element,
+  .periodic-row:nth-child(3) .cell:nth-child(16) .element,
+  .periodic-row:nth-child(4) .cell:nth-child(16) .element {
+    background-color: <?php the_sub_field("other_non_metals"); ?>;
+  }
+
+  
+  .periodic-row:nth-child(2) .cell:nth-child(2) .element,
+  .periodic-row:nth-child(3) .cell:nth-child(2) .element,
+  .periodic-row:nth-child(4) .cell:nth-child(2) .element,
+  .periodic-row:nth-child(5) .cell:nth-child(2) .element,
+  .periodic-row:nth-child(6) .cell:nth-child(2) .element,
+  .periodic-row:nth-child(7) .cell:nth-child(2) .element {
+    background-color: <?php the_sub_field("alkalaine_earth_metals"); ?>;
+  }
+
+  .periodic-row:nth-child(9) .cell:nth-child(n+1) .element {
+    background-color: <?php the_sub_field("lanthanides"); ?>;
+  }
+
+  .periodic-row:nth-child(10) .cell:nth-child(n+1) .element {
+    background-color: <?php the_sub_field("actinides"); ?>;
+  }
+  
+  .periodic-row:nth-child(4) .cell:nth-child(3) .element,
+  .periodic-row:nth-child(5) .cell:nth-child(3) .element,
+  .periodic-row:nth-child(6) .cell:nth-child(3) .element,
+  .periodic-row:nth-child(7) .cell:nth-child(3) .element,
+  .periodic-row:nth-child(4) .cell:nth-child(4) .element,
+  .periodic-row:nth-child(5) .cell:nth-child(4) .element,
+  .periodic-row:nth-child(6) .cell:nth-child(4) .element,
+  .periodic-row:nth-child(7) .cell:nth-child(4) .element,
+  .periodic-row:nth-child(4) .cell:nth-child(5) .element,
+  .periodic-row:nth-child(5) .cell:nth-child(5) .element,
+  .periodic-row:nth-child(6) .cell:nth-child(5) .element,
+  .periodic-row:nth-child(7) .cell:nth-child(5) .element,
+  .periodic-row:nth-child(4) .cell:nth-child(6) .element,
+  .periodic-row:nth-child(5) .cell:nth-child(6) .element,
+  .periodic-row:nth-child(6) .cell:nth-child(6) .element,
+  .periodic-row:nth-child(7) .cell:nth-child(6) .element,
+  .periodic-row:nth-child(4) .cell:nth-child(7) .element,
+  .periodic-row:nth-child(5) .cell:nth-child(7) .element,
+  .periodic-row:nth-child(6) .cell:nth-child(7) .element,
+  .periodic-row:nth-child(7) .cell:nth-child(7) .element,
+  .periodic-row:nth-child(4) .cell:nth-child(8) .element,
+  .periodic-row:nth-child(5) .cell:nth-child(8) .element,
+  .periodic-row:nth-child(6) .cell:nth-child(8) .element,
+  .periodic-row:nth-child(7) .cell:nth-child(8) .element,
+  .periodic-row:nth-child(4) .cell:nth-child(9) .element,
+  .periodic-row:nth-child(5) .cell:nth-child(9) .element,
+  .periodic-row:nth-child(6) .cell:nth-child(9) .element,
+  .periodic-row:nth-child(4) .cell:nth-child(10) .element,
+  .periodic-row:nth-child(5) .cell:nth-child(10) .element,
+  .periodic-row:nth-child(6) .cell:nth-child(10) .element,
+  .periodic-row:nth-child(4) .cell:nth-child(11) .element,
+  .periodic-row:nth-child(5) .cell:nth-child(11) .element,
+  .periodic-row:nth-child(6) .cell:nth-child(11) .element,
+  .periodic-row:nth-child(4) .cell:nth-child(12) .element,
+  .periodic-row:nth-child(5) .cell:nth-child(12) .element,
+  .periodic-row:nth-child(6) .cell:nth-child(12) .element,
+  .periodic-row:nth-child(7) .cell:nth-child(12) .element {
+    background-color: <?php the_sub_field("transition_metals"); ?>;
+  }
+
+  
+  .periodic-row:nth-child(3) .cell:nth-child(13) .element,
+  .periodic-row:nth-child(4) .cell:nth-child(13) .element,
+  .periodic-row:nth-child(5) .cell:nth-child(13) .element,
+  .periodic-row:nth-child(5) .cell:nth-child(14) .element,
+  .periodic-row:nth-child(6) .cell:nth-child(13) .element,
+  .periodic-row:nth-child(6) .cell:nth-child(14) .element,
+  .periodic-row:nth-child(6) .cell:nth-child(15) .element,
+  .periodic-row:nth-child(6) .cell:nth-child(16) .element {
+    background-color: <?php the_sub_field("post_transition_metals"); ?>;
+  }
+
+  .periodic-row:nth-child(2) .cell:nth-child(13) .element,
+  .periodic-row:nth-child(3) .cell:nth-child(14) .element,
+  .periodic-row:nth-child(4) .cell:nth-child(14) .element,
+  .periodic-row:nth-child(4) .cell:nth-child(15) .element,
+  .periodic-row:nth-child(5) .cell:nth-child(15) .element,
+  .periodic-row:nth-child(5) .cell:nth-child(16) .element {
+    background-color: <?php the_sub_field("metalloids"); ?>;
+  }
+
+  .periodic-row:nth-child(2) .cell:nth-child(17) .element,
+  .periodic-row:nth-child(3) .cell:nth-child(17) .element,
+  .periodic-row:nth-child(4) .cell:nth-child(17) .element,
+  .periodic-row:nth-child(5) .cell:nth-child(17) .element,
+  .periodic-row:nth-child(6) .cell:nth-child(17) .element {
+    background-color: <?php the_sub_field("halogens"); ?>;
+  }
+
+  .periodic-row:nth-child(1) .cell:nth-child(18) .element,
+  .periodic-row:nth-child(2) .cell:nth-child(18) .element,
+  .periodic-row:nth-child(3) .cell:nth-child(18) .element,
+  .periodic-row:nth-child(4) .cell:nth-child(18) .element,
+  .periodic-row:nth-child(5) .cell:nth-child(18) .element,
+  .periodic-row:nth-child(6) .cell:nth-child(18) .element {
+    background-color: <?php the_sub_field("noble_gases"); ?>;
+  }
+
+  .periodic-row:nth-child(7) .cell:nth-child(9) .element,
+  .periodic-row:nth-child(7) .cell:nth-child(10) .element,
+  .periodic-row:nth-child(7) .cell:nth-child(11) .element,
+  .periodic-row:nth-child(7) .cell:nth-child(16) .element,
+  .periodic-row:nth-child(7) .cell:nth-child(13) .element,
+  .periodic-row:nth-child(7) .cell:nth-child(14) .element,
+  .periodic-row:nth-child(7) .cell:nth-child(15) .element,
+  .periodic-row:nth-child(7) .cell:nth-child(17) .element,
+  .periodic-row:nth-child(7) .cell:nth-child(18) .element {
+    background-color: <?php the_sub_field("unknown_properties"); ?>;
+  }
+
+ 
+
+</style>
+
+<?php 
+    if(get_sub_field('non_active_hue')) { ?>
+      <style>
+      .inactive_element .element {
+        background-color: <?php the_sub_field("non_interactive_elements"); ?> !important;
+      }
+      </style>
+    <?php }
+  
+  ?> 
+
+
+
 <?php 
     //enter variables here
     //$repeater = get_sub_field('interactive_elements');
 
     if( have_rows('interactive_elements') ): ?>
+       
+           
+        
+
         <script>
     $( document ).ready(function() {
 
@@ -12,16 +164,13 @@
                         var element = $(this);
                         var elemlabel = $(this).find("div.symbol").text();
                         elemlabel = elemlabel.toLowerCase();
-                        $(this).closest(".cell").addClass(elemlabel);
+                        $(this).closest(".cell").addClass(elemlabel).addClass("inactive_element");
 
                         
                     });
 
-                    
-                    
-                    
 
-                    $("body").append("<div class='periodic_overlay' onClick='hideOverlay()'></div><div class='periodic_frame'><a href='#' class='close'><svg height='48' viewBox='0 0 48 48' width='48' xmlns='http://www.w3.org/2000/svg'><path class='symbol' d='M38 12.83l-2.83-2.83-11.17 11.17-11.17-11.17-2.83 2.83 11.17 11.17-11.17 11.17 2.83 2.83 11.17-11.17 11.17 11.17 2.83-2.83-11.17-11.17z'/><path d='M0 0h48v48h-48z' fill='none'/></svg> Close</a><div class='video_Wrapper'></div></div>");
+                    $("body").append("<div class='periodic_overlay' onClick='hideOverlay()'></div><div class='periodic_frame'><div class='periodic_description'></div><a href='#' class='close'><svg height='48' viewBox='0 0 48 48' width='48' xmlns='http://www.w3.org/2000/svg'><path class='symbol' d='M38 12.83l-2.83-2.83-11.17 11.17-11.17-11.17-2.83 2.83 11.17 11.17-11.17 11.17 2.83 2.83 11.17-11.17 11.17 11.17 2.83-2.83-11.17-11.17z'/><path d='M0 0h48v48h-48z' fill='none'/></svg> Close</a><div class='video_Wrapper'></div></div>");
 
                  
                     $(".periodic_overlay, .periodic_frame .close").click(function(e) {
@@ -44,7 +193,8 @@
             $action = get_sub_field('element_action');
             $url = get_sub_field('element_url');
             $video = get_sub_field('embed_video');
-
+            $description = get_sub_field('element_description');
+              
             
 
 
@@ -70,10 +220,14 @@
                    var action = "<?php echo $action ?>";
                    var url = "<?php echo $url; ?>";
                    var video = "<?php echo $video; ?>";
-
+                   var description = "<?php echo $description; ?>";
+                   
+                  
                    if(video != "") {
                     var videoembed = "<iframe src='"+ parseUrl(video) + "?title=0&byline=0&portrait=0' width='500' height='281' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
                    }
+
+                   $(clickselector).removeClass("inactive_element");
 
                    var currentinnerhtml = $(clickselector).html();
                    var newinnerhtml = "<a href='#' class='cell " + selector + "'>" + currentinnerhtml + "</a>";
@@ -87,6 +241,7 @@
                         e.preventDefault();
                         $(".periodic_overlay, .periodic_frame").addClass("shown");
                         $(".periodic_frame .video_Wrapper").html(videoembed);
+                        $(".periodic_frame .periodic_description").html(description);
                     });
                    }
 
