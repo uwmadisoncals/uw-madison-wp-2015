@@ -164,7 +164,7 @@
             <?php if( have_rows('custom_elements_group')): ?>
             .d
               <?php while( have_rows('custom_elements_group') ): the_row(); ?>
-                , .periodic a.<?php the_sub_field('element'); ?> .element 
+                , .periodic .<?php the_sub_field('element'); ?> .element 
               <?php endwhile; ?>
             <?php endif; ?>
              {
