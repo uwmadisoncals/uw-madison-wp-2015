@@ -149,10 +149,37 @@
 
 
 <?php 
-    //enter variables here
-    //$repeater = get_sub_field('interactive_elements');
 
-    if( have_rows('interactive_elements') ): ?>
+    if( have_rows('custom_groups')): ?>
+      <div class="group_legend">
+        <ul>
+        <?php while( have_rows('custom_groups') ): the_row(); ?>
+            <li><span class="swatch" style="background-color: <?php the_sub_field('group_color'); ?>"></span><?php the_sub_field('group_name'); ?></li>
+        <?php endwhile; ?>
+        </ul>
+    </div>
+        <style>
+
+<?php while( have_rows('custom_groups') ): the_row(); ?>
+            <?php if( have_rows('custom_elements_group')): ?>
+            .d
+              <?php while( have_rows('custom_elements_group') ): the_row(); ?>
+                , .periodic a.<?php the_sub_field('element'); ?> .element 
+              <?php endwhile; ?>
+            <?php endif; ?>
+             {
+              background-color: <?php the_sub_field('group_color'); ?> !important;
+             }
+
+        <?php endwhile; ?>
+
+        </style>
+    <?php endif; ?>
+
+    
+
+
+    <?php if( have_rows('interactive_elements') ): ?>
        
            
         
