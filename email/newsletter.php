@@ -865,7 +865,7 @@ $message_body.='</div></td></tr></table>
 
                                         <tr>
                                             <td valign="top" class="footerContent" style="display:block;  padding-right:20px; padding-bottom:20px; padding-left:20px; padding-top:0;" mc:edit="footer_content01">
-                                                <em>&copy; Copyright 2015 The Board of Regents of the University of Wisconsin System</em>
+                                                <em>&copy; Copyright '.date('Y', time()).' The Board of Regents of the University of Wisconsin System</em>
                                                 <br />
 
                                                 <br />
