@@ -5477,6 +5477,29 @@ acf_add_local_field_group(array (
 													'display' => 'block',
 													'sub_fields' => array (
 														array (
+															'key' => 'field_5a4e50eb2ad29',
+															'label' => 'Page to Highlight',
+															'name' => '3c_page_to_highlight',
+															'type' => 'post_object',
+															'instructions' => '',
+															'required' => 1,
+															'conditional_logic' => 0,
+															'wrapper' => array (
+																'width' => '',
+																'class' => '',
+																'id' => '',
+															),
+															'post_type' => array (
+																0 => 'page',
+															),
+															'taxonomy' => array (
+															),
+															'allow_null' => 0,
+															'multiple' => 0,
+															'return_format' => 'id',
+															'ui' => 1,
+														),
+														array (
 															'key' => 'field_5971199077b2d',
 															'label' => 'Hide Date',
 															'name' => 'hidedate',
