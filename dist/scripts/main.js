@@ -3902,7 +3902,7 @@ $(".fundraising_link").mouseout(function() {
 			
 			$.ajax({ 
                   
-                    url: 'http://www.wisc.edu/directories/json/?jsonp=?',
+                    url: 'https://www.wisc.edu/directories/json/?jsonp=?',
                     type: 'GET',
                     dataType: 'json',
                     data: {name: value, division: 'COLLEGE OF AGRICULTURAL & LIFE SCIENCES'},
