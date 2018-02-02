@@ -26,7 +26,7 @@ var gulp = require('gulp'),
 gulp.task('styles', function() {
   return gulp.src('scss/master.scss')
     .pipe(sass({ outputStyle: 'expanded', }))
-    .pipe(rename({ suffix: '-11292017.min' }))
+    .pipe(rename({ suffix: '-02022018.min' }))
     .pipe(minifycss())
     .pipe(livereload(server))
     .pipe(gulp.dest('dist/styles'))
@@ -38,7 +38,7 @@ gulp.task('styles', function() {
 gulp.task('styles-admin', function() {
   return gulp.src('scss/admin-styles.scss')
     .pipe(sass({ style: 'expanded', }))
-    .pipe(rename({ suffix: '-11292017.min' }))
+    .pipe(rename({ suffix: '-02022018.min' }))
     .pipe(minifycss())
     .pipe(livereload(server))
     .pipe(gulp.dest('dist/styles'))
@@ -52,7 +52,7 @@ gulp.task('scripts', function() {
   return gulp.src(['js/jquery.visible.js','js/detect-zoom.js','js/jquery.suggest.js','js/color-thief.min.js','js/color-thief-init.js','js/flickity.js','js/flickity-sync.js','js/isotope.min.js','js/imagesloaded.js','js/detectbrowser.js','js/fastclick.js','js/history.js','js/global.js'])
     .pipe(concat('main.js'))
     .pipe(gulp.dest('dist/scripts'))
-    .pipe(rename({ suffix: '-11292017.min' }))
+    .pipe(rename({ suffix: '-02022018.min' }))
     .pipe(uglify())
     .pipe(livereload(server))
     .pipe(gulp.dest('dist/scripts'))

@@ -2025,6 +2025,8 @@ $(".fundraising_link").mouseout(function() {
  *
  * ----------------------------------------------------------------------------
  */
+	//console.log('check');
+
  	var searchUiHeight = $(".searchUI").height();
  	var remainingHeight = $(window).height();
  	var resultsMinHeight = remainingHeight - searchUiHeight;
@@ -2034,8 +2036,9 @@ $(".fundraising_link").mouseout(function() {
 	var searchok = true;
 
 	function directorySearch(value) {
-		//var value = $(".search-form #s, .gsc-input").val();
+		//var value = $(".search-form #s, #gsc-i-id1").val();
 		//var elem = $(".search-form #s, .gsc-input");
+		console.log("function run with value: " + value);
 		
 		
 
@@ -2113,7 +2116,8 @@ $(".fundraising_link").mouseout(function() {
                                 
     
                                 }
-                                
+								
+								console.log("output to sidebar: " + output);
                                 $("#cals_uwds_search_results").html(output);
                                 //$(".filtered .directory").html(output);
                                 //console.log(XMLHttpRequest);	
@@ -2129,9 +2133,26 @@ $(".fundraising_link").mouseout(function() {
 		}
 	}
 
-	directorySearch($(".search-form #s, .gsc-input").val());
+	directorySearch($(".search-form #s, input#gsc-i-id1").val());
 
 
+	
+
+	var findinput = setInterval(function() {
+		if($("input#gsc-i-id1")) {
+			console.log("found input");
+			clearInterval(findinput);
+
+			$(".search-form #s, input#gsc-i-id1").keyup(function() {
+		
+				var valtosend = $(this).val();
+				console.log("onkeyup send: "+ valtosend);
+				directorySearch(valtosend);
+			});
+		}
+	},1000);
+
+	
 	
 
 
