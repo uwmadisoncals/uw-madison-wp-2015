@@ -949,6 +949,25 @@ $wp_customize->add_control('uw-madison-wp-2015-fp', array(
 ));
 
 
+/*** HotJar Analytics ***/
+
+$wp_customize->add_setting('uw-madison-wp-2015_hj_id', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'theme_mod',
+    'default'		 => '',
+    'sanitize_callback' => 'sanitize_hj_options'
+ 
+));
+
+$wp_customize->add_control('uw-madison-wp-2015-hj', array(
+    'label'      => __('Hotjar Analytics', 'uw-madison-wp-2015'),
+    'description'=> 'Enter your ID.',
+    'section'    => 'uw-madison-wp-2015-analytics-options',
+    'type'    => 'text',
+    'settings'   => 'uw-madison-wp-2015_hj_id',
+));
+
+
 	
 
 /*** Twitter ***/
@@ -1699,6 +1718,13 @@ function sanitize_flickr_options( $value ) {
 
 
 function sanitize_ga_options( $value ) {
+    if ( !$value )
+        $value = '';
+ 
+    return $value;
+}
+
+function sanitize_hj_options( $value ) {
     if ( !$value )
         $value = '';
  

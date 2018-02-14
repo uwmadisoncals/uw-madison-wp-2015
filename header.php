@@ -105,6 +105,23 @@ var templateUrl = '<?php home_url(); ?>';
 <?php } ?>
 
 
+<?php $hj_tracking = get_theme_mod("uw-madison-wp-2015_hj_id");  if($hj_tracking) { ?>
+
+<!-- Hotjar Tracking Code -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:<?php echo $hj_tracking ?>,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+<?php } ?>
+
+
 <?php $gcse = get_theme_mod("uw-madison-wp-2015_gcse_id"); ?>
 <?php if($gcse != "") { ?>
 		
