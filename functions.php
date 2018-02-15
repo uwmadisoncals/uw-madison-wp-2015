@@ -2052,6 +2052,52 @@ function uw_madison_wp_2015_register_required_plugins() {
 
 }
 
+/*** Adding custom 403 error Support ***/
+
+function custom_error_pages()
+{
+    global $wp_query;
+ 
+    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)
+    {
+        $wp_query->is_404 = FALSE;
+        $wp_query->is_page = TRUE;
+        $wp_query->is_singular = TRUE;
+        $wp_query->is_single = FALSE;
+        $wp_query->is_home = FALSE;
+        $wp_query->is_archive = FALSE;
+        $wp_query->is_category = FALSE;
+        add_filter('wp_title','custom_error_title',65000,2);
+        add_filter('body_class','custom_error_class');
+        status_header(403);
+        get_template_part('403');
+        exit;
+    }
+ 
+    
+}
+ 
+function custom_error_title($title='',$sep='')
+{
+    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)
+        return "Forbidden ".$sep." ".get_bloginfo('name');
+ 
+    
+}
+ 
+function custom_error_class($classes)
+{
+    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)
+    {
+        $classes[]="error403";
+        return $classes;
+    }
+ 
+    
+}
+ 
+add_action('wp','custom_error_pages');
+
 
 /**** Adding SVG Support ****/
 function cc_mime_types( $mimes ){
