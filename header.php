@@ -885,12 +885,12 @@ var templateUrl = '<?php home_url(); ?>';
 
 
 	<?php if(is_front_page()) { ?>
-		<script>console.log("front page");</script>
+		
 		<?php $background_color = get_background_color(); ?>
 		<div id="content" class="site-content row">
 			<?php $header_frosted_glass = get_theme_mod( 'uw-madison-wp-2015_headerslides_frostedglass_id' ); if($header_frosted_glass == true) {  ?>
 			<div class="whiteGradient">
-				<div class="frostedShelf" <?php if($background_color) {  if($page_width_class == "inset") { ?> style="background: -moz-linear-gradient(top,  rgba(255,255,255,0.6) 0%, #f7f7f7 100%); background: -webkit-linear-gradient(top,  rgba(255,255,255,0.6) 0%, #f7f7f7 100%);
+				<div class="frostedShelf <?php echo $background_color;?>" <?php if($background_color) {  if($page_width_class == "inset") { ?> style="background: -moz-linear-gradient(top,  rgba(255,255,255,0.6) 0%, #f7f7f7 100%); background: -webkit-linear-gradient(top,  rgba(255,255,255,0.6) 0%, #f7f7f7 100%);
 background: linear-gradient(to bottom,  rgba(255,255,255,0.6) 0%, #f7f7f7 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66ffffff', endColorstr='#f7f7f7',GradientType=0 );" <? } else { ?> style="background: -moz-linear-gradient(top,  rgba(255,255,255,0.6) 0%, #<?php echo $background_color; ?> 100%); background: -webkit-linear-gradient(top,  rgba(255,255,255,0.6) 0%, #<?php echo $background_color; ?> 100%);
 background: linear-gradient(to bottom,  rgba(255,255,255,0.6) 0%, #<?php echo $background_color; ?> 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66ffffff', endColorstr='#<?php echo $background_color; ?>',GradientType=0 );"<?php } ?> <?php } ?>></div>
 				<div class="frostedImage">
