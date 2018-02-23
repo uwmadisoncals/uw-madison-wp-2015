@@ -885,6 +885,7 @@ var templateUrl = '<?php home_url(); ?>';
 
 
 	<?php if(is_front_page()) { ?>
+		<script>console.log("front page");</script>
 		<?php $background_color = get_background_color(); ?>
 		<div id="content" class="site-content row">
 			<?php $header_frosted_glass = get_theme_mod( 'uw-madison-wp-2015_headerslides_frostedglass_id' ); if($header_frosted_glass == true) {  ?>
@@ -1078,7 +1079,7 @@ background: linear-gradient(to bottom,  rgba(255,255,255,0.6) 0%, #<?php echo $b
 		<div id="content" class="site-content post-content row">
 			<?php $header_frosted_glass = get_theme_mod( 'uw-madison-wp-2015_headerslides_frostedglass_subpages_id' ); if($header_frosted_glass == true) {  ?>
 			<div class="whiteGradient">
-				<div class="frostedShelf"></div>
+				<div class="frostedShelf check"></div>
 				<div class="frostedImage">
 
 					<?php $args = array( 'post_type' => 'headerslides', 'posts_per_page' => 1 );
