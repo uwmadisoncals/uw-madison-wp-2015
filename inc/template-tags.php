@@ -83,8 +83,8 @@ function uw_madison_wp_2015_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		_x( 'Posted on %s', 'post date', 'uw-madison-wp-2015' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		_x( '%s', 'post date', 'uw-madison-wp-2015' ),
+		 $time_string 
 	);
 
 	$byline = sprintf(
@@ -99,7 +99,7 @@ function uw_madison_wp_2015_posted_on() {
 		'<span>'.esc_html( the_field('written_by' ) ).'</span>'
 	);*/
 
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>';
+	echo '<span class="posted-on">' . $posted_on . '</span>';
 
 }
 endif;

@@ -600,6 +600,10 @@ function mytheme_customize_register( $wp_customize ) {
  * Since NARGA v1.6
  */
 
+$wp_customize->add_section( 'uw-madison-wp-2015-post-options' , array(
+	'title'      => __( 'Post Options', 'uw-madison-wp-2015' ),
+	'priority'   => 58,
+) ); 
 
 $wp_customize->add_section( 'uw-madison-wp-2015-navigation-options' , array(
     	'title'      => __( 'Navigation Options', 'uw-madison-wp-2015' ),
@@ -799,6 +803,29 @@ $wp_customize->add_control('uw-madison-wp-2015-home_logo_position', array(
 ));
 
 
+
+/*** Add option to hide main navigation ***/
+
+$wp_customize->add_setting('uw-madison-wp-2015_post_featured_setting_id', array(
+    'capability'     => 'edit_theme_options',
+    'default'		 => 'overlay',
+    'type'           => 'theme_mod',
+    'sanitize_callback' => 'sanitize_post_featured'
+ 
+));
+
+$wp_customize->add_control('uw-madison-wp-2015-post_featured_style', array(
+    'label'      => __('Featured Image Style', 'uw-madison-wp-2015'),
+    'description'=> 'Select how featured images and their titles will be styled on all posts.',
+    'section'    => 'uw-madison-wp-2015-post-options',
+    'type'    => 'radio',
+    'choices' => array(
+            'overlay' => __( 'Overlay Title on the Image (default)', 'uw-madison-wp-2015' ),
+            'title_above' => __( 'Place Title Above the Image', 'uw-madison-wp-2015' )
+        ),
+    'settings'   => 'uw-madison-wp-2015_post_featured_setting_id',
+    'priority'	=> 1
+));
 
 
 /*** Add option to hide main navigation ***/
@@ -1583,6 +1610,13 @@ $wp_customize->add_control('uw-madison-wp-2015-sidebar-options', array(
 function sanitize_hide_show_nav( $value ) {
     if ( !$value )
         $value = 'no';
+ 
+    return $value;
+}
+
+function sanitize_post_featured( $value ) {
+    if ( !$value )
+        $value = 'overlay';
  
     return $value;
 }
