@@ -51,23 +51,23 @@
 						
 							<?php if($postedbylocation != "lower") {
 								
+								
 									uw_madison_wp_2015_posted_on();
 									if(get_field('written_by')) { 
 										echo '<span style="color: rgba(0,0,0,0.5);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
-									the_field('written_by');
-									echo '</div></span>';
-								} else {
-									uw_madison_wp_2015_posted_on();
-									if(get_field('written_by')) { 
-										echo '<span style="color: rgba(0,0,0,0.5);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
-									the_field('written_by');
-									echo '</div></span>';
+										the_field('written_by');
+										echo '</div></span>';
 									}
-								}
+								
 							} else { ?>
 
 
 								<div class="posted-on"><?php the_date(); ?></div>
+								<?php if(get_field('written_by')) { 
+										echo '<span style="color: rgba(0,0,0,0.5);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
+										the_field('written_by');
+										echo '</div></span>';
+									} ?>
 
 							
 							<?php	}  ?>
