@@ -601,7 +601,7 @@ function mytheme_customize_register( $wp_customize ) {
  */
 
 $wp_customize->add_section( 'uw-madison-wp-2015-post-options' , array(
-	'title'      => __( 'Post Options', 'uw-madison-wp-2015' ),
+	'title'      => __( 'News/Blog Post Options', 'uw-madison-wp-2015' ),
 	'priority'   => 58,
 ) ); 
 
@@ -1117,10 +1117,9 @@ $wp_customize->add_setting('uw-madison-wp-2015_options_id', array(
 ));
 
  
-$wp_customize->add_control('uw-madison-wp-2015-home-options', array(
+$wp_customize->add_control('uw-madison-wp-2015-home-options-control', array(
     'label'      => __('Featured Page', 'uw-madison-wp-2015'),
     'section'    => 'uw-madison-wp-2015-home-options',
-    'active_callback' => 'is_home',
     'type'    => 'dropdown-pages',
     'settings'   => 'uw-madison-wp-2015_options_id',
 ));
@@ -1535,7 +1534,6 @@ $wp_customize->add_control( new Layout_Picker_Custom_Control(
 	array(
 		'label'	=> __( 'Latest Posts Layout', 'uw-madison-wp-2015' ),
 		'section' => 'uw-madison-wp-2015-home-options',
-		'active_callback' => 'is_home',
 		'settings' => 'uw-madison-wp-2015_layout_id',
 	) 
 ));

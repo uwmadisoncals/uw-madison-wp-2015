@@ -58,8 +58,15 @@
 									echo '</div></span>';
 								} else {
 									uw_madison_wp_2015_posted_on();
+									if(get_field('written_by')) { 
+										echo '<span style="color: rgba(0,0,0,0.5);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
+									the_field('written_by');
+									echo '</div></span>';
+									}
 								}
 							} else { ?>
+
+
 								<div class="posted-on"><?php the_date(); ?></div>
 
 							
@@ -98,11 +105,11 @@
 								uw_madison_wp_2015_posted_on();
 								if(get_field('written_by')) { 
 									echo '<span style="color: rgba(255,255,255,0.6);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
-								the_field('written_by');
-								echo '</div></span>';
-							} else {
-								uw_madison_wp_2015_posted_on();
-							}
+									the_field('written_by');
+									echo '</div></span>';
+								} else {
+									uw_madison_wp_2015_posted_on();
+								}
 							} else { ?>
 								<div class="posted-on"><?php the_date(); ?></div>
 
@@ -131,7 +138,7 @@
 							} ?>
 							<?php if($postedbylocation != "lower") {
 								uw_madison_wp_2015_posted_on();
-							} else { ?>
+								} else { ?>
 								<div class="posted-on"><?php the_date(); ?></div>
 
 						<?php	} ?>
