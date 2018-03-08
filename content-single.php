@@ -121,27 +121,56 @@
 
 			<?php } ?>
 		<?php	} else { ?>
+
+		
 					<?php if(get_field("sub_title")) { ?>
 				  			<h2 class="entrySubTitle"><?php the_field("sub_title"); ?></h2>
 				  	<?php } ?>
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	
 					<div class="entry-meta">
-						<?php 
-							if(get_field('written_by')) { 
-								
-								echo '<div class="byline" style="display: block; margin-top: 0.5rem;"> By ';
-								the_field('written_by');
-								echo '</div>';
-							} else {
-								//uw_madison_wp_2015_posted_on();
-							} ?>
-							<?php if($postedbylocation != "lower") {
-								uw_madison_wp_2015_posted_on();
-								} else { ?>
-								<div class="posted-on"><?php the_date(); ?></div>
 
-						<?php	} ?>
+
+						<?php if($postedbylocation != "lower") {
+								
+								
+								uw_madison_wp_2015_posted_on();
+								if(get_field('written_by')) { 
+									echo '<span style="color: rgba(0,0,0,0.5);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
+									the_field('written_by');
+									echo '</div></span>';
+								}
+							
+						} else { ?>
+
+
+							<div class="posted-on"><?php the_date(); ?></div>
+							<?php if(get_field('written_by')) { 
+									echo '<span style="color: rgba(0,0,0,0.5);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
+									the_field('written_by');
+									echo '</div></span>';
+								} ?>
+
+						
+						<?php	}  ?>
+
+						<style>
+							.post h1.entry-title {
+								text-transform: unset;
+							}
+						
+							.post .entry-meta .byline, .post .entry-meta .posted-on  {
+								display: inline-block;
+								font-size: 0.9rem;
+								font-weight: 600;
+    							letter-spacing: 0.3px;
+								color: rgba(0,0,0,0.5);
+								text-transform: unset;
+								
+							}
+						</style>
+
+						
 					</div><!-- .entry-meta -->
 			
 		<?php } ?>
