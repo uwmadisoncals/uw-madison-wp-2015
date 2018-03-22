@@ -19,4 +19,5 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 
 .postTitleAbove .gridstyle2 .tiltWrapper.noThumb .textContent h2 {
   text-transform: unset;
+  font-size: 1.2rem;
 }
