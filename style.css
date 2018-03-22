@@ -17,3 +17,6 @@ Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 */
 
+.postTitleAbove .gridstyle2 .tiltWrapper.noThumb .textContent h2 {
+  text-transform: unset;
+}

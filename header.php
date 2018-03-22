@@ -74,7 +74,7 @@ var templateUrl = '<?php home_url(); ?>';
     var _elqQ = _elqQ || [];
     _elqQ.push(['elqSetSiteId', '<?php echo $eq_tracking ?>']);
     _elqQ.push(['elqTrackPageView']);
-    
+   
     (function () {
         function async_load() {
             var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
@@ -82,7 +82,7 @@ var templateUrl = '<?php home_url(); ?>';
             var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
         }
         if (window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
-        else if (window.attachEvent) window.attachEvent('onload', async_load); 
+        else if (window.attachEvent) window.attachEvent('onload', async_load);
     })();
 </script>
 
@@ -124,7 +124,7 @@ var templateUrl = '<?php home_url(); ?>';
 
 <?php $gcse = get_theme_mod("uw-madison-wp-2015_gcse_id"); ?>
 <?php if($gcse != "") { ?>
-		
+
 <script>
 
 
@@ -146,8 +146,8 @@ var templateUrl = '<?php home_url(); ?>';
 <body <?php body_class(); ?> style="background-color: #<?php background_color(); ?>">
 
 
-<?php $max_page_width = get_theme_mod( 'uw-madison-wp-2015_maxpgwidth_id' ); 
-		
+<?php $max_page_width = get_theme_mod( 'uw-madison-wp-2015_maxpgwidth_id' );
+
 		if($max_page_width) {
 
 			if($max_page_width == "1500") {
@@ -218,7 +218,7 @@ var templateUrl = '<?php home_url(); ?>';
 
 
 
-<div id="page" style="<?php echo $page_width_value; ?>" class="hfeed site <?php echo $page_width_class; ?> <?php $editor = get_field('page_editor'); if($editor == "advanced") { echo "apesetup"; } ?> <?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { echo "hiddenSlides"; } else { echo "visibleSlides"; } ?> <?php $header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' ); if($header_style == "opaque") { echo "solidHeader"; } else if($header_style == "photo") { echo "photoHeader"; } else { echo "photoHeader"; } ?> <?php $home_layout_settings = get_theme_mod( 'uw-madison-wp-2015_layout_id' ); if($home_layout_settings == "tiles") { echo "tiledPosts"; }; if($home_layout_settings == "right_sidebar") { echo "postsRightSidebar"; } ?> <?php $header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' ); if($header_layout_settings == "righthand") { echo "rightHandNav"; } else { echo "navBar"; } ?> <?php if( get_field('hide_the_side_navigation')) { echo "hiddenSidebar"; } ?> <?php if( get_field('page_theme') == 'documentation') { echo 'documentationSection'; } ?> <?php $sidebar_settings = get_theme_mod( 'uw-madison-wp-2015_sidebar_style_id' ); if($sidebar_settings == "card") { echo 'cardSidebar'; } else if($sidebar_settings == "dots") { echo 'dotsSidebar'; } else { echo 'lineSidebar'; } ?><?php $fontselection = get_theme_mod( 'uw-madison-wp-2015_fonts_id' ); echo ' '.$fontselection; ?> <?php if(get_field('featured_pages_layouts')) { $page_layout = get_field('featured_pages_layouts'); if($page_layout == 'listr') { echo 'listRightSidebar'; }  } ?> <?php $header_slides_dots = get_theme_mod( 'uw-madison-wp-2015_headerslides_dots_id' ); if($header_slides_dots == true) { echo "hiddenSlideDots"; } ?> <?php $header_slides_arrows = get_theme_mod( 'uw-madison-wp-2015_headerslides_arrows_id' ); if($header_slides_arrows == true) { echo "hiddenSlideArrows"; } ?> <?php $header_slides_transition = get_theme_mod( 'uw-madison-wp-2015_headerslides_transition_id' ); if($header_slides_transition == true) { echo "headerSlidesFade"; } ?> <?php $logo_position = get_theme_mod( 'uw-madison-wp-2015_home_logo_position_id' ); if($logo_position == "center") { echo "hidemainlogo"; } ?> <?php $navtextsize = get_theme_mod( 'uw-madison-wp-2015_nav_text_size_id' ); if($navtextsize == "large") { echo "largeNavText"; } ?> <?php $hideshownav = get_theme_mod( 'uw-madison-wp-2015_hide_show_nav_id' ); if($hideshownav == "yes") { echo "hideMainNav"; } ?>">
+<div id="page" style="<?php echo $page_width_value; ?>" class="hfeed site <?php echo $page_width_class; ?> <?php $editor = get_field('page_editor'); if($editor == "advanced") { echo "apesetup"; } ?> <?php $header_slides_style = get_theme_mod( 'uw-madison-wp-2015_header_slides_options_id' ); if($header_slides_style == "hidden") { echo "hiddenSlides"; } else { echo "visibleSlides"; } ?> <?php $header_style = get_theme_mod( 'uw-madison-wp-2015_header_style_options_id' ); if($header_style == "opaque") { echo "solidHeader"; } else if($header_style == "photo") { echo "photoHeader"; } else { echo "photoHeader"; } ?> <?php $home_layout_settings = get_theme_mod( 'uw-madison-wp-2015_layout_id' ); if($home_layout_settings == "tiles") { echo "tiledPosts"; }; if($home_layout_settings == "right_sidebar") { echo "postsRightSidebar"; } ?> <?php $header_layout_settings = get_theme_mod( 'uw-madison-wp-2015_header_layout_id' ); if($header_layout_settings == "righthand") { echo "rightHandNav"; } else { echo "navBar"; } ?> <?php if( get_field('hide_the_side_navigation')) { echo "hiddenSidebar"; } ?> <?php if( get_field('page_theme') == 'documentation') { echo 'documentationSection'; } ?> <?php $sidebar_settings = get_theme_mod( 'uw-madison-wp-2015_sidebar_style_id' ); if($sidebar_settings == "card") { echo 'cardSidebar'; } else if($sidebar_settings == "dots") { echo 'dotsSidebar'; } else { echo 'lineSidebar'; } ?><?php $fontselection = get_theme_mod( 'uw-madison-wp-2015_fonts_id' ); echo ' '.$fontselection; ?> <?php if(get_field('featured_pages_layouts')) { $page_layout = get_field('featured_pages_layouts'); if($page_layout == 'listr') { echo 'listRightSidebar'; }  } ?> <?php $header_slides_dots = get_theme_mod( 'uw-madison-wp-2015_headerslides_dots_id' ); if($header_slides_dots == true) { echo "hiddenSlideDots"; } ?> <?php $header_slides_arrows = get_theme_mod( 'uw-madison-wp-2015_headerslides_arrows_id' ); if($header_slides_arrows == true) { echo "hiddenSlideArrows"; } ?> <?php $header_slides_transition = get_theme_mod( 'uw-madison-wp-2015_headerslides_transition_id' ); if($header_slides_transition == true) { echo "headerSlidesFade"; } ?> <?php $logo_position = get_theme_mod( 'uw-madison-wp-2015_home_logo_position_id' ); if($logo_position == "center") { echo "hidemainlogo"; } ?> <?php $navtextsize = get_theme_mod( 'uw-madison-wp-2015_nav_text_size_id' ); if($navtextsize == "large") { echo "largeNavText"; } ?> <?php $hideshownav = get_theme_mod( 'uw-madison-wp-2015_hide_show_nav_id' ); if($hideshownav == "yes") { echo "hideMainNav"; } $post_title_mod = get_theme_mod('uw-madison-wp-2015_post_featured_setting_id'); if($post_title_mod == "title_above") { echo " postTitleAbove"; } ?>">
 
 
 
@@ -799,7 +799,7 @@ var templateUrl = '<?php home_url(); ?>';
 
 				 }?>
 
-				
+
 
 				<?php
 					$loop = new WP_Query( $args );
@@ -823,9 +823,9 @@ var templateUrl = '<?php home_url(); ?>';
 
 					<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
-						
-								
-							
+
+
+
 
 						<?php if(is_front_page()) { ?>
 							<?php if($home_photo_header_size) { ?>
@@ -846,12 +846,12 @@ var templateUrl = '<?php home_url(); ?>';
 
 						<?php $herosource = get_field('content_source'); ?>
 							<?php $herovalign = get_field('hero_image_vertical_alignment'); ?>
-								
 
-								
+
+
 
 							<?php  if($herosource == "latestpost") {
-								 	include 'inc/header_latest_posts.php'; 
+								 	include 'inc/header_latest_posts.php';
 							} else if($herosource == "specificpost") { //Specific Post Header Slides?>
 									<?php include 'inc/header_specific_post.php'; ?>
 							<?php } else if($herosource == "search") { ?>
@@ -864,7 +864,7 @@ var templateUrl = '<?php home_url(); ?>';
 					<?php endwhile; ?>
 					</div>
 					<?php } else { ?>
-								
+
 
 								<div class="heroImage heroImageDefault">
 									<div class="heroOverlay"></div>
@@ -885,7 +885,7 @@ var templateUrl = '<?php home_url(); ?>';
 
 
 	<?php if(is_front_page()) { ?>
-		
+
 		<?php $background_color = get_background_color(); ?>
 		<div id="content" class="site-content row">
 			<?php $header_frosted_glass = get_theme_mod( 'uw-madison-wp-2015_headerslides_frostedglass_id' ); if($header_frosted_glass == true) {  ?>
@@ -901,7 +901,7 @@ background: linear-gradient(to bottom,  rgba(255,255,255,0.6) 0%, #<?php echo $b
 				<?php } ?>
 
 
-				
+
 				<div class="frostedImage">
 					<?php $args = array( 'post_type' => 'headerslides', 'posts_per_page' => 10 );
 
@@ -922,11 +922,11 @@ background: linear-gradient(to bottom,  rgba(255,255,255,0.6) 0%, #<?php echo $b
 
 
 							$herosource = get_field('content_source'); ?>
-							
-								
+
+
 							<?php if($herosource == "latestpost") { ?>
 
-								<?php $heroterms = get_field('hero_post_categories'); 
+								<?php $heroterms = get_field('hero_post_categories');
 																	$herocategories = 0;
 
 																	$offset = 0;
@@ -935,22 +935,22 @@ background: linear-gradient(to bottom,  rgba(255,255,255,0.6) 0%, #<?php echo $b
                                                                     if($offsettest) {
                                                                         $offset = $offsettest;
                                                                     }
-																	
+
 																	if( $heroterms ): ?>
-																	
-																		<?php 
-																			
+
+																		<?php
+
 																			foreach( $heroterms as $heroterm ) {
-																			
-																			$herocategories = $herocategories.",".$heroterm;	
+
+																			$herocategories = $herocategories.",".$heroterm;
 																			//echo $term;
 																		} ?>
-																		
-																	<?php endif; 
-																	
-																	
+
+																	<?php endif;
+
+
 																	//$numofposts = get_sub_field('fw_cat_number_of_posts');
-																	
+
 																	// The Query
 																	$query2 = new WP_Query( array( 'posts_per_page' => 1, 'offset' => $offset, 'cat' => $herocategories ) );
 								//$query2 = new WP_Query( $args2 );
@@ -992,9 +992,9 @@ background: linear-gradient(to bottom,  rgba(255,255,255,0.6) 0%, #<?php echo $b
 									// Restore original Post Data
 									wp_reset_postdata();
 								 ?>
-							<?php } else if($herosource == "search") { 
+							<?php } else if($herosource == "search") {
 
-							
+
 
 								$video = get_field('hero_video');
 
@@ -1020,9 +1020,9 @@ background: linear-gradient(to bottom,  rgba(255,255,255,0.6) 0%, #<?php echo $b
 							<?php }
 
 
-							} else if($herosource == "remote") { 
+							} else if($herosource == "remote") {
 
-							
+
 
 								$video = get_field('hero_video');
 
@@ -1047,9 +1047,9 @@ background: linear-gradient(to bottom,  rgba(255,255,255,0.6) 0%, #<?php echo $b
 
 							<?php }
 
-							  } else if($herosource == "static") { 
+							  } else if($herosource == "static") {
 
-							
+
 
 								$video = get_field('hero_video');
 
@@ -1074,7 +1074,7 @@ background: linear-gradient(to bottom,  rgba(255,255,255,0.6) 0%, #<?php echo $b
 
 							<?php }
 
-							 } 
+							 }
 
 							endwhile;
 
