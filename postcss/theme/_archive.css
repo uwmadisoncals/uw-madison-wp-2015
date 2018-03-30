@@ -1,0 +1,48 @@
+.archive{
+	
+	#content{
+		margin-top: 0em;
+		padding-top: 0em;
+	}
+	
+	.page-title{
+		margin-top: 0em;
+	}
+	
+	main ul.archived_items{
+		list-style: none;
+		margin: 2em 0em;
+		padding: 0em;
+		
+		li{
+			list-style: none;
+			margin: 1.5em 0em 3em;
+			padding: 0em;
+			
+			a{
+				font-size: 22px;
+				line-height: 1;
+				font-family: 'Raleway', sans-serif;
+				font-weight: 300;
+			}
+			
+			a:hover, a:focus{
+				text-decoration: underline;
+			}
+			
+			p{
+				margin: 0em;
+			}
+			
+			.date{
+				text-transform: uppercase;
+				font-size: 12px;
+				font-weight: 700;
+				color: $gray;
+				opacity: 0.8;
+				padding-top: 2.5px;
+				letter-spacing: 0.5px;
+			}
+		}
+	}
+}

@@ -1,0 +1,9 @@
+.postsNavigation {
+	max-width: $content-width-max;
+	margin: 0 auto;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	position: relative;
+	z-index:3;
+	padding: 2em; 
+}

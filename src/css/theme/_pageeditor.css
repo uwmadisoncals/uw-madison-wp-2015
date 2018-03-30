@@ -1,0 +1,1244 @@
+.home .flex-row:first-child {
+  margin-top: 0em;
+}
+
+.home .flex-row.top-row.right_redbg .flex-rightCol {
+  margin-top: -3.65em;
+  -webkit-border-top-left-radius: 0px;
+  -webkit-border-top-right-radius: 0px;
+  -moz-border-radius-topleft: 0px;
+  -moz-border-radius-topright: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+
+  .sidebarFold {
+    display: block;
+    position: absolute;
+    top: -1px;
+    left: -25px;
+    z-index: -1;
+    width: 30px;
+    height: 30px;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.sidebarFold {
+  display: none;
+}
+
+h2.uwmadison_events_title {
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+  font-family: "Verlag-Black";
+  margin-top: 0px;
+  font-weight: 300;
+  font-size: 1.8rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+h2.uwmadison_events_title:before {
+  content: "";
+  display: block;
+  width: 1em;
+  height: 4px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  background: #c5050c;
+}
+
+ul.uwmadison_events {
+  list-style: none;
+  margin-left: 0px;
+  margin-top: 1rem;
+}
+
+ul.uwmadison_events > li {
+  padding-left: 30px;
+  background: url("../images/calendar_icon_dark.svg") no-repeat;
+  background-position: left 3px;
+  background-size: 20px 20px;
+}
+
+.right_redbg,
+.left_redbg {
+  ul.uwmadison_events > li {
+    padding-left: 30px;
+    background: url("../../images/calendar_icon.svg") no-repeat;
+    background-position: left 3px;
+    background-size: 20px 20px;
+  }
+
+  ul.uwmadison_events_group {
+    margin-left: 0px;
+    list-style: none;
+
+    .uwmadison_event_subtitle {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1rem;
+    }
+
+    .uwmadison_event_subtitle {
+      display: none;
+    }
+  }
+}
+
+ul.uwmadison_events_group {
+  margin-left: 0px;
+  list-style: none;
+
+  .uwmadison_event_subtitle {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 1rem;
+  }
+}
+
+.flex-6633.right_redbg,
+.flex-7525.right_redbg {
+  .flex-rightCol {
+    .button {
+      display: block;
+    }
+  }
+}
+
+.flex-3366.left_redbg,
+.flex-2275.left_redbg {
+  .flex-leftCol {
+    .button {
+      display: block;
+    }
+  }
+}
+
+.flex-leftCol.animate {
+  -webkit-animation: slidefromleft 1s 1;
+  animation: slidefromleft 1s 1;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+}
+
+.flex-rightCol.animate {
+  -webkit-animation: slidefromright 1s 1;
+  animation: slidefromright 1s 1;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+}
+
+.flex-333333 {
+  .button {
+    display: block;
+  }
+}
+
+.left_redbg {
+  .flex-leftCol {
+    background: $uwred;
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+    box-shadow: 0px 6px 13px rgba(210, 9, 9, 0.35);
+
+    .button {
+      background: rgba(0, 0, 0, 0.2);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.8rem;
+      padding: 1rem;
+      padding-top: 0.7rem;
+      padding-bottom: 0.7rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    a.button:hover {
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .entry-header {
+      h1.entry-title {
+        color: #5f0000;
+        font-size: 1.1rem;
+        letter-spacing: 0.9px;
+      }
+
+      h1.entry-title.small {
+        font-size: 1.3rem;
+      }
+
+      h1.entry-title.large {
+        font-size: 2.5rem;
+      }
+    }
+
+    h2.uwmadison_events_title {
+      color: #5f0000;
+      font-size: 1.1rem;
+    }
+
+    ul.uwmadison_events .uwmadison_event_date {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    ul.uwmadison_events a {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    ul.uwmadison_events a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.right_redbg {
+  .flex-rightCol {
+    position: relative;
+    background: $uwred;
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+    box-shadow: 0px 6px 13px rgba(210, 9, 9, 0.35);
+
+    .button {
+      background: rgba(0, 0, 0, 0.2);
+
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.8rem;
+      padding: 1rem;
+      padding-top: 0.7rem;
+      padding-bottom: 0.7rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    a.button:hover {
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .entry-header {
+      h1.entry-title {
+        color: #5f0000;
+        font-size: 1.1rem;
+        letter-spacing: 0.9px;
+      }
+
+      h1.entry-title.small {
+        font-size: 1.3rem;
+      }
+
+      h1.entry-title.large {
+        font-size: 2.5rem;
+      }
+    }
+
+    h2.uwmadison_events_title {
+      color: #5f0000;
+      font-size: 1.1rem;
+    }
+
+    ul.uwmadison_events .uwmadison_event_date {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    ul.uwmadison_events a {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    ul.uwmadison_events a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@-moz-document url-prefix() {
+  svg .pulse {
+    display: none !important;
+  }
+}
+
+#content.has_nav article.directory {
+  width: 100%;
+}
+
+.singleDirectoryWrapper {
+  display: flex;
+
+  .singleDirectoryInfo {
+    flex-grow: 1;
+    font-size: 1.5rem;
+
+    h2 {
+      display: block;
+      font-size: 1rem;
+      text-transform: uppercase;
+      font-family: "Verlag-Black";
+      letter-spacing: 0.4px;
+    }
+  }
+
+  .singleDirectoryPhoto {
+    flex-basis: 50%;
+    img {
+      max-height: 400px;
+    }
+  }
+}
+
+.biopub {
+  display: flex;
+  margin-top: 2rem;
+
+  h2 {
+    display: block;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-family: "Verlag-Black";
+    letter-spacing: 0.4px;
+  }
+}
+
+.biopub > div {
+  flex-basis: 50%;
+}
+
+.biopub > div:first-child {
+  padding-right: 3rem;
+}
+
+.biopub > div:last-child {
+  padding-left: 3rem;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.social_wrapper {
+  position: relative;
+  width: 100%;
+
+  .entry-header.small-header .entry-title {
+    font-size: 1.3rem;
+  }
+
+  .social_text_wrapper {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+
+  .social_text {
+    font-size: 1.4rem;
+    font-family: "Verlag-Light";
+
+    p {
+      font-family: "Verlag-Light";
+      line-height: 1.4;
+    }
+  }
+
+  .social_network {
+    font-size: 1rem;
+  }
+
+  .social_name {
+    font-size: 1rem;
+    font-family: "Verlag-Black";
+    text-transform: uppercase;
+  }
+
+  .social_post.socialimage {
+    display: flex;
+
+    .social_text {
+      flex-basis: 50%;
+
+      p {
+        line-height: 1.2;
+      }
+    }
+
+    .social_image {
+      flex-basis: 50%;
+      margin-left: 2rem;
+
+      img {
+        transform: rotate(2deg);
+        border: 10px solid #fff;
+        box-shadow: 0px 5px 16px rgba(0, 0, 0, 0.18);
+      }
+    }
+  }
+
+  .social_id {
+    div {
+      line-height: 1;
+    }
+  }
+
+  .social_icon {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 0.4rem;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .social_inner {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    max-width: 1124px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 6;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .social_lines {
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    position: absolute;
+    top: -15%;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1;
+  }
+
+  .social_line_1,
+  .social_line_2,
+  .social_line_3,
+  .social_line_4,
+  .social_line_5 {
+    position: absolute;
+    z-index: 1;
+
+    left: 0px;
+    right: 0px;
+
+    will-change: transform, opacity;
+  }
+
+  .social_line_1 {
+    z-index: 2;
+    top: 5%;
+
+    svg {
+      width: 100%;
+
+      .pulse {
+        will-change: transform, opacity;
+        opacity: 0;
+      }
+    }
+  }
+
+  .social_line_2 {
+    top: 20%;
+    height: 250px;
+    background: url("../../dist/images/social_path_2.png") no-repeat;
+    background-size: 100% auto;
+  }
+
+  .social_line_3 {
+    top: 30%;
+    height: 250px;
+    background: url("../../dist/images/social_path_3.png") no-repeat;
+    background-size: 100% auto;
+  }
+
+  .social_line_4 {
+    top: 40%;
+    height: 250px;
+    background: url("../../dist/images/social_path_4.png") no-repeat;
+    background-size: 100% auto;
+  }
+
+  .social_line_5 {
+    top: 50%;
+    height: 250px;
+    background: url("../../dist/images/social_path_5.png") no-repeat;
+    background-size: 100% auto;
+  }
+}
+
+.social_wrapper.animate {
+  .social_line_1 {
+    -webkit-animation: fluidsubtle 15s 10;
+    animation: fluidsubtle 15s 10;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+
+    svg {
+      .pulse {
+        opacity: 0;
+        -webkit-animation: pulse 8s 10;
+        animation: pulse 8s 10;
+        -webkit-animation-delay: 1s;
+        animation-delay: 1s;
+      }
+    }
+  }
+
+  .social_line_2 {
+    -webkit-animation: fluid 13s 5;
+    animation: fluid 13s 5;
+    -webkit-animation-delay: 5s;
+    animation-delay: 5s;
+  }
+
+  .social_line_3 {
+    -webkit-animation: fluid 16s 5;
+    animation: fluid 16s 5;
+
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+  }
+
+  .social_line_4 {
+    -webkit-animation: fluid 14s 3;
+    animation: fluid 14s 3;
+
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+  }
+
+  .social_line_5 {
+    -webkit-animation: fluid 15s 3;
+    animation: fluid 15s 3;
+
+    -webkit-animation-delay: 6s;
+    animation-delay: 6s;
+  }
+}
+
+.fundraising_wrapper.hover {
+  .fundraising_left {
+    .forwardimage {
+      right: -140px;
+    }
+  }
+
+  .fundraising_right {
+    .fund_right_top {
+      text-decoration: underline;
+    }
+  }
+}
+
+.fundraising_wrapper {
+  display: flex;
+  position: relative;
+
+  .fundraising_link {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 3;
+    text-indent: -100000px;
+  }
+
+  .fundraising_left {
+    flex-basis: 45%;
+    position: relative;
+
+    .forwardimage {
+      position: absolute;
+      top: -26px;
+      left: 0px;
+      right: -120px;
+      bottom: 0px;
+      z-index: 1;
+      background: url("../../dist/images/allwaysforward.png") no-repeat;
+      background-size: cover;
+      background-position: top right;
+      transition: 0.5s;
+    }
+  }
+
+  .fundraising_right {
+    flex-basis: 55%;
+
+    .fund_right_top {
+      background: $uwred;
+      font-family: "Verlag-Black";
+      color: #fff;
+      font-size: 1.6rem;
+      padding: 2.5rem;
+      line-height: 1.2;
+      padding-right: 1rem;
+      padding-left: 100px;
+
+      text-transform: uppercase;
+
+      .space {
+        display: inline-block;
+        width: 20px;
+      }
+    }
+
+    .fund_right_bottom {
+      background: #fff;
+      padding: 1rem;
+      padding-left: 100px;
+      svg {
+        height: 100%;
+      }
+    }
+  }
+}
+
+.entry-header.small-header {
+  .entry-title {
+    font-size: 1.8rem;
+  }
+
+  h1.entry-title.small {
+    font-size: 1rem;
+  }
+
+  h1.entry-title.small {
+    font-size: 1.3rem;
+  }
+
+  h1.entry-title.large {
+    font-size: 2.5rem;
+  }
+}
+
+div.tiltWrapper.twocolsize {
+  width: 50%;
+}
+
+.flex-highlightedtiles {
+  .flex-item {
+    height: 500px;
+  }
+
+  .flex-item:nth-child(even) {
+    padding-left: 2rem;
+  }
+
+  .flex-item:nth-child(odd) {
+    padding-right: 2rem;
+  }
+}
+
+.advancedPageEditorGroup {
+  .breadcrumb {
+    padding-top: 2rem;
+    max-width: 1070px;
+    margin: 0 auto;
+  }
+}
+
+.advancedPageEditorGroup.apewithSidebar {
+  width: 74%;
+  margin-right: 3%;
+  float: left;
+
+  .breadcrumb {
+    max-width: 1070px;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+  }
+}
+
+.accordion_content {
+  display: none;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+
+.accordion_title {
+  display: block;
+  padding: 0.5rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: none;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: 0.4s;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1.3px;
+
+  .symbol {
+    font-size: 1.5rem;
+    display: inline-block;
+    width: 20px;
+  }
+}
+
+.accordion_title:hover,
+.accordion_title:active,
+.accordion_title:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+.accordion_title.open {
+  background: $blue;
+  color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.2);
+}
+
+.accordion_wrapper .accordion_row:first-child .accordion_title {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.accordion_row.hidden {
+  display: none;
+}
+
+.accordion_wrapper .accordion_row:last-child .accordion_title {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+div.personFeaturefw {
+  /*background: #fff;*/
+  padding: 1rem;
+  padding-left: 0rem;
+  padding-right: 0rem;
+
+  .personphoto {
+    position: relative;
+    top: -3.5rem;
+    margin: 0 auto;
+    border-radius: 50em;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
+  }
+
+  .personquote {
+    text-align: center;
+    position: relative;
+    top: -3rem;
+    margin-bottom: -4rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .personquote .mainquote {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .personquote span {
+    display: inline-block;
+    color: $uwred;
+    font-size: 3rem;
+    position: absolute;
+    margin-left: -32px;
+    top: -6px;
+    font-family: "Verlag-Black";
+  }
+
+  h1.entry-title.personsectiontitle {
+    /*font-weight: 100;
+
+		color: rgba(0,0,0,0.4);*/
+    font-size: 1.3rem;
+  }
+
+  h2 {
+    margin-top: 1rem;
+    font-size: 2.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  .bio {
+    p {
+      font-family: "Verlag-Light";
+      font-size: 1.1rem;
+      letter-spacing: 0.3px;
+      color: rgba(0, 0, 0, 0.7);
+      font-weight: 300;
+    }
+  }
+}
+
+.directoryFilter,
+.contentFilter {
+  display: flex;
+  margin-bottom: 1.5rem;
+
+  .searchIcon {
+    padding-top: 0.2rem;
+    padding-right: 0.4rem;
+  }
+
+  .searchField {
+    flex-grow: 1;
+
+    input {
+      display: block;
+      background: transparent;
+      padding: 0.3rem;
+      font-size: 1.2rem;
+      border: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      border-radius: 0px;
+      width: 100%;
+      box-shadow: 0px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: $blue;
+    }
+  }
+}
+
+.contentListing {
+  .visible {
+  }
+
+  .hidden {
+    display: none;
+  }
+}
+
+.directoryListing {
+  list-style: none;
+  margin-left: 0px;
+
+  li.visible {
+  }
+
+  li.hidden {
+    display: none;
+  }
+
+  li {
+    display: flex;
+    margin-bottom: 1rem;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+    .personPhoto {
+      flex-basis: 100px;
+      padding-right: 1.5rem;
+
+      img {
+        border-radius: 100rem;
+      }
+    }
+
+    .personInfo {
+      flex-grow: 1;
+      padding-top: 1rem;
+
+      .name {
+        font-size: 1.4rem;
+        line-height: 1;
+        margin-right: 1rem;
+
+        a {
+          display: block;
+          line-height: 1;
+        }
+      }
+
+      .jobtitle {
+        font-size: 0.9rem;
+        color: rgba(0, 0, 0, 0.6);
+      }
+    }
+
+    .personAux {
+      flex-basis: 20%;
+    }
+
+    .aux {
+      margin-top: 1rem;
+      font-size: 1rem;
+
+      .location {
+        p {
+          margin-top: 0px;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slidefromleft {
+  0% {
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes slidefromright {
+  0% {
+    -webkit-transform: translateX(100px);
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    transform-origin: center center;
+    -moz-transform-origin: center center;
+    opacity: 1;
+  }
+  30% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    transform-origin: center center;
+    -moz-transform-origin: center center;
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    transform-origin: center center;
+    opacity: 0;
+  }
+}
+
+@keyframes fluidsubtle {
+  0% {
+    -webkit-transform: translateY(0px) scale(1) rotate(0deg);
+    transform: translateY(0px) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+
+  50% {
+    -webkit-transform: translateY(10px) scale(1) rotate(-3deg);
+    transform: translateY(10px) scale(1) rotate(-3deg);
+    opacity: 0.7;
+  }
+
+  100% {
+    -webkit-transform: translateY(0px) scale(1) rotate(0deg);
+    transform: translateY(0px) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fluid {
+  0% {
+    -webkit-transform: translateY(0px) scale(1) rotate(0deg);
+    transform: translateY(0px) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+
+  50% {
+    -webkit-transform: translateY(30px) scale(1.2) rotate(-8deg);
+    transform: translateY(30px) scale(1.2) rotate(-8deg);
+    opacity: 0.5;
+  }
+
+  100% {
+    -webkit-transform: translateY(0px) scale(1) rotate(0deg);
+    transform: translateY(0px) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.loadingWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.loading {
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  border: 0.25rem solid rgba(255, 255, 255, 0.2);
+  border-top-color: $blue;
+  -webkit-animation: spin 1s infinite linear;
+  animation: spin 1s infinite linear;
+}
+
+.remoteContent {
+  position: relative;
+  margin-top: 1rem;
+  min-height: 200px;
+
+  .row {
+    margin-bottom: 1.2rem;
+  }
+
+  .date {
+    font-family: "Open Sans";
+    font-weight: bold;
+    font-size: 0.7rem;
+    text-decoration: uppercase;
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+  a {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  p {
+    margin: 0px;
+    line-height: 1.4rem;
+    font-size: 1rem;
+  }
+}
+
+.leftcolumnPadding {
+  padding-right: 2rem;
+}
+
+.rightcolumnPadding {
+  /*padding-left: 2rem;*/
+}
+
+.verlag-option {
+  .personFeaturefw {
+    .personsectiontitle {
+      /*font-family: Verlag-Book;*/
+    }
+
+    h2 {
+      font-family: Verlag-Black;
+    }
+  }
+}
+
+.searchUI label .search-field {
+  font-family: "Verlag-Book";
+}
+
+.right_redbg .flex-rightCol,
+.left_redbg .flex-leftCol {
+  a,
+  a:visited {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  a.button,
+  a.button:visited {
+    text-decoration: none;
+  }
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+  perspective: 1000px;
+}
+/* flip the pane when hovered */
+.flip-container:hover .flipper,
+.flip-container.hover .flipper {
+  transform: rotateY(180deg);
+}
+
+.flip-container,
+.front,
+.back {
+  width: auto;
+  height: 300px;
+}
+
+/* flip speed goes here */
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+
+/* hide back of pane during swap */
+.front,
+.back {
+  backface-visibility: hidden;
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 300px;
+  width: 100%;
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg);
+}
+
+@media screen and (max-width: 700px) {
+  .home .pagePadding .flex-row.top-row.right_redbg .flex-rightCol .sidebarFold,
+  .pagePadding .flex-row.top-row.right_redbg .flex-rightCol .sidebarFold {
+    display: none;
+  }
+
+  .home .flex-row.top-row.right_redbg .flex-rightCol .sidebarFold {
+    display: none;
+  }
+
+  .home .flex-row.top-row.right_redbg .flex-rightCol {
+    margin-top: 0px;
+    border-radius: 4px;
+  }
+
+  .right_redbg .flex-rightCol,
+  .left_redbg .flex-leftCol {
+    padding: 2rem;
+  }
+
+  .fundraising_wrapper {
+    display: block;
+
+    .fundraising_left {
+      display: none;
+    }
+
+    .fundraising_right,
+    .fundraising_right > div {
+      box-sizing: border-box;
+
+      .fund_right_top {
+        padding: 2.5rem;
+      }
+
+      .fund_right_bottom {
+        padding: 2.5rem;
+      }
+    }
+  }
+
+  .searchFormIcon {
+    div {
+      width: auto !important;
+    }
+  }
+
+  .personquote {
+    display: none;
+  }
+
+  div.personFeaturefw .personphoto {
+    top: 0px;
+    width: 180px;
+    height: 180px;
+    left: -30px;
+  }
+
+  .fundraising_wrapper .fundraising_right .fund_right_top {
+    font-size: 1.4rem;
+  }
+
+  .fundraising_wrapper .fundraising_right .fund_right_bottom svg {
+    max-width: 100%;
+  }
+
+  .searchUI #ajaxResults {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+
+  .advancedPageEditorGroup.apewithSidebar {
+    width: 100%;
+    margin-right: 0px;
+  }
+
+  .sidebar_menu,
+  .widget-area {
+    max-width: 90%;
+    margin-left: 1.5rem;
+    width: 100%;
+  }
+}
+
+.apesetup {
+  .sidebar_menu,
+  .widget-area {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  div.personFeaturefw .personphoto {
+    display: none;
+  }
+
+  div.personFeaturefw .span-66 {
+    padding: 2rem;
+    width: 100%;
+  }
+
+  .social_image {
+    display: none;
+  }
+
+  .social_wrapper .social_post.socialimage .social_text {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .searchUI .searchClose {
+    top: 46px;
+  }
+}

@@ -1,8 +1,8 @@
 /*
-Theme Name: A UW Madison Theme
+Theme Name: uw-madison-wp-2015-DEV
 Author: Al Nemec (CALS) and Jessie Nemec (Libraries)
 Description: A general UW-Madison theme
-Version: 2.4.2
+Version: 2.4.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: uw-madison-wp-2015
@@ -16,6 +16,8 @@ UW Madison WP 2015 is based on Underscores http://underscores.me/, (C) 2012-2015
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 */
+
+/*@import "compiled/main.css?v=1490786615950";*/
 
 .postTitleAbove .gridstyle2 .tiltWrapper.noThumb .textContent h2 {
   text-transform: unset;

@@ -1,0 +1,40 @@
+/************************/
+/*  Base Sass Structure */
+/************************/
+
+@import 'theme/_wpdefault';
+@import 'partials/_reset';
+@import 'partials/_scaffolding';
+@import 'partials/_colors';
+@import 'partials/_fonts';
+
+
+/**************************/
+/*  Theme specific Styles */
+/**************************/
+
+@import 'theme/_header';
+@import 'theme/_footer';
+@import 'theme/_heroslides';
+@import 'theme/_navigation';
+@import 'theme/_spotlight';
+@import 'theme/_tiles';
+@import 'theme/_sidebar';
+@import 'theme/_single';
+@import 'theme/_main';
+@import 'theme/_archive';
+@import 'theme/_events';
+@import 'theme/_mobile';
+@import 'theme/_misc';
+@import 'theme/_periodictable';
+@import 'theme/_pageeditor';
+
+
+
+/**************************/
+/*  Third Party Styles    */
+/**************************/
+@import 'third_party/owl.carousel';
+@import 'third_party/flickity';
+@import 'third_party/tablesaw';
+

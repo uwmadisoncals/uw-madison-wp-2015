@@ -1,0 +1,24 @@
+/*$blue: #1e8bc3;*/
+$blue: #0479a8; /* Currently Passes AA */
+$link-blue: #0479a8;
+$blue-visited: #0479a8;
+/*$blue: #2196F3;
+$link-blue: #1976D2;*/
+/*$blue: #008CBA;*/
+$red: #e51748;
+$green: #95d623;
+$purple: #b64ce2;
+$yellow: #e9c003;
+$orange: #e96403;
+
+/*$uwred: #C2242A;*/
+$uwred: #c5050c;
+$uwred-dark: #a3040a;
+$uwtan-dark: #525046;
+
+$default-background: #eaeaea;
+
+$gray: #747474;
+
+$soft-shadow: 0px 2px 5px 0px rgba(0,0,0,0.26);
+$hard-shadow: 0px 3px 0px 3px rgba(0,0,0,0.3);

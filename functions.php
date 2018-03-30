@@ -4,41 +4,41 @@
  *
  * @package UW Madison WP 2015
  */
- 
+
 
 
 	// 1. customize ACF path
 	add_filter('acf/settings/path', 'my_acf_settings_path');
-	 
+
 	function my_acf_settings_path( $path ) {
-	 
+
 	    // update path
 	    $path = get_template_directory() . '/acf/';
-	    
+
 	    // return
 	    return $path;
-	    
+
 	}
-	 
-	
+
+
 	// 2. customize ACF dir
 	add_filter('acf/settings/dir', 'my_acf_settings_dir');
-	 
+
 	function my_acf_settings_dir( $dir ) {
-	 
+
 	    // update path
 	    $dir = get_template_directory_uri() . '/acf/';
-	    
+
 	    // return
 	    return $dir;
-	    
+
 	}
-	 
-	
+
+
 	// 3. Hide ACF field group menu item
 	//add_filter('acf/settings/show_admin', '__return_false');
-	
-	
+
+
 	// 4. Include ACF
 	include_once( get_template_directory() . '/acf/acf.php' );
 
@@ -53,7 +53,7 @@
 //}
 
 
- 
+
 
 /***** Add Custom Post type for Hero Image ****/
 add_action( 'init', 'create_post_type' );
@@ -135,7 +135,7 @@ function create_directory_taxonomies() {
 
 	register_taxonomy( 'group', array( 'directory' ), $args );
 
-	
+
 }
 
 
@@ -150,7 +150,7 @@ add_action( 'after_switch_theme', 'my_rewrite_flush' );
 add_action( 'customize_register', 'my_customize_register' );
 
 function my_customize_register($wp_customize) {
- 
+
 /**
  * Class to create a custom layout control
  */
@@ -160,7 +160,7 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
        * Render the content on the theme customizer page
        */
       public $type = 'layout';
-       
+
       public function render_content()
        {
             ?>
@@ -168,9 +168,9 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
 	            	.layoutClear {
 		            	clear: both;
 	            	}
-	            	
+
 	            	ul.layoutOptions label {
-		            	
+
 		            	margin-right: 6px;
 		            	margin-bottom: 6px;
 		            	display: block;
@@ -182,47 +182,47 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
 		            	height: auto;
 		            	border-radius: 3px;
 		            	background: transparent;
-		            	
+
 	            	}
-	            	
+
 	            	ul.layoutOptions label span {
 		            	display: block;
 		            	background: rgba(0,0,0,0.18);
 		            	padding: 10px;
 	            	}
-	            	
+
 	            	ul.layoutOptions label.layoutSelected {
 		            	border: 1px solid #C2242A;
 	            	}
-	            	
+
 	            	ul.layoutOptions label.layoutSelected span {
 		            	background: #C2242A;
 		            	color: #fff;
 		            	font-weight: bold;
 		            }
-	            	
+
 	            	.layoutOption {
 		            	display:block;
-		            	
-		            	
+
+
 		            	font-size: 11px;
-		            	
+
 	            	}
-	            	
+
 	            	.layoutIcon {
 		            	padding: 16px;
 	            	}
-	            	
+
 	            	.layoutIcon svg {
 		            	width: 100%;
-		            	
+
 	            	}
 	            </style>
-            
+
                 <label>
                   <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
                  </label>
-                  
+
                   <ul class="layoutOptions">
                     <label id="circlesLayout" for="<?php echo $this->id; ?>[circles]" class="layoutOption"><span>Circles Layout</span><div class="layoutIcon"><svg width="84px" height="24px" viewBox="0 0 84 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
@@ -288,21 +288,21 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
 </svg></div><input style="display: none;" type="radio" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[right_sidebar]" value="right_sidebar" <?php $this->link(); ?> /></label>
 
 
-            
+
                   </ul>
                   <div class="layoutClear"></div>
-                
-                
+
+
                 <script>
-	                
+
 	            if(document.getElementById('uw-madison-wp-2015-home-layout-control[circles]').checked) {
 		            document.getElementById('uw-madison-wp-2015-home-layout-control[circles]').parentNode.setAttribute("class", "layoutSelected");
 		        }
-		        
+
 		        if(document.getElementById('uw-madison-wp-2015-home-layout-control[tiles]').checked) {
 		            document.getElementById('uw-madison-wp-2015-home-layout-control[tiles]').parentNode.setAttribute("class", "layoutSelected");
 		        }
-		        
+
 		        if(document.getElementById('uw-madison-wp-2015-home-layout-control[left_sidebar]').checked) {
 		            document.getElementById('uw-madison-wp-2015-home-layout-control[left_sidebar]').parentNode.setAttribute("class", "layoutSelected");
 		        }
@@ -310,31 +310,31 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control
 		        if(document.getElementById('uw-madison-wp-2015-home-layout-control[right_sidebar]').checked) {
 		            document.getElementById('uw-madison-wp-2015-home-layout-control[right_sidebar]').parentNode.setAttribute("class", "layoutSelected");
 		        }
-	                
-				document.getElementById("circlesLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected"); 
-						document.getElementById("sidebarLayout").setAttribute("class", ""); 
-						document.getElementById("tilesLayout").setAttribute("class", ""); 
-						document.getElementById("rightsidebarLayout").setAttribute("class", ""); 					 
+
+				document.getElementById("circlesLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected");
+						document.getElementById("sidebarLayout").setAttribute("class", "");
+						document.getElementById("tilesLayout").setAttribute("class", "");
+						document.getElementById("rightsidebarLayout").setAttribute("class", "");
 					});
-				
-				document.getElementById("sidebarLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected"); 
+
+				document.getElementById("sidebarLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected");
 						document.getElementById("circlesLayout").setAttribute("class", "");
 						document.getElementById("tilesLayout").setAttribute("class", "");
-						document.getElementById("rightsidebarLayout").setAttribute("class", "");					  
+						document.getElementById("rightsidebarLayout").setAttribute("class", "");
 					});
-				
-				document.getElementById("tilesLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected"); 
+
+				document.getElementById("tilesLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected");
 						document.getElementById("sidebarLayout").setAttribute("class", "");
-						document.getElementById("circlesLayout").setAttribute("class", ""); 
-						document.getElementById("rightsidebarLayout").setAttribute("class", "");  
+						document.getElementById("circlesLayout").setAttribute("class", "");
+						document.getElementById("rightsidebarLayout").setAttribute("class", "");
 				});
 
-				document.getElementById("rightsidebarLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected"); 
+				document.getElementById("rightsidebarLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected");
 					document.getElementById("tilesLayout").setAttribute("class", "");
 					document.getElementById("sidebarLayout").setAttribute("class", "");
-					document.getElementById("circlesLayout").setAttribute("class", "");  
+					document.getElementById("circlesLayout").setAttribute("class", "");
 				});
-				
+
 				/*document.getElementById("layout2").addEventListener("click", function(){ var valueoption = this.getAttribute("data-value");  document.getElementById("layoutTextArea").value = valueoption; });
 				document.getElementById("layout3").addEventListener("click", function(){ var valueoption = this.getAttribute("data-value");  document.getElementById("layoutTextArea").value = valueoption; });*/
 				</script>
@@ -352,7 +352,7 @@ class Header_Layout_Picker_Custom_Control extends WP_Customize_Control
        * Render the content on the theme customizer page
        */
       public $type = 'layout';
-       
+
       public function render_content()
        {
             ?>
@@ -360,9 +360,9 @@ class Header_Layout_Picker_Custom_Control extends WP_Customize_Control
 	            	.layoutClear {
 		            	clear: both;
 	            	}
-	            	
+
 	            	ul.layoutOptions label {
-		            	
+
 		            	margin-right: 6px;
 		            	margin-bottom: 6px;
 		            	display: block;
@@ -374,47 +374,47 @@ class Header_Layout_Picker_Custom_Control extends WP_Customize_Control
 		            	height: auto;
 		            	border-radius: 3px;
 		            	background: transparent;
-		            	
+
 	            	}
-	            	
+
 	            	ul.layoutOptions label span {
 		            	display: block;
 		            	background: rgba(0,0,0,0.18);
 		            	padding: 10px;
 	            	}
-	            	
+
 	            	ul.layoutOptions label.layoutSelected {
 		            	border: 1px solid #C2242A;
 	            	}
-	            	
+
 	            	ul.layoutOptions label.layoutSelected span {
 		            	background: #C2242A;
 		            	color: #fff;
 		            	font-weight: bold;
 		            }
-	            	
+
 	            	.layoutOption {
 		            	display:block;
-		            	
-		            	
+
+
 		            	font-size: 11px;
-		            	
+
 	            	}
-	            	
+
 	            	.layoutIcon {
 		            	padding: 16px;
 	            	}
-	            	
+
 	            	.layoutIcon svg {
 		            	width: 100%;
-		            	
+
 	            	}
 	            </style>
-            
+
                 <label>
                   <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
                  </label>
-                  
+
                   <ul class="layoutOptions">
                     <label id="navbarLayout" for="<?php echo $this->id; ?>[navbar]" class="layoutOption"><span>Navigation Bar</span><div class="layoutIcon"><svg width="277px" height="111px" viewBox="0 0 277 111" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.5.1 (25234) - http://www.bohemiancoding.com/sketch -->
@@ -449,33 +449,33 @@ class Header_Layout_Picker_Custom_Control extends WP_Customize_Control
         <path d="M54.0627398,56.8916503 C53.7122932,53.4038182 52.8361769,50.2647692 51.7848373,47.6488951 C51.7848373,47.5616993 51.6096141,47.3001119 51.6096141,47.2129161 C50.6458861,45.2074126 49.5069349,43.3763007 48.1927604,42.0683636 C45.7396348,39.5396853 42.7608393,38.1445524 39.4315973,38.0573566 L39.3439857,38.0573566 C38.8183159,36.9238112 37.3289181,36.139049 36.1023553,35.9646573 C36.1023553,35.9646573 35.3138506,33 32.1598319,33 C29.0058131,33 28.2173084,35.9646573 28.2173084,35.9646573 C26.903134,36.139049 25.5013479,36.9238112 24.9756781,38.0573566 L24.8880664,38.0573566 C21.5588244,38.0573566 18.580029,39.4524895 16.1269033,42.0683636 C14.8127288,43.4634965 13.6737776,45.2074126 12.7100497,47.2129161 C12.7100497,47.2129161 12.5348264,47.5616993 12.5348264,47.6488951 C11.3958752,50.2647692 10.5197589,53.4038182 10.256924,56.8916503 C8.41707971,74.1564196 16.5649614,95.345 31.2837156,98.5712448 C31.4589388,98.920028 32.0722202,99.5303986 32.3350551,99.5303986 C32.59789,99.5303986 33.1235598,98.920028 33.3863947,98.5712448 C47.7547023,95.2578042 55.902584,74.1564196 54.0627398,56.8916503 L54.0627398,56.8916503 L54.0627398,56.8916503 Z" id="Crest-path" fill="#D8D8D8" sketch:type="MSShapeGroup"></path>
     </g>
 </svg></div><input type="radio" style="display: none;" name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[righthand]" value="righthand" <?php $this->link(); ?> /></label>
-                    
-            
+
+
                   </ul>
                   <div class="layoutClear"></div>
-                
-                
+
+
                 <script>
-	                
+
 	            if(document.getElementById('uw-madison-wp-2015-header-layout-control[navbar]').checked) {
 		            document.getElementById('uw-madison-wp-2015-header-layout-control[navbar]').parentNode.setAttribute("class", "layoutSelected");
 		        }
-		        
+
 		        if(document.getElementById('uw-madison-wp-2015-header-layout-control[righthand]').checked) {
 		            document.getElementById('uw-madison-wp-2015-header-layout-control[righthand]').parentNode.setAttribute("class", "layoutSelected");
 		        }
-		        
-		        
-	                
-				document.getElementById("navbarLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected");  
+
+
+
+				document.getElementById("navbarLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected");
 document.getElementById("righthandLayout").setAttribute("class", ""); 					 });
-				
-				
-				
-				document.getElementById("righthandLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected"); 
+
+
+
+				document.getElementById("righthandLayout").addEventListener("click", function(){ this.setAttribute("class", "layoutSelected");
 document.getElementById("navbarLayout").setAttribute("class", "");  });
-				
-				
+
+
 				</script>
             <?php
        }
@@ -493,27 +493,27 @@ class Photo_Header_Size_Custom_Control extends WP_Customize_Control
        * Render the content on the theme customizer page
        */
       public $type = 'size';
-       
+
       public function render_content()
        {
             ?>
-            	
-            
+
+
                 <label>
                   <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
                   <em><?php echo esc_html( $this->description ); ?></em>
                  </label>
 
-                 
+
                  <div style="margin-top: 1em;">
                  <input id="<?php echo $this->id; ?>" name="<?php echo $this->id; ?>" type="range" min="150" max="800" step="10" value="<?php echo $this->value(); ?>" <?php $this->link(); ?> />
                  </div>
-                  
-                  
+
+
                   <div class="layoutClear"></div>
-                
-                
-                
+
+
+
             <?php
        }
 }
@@ -529,27 +529,27 @@ class Page_Width_Custom_Control extends WP_Customize_Control
        * Render the content on the theme customizer page
        */
       public $type = 'size';
-       
+
       public function render_content()
        {
             ?>
-            	
-            
+
+
                 <label>
                   <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
                   <em><?php echo esc_html( $this->description ); ?></em>
                  </label>
 
-                 
+
                  <div style="margin-top: 1em;">
                  <input id="<?php echo $this->id; ?>" name="<?php echo $this->id; ?>" type="range" min="800" max="1500" step="10" value="<?php echo $this->value(); ?>" <?php $this->link(); ?> />
                  </div>
-                  
-                  
+
+
                   <div class="layoutClear"></div>
-                
-                
-                
+
+
+
             <?php
        }
 }
@@ -560,22 +560,22 @@ class Page_Width_Custom_Control extends WP_Customize_Control
 
 class WP_Customize_Layout_Control extends WP_Customize_Control {
 		public $type = 'textarea';
- 
+
 		public function render_content() {
 		?>
-			
-		
+
+
 			<a href="#" id="layout1" class="layoutOption" data-value="option1">Option 1</a>
 			<a href="#" id="layout2" class="layoutOption" data-value="option2">Option 2</a>
 			<a href="#" id="layout3" class="layoutOption" data-value="option3">Option 3</a>
-			
-		
+
+
 			<label>
 				<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
 				<textarea id="layoutTextArea" rows="5" style="width:100%;" <?php $this->link(); ?>><?php echo esc_textarea( $this->value() ); ?></textarea>
 			</label>
-			
-			
+
+
 			<script>
 				document.getElementById("layout1").addEventListener("click", function(){ var valueoption = this.getAttribute("data-value");  document.getElementById("layoutTextArea").value = valueoption; });
 				document.getElementById("layout2").addEventListener("click", function(){ var valueoption = this.getAttribute("data-value");  document.getElementById("layoutTextArea").value = valueoption; });
@@ -593,7 +593,7 @@ class WP_Customize_Layout_Control extends WP_Customize_Control {
 /**** Adding Theme Customizer Options ****/
 function mytheme_customize_register( $wp_customize ) {
    //All our sections, settings, and controls will be added here
-   
+
    /**
  * Pages Drop-Down List
  *
@@ -603,40 +603,40 @@ function mytheme_customize_register( $wp_customize ) {
 $wp_customize->add_section( 'uw-madison-wp-2015-post-options' , array(
 	'title'      => __( 'News/Blog Post Options', 'uw-madison-wp-2015' ),
 	'priority'   => 58,
-) ); 
+) );
 
 $wp_customize->add_section( 'uw-madison-wp-2015-navigation-options' , array(
     	'title'      => __( 'Navigation Options', 'uw-madison-wp-2015' ),
     	'priority'   => 58,
-	) ); 
-	
-	
+	) );
+
+
 $wp_customize->add_section( 'uw-madison-wp-2015-logo-options' , array(
     	'title'      => __( 'Custom Logo', 'uw-madison-wp-2015' ),
     	'priority'   => 20,
-	) ); 
+	) );
 
 
 $wp_customize->add_section( 'uw-madison-wp-2015-home-options' , array(
     	'title'      => __( 'Latest Post Options', 'uw-madison-wp-2015' ),
     	'priority'   => 61,
-	) ); 
+	) );
 
 $wp_customize->add_section( 'uw-madison-wp-2015-header-options' , array(
     	'title'      => __( 'Header Slide Options', 'uw-madison-wp-2015' ),
     	'priority'   => 60,
-	) ); 
+	) );
 
 $wp_customize->add_section( 'uw-madison-wp-2015-visual-effects' , array(
     	'title'      => __( 'Visual Effects', 'uw-madison-wp-2015' ),
     	'priority'   => 60,
-	) ); 
+	) );
 
 $wp_customize->add_section( 'uw-madison-wp-2015-font-options' , array(
     	'title'      => __( 'Fonts', 'uw-madison-wp-2015' ),
     	'priority'   => 57,
-	) ); 
-	
+	) );
+
 $wp_customize->add_section( 'uw-madison-wp-2015-social-options' , array(
     	'title'      => __( 'Social', 'uw-madison-wp-2015' ),
     	'priority'   => 70,
@@ -651,14 +651,14 @@ $wp_customize->add_section( 'uw-madison-wp-2015-analytics-options' , array(
 $wp_customize->add_section( 'uw-madison-wp-2015-search-options' , array(
     	'title'      => __( 'Search', 'uw-madison-wp-2015' ),
     	'priority'   => 80,
-	) );	
-	
+	) );
+
 $wp_customize->add_setting('uw-madison-wp-2015_header_alt_image_id', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'theme_mod',
     'default'		 => '',
     'sanitize_callback' => 'sanitize_alt_logo_options'
- 
+
 ));
 
 
@@ -667,7 +667,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_header_main_image_id', array(
     'type'           => 'theme_mod',
     'default'		 => '',
     'sanitize_callback' => 'sanitize_main_logo_options'
- 
+
 ));
 
 
@@ -695,7 +695,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_header_main_image_id', array(
     'type'           => 'theme_mod',
     'default'		 => '',
     'sanitize_callback' => 'sanitize_main_logo_options'
- 
+
 ));
 
 
@@ -721,7 +721,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_tagline_location_id', array(
     'type'           => 'theme_mod',
     'default'		 => 'below',
     'sanitize_callback' => 'sanitize_tagline_location'
- 
+
 ));
 
 
@@ -743,7 +743,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_campus_title_id', array(
     'type'           => 'theme_mod',
     'default'		 => 'UNIVERSITY of WISCONSIN-MADISON',
     'sanitize_callback' => 'sanitize_campus_title'
- 
+
 ));
 
 
@@ -761,7 +761,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_campus_title_link_id', array(
     'type'           => 'theme_mod',
     'default'		 => '',
     'sanitize_callback' => 'sanitize_campus_title_link'
- 
+
 ));
 
 
@@ -785,7 +785,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_home_logo_position_id', array(
     'default'		 => 'top-left',
     'type'           => 'theme_mod',
     'sanitize_callback' => 'sanitize_home_logo_position'
- 
+
 ));
 
 
@@ -811,7 +811,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_post_featured_setting_id', array(
     'default'		 => 'overlay',
     'type'           => 'theme_mod',
     'sanitize_callback' => 'sanitize_post_featured'
- 
+
 ));
 
 $wp_customize->add_control('uw-madison-wp-2015-post_featured_style', array(
@@ -835,7 +835,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_hide_show_nav_id', array(
     'default'		 => 'no',
     'type'           => 'theme_mod',
     'sanitize_callback' => 'sanitize_hide_show_nav'
- 
+
 ));
 
 
@@ -861,7 +861,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_nav_text_size_id', array(
     'default'		 => 'default',
     'type'           => 'theme_mod',
     'sanitize_callback' => 'sanitize_nav_text_size'
- 
+
 ));
 
 
@@ -887,7 +887,7 @@ $wp_customize->add_control('uw-madison-wp-2015-nav_text_size', array(
     'type'           => 'theme_mod',
     'default'		 => '',
     'sanitize_callback' => 'sanitize_logo_width'
- 
+
 ));
 
 
@@ -906,7 +906,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_gcse_id', array(
     'type'           => 'theme_mod',
     'default'		 => '',
     'sanitize_callback' => 'sanitize_ga_options'
- 
+
 ));
 
 $wp_customize->add_control('uw-madison-wp-2015-gcse', array(
@@ -926,7 +926,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_ga_id', array(
     'type'           => 'theme_mod',
     'default'		 => '',
     'sanitize_callback' => 'sanitize_ga_options'
- 
+
 ));
 
 $wp_customize->add_control('uw-madison-wp-2015-ga', array(
@@ -945,7 +945,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_eq_id', array(
     'type'           => 'theme_mod',
     'default'		 => '',
     'sanitize_callback' => 'sanitize_eq_options'
- 
+
 ));
 
 $wp_customize->add_control('uw-madison-wp-2015-eq', array(
@@ -964,7 +964,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_fp_id', array(
     'type'           => 'theme_mod',
     'default'		 => '',
     'sanitize_callback' => 'sanitize_fp_options'
- 
+
 ));
 
 $wp_customize->add_control('uw-madison-wp-2015-fp', array(
@@ -983,7 +983,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_hj_id', array(
     'type'           => 'theme_mod',
     'default'		 => '',
     'sanitize_callback' => 'sanitize_hj_options'
- 
+
 ));
 
 $wp_customize->add_control('uw-madison-wp-2015-hj', array(
@@ -995,7 +995,7 @@ $wp_customize->add_control('uw-madison-wp-2015-hj', array(
 ));
 
 
-	
+
 
 /*** Twitter ***/
 $wp_customize->add_setting('uw-madison-wp-2015_twitter_id', array(
@@ -1003,10 +1003,10 @@ $wp_customize->add_setting('uw-madison-wp-2015_twitter_id', array(
     'type'           => 'theme_mod',
     'default'		 => '',
     'sanitize_callback' => 'sanitize_twitter_options'
- 
+
 ));
 
- 
+
 $wp_customize->add_control('uw-madison-wp-2015-twitter', array(
     'label'      => __('Twitter', 'uw-madison-wp-2015'),
     'description'=> 'Enter your twitter username.',
@@ -1022,10 +1022,10 @@ $wp_customize->add_setting('uw-madison-wp-2015_flickr_id', array(
     'type'           => 'theme_mod',
     'default'		 => '',
     'sanitize_callback' => 'sanitize_flickr_options'
- 
+
 ));
 
- 
+
 $wp_customize->add_control('uw-madison-wp-2015-flickr', array(
     'label'      => __('Flickr', 'uw-madison-wp-2015'),
     'description'=> 'Enter your flickr URL.',
@@ -1041,17 +1041,17 @@ $wp_customize->add_setting('uw-madison-wp-2015_facebook_id', array(
     'type'           => 'theme_mod',
     'default'		 => '',
     'sanitize_callback' => 'sanitize_facebook_options'
- 
+
 ));
 
- 
+
 $wp_customize->add_control('uw-madison-wp-2015-facebook', array(
     'label'      => __('Facebook', 'uw-madison-wp-2015'),
     'description'=> 'Enter your facebook username.',
     'section'    => 'uw-madison-wp-2015-social-options',
     'type'    => 'text',
     'settings'   => 'uw-madison-wp-2015_facebook_id',
-)); 
+));
 
 /*** LinkedIn ***/
 $wp_customize->add_setting('uw-madison-wp-2015_linkedin_id', array(
@@ -1059,10 +1059,10 @@ $wp_customize->add_setting('uw-madison-wp-2015_linkedin_id', array(
     'type'           => 'theme_mod',
     'default'		 => '',
     'sanitize_callback' => 'sanitize_linkedin_options'
- 
+
 ));
 
- 
+
 $wp_customize->add_control('uw-madison-wp-2015-linkedin', array(
     'label'      => __('LinkedIn', 'uw-madison-wp-2015'),
     'description'=> 'Enter your linkedin URL.',
@@ -1078,10 +1078,10 @@ $wp_customize->add_setting('uw-madison-wp-2015_instagram_id', array(
     'type'           => 'theme_mod',
     'default'		 => '',
     'sanitize_callback' => 'sanitize_instagram_options'
- 
+
 ));
 
- 
+
 $wp_customize->add_control('uw-madison-wp-2015-instagram', array(
     'label'      => __('Instagram', 'uw-madison-wp-2015'),
     'description'=> 'Enter your instagram URL.',
@@ -1096,10 +1096,10 @@ $wp_customize->add_setting('uw-madison-wp-2015_youtube_id', array(
     'type'           => 'theme_mod',
     'default'		 => '',
     'sanitize_callback' => 'sanitize_youtube_options'
- 
+
 ));
 
- 
+
 $wp_customize->add_control('uw-madison-wp-2015-youtube', array(
     'label'      => __('Youtube', 'uw-madison-wp-2015'),
     'description'=> 'Enter your youtube username.',
@@ -1113,10 +1113,10 @@ $wp_customize->add_setting('uw-madison-wp-2015_options_id', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'theme_mod',
     'sanitize_callback' => 'sanitize_page_feature'
- 
+
 ));
 
- 
+
 $wp_customize->add_control('uw-madison-wp-2015-home-options-control', array(
     'label'      => __('Featured Page', 'uw-madison-wp-2015'),
     'section'    => 'uw-madison-wp-2015-home-options',
@@ -1132,7 +1132,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_layout_id', array(
     'type'           => 'theme_mod',
     'default'		 => 'circles',
     'sanitize_callback' => 'sanitize_home_layout'
- 
+
 ));
 
 
@@ -1142,7 +1142,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_header_layout_id', array(
     'type'           => 'theme_mod',
     'default'		 => 'navbar',
     'sanitize_callback' => 'sanitize_header_layout'
- 
+
 ));
 
 
@@ -1152,7 +1152,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_photo_header_size_id', array(
     'type'           => 'theme_mod',
     'default'		 => '200',
     'sanitize_callback' => 'sanitize_photo_size'
- 
+
 ));
 
 
@@ -1162,7 +1162,7 @@ $wp_customize->add_setting('uw-madison-wp-2015-home_photo_header_size_id', array
     'type'           => 'theme_mod',
     'default'		 => '500',
     'sanitize_callback' => 'sanitize_homepage_photo_size'
- 
+
 ));
 
 
@@ -1171,7 +1171,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_header_style_options_id', array(
     'type'           => 'theme_mod',
     'default'		 => 'photo',
     'sanitize_callback' => 'sanitize_header_options'
- 
+
 ));
 
 
@@ -1184,7 +1184,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_noimage_crest_id', array(
     'default'		 => 'monochrome',
     'sanitize_callback' => 'sanitize_logonoimage_options'
 
- 
+
 ));
 
 
@@ -1208,7 +1208,7 @@ $wp_customize->add_setting('uw-madison-wp-2015_fonts_id', array(
     'type'           => 'theme_mod',
     'default'		 => 'verlag-option',
     'sanitize_callback' => 'sanitize_fonts_options'
- 
+
 ));
 
 
@@ -1220,12 +1220,12 @@ $wp_customize->add_control('uw-madison-wp-2015_fonts', array(
     'choices' => array(
 	    	'verlag-option' => __( 'Verlag', 'uw-madison-wp-2015' ),
             'raleway-option' => __( 'Raleway/Open Sans', 'uw-madison-wp-2015' )
-            
+
         ),
     'settings'   => 'uw-madison-wp-2015_fonts_id',
 ));
 
- 
+
 $wp_customize->add_control('uw-madison-wp-2015-header_style_options', array(
     'label'      => __('Navigation Bar Style', 'uw-madison-wp-2015'),
     'section'    => 'uw-madison-wp-2015-navigation-options',
@@ -1328,10 +1328,10 @@ $wp_customize->add_setting('uw-madison-wp-2015_dropdowns_id', array(
     'type'           => 'theme_mod',
     'default'		 => 'disabled',
     'sanitize_callback' => 'sanitize_dropdown_options'
- 
+
 ));
 
- 
+
 $wp_customize->add_control('uw-madison-wp-2015-dropdowns', array(
     'label'      => __('Drop Down Menus', 'uw-madison-wp-2015'),
     'section'    => 'uw-madison-wp-2015-navigation-options',
@@ -1350,10 +1350,10 @@ $wp_customize->add_setting('uw-madison-wp-2015_breadcrumbs_id', array(
     'type'           => 'theme_mod',
     'default'		 => 'hidden',
     'sanitize_callback' => 'sanitize_breadcrumbs_options'
- 
+
 ));
 
- 
+
 $wp_customize->add_control('uw-madison-wp-2015-breadcrumbs', array(
     'label'      => __('Page Breadcrumbs', 'uw-madison-wp-2015'),
     'section'    => 'uw-madison-wp-2015-sidebar-options',
@@ -1373,10 +1373,10 @@ $wp_customize->add_setting('uw-madison-wp-2015_maxpgwidth_id', array(
     'type'           => 'theme_mod',
     'default'		 => '1500',
     'sanitize_callback' => 'sanitize_maxpgwidth_options'
- 
+
 ));
 
- 
+
 /*$wp_customize->add_control('uw-madison-wp-2015-maxpgwidth', array(
     'label'      => __('Max Page Width', 'uw-madison-wp-2015'),
     'section'    => 'uw-madison-wp-2015-sidebar-options',
@@ -1389,16 +1389,16 @@ $wp_customize->add_setting('uw-madison-wp-2015_maxpgwidth_id', array(
 ));*/
 
 
-$wp_customize->add_control( new Page_Width_Custom_Control( 
-	$wp_customize, 
-	'uw-madison-wp-2015-maxpgwidth', 
+$wp_customize->add_control( new Page_Width_Custom_Control(
+	$wp_customize,
+	'uw-madison-wp-2015-maxpgwidth',
 	array(
 		'label'	=> __( 'Max Page Width', 'uw-madison-wp-2015' ),
 		'description' => '',
 		'section' => 'uw-madison-wp-2015-sidebar-options',
 		'settings' => 'uw-madison-wp-2015_maxpgwidth_id',
 		'priority'   => 2,
-	) 
+	)
 ));
 
 
@@ -1410,10 +1410,10 @@ $wp_customize->add_setting('uw-madison-wp-2015_postedby_id', array(
     'type'           => 'theme_mod',
     'default'		 => 'upper',
     'sanitize_callback' => 'sanitize_postedby_options'
- 
+
 ));
 
- 
+
 $wp_customize->add_control('uw-madison-wp-2015-postedby', array(
     'label'      => __('Posted By Location', 'uw-madison-wp-2015'),
     'section'    => 'uw-madison-wp-2015-sidebar-options',
@@ -1432,10 +1432,10 @@ $wp_customize->add_setting('uw-madison-wp-2015_sidebar_style_id', array(
     'type'           => 'theme_mod',
     'default'		 => 'dots',
     'sanitize_callback' => 'sanitize_sidebar_style_options'
- 
+
 ));
 
- 
+
 $wp_customize->add_control('uw-madison-wp-2015-sidebar_style', array(
     'label'      => __('Sidebar Style', 'uw-madison-wp-2015'),
     'section'    => 'uw-madison-wp-2015-sidebar-options',
@@ -1455,10 +1455,10 @@ $wp_customize->add_setting('uw-madison-wp-2015_tablesaw_id', array(
     'type'           => 'theme_mod',
     'default'		 => 'tablesaw',
     'sanitize_callback' => 'sanitize_tablesaw_options'
- 
+
 ));
 
- 
+
 $wp_customize->add_control('uw-madison-wp-2015-tablesaw', array(
     'label'      => __('Mobile Responsive Tables', 'uw-madison-wp-2015'),
     'section'    => 'uw-madison-wp-2015-sidebar-options',
@@ -1477,10 +1477,10 @@ $wp_customize->add_setting('uw-madison-wp-2015_header_slides_options_id', array(
     'type'           => 'theme_mod',
     'default'		 => 'shown',
     'sanitize_callback' => 'sanitize_header_slides_options'
- 
+
 ));
 
- 
+
 $wp_customize->add_control('uw-madison-wp-2015-header_slides_options', array(
     'label'      => __('Header Slides on Homepage', 'uw-madison-wp-2015'),
     'section'    => 'uw-madison-wp-2015-header-options',
@@ -1496,7 +1496,7 @@ $wp_customize->add_control('uw-madison-wp-2015-header_slides_options', array(
 
 
 
- 
+
 /*$wp_customize->add_control('uw-madison-wp-2015-home-layout', array(
     'label'      => __('Home Page Layout', 'uw-madison-wp-2015'),
     'section'    => 'uw-madison-wp-2015-home-options',
@@ -1528,51 +1528,51 @@ $wp_customize->add_control('uw-madison-wp-2015-header_slides_options', array(
 );
 */
 
-$wp_customize->add_control( new Layout_Picker_Custom_Control( 
-	$wp_customize, 
-	'uw-madison-wp-2015-home-layout-control', 
+$wp_customize->add_control( new Layout_Picker_Custom_Control(
+	$wp_customize,
+	'uw-madison-wp-2015-home-layout-control',
 	array(
 		'label'	=> __( 'Latest Posts Layout', 'uw-madison-wp-2015' ),
 		'section' => 'uw-madison-wp-2015-home-options',
 		'settings' => 'uw-madison-wp-2015_layout_id',
-	) 
+	)
 ));
 
 
-$wp_customize->add_control( new Header_Layout_Picker_Custom_Control( 
-	$wp_customize, 
-	'uw-madison-wp-2015-header-layout-control', 
+$wp_customize->add_control( new Header_Layout_Picker_Custom_Control(
+	$wp_customize,
+	'uw-madison-wp-2015-header-layout-control',
 	array(
 		'label'	=> __( 'Navigation Layout', 'uw-madison-wp-2015' ),
 		'section' => 'uw-madison-wp-2015-navigation-options',
 		'settings' => 'uw-madison-wp-2015_header_layout_id',
-	) 
+	)
 ));
 
 
-$wp_customize->add_control( new Photo_Header_Size_Custom_Control( 
-	$wp_customize, 
-	'uw-madison-wp-2015-home_photo_header_size', 
+$wp_customize->add_control( new Photo_Header_Size_Custom_Control(
+	$wp_customize,
+	'uw-madison-wp-2015-home_photo_header_size',
 	array(
 		'label'	=> __( 'Header Slide Height on Homepage', 'uw-madison-wp-2015' ),
 		'description' => '',
 		'section' => 'uw-madison-wp-2015-header-options',
 		'settings' => 'uw-madison-wp-2015-home_photo_header_size_id',
 		'priority'   => 2,
-	) 
+	)
 ));
 
 
-$wp_customize->add_control( new Photo_Header_Size_Custom_Control( 
-	$wp_customize, 
-	'uw-madison-wp-2015-photo_header_size', 
+$wp_customize->add_control( new Photo_Header_Size_Custom_Control(
+	$wp_customize,
+	'uw-madison-wp-2015-photo_header_size',
 	array(
 		'label'	=> __( 'Header Slide Height on Subpages', 'uw-madison-wp-2015' ),
 		'description' => '',
 		'section' => 'uw-madison-wp-2015-header-options',
 		'settings' => 'uw-madison-wp-2015_photo_header_size_id',
 		'priority'   => 3,
-	) 
+	)
 ));
 
 
@@ -1581,17 +1581,17 @@ $wp_customize->add_control( new Photo_Header_Size_Custom_Control(
 $wp_customize->add_section( 'uw-madison-wp-2015-sidebar-options' , array(
     	'title'      => __( 'Page Options', 'uw-madison-wp-2015' ),
     	'priority'   => 62,
-	) ); 
+	) );
 
 $wp_customize->add_setting('uw-madison-wp-2015_sidebar_options_id', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
     'default'		 => 'simple-nav',
     'sanitize_callback' => 'sanitize_sidebar_nav'
- 
+
 ));
 
- 
+
 $wp_customize->add_control('uw-madison-wp-2015-sidebar-options', array(
     'label'      => __('Sidebar Navigation Style', 'uw-madison-wp-2015'),
     'section'    => 'uw-madison-wp-2015-sidebar-options',
@@ -1608,28 +1608,28 @@ $wp_customize->add_control('uw-madison-wp-2015-sidebar-options', array(
 function sanitize_hide_show_nav( $value ) {
     if ( !$value )
         $value = 'no';
- 
+
     return $value;
 }
 
 function sanitize_post_featured( $value ) {
     if ( !$value )
         $value = 'overlay';
- 
+
     return $value;
 }
 
 function sanitize_nav_text_size( $value ) {
     if ( !$value )
         $value = 'default';
- 
+
     return $value;
 }
 
 function sanitize_home_logo_position( $value ) {
     if ( !$value )
         $value = 'top-left';
- 
+
     return $value;
 }
 
@@ -1637,35 +1637,35 @@ function sanitize_home_logo_position( $value ) {
 function sanitize_page_feature( $value ) {
     if ( !$value )
         $value = '-Select-';
- 
+
     return $value;
 }
 
 function sanitize_campus_title( $value ) {
     if ( !$value )
         $value = 'UNIVERSITY of WISCONSIN-MADISON';
- 
+
     return $value;
 }
 
 function sanitize_maxpgwidth_options( $value ) {
     if ( !$value )
         $value = '1500';
- 
+
     return $value;
 }
 
 function sanitize_tagline_location( $value ) {
     if ( !$value )
         $value = 'below';
- 
+
     return $value;
 }
 
 function sanitize_campus_title_link( $value ) {
     if ( !$value )
         $value = '';
- 
+
     return $value;
 }
 
@@ -1673,28 +1673,28 @@ function sanitize_campus_title_link( $value ) {
 function sanitize_sidebar_nav( $value ) {
     if ( !$value )
         $value = 'simple';
- 
+
     return $value;
 }
 
 function sanitize_header_options( $value ) {
     if ( !$value )
         $value = 'transparent';
- 
+
     return $value;
 }
 
 function sanitize_dropdown_options( $value ) {
     if ( !$value )
         $value = 'disabled';
- 
+
     return $value;
 }
 
 function sanitize_breadcrumbs_options( $value ) {
     if ( !$value )
         $value = 'hidden';
- 
+
     return $value;
 }
 
@@ -1702,49 +1702,49 @@ function sanitize_breadcrumbs_options( $value ) {
 function sanitize_postedby_options( $value ) {
     if ( !$value )
         $value = 'upper';
- 
+
     return $value;
 }
 
 function sanitize_sidebar_style_options( $value ) {
     if ( !$value )
         $value = 'dots';
- 
+
     return $value;
 }
 
 function sanitize_tablesaw_options( $value ) {
     if ( !$value )
         $value = 'tablesaw';
- 
+
     return $value;
 }
 
 function sanitize_header_slides_options( $value ) {
     if ( !$value )
         $value = 'shown';
- 
+
     return $value;
 }
 
 function sanitize_twitter_options( $value ) {
     if ( !$value )
         $value = '';
- 
+
     return $value;
 }
 
 function sanitize_instagram_options( $value ) {
     if ( !$value )
         $value = '';
- 
+
     return $value;
 }
 
 function sanitize_flickr_options( $value ) {
     if ( !$value )
         $value = '';
- 
+
     return $value;
 }
 
@@ -1752,84 +1752,84 @@ function sanitize_flickr_options( $value ) {
 function sanitize_ga_options( $value ) {
     if ( !$value )
         $value = '';
- 
+
     return $value;
 }
 
 function sanitize_hj_options( $value ) {
     if ( !$value )
         $value = '';
- 
+
     return $value;
 }
 
 function sanitize_eq_options( $value ) {
     if ( !$value )
         $value = '';
- 
+
     return $value;
 }
 
 function sanitize_fp_options( $value ) {
     if ( !$value )
         $value = '';
- 
+
     return $value;
 }
 
 function sanitize_facebook_options( $value ) {
     if ( !$value )
         $value = '';
- 
+
     return $value;
 }
 
 function sanitize_linkedin_options( $value ) {
     if ( !$value )
         $value = '';
- 
+
     return $value;
 }
 
 function sanitize_youtube_options( $value ) {
     if ( !$value )
         $value = '';
- 
+
     return $value;
 }
 
 function sanitize_home_layout( $value ) {
     if ( !$value )
         $value = 'circles';
- 
+
     return $value;
 }
 
 function sanitize_header_layout( $value ) {
     if ( !$value )
         $value = 'navbar';
- 
+
     return $value;
 }
 
 function sanitize_photo_size( $value ) {
     if ( !$value )
         $value = '200';
- 
+
     return $value;
 }
 
 function sanitize_homepage_photo_size( $value ) {
     if ( !$value )
         $value = '500';
- 
+
     return $value;
 }
 
 function sanitize_logonoimage_options( $value ) {
     if ( !$value )
         $value = 'monochrome';
- 
+
     return $value;
 }
 
@@ -1837,22 +1837,22 @@ function sanitize_logonoimage_options( $value ) {
 function sanitize_fonts_options( $value ) {
     if ( !$value )
         $value = 'raleway-option';
- 
+
     return $value;
 }
-   
-  
+
+
 function sanitize_alt_logo_options( $value ) {
     if ( !$value )
         $value = '';
- 
+
     return $value;
 }
 
 function sanitize_main_logo_options( $value ) {
     if ( !$value )
 		$value = '';
-		
+
     return $value;
 }
 
@@ -1870,34 +1870,34 @@ add_action( 'customize_register', 'mytheme_customize_register' );
 }
 add_action( 'wp_head', 'mytheme_customize_css');*/
 
- 
+
 /**** Adjusted Excerpt Length ****/
 function custom_excerpt_length( $length ) {
 	return 25;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
- 
+
 
 /**** Search Suggest functionality ****/
 add_action('wp_enqueue_scripts', 'se_wp_enqueue_scripts');
 function se_wp_enqueue_scripts() {
     wp_enqueue_script('suggest',array( 'jquery' ));
-    
+
 }
 
 add_action('wp_head', 'se_wp_head');
 function se_wp_head() {
 ?>
 <script type="text/javascript">
-    
-	
+
+
 	var se_ajax_url = '<?php echo admin_url('admin-ajax.php','http'); ?>?action=se_lookup';
 	var se_ajax_url_https = '<?php echo admin_url('admin-ajax.php','https'); ?>?action=se_lookup';
 	var se_ajax_url = "//"+se_ajax_url.replace(/.*?:\/\//g, "");
-	
+
 	//console.log(se_ajax_url);
     jQuery(document).ready(function() {
-	    
+
 	  	//console.log(se_ajax_url2);
 	  	$.ajax({
 		  url: se_ajax_url
@@ -1905,34 +1905,34 @@ function se_wp_head() {
 				$.ajax({
 				  url: se_ajax_url_https
 				}).error(function(msg) {
-					console.log("The connection to the admin interface has failed.");	
-					
+					console.log("The connection to the admin interface has failed.");
+
 				}).done(function(msg) {
-				 
+
 				  var se_ajax_array = msg.split('~');
-				  		  
-				  
+
+
 				  	jQuery('.search-field').suggest(se_ajax_array, {
 			         suggestionColor   : '#cccccc',
 					 moreIndicatorClass: 'suggest-more',
 					 moreIndicatorText : '&hellip;'
 		        	});
 				});
-			
+
 		}).done(function(msg) {
-		 
+
 		  var se_ajax_array = msg.split('~');
-		  		  
-		  
+
+
 		  	jQuery('.search-field').suggest(se_ajax_array, {
 	         suggestionColor   : '#cccccc',
 			 moreIndicatorClass: 'suggest-more',
 			 moreIndicatorText : '&hellip;'
         	});
 		});
-		
+
 	   //console.log(se_ajax_url3);
-        
+
     });
 </script>
 <?php
@@ -1950,18 +1950,18 @@ function se_lookup() {
         WHERE post_title LIKE \'' . $search . '%\'
         AND post_status = \'publish\'
         ORDER BY post_title ASC';
-    
+
     //$post_array = [];
     foreach ($wpdb->get_results($query) as $row) {
-        
-        
+
+
         $post_title = $row->post_title;
         //$id = $row->ID;
 
         //$meta = get_post_meta($id, 'YOUR_METANAME', TRUE);
 
         echo $post_title . "~";
-       
+
     }
 
     die();
@@ -1970,33 +1970,33 @@ function se_lookup() {
 //Force Deactivation of Normal ACF since ACF Pro is bundled with the theme.
 function deactivate_plugin_conditional() {
     if ( is_plugin_active('advanced-custom-fields/acf.php') ) {
-    	deactivate_plugins('advanced-custom-fields/acf.php');  
-    	
+    	deactivate_plugins('advanced-custom-fields/acf.php');
+
     	add_action( 'admin_notices', function(){
  	    	echo '<div class="error"><p>It looks like you have the <b>advanced-custom-fields</b> plugin activated. The theme bundles ACF Pro. As a result your plugin will be deactivated while this theme is active.</p></div>';
- 	  	});  
+ 	  	});
  	  	return;
- 	  	
+
     }
-    
+
     if ( is_plugin_active('advanced-custom-fields-pro/acf.php') ) {
-    	deactivate_plugins('advanced-custom-fields-pro/acf.php'); 
-    	
+    	deactivate_plugins('advanced-custom-fields-pro/acf.php');
+
     	add_action( 'admin_notices', function(){
  	    	echo '<div class="error"><p>It looks like you have the <b>advanced-custom-fields-pro</b> plugin activated. The theme bundles ACF Pro. As a result your installed acf pro plugin will be deactivated while this theme is active.</p></div>';
  	  	});
- 	  	return;   
+ 	  	return;
     }
-    
+
     if ( is_plugin_active('uw-madison-events-calendar/uwmadison_events.php') ) {
-    	deactivate_plugins('uw-madison-events-calendar/uwmadison_events.php');  
-    	
+    	deactivate_plugins('uw-madison-events-calendar/uwmadison_events.php');
+
     	add_action( 'admin_notices', function(){
  	    	echo '<div class="error"><p>It looks like you have the <b>UW Events Calendar</b> plugin activated. The theme bundles this plugin automatically. As a result your plugin will be deactivated while this theme is active.</p></div>';
  	  	});
- 	  	return;  
+ 	  	return;
     }
-    
+
 }
 add_action( 'admin_init', 'deactivate_plugin_conditional' );
 
@@ -2023,9 +2023,9 @@ function uw_madison_wp_2015_register_required_plugins() {
     /**
      * Array of plugin arrays. Required keys are name and slug.
      * If the source is NOT from the .org repo, then source is also required.
-     */ 
+     */
     $plugins = array(
-		
+
 
         // This is an example of how to include a plugin from the WordPress Plugin Repository.
         /*array(
@@ -2033,7 +2033,7 @@ function uw_madison_wp_2015_register_required_plugins() {
             'slug'      => 'advanced-custom-fields',
             'force_deactivation' => true,
         ),*/
-        
+
         // This is an example of how to include a plugin from the WordPress Plugin Repository.
         /*array(
             'name'      => 'UW-Madison Events Calendar',
@@ -2089,7 +2089,7 @@ function uw_madison_wp_2015_register_required_plugins() {
 function custom_error_pages()
 {
     global $wp_query;
- 
+
     if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)
     {
         $wp_query->is_404 = FALSE;
@@ -2105,18 +2105,18 @@ function custom_error_pages()
         get_template_part('403');
         exit;
     }
- 
-    
+
+
 }
- 
+
 function custom_error_title($title='',$sep='')
 {
     if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)
         return "Forbidden ".$sep." ".get_bloginfo('name');
- 
-    
+
+
 }
- 
+
 function custom_error_class($classes)
 {
     if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)
@@ -2124,10 +2124,10 @@ function custom_error_class($classes)
         $classes[]="error403";
         return $classes;
     }
- 
-    
+
+
 }
- 
+
 add_action('wp','custom_error_pages');
 
 
@@ -2210,24 +2210,24 @@ register_default_headers( array(
 		'url'           => '%s/images/uw_logo_color.svg',
 		'thumbnail_url' => '%s/images/uw_logo_color.svg',
 		'description'   => __( 'Color UW Logo', 'uw-madison-wp-2015' ),
-		
+
 	),
 	'bwcrest' => array(
 		'url'           => '%s/images/default-logo-bw.svg',
 		'thumbnail_url' => '%s/images/default-logo-bw.svg',
 		'description'   => __( 'Monochrome UW Logo', 'uw-madison-wp-2015' ),
-		
+
 	)
-	
+
 ) );
 
 
 /**** Added ACF fields for Header Slides ****/
 if( function_exists('acf_add_local_field_group') ):
 
-	include 'acf_fields/advanced_page_editor_fields.php'; 
+	include 'acf_fields/advanced_page_editor_fields.php';
 
-	include 'acf_fields/directory_fields.php'; 
+	include 'acf_fields/directory_fields.php';
 
 /*acf_add_local_field_group(array (
 	'key' => 'group_57980a9959a78',
@@ -5721,7 +5721,7 @@ acf_add_local_field_group(array (
 ));
 
 
-include 'acf_fields/hero_image_fields.php'; 
+include 'acf_fields/hero_image_fields.php';
 
 
 
@@ -5786,7 +5786,7 @@ acf_add_local_field_group(array (
 ));
 
 
-	
+
 	acf_add_local_field_group(array (
 		'key' => 'group_acf_page-hero-images',
 		'title' => 'Page Hero Images',
@@ -5834,8 +5834,8 @@ acf_add_local_field_group(array (
 		'active' => 1,
 		'description' => '',
 	));
-	
-	
+
+
 
 acf_add_local_field_group(array (
 	'key' => 'group_acf_page-options',
@@ -6299,10 +6299,10 @@ function uw_madison_wp_2015_setup() {
 		'primary' => __( 'Primary Menu', 'uw-madison-wp-2015' ),
 		'youruw' => __( 'Your UW Menu', 'uw-madison-wp-2015' ),
 		'resources' => __( 'Resources Menu', 'uw-madison-wp-2015' )
-		
+
 	) );
 
-	
+
 	/*
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
@@ -6425,7 +6425,7 @@ function madisonwp2015_async_scripts($url)
     else if ( is_admin() )
         return str_replace( '#asyncload', '', $url );
     else
-	return str_replace( '#asyncload', '', $url )."' async='async"; 
+	return str_replace( '#asyncload', '', $url )."' async='async";
     }
 add_filter( 'clean_url', 'madisonwp2015_async_scripts', 11, 1 );
 
@@ -6433,48 +6433,82 @@ add_filter( 'clean_url', 'madisonwp2015_async_scripts', 11, 1 );
 
 
 function uw_madison_wp_2015_scripts() {
+	define("VERSION", "1.0");
+
 	wp_enqueue_style( 'uw-madison-wp-2015-style', get_stylesheet_uri() );
-	
-	wp_enqueue_style( 'uw-madison-wp-2015-mainstyles', get_template_directory_uri().'/dist/styles/master-02022018.min.css' );
-	
-	
+
+	/*wp_enqueue_style( 'uw-madison-wp-2015-mainstyles', get_template_directory_uri().'/dist/styles/master-02022018.min.css' );
+*/
+
 
 	wp_enqueue_script( 'uw-madison-wp-2015-navigation', get_template_directory_uri() . '/js/navigation.js#asyncload', array(), '20120206', true );
-	
-	wp_enqueue_script( 'uw-madison-wp-2015-main', get_template_directory_uri() . '/dist/scripts/main-02022018.min.js#asyncload', array(), '20150429', true );
+
+	//wp_enqueue_script( 'uw-madison-wp-2015-main', get_template_directory_uri() . '/dist/scripts/main-02022018.min.js#asyncload', array(), '20150429', true );
+
+	wp_enqueue_style('main-css', get_template_directory_uri()."/build/css/root.css", null, VERSION, false);
+
+	/*wp_enqueue_script('main-js', get_template_directory_uri()."/compiled/js/main.js", null, VERSION, true);*/
+
+	wp_enqueue_script('jquery-visible', get_template_directory_uri()."/js/jquery.visible.js", array( 'jquery' ), VERSION, true);
+
+	wp_enqueue_script('detect-zoom', get_template_directory_uri()."/js/detect-zoom.js", array( 'jquery' ), VERSION, true);
+
+	wp_enqueue_script('jquery-suggest', get_template_directory_uri()."/js/jquery.suggest.js", array( 'jquery' ), VERSION, true);
+
+	wp_enqueue_script('color-thief', get_template_directory_uri()."/js/color-thief.min.js", array( 'jquery' ), VERSION, true);
+
+	wp_enqueue_script('color-thief-init', get_template_directory_uri()."/js/color-thief-init.js", array( 'jquery' ), VERSION, true);
+
+	wp_enqueue_script('flickity', get_template_directory_uri()."/js/flickity.js", array( 'jquery' ), VERSION, true);
+
+	wp_enqueue_script('flickity-sync', get_template_directory_uri()."/js/flickity-sync.js", array( 'jquery' ), VERSION, true);
+
+	wp_enqueue_script('isotope', get_template_directory_uri()."/js/isotope.min.js", array( 'jquery' ), VERSION, true);
+
+	wp_enqueue_script('imagesloaded', get_template_directory_uri()."/js/imagesloaded.js", array( 'jquery' ), VERSION, true);
+
+	wp_enqueue_script('detectbrowser', get_template_directory_uri()."/js/detectbrowser.js", array( 'jquery' ), VERSION, true);
+
+	wp_enqueue_script('fastclick', get_template_directory_uri()."/js/fastclick.js", array( 'jquery' ), VERSION, true);
+
+	wp_enqueue_script('history', get_template_directory_uri()."/js/history.js", array( 'jquery' ), VERSION, true);
+
+	wp_enqueue_script('global', get_template_directory_uri()."/js/global.js", array( 'jquery' ), VERSION, true);
+
+	/*  ***** */
 
 	wp_enqueue_script( 'uw-madison-wp-2015-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js#asyncload', array(), '20130115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-	
-	
+
+
 	$tablesaw_settings = get_theme_mod( 'uw-madison-wp-2015_tablesaw_id' );
 
 	if($tablesaw_settings == "tablesaw") {
-		
-		
+
+
 		add_filter( 'the_content', 'tablesaw_add_custom_table_class' );
 		function tablesaw_add_custom_table_class( $content ) {
 		    return str_replace( '<table>', '<table class="tablesaw" data-tablesaw-mode="stack">', $content );
 		}
-		
+
 		wp_enqueue_script( 'uw-madison-wp-2015-tablesaw', get_template_directory_uri() . '/js/tablesaw.js', array(), '20160201', true );
 		wp_enqueue_script( 'uw-madison-wp-2015-tablesaw-init', get_template_directory_uri() . '/js/tablesaw-init.js', array(), '20160201', true );
-	} 
-	
+	}
+
 	if($tablesaw_settings == "datatables") {
 		add_filter( 'the_content', 'datatables_add_custom_table_class' );
 		function datatables_add_custom_table_class( $content ) {
 		    return str_replace( '<table>', '<table>', $content );
 		}
-		
+
 		wp_enqueue_script( 'uw-madison-wp-2015-datatables', "https://cdn.datatables.net/s/dt/dt-1.10.10,r-2.0.0/datatables.min.js", array(), '20160201', true );
 		wp_enqueue_style( 'uw-madison-wp-2015-datatablestyle', "https://cdn.datatables.net/s/dt/dt-1.10.10,r-2.0.0/datatables.min.css" );
 		wp_enqueue_script( 'uw-madison-wp-2015-datatables-init', get_template_directory_uri() . '/js/datatables-init.js', array(), '20160201', true );
 	}
-	
+
 }
 add_action( 'wp_enqueue_scripts', 'uw_madison_wp_2015_scripts' );
 
@@ -6523,9 +6557,9 @@ add_action( 'init', 'wpcodex_add_excerpt_support_for_pages' );
  function customformatTinyMCE($init) {
    $init['block_formats'] = "Paragraph=p; Heading 2=h2; Heading 3=h3";
    $init['toolbar2']='formatselect,alignjustify,pastetext,removeformat,charmap,outdent,indent,undo,redo,table';
-   
+
    $init['toolbar1'] = 'bold,italic,underline, strikethrough,bullist,numlist,alignleft,aligncenter,alignright,link,unlink,wp_more,spellchecker,wp_fullscreen,wp_adv,gca_button ';
-  
+
   return $init;
 }
 add_filter('tiny_mce_before_init', 'customformatTinyMCE' );
@@ -6538,7 +6572,7 @@ function catch_that_thumbnail() {
   global $post, $posts;
   $first_img = '';
   $first_vid = '';
-  
+
   ob_start();
   ob_end_clean();
   $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $imgmatches);
@@ -6548,27 +6582,27 @@ function catch_that_thumbnail() {
 	  $first_img = $imgmatches[1][0];
 	  $first_img = preg_replace("/^http:/i", "", $first_img);
   }
-  
+
 
   if($vidmatches) {
   	$first_vid = $vidmatches[1];
   }
 
   if(empty($first_img) && empty($first_vid)) {
-    
-    
+
+
     return false;
   }  else {
-	
+
 	if(empty($first_vid)) {
 		return $first_img;
 	} else {
 		return $first_vid;
 	}
-	
-	
+
+
   }
-  
+
 }
 
 
