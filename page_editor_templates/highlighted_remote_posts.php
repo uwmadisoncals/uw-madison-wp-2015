@@ -1,4 +1,4 @@
-<?php $url = get_sub_field('remote_url'); 
+<?php $url = get_sub_field('remote_url');
         $category = get_sub_field('category_id');
 		$offset = get_sub_field('offset_post');
 		$hideauthor = get_sub_field('hideauthor');
@@ -6,11 +6,11 @@
 		$hidedate = get_sub_field('hidedate');
 		$hideexcerpt = get_sub_field('hide_excerpt');
 
-		
-																	
-																	
-																	
-																	
+
+
+
+
+
                                                                     $numposts = 1;
                                                                     if($category == "") {
                                                                         $requesturi = $url."/wp-json/wp/v2/posts?per_page=1";
@@ -24,24 +24,24 @@
 																	//echo $requesturi;
 																	?>
 
-                                                                   
-																	
-																	
-																	
+
+
+
+
 																			<div class="grid-item2col highlightremoteContent <?php if($hideauthor == "1") { echo "hideauthor"; } ?> <?php if($hidecat == "1") { echo "hidecat"; } ?> <?php if($hidedate == "1") { echo "hidedate"; } ?> <?php if($hideexcerpt == "1") { echo "hideexcerpt"; } ?>" data-remoteurl="<?php echo $requesturi ?>">
 																				<div class="loadingWrapper"><div class="loading"></div></div>
-																			
-																				
+
+
 																			<div class="tiltWrapper custom custom2col" data-maxangle="3" data-tiltdepth="70">
-		  
+
 																				<a href="#" class="tiltAction remotePost"><?php the_title(); ?></a>
-																				
+
 																				<div class="tiltPanel">
-																					
-																					
-																							
-																					
-																					
+
+
+
+
+
 																					<div class="plane level1">
 																						<div class="reflection">
 																							<svg width="130px" height="130px" viewBox="0 0 130 130" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
@@ -61,10 +61,10 @@
 																							    </g>
 																							</svg>
 																						</div>
-																					
-																											
-																						
-																	
+
+
+
+
 																						<div class="backgroundImageSample">
 																							<div class="cardStyles"><svg width="381px" height="379px" viewBox="0 0 381 379" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
 																	    <!-- Generator: Sketch 3.4.2 (15855) - http://www.bohemiancoding.com/sketch -->
@@ -94,28 +94,28 @@
 																	        </g>
 																	    </g>
 																	</svg></div>
-																	
+
 																						</div>
-																						
+
 																						<div class="heroGradient"></div>
-																							
-																							
-																								
+
+
+
 														<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg); background-size: cover; background-position: center center; "></div></div>
-                                                                                                    
+
                                                                                                     <?php if($columnstyle == "fixedheight") { ?>
                                                                                                     <div class="heroImageFixedHeight" data-imgurl="<?php echo catch_that_thumbnail(); ?>" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg); background-size: cover; background-position: center center; "></div>
 																									<?php } else { ?>
                                                                                                     <img alt=" " class="mediaImg" src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg">
                                                                                                         <?php } ?>
-                                                                                                
-																							
-																							
-																							
-																							
+
+
+
+
+
 																						</div>
-																			
-																						
+
+
 																					</div>
 																					<div class="textContent">
 																					<div>
@@ -124,19 +124,18 @@
 																								<div class="dateposted"></div>
 																								<div class="numericdate">Ymd Time</div>
 																								<div class="category"></div>
-																								
+
 																								<h2>Title</h2>
 																								<div class="author"></div>
 																								<div class="excerpt"></div>
-																								
-																																									
-																								
+
+
+
 																							</div>
-																							
+
 																						</div>
 																					</div>
 																				</div>
 																				</div>
-																				
+
 																			</div>
-																		
