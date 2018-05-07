@@ -531,6 +531,7 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
     var remoteelem = "remotelocation" + remotecount;
     $(this).addClass(remoteelem);
     var remoteurl = $(this).attr("data-remoteurl");
+
     //console.log(remoteurl);
 
     $.ajax({
