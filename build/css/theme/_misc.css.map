@@ -1,0 +1,1 @@
+{"version":3,"sources":["css/theme/_misc.css"],"names":[],"mappings":"AAKA,6GACA,cAAe,CACd","file":"_misc.css","sourcesContent":["\n/**************************/\n/*  Photo Gallery */\n/**************************/\n\nbody.single-post .gallery .gallery-item .gallery-icon img, body.page .gallery .gallery-item .gallery-icon img {\nmax-width:none;\n}"]}
