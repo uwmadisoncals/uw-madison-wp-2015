@@ -659,11 +659,20 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
           post.categories[0];
         //console.log(categoryurl);
 
-        var mediaurl =
-          post._embedded["wp:featuredmedia"][0].media_details.sizes["medium"]
-            .source_url;
+        if (
+          post._embedded["wp:featuredmedia"][0].media_details.sizes["large"]
+        ) {
+          var mediaurl =
+            post._embedded["wp:featuredmedia"][0].media_details.sizes["large"]
+              .source_url;
+        } else {
+          var mediaurl =
+            post._embedded["wp:featuredmedia"][0].media_details.sizes["full"]
+              .source_url;
+        }
 
-        //console.log(mediaurl);
+        //console.log(post);
+        console.log(mediaurl);
 
         if (mediaurl) {
           var bgimg =
