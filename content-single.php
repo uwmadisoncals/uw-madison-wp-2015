@@ -7,13 +7,13 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
-		
+
 			$post_title_mod = get_theme_mod('uw-madison-wp-2015_post_featured_setting_id');
 			if($post_title_mod == "title_above") { ?>
 					<style>
 						.featured_title_above {
 							margin-bottom: 1rem;
-						}	
+						}
 
 						.verlag-option h1.entry-title, .verlag-option h1.page-title {
 							text-transform: unset;
@@ -26,21 +26,21 @@
 							color: rgba(0,0,0,0.5);
 							text-transform: unset;
 						}
-						
+
 					</style>
-					
+
 					<div class="featured_title_above">
 				  	<?php if(get_field("sub_title")) { ?>
 				  			<h2 class="entrySubTitle"><?php the_field("sub_title"); ?></h2>
 				  	<?php } ?>
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-			
+
 					<div class="entry-meta">
-				
-						
+
+
 						<?php
-							if(get_field('written_by')) { 
-								
+							if(get_field('written_by')) {
+
 								//echo '<div class="byline" style="display: block; margin-top: 0.5rem;"> By ';
 								//the_field('written_by');
 								//echo '</div>';
@@ -48,34 +48,35 @@
 								//uw_madison_wp_2015_posted_on();
 							} ?>
 
-						
+
 							<?php if($postedbylocation != "lower") {
-								
-								
+
+
 									uw_madison_wp_2015_posted_on();
-									if(get_field('written_by')) { 
+									if(get_field('written_by')) {
 										echo '<span style="color: rgba(0,0,0,0.5);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
 										the_field('written_by');
 										echo '</div></span>';
 									}
-								
+
 							} else { ?>
 
 
 								<div class="posted-on"><?php the_date(); ?></div>
-								<?php if(get_field('written_by')) { 
+								<?php if(get_field('written_by')) {
 										echo '<span style="color: rgba(0,0,0,0.5);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
 										the_field('written_by');
 										echo '</div></span>';
 									} ?>
 
-							
+
 							<?php	}  ?>
-						
+
 					</div><!-- .entry-meta -->
 				</div>
-				
+
 				<?php the_post_thumbnail('large'); ?>
+				<div class="featuredCaption"><?php echo get_post(get_post_thumbnail_id())->post_excerpt; ?></div>
 
 				<?php } else { ?>
 
@@ -86,13 +87,13 @@
 				  			<h2 class="entrySubTitle"><?php the_field("sub_title"); ?></h2>
 				  	<?php } ?>
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-			
+
 					<div class="entry-meta">
-				
-						
+
+
 						<?php
-							if(get_field('written_by')) { 
-								
+							if(get_field('written_by')) {
+
 								//echo '<div class="byline" style="display: block; margin-top: 0.5rem;"> By ';
 								//the_field('written_by');
 								//echo '</div>';
@@ -100,10 +101,10 @@
 								//uw_madison_wp_2015_posted_on();
 							} ?>
 
-						
+
 							<?php if($postedbylocation != "lower") {
 								uw_madison_wp_2015_posted_on();
-								if(get_field('written_by')) { 
+								if(get_field('written_by')) {
 									echo '<span style="color: rgba(255,255,255,0.6);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
 									the_field('written_by');
 									echo '</div></span>';
@@ -113,52 +114,52 @@
 							} else { ?>
 								<div class="posted-on"><?php the_date(); ?></div>
 
-							
+
 							<?php	}  ?>
-						
+
 					</div><!-- .entry-meta -->
 				</div>
 
 			<?php } ?>
 		<?php	} else { ?>
 
-		
+
 					<?php if(get_field("sub_title")) { ?>
 				  			<h2 class="entrySubTitle"><?php the_field("sub_title"); ?></h2>
 				  	<?php } ?>
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	
+
 					<div class="entry-meta">
 
 
 						<?php if($postedbylocation != "lower") {
-								
-								
+
+
 								uw_madison_wp_2015_posted_on();
-								if(get_field('written_by')) { 
+								if(get_field('written_by')) {
 									echo '<span style="color: rgba(0,0,0,0.5);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
 									the_field('written_by');
 									echo '</div></span>';
 								}
-							
+
 						} else { ?>
 
 
 							<div class="posted-on"><?php the_date(); ?></div>
-							<?php if(get_field('written_by')) { 
+							<?php if(get_field('written_by')) {
 									echo '<span style="color: rgba(0,0,0,0.5);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
 									the_field('written_by');
 									echo '</div></span>';
 								} ?>
 
-						
+
 						<?php	}  ?>
 
 						<style>
 							.post h1.entry-title {
 								text-transform: unset;
 							}
-						
+
 							.post .entry-meta .byline, .post .entry-meta .posted-on  {
 								display: inline-block;
 								font-size: 0.9rem;
@@ -166,13 +167,13 @@
     							letter-spacing: 0.3px;
 								color: rgba(0,0,0,0.5);
 								text-transform: unset;
-								
+
 							}
 						</style>
 
-						
+
 					</div><!-- .entry-meta -->
-			
+
 		<?php } ?>
 	</header><!-- .entry-header -->
 
@@ -181,10 +182,10 @@
 
 		<?php if($postedbylocation == "lower") {
 			//uw_madison_wp_2015_posted_on();
-		
 
 
-		
+
+
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list( __( ', ', 'uw-madison-wp-2015' ) );
 
@@ -207,7 +208,7 @@
 				get_the_author(),
 				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) )
 			);
-		
+
 
 		}  ?>
 

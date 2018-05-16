@@ -7426,6 +7426,12 @@ a.button {
     padding-top: 3em
 }
 
+.single .featuredCaption {
+    font-size: 0.8rem;
+    color: rgba(0,0,0,0.7);
+    text-align: right;
+}
+
 .search-results h1.page-title {
     font-size: 13px;
     font-weight: 400;
