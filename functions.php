@@ -2227,6 +2227,8 @@ if( function_exists('acf_add_local_field_group') ):
 
 	include 'acf_fields/advanced_page_editor_fields.php';
 
+	include 'acf_fields/featured_post_image.php';
+
 	include 'acf_fields/directory_fields.php';
 
 /*acf_add_local_field_group(array (

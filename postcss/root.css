@@ -3011,7 +3011,11 @@ footer .site-info a {
 
 .page .solidHeader .featureHeader,
 .single .solidHeader .featureHeader {
-    min-height: 140px
+    min-height: 120px
+}
+
+.page .solidHeader .featureHeader .heroImage {
+    min-height: 120px; !important
 }
 
 .home .solidHeader .featureHeader .heroImage,
@@ -4173,6 +4177,16 @@ body.home.blog div.photoHeader .heroImageContainerSVG {
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#59000000', GradientType=0)
 }
 
+
+
+.featureHeader .heroImage .headerFilter.white {
+    height: 100%;
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0, rgba(255,255,255,0.85) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0,rgba(255,255,255,0.85) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(0,0,0,0) 0,rgba(255,255,255,0.85) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#d9ffffff',GradientType=0 );
+}
+
 .gridstyle2 .grid-item1col .heroGradient,
 .gridstyle2 .grid-item2col .heroGradient,
 .gridstyle2 .grid-item3col .heroGradient,
@@ -4253,6 +4267,13 @@ body.home.blog div.photoHeader .heroImageContainerSVG {
     background: -moz-linear-gradient(top, transparent 0, rgba(0, 0, 0, .65) 100%);
     background: -webkit-linear-gradient(top, transparent 0, rgba(0, 0, 0, .65) 100%);
     background: linear-gradient(to bottom, transparent 0, rgba(0, 0, 0, .65) 100%)
+}
+
+.home .featureHeader .heroImage .headerFilter.white {
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0, rgba(255,255,255,0.85) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0,rgba(255,255,255,0.85) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(0,0,0,0) 0,rgba(255,255,255,0.85) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#d9ffffff',GradientType=0 );
 }
 
 @media screen and (min-width:600px) {

@@ -1,9 +1,11 @@
 <?php  //Image Carousel Template  ?>
 
 <?php $slideoptions = get_sub_field('slide_options'); ?>
-		<?php $interval = get_sub_field('rotate_interval'); ?>
+<?php $interval = get_sub_field('rotate_interval'); ?>
 
-    <?php if( have_rows('carousel_slide') ): ?>
+
+
+<?php if( have_rows('carousel_slide') ): ?>
     <div class="carousel_wrapper">
 
 
@@ -24,17 +26,17 @@
 		<div class="carousel_slide carousel-cell">
 
 			<div class="carousel_text">
-			<?php if($internallink) { ?>
-				<a href="<?php echo $internallink ?>" class="carousel_title"><?php echo $title; ?></a>
-			<?php } else if($externallink) { ?>
-				<a href="<?php echo $externallink ?>" class="carousel_title"><?php echo $title; ?></a>
-			<?php } else { ?>
-            	<div class="carousel_title"><?php echo $title; ?></div>
-			<?php } ?>
+				<?php if($internallink) { ?>
+					<a href="<?php echo $internallink ?>" class="carousel_title"><?php echo $title; ?></a>
+				<?php } else if($externallink) { ?>
+					<a href="<?php echo $externallink ?>" class="carousel_title"><?php echo $title; ?></a>
+				<?php } else { ?>
+					<div class="carousel_title"><?php echo $title; ?></div>
+				<?php } ?>
 
-			<div class="carousel_subtitle">
-                <?php echo $subtitle; ?>
-            </div>
+				<div class="carousel_subtitle">
+					<?php echo $subtitle; ?>
+				</div>
 			</div>
 
 			<div class="overlay"></div>
@@ -107,6 +109,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 			left: 2rem;
 			right: 2rem;
 			z-index:3;
+			max-width: 1070px;
+			margin: 0 auto;
 		}
 
 		.carousel_image img {

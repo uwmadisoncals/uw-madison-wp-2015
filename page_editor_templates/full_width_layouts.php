@@ -93,7 +93,10 @@
 
 													<?php } else if( get_row_layout() == 'image_carousel' ) { ?>
 
+
+
 														<?php include 'imageslider.php'; ?>
+
 
 
 													 <?php } else if( get_row_layout() == 'body_text' ) { ?>

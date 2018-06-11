@@ -3,13 +3,15 @@
  * @package UW Madison WP 2015
  */
 ?>
-<?php $postedbylocation = get_theme_mod('uw-madison-wp-2015_postedby_id'); ?>
+<?php $postedbylocation = get_theme_mod('uw-madison-wp-2015_postedby_id');
+	  $hidefeaturedimage = get_field('hide_featured_image_in_article'); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
 
-			$post_title_mod = get_theme_mod('uw-madison-wp-2015_post_featured_setting_id');
-			if($post_title_mod == "title_above") { ?>
+
+				$post_title_mod = get_theme_mod('uw-madison-wp-2015_post_featured_setting_id');
+				if($post_title_mod == "title_above") { ?>
 					<style>
 						.featured_title_above {
 							margin-bottom: 1rem;
@@ -74,13 +76,16 @@
 
 					</div><!-- .entry-meta -->
 				</div>
-
-				<?php the_post_thumbnail('large'); ?>
-				<div class="featuredCaption"><?php echo get_post(get_post_thumbnail_id())->post_excerpt; ?></div>
+				<?php if(!$hidefeaturedimage) { ?>
+					<?php the_post_thumbnail('large'); ?>
+					<div class="featuredCaption"><?php echo get_post(get_post_thumbnail_id())->post_excerpt; ?></div>
+				<?php } ?>
 
 				<?php } else { ?>
 
-				<?php the_post_thumbnail('large'); ?>
+				<?php if(!$hidefeaturedimage) { ?>
+					<?php the_post_thumbnail('large'); ?>
+				<?php } ?>
 
 			  	<div class="featured_title">
 				  	<?php if(get_field("sub_title")) { ?>
@@ -182,8 +187,6 @@
 
 		<?php if($postedbylocation == "lower") {
 			//uw_madison_wp_2015_posted_on();
-
-
 
 
 			/* translators: used between list items, there is a space after the comma */

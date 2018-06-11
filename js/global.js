@@ -12,6 +12,19 @@ $(window).on("load", function() {
 });
 
 jQuery(document).ready(function($) {
+  if (
+    $(".page .advancedPageEditorGroup")
+      .find(".flex-row-wrapper")
+      .children()
+      .hasClass("carousel_wrapper") &&
+    $(".page .advancedPageEditorGroup")
+      .find(".flex-row-wrapper")
+      .hasClass("removetoppadding")
+  ) {
+    //$("#page").addClass("solidHeader");
+    $(".headerFilter").addClass("white");
+  }
+
   /**
    * ----------------------------------------------------------------------------
    *
