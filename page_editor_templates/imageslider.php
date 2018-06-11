@@ -113,9 +113,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 			margin: 0 auto;
 		}
 
+		.carousel_image {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			right: 0px;
+			bottom: 0px;
+
+		}
+
 		.carousel_image img {
 			object-fit: cover;
 			width: 100%;
+			height: 100%;
 		}
 
 
