@@ -545,6 +545,8 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
     $(this).addClass(remoteelem);
     var remoteurl = $(this).attr("data-remoteurl");
 
+    var eventstyle = $(this).hasClass("events");
+
     //console.log(remoteurl);
 
     $.ajax({
