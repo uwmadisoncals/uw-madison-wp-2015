@@ -1,4 +1,4 @@
-<?php if( function_exists('acf_add_local_field_group') ):
+<?php
 
 acf_add_local_field_group(array (
 	'key' => 'group_5afb2f1bd482f',
@@ -6697,4 +6697,3 @@ acf_add_local_field_group(array (
 	'description' => '',
 ));
 
-endif;
