@@ -559,13 +559,24 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
         $(data).each(function() {
           //console.log(this.title.rendered);
 
+          var posttitle = "";
+          var postexcerpt = "";
+
+          if (this.title.rendered) {
+            posttitle = this.title.rendered;
+          }
+
+          if (this.excerpt.rendered) {
+            postexcerpt = this.excerpt.rendered;
+          }
+
           var postdate = new Date(this.date);
 
           var newrow = "<div class='row'><a href='";
           newrow = newrow + this.link;
-          newrow = newrow + "'>" + this.title.rendered + "</a>";
+          newrow = newrow + "'>" + posttitle + "</a>";
 
-          newrow = newrow + "<p>" + this.excerpt.rendered + "</p>";
+          newrow = newrow + "<p>" + postexcerpt + "</p>";
 
           newrow =
             newrow +
