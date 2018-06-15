@@ -19,6 +19,7 @@
 		$internallink = get_sub_field('internal_link');
 		$externallink = get_sub_field('external_link');
 		$slideimage = get_sub_field('slide_image');
+		$photocredits = get_sub_field('photo_credits');
 
 
 		?>
@@ -37,6 +38,12 @@
 				<div class="carousel_subtitle">
 					<?php echo $subtitle; ?>
 				</div>
+
+				<?php if($photocredits) { ?>
+				<div class="carousel_photocredit">
+					Photo Credit: <?php echo $photocredits; ?>
+				</div>
+				<?php } ?>
 			</div>
 
 			<div class="overlay"></div>
@@ -92,6 +99,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 			letter-spacing: 1px;
 			margin-bottom: 0px;
 			line-height: 1;
+		}
+
+		.carousel_slide .carousel_photocredit {
+			position: absolute;
+			bottom: 10px;
+			right: 10px;
+			z-index:5;
+			font-size: 0.8rem;
+			color: rgba(255,255,255,0.6);
+
 		}
 
 		.carousel_slide .carousel_subtitle {
