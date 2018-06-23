@@ -803,6 +803,30 @@ $wp_customize->add_control('uw-madison-wp-2015-home_logo_position', array(
 ));
 
 
+/*** Add option to change the position of subtitles ***/
+
+$wp_customize->add_setting('uw-madison-wp-2015_post_subtitle_setting_id', array(
+    'capability'     => 'edit_theme_options',
+    'default'		 => 'top',
+    'type'           => 'theme_mod',
+    'sanitize_callback' => 'sanitize_post_subtitle'
+
+));
+
+$wp_customize->add_control('uw-madison-wp-2015-post_subtitle_style', array(
+    'label'      => __('Subtitle Placement', 'uw-madison-wp-2015'),
+    'description'=> 'Select how featured images and their titles will be styled on all posts.',
+    'section'    => 'uw-madison-wp-2015-post-options',
+    'type'    => 'radio',
+    'choices' => array(
+            'top' => __( 'Place subtitles on top of headings (default)', 'uw-madison-wp-2015' ),
+            'bottom' => __( 'Place subtitles below headings', 'uw-madison-wp-2015' )
+        ),
+    'settings'   => 'uw-madison-wp-2015_post_subtitle_setting_id',
+    'priority'	=> 1
+));
+
+
 
 /*** Add option to hide main navigation ***/
 
@@ -1615,6 +1639,13 @@ function sanitize_hide_show_nav( $value ) {
 function sanitize_post_featured( $value ) {
     if ( !$value )
         $value = 'overlay';
+
+    return $value;
+}
+
+function sanitize_post_subtitle($value) {
+	if ( !$value )
+        $value = 'top';
 
     return $value;
 }

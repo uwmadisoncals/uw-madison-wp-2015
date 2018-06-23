@@ -110,6 +110,7 @@
 
 														$authorvisible = get_sub_field("hide_author");
 
+														$datevisible = get_sub_field("hide_date");
 
 
 
@@ -253,6 +254,8 @@
 												if( get_row_layout() == '2c_highlighted_content' ) {
 
 													$authorvisible = get_sub_field("hide_author");
+
+													$datevisible = get_sub_field("hide_date");
 
 
 														 if(have_rows("2c_highlighted_content_type")) { ?>

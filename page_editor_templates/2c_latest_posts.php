@@ -1,4 +1,4 @@
-<?php 
+<?php
 																	$categories = 0;
 
                                                                     $offset = 0;
@@ -7,33 +7,33 @@
                                                                     if($offsettest) {
                                                                         $offset = $offsettest;
                                                                     }
-																	
-																	
-																	
-																	
+
+
+
+
 																	//$numofposts = get_sub_field('fw_cat_number_of_posts');
-																	
+
 																	// The Query
 																	$query1 = new WP_Query( array( 'posts_per_page' => 1, 'offset' => $offset ) );
-																	
+
 																	if ( $query1->have_posts() ) {
 																		// The Loop
 																		while ( $query1->have_posts() ) { $query1->the_post(); ?>
 																			<?php if(catch_that_thumbnail() || has_post_thumbnail() || $overrideimage) { $thumbnail = true; $thumbcss = ""; } else { $thumbnail = false; $thumbcss = "noThumb"; } ?>
 																			<div class="grid-item1col">
-																				
-																			
-																				
+
+
+
 																			<div class="tiltWrapper custom custom2col <?php echo $thumbcss ?>" data-maxangle="3" data-tiltdepth="70">
-		  
+
 																				<a href="<?php the_permalink(); ?>" class="tiltAction"><?php the_title(); ?></a>
-																				
+
 																				<div class="tiltPanel">
-																					
-																					
-																							
-																					
-																					
+
+
+
+
+
 																					<div class="plane level1">
 																						<div class="reflection">
 																							<svg width="130px" height="130px" viewBox="0 0 130 130" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
@@ -53,10 +53,10 @@
 																							    </g>
 																							</svg>
 																						</div>
-																					
-																											
-																						
-																	
+
+
+
+
 																						<div class="backgroundImageSample">
 																							<div class="cardStyles"><svg width="381px" height="379px" viewBox="0 0 381 379" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
 																	    <!-- Generator: Sketch 3.4.2 (15855) - http://www.bohemiancoding.com/sketch -->
@@ -86,19 +86,19 @@
 																	        </g>
 																	    </g>
 																	</svg></div>
-																	
+
 																						</div>
-																						
-																						
+
+
 																							<div class="heroGradient"></div>
 																							<?php if($overrideimage) { ?>
 
-																									<?php 
+																									<?php
 
 																										$image = $overrideimage;
 																										$size = 'medium'; // (thumbnail, medium, large, full or custom size)
 
-																										
+
 
 																										?>
 
@@ -110,14 +110,14 @@
 
 																							<?php } else { ?>
 
-																							<?php if ( has_post_thumbnail() ) { 
-																								
-																			
+																							<?php if ( has_post_thumbnail() ) {
+
+
 																							?>
 																							<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php the_post_thumbnail_url('medium') ?>); background-size: cover; background-position: center center; "></div></div>
 
 
-																								  
+
 
 
 																										<?php if($columnstyle == "fixedheight") { ?>
@@ -134,29 +134,31 @@
 																								<?php } else { ?>
 																								  <img alt=" " src="<?php echo catch_that_thumbnail(); ?>">
 																								  <?php } ?>
-																								  
-																							<?php } 
+
+																							<?php }
 																								else{ ?>
 																									<div class="thumbCheck noThumb"></div>
-														
+
 																								<?php }
 																							?>
 
 																							<?php } ?>
 																						</div>
-																			
-																					<?php if( $thumbnail == false ) { ?> 
-																						
+
+																					<?php if( $thumbnail == false ) { ?>
+
 																					<div class="textContent">
 																					<div>
 																						<div class="middleImageSample">
 																							<div class="whiteContent">
-																								<div class="dateposted"><?php the_time('M') ?> <?php the_time('jS') ?></div>
-																								<div class="numericdate"><?php the_time('Ymd'); ?></div>
+																							<?php if(!$datevisible) { ?>																	<div class="dateposted"><?php the_time('M') ?> <?php the_time('jS') ?></div>
+																							<?php } ?>
+																																									<div class="numericdate"><?php the_time('Ymd'); ?></div>
+
 																								<h2><?php the_title(); ?></h2>
 
 																								<?php if(!$authorvisible) { ?>
-																								<div class="author"> 
+																								<div class="author">
 																								<?php if(get_field('written_by')) { ?>
 																										By <?php the_field('written_by'); ?>
 																								<?php } else { ?>
@@ -164,13 +166,13 @@
 																								<?php } ?>
 																								</div>
 																								<?php } ?>
-																								
-																								
+
+
 																								<div class="excerpt"><?php the_excerpt(); ?></div>
-																																									
-																								
+
+
 																							</div>
-																							
+
 																						</div>
 																					</div>
 																					</div>
@@ -181,10 +183,10 @@
 																					<div>
 																						<div class="middleImageSample">
 																							<div class="whiteContent">
-																								<div class="dateposted"><?php the_time('M') ?> <?php the_time('jS') ?></div>
-																								<div class="numericdate"><?php the_time('Ymd'); ?></div>
+																							<?php if(!$datevisible) { ?>																		<div class="dateposted"><?php the_time('M') ?> <?php the_time('jS') ?></div>
+																							<?php } ?>																	<div class="numericdate"><?php the_time('Ymd'); ?></div>
 																								<h2><?php the_title(); ?></h2>
-																								
+
 																								<?php if(!$authorvisible) { ?>
 																								<div class="author">
 																								<?php if(get_field('written_by')) { ?>
@@ -192,22 +194,22 @@
 																								<?php } else { ?>
 																										By <?php the_author(); ?>
 																								<?php } ?>
-																								
+
 																								</div>
 																								<?php } ?>
-																																									
-																								
+
+
 																							</div>
-																							
+
 																						</div>
 																					</div>
 																				</div>
 																			  <?php } ?>
 																				</div>
-																				
+
 																			</div>
 																		<?php }
-																		
-																		
+
+
 																		wp_reset_postdata();
 																	}

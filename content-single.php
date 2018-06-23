@@ -4,7 +4,8 @@
  */
 ?>
 <?php $postedbylocation = get_theme_mod('uw-madison-wp-2015_postedby_id');
-	  $hidefeaturedimage = get_field('hide_featured_image_in_article'); ?>
+	  $hidefeaturedimage = get_field('hide_featured_image_in_article');
+	  $subtitleplacement = get_theme_mod('uw-madison-wp-2015_post_subtitle_setting_id'); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
@@ -32,10 +33,18 @@
 					</style>
 
 					<div class="featured_title_above">
-				  	<?php if(get_field("sub_title")) { ?>
+					<?php if($subtitleplacement != "bottom") { ?>
+				  		<?php if(get_field("sub_title")) { ?>
+				  			<h2 class="entrySubTitle"><?php the_field("sub_title"); ?></h2>
+				  		<?php } ?>
+						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+					<?php } else { ?>
+						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+						<?php if(get_field("sub_title")) { ?>
 				  			<h2 class="entrySubTitle"><?php the_field("sub_title"); ?></h2>
 				  	<?php } ?>
-					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+
+					<?php } ?>
 
 					<div class="entry-meta">
 
@@ -88,10 +97,19 @@
 				<?php } ?>
 
 			  	<div class="featured_title">
-				  	<?php if(get_field("sub_title")) { ?>
+				  <?php if($subtitleplacement != "bottom") { ?>
+				  		<?php if(get_field("sub_title")) { ?>
 				  			<h2 class="entrySubTitle"><?php the_field("sub_title"); ?></h2>
+				  		<?php } ?>
+						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+					<?php } else { ?>
+						<?php the_title( '<h1 class="entry-title" style="padding-bottom: 0px;">', '</h1>' ); ?>
+						<?php if(get_field("sub_title")) { ?>
+				  			<h2 class="entrySubTitle" style="margin-top: 0px; padding-bottom: 2rem;"><?php the_field("sub_title"); ?></h2>
 				  	<?php } ?>
-					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+
+					<?php } ?>
+
 
 					<div class="entry-meta">
 
@@ -129,10 +147,18 @@
 		<?php	} else { ?>
 
 
-					<?php if(get_field("sub_title")) { ?>
+					<?php if($subtitleplacement != "bottom") { ?>
+				  		<?php if(get_field("sub_title")) { ?>
+				  			<h2 class="entrySubTitle"><?php the_field("sub_title"); ?></h2>
+				  		<?php } ?>
+						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+					<?php } else { ?>
+						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+						<?php if(get_field("sub_title")) { ?>
 				  			<h2 class="entrySubTitle"><?php the_field("sub_title"); ?></h2>
 				  	<?php } ?>
-					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+
+					<?php } ?>
 
 					<div class="entry-meta">
 
