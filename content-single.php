@@ -203,8 +203,32 @@
 								if(get_field('written_by')) {
 									echo '<span style="color: rgba(255,255,255,0.6);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
 									the_field('written_by');
-									echo '</div></span>';
-								} else {
+									echo '</div></span>'; ?>
+
+									<?php
+
+								// check if the repeater field has rows of data
+								if( have_rows('meta_values') ):
+
+									// loop through the rows of data
+									while ( have_rows('meta_values') ) : the_row();
+										echo "<span class='metaline'> | ";
+										// display a sub field value
+										the_sub_field('value');
+										echo " </span>";
+
+
+									endwhile;
+
+								else :
+
+									// no rows found
+
+								endif;
+
+								?>
+
+								<?php } else {
 									uw_madison_wp_2015_posted_on();
 								}
 							} else { ?>
