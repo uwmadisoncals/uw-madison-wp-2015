@@ -42,6 +42,8 @@
 	// 4. Include ACF
 	include_once( get_template_directory() . '/acf/acf.php' );
 
+	//include_once( get_template_directory() . '/acf-to-rest-api/class-acf-to-rest-api.php' );
+
 
 	//include_once( get_template_directory() . '/google-cse/google-cse.php' );
 
@@ -1999,7 +2001,7 @@ function se_lookup() {
 }
 
 //Force Deactivation of Normal ACF since ACF Pro is bundled with the theme.
-function deactivate_plugin_conditional() {
+/*function deactivate_plugin_conditional() {
     if ( is_plugin_active('advanced-custom-fields/acf.php') ) {
     	deactivate_plugins('advanced-custom-fields/acf.php');
 
@@ -2030,6 +2032,7 @@ function deactivate_plugin_conditional() {
 
 }
 add_action( 'admin_init', 'deactivate_plugin_conditional' );
+*/
 
 /**
  * Include the TGM_Plugin_Activation class.
