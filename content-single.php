@@ -95,9 +95,32 @@
 										echo '<span style="color: rgba(0,0,0,0.5);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
 										the_field('written_by');
 										echo '</div></span>';
-									}
+									} ?>
 
-							} else { ?>
+									<?php
+
+								// check if the repeater field has rows of data
+								if( have_rows('meta_values') ):
+
+									// loop through the rows of data
+									while ( have_rows('meta_values') ) : the_row();
+										echo "<span class='metaline'> | ";
+										// display a sub field value
+										the_sub_field('value');
+										echo " </span>";
+
+
+									endwhile;
+
+								else :
+
+									// no rows found
+
+								endif;
+
+								?>
+
+							<?php } else { ?>
 
 
 								<div class="posted-on"><?php the_date(); ?></div>
