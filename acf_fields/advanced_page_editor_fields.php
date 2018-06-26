@@ -1,4 +1,5 @@
-<?php acf_add_local_field_group(array (
+<?php
+acf_add_local_field_group(array (
 	'key' => 'group_5afb2f1bd482f',
 	'title' => 'Advanced Formatting',
 	'fields' => array (
@@ -1018,7 +1019,7 @@
 												'57d61f8419fec' => array (
 													'key' => '57d61f8419fec',
 													'name' => 'fw_highlighted_page',
-													'label' => 'Highlighted Page',
+													'label' => 'Highlighted Page/Post',
 													'display' => 'block',
 													'sub_fields' => array (
 														array (
@@ -1036,6 +1037,7 @@
 															),
 															'post_type' => array (
 																0 => 'page',
+																1 => 'post',
 															),
 															'taxonomy' => array (
 															),
@@ -3222,7 +3224,7 @@
 												'58d2e1b58d49d' => array (
 													'key' => '58d2e1b58d49d',
 													'name' => '2c_highlighted_page',
-													'label' => 'Highlighted Page',
+													'label' => 'Highlighted Page/Post',
 													'display' => 'block',
 													'sub_fields' => array (
 														array (
@@ -3232,7 +3234,7 @@
 															'type' => 'post_object',
 															'instructions' => '',
 															'required' => 1,
-															'conditional_logic' => '',
+															'conditional_logic' => 0,
 															'wrapper' => array (
 																'width' => '',
 																'class' => '',
@@ -3240,6 +3242,7 @@
 															),
 															'post_type' => array (
 																0 => 'page',
+																1 => 'post',
 															),
 															'taxonomy' => array (
 															),
@@ -4137,7 +4140,7 @@
 												'58d3e513c62ac' => array (
 													'key' => '58d3e513c62ac',
 													'name' => '2c_highlighted_page',
-													'label' => 'Highlighted Page',
+													'label' => 'Highlighted Page/Post',
 													'display' => 'block',
 													'sub_fields' => array (
 														array (
@@ -4155,6 +4158,7 @@
 															),
 															'post_type' => array (
 																0 => 'page',
+																1 => 'post',
 															),
 															'taxonomy' => array (
 															),
@@ -5299,6 +5303,7 @@
 															),
 															'post_type' => array (
 																0 => 'page',
+																1 => 'post',
 															),
 															'taxonomy' => array (
 															),
@@ -5911,6 +5916,7 @@
 															),
 															'post_type' => array (
 																0 => 'page',
+																1 => 'post',
 															),
 															'taxonomy' => array (
 															),
@@ -6547,6 +6553,7 @@
 															),
 															'post_type' => array (
 																0 => 'page',
+																1 => 'post',
 															),
 															'taxonomy' => array (
 															),

@@ -5,9 +5,34 @@
 ?>
 <?php $postedbylocation = get_theme_mod('uw-madison-wp-2015_postedby_id');
 	  $hidefeaturedimage = get_field('hide_featured_image_in_article');
+	  $metatitle = get_field('meta_title');
 	  $subtitleplacement = get_theme_mod('uw-madison-wp-2015_post_subtitle_setting_id'); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
+	<?php if($metatitle) { ?>
+		<h3 class="metatitle"><?php echo $metatitle; ?></h3>
+		<style>
+			h3.metatitle {
+				border-bottom: none;
+				font-weight: 700;
+				font-family: "Verlag-Black";
+				color: rgba(0,0,0,0.5);
+				font-size: 0.8rem;
+				text-transform: uppercase;
+				margin-bottom: 1.5rem;
+			}
+
+.entry-meta .metaline {
+							display: inline-block;
+							font-size: 0.9rem;
+							letter-spacing: 0.3px;
+							color: rgba(0,0,0,0.5);
+							text-transform: unset;
+							margin-right: 0.3rem;
+						}
+
+		</style>
+	<?php } ?>
 		<?php if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
 
 
@@ -22,13 +47,15 @@
 							text-transform: unset;
 						}
 
-						.featured_title_above .entry-meta .posted-on, .featured_title .entry-meta .posted-on, .featured_title_above .entry-meta .byline, .featured_title .entry-meta .byline {
+						.featured_title_above .entry-meta .posted-on, .featured_title .entry-meta .posted-on, .featured_title_above .entry-meta .byline, .featured_title .entry-meta .byline, .entry-meta .metaline {
 							display: inline-block;
 							font-size: 0.9rem;
 							letter-spacing: 0.3px;
 							color: rgba(0,0,0,0.5);
 							text-transform: unset;
 						}
+
+
 
 					</style>
 
@@ -79,6 +106,29 @@
 										the_field('written_by');
 										echo '</div></span>';
 									} ?>
+
+								<?php
+
+								// check if the repeater field has rows of data
+								if( have_rows('meta_values') ):
+
+									// loop through the rows of data
+									while ( have_rows('meta_values') ) : the_row();
+										echo "<span class='metaline'> | ";
+										// display a sub field value
+										the_sub_field('value');
+										echo " </span>";
+
+
+									endwhile;
+
+								else :
+
+									// no rows found
+
+								endif;
+
+								?>
 
 
 							<?php	}  ?>
@@ -173,6 +223,28 @@
 									echo '</div></span>';
 								}
 
+
+
+								// check if the repeater field has rows of data
+								if( have_rows('meta_values') ):
+
+									// loop through the rows of data
+									while ( have_rows('meta_values') ) : the_row();
+									echo "<span class='metaline'> | ";
+										// display a sub field value
+										the_sub_field('value');
+										echo " </span>";
+
+									endwhile;
+
+								else :
+
+									// no rows found
+
+								endif;
+
+
+
 						} else { ?>
 
 
@@ -182,6 +254,29 @@
 									the_field('written_by');
 									echo '</div></span>';
 								} ?>
+
+								<?php
+
+// check if the repeater field has rows of data
+if( have_rows('meta_values') ):
+
+	// loop through the rows of data
+	while ( have_rows('meta_values') ) : the_row();
+	echo "<span class='metaline'> | ";
+		// display a sub field value
+		the_sub_field('value');
+		echo " </span>";
+
+
+	endwhile;
+
+else :
+
+	// no rows found
+
+endif;
+
+?>
 
 
 						<?php	}  ?>

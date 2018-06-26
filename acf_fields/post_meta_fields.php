@@ -1,0 +1,85 @@
+<?php
+
+    acf_add_local_field_group(array (
+        'key' => 'group_5b319ebcc87a2',
+        'title' => 'Meta Fields',
+        'fields' => array (
+            array (
+                'key' => 'field_5b319f59bafb9',
+                'label' => 'Meta Title',
+                'name' => 'meta_title',
+                'type' => 'text',
+                'instructions' => 'Utilize this field if this post requires an additional section declaration.	It appears on the post page and where this post is highlighted.',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array (
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+            ),
+            array (
+                'key' => 'field_5b31a016a1eab',
+                'label' => 'Meta Values',
+                'name' => 'meta_values',
+                'type' => 'repeater',
+                'instructions' => 'Display additional values next to the date and by line.',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array (
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'collapsed' => '',
+                'min' => 0,
+                'max' => 5,
+                'layout' => 'table',
+                'button_label' => 'Add Value',
+                'sub_fields' => array (
+                    array (
+                        'key' => 'field_5b31a085a1eac',
+                        'label' => 'Value',
+                        'name' => 'value',
+                        'type' => 'text',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array (
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'default_value' => '',
+                        'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'maxlength' => '',
+                    ),
+                ),
+            ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'post',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'side',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => 1,
+        'description' => '',
+    ));
+

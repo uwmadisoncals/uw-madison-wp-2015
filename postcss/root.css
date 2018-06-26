@@ -1214,6 +1214,10 @@ html {
     font-family: Verlag-Bold
 }
 
+.logoImage img {
+    border: none;
+}
+
 .verlag-option .site-header .noimageLogo .logoImage .mainTitle div.primaryTitle,
 .verlag-option .site-header .noimageLogo .logoImage .mainTitle div.primaryTitle span {
     font-family: Verlag-Bold;
