@@ -561,6 +561,14 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
 
           var posttitle = "";
           var postexcerpt = "";
+          var meetingtime = "";
+          var meetinglocation = "";
+
+          if (this.acf) {
+            console.log("found acf fields");
+            meetingtime = this.acf.meeting_time;
+            meetinglocation = this.acf.location;
+          }
 
           if (this.title.rendered) {
             posttitle = this.title.rendered;
@@ -575,18 +583,20 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
           var newrow = "<div class='row'><a href='";
           newrow = newrow + this.link;
           newrow = newrow + "'>" + posttitle + "</a>";
-
+          newrow = newrow + "<div>" + meetingtime + "</div>";
+          newrow = newrow + "<div>" + meetinglocation + "</div>";
           newrow = newrow + "<p>" + postexcerpt + "</p>";
-
-          newrow =
-            newrow +
-            "<div class='date'>" +
-            (postdate.getMonth() + 1) +
-            "/" +
-            postdate.getDate() +
-            "/" +
-            postdate.getFullYear() +
-            "</div>";
+          if (!this.acf) {
+            newrow =
+              newrow +
+              "<div class='date'>" +
+              (postdate.getMonth() + 1) +
+              "/" +
+              postdate.getDate() +
+              "/" +
+              postdate.getFullYear() +
+              "</div>";
+          }
           $("." + remoteelem).append(newrow);
         });
 
