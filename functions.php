@@ -5,18 +5,41 @@
  * @package UW Madison WP 2015
  */
 
+$uselocalacf = true;
 
+function check_acf_plugin() {
+	if ( is_plugin_active('advanced-custom-fields/acf.php') ) {
+		add_action( 'admin_notices', function(){
+			echo '<div class="error"><p>It looks like you have the <b>Advanced Custom Fields</b> plugin activated. The <abbr>CALS</abbr> WP Theme bundles Advanced Custom Fields Pro. The theme will not work if the Advanced Custom Fields plugin is also active; please deactivate it.</p></div>';
+		});
+	}
+	if ( is_plugin_active('advanced-custom-fields-pro/acf.php') ) {
+		/*add_action( 'admin_notices', function(){
+			echo '<div class="error"><p>The <abbr>CALS</abbr> WP Theme bundles Advanced Custom Fields Pro. You may activate your own copy of ACF Pro if needed and the included copy will deactivate to prevent conflicts.</p></div>';
+		});*/
+		$uselocalacf = false;
+	} else {
+		$uselocalacf = true;
+
+	}
+
+	//return;
+}
+add_action( 'admin_init', 'check_acf_plugin' );
+
+
+if($uselocalacf) {
 
 	// 1. customize ACF path
 	add_filter('acf/settings/path', 'my_acf_settings_path');
 
 	function my_acf_settings_path( $path ) {
 
-	    // update path
-	    $path = get_template_directory() . '/acf/';
+		// update path
+		$path = get_template_directory() . '/acf/';
 
-	    // return
-	    return $path;
+		// return
+		return $path;
 
 	}
 
@@ -26,11 +49,11 @@
 
 	function my_acf_settings_dir( $dir ) {
 
-	    // update path
-	    $dir = get_template_directory_uri() . '/acf/';
+		// update path
+		$dir = get_template_directory_uri() . '/acf/';
 
-	    // return
-	    return $dir;
+		// return
+		return $dir;
 
 	}
 
@@ -42,6 +65,8 @@
 	// 4. Include ACF
 	include_once( get_template_directory() . '/acf/acf.php' );
 
+
+}
 	//include_once( get_template_directory() . '/acf-to-rest-api/class-acf-to-rest-api.php' );
 
 
