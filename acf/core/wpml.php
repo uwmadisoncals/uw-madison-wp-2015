@@ -28,10 +28,6 @@ class acf_wpml_compatibility {
 		$this->lang = ICL_LANGUAGE_CODE;
 		
 		
-		// check for custom lang
-		if( isset($_POST['_acflang']) ) $this->lang = $_POST['_acflang'];
-		
-		
 		// update settings
 		acf_update_setting('default_language', $sitepress->get_default_language());
 		acf_update_setting('current_language', $this->lang);
@@ -39,19 +35,23 @@ class acf_wpml_compatibility {
 		
 		// actions
 		add_action('acf/verify_ajax',					array($this, 'verify_ajax'));
-		add_action('acf/input/admin_footer',			array($this, 'admin_footer'));
+		add_action('acf/field_group/admin_head',		array($this, 'admin_head'));
+		add_action('acf/input/admin_head',				array($this, 'admin_head'));
 		
 		
 		// bail early if not transaltable
-		if( !$this->is_translatable() ) return;
+		if( !$this->is_translatable() ) {
+			
+			return;
+			
+		}
 		
 		
 		// actions
-		add_action('acf/update_500',					array($this, 'update_500'), 10);
-		add_action('acf/update_500_field_group',		array($this, 'update_500_field_group'), 10, 2);
+		add_action('acf/upgrade_start/5.0.0',			array($this, 'upgrade_start_5'));
+		add_action('acf/upgrade_finish/5.0.0',			array($this, 'upgrade_finish_5'));
 		add_action('acf/update_field_group',			array($this, 'update_field_group'), 2, 1);
 		add_action('icl_make_duplicate',				array($this, 'icl_make_duplicate'), 10, 4);
-		add_action('acf/input/form_data',				array($this, 'acf_input_form_data'), 10, 1);
 		
 		
 		// filters
@@ -107,9 +107,9 @@ class acf_wpml_compatibility {
 	
 	
 	/*
-	*  update_500
+	*  upgrade_start_5
 	*
-	*  This function will update the WPML settings to allow 'acf-field-group' to be translatable
+	*  description
 	*
 	*  @type	function
 	*  @date	10/04/2015
@@ -119,7 +119,11 @@ class acf_wpml_compatibility {
 	*  @return	$post_id (int)
 	*/
 	
-	function update_500() {
+	function upgrade_start_5() {
+		
+		// actions
+		add_action('acf/update_field_group', array($this, 'update_field_group_5'), 1, 1);
+		
 		
 		// global
 		global $sitepress, $sitepress_settings;
@@ -149,7 +153,28 @@ class acf_wpml_compatibility {
 	
 	
 	/*
-	*  update_500_field_group
+	*  upgrade_finish
+	*
+	*  description
+	*
+	*  @type	function
+	*  @date	10/04/2015
+	*  @since	5.2.3
+	*
+	*  @param	$post_id (int)
+	*  @return	$post_id (int)
+	*/
+	
+	function upgrade_finish_5() {
+		
+		// actions
+		remove_action('acf/update_field_group', array($this, 'update_field_group_5'), 1, 1);
+		
+	}
+	
+	
+	/*
+	*  update_field_group_5
 	*
 	*  This function will update the icl_translations table data when creating the fiedl groups
 	*
@@ -161,16 +186,24 @@ class acf_wpml_compatibility {
 	*  @return	n/a
 	*/
 	
-	function update_500_field_group($field_group, $ofg) {
+	function update_field_group_5( $field_group ) {
 		
 		// global
 		global $wpdb, $sitepress;
 		
 		
+		// bail early if no old_ID (added to $field_group by upgrade 5.0.0)
+		if( empty($field_group['old_ID']) ) {
+			
+			return;
+			
+		}
+		
+		
 		// get translation rows (old acf4 and new acf5)
 		$old_row = $wpdb->get_row($wpdb->prepare(
 			"SELECT * FROM {$wpdb->prefix}icl_translations WHERE element_type=%s AND element_id=%d", 
-			'post_acf', $ofg->ID
+			'post_acf', $field_group['old_ID']
 		), ARRAY_A);
 		
 		$new_row = $wpdb->get_row($wpdb->prepare(
@@ -376,7 +409,7 @@ class acf_wpml_compatibility {
 	
 	
 	/*
-	*  admin_footer
+	*  admin_head
 	*
 	*  description
 	*
@@ -388,25 +421,23 @@ class acf_wpml_compatibility {
 	*  @return	$post_id (int)
 	*/
 	
-	function admin_footer() {
+	function admin_head() {
 		
 		?>
 		<script type="text/javascript">
-		(function($) {
+				
+		acf.add_filter('prepare_for_ajax', function( args ){
 			
-			// add filter
-			acf.add_filter('prepare_for_ajax', function( args ){
-				
-				// append
-				args.lang = '<?php echo $this->lang; ?>';
-				
-				
-				// return
-				return args;
-				
-			});
+			if( typeof icl_this_lang != 'undefined' ) {
 			
-		})(jQuery);	
+				args.lang = icl_this_lang;
+				
+			}
+			
+			return args;
+			
+		});
+		
 		</script>
 		<?php
 		
@@ -416,14 +447,14 @@ class acf_wpml_compatibility {
 	/*
 	*  verify_ajax
 	*
-	*  This function will help avoid WPML conflicts when performing an ACF ajax request
+	*  description
 	*
 	*  @type	function
 	*  @date	7/08/2015
 	*  @since	5.2.3
 	*
-	*  @param	n/a
-	*  @return	n/a
+	*  @param	$post_id (int)
+	*  @return	$post_id (int)
 	*/
 	
 	function verify_ajax() {
@@ -432,48 +463,21 @@ class acf_wpml_compatibility {
 		global $sitepress;
 		
 		
-		// vars
-		$lang = acf_maybe_get($_POST, 'lang');
-		
-		
-		// bail early if no lang
-		if( !$lang ) return;
-		
-		
 		// switch lang
-		// this will allow get_posts to work as expected (load posts from the correct language)
-		$sitepress->switch_lang( $_REQUEST['lang'] );
+		if( isset($_REQUEST['lang']) ) {
 			
+			$sitepress->switch_lang( $_REQUEST['lang'] );
+			
+		}
+		
 		
 		// remove post_id
-		// this will prevent WPML from setting the current language based on the current post being edited
-		// in theory, WPML is correct, however, when adding a new post, the post's lang is not found and will default to 'en'
-		unset( $_REQUEST['post_id'] );
-		
-	}
-	
-	
-	/*
-	*  acf_input_form_data
-	*
-	*  description
-	*
-	*  @type	function
-	*  @date	16/12/16
-	*  @since	5.5.0
-	*
-	*  @param	$post_id (int)
-	*  @return	$post_id (int)
-	*/
-	
-	function acf_input_form_data( $data ) {
-		
-		// bail early if not options
-		if( $data['nonce'] !== 'options' ) return;
-		
-		
-		// add hidden input
-		acf_hidden_input(array('name' => '_acflang', 'value' => $this->lang));
+		// WPML is getting confused when this is not a numeric value ('options')
+		if( isset($_REQUEST['post_id']) && !is_numeric($_REQUEST['post_id']) ) {
+			
+			unset( $_REQUEST['post_id'] );
+				
+		}
 		
 	}
 	

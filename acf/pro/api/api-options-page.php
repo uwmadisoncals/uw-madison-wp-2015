@@ -13,8 +13,6 @@
 *  @return	$post_id (int)
 */
 
-if( ! function_exists('acf_get_valid_options_page') ):
-
 function acf_get_valid_options_page( $page = '' ) {
 	
 	// allow for string
@@ -38,7 +36,7 @@ function acf_get_valid_options_page( $page = '' ) {
 	
 	
 	// defaults
-	$page = wp_parse_args($page, array(
+	$page = acf_parse_args($page, array(
 		'page_title' 	=> '',
 		'menu_title'	=> '',
 		'menu_slug' 	=> '',
@@ -48,8 +46,7 @@ function acf_get_valid_options_page( $page = '' ) {
 		'icon_url'		=> false,
 		'redirect'		=> true,
 		'post_id'		=> 'options',
-		'autoload'		=> false,
-		'update_button'	=> __('Update', 'acf')
+		'autoload'		=> false
 	));
 	
 	
@@ -93,8 +90,6 @@ function acf_get_valid_options_page( $page = '' ) {
 	
 }
 
-endif;
-
 
 /*
 *  acf_pro_get_option_page
@@ -108,8 +103,6 @@ endif;
 *  @param	$post_id (int)
 *  @return	$post_id (int)
 */
-
-if( ! function_exists('acf_get_options_page') ):
 
 function acf_get_options_page( $slug ) {
 	
@@ -134,8 +127,6 @@ function acf_get_options_page( $slug ) {
 	
 }
 
-endif;
-
 
 /*
 *  acf_pro_get_option_pages
@@ -149,8 +140,6 @@ endif;
 *  @param	$post_id (int)
 *  @return	$post_id (int)
 */
-
-if( ! function_exists('acf_get_options_pages') ):
 
 function acf_get_options_pages() {
 	
@@ -254,8 +243,6 @@ function acf_get_options_pages() {
 	
 }
 
-endif;
-
 
 /*
 *  acf_update_options_page
@@ -269,8 +256,6 @@ endif;
 *  @param	$post_id (int)
 *  @return	$post_id (int)
 */
-
-if( ! function_exists('acf_update_options_page') ):
 
 function acf_update_options_page( $data ) {
 	
@@ -309,8 +294,6 @@ function acf_update_options_page( $data ) {
 	return $page;
 	
 }
-
-endif;
 
 
 /*

@@ -39,6 +39,8 @@ class acf_field_textarea extends acf_field {
 			'new_lines'		=> '',
 			'maxlength'		=> '',
 			'placeholder'	=> '',
+			'readonly'		=> 0,
+			'disabled'		=> 0,
 			'rows'			=> ''
 		);
 		
@@ -63,14 +65,13 @@ class acf_field_textarea extends acf_field {
 	function render_field( $field ) {
 		
 		// vars
-		$atts = array();
 		$o = array( 'id', 'class', 'name', 'placeholder', 'rows' );
 		$s = array( 'readonly', 'disabled' );
 		$e = '';
 		
 		
 		// maxlength
-		if( $field['maxlength'] ) {
+		if( $field['maxlength'] !== '' ) {
 		
 			$o[] = 'maxlength';
 			
@@ -85,7 +86,8 @@ class acf_field_textarea extends acf_field {
 		}
 		
 		
-		// append atts
+		// populate atts
+		$atts = array();
 		foreach( $o as $k ) {
 		
 			$atts[ $k ] = $field[ $k ];	
@@ -93,10 +95,14 @@ class acf_field_textarea extends acf_field {
 		}
 		
 		
-		// append special atts
+		// special atts
 		foreach( $s as $k ) {
 		
-			if( !empty($field[ $k ]) ) $atts[ $k ] = $k;
+			if( $field[ $k ] ) {
+			
+				$atts[ $k ] = $k;
+				
+			}
 			
 		}
 		
@@ -231,10 +237,8 @@ class acf_field_textarea extends acf_field {
 	
 }
 
+new acf_field_textarea();
 
-// initialize
-acf_register_field_type( new acf_field_textarea() );
-
-endif; // class_exists check
+endif;
 
 ?>

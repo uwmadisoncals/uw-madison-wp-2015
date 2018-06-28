@@ -41,8 +41,6 @@ class acf_field_radio extends acf_field {
 			'default_value'		=> '',
 			'other_choice'		=> 0,
 			'save_other_choice'	=> 0,
-			'allow_null' 		=> 0,
-			'return_format'		=> 'value'
 		);
 		
 		
@@ -68,54 +66,21 @@ class acf_field_radio extends acf_field {
 	*/
 	
 	function render_field( $field ) {
-
+		
 		// vars
 		$i = 0;
-		$e = '';
-		$ul = array( 
-			'class'				=> 'acf-radio-list',
-			'data-allow_null'	=> $field['allow_null'],
-			'data-other_choice'	=> $field['other_choice']
-		);
+		$checked = false;
 		
 		
-		// append to class
-		$ul['class'] .= ' ' . ($field['layout'] == 'horizontal' ? 'acf-hl' : 'acf-bl');
-		$ul['class'] .= ' ' . $field['class'];
+		// class
+		$field['class'] .= ' acf-radio-list';
+		$field['class'] .= ($field['layout'] == 'horizontal') ? ' acf-hl' : ' acf-bl';
+
+		
+		// e
+		$e = '<ul ' . acf_esc_attr(array( 'class' => $field['class'] )) . '>';
 		
 		
-		// select value
-		$checked = '';
-		$value = strval($field['value']);
-		
-		
-		// selected choice
-		if( isset($field['choices'][ $value ]) ) {
-			
-			$checked = $value;
-			
-		// custom choice
-		} elseif( $field['other_choice'] && $value !== '' ) {
-			
-			$checked = 'other';
-			
-		// allow null	
-		} elseif( $field['allow_null'] ) {
-			
-			// do nothing
-			
-		// select first input by default	
-		} else {
-			
-			$checked = key($field['choices']);
-			
-		}
-		
-		
-		// ensure $checked is a string (could be an int)
-		$checked = strval($checked); 
-		
-				
 		// other choice
 		if( $field['other_choice'] ) {
 			
@@ -124,103 +89,81 @@ class acf_field_radio extends acf_field {
 				'type'		=> 'text',
 				'name'		=> $field['name'],
 				'value'		=> '',
-				'disabled'	=> 'disabled',
-				'class'		=> 'acf-disabled'
+				'disabled'	=> 'disabled'
 			);
 			
 			
 			// select other choice if value is not a valid choice
-			if( $checked === 'other' ) {
+			if( !isset($field['choices'][ $field['value'] ]) ) {
 				
 				unset($input['disabled']);
 				$input['value'] = $field['value'];
+				$field['value'] = 'other';
 				
 			}
 			
 			
-			// allow custom 'other' choice to be defined
-			if( !isset($field['choices']['other']) ) {
-				
-				$field['choices']['other'] = '';
-				
-			}
-			
-			
-			// append other choice
-			$field['choices']['other'] .= '</label><input type="text" ' . acf_esc_attr($input) . ' /><label>';
+			$field['choices']['other'] = '</label><input type="text" ' . acf_esc_attr($input) . ' /><label>';
 		
 		}
 		
 		
-		// bail early if no choices
-		if( empty($field['choices']) ) return;
-		
-		
-		// hiden input
-		$e .= acf_get_hidden_input( array('name' => $field['name']) );
-		
-		
-		// open
-		$e .= '<ul ' . acf_esc_attr($ul) . '>';
-		
-		
-		// foreach choices
-		foreach( $field['choices'] as $value => $label ) {
+		// require choices
+		if( !empty($field['choices']) ) {
 			
-			// ensure value is a string
-			$value = strval($value);
-			$class = '';
-			
-			
-			// increase counter
-			$i++;
-			
-			
-			// vars
-			$atts = array(
-				'type'	=> 'radio',
-				'id'	=> $field['id'], 
-				'name'	=> $field['name'],
-				'value'	=> $value
-			);
-			
-			
-			// checked
-			if( $value === $checked ) {
+			// select first choice if value is not a valid choice
+			if( !isset($field['choices'][ $field['value'] ]) ) {
 				
-				$atts['checked'] = 'checked';
-				$class = ' class="selected"';
+				$field['value'] = key($field['choices']);
 				
 			}
 			
 			
-			// deisabled
-			if( isset($field['disabled']) && acf_in_array($value, $field['disabled']) ) {
-			
-				$atts['disabled'] = 'disabled';
+			// foreach choices
+			foreach( $field['choices'] as $value => $label ) {
 				
-			}
-			
-			
-			// id (use crounter for each input)
-			if( $i > 1 ) {
-			
-				$atts['id'] .= '-' . $value;
+				// increase counter
+				$i++;
 				
+				
+				// vars
+				$atts = array(
+					'type'	=> 'radio',
+					'id'	=> $field['id'], 
+					'name'	=> $field['name'],
+					'value'	=> $value,
+				);
+				
+				
+				if( strval($value) === strval($field['value']) ) {
+					
+					$atts['checked'] = 'checked';
+					$checked = true;
+					
+				}
+				
+				if( isset($field['disabled']) && acf_in_array($value, $field['disabled']) ) {
+				
+					$atts['disabled'] = 'disabled';
+					
+				}
+				
+				
+				// each input ID is generated with the $key, however, the first input must not use $key so that it matches the field's label for attribute
+				if( $i > 1 ) {
+				
+					$atts['id'] .= '-' . $value;
+					
+				}
+				
+				$e .= '<li><label><input ' . acf_esc_attr( $atts ) . '/>' . $label . '</label></li>';
 			}
-			
-			
-			// append
-			$e .= '<li><label' . $class . '><input ' . acf_esc_attr( $atts ) . '/>' . $label . '</label></li>';
-			
+		
 		}
 		
-		
-		// close
+
 		$e .= '</ul>';
 		
-		
-		// return
 		echo $e;
 		
 	}
@@ -254,24 +197,13 @@ class acf_field_radio extends acf_field {
 		));
 		
 		
-		// allow_null
-		acf_render_field_setting( $field, array(
-			'label'			=> __('Allow Null?','acf'),
-			'instructions'	=> '',
-			'name'			=> 'allow_null',
-			'type'			=> 'true_false',
-			'ui'			=> 1,
-		));
-		
-		
 		// other_choice
 		acf_render_field_setting( $field, array(
 			'label'			=> __('Other','acf'),
 			'instructions'	=> '',
-			'name'			=> 'other_choice',
 			'type'			=> 'true_false',
-			'ui'			=> 1,
-			'message'		=> __("Add 'other' choice to allow for custom values", 'acf'),
+			'name'			=> 'other_choice',
+			'message'		=> __("Add 'other' choice to allow for custom values", 'acf')
 		));
 		
 		
@@ -279,9 +211,8 @@ class acf_field_radio extends acf_field {
 		acf_render_field_setting( $field, array(
 			'label'			=> __('Save Other','acf'),
 			'instructions'	=> '',
-			'name'			=> 'save_other_choice',
 			'type'			=> 'true_false',
-			'ui'			=> 1,
+			'name'			=> 'save_other_choice',
 			'message'		=> __("Save 'other' values to the field's choices", 'acf')
 		));
 		
@@ -308,20 +239,6 @@ class acf_field_radio extends acf_field {
 			)
 		));
 		
-		
-		// return_format
-		acf_render_field_setting( $field, array(
-			'label'			=> __('Return Value','acf'),
-			'instructions'	=> __('Specify the returned value on front end','acf'),
-			'type'			=> 'radio',
-			'name'			=> 'return_format',
-			'layout'		=> 'horizontal',
-			'choices'		=> array(
-				'value'			=> __('Value','acf'),
-				'label'			=> __('Label','acf'),
-				'array'			=> __('Both (Array)','acf')
-			)
-		));
 		
 	}
 	
@@ -371,28 +288,26 @@ class acf_field_radio extends acf_field {
 	
 	function update_value( $value, $post_id, $field ) {
 		
-		// bail early if no value (allow 0 to be saved)
-		if( !$value && !is_numeric($value) ) return $value;
-		
-		
 		// save_other_choice
 		if( $field['save_other_choice'] ) {
 			
 			// value isn't in choices yet
 			if( !isset($field['choices'][ $value ]) ) {
 				
-				// get raw $field (may have been changed via repeater field)
-				// if field is local, it won't have an ID
-				$selector = $field['ID'] ? $field['ID'] : $field['key'];
-				$field = acf_get_field( $selector, true );
+				// get ID if local
+				if( !$field['ID'] ) {
+					
+					$field = acf_get_field( $field['key'], true );
+					
+				}
 				
 				
-				// bail early if no ID (JSON only)
-				if( !$field['ID'] ) return $value;
-				
-				
-				// unslash (fixes serialize single quote issue)
-				$value = wp_unslash($value);
+				// bail early if no ID
+				if( !$field['ID'] ) {
+					
+					return $value;
+					
+				}
 				
 				
 				// update $field
@@ -443,55 +358,10 @@ class acf_field_radio extends acf_field {
 		
 	}
 	
-	
-	/*
-	*  translate_field
-	*
-	*  This function will translate field settings
-	*
-	*  @type	function
-	*  @date	8/03/2016
-	*  @since	5.3.2
-	*
-	*  @param	$field (array)
-	*  @return	$field
-	*/
-	
-	function translate_field( $field ) {
-		
-		return acf_get_field_type('select')->translate_field( $field );
-		
-	}
-	
-	
-	/*
-	*  format_value()
-	*
-	*  This filter is appied to the $value after it is loaded from the db and before it is returned to the template
-	*
-	*  @type	filter
-	*  @since	3.6
-	*  @date	23/01/13
-	*
-	*  @param	$value (mixed) the value which was loaded from the database
-	*  @param	$post_id (mixed) the $post_id from which the value was loaded
-	*  @param	$field (array) the field array holding all the field options
-	*
-	*  @return	$value (mixed) the modified value
-	*/
-	
-	function format_value( $value, $post_id, $field ) {
-		
-		return acf_get_field_type('select')->format_value( $value, $post_id, $field );
-		
-	}
-	
 }
 
+new acf_field_radio();
 
-// initialize
-acf_register_field_type( new acf_field_radio() );
-
-endif; // class_exists check
+endif;
 
 ?>

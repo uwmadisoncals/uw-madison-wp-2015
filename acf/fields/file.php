@@ -46,12 +46,13 @@ class acf_field_file extends acf_field {
 			'select'		=> __("Select File",'acf'),
 			'edit'			=> __("Edit File",'acf'),
 			'update'		=> __("Update File",'acf'),
-			'uploadedTo'	=> __("Uploaded to this post",'acf'),
+			'uploadedTo'	=> __("uploaded to this post",'acf'),
 		);
 		
 		
 		// filters
 		add_filter('get_media_item_args',			array($this, 'get_media_item_args'));
+		add_filter('wp_prepare_attachment_for_js',	array($this, 'wp_prepare_attachment_for_js'), 10, 3);
 		
 		
 		// do not delete!
@@ -90,9 +91,9 @@ class acf_field_file extends acf_field {
 		$o = array(
 			'icon'		=> '',
 			'title'		=> '',
+			'size'		=> '',
 			'url'		=> '',
-			'filesize'	=> '',
-			'filename'	=> '',
+			'name'		=> '',
 		);
 		
 		$div = array(
@@ -103,36 +104,32 @@ class acf_field_file extends acf_field {
 		);
 		
 		
-		// has value?
-		if( $field['value'] ) {
+		// has value
+		if( $field['value'] && is_numeric($field['value']) ) {
 			
 			$file = get_post( $field['value'] );
 			
 			if( $file ) {
 				
+				$div['class'] .= ' has-value';
+				
 				$o['icon'] = wp_mime_type_icon( $file->ID );
 				$o['title']	= $file->post_title;
-				$o['filesize'] = @size_format(filesize( get_attached_file( $file->ID ) ));
+				$o['size'] = @size_format(filesize( get_attached_file( $file->ID ) ));
 				$o['url'] = wp_get_attachment_url( $file->ID );
 				
 				$explode = explode('/', $o['url']);
-				$o['filename'] = end( $explode );	
+				$o['name'] = end( $explode );	
 							
 			}
 			
-			
-			// url exists
-			if( $o['url'] ) {
-				
-				$div['class'] .= ' has-value';
-			
-			}
-						
 		}
 				
 ?>
 <div <?php acf_esc_attr_e($div); ?>>
-	<?php acf_hidden_input(array( 'name' => $field['name'], 'value' => $field['value'], 'data-name' => 'id' )); ?>
+	<div class="acf-hidden">
+		<?php acf_hidden_input(array( 'name' => $field['name'], 'value' => $field['value'], 'data-name' => 'id' )); ?>
+	</div>
 	<div class="show-if-value file-wrap acf-soh">
 		<div class="file-icon">
 			<img data-name="icon" src="<?php echo $o['icon']; ?>" alt=""/>
@@ -142,19 +139,19 @@ class acf_field_file extends acf_field {
 				<strong data-name="title"><?php echo $o['title']; ?></strong>
 			</p>
 			<p>
-				<strong><?php _e('File name', 'acf'); ?>:</strong>
-				<a data-name="filename" href="<?php echo $o['url']; ?>" target="_blank"><?php echo $o['filename']; ?></a>
+				<strong><?php _e('File Name', 'acf'); ?>:</strong>
+				<a data-name="name" href="<?php echo $o['url']; ?>" target="_blank"><?php echo $o['name']; ?></a>
 			</p>
 			<p>
-				<strong><?php _e('File size', 'acf'); ?>:</strong>
-				<span data-name="filesize"><?php echo $o['filesize']; ?></span>
+				<strong><?php _e('File Size', 'acf'); ?>:</strong>
+				<span data-name="size"><?php echo $o['size']; ?></span>
 			</p>
 			
 			<ul class="acf-hl acf-soh-target">
 				<?php if( $uploader != 'basic' ): ?>
-					<li><a class="acf-icon -pencil dark" data-name="edit" href="#"></a></li>
+					<li><a class="acf-icon acf-icon-pencil dark" data-name="edit" href="#"></a></li>
 				<?php endif; ?>
-				<li><a class="acf-icon -cancel dark" data-name="remove" href="#"></a></li>
+				<li><a class="acf-icon acf-icon-cancel dark" data-name="remove" href="#"></a></li>
 			</ul>
 		</div>
 	</div>
@@ -165,13 +162,11 @@ class acf_field_file extends acf_field {
 				<div class="acf-error-message"><p><?php echo $field['value']; ?></p></div>
 			<?php endif; ?>
 			
-			<label class="acf-basic-uploader">
-				<input type="file" name="<?php echo $field['name']; ?>" id="<?php echo $field['id']; ?>" />
-			</label>
+			<input type="file" name="<?php echo $field['name']; ?>" id="<?php echo $field['id']; ?>" />
 			
 		<?php else: ?>
 			
-			<p style="margin:0;"><?php _e('No file selected','acf'); ?> <a data-name="add" class="acf-button button" href="#"><?php _e('Add File','acf'); ?></a></p>
+			<p style="margin:0;"><?php _e('No File selected','acf'); ?> <a data-name="add" class="acf-button" href="#"><?php _e('Add File','acf'); ?></a></p>
 			
 		<?php endif; ?>
 		
@@ -295,11 +290,11 @@ class acf_field_file extends acf_field {
 	function format_value( $value, $post_id, $field ) {
 		
 		// bail early if no value
-		if( empty($value) ) return false;
+		if( empty($value) ) {
 		
-		
-		// bail early if not numeric (error message)
-		if( !is_numeric($value) ) return false;
+			return $value;
+			
+		}
 		
 		
 		// convert to int
@@ -341,7 +336,7 @@ class acf_field_file extends acf_field {
 	    return($vars);
 	    
 	}
-	
+	   	
 	
 	/*
 	*  update_value()
@@ -361,100 +356,66 @@ class acf_field_file extends acf_field {
 	
 	function update_value( $value, $post_id, $field ) {
 		
-		// bail early if is empty
-		if( empty($value) ) return false;
+		// array?
+		if( is_array($value) && isset($value['ID']) ) {
 		
-		
-		// validate
-		if( is_array($value) && isset($value['ID']) ) { 
-			
-			$value = $value['ID'];
-			
-		} elseif( is_object($value) && isset($value->ID) ) { 
-			
-			$value = $value->ID;
+			return $value['ID'];	
 			
 		}
 		
 		
-		// bail early if not attachment ID
-		if( !$value || !is_numeric($value) ) return false;
+		// object?
+		if( is_object($value) && isset($value->ID) ) {
 		
-		
-		// confirm type
-		$value = (int) $value;
-		
-		
-		// maybe connect attacment to post 
-		acf_connect_attachment_to_post( $value, $post_id );
+			return $value->ID;
+			
+		}
 		
 		
 		// return
 		return $value;
-		
 	}
-		
 	
 	
 	/*
-	*  validate_value
+	*  wp_prepare_attachment_for_js
 	*
-	*  This function will validate a basic file input
+	*  this filter allows ACF to add in extra data to an attachment JS object
 	*
 	*  @type	function
-	*  @date	11/02/2014
-	*  @since	5.0.0
+	*  @date	1/06/13
 	*
-	*  @param	$post_id (int)
-	*  @return	$post_id (int)
+	*  @param	{int}	$post_id
+	*  @return	{int}	$post_id
 	*/
 	
-	function validate_value( $valid, $value, $field, $input ){
+	function wp_prepare_attachment_for_js( $response, $attachment, $meta ) {
 		
-		// bail early if empty		
-		if( empty($value) ) return $valid;
-		
-		
-		// bail ealry if is numeric
-		if( is_numeric($value) ) return $valid;
+		// default
+		$fs = '0 kb';
 		
 		
-		// bail ealry if not basic string
-		if( !is_string($value) ) return $valid;
+		// supress PHP warnings caused by corrupt images
+		if( $i = @filesize( get_attached_file( $attachment->ID ) ) ) {
 		
-		
-		// decode value
-		$file = null;
-		parse_str($value, $file);
-		
-		
-		// bail early if no attachment
-		if( empty($file) ) return $valid;
-		
-		
-		// get errors
-		$errors = acf_validate_attachment( $file, $field, 'basic_upload' );
-		
-		
-		// append error
-		if( !empty($errors) ) {
-			
-			$valid = implode("\n", $errors);
+			$fs = size_format( $i );
 			
 		}
 		
 		
-		// return		
-		return $valid;
+		// update JSON
+		$response['filesize'] = $fs;
+		
+		
+		// return
+		return $response;
 		
 	}
 	
 }
 
+new acf_field_file();
 
-// initialize
-acf_register_field_type( new acf_field_file() );
-
-endif; // class_exists check
+endif;
 
 ?>

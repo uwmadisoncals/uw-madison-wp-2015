@@ -41,7 +41,9 @@ class acf_field_number extends acf_field {
 			'step'			=> '',
 			'placeholder'	=> '',
 			'prepend'		=> '',
-			'append'		=> ''
+			'append'		=> '',
+			'readonly'		=> 0,
+			'disabled'		=> 0,
 		);
 		
 		
@@ -65,9 +67,7 @@ class acf_field_number extends acf_field {
 	function render_field( $field ) {
 		
 		// vars
-		$atts = array();
 		$o = array( 'type', 'id', 'class', 'min', 'max', 'step', 'name', 'value', 'placeholder' );
-		$s = array( 'readonly', 'disabled' );
 		$e = '';
 		
 		
@@ -80,7 +80,7 @@ class acf_field_number extends acf_field {
 		
 		
 		// prepend
-		if( $field['prepend'] !== '' ) {
+		if( $field['prepend'] !== "" ) {
 		
 			$field['class'] .= ' acf-is-prepended';
 			$e .= '<div class="acf-input-prepend">' . $field['prepend'] . '</div>';
@@ -89,7 +89,7 @@ class acf_field_number extends acf_field {
 		
 		
 		// append
-		if( $field['append'] !== '' ) {
+		if( $field['append'] !== "" ) {
 		
 			$field['class'] .= ' acf-is-appended';
 			$e .= '<div class="acf-input-append">' . $field['append'] . '</div>';
@@ -97,7 +97,8 @@ class acf_field_number extends acf_field {
 		}
 		
 		
-		// append atts
+		// populate atts
+		$atts = array();
 		foreach( $o as $k ) {
 		
 			$atts[ $k ] = $field[ $k ];	
@@ -105,10 +106,14 @@ class acf_field_number extends acf_field {
 		}
 		
 		
-		// append special atts
-		foreach( $s as $k ) {
+		// special atts
+		foreach( array( 'readonly', 'disabled' ) as $k ) {
 		
-			if( !empty($field[ $k ]) ) $atts[ $k ] = $k;
+			if( $field[ $k ] ) {
+			
+				$atts[ $k ] = $k;
+				
+			}
 			
 		}
 		
@@ -312,10 +317,8 @@ class acf_field_number extends acf_field {
 	
 }
 
+new acf_field_number();
 
-// initialize
-acf_register_field_type( new acf_field_number() );
-
-endif; // class_exists check
+endif;
 
 ?>

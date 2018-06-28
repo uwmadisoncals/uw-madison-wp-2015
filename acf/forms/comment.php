@@ -35,10 +35,8 @@ class acf_form_comment {
 		
 		
 		// render
-		add_filter('comment_form_field_comment',		array($this, 'comment_form_field_comment'), 999, 1);
-		
-		//add_action( 'comment_form_logged_in_after',		array( $this, 'add_comment') );
-		//add_action( 'comment_form',						array( $this, 'add_comment') );
+		add_action( 'comment_form_logged_in_after',		array( $this, 'add_comment') );
+		add_action( 'comment_form_after_fields',		array( $this, 'add_comment') );
 
 		
 		// save
@@ -133,10 +131,10 @@ class acf_form_comment {
 		// vars
 		$post_id = "comment_{$comment->comment_ID}";
 
-		
+
 		// get field groups
 		$field_groups = acf_get_field_groups(array(
-			'comment' => get_post_type( $comment->comment_post_ID )
+			'comment' => $comment->comment_ID
 		));
 		
 		
@@ -155,38 +153,15 @@ class acf_form_comment {
 				// load fields
 				$fields = acf_get_fields( $field_group );
 				
-				
-				// vars
-				$o = array(
-					'id'			=> 'acf-'.$field_group['ID'],
-					'key'			=> $field_group['key'],
-					//'style'			=> $field_group['style'],
-					'label'			=> $field_group['label_placement'],
-					'edit_url'		=> '',
-					'edit_title'	=> __('Edit field group', 'acf'),
-					//'visibility'	=> $visibility
-				);
-				
-				
-				// edit_url
-				if( $field_group['ID'] && acf_current_user_can_admin() ) {
-					
-					$o['edit_url'] = admin_url('post.php?post=' . $field_group['ID'] . '&action=edit');
-						
-				}
-				
 				?>
-				<div id="acf-<?php echo $field_group['ID']; ?>" class="stuffbox">
-					<h3 class="hndle"><?php echo $field_group['title']; ?></h3>
+				<div id="acf-<?php echo $field_group['ID']; ?>" class="stuffbox editcomment">
+					<h3><?php echo $field_group['title']; ?></h3>
 					<div class="inside">
-						<?php acf_render_fields( $post_id, $fields, 'div', $field_group['instruction_placement'] ); ?>
-						<script type="text/javascript">
-						if( typeof acf !== 'undefined' ) {
-								
-							acf.postbox.render(<?php echo json_encode($o); ?>);
-						
-						}
-						</script>
+						<table class="form-table">
+							<tbody>
+								<?php acf_render_fields( $post_id, $fields, 'tr', 'field' ); ?>
+							</tbody>
+						</table>
 					</div>
 				</div>
 				<?php
@@ -199,40 +174,31 @@ class acf_form_comment {
 	
 	
 	/*
-	*  comment_form_field_comment
+	*  add_comment
 	*
-	*  description
+	*  This function will add fields to the front end comment form
 	*
 	*  @type	function
-	*  @date	18/04/2016
-	*  @since	5.3.8
+	*  @date	19/10/13
+	*  @since	5.0.0
 	*
-	*  @param	$post_id (int)
-	*  @return	$post_id (int)
+	*  @param	n/a
+	*  @return	n/a
 	*/
 	
-	function comment_form_field_comment( $html ) {
-		
-		// global
-		global $post;
-		
+	function add_comment() {
 		
 		// vars
-		$post_id = false;
+		$post_id = "comment_0";
 
 		
 		// get field groups
 		$field_groups = acf_get_field_groups(array(
-			'comment' => $post->post_type
+			'comment' => 'new'
 		));
 		
 		
-		// bail early if no field groups
-		if( !$field_groups ) return $html;
-		
-		
-		// ob
-		ob_start();
+		if( !empty($field_groups) ) {
 			
 			// render post data
 			acf_form_data(array( 
@@ -245,18 +211,17 @@ class acf_form_comment {
 				
 				$fields = acf_get_fields( $field_group );
 				
-				acf_render_fields( $post_id, $fields, 'p', $field_group['instruction_placement'] );
+				?>
+				<table class="form-table">
+					<tbody>
+						<?php acf_render_fields( $post_id, $fields, 'tr', 'field' ); ?>
+					</tbody>
+				</table>
+				<?php
 				
 			}
 		
-		
-		// append
-		$html .= ob_get_contents();
-		ob_end_clean();
-		
-		
-		// return
-		return $html;
+		}
 		
 	}
 	
