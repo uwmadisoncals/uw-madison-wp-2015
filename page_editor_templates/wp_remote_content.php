@@ -18,7 +18,7 @@
 		//echo 'categories is:['.$categories.']; ';
 		//echo 'tags is:['.$tags.']; ';
 
-		$numposts = get_sub_field('number_of_posts');
+		$numposts = get_sub_field('number_of_posts') + 1;
 
 		if($categories == "" && $tags == "" && $posttype == "") {
 			$requesturi = $url."/wp-json/wp/v2/posts?per_page=".$numposts;
@@ -46,6 +46,27 @@
 
 ?>
 
+<style>
+	.eventsstyle {
+		position: relative;
+		padding-left: 27px;
+	}
+
+	.eventsstyle svg {
+		height: 1rem;
+		position: absolute;
+		left: 0px;
+		top: 6px;
+	}
+
+	.eventsstyle svg path {
+		fill: rgba(0,0,0,0.4);
+	}
+
+	.eventsstyle div {
+		line-height: 1.3;
+	}
+</style>
 
 	<div class="remoteContent <?php echo $feedstyle; ?>" data-remoteurl="<?php echo $requesturi ?>">
 
