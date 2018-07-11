@@ -579,6 +579,43 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
         var post = data.shift(); // The data is an array of posts. Grab the first one.
         //console.log(data);
 
+        if (data[0].acf) {
+          function compare(a, b) {
+            if (a.acf.meeting_date < b.acf.meeting_date) return -1;
+            if (a.acf.meeting_date > b.acf.meeting_date) return 1;
+            return 0;
+          }
+
+          data.sort(compare);
+          //console.log(data);
+
+          function yyyymmdd() {
+            var x = new Date();
+            var y = x.getFullYear().toString();
+            var m = (x.getMonth() + 1).toString();
+            var d = x.getDate().toString();
+            d.length == 1 && (d = "0" + d);
+            m.length == 1 && (m = "0" + m);
+            var yyyymmdd = y + m + d;
+            return yyyymmdd;
+          }
+
+          var todaysdate = yyyymmdd();
+
+          for (var i = 0; i < data.length; i++) {
+            var meetingdate = data[i].acf.meeting_date;
+            //console.log(todaysdate);
+            //console.log(meetingdate);
+            if (meetingdate < todaysdate) {
+              data.splice(i, 1);
+            }
+          }
+
+          data.slice(0, 4);
+        }
+
+        //console.log(data);
+
         $(data).each(function() {
           //console.log(this.title.rendered);
 
@@ -589,7 +626,7 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
           var meetinglocation = "";
 
           if (this.acf) {
-            console.log("found acf fields");
+            //console.log("found acf fields");
             meetingtime = this.acf.meeting_time;
             meetinglocation = this.acf.location;
             meetingdate = this.acf.meeting_date;
@@ -615,14 +652,18 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
             var newrow = "<div class='row'><a href='";
           }
 
-          //var newrow = "<div class='row'><a href='";
-          newrow = newrow + this.link;
-          newrow = newrow + "'>" + posttitle + "</a>";
-          newrow =
-            newrow + "<div>" + meetingdate + " at " + meetingtime + "</div>";
-          newrow = newrow + "<div>" + meetinglocation + "</div>";
-          newrow = newrow + "<p>" + postexcerpt + "</p>";
-          if (!this.acf) {
+          if (this.acf) {
+            //var newrow = "<div class='row'><a href='";
+            newrow = newrow + this.link;
+            newrow = newrow + "'>" + posttitle + "</a>";
+            newrow = newrow + "<div>" + meetingtime + "</div>";
+            newrow = newrow + "<div>" + meetinglocation + "</div>";
+            newrow = newrow + "<p>" + postexcerpt + "</p>";
+          } else if (!this.acf) {
+            newrow = newrow + this.link;
+            newrow = newrow + "'>" + posttitle + "</a>";
+
+            newrow = newrow + "<p>" + postexcerpt + "</p>";
             newrow =
               newrow +
               "<div class='date'>" +
