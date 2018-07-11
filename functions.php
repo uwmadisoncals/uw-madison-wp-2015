@@ -616,6 +616,23 @@ class WP_Customize_Layout_Control extends WP_Customize_Control {
 }
 
 
+/*$type = 'posts'; // or your own custom post type, etc
+add_filter('rest_' . $type . '_query', function ($args, $request) {
+    if ($key = $request->get_param('meta_key')) {
+        $args['meta_key'] = $key;
+    }
+    return $args;
+}, 10, 2);*/
+
+// add custom fields query to WP REST API v2
+// https://1fix.io/blog/2015/07/20/query-vars-wp-api/
+function my_allow_meta_query( $valid_vars ) {
+
+    $valid_vars = array_merge( $valid_vars, array( 'meta_key', 'meta_value' ) );
+    return $valid_vars;
+}
+add_filter( 'rest_query_vars', 'my_allow_meta_query' );
+
 
 /**** Adding Theme Customizer Options ****/
 function mytheme_customize_register( $wp_customize ) {
