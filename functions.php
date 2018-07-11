@@ -623,6 +623,13 @@ function filterJsonQueryVars( $vars ) {
     return $vars;
 }
 
+add_filter( 'json_query_vars', 'filterJsonQueryVars2' );
+
+function filterJsonQueryVars2( $vars ) {
+    $vars[] = 'meta_value';
+    return $vars;
+}
+
 
 /**** Adding Theme Customizer Options ****/
 function mytheme_customize_register( $wp_customize ) {
