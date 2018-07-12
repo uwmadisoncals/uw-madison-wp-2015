@@ -42,7 +42,8 @@ if( $posts ): ?>
 		?>
 		<li style="list-style: none; margin-left: 0px; padding-left: 0px; margin-bottom: 1rem;">
 			<a href="<?php the_permalink(); ?>" style="font-size: 1.5rem;"><?php the_title(); ?></a>
-            <div><?php the_field('meeting_date'); ?> at <?php the_field('meeting_time'); ?></div>
+            <div><?php $date = new DateTime(get_field("meeting_date"));
+echo $date->format('F j, Y'); ?> at <?php the_field('meeting_time'); ?></div>
 
 		</li>
 
