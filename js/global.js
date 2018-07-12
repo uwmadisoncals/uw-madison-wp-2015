@@ -576,19 +576,18 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
     $.ajax({
       url: remoteurl,
       success: function(data) {
-        console.log(data);
         $(spinner).hide();
         //var post = data.shift(); // The data is an array of posts. Grab the first one.
 
         if (data[0].acf) {
+          var newmeetings = [];
           function compare(a, b) {
             if (a.acf.meeting_date < b.acf.meeting_date) return -1;
             if (a.acf.meeting_date > b.acf.meeting_date) return 1;
             return 0;
           }
 
-          data.sort(compare);
-          //console.log(data);
+          //data.sort(compare);
 
           function yyyymmdd() {
             var x = new Date();
@@ -605,26 +604,19 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
 
           for (var i = 0; i < data.length; i++) {
             var meetingdate = data[i].acf.meeting_date;
-            console.log(
-              "checking " +
-                data[i].id +
-                ": [" +
-                todaysdate +
-                " " +
-                meetingdate +
-                "]"
-            );
-            //console.log(meetingdate);
-            if (meetingdate < todaysdate) {
-              console.log(
-                "found one to remove: [" + todaysdate + " " + meetingdate + "]"
-              );
-              data.splice(i, 1);
+
+            if (meetingdate > todaysdate) {
+              //console.log("removing: " + i);
+              newmeetings.push(data[i]);
+              //data.splice(i, 1);
             }
           }
           //console.log(remotenum);
-          data.slice(0, remotenum);
+          newmeetings.sort(compare);
+          newmeetings.slice(0, remotenum);
+          data = newmeetings;
         }
+        //console.log(newmeetings);
 
         //console.log(data);
 
