@@ -567,6 +567,7 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
     var remoteelem = "remotelocation" + remotecount;
     $(this).addClass(remoteelem);
     var remoteurl = $(this).attr("data-remoteurl");
+    var remotenum = $(this).attr("data-remotenum");
 
     var eventstyle = $(this).hasClass("events");
     //console.log(eventstyle);
@@ -575,9 +576,9 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
     $.ajax({
       url: remoteurl,
       success: function(data) {
+        console.log(data);
         $(spinner).hide();
-        var post = data.shift(); // The data is an array of posts. Grab the first one.
-        //console.log(data);
+        //var post = data.shift(); // The data is an array of posts. Grab the first one.
 
         if (data[0].acf) {
           function compare(a, b) {
@@ -604,14 +605,25 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
 
           for (var i = 0; i < data.length; i++) {
             var meetingdate = data[i].acf.meeting_date;
-            //console.log(todaysdate);
+            console.log(
+              "checking " +
+                data[i].id +
+                ": [" +
+                todaysdate +
+                " " +
+                meetingdate +
+                "]"
+            );
             //console.log(meetingdate);
             if (meetingdate < todaysdate) {
+              console.log(
+                "found one to remove: [" + todaysdate + " " + meetingdate + "]"
+              );
               data.splice(i, 1);
             }
           }
-
-          data.slice(0, 4);
+          //console.log(remotenum);
+          data.slice(0, remotenum);
         }
 
         //console.log(data);
@@ -677,19 +689,19 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
           $("." + remoteelem).append(newrow);
         });
 
-        $(".remotePost").attr("href", post.link);
-        $(".remotePost #quote-title").text(post.title.rendered);
-        $("#quote-content").html(post.excerpt.rendered);
+        //$(".remotePost").attr("href", post.link);
+        //$(".remotePost #quote-title").text(post.title.rendered);
+        //$("#quote-content").html(post.excerpt.rendered);
 
         // If the Source is available, use it. Otherwise hide it.
-        if (
+        /*if (
           typeof post.custom_meta !== "undefined" &&
           typeof post.custom_meta.Source !== "undefined"
         ) {
           $("#quote-source").html("Source:" + post.custom_meta.Source);
         } else {
           $("#quote-source").text("");
-        }
+        }*/
       },
       cache: true
     });

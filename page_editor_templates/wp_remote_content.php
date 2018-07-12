@@ -4,13 +4,16 @@
 		$tags = "";
 		$posttype = "";
 		$numposts = 0;
+		$numquery = 0;
 		$feedstyle = "defaultstyle";
+		$apiparams = "";
 
 		$url = get_sub_field('source_url');
 		$categories = get_sub_field('source_categories');
 		$tags = get_sub_field('source_tags');
 		$posttype = get_sub_field('post_type');
 		$feedstyle = get_sub_field('feed_style');
+		$apiparams = get_sub_field('api_params');
 
 
 
@@ -18,10 +21,17 @@
 		//echo 'categories is:['.$categories.']; ';
 		//echo 'tags is:['.$tags.']; ';
 
-		$numposts = get_sub_field('number_of_posts') + 1;
+		if($posttype == "meetings") {
+			$numposts = 100;
+			$numquery = get_sub_field('number_of_posts');
+		} else {
+			$numposts = get_sub_field('number_of_posts') + 1;
+		}
+
+
 
 		if($categories == "" && $tags == "" && $posttype == "") {
-			$requesturi = $url."/wp-json/wp/v2/posts?per_page=".$numposts;
+			$requesturi = $url."/wp-json/wp/v2/posts?per_page=".$numposts.$apiparams;
 		} else {
 			if($tags != "") {
 				$tagsuri = "&tags=".$tags;
@@ -36,9 +46,9 @@
 			}
 
 			if($posttype != "") {
-				$requesturi = $url."/wp-json/wp/v2/".$posttype."?per_page=".$numposts.$categoriesuri.$tagsuri;
+				$requesturi = $url."/wp-json/wp/v2/".$posttype."?per_page=".$numposts.$categoriesuri.$tagsuri.$apiparams;
 			} else {
-				$requesturi = $url."/wp-json/wp/v2/posts?per_page=".$numposts.$categoriesuri.$tagsuri;
+				$requesturi = $url."/wp-json/wp/v2/posts?per_page=".$numposts.$categoriesuri.$tagsuri.$apiparams;
 				$posttype = "";
 			}
 
@@ -68,7 +78,7 @@
 	}
 </style>
 
-	<div class="remoteContent <?php echo $feedstyle; ?>" data-remoteurl="<?php echo $requesturi ?>">
+	<div class="remoteContent <?php echo $feedstyle; ?>" data-remoteurl="<?php echo $requesturi ?>" data-remotenum="<?php echo $numquery ?>">
 
 		<div class="loadingWrapper"><div class="loading"></div></div>
 

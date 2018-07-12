@@ -616,7 +616,7 @@ class WP_Customize_Layout_Control extends WP_Customize_Control {
 }
 
 
-add_filter( 'json_query_vars', 'filterJsonQueryVars' );
+/*add_filter( 'json_query_vars', 'filterJsonQueryVars' );
 
 function filterJsonQueryVars( $vars ) {
     $vars[] = 'meta_key';
@@ -628,7 +628,75 @@ add_filter( 'json_query_vars', 'filterJsonQueryVars2' );
 function filterJsonQueryVars2( $vars ) {
     $vars[] = 'meta_value';
     return $vars;
+}*/
+
+add_action( 'rest_api_init', 'rest_api_filter_add_filters' );
+
+
+function rest_api_filter_add_filters() {
+	foreach ( get_post_types( array( 'show_in_rest' => true ), 'objects' ) as $post_type ) {
+		add_filter( 'rest_' . $post_type->name . '_query', 'rest_api_filter_add_filter_param', 10, 2 );
+	}
 }
+
+
+function rest_api_filter_add_filter_param( $args, $request ) {
+	// Bail out if no filter parameter is set.
+	if ( empty( $request['filter'] ) || ! is_array( $request['filter'] ) ) {
+		return $args;
+	}
+
+	$filter = $request['filter'];
+
+	if ( isset( $filter['posts_per_page'] ) && ( (int) $filter['posts_per_page'] >= 1 && (int) $filter['posts_per_page'] <= 100 ) ) {
+		$args['posts_per_page'] = $filter['posts_per_page'];
+	}
+
+	global $wp;
+	$vars = apply_filters( 'query_vars', $wp->public_query_vars );
+
+	foreach ( $vars as $var ) {
+		if ( isset( $filter[ $var ] ) ) {
+			$args[ $var ] = $filter[ $var ];
+		}
+	}
+	return $args;
+}
+
+
+// Set the post type to modify.
+/*$post_type = 'meetings';
+
+
+add_filter( "rest_{$post_type}_collection_params", function( $params ){
+
+    $params['meeting_date'] = array(
+        'description'        => __( 'Limit response to posts published after a given ISO8601 compliant date.' ),
+        'type'               => 'string',
+        'format'             => 'date-time',
+    );
+    $params['orderby']['enum'][] = 'meeting_date';
+    return $params;
+});
+
+
+add_filter( "rest_{$post_type}_query", function( $query_args, $request ){
+
+    if ( isset( $request['meeting_date'] ) ) {
+        if ( ! is_array( $query_args['meta_query'] ) ) {
+            $query_args['meta_query'] = array();
+        }
+        // We only want the 2016-11-23 from 2016-11-23T00:00:00
+        $bits = explode( 'T', $request['meeting_date'] );
+        $query_args['meta_query'][] = array(
+            'key'      => 'meeting_date',
+            'value'    => $bits[0],
+            'compare'  => '>=',
+            'type'     => 'DATE',
+        );
+    }
+    return $query_args;
+}, 10, 2 );*/
 
 
 /**** Adding Theme Customizer Options ****/
@@ -2298,7 +2366,7 @@ register_default_headers( array(
 /**** Added ACF fields for Header Slides ****/
 if( function_exists('acf_add_local_field_group') ):
 
-	include 'acf_fields/advanced_page_editor_fields.php';
+	//include 'acf_fields/advanced_page_editor_fields.php';
 
 	include 'acf_fields/post_meta_fields.php';
 
