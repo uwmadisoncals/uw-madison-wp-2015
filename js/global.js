@@ -605,7 +605,7 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
           for (var i = 0; i < data.length; i++) {
             var meetingdate = data[i].acf.meeting_date;
 
-            if (meetingdate > todaysdate) {
+            if (meetingdate >= todaysdate) {
               //console.log("removing: " + i);
               newmeetings.push(data[i]);
               //data.splice(i, 1);
