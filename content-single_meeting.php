@@ -71,9 +71,9 @@
 
 					if( $file ):
 						if($label) { ?>
-							<a href="<?php echo $file['url']; ?>"><?php echo $label; ?></a>
+							<a href="<?php echo $file['url']; ?>" target="_blank"><?php echo $label; ?></a>
 						<?php } else { ?>
-							<a href="<?php echo $file['url']; ?>"><?php echo $file['filename']; ?></a>
+							<a href="<?php echo $file['url']; ?>" target="_blank"><?php echo $file['filename']; ?></a>
 						<?php } ?>
 					<?php endif; ?>
 
