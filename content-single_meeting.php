@@ -67,11 +67,14 @@
 					while ( have_rows('materials') ) : the_row();
 
 					$file = get_sub_field('file');
+					$label = get_sub_field('file_label');
 
-					if( $file ): ?>
-
-						<a href="<?php echo $file['url']; ?>"><?php echo $file['filename']; ?></a>
-
+					if( $file ):
+						if($label) { ?>
+							<a href="<?php echo $file['url']; ?>"><?php echo $label; ?></a>
+						<?php } else { ?>
+							<a href="<?php echo $file['url']; ?>"><?php echo $file['filename']; ?></a>
+						<?php } ?>
 					<?php endif; ?>
 
 					<?php endwhile; ?>
