@@ -21,7 +21,7 @@ $posts = get_posts(array(
 	'posts_per_page'	=> -1,
 	'meta_key'			=> 'meeting_date',
 	'orderby'			=> 'meta_value',
-	'order'				=> 'DESC'
+	'order'				=> 'ASC'
 ));
 
 if( $posts ): ?>
