@@ -1,12 +1,7 @@
 <?php
 
-if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-
-if( ! class_exists('acf_admin_options_page') ) :
-
-class acf_admin_options_page {
+class acf_pro_options_page {
 	
-	/** @var array Contains the current options page */
 	var $page;
 	
 	
@@ -25,11 +20,131 @@ class acf_admin_options_page {
 	
 	function __construct() {
 		
-		// add menu items
+		// actions
 		add_action('admin_menu', array($this,'admin_menu'), 99, 0);
 		
+		
+		// filters
+		add_filter( 'acf/location/rule_types', 					array($this, 'rule_types'), 10, 1 );
+		add_filter( 'acf/location/rule_values/options_page',	array($this, 'rule_values'), 10, 1 );
+		add_filter( 'acf/location/rule_match/options_page',		array($this, 'rule_match'), 10, 3 );
+		
+	}
+		
+	
+	/*
+	*  acf_location_rules_types
+	*
+	*  this function will add "Options Page" to the ACF location rules
+	*
+	*  @type	function
+	*  @date	2/02/13
+	*
+	*  @param	{array}	$choices
+	*  @return	{array}	$choices
+	*/
+	
+	function rule_types( $choices ) {
+		
+	    $choices[ __("Forms",'acf') ]['options_page'] = __("Options Page",'acf');
+		
+	    return $choices;
+	    
 	}
 	
+	
+	/*
+	*  acf_location_rules_values_options_page
+	*
+	*  this function will populate the available pages in the ACF location rules
+	*
+	*  @type	function
+	*  @date	2/02/13
+	*
+	*  @param	{array}	$choices
+	*  @return	{array}	$choices
+	*/
+	
+	function rule_values( $choices ) {
+		
+		// vars
+		$pages = acf_get_options_pages();
+		
+		
+		// populate
+		if( !empty($pages) ) {
+		
+			foreach( $pages as $page ) {
+			
+				$choices[ $page['menu_slug'] ] = $page['menu_title'];
+				
+			}
+			
+		} else {
+			
+			$choices[''] = __('No options pages exist', 'acf');
+			
+		}
+		
+		
+		// return
+	    return $choices;
+	}
+	
+	
+	/*
+	*  rule_match
+	*
+	*  description
+	*
+	*  @type	function
+	*  @date	24/02/2014
+	*  @since	5.0.0
+	*
+	*  @param	
+	*  @return	
+	*/
+	
+	function rule_match( $match, $rule, $options ) {
+		
+		// vars
+		$options_page = false;
+		
+		
+		// $options does not contain a default for "options_page"
+		if( isset($options['options_page']) ) {
+		
+			$options_page = $options['options_page'];
+			
+		}
+		
+
+		if( !$options_page ) {
+		
+			global $plugin_page;
+			
+			$options_page = $plugin_page;
+			
+		}
+		
+		
+		// match
+		if( $rule['operator'] == "==" ) {
+		
+        	$match = ( $options_page === $rule['value'] );
+        	
+        } elseif( $rule['operator'] == "!=" ) {
+        
+        	$match = ( $options_page !== $rule['value'] );
+        	
+        }
+        
+        
+        // return
+        return $match;
+        
+    }
+    
 	
 	/*
 	*  admin_menu
@@ -50,32 +165,31 @@ class acf_admin_options_page {
 		$pages = acf_get_options_pages();
 		
 		
-		// bail early if no pages
-		if( empty($pages) ) return;
+		// create pages
+		if( !empty($pages) ) {
 		
-		
-		// loop
-		foreach( $pages as $page ) {
-			
-			// vars
-			$slug = '';
-			
-			
-			// parent
-			if( empty($page['parent_slug']) ) {
+			foreach( $pages as $page ) {
 				
-				$slug = add_menu_page( $page['page_title'], $page['menu_title'], $page['capability'], $page['menu_slug'], array($this, 'html'), $page['icon_url'], $page['position'] );
-			
-			// child
-			} else {
+				// vars
+				$slug = '';
 				
-				$slug = add_submenu_page( $page['parent_slug'], $page['page_title'], $page['menu_title'], $page['capability'], $page['menu_slug'], array($this, 'html') );
 				
+				if( empty($page['parent_slug']) ) {
+					
+					// add page
+					$slug = add_menu_page( $page['page_title'], $page['menu_title'], $page['capability'], $page['menu_slug'], array($this, 'html'), $page['icon_url'], $page['position'] );
+					
+				} else {
+					
+					// add page
+					$slug = add_submenu_page( $page['parent_slug'], $page['page_title'], $page['menu_title'], $page['capability'], $page['menu_slug'], array($this, 'html') );
+					
+				}
+				
+				
+				// actions
+				add_action("load-{$slug}", array($this,'admin_load'));
 			}
-			
-			
-			// actions
-			add_action("load-{$slug}", array($this,'admin_load'));
 			
 		}
 		
@@ -85,14 +199,9 @@ class acf_admin_options_page {
 	/*
 	*  load
 	*
-	*  description
-	*
-	*  @type	function
-	*  @date	2/02/13
-	*  @since	3.6
-	*
-	*  @param	$post_id (int)
-	*  @return	$post_id (int)
+	*  @description: 
+	*  @since: 3.6
+	*  @created: 2/02/13
 	*/
 	
 	function admin_load() {
@@ -102,7 +211,7 @@ class acf_admin_options_page {
 		
 		
 		// vars
-		$this->page = acf_get_options_page( $plugin_page );
+		$this->page = acf_get_options_page($plugin_page);
 		
 		
 		// get post_id (allow lang modification)
@@ -191,7 +300,7 @@ class acf_admin_options_page {
 		// notices
 		if( !empty($_GET['message']) && $_GET['message'] == '1' ) {
 		
-			acf_add_admin_notice( $this->page['updated_message'] );
+			acf_add_admin_notice( __("Options Updated",'acf') );
 			
 		}
 		
@@ -304,8 +413,8 @@ class acf_admin_options_page {
 			'key'			=> $field_group['key'],
 			'style'			=> $field_group['style'],
 			'label'			=> $field_group['label_placement'],
-			'editLink'		=> '',
-			'editTitle'		=> __('Edit field group', 'acf'),
+			'edit_url'		=> '',
+			'edit_title'	=> __('Edit field group', 'acf'),
 			'visibility'	=> true
 		);
 		
@@ -313,7 +422,7 @@ class acf_admin_options_page {
 		// edit_url
 		if( $field_group['ID'] && acf_current_user_can_admin() ) {
 			
-			$o['editLink'] = admin_url('post.php?post=' . $field_group['ID'] . '&action=edit');
+			$o['edit_url'] = admin_url('post.php?post=' . $field_group['ID'] . '&action=edit');
 				
 		}
 		
@@ -323,7 +432,7 @@ class acf_admin_options_page {
 		
 		
 		// render
-		acf_render_fields( $fields, $this->page['post_id'], 'div', $field_group['instruction_placement'] );
+		acf_render_fields( $this->page['post_id'], $fields, 'div', $field_group['instruction_placement'] );
 		
 		
 		
@@ -331,7 +440,7 @@ class acf_admin_options_page {
 <script type="text/javascript">
 if( typeof acf !== 'undefined' ) {
 		
-	acf.newPostbox(<?php echo json_encode($o); ?>);	
+	acf.postbox.render(<?php echo json_encode($o); ?>);	
 
 }
 </script>
@@ -350,18 +459,20 @@ if( typeof acf !== 'undefined' ) {
 	
 	function html() {
 		
+		// vars
+		$view = array(
+			'page'	=> $this->page
+		);
+		
+		
 		// load view
-		acf_get_view(dirname(__FILE__) . '/views/html-options-page.php', $this->page);
+		acf_pro_get_view('options-page', $view);
 				
 	}
 	
 	
 }
 
-
-// initialize
-new acf_admin_options_page();
-
-endif;
+new acf_pro_options_page();
 
 ?>

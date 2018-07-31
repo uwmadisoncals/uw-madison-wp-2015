@@ -1,21 +1,26 @@
 <?php 
 
+// vars
+$button = __('Upgrade Sites');
+
+
+// extract
 extract($args);
 
 ?>
 <div id="acf-upgrade-wrap" class="wrap">
 	
-	<h2><?php _e("Advanced Custom Fields Database Upgrade",'acf'); ?></h2>
+	<h1><?php _e("Advanced Custom Fields Database Upgrade",'acf'); ?></h1>
 	
-	<p><?php _e("The following sites require a DB upgrade. Check the ones you want to update and then click “Upgrade Database”.",'acf'); ?></p>
+	<p><?php echo sprintf( __("The following sites require a DB upgrade. Check the ones you want to update and then click %s.", 'acf'), '"' . $button . '"'); ?></p>
 	
-	<p><input type="submit" name="upgrade" value="Update Sites" class="button" id="upgrade-sites"></p>
+	<p><input type="submit" name="upgrade" value="<?php echo $button; ?>" class="button" id="upgrade-sites"></p>
 	
 	<table class="wp-list-table widefat">
 		
 		<thead>
 			<tr>
-				<th class="manage-column check-column" scope="col"><input type="checkbox" id="sites-select-all"></th>
+				<td class="manage-column check-column" scope="col"><input type="checkbox" id="sites-select-all"></td>
 				<th class="manage-column" scope="col" style="width:33%;"><label for="sites-select-all"><?php _e("Site", 'acf'); ?></label></th>
 				<th><?php _e("Description", 'acf'); ?></th>
 			</tr>
@@ -23,7 +28,7 @@ extract($args);
 	
 		<tfoot>
 		<tr>
-			<th class="manage-column check-column" scope="col"><input type="checkbox" id="sites-select-all-2"></th>
+			<td class="manage-column check-column" scope="col"><input type="checkbox" id="sites-select-all-2"></td>
 			<th class="manage-column" scope="col"><label for="sites-select-all-2"><?php _e("Site", 'acf'); ?></label></th>
 			<th><?php _e("Description", 'acf'); ?></th>
 		</tr>
@@ -57,16 +62,16 @@ extract($args);
 		
 	</table>
 	
-	<p><input type="submit" name="upgrade" value="Update Sites" class="button" id="upgrade-sites-2"></p>
+	<p><input type="submit" name="upgrade" value="<?php echo $button; ?>" class="button" id="upgrade-sites-2"></p>
 	
-	<p class="show-on-complete"><?php _e('Database Upgrade complete', 'acf'); ?>. <a href="<?php echo network_admin_url(); ?>"><?php _e("Return to network dashboard",'acf'); ?></a>.</p>
+	<p class="show-on-complete"><?php echo sprintf( __('Database Upgrade complete. <a href="%s">Return to network dashboard</a>', 'acf'), network_admin_url() ); ?></p>
 	
 	<style type="text/css">
 		
 		/* hide show */
 		.show-on-complete {
 			display: none;
-		}		
+		}
 		
 	</style>
 	
@@ -158,7 +163,7 @@ extract($args);
 				
 				
 				// add loading
-				$tr.find('.response').html('<i class="acf-loading"></i></span> <?php _e('Upgrading data to', 'acf'); ?> <?php echo $plugin_version; ?>');
+				$tr.find('.response').html('<i class="acf-loading"></i></span> <?php printf(__('Upgrading data to version %s', 'acf'), $plugin_version); ?>');
 				
 				
 				// get results
@@ -167,8 +172,8 @@ extract($args);
 					dataType:	'json',
 					type:		'post',
 					data:		{
-						action:		'acf/admin/data_upgrade',
-						nonce:		'<?php echo wp_create_nonce('acf_upgrade'); ?>',
+						action:		'acf/admin/db_update',
+						nonce:		'<?php echo wp_create_nonce('acf_db_update'); ?>',
 						blog_id:	$input.val(),
 					},
 					success: function( json ){

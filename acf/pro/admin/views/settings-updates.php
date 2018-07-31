@@ -1,5 +1,9 @@
 <?php 
 
+// extract
+extract($args);
+
+
 // vars
 $active = $license ? true : false;
 $nonce = $active ? 'deactivate_pro_licence' : 'activate_pro_licence';
@@ -20,7 +24,7 @@ $readonly = $active ? 1 : 0;
 			<p><?php printf(__('To unlock updates, please enter your license key below. If you don\'t have a licence key, please see <a href="%s" target="_blank">details & pricing</a>.','acf'), esc_url('https://www.advancedcustomfields.com/pro')); ?></p>
 			<form action="" method="post">
 			<div class="acf-hidden">
-				<?php acf_nonce_input($nonce); ?>
+				<input type="hidden" name="_acfnonce" value="<?php echo wp_create_nonce( $nonce ); ?>" />
 			</div>
 			<table class="form-table">
                 <tbody>
@@ -68,7 +72,7 @@ $readonly = $active ? 1 : 0;
                     		<label><?php _e('Current Version', 'acf'); ?></label>
                     	</th>
 						<td>
-							<?php echo esc_html( $current_version ); ?>
+							<?php echo $current_version; ?>
 						</td>
 					</tr>
 					<tr>
@@ -76,7 +80,7 @@ $readonly = $active ? 1 : 0;
                     		<label><?php _e('Latest Version', 'acf'); ?></label>
                     	</th>
 						<td>
-							<?php echo esc_html( $remote_version ); ?>
+							<?php echo $remote_version; ?>
 						</td>
 					</tr>
 					<tr>
@@ -107,7 +111,7 @@ $readonly = $active ? 1 : 0;
                     		<label><?php _e('Changelog', 'acf'); ?></label>
                     	</th>
 						<td>
-							<?php echo acf_esc_html( $changelog ); ?>
+							<?php echo $changelog; ?>
 						</td>
 					</tr>
 					<?php endif; ?>
@@ -117,14 +121,19 @@ $readonly = $active ? 1 : 0;
                     		<label><?php _e('Upgrade Notice', 'acf'); ?></label>
                     	</th>
 						<td>
-							<?php echo acf_esc_html( $upgrade_notice ); ?>
+							<?php echo $upgrade_notice; ?>
 						</td>
 					</tr>
 					<?php endif; ?>
 				</tbody>
 			</table>
+			</form>
+            
 		</div>
+		
+		
 	</div>
+	
 </div>
 <style type="text/css">
 	#acf_pro_licence {
