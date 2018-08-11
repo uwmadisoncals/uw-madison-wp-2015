@@ -48,8 +48,8 @@ get_header(); ?>
                     }
 
                     .intro_and_nav .sidebar_menu {
-                        width: 100%;
-                        max-width: 300px;
+
+                        width: 300px;
                         padding-right: 2rem;
                         margin-top: 0px;
                     }
