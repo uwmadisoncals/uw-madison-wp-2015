@@ -1,16 +1,5 @@
 <?php
 
-/*
-*  ACF Gallery Field Class
-*
-*  All the logic for this field type
-*
-*  @class 		acf_field_gallery
-*  @extends		acf_field
-*  @package		ACF
-*  @subpackage	Fields
-*/
-
 if( ! class_exists('acf_field_gallery') ) :
 
 class acf_field_gallery extends acf_field {
@@ -29,7 +18,7 @@ class acf_field_gallery extends acf_field {
 	*  @return	n/a
 	*/
 	
-	function __construct() {
+	function initialize() {
 		
 		// vars
 		$this->name = 'gallery';
@@ -48,13 +37,6 @@ class acf_field_gallery extends acf_field {
 			'mime_types'	=> '',
 			'insert'		=> 'append'
 		);
-		$this->l10n = array(
-			'select'		=> __("Add Image to Gallery",'acf'),
-			'edit'			=> __("Edit Image",'acf'),
-			'update'		=> __("Update Image",'acf'),
-			'uploadedTo'	=> __("Uploaded to this post",'acf'),
-			'max'			=> __("Maximum selection reached",'acf')
-		);
 		
 		
 		// actions
@@ -67,10 +49,28 @@ class acf_field_gallery extends acf_field {
 		add_action('wp_ajax_acf/fields/gallery/get_sort_order',				array($this, 'ajax_get_sort_order'));
 		add_action('wp_ajax_nopriv_acf/fields/gallery/get_sort_order',		array($this, 'ajax_get_sort_order'));
 		
+	}
+	
+	/*
+	*  input_admin_enqueue_scripts
+	*
+	*  description
+	*
+	*  @type	function
+	*  @date	16/12/2015
+	*  @since	5.3.2
+	*
+	*  @param	$post_id (int)
+	*  @return	$post_id (int)
+	*/
+	
+	function input_admin_enqueue_scripts() {
 		
-		
-		// do not delete!
-    	parent::__construct();
+		// localize
+		acf_localize_text(array(
+		   	'Add Image to Gallery'		=> __('Add Image to Gallery', 'acf'),
+			'Maximum selection reached'	=> __('Maximum selection reached', 'acf'),
+	   	));
 	}
 	
 	
@@ -348,7 +348,7 @@ class acf_field_gallery extends acf_field {
 		}
 		
 		?>
-		<div class="acf-gallery-side-info acf-cf">
+		<div class="acf-gallery-side-info">
 			<img src="<?php echo $thumb; ?>" alt="<?php echo $attachment['alt']; ?>" />
 			<p class="filename"><strong><?php echo $attachment['filename']; ?></strong></p>
 			<p class="uploaded"><?php echo $attachment['dateFormatted']; ?></p>
@@ -509,7 +509,7 @@ class acf_field_gallery extends acf_field {
 						'title'		=> $v->post_title,
 						'filename'	=> wp_basename($v->guid),
 						'type'		=> acf_maybe_get(explode('/', $v->post_mime_type), 0),
-						'class'		=> 'acf-gallery-attachment acf-soh'
+						'class'		=> 'acf-gallery-attachment'
 					);
 					
 					
@@ -542,7 +542,7 @@ class acf_field_gallery extends acf_field {
 							<div class="filename"><?php echo acf_get_truncated($a['filename'], 30); ?></div>	
 							<?php endif; ?>
 						</div>
-						<div class="actions acf-soh-target">
+						<div class="actions">
 							<a class="acf-icon -cancel dark acf-gallery-remove" href="#" data-id="<?php echo $a['ID']; ?>" title="<?php _e('Remove', 'acf'); ?>"></a>
 						</div>
 					</div>
@@ -899,7 +899,7 @@ class acf_field_gallery extends acf_field {
 
 
 // initialize
-acf_register_field_type( new acf_field_gallery() );
+acf_register_field_type( 'acf_field_gallery' );
 
 endif; // class_exists check
 
