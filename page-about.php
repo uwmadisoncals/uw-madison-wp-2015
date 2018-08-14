@@ -109,6 +109,8 @@ get_header(); ?>
 
                     .leftFacts {
                         text-align: center;
+                        display: flex;
+                        flex-direction: column;
                     }
 
                     .leftFacts h2 {
@@ -130,11 +132,12 @@ get_header(); ?>
                         transform: translateX(-50%);
                     }
 
-                    .leftFacts button {
+                    .leftFacts button, .leftFacts a {
                         background: #0479a8;
                         border-radius: 4px;
                         box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
                         color: #fff;
+
                         text-transform: uppercase;
                         font-family: "Verlag-Black";
                         letter-spacing: 0.8px;
@@ -142,18 +145,30 @@ get_header(); ?>
                         padding-left: 1rem;
                         padding-right: 1rem;
                         font-size: 0.9rem;
-                        display: block;
+                        display: inline-block;
                         margin: 0 auto;
                         margin-bottom: 0.5rem;
+                        transition: 0.3s;
                     }
 
-                    .leftFacts button svg {
+                    .leftFacts a:active {
+                        text-decoration: none;
+
+                    }
+
+                    .leftFacts a:hover {
+                        text-decoration: none;
+                        transform: translateY(-2px);
+                        box-shadow: 0px 4px 9px rgba(0,0,0,0.2);
+                    }
+
+                    .leftFacts button svg, .leftFacts a svg {
                         display: inline-block;
                         padding-right: 0.4rem;
                         width: auto;
                     }
 
-                    .leftFacts button svg path {
+                    .leftFacts button svg path, .leftFacts a svg path {
                         fill: rgba(255,255,255,1);
                     }
 
@@ -260,9 +275,9 @@ get_header(); ?>
                             <div class="leftFacts">
                                 <h2>Fast Facts</h2>
 
-                                <button><svg height="16" width="24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" id="Page-1"><g fill="#000" id="Core" transform="translate(-504 -88)"><g id="cloud-download" transform="translate(504 88)"><path d="M19.4 6c-.7-3.4-3.7-6-7.4-6-2.9 0-5.4 1.6-6.6 4C2.3 4.4 0 6.9 0 10c0 3.3 2.7 6 6 6h13c2.8 0 5-2.2 5-5 0-2.6-2.1-4.8-4.6-5zM17 9l-5 5-5-5h3V5h4v4h3z" id="Shape"/></g></g></g></svg> College Brochure</button>
-                                <button><svg height="16" width="24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" id="Page-1"><g fill="#000" id="Core" transform="translate(-504 -88)"><g id="cloud-download" transform="translate(504 88)"><path d="M19.4 6c-.7-3.4-3.7-6-7.4-6-2.9 0-5.4 1.6-6.6 4C2.3 4.4 0 6.9 0 10c0 3.3 2.7 6 6 6h13c2.8 0 5-2.2 5-5 0-2.6-2.1-4.8-4.6-5zM17 9l-5 5-5-5h3V5h4v4h3z" id="Shape"/></g></g></g></svg> Fact Sheet</button>
-                                <button><svg height="16" width="24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" id="Page-1"><g fill="#000" id="Core" transform="translate(-504 -88)"><g id="cloud-download" transform="translate(504 88)"><path d="M19.4 6c-.7-3.4-3.7-6-7.4-6-2.9 0-5.4 1.6-6.6 4C2.3 4.4 0 6.9 0 10c0 3.3 2.7 6 6 6h13c2.8 0 5-2.2 5-5 0-2.6-2.1-4.8-4.6-5zM17 9l-5 5-5-5h3V5h4v4h3z" id="Shape"/></g></g></g></svg> Student Snapshot</button>
+                                <a href="https://cals.wisc.edu/wp-content/uploads/2018/03/CALS-brochure-2017-web.pdf" target="_blank"><svg height="16" width="24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" id="Page-1"><g fill="#000" id="Core" transform="translate(-504 -88)"><g id="cloud-download" transform="translate(504 88)"><path d="M19.4 6c-.7-3.4-3.7-6-7.4-6-2.9 0-5.4 1.6-6.6 4C2.3 4.4 0 6.9 0 10c0 3.3 2.7 6 6 6h13c2.8 0 5-2.2 5-5 0-2.6-2.1-4.8-4.6-5zM17 9l-5 5-5-5h3V5h4v4h3z" id="Shape"/></g></g></g></svg> College Brochure</a>
+                                <a href="https://cals.wisc.edu/wp-content/uploads/2018/02/CALS-highlights-fact-sheet2017.pdf" target="_blank"><svg height="16" width="24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" id="Page-1"><g fill="#000" id="Core" transform="translate(-504 -88)"><g id="cloud-download" transform="translate(504 88)"><path d="M19.4 6c-.7-3.4-3.7-6-7.4-6-2.9 0-5.4 1.6-6.6 4C2.3 4.4 0 6.9 0 10c0 3.3 2.7 6 6 6h13c2.8 0 5-2.2 5-5 0-2.6-2.1-4.8-4.6-5zM17 9l-5 5-5-5h3V5h4v4h3z" id="Shape"/></g></g></g></svg> Fact Sheet</a>
+                                <a href="https://cals.wisc.edu/wp-content/uploads/2018/02/CALS-student-snapshot2017.pdf" target="_blank"><svg height="16" width="24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" id="Page-1"><g fill="#000" id="Core" transform="translate(-504 -88)"><g id="cloud-download" transform="translate(504 88)"><path d="M19.4 6c-.7-3.4-3.7-6-7.4-6-2.9 0-5.4 1.6-6.6 4C2.3 4.4 0 6.9 0 10c0 3.3 2.7 6 6 6h13c2.8 0 5-2.2 5-5 0-2.6-2.1-4.8-4.6-5zM17 9l-5 5-5-5h3V5h4v4h3z" id="Shape"/></g></g></g></svg> Student Snapshot</a>
                             </div>
 
                             <div class="rightFacts">
