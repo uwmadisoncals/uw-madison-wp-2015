@@ -31,6 +31,14 @@ get_header(); ?>
                         position: relative;
                     }
 
+                    .aboutMaxWidth2 {
+                        max-width: 1500px;
+                        padding-left: 20px;
+                        padding-right: 20px;
+                        margin: 0 auto;
+                        position: relative;
+                    }
+
                     .aboutTitle {
                         font-family: "Verlag-Black" !important;
                         font-weight: bold;
@@ -157,7 +165,7 @@ get_header(); ?>
                     }
 
                     h2.academicsTitle {
-                        font-size: 1.5rem;
+                        font-size: 1.8rem;
                         text-align: center;
                         text-transform: uppercase;
                         display: block;
@@ -199,7 +207,7 @@ get_header(); ?>
 
                     .research_outreach .researchCol h2, .research_outreach .outreachCol h2 {
                        font-family: "Vitesse";
-                       font-size: 1.6rem;
+                       font-size: 2rem;
                        text-align: center;
                        color: rgba(0,0,0,0.8);
                        margin-bottom: 1rem;
@@ -353,7 +361,7 @@ get_header(); ?>
 
 
                       <div class="academics">
-                        <div class="aboutMaxWidth">
+                        <div class="aboutMaxWidth2">
 
                             <h2 class="academicsTitle">Academics</h2>
 
