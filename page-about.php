@@ -102,6 +102,8 @@ get_header(); ?>
                         background: url("/wp-content/themes/madisonwp2015/images/fast-facts-bg_2.png") no-repeat;
                         background-position: center left;
                         background-size: auto 100%;
+                        padding-top: 1rem;
+                        padding-bottom: 2rem;
                     }
 
                     .factsmax {
@@ -174,6 +176,10 @@ get_header(); ?>
 
                     .leftFacts button svg path, .leftFacts a svg path {
                         fill: rgba(255,255,255,1);
+                    }
+
+                    .rightFacts {
+                        align-self: center;
                     }
 
                     .academics {
