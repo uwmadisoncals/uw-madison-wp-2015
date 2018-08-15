@@ -246,7 +246,48 @@ get_header(); ?>
                         box-shadow: 0px 4px 16px rgba(0,0,0,0.17);
                     }
 
+                    @media only screen and (max-width: 768px) {
+                        .introLeft {
+                            padding-right: 0px;
 
+                        }
+
+                        .academics_cols {
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            grid-gap: 1em;
+                            padding-top: 1rem;
+                            padding-bottom: 1rem;
+                        }
+
+                        .research_outreach .aboutMaxWidth {
+                            grid-gap: 4em;
+                        }
+                    }
+
+                    @media only screen and (max-width: 500px) {
+                        .introLeft {
+                            padding-right: 0px;
+
+                        }
+
+                        .academics_cols {
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            grid-gap: 1em;
+                            padding-top: 1rem;
+                            padding-bottom: 1rem;
+                        }
+
+                        .research_outreach .aboutMaxWidth {
+                            grid-template-columns: 1fr;
+                            grid-gap: 1em;
+                        }
+
+                        .factsmax {
+                            grid-template-columns: 1fr;
+                        }
+                    }
 
                 </style>
 
