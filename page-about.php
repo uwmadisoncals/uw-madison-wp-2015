@@ -70,6 +70,10 @@ get_header(); ?>
                         border-bottom: 1px solid rgba(0,0,0,0.1);
                     }
 
+                    .intro_and_nav .sidebar_menu #nav_explore li:last-child {
+                        border-bottom: none;
+                    }
+
                     .intro_and_nav .sidebar_menu #nav_explore li a {
                         color: #0479a8;
                     }
