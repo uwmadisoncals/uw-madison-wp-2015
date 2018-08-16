@@ -224,10 +224,11 @@ get_header(); ?>
 
                     .research_outreach {
                         padding-top: 3rem;
-                        padding-bottom: 3rem;
+                        padding-bottom: 4rem;
                         background: #efefef url("/wp-content/themes/madisonwp2015/images/ro_bg.jpg") no-repeat;
                         background-size: 100% auto;
                         background-position: top;
+
                     }
 
                     .research_outreach .researchCol h2, .research_outreach .outreachCol h2 {
@@ -236,6 +237,7 @@ get_header(); ?>
                        text-align: center;
                        color: rgba(0,0,0,0.8);
                        margin-bottom: 1rem;
+                       text-transform: uppercase;
                     }
 
                     .research_outreach .aboutMaxWidth {
