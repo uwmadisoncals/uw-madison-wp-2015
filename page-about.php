@@ -217,10 +217,11 @@ get_header(); ?>
                     .academics_cols {
                         display: grid;
                         grid-template-columns: 1fr 1fr 1fr 1fr;
-                        grid-gap: 1em;
+                        grid-gap: 0.2em;
                         padding-top: 1rem;
                         padding-bottom: 1rem;
                     }
+
 
                     .research_outreach {
                         padding-top: 3rem;
@@ -254,7 +255,7 @@ get_header(); ?>
                         box-shadow: 0px 4px 16px rgba(0,0,0,0.17);
                     }
 
-                    @media only screen and (max-width: 768px) {
+                    @media only screen and (max-width: 1200px) {
                         .introLeft {
                             padding-right: 0px;
 
