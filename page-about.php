@@ -287,10 +287,7 @@ get_header(); ?>
                     }
 
                     @media only screen and (max-width: 1200px) {
-                        .introLeft {
-                            padding-right: 0px;
 
-                        }
 
                         .academics_cols {
                             display: grid;
@@ -322,6 +319,13 @@ get_header(); ?>
                             right: -360px;
                             bottom: 500px;
                             z-index:3;
+                        }
+                    }
+
+                    @media only screen and (max-width: 765px) {
+                    .introLeft {
+                            padding-right: 0px;
+
                         }
                     }
 
