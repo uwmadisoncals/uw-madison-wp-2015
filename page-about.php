@@ -286,6 +286,10 @@ get_header(); ?>
                         z-index:3;
                     }
 
+                    .site-content {
+                        overflow: hidden;
+                    }
+
                     @media only screen and (max-width: 1200px) {
 
 
