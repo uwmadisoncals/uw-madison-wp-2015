@@ -117,7 +117,9 @@ get_header(); ?>
                     }
 
                     .factsmax {
+                        display: -ms-grid;
                         display: grid;
+                        -ms-grid-columns: 1fr 1fr;
                         grid-template-columns: 1fr 1fr;
                         grid-gap: 1em;
 
@@ -225,7 +227,9 @@ get_header(); ?>
                     }
 
                     .academics_cols {
+                        display: -ms-grid;
                         display: grid;
+                        -ms-grid-columns: 1fr 1fr 1fr 1fr;
                         grid-template-columns: 1fr 1fr 1fr 1fr;
                         grid-gap: 0.2em;
                         padding-top: 1rem;
@@ -264,8 +268,11 @@ get_header(); ?>
                     }
 
                     .research_outreach .aboutMaxWidth {
+                        display: -ms-grid;
                         display: grid;
+                        -ms-grid-columns: 1fr 1fr;
                         grid-template-columns: 1fr 1fr;
+                        -ms-grid-gap: 12em;
                         grid-gap: 12em;
                     }
 
@@ -294,15 +301,20 @@ get_header(); ?>
 
 
                         .academics_cols {
+                            display: -ms-grid;
                             display: grid;
+                            -ms-grid-columns: 1fr 1fr;
                             grid-template-columns: 1fr 1fr;
+                            -ms-grid-gap: 1em;
                             grid-gap: 1em;
                             padding-top: 1rem;
                             padding-bottom: 1rem;
                         }
 
                         .research_outreach .aboutMaxWidth {
+                            -ms-grid-grap: 4em;
                             grid-gap: 4em;
+
                         }
 
                         .aboutpath {
@@ -335,6 +347,7 @@ get_header(); ?>
 
                     @media only screen and (max-width: 650px) {
                         .research_outreach .aboutMaxWidth {
+                            -ms-grid-columns: 1fr;
                             grid-template-columns: 1fr;
                             grid-gap: 1em;
                         }
@@ -351,7 +364,9 @@ get_header(); ?>
                         }
 
                         .academics_cols {
+                            display: -ms-grid;
                             display: grid;
+                            -ms-grid-columns: 1fr;
                             grid-template-columns: 1fr;
                             grid-gap: 1em;
                             padding-top: 1rem;
@@ -359,11 +374,13 @@ get_header(); ?>
                         }
 
                         .research_outreach .aboutMaxWidth {
+                            -ms-grid-columns: 1fr;
                             grid-template-columns: 1fr;
                             grid-gap: 1em;
                         }
 
                         .factsmax {
+                            -ms-grid-columns: 1fr;
                             grid-template-columns: 1fr;
                         }
 
