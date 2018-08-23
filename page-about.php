@@ -325,6 +325,13 @@ get_header(); ?>
                         }
                     }
 
+                    @media only screen and (max-width: 650px) {
+                        .research_outreach .aboutMaxWidth {
+                            grid-template-columns: 1fr;
+                            grid-gap: 1em;
+                        }
+                    }
+
                     @media only screen and (max-width: 500px) {
                         .introLeft {
                             padding-right: 0px;
