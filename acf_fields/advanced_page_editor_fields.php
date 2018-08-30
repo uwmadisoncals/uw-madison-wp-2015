@@ -1,4 +1,6 @@
-<?php acf_add_local_field_group(array(
+<?php
+
+acf_add_local_field_group(array(
 	'key' => 'group_5afb2f1bd482f',
 	'title' => 'Advanced Formatting',
 	'fields' => array(
@@ -5504,6 +5506,30 @@
 											'name' => 'front_image',
 											'type' => 'image',
 											'instructions' => 'Apply the desired image to show on the front of the card.',
+											'required' => 1,
+											'conditional_logic' => 0,
+											'wrapper' => array(
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'return_format' => 'id',
+											'preview_size' => 'thumbnail',
+											'library' => 'all',
+											'min_width' => '',
+											'min_height' => '',
+											'min_size' => '',
+											'max_width' => '',
+											'max_height' => '',
+											'max_size' => '',
+											'mime_types' => '',
+										),
+										array(
+											'key' => 'field_5b8821a4453d6',
+											'label' => 'Back Image',
+											'name' => 'back_image',
+											'type' => 'image',
+											'instructions' => '',
 											'required' => 1,
 											'conditional_logic' => 0,
 											'wrapper' => array(
