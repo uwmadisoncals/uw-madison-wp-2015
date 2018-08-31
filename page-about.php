@@ -291,6 +291,7 @@ get_header(); ?>
                         right: -60px;
                         bottom: 500px;
                         z-index:3;
+                        pointer-events: none;
                     }
 
                     .site-content {
@@ -336,6 +337,7 @@ get_header(); ?>
                             right: -360px;
                             bottom: 500px;
                             z-index:3;
+                            pointer-events: none;
                         }
                     }
 
