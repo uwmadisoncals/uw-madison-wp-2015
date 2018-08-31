@@ -324,6 +324,7 @@ get_header(); ?>
                             right: -160px;
                             bottom: 500px;
                             z-index:3;
+                            pointer-events: none;
                         }
                     }
 
