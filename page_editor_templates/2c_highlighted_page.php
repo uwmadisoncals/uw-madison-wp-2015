@@ -16,7 +16,7 @@
 
 																				<a href="<?php the_permalink(); ?>" class="tiltAction"><?php the_title(); ?></a>
 
-																				<div class="tiltPanel">
+																				<div class="<?php if($styleoptions != 'photocaption') { echo "tiltPanel"; } ?>">
 
 
 
