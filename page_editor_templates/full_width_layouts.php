@@ -252,16 +252,18 @@
 
 
 													 $offsetC = get_sub_field('appearance_options');
+													 $styleoptions = get_sub_field('style_options');
+
 
 													 if( get_row_layout() == 'fw_highlighted_content' ) {
 														 if(have_rows("fw_highlighted_content_type")) { ?>
 														  <?php if($offsetC == '3col') { ?>
-														  		<div class="gridthreecol gridstyle2">
+														  		<div class="gridthreecol gridstyle2 <?php echo $styleoptions; ?>">
 
 																<div class="grid-sizer3col"></div>
 															  <div class="gutter-sizer3col"></div>
 														  	<?php } else { ?>
-														 	<div class="gridtwocol gridstyle2">
+														 	<div class="gridtwocol gridstyle2 <?php echo $styleoptions; ?>">
 
 																 <div class="grid-sizer2col"></div>
 															  <div class="gutter-sizer2col"></div>
@@ -271,7 +273,7 @@
 
 
 															<?php if($offsetC == "offset") { ?>
-			<div class="grid-item2col grid-itemspacer stamp"></div>
+			<div class="grid-item2col grid-itemspacer stamp <?php echo $styleoptions; ?>"></div>
 			<?php } ?>
 
 

@@ -1,43 +1,43 @@
 <?php $terms = get_sub_field('fw_highlighted_category');
 																	$categories = 0;
-																	
+
 																	if( $terms ): ?>
-																	
-																		<?php 
-																			
+
+																		<?php
+
 																			//$terms = array(1, 2, 3, 4);
 																			//echo $terms;
 																			foreach( $terms as $term ) {
 																			//echo "d";
-																			$categories = $categories.",".$term;	
+																			$categories = $categories.",".$term;
 																			//echo $term;
 																		} ?>
 
-																	<?php endif; 
-																	
-																	
+																	<?php endif;
+
+
 																	$numofposts = get_sub_field('fw_cat_number_of_posts');
-																	
+
 																	// The Query
 																	$query1 = new WP_Query( array( 'posts_per_page' => $numofposts, 'cat' => $categories ) );
-																	
+
 																	if ( $query1->have_posts() ) {
 																		// The Loop
 																		while ( $query1->have_posts() ) { $query1->the_post(); ?>
 																			<div class="grid-item2col">
-																				
-																			
-																				
+
+
+
 																			<div class="tiltWrapper custom custom2col" data-maxangle="3" data-tiltdepth="70">
-		  
+
 																				<a href="<?php the_permalink(); ?>" class="tiltAction"><?php the_title(); ?></a>
-																				
-																				<div class="tiltPanel">
-																					
-																					
-																							
-																					
-																					
+
+																				<div class="<?php if($styleoptions != 'photocaption') { echo "tiltPanel"; } ?>">
+
+
+
+
+
 																					<div class="plane level1">
 																						<div class="reflection">
 																							<svg width="130px" height="130px" viewBox="0 0 130 130" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
@@ -57,10 +57,10 @@
 																							    </g>
 																							</svg>
 																						</div>
-																					
-																											
-																						
-																	
+
+
+
+
 																						<div class="backgroundImageSample">
 																							<div class="cardStyles"><svg width="381px" height="379px" viewBox="0 0 381 379" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
 																	    <!-- Generator: Sketch 3.4.2 (15855) - http://www.bohemiancoding.com/sketch -->
@@ -90,14 +90,14 @@
 																	        </g>
 																	    </g>
 																	</svg></div>
-																	
+
 																						</div>
-																						
+
 																						<div class="heroGradient"></div>
-																							
-																							<?php if ( has_post_thumbnail() ) { 
-																								
-																			
+
+																							<?php if ( has_post_thumbnail() ) {
+
+
 																							?>
 																							<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php the_post_thumbnail_url('medium') ?>); background-size: cover; background-position: center center; "></div></div>
 
@@ -111,22 +111,22 @@
 																								<?php } else { ?>
 																								  <img alt=" " src="<?php echo catch_that_thumbnail(); ?>">
 																								  <?php } ?>
-																								  
-																							<?php } 
+
+																							<?php }
 																								else{ ?>
-																								
+
 														<div class="heroImageBlur"><div class="heroImageBlurInner" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg); background-size: cover; background-position: center center; "></div></div>
 
 																									<img alt=" " src="<?php echo get_template_directory_uri(); ?>/images/default_blog_img.svg">
 																								<?php }
 																							?>
-																							
-																							
-																							
-																							
+
+
+
+
 																						</div>
-																			
-																						
+
+
 																					</div>
 																					<div class="textContent">
 																					<div>
@@ -135,27 +135,28 @@
 																								<div class="dateposted"><?php the_time('M') ?> <?php the_time('jS') ?></div>
 																								<div class="numericdate"><?php the_time('Ymd'); ?></div>
 																								<h2><?php the_title(); ?></h2>
-																								<div><?php the_excerpt(); ?></div>
-																								<div class="author">By 
+																								<div class="author">By
 																								<?php if(get_field('written_by')) { ?>
 																										<?php the_field('written_by'); ?>
 																								<?php } else { ?>
 																										<?php the_author(); ?>
 																								<?php } ?>
-																								
+
 																								</div>
-																																									
-																								
+																								<div><?php the_excerpt(); ?></div>
+
+
+
 																							</div>
-																							
+
 																						</div>
 																					</div>
 																				</div>
 																				</div>
-																				
+
 																			</div>
 																		<?php }
-																		
-																		
+
+
 																		wp_reset_postdata();
 																	}

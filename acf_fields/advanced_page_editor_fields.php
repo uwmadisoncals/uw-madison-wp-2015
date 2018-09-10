@@ -1,5 +1,4 @@
 <?php
-
 acf_add_local_field_group(array(
 	'key' => 'group_5afb2f1bd482f',
 	'title' => 'Advanced Formatting',
@@ -866,7 +865,7 @@ acf_add_local_field_group(array(
 									'sub_fields' => array(
 										array(
 											'key' => 'field_57df50cffadd6',
-											'label' => 'Appearance Options',
+											'label' => 'Layout Options',
 											'name' => 'appearance_options',
 											'type' => 'select',
 											'instructions' => '',
@@ -888,8 +887,34 @@ acf_add_local_field_group(array(
 											'allow_null' => 0,
 											'multiple' => 0,
 											'ui' => 0,
-											'ajax' => 0,
 											'return_format' => 'value',
+											'ajax' => 0,
+											'placeholder' => '',
+										),
+										array(
+											'key' => 'field_5b967f6789d01',
+											'label' => 'Style Options',
+											'name' => 'style_options',
+											'type' => 'select',
+											'instructions' => '',
+											'required' => 0,
+											'conditional_logic' => 0,
+											'wrapper' => array(
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'choices' => array(
+												'3dcard' => '3D Card',
+												'photocaption' => 'Photo with Caption Below',
+											),
+											'default_value' => array(
+											),
+											'allow_null' => 0,
+											'multiple' => 0,
+											'ui' => 0,
+											'return_format' => 'value',
+											'ajax' => 0,
 											'placeholder' => '',
 										),
 										array(
@@ -3095,32 +3120,30 @@ acf_add_local_field_group(array(
 									'display' => 'block',
 									'sub_fields' => array(
 										array(
-											'key' => 'field_58cad651ad02c',
-											'label' => 'Highlighted Content Style',
-											'name' => 'highlighted_content_style',
+											'key' => 'field_5b96800089d02',
+											'label' => 'Style Options',
+											'name' => 'style_options',
 											'type' => 'select',
 											'instructions' => '',
 											'required' => 0,
-											'conditional_logic' => '',
+											'conditional_logic' => 0,
 											'wrapper' => array(
 												'width' => '',
 												'class' => '',
 												'id' => '',
 											),
 											'choices' => array(
-												'default' => 'Default',
-												'fixedheight' => 'Fixed height',
+												'3dcard' => '3D Card',
+												'photocaption' => 'Photo with Caption Below',
 											),
 											'default_value' => array(
 											),
 											'allow_null' => 0,
 											'multiple' => 0,
 											'ui' => 0,
+											'return_format' => 'value',
 											'ajax' => 0,
 											'placeholder' => '',
-											'disabled' => 0,
-											'readonly' => 0,
-											'return_format' => 'value',
 										),
 										array(
 											'key' => 'field_58c89e1510deb',
@@ -3360,6 +3383,34 @@ acf_add_local_field_group(array(
 											'ui' => 1,
 											'ui_on_text' => 'Date Hidden',
 											'ui_off_text' => 'Date Shown',
+										),
+										array(
+											'key' => 'field_58cad651ad02c',
+											'label' => 'Highlighted Content Style',
+											'name' => 'highlighted_content_style',
+											'type' => 'select',
+											'instructions' => '',
+											'required' => 0,
+											'conditional_logic' => '',
+											'wrapper' => array(
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'choices' => array(
+												'default' => 'Default',
+												'fixedheight' => 'Fixed height',
+											),
+											'default_value' => array(
+											),
+											'allow_null' => 0,
+											'multiple' => 0,
+											'ui' => 0,
+											'ajax' => 0,
+											'placeholder' => '',
+											'disabled' => 0,
+											'readonly' => 0,
+											'return_format' => 'value',
 										),
 									),
 									'min' => '',
@@ -4028,9 +4079,9 @@ acf_add_local_field_group(array(
 									'display' => 'block',
 									'sub_fields' => array(
 										array(
-											'key' => 'field_58cad66ead02d',
-											'label' => 'Highlighted Content Style',
-											'name' => 'highlighted_content_style',
+											'key' => 'field_5b96802189d03',
+											'label' => 'Style Options',
+											'name' => 'style_options',
 											'type' => 'select',
 											'instructions' => '',
 											'required' => 0,
@@ -4041,19 +4092,17 @@ acf_add_local_field_group(array(
 												'id' => '',
 											),
 											'choices' => array(
-												'default' => 'Default',
-												'fixedheight' => 'Fixed height',
+												'3dcard' => '3D Card',
+												'photocaption' => 'Photo with Caption Below',
 											),
 											'default_value' => array(
 											),
 											'allow_null' => 0,
 											'multiple' => 0,
 											'ui' => 0,
+											'return_format' => 'value',
 											'ajax' => 0,
 											'placeholder' => '',
-											'disabled' => 0,
-											'readonly' => 0,
-											'return_format' => 'value',
 										),
 										array(
 											'key' => 'field_58c89e8adc7b8',
@@ -4295,6 +4344,34 @@ acf_add_local_field_group(array(
 											'ui' => 1,
 											'ui_on_text' => 'Date Hidden',
 											'ui_off_text' => 'Date Shown',
+										),
+										array(
+											'key' => 'field_58cad66ead02d',
+											'label' => 'Highlighted Content Style',
+											'name' => 'highlighted_content_style',
+											'type' => 'select',
+											'instructions' => '',
+											'required' => 0,
+											'conditional_logic' => 0,
+											'wrapper' => array(
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'choices' => array(
+												'default' => 'Default',
+												'fixedheight' => 'Fixed height',
+											),
+											'default_value' => array(
+											),
+											'allow_null' => 0,
+											'multiple' => 0,
+											'ui' => 0,
+											'ajax' => 0,
+											'placeholder' => '',
+											'disabled' => 0,
+											'readonly' => 0,
+											'return_format' => 'value',
 										),
 									),
 									'min' => '',
@@ -6844,9 +6921,9 @@ acf_add_local_field_group(array(
 	'location' => array(
 		array(
 			array(
-				'param' => 'page_template',
+				'param' => 'post_type',
 				'operator' => '==',
-				'value' => 'default',
+				'value' => 'page',
 			),
 		),
 	),

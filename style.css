@@ -23,3 +23,81 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
   text-transform: unset;
   font-size: 1.2rem;
 }
+
+.photocaption.gridstyle2 .grid-item1col .textContent,
+.photocaption.gridstyle2 .grid-item2col .textContent,
+.photocaption.gridstyle2 .grid-item3col .textContent {
+  position: relative;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.photocaption.gridstyle2 .grid-item1col .textContent .whiteContent,
+.photocaption.gridstyle2 .grid-item2col .textContent .whiteContent,
+.photocaption.gridstyle2 .grid-item3col .textContent .whiteContent {
+  padding: 20px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.photocaption.gridstyle2 .grid-item1col .textContent .whiteContent h2,
+.photocaption.gridstyle2 .grid-item2col .textContent .whiteContent h2,
+.photocaption.gridstyle2 .grid-item3col .textContent .whiteContent h2 {
+  font-family: "Verlag-Black";
+  color: rgba(0, 0, 0, 0.9);
+  text-shadow: none;
+  letter-spacing: 0.2px;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.photocaption.gridstyle2 .grid-item2col.hideauthor .textContent .author,
+.photocaption.gridstyle2 .grid-item2col.hidecat .textContent .category,
+.photocaption.gridstyle2 .grid-item2col.hideexcerpt .textContent .excerpt,
+.photocaption.gridstyle2 .tiltWrapper .whiteContent.hideexcerpt .excerpt {
+  display: block;
+}
+
+.photocaption.gridstyle2 .grid-item1col .textContent p,
+.photocaption.gridstyle2 .grid-item2col .textContent p,
+.photocaption.gridstyle2 .grid-item3col .textContent p {
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: none;
+  font-weight: 500;
+}
+
+.photocaption.gridstyle2 .reflection,
+.photocaption.gridstyle2 .heroImageBlur,
+.photocaption.gridstyle2 .heroGradient {
+  display: none !important;
+}
+
+.photocaption.gridstyle2 .textContent .category {
+  color: #c5050c !important;
+}
+
+.photocaption.gridstyle2 .grid-item1col .textContent .dateposted,
+.photocaption.gridstyle2 .grid-item2col .textContent .dateposted,
+.photocaption.gridstyle2 .grid-item3col .textContent .dateposted {
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: none;
+  font-weight: 500;
+}
+
+.photocaption.gridstyle2 .grid-item1col .textContent .author,
+.photocaption.gridstyle2 .grid-item2col .textContent .author,
+.photocaption.gridstyle2 .grid-item3col .textContent .author {
+  color: #117faa !important;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.gridstyle2 .grid-item1col .noThumb .textContent .author,
+.gridstyle2 .grid-item2col .noThumb .textContent .author,
+.gridstyle2 .grid-item3col .noThumb .textContent .author {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.postTitleAbove .gridstyle2 .tiltWrapper.noThumb .textContent h2 {
+  padding-top: 1rem;
+}

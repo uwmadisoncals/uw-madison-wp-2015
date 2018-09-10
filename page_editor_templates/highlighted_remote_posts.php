@@ -29,18 +29,15 @@
 
 
 				<div class="grid-item2col highlightremoteContent <?php if($hideauthor == "1") { echo "hideauthor"; } ?> <?php if($hidecat == "1") { echo "hidecat"; } ?> <?php if($hidedate == "1") { echo "hidedate"; } ?> <?php if($hideexcerpt == "1") { echo "hideexcerpt"; } ?>" data-remoteurl="<?php echo $requesturi ?>">
-					<div class="loadingWrapper"><div class="loading"></div></div>
+
+				<div class="loadingWrapper"><div class="loading"></div></div>
 
 
 				<div class="tiltWrapper custom custom2col" data-maxangle="3" data-tiltdepth="70">
 
 					<a href="#" class="tiltAction remotePost"><?php the_title(); ?></a>
 
-					<div class="tiltPanel">
-
-
-
-
+					<div class="<?php if($styleoptions != 'photocaption') { echo "tiltPanel"; } ?>">
 
 						<div class="plane level1">
 							<div class="reflection">
