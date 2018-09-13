@@ -1,4 +1,5 @@
 <?php
+
 acf_add_local_field_group(array(
 	'key' => 'group_5afb2f1bd482f',
 	'title' => 'Advanced Formatting',

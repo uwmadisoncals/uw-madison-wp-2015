@@ -602,19 +602,21 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
 
           var todaysdate = yyyymmdd();
 
-          for (var i = 0; i < data.length; i++) {
-            var meetingdate = data[i].acf.meeting_date;
+          if (data[0].acf.meeting_date) {
+            for (var i = 0; i < data.length; i++) {
+              var meetingdate = data[i].acf.meeting_date;
 
-            if (meetingdate >= todaysdate) {
-              //console.log("removing: " + i);
-              newmeetings.push(data[i]);
-              //data.splice(i, 1);
+              if (meetingdate >= todaysdate) {
+                //console.log("removing: " + i);
+                newmeetings.push(data[i]);
+                //data.splice(i, 1);
+              }
             }
+            //console.log(remotenum);
+            newmeetings.sort(compare);
+            newmeetings.slice(0, remotenum);
+            data = newmeetings;
           }
-          //console.log(remotenum);
-          newmeetings.sort(compare);
-          newmeetings.slice(0, remotenum);
-          data = newmeetings;
         }
         //console.log(newmeetings);
 
@@ -657,11 +659,28 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
           }
 
           if (this.acf) {
+            console.log(this.acf);
             //var newrow = "<div class='row'><a href='";
             newrow = newrow + this.link;
             newrow = newrow + "'>" + posttitle + "</a>";
-            newrow = newrow + "<div>" + meetingtime + "</div>";
-            newrow = newrow + "<div>" + meetinglocation + "</div>";
+            if (meetingtime) {
+              newrow = newrow + "<div>" + meetingtime + "</div>";
+            } else {
+              newrow =
+                newrow +
+                "<div class='date'>" +
+                (postdate.getMonth() + 1) +
+                "/" +
+                postdate.getDate() +
+                "/" +
+                postdate.getFullYear() +
+                "</div>";
+            }
+
+            if (meetinglocation) {
+              newrow = newrow + "<div>" + meetinglocation + "</div>";
+            }
+
             newrow = newrow + "<p>" + postexcerpt + "</p>";
           } else if (!this.acf) {
             newrow = newrow + this.link;
@@ -680,20 +699,6 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
           }
           $("." + remoteelem).append(newrow);
         });
-
-        //$(".remotePost").attr("href", post.link);
-        //$(".remotePost #quote-title").text(post.title.rendered);
-        //$("#quote-content").html(post.excerpt.rendered);
-
-        // If the Source is available, use it. Otherwise hide it.
-        /*if (
-          typeof post.custom_meta !== "undefined" &&
-          typeof post.custom_meta.Source !== "undefined"
-        ) {
-          $("#quote-source").html("Source:" + post.custom_meta.Source);
-        } else {
-          $("#quote-source").text("");
-        }*/
       },
       cache: true
     });
