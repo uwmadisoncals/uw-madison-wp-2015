@@ -89,15 +89,14 @@
         padding: 0.4rem;
         padding-left: 0.8rem;
         padding-right: 0.8rem;
+        border-bottom: 1px solid rgba(0,0,0,0.14);
     }
 
-    .colTitle {
+    div.colTitle {
         font-weight: bold;
         font-size: 1.2rem;
         border-bottom: 2px solid rgba(0,0,0,0.3);
     }
-
-
 
     .downloadtable.download2col {
         grid-template-columns: 1fr 1fr;
