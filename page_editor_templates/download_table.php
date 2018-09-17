@@ -18,7 +18,9 @@
             <?php while( have_rows('table_rows_twocol') ): the_row(); ?>
 
                 <div><?php the_sub_field('first_column'); ?></div>
-                <div><a href="<?php the_sub_field('second_column'); ?>">Download</a></div>
+
+                    <div><?php if(get_sub_field('second_column')) { ?><a href="<?php the_sub_field('second_column'); ?>" target="_blank">X</a><?php } ?></div>
+
 
             <?php endwhile; ?>
 
@@ -37,8 +39,12 @@
             <?php while( have_rows('table_rows_threecol') ): the_row(); ?>
 
                 <div><?php the_sub_field('first_column'); ?></div>
-                <div><a href="<?php the_sub_field('second_column'); ?>">Download</a></div>
-                <div><a href="<?php the_sub_field('third_column'); ?>">Download</a></div>
+
+
+                <div><?php if(get_sub_field('second_column')) { ?><a href="<?php the_sub_field('second_column'); ?>" target="_blank">X</a><?php } ?></div>
+
+                <div><?php if(get_sub_field('third_column')) { ?><a href="<?php the_sub_field('third_column'); ?>" target="_blank">X</a><?php } ?></div>
+
 
             <?php endwhile; ?>
 
@@ -59,9 +65,11 @@
             <?php while( have_rows('table_rows_fourcol') ): the_row(); ?>
 
                 <div><?php the_sub_field('first_column'); ?></div>
-                <div><a href="<?php the_sub_field('second_column'); ?>">Download</a></div>
-                <div><a href="<?php the_sub_field('third_column'); ?>">Download</a></div>
-                <div><a href="<?php the_sub_field('fourth_column'); ?>">Download</a></div>
+
+                <div><?php if(get_sub_field('second_column')) { ?><a href="<?php the_sub_field('second_column'); ?>" target="_blank">X</a><?php } ?></div>
+
+                <div><?php if(get_sub_field('third_column')) { ?><a href="<?php the_sub_field('third_column'); ?>" target="_blank">X</a><?php } ?></div>
+                <div><?php if(get_sub_field('fourth_column')) { ?><a href="<?php the_sub_field('fourth_column'); ?>" target="_blank">X</a><?php } ?></div>
 
             <?php endwhile; ?>
 
@@ -79,12 +87,17 @@
 
     .downloadtable > div {
         padding: 0.4rem;
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
     }
 
     .colTitle {
         font-weight: bold;
+        font-size: 1.2rem;
         border-bottom: 2px solid rgba(0,0,0,0.3);
     }
+
+
 
     .downloadtable.download2col {
         grid-template-columns: 1fr 1fr;
