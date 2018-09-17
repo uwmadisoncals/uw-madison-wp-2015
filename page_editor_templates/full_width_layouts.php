@@ -99,7 +99,15 @@
 
 
 
-													 <?php } else if( get_row_layout() == 'body_text' ) { ?>
+													 <?php } else if( get_row_layout() == 'download_table' ) { ?>
+
+
+
+														<?php include 'download_table.php'; ?>
+
+
+
+														<?php } else if( get_row_layout() == 'body_text' ) { ?>
 
 														<?php if(get_sub_field('content_filter') == "1") {  ?>
 															<div class="contentFilterWrapper">
