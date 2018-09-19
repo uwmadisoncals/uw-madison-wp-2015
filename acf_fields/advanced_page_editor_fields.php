@@ -1,5 +1,4 @@
-<?php
-acf_add_local_field_group(array(
+<?php acf_add_local_field_group(array(
 	'key' => 'group_5afb2f1bd482f',
 	'title' => 'Advanced Formatting',
 	'fields' => array(
@@ -4236,6 +4235,31 @@ acf_add_local_field_group(array(
 									'display' => 'block',
 									'sub_fields' => array(
 										array(
+											'key' => 'field_582ddc6e2b93d',
+											'label' => 'Button Action',
+											'name' => 'button_action',
+											'type' => 'radio',
+											'instructions' => '',
+											'required' => 1,
+											'conditional_logic' => 0,
+											'wrapper' => array(
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'choices' => array(
+												'page' => 'Page',
+												'customurl' => 'Custom URL',
+												'file' => 'File',
+											),
+											'allow_null' => 0,
+											'other_choice' => 0,
+											'default_value' => '',
+											'layout' => 'vertical',
+											'return_format' => 'value',
+											'save_other_choice' => 0,
+										),
+										array(
 											'key' => 'field_582ddc552b93c',
 											'label' => 'Button Text',
 											'name' => 'button_text',
@@ -4257,28 +4281,31 @@ acf_add_local_field_group(array(
 											'disabled' => 0,
 										),
 										array(
-											'key' => 'field_582ddc6e2b93d',
-											'label' => 'Button Action',
-											'name' => 'button_action',
-											'type' => 'radio',
+											'key' => 'field_5ba299fce6168',
+											'label' => 'Link to a File',
+											'name' => 'link_to_file',
+											'type' => 'file',
 											'instructions' => '',
-											'required' => 1,
-											'conditional_logic' => '',
+											'required' => 0,
+											'conditional_logic' => array(
+												array(
+													array(
+														'field' => 'field_582ddc6e2b93d',
+														'operator' => '==',
+														'value' => 'file',
+													),
+												),
+											),
 											'wrapper' => array(
 												'width' => '',
 												'class' => '',
 												'id' => '',
 											),
-											'choices' => array(
-												'page' => 'Page',
-												'customurl' => 'Custom URL',
-											),
-											'allow_null' => 0,
-											'other_choice' => 0,
-											'save_other_choice' => 0,
-											'default_value' => '',
-											'layout' => 'vertical',
-											'return_format' => 'value',
+											'return_format' => 'url',
+											'library' => 'all',
+											'min_size' => '',
+											'max_size' => '',
+											'mime_types' => '',
 										),
 										array(
 											'key' => 'field_582ddc9f2b93e',

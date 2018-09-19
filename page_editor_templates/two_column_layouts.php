@@ -180,6 +180,8 @@
 
 
 																<a href="<?php the_sub_field("link_to_page"); ?>" class="button blue"><?php the_sub_field("button_text"); ?></a>
+															<?php } else if($buttonlink == "file") { ?>
+																<a href="<?php the_sub_field("link_to_file"); ?>" class="button blue"><?php the_sub_field("button_text"); ?></a>
 															<?php } else { ?>
 																<a href="<?php the_sub_field("button_link"); ?>" class="button blue"><?php the_sub_field("button_text"); ?></a>
 															<?php } ?>
@@ -323,6 +325,8 @@
 
 
 																<a href="<?php the_sub_field("link_to_page"); ?>" class="button blue"><?php the_sub_field("button_text"); ?></a>
+															<?php } else if($buttonlink == "file") { ?>
+																<a href="<?php the_sub_field("link_to_file"); ?>" class="button blue"><?php the_sub_field("button_text"); ?></a>
 															<?php } else { ?>
 																<a href="<?php the_sub_field("button_link"); ?>" class="button blue"><?php the_sub_field("button_text"); ?></a>
 															<?php } ?>
