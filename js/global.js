@@ -389,12 +389,12 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
   });
 
   /*
- * ----------------------------------------------------------------------------
- *
- * String formatting
- *
- * ----------------------------------------------------------------------------
- */
+   * ----------------------------------------------------------------------------
+   *
+   * String formatting
+   *
+   * ----------------------------------------------------------------------------
+   */
 
   $(".phone").text(function(i, text) {
     return text.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
@@ -653,9 +653,9 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
 
           if (eventstyle) {
             var newrow =
-              "<div class='row eventsstyle'><svg enable-background='new 0 0 24 24' height='24px' id='Layer_1' version='1.1' viewBox='0 0 24 24' width='24px' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g><path d='M23,16V2c0.6,0,1-0.4,1-1s-0.4-1-1-1H1C0.4,0,0,0.4,0,1s0.4,1,1,1v14c-0.6,0-1,0.4-1,1s0.4,1,1,1h8.1l-2,4.6   c-0.2,0.5,0,1.1,0.5,1.3c0.5,0.2,1.1,0,1.3-0.5l2.3-5.4h1.5l2.3,5.4c0.2,0.5,0.8,0.7,1.3,0.5c0.5-0.2,0.7-0.8,0.5-1.3l-2-4.6H23   c0.6,0,1-0.4,1-1S23.6,16,23,16z M21,16H3V2h18V16z'/><path d='M9,9H5v6h4V9z M8,14H6v-4h2V14z'/><path d='M14,7h-4v8h4V7z M13,14h-2V8h2V14z'/><path d='M19,5h-4v10h4V5z M18,14h-2V6h2V14z'/></g></svg><a href='";
+              "<div class='row eventsstyle'><svg enable-background='new 0 0 24 24' height='24px' id='Layer_1' version='1.1' viewBox='0 0 24 24' width='24px' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g><path d='M23,16V2c0.6,0,1-0.4,1-1s-0.4-1-1-1H1C0.4,0,0,0.4,0,1s0.4,1,1,1v14c-0.6,0-1,0.4-1,1s0.4,1,1,1h8.1l-2,4.6   c-0.2,0.5,0,1.1,0.5,1.3c0.5,0.2,1.1,0,1.3-0.5l2.3-5.4h1.5l2.3,5.4c0.2,0.5,0.8,0.7,1.3,0.5c0.5-0.2,0.7-0.8,0.5-1.3l-2-4.6H23   c0.6,0,1-0.4,1-1S23.6,16,23,16z M21,16H3V2h18V16z'/><path d='M9,9H5v6h4V9z M8,14H6v-4h2V14z'/><path d='M14,7h-4v8h4V7z M13,14h-2V8h2V14z'/><path d='M19,5h-4v10h4V5z M18,14h-2V6h2V14z'/></g></svg><a target='_blank' href='";
           } else {
-            var newrow = "<div class='row'><a target='_blank' href='";
+            var newrow = "<div class='row'><a href='";
           }
 
           if (this.acf) {
@@ -1681,10 +1681,10 @@ $("a").click(function(e) {
 });*/
 
   /*
-*
-*	Page Builder scroll effects
-*
-*/
+   *
+   *	Page Builder scroll effects
+   *
+   */
   $(window).scroll(function() {
     if ($(".social_wrapper").visible(true)) {
       $(".social_wrapper").addClass("animate");
