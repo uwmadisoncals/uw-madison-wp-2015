@@ -614,7 +614,9 @@ adjust = setInterval(adjustTitleSize(), 5000);*/
             }
             //console.log(remotenum);
             newmeetings.sort(compare);
-            newmeetings.slice(0, remotenum);
+            //console.log(remotenum);
+            newmeetings = newmeetings.slice(0, remotenum);
+
             data = newmeetings;
           }
         }
