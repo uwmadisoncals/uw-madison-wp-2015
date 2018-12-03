@@ -16,7 +16,7 @@ function email_newsletter_2017_admin_menu() {
 function email_newsletter_2017_options(){
 		$hidden_field_name = "hfn";
 
-		
+
 
 		//check if user has requested to resubmit email
 		if (isset($_POST[$hidden_field_name]) && $_POST[$hidden_field_name]=="Y") {
@@ -73,7 +73,7 @@ function email_newsletter_2017_options(){
 				} else {*/
 					$start_date = date("m/d/Y", strtotime($monday_current_week." - 6 days")); //start on tuesday next week
 					$end_date = date("m/d/Y", strtotime($monday_current_week)); //end monday of current week
-					$adminemail = get_option('admin_email'); 
+					$adminemail = get_option('admin_email');
 				//}  ?>
             	<!--<h3 class="title">Resubmit email </h3>-->
 
@@ -96,7 +96,7 @@ function email_newsletter_2017_options(){
 					}
 
 					.feature .include {
-						
+
 						vertical-align: center;
 						text-align: center;
 					}
@@ -138,9 +138,9 @@ function email_newsletter_2017_options(){
 <span class="submit">
 
                     <input name="resubmit" value="Send" type="submit">
-					
+
                 </span>
-				
+
 				<div class="newsletterShell">
 
 				<div class="header">
@@ -157,11 +157,11 @@ function email_newsletter_2017_options(){
 							<input type="text" value="<?php echo $highlightedcats ?>" name="highlightedcat" placeholder="Category ID's to grab seperated by comma.">
 						</div>
 					</div>
-				
+
 				</div>
 
 				<div class="columns">
-				
+
 				<div class="leftcol">
 					<div class="include">
 						<label for="leftcolcat">Left Column Categories</label>
@@ -189,8 +189,8 @@ function email_newsletter_2017_options(){
 				</div>
 
 				</div>
-				
-				
+
+
                     <input type="hidden" name="ecals_noncename" id="ecals_noncename" value="
   <?php wp_create_nonce( plugin_basename(__FILE__) );?>" />
   					<input type="hidden" name=<?php echo $hidden_field_name; ?> value="Y" />
@@ -220,37 +220,37 @@ function email_newsletter_2017(){
 	if(isset($_POST['mailingaddress'])) {
 			$mailingaddress = $_POST['mailingaddress'];
 			update_option( 'mailingaddresssaved', $mailingaddress );
-	} 
-	
+	}
+
 	if(isset($_POST['mainfeaturecat'])) {
 			$mainfeaturecats = $_POST['mainfeaturecat'];
 			update_option( 'mainfeaturecats', $mainfeaturecats );
-	} 
+	}
 
 	if(isset($_POST['highlightedcat'])) {
 			$highlightedcats = $_POST['highlightedcat'];
 			update_option( 'highlightedcats', $highlightedcats );
-	} 
+	}
 
 	if(isset($_POST['leftcolcat'])) {
 			$leftcolcats = $_POST['leftcolcat'];
 			update_option( 'leftcolcats', $leftcolcats );
-	} 
+	}
 
 	if(isset($_POST['leftcolcatex'])) {
 			$leftcolcatsex = $_POST['leftcolcatex'];
 			update_option( 'leftcolcatsex', $leftcolcatsex );
-	} 
+	}
 
 	if(isset($_POST['rightcolcat'])) {
 			$rightcolcats = $_POST['rightcolcat'];
 			update_option( 'rightcolcats', $rightcolcats );
-	} 
+	}
 
 	if(isset($_POST['rightcolcatex'])) {
 			$rightcolcatsex = $_POST['rightcolcatex'];
 			update_option( 'rightcolcatsex', $rightcolcatsex );
-	} 
+	}
 
 	if(isset($_POST['campaignvars'])) {
 			$campaignvars = $_POST['campaignvars'];
@@ -288,7 +288,7 @@ function email_newsletter_2017(){
 	if(isset($_POST["mailingaddress"])) {
 		$mailing_address = $_POST["mailingaddress"];
 	} else {
-		
+
 		if(isset($_POST["sendto"])) {
 			$mailing_address = $_POST["sendto"];
 		} else {
@@ -298,7 +298,7 @@ function email_newsletter_2017(){
 
 	$site_name = get_bloginfo( 'name' );
 	$site_description = get_bloginfo( 'description' );
-	
+
 
 	$to = $sendaddr;
 	$subject ="$site_name Newsletter - ".date("F d Y", time());
@@ -324,7 +324,7 @@ function email_newsletter_2017(){
 	$message .= "\r\n\r\n--" . $boundary . "--";
 
  	//send email
-	return(mail($to, $subject, $message, $headers));
+	return(wp_mail($to, $subject, $message, $headers));
 
 
 }
@@ -448,11 +448,11 @@ function email_newsletter_2017_html($cats, $start_date, $end_date) {
 	if($leftcolcats == null) {
 		$leftcolcats = '1';
 	}
-	
+
 	if($rightcolcats == null) {
 		$rightcolcats = '1';
 	}
-	
+
 	if($rightcolcatsex == null) {
 		$rightcolcatsex = '0';
 	}
@@ -488,7 +488,7 @@ $message_head =
 
 			/* /\/\/\/\/\/\/\/\/ TEMPLATE STYLES /\/\/\/\/\/\/\/\/ */
 
-			
+
 		</style>
 		<meta name="robots" content="noindex,nofollow"></meta>
 		<meta property="og:title" content="eCALS Newsletter - '.date("F d Y", time()).'"></meta>
@@ -532,7 +532,7 @@ on <a href="'.site_url().'" style="color:#333;text-decoration:none;" >'.$site_na
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
                                         <tr>
                                             <td valign="top" class="headerContent">
-												
+
 													<table width="100%" style="background: #ececec;">
 														<tr>
 															<td width="50" style="padding-left: 20px; padding-top: 10px; padding-bottom: 10px;">
@@ -545,10 +545,10 @@ on <a href="'.site_url().'" style="color:#333;text-decoration:none;" >'.$site_na
 															</td>
 														</tr>
 													</table>
-													
 
-													
-												
+
+
+
                                             </td>
                                         </tr>
                                     </table>
@@ -565,14 +565,14 @@ on <a href="'.site_url().'" style="color:#333;text-decoration:none;" >'.$site_na
                                             	';
 
 															 //AROUND CALS FEATURE
-															 
-															 query_posts(array('cat' => "$mainfeaturecats", "showposts" => '1', "post_status" => 'publish')); 
+
+															 query_posts(array('cat' => "$mainfeaturecats", "showposts" => '1', "post_status" => 'publish'));
 															 while (have_posts()) : the_post();
 
 																//echo $post->ID;
 						    									$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID),'large' );
 																//var_dump($thumb);
-																$url = $thumb['0']; $img_src = $url; 
+																$url = $thumb['0']; $img_src = $url;
 
 
 
@@ -626,26 +626,26 @@ $message_body.='
                             </tr>
                         	<tr>
                             	<td align="center" valign="top">
-                            		
+
                             		<table border="0" cellpadding="0" cellspacing="0" style="border-bottom: none;" width="100%" id="templateBody">
 
-                                    	
+
                             		<tr valign="top">
                             			<td width="50%" valign="top" style="padding-left: 20px; padding-right: 10px;">
-                            		
+
                                 	<!-- BEGIN COLUMNS // -->
-                                	
-                                	                                	
+
+
                                     <div class="newsGroup" style="background: #fff;">';
                                             //GET NEWS
 											//$cats = array(array(3,4),array(5,6),array(7,'follow'));
-											
+
 											//$cats = array(153,14,572,4,59,7,'follow');
 											//$cats = array($leftcolcats,'follow');
 											$oldcats = explode(",", $leftcolcats);
-											
+
 											$cats = array();
-											
+
 											foreach ($oldcats as $cat) {
 												//echo $cat;
 												$newcat = (int)$cat;
@@ -678,9 +678,9 @@ $message_body.='
 													foreach ($categories as $cat){
 														//make list of categories (parent + children cats)
 														$cats_in.= ", '".$cat->cat_ID."'";
-													
+
 													}
-													
+
 
 													$query ="SELECT DISTINCT ID, post_title, post_date
 																FROM $wpdb->posts, $wpdb->term_taxonomy, $wpdb->term_relationships
@@ -751,9 +751,9 @@ $message_body.='									<div width="334" align="left" valign="top" style="borde
 //$cats = array(47,424,5,3,437,'follow');
 
 $oldcats = explode(",", $rightcolcats);
-											
+
 											$cats = array();
-											
+
 											foreach ($oldcats as $cat) {
 												//echo $cat;
 												$newcat = (int)$cat;
