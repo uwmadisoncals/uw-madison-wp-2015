@@ -56,7 +56,7 @@ function email_newsletter_2017_options(){
 
 				$current_week = date("W", time())-1;
 				$num_day_0101 = date("N", strtotime("Jan 1 ".date("Y", time())));
-				$mailingaddress = get_option('mailingaddresssaved');
+				//$mailingaddress = get_option('mailingaddresssaved');
 				$mainfeaturecats = get_option( 'mainfeaturecats' );
 				$highlightedcats = get_option( 'highlightedcats' );
 				$leftcolcats = get_option( 'leftcolcats' );
@@ -134,8 +134,8 @@ function email_newsletter_2017_options(){
                 <strong>Date Range:</strong> <input id="start" name="start" type="text" size="10" maxlength="12" value="<?php echo $start_date?>"/> to <input id="end" name="end" type="text" size="10" maxlength="12" value="<?php echo $end_date?>"/>
                 send sample message to
 				<input type="text" name="sendto" value="<?php echo $adminemail ?>" placeholder="name@email.com">
-<span class="submit"> and address it from the mailing adddress of <input type="text" name="mailingaddress" value="<?php echo $mailingaddress ?>" placeholder="name@email.com">
 <span class="submit">
+
 
                     <input name="resubmit" value="Send" type="submit">
 
@@ -285,7 +285,7 @@ function email_newsletter_2017(){
 		$sendaddr = "al.nemec@wisc.edu";
 	}
 
-	if(isset($_POST["mailingaddress"])) {
+	/*if(isset($_POST["mailingaddress"])) {
 		$mailing_address = $_POST["mailingaddress"];
 	} else {
 
@@ -294,7 +294,9 @@ function email_newsletter_2017(){
 		} else {
 			$mailing_address = "ecals@cals.wisc.edu";
 		}
-	}
+	}*/
+
+	$mailing_address = "noreply@email.wiscweb.wisc.edu";
 
 	$site_name = get_bloginfo( 'name' );
 	$site_description = get_bloginfo( 'description' );
@@ -305,9 +307,8 @@ function email_newsletter_2017(){
 
 	$boundary = uniqid('np');
 
-	$headers = "MIME-Version: 1.0\r\n";
+	/*$headers = "MIME-Version: 1.0\r\n";
 	$headers .= "From: $site_name <$mailing_address>\r\n";
-	//$headers .= "Subject: $site_name <$mailing_address>\r\n";
 	$headers .= "Content-Type: multipart/alternative;boundary=" . $boundary . "\r\n";
 
 
@@ -318,11 +319,15 @@ function email_newsletter_2017(){
 	$message .= email_newsletter_2017_plain_text($cats, $start_date, $end_date);
 
 	$message .= "\r\n\r\n--" . $boundary . "\r\n";
-	$message .= "Content-type: text/html;charset=utf-8\r\n\r\n";
+	$message .= "Content-type: text/html;charset=utf-8\r\n\r\n";*/
 	$message .= email_newsletter_2017_html($cats, $start_date, $end_date);
 
-	$message .= "\r\n\r\n--" . $boundary . "--";
+	//$message .= "\r\n\r\n--" . $boundary . "--";
 
+
+	add_filter('wp_mail_content_type', function( $content_type ) {
+		return 'text/html';
+	});
  	//send email
 	return(wp_mail($to, $subject, $message, $headers));
 
