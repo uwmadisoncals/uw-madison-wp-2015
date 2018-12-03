@@ -4,21 +4,26 @@
  */
 ?>
 <?php $postedbylocation = get_theme_mod('uw-madison-wp-2015_postedby_id'); ?>
+<style>
+.singleDirectoryWrapper div.singleDirectoryPhoto img {
+	object-fit: contain;
+}
+</style>
 <article class="directory" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		
-		
-					
+
+
+
 					<h1 class="entry-title"><?php the_field('first_name');?> <?php the_field('last_name'); ?></h1>
 					<h2 class="entrySubTitle"><?php the_field('position_title'); ?></h2>
-	
-					
-			
-		
+
+
+
+
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		
+
 		<div class="singleDirectoryWrapper">
 			<div class="singleDirectoryInfo">
 				<div class="phone"><?php the_field('phone_number'); ?></div>
@@ -26,13 +31,13 @@
 				<p><?php the_field('office_location'); ?></p>
 
 
-				
+
 			</div>
 
 			<?php if(get_field("profile_photo")) { ?>
-			
+
 				<div class="singleDirectoryPhoto">
-					<?php 
+					<?php
 
 					$image = get_field('profile_photo');
 					$size = 'large'; // (thumbnail, medium, large, full or custom size)
@@ -62,12 +67,12 @@
 				</div>
 
 		</div>
-		
-		
+
+
 		<?php //the_content(); ?>
 
-		
 
-		
+
+
 	</div><!-- .entry-content -->
 </article><!-- #post-## -->
