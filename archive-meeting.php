@@ -31,7 +31,9 @@ if( $posts ): ?>
 	display: grid;
 	grid-template-columns: 3fr 1fr;
 	grid-column-gap: 2rem;
+
 }
+
 </style>
 
 <header class="page-header">
@@ -80,7 +82,6 @@ if( $posts ): ?>
 <?php foreach( $posts as $post ):
 
 	setup_postdata( $post ) ?>
-
 	<?php
 
 	$mdate = get_field("meeting_date");

@@ -98,6 +98,10 @@
 														<?php include 'imageslider.php'; ?>
 
 
+													 <?php } else if( get_row_layout() == 'embed_page') { ?>
+
+													 	<?php include 'template_embed.php'; ?>
+
 
 													 <?php } else if( get_row_layout() == 'download_table' ) { ?>
 
