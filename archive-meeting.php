@@ -128,7 +128,7 @@ setup_postdata( $post ) ?>
 
 		<?php if($newmdate == (date("Y")-1)) { ?>
 			<li style="list-style: none; margin-left: 0px; padding-left: 0px; margin-bottom: 1rem;">
-				<a href="<?php the_permalink(); ?>" target="_blank" style="font-size: 1.5rem;"><?php the_title(); ?></a>
+				<a href="<?php the_permalink(); ?>" target="_blank" style="font-size: 1.1rem;"><?php the_title(); ?></a>
 
 
 			</li>
