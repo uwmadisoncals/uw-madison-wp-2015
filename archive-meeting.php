@@ -107,12 +107,16 @@ if( $posts ): ?>
 	</div>
 
 	<div class="meetingsidebar">
-	<?php if($newmdate == (date("Y")-1)) { ?>
+
+
+
+
 		<h3>Previous Year Meetings (<?php echo (date("Y")-1); ?>)</h3>
 		<ul style="margin-left: 0px;">
+
 		<?php foreach( $posts as $post ):
 
-		setup_postdata( $post ) ?>
+setup_postdata( $post ) ?>
 
 		<?php
 
@@ -134,7 +138,7 @@ if( $posts ): ?>
 		<?php endforeach; ?>
 
 		</ul>
-		<?php } ?>
+
 	</div>
 </div>
 	<?php wp_reset_postdata(); ?>
