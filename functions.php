@@ -1389,6 +1389,27 @@ $wp_customize->add_control('uw-madison-wp-2015-headerslides_transition', array(
     'priority'   => 2,
 ));
 
+
+/*** Auto Rotation Timer ***/
+$wp_customize->add_setting('uw-madison-wp-2015_headerslides_autorotate_id', array(
+    'capability'     => 'edit_theme_options',
+	'type'           => 'theme_mod',
+
+));
+
+
+$wp_customize->add_control('uw-madison-wp-2015-headerslides_autorotate', array(
+	'label'      => __('Set a slide duration in seconds', 'uw-madison-wp-2015'),
+	'description'=> __('Remove value to stop rotation.'),
+    'section'    => 'uw-madison-wp-2015-header-options',
+	'type'    => 'text',
+    'settings'   => 'uw-madison-wp-2015_headerslides_autorotate_id',
+    'priority'   => 1,
+));
+
+/*** End auto rotation setting  ***/
+
+
 $wp_customize->add_setting('uw-madison-wp-2015_headerslides_frostedglass_id', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'theme_mod',
