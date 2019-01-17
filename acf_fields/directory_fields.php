@@ -1,10 +1,10 @@
 <?php if( function_exists('acf_add_local_field_group') ):
 
-acf_add_local_field_group(array (
+acf_add_local_field_group(array(
 	'key' => 'group_5967ddfc94fa0',
 	'title' => 'Directory Fields',
-	'fields' => array (
-		array (
+	'fields' => array(
+		array(
 			'key' => 'field_596cd3cc999f1',
 			'label' => 'First Name',
 			'name' => 'first_name',
@@ -12,7 +12,7 @@ acf_add_local_field_group(array (
 			'instructions' => '',
 			'required' => 1,
 			'conditional_logic' => 0,
-			'wrapper' => array (
+			'wrapper' => array(
 				'width' => '50',
 				'class' => '',
 				'id' => '',
@@ -23,7 +23,7 @@ acf_add_local_field_group(array (
 			'append' => '',
 			'maxlength' => '',
 		),
-		array (
+		array(
 			'key' => 'field_596cd3dc999f2',
 			'label' => 'Last Name',
 			'name' => 'last_name',
@@ -31,7 +31,7 @@ acf_add_local_field_group(array (
 			'instructions' => '',
 			'required' => 1,
 			'conditional_logic' => 0,
-			'wrapper' => array (
+			'wrapper' => array(
 				'width' => '50',
 				'class' => '',
 				'id' => '',
@@ -42,7 +42,7 @@ acf_add_local_field_group(array (
 			'append' => '',
 			'maxlength' => '',
 		),
-		array (
+		array(
 			'key' => 'field_5967de074997f',
 			'label' => 'Position Title',
 			'name' => 'position_title',
@@ -50,7 +50,7 @@ acf_add_local_field_group(array (
 			'instructions' => '',
 			'required' => 0,
 			'conditional_logic' => 0,
-			'wrapper' => array (
+			'wrapper' => array(
 				'width' => '',
 				'class' => '',
 				'id' => '',
@@ -61,7 +61,7 @@ acf_add_local_field_group(array (
 			'append' => '',
 			'maxlength' => '',
 		),
-		array (
+		array(
 			'key' => 'field_596cd3ea999f3',
 			'label' => 'Phone Number',
 			'name' => 'phone_number',
@@ -69,7 +69,7 @@ acf_add_local_field_group(array (
 			'instructions' => '',
 			'required' => 0,
 			'conditional_logic' => 0,
-			'wrapper' => array (
+			'wrapper' => array(
 				'width' => '50',
 				'class' => '',
 				'id' => '',
@@ -82,7 +82,7 @@ acf_add_local_field_group(array (
 			'max' => '',
 			'step' => '',
 		),
-		array (
+		array(
 			'key' => 'field_596cd3fc999f4',
 			'label' => 'Email Address',
 			'name' => 'email_address',
@@ -90,7 +90,7 @@ acf_add_local_field_group(array (
 			'instructions' => '',
 			'required' => 0,
 			'conditional_logic' => 0,
-			'wrapper' => array (
+			'wrapper' => array(
 				'width' => '50',
 				'class' => '',
 				'id' => '',
@@ -100,7 +100,7 @@ acf_add_local_field_group(array (
 			'prepend' => '',
 			'append' => '',
 		),
-		array (
+		array(
 			'key' => 'field_596cd422999f5',
 			'label' => 'Group',
 			'name' => 'group',
@@ -108,7 +108,7 @@ acf_add_local_field_group(array (
 			'instructions' => '',
 			'required' => 0,
 			'conditional_logic' => 0,
-			'wrapper' => array (
+			'wrapper' => array(
 				'width' => '',
 				'class' => '',
 				'id' => '',
@@ -122,7 +122,7 @@ acf_add_local_field_group(array (
 			'return_format' => 'id',
 			'multiple' => 0,
 		),
-		array (
+		array(
 			'key' => 'field_596cd56173a78',
 			'label' => 'Office Location',
 			'name' => 'office_location',
@@ -130,7 +130,7 @@ acf_add_local_field_group(array (
 			'instructions' => '',
 			'required' => 0,
 			'conditional_logic' => 0,
-			'wrapper' => array (
+			'wrapper' => array(
 				'width' => '50',
 				'class' => '',
 				'id' => '',
@@ -141,7 +141,7 @@ acf_add_local_field_group(array (
 			'media_upload' => 0,
 			'delay' => 0,
 		),
-		array (
+		array(
 			'key' => 'field_596cd51b73a77',
 			'label' => 'Profile Photo',
 			'name' => 'profile_photo',
@@ -149,7 +149,7 @@ acf_add_local_field_group(array (
 			'instructions' => '',
 			'required' => 0,
 			'conditional_logic' => 0,
-			'wrapper' => array (
+			'wrapper' => array(
 				'width' => '50',
 				'class' => '',
 				'id' => '',
@@ -165,7 +165,7 @@ acf_add_local_field_group(array (
 			'max_size' => '',
 			'mime_types' => '',
 		),
-		array (
+		array(
 			'key' => 'field_596f66e6043e4',
 			'label' => 'Bio',
 			'name' => 'bio',
@@ -173,7 +173,7 @@ acf_add_local_field_group(array (
 			'instructions' => '',
 			'required' => 0,
 			'conditional_logic' => 0,
-			'wrapper' => array (
+			'wrapper' => array(
 				'width' => '50',
 				'class' => '',
 				'id' => '',
@@ -184,7 +184,7 @@ acf_add_local_field_group(array (
 			'media_upload' => 1,
 			'delay' => 0,
 		),
-		array (
+		array(
 			'key' => 'field_596f6731043e6',
 			'label' => 'Publications',
 			'name' => 'publications',
@@ -192,7 +192,7 @@ acf_add_local_field_group(array (
 			'instructions' => '',
 			'required' => 0,
 			'conditional_logic' => 0,
-			'wrapper' => array (
+			'wrapper' => array(
 				'width' => '50',
 				'class' => '',
 				'id' => '',
@@ -203,7 +203,7 @@ acf_add_local_field_group(array (
 			'media_upload' => 1,
 			'delay' => 0,
 		),
-		array (
+		array(
 			'key' => 'field_596f670d043e5',
 			'label' => 'Linkedin',
 			'name' => 'linkedin',
@@ -211,7 +211,7 @@ acf_add_local_field_group(array (
 			'instructions' => '',
 			'required' => 0,
 			'conditional_logic' => 0,
-			'wrapper' => array (
+			'wrapper' => array(
 				'width' => '',
 				'class' => '',
 				'id' => '',
@@ -219,10 +219,69 @@ acf_add_local_field_group(array (
 			'default_value' => '',
 			'placeholder' => '',
 		),
+		array(
+			'key' => 'field_5c40ab8a35efc',
+			'label' => 'Additional Fields',
+			'name' => 'additional_fields',
+			'type' => 'repeater',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'collapsed' => 'field_5c40abc635efe',
+			'min' => 0,
+			'max' => 0,
+			'layout' => 'table',
+			'button_label' => 'Add Additional Directory Field',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_5c40ab9f35efd',
+					'label' => 'Label',
+					'name' => 'additional_label',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '50',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+				),
+				array(
+					'key' => 'field_5c40abc635efe',
+					'label' => 'Value',
+					'name' => 'additional_value',
+					'type' => 'wysiwyg',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '50',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'tabs' => 'all',
+					'toolbar' => 'full',
+					'media_upload' => 1,
+					'delay' => 0,
+				),
+			),
+		),
 	),
-	'location' => array (
-		array (
-			array (
+	'location' => array(
+		array(
+			array(
 				'param' => 'post_type',
 				'operator' => '==',
 				'value' => 'directory',
@@ -234,19 +293,18 @@ acf_add_local_field_group(array (
 	'style' => 'default',
 	'label_placement' => 'top',
 	'instruction_placement' => 'label',
-	'hide_on_screen' => array (
+	'hide_on_screen' => array(
 		0 => 'the_content',
 		1 => 'excerpt',
-		2 => 'custom_fields',
-		3 => 'discussion',
-		4 => 'comments',
-		5 => 'slug',
-		6 => 'format',
-		7 => 'page_attributes',
-		8 => 'featured_image',
-		9 => 'categories',
-		10 => 'tags',
-		11 => 'send-trackbacks',
+		2 => 'discussion',
+		3 => 'comments',
+		4 => 'slug',
+		5 => 'format',
+		6 => 'page_attributes',
+		7 => 'featured_image',
+		8 => 'categories',
+		9 => 'tags',
+		10 => 'send-trackbacks',
 	),
 	'active' => 1,
 	'description' => '',
