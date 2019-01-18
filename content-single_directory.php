@@ -8,6 +8,14 @@
 .singleDirectoryWrapper div.singleDirectoryPhoto img {
 	object-fit: contain;
 }
+
+.personMeta {
+	font-size: 1rem;
+}
+
+.personMeta p {
+	margin-top: 0rem;
+}
 </style>
 <article class="directory" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
@@ -29,6 +37,33 @@
 				<div class="phone"><?php the_field('phone_number'); ?></div>
 				<div><a href="mailto:<?php the_field('email_address'); ?>"><?php the_field('email_address'); ?></a></div>
 				<p><?php the_field('office_location'); ?></p>
+
+				<?php if( have_rows('additional_fields') ): ?>
+
+
+				<p>
+
+	<?php while( have_rows('additional_fields') ): the_row();
+
+		// vars
+		$label = get_sub_field('additional_label');
+		$content = get_sub_field('additional_value');
+
+
+		?>
+
+
+				<div class="personMeta">
+				<em><?php echo $label; ?></em>
+				<?php echo $content; ?>
+				</div>
+
+
+		<?php endwhile; ?>
+
+		</p>
+
+	<?php endif; ?>
 
 
 
