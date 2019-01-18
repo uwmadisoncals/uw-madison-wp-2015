@@ -86,8 +86,15 @@
 												<div class="flex-row-wrapper <?php echo $rowspacingtopclass ?> <?php echo $rowspacingbottomclass ?> <?php echo $rowwidthlimitclass ?>">
 												<?php while ( have_rows('full_width_content_options') ) : the_row(); ?>
 
+												<?php if( get_row_layout() == 'display_posts' ) { ?>
 
-													<?php if( get_row_layout() == 'accordion_panel' ) { ?>
+														<?php include 'list_posts.php'; ?>
+
+													<?php } else if( get_row_layout() == 'accordion_panel' ) { ?>
+
+														<?php include 'accordion.php'; ?>
+
+													<?php } if( get_row_layout() == 'accordion_panel' ) { ?>
 
 														<?php include 'accordion.php'; ?>
 
