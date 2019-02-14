@@ -7,6 +7,7 @@
 	  $hidefeaturedimage = get_field('hide_featured_image_in_article');
 	  $metatitle = get_field('meta_title');
 	  $subtitleplacement = get_theme_mod('uw-madison-wp-2015_post_subtitle_setting_id'); ?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 	<?php if($metatitle) { ?>
@@ -33,6 +34,7 @@
 
 		</style>
 	<?php } ?>
+
 		<?php if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
 
 
@@ -89,8 +91,9 @@
 
 							<?php if($postedbylocation != "lower") {
 
-
-									uw_madison_wp_2015_posted_on();
+									if(get_field('hide_posted_date') == false) {
+										uw_madison_wp_2015_posted_on();
+									}
 									if(get_field('written_by')) {
 										echo '<span style="color: rgba(0,0,0,0.5);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
 										the_field('written_by');
@@ -122,8 +125,9 @@
 
 							<?php } else { ?>
 
-
-								<div class="posted-on"><?php the_date(); ?></div>
+								<?php if(get_field('hide_posted_date') == false) { ?>
+									<div class="posted-on"><?php the_date(); ?></div>
+								<?php } ?>
 								<?php if(get_field('written_by')) {
 										echo '<span style="color: rgba(0,0,0,0.5);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
 										the_field('written_by');
@@ -199,7 +203,9 @@
 
 
 							<?php if($postedbylocation != "lower") {
-								uw_madison_wp_2015_posted_on();
+								if(get_field('hide_posted_date') == false) {
+									uw_madison_wp_2015_posted_on();
+								}
 								if(get_field('written_by')) {
 									echo '<span style="color: rgba(255,255,255,0.6);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
 									the_field('written_by');
@@ -229,10 +235,14 @@
 								?>
 
 								<?php } else {
-									uw_madison_wp_2015_posted_on();
+									if(get_field('hide_posted_date') == false) {
+										uw_madison_wp_2015_posted_on();
+									}
 								}
 							} else { ?>
-								<div class="posted-on"><?php the_date(); ?></div>
+								<?php if(get_field('hide_posted_date') == false) { ?>
+									<div class="posted-on"><?php the_date(); ?></div>
+								<?php } ?>
 
 
 							<?php	}  ?>
@@ -263,7 +273,9 @@
 						<?php if($postedbylocation != "lower") {
 
 
-								uw_madison_wp_2015_posted_on();
+if(get_field('hide_posted_date') == false) {
+	uw_madison_wp_2015_posted_on();
+}
 								if(get_field('written_by')) {
 									echo '<span style="color: rgba(0,0,0,0.5);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
 									the_field('written_by');
@@ -295,7 +307,9 @@
 						} else { ?>
 
 
-							<div class="posted-on"><?php the_date(); ?></div>
+							<?php if(get_field('hide_posted_date') == false) { ?>
+									<div class="posted-on"><?php the_date(); ?></div>
+								<?php } ?>
 							<?php if(get_field('written_by')) {
 									echo '<span style="color: rgba(0,0,0,0.5);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
 									the_field('written_by');

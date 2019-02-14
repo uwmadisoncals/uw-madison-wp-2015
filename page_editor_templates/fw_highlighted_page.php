@@ -125,7 +125,9 @@
 																					<div>
 																						<div class="middleImageSample">
 																							<div class="whiteContent">
+																							<?php if($datevisible == false) { ?>
 																								<div class="dateposted"><?php the_time('M') ?> <?php the_time('jS') ?></div>
+																							<?php } ?>
 																								<div class="numericdate"><?php the_time('Ymd'); ?></div>
 																								<h2><?php the_title(); ?></h2>
 																								<div><?php the_excerpt(); ?></div>

@@ -37,6 +37,10 @@
 
 					<a href="#" class="tiltAction remotePost"><?php the_title(); ?></a>
 
+					<?php $deptname = get_field('deptname'); if($deptname && $styleoptions == 'photocaption') { ?>
+						<div class="deptname"><?php echo $deptname; ?></div>
+					<?php } ?>
+
 					<div class="<?php if($styleoptions != 'photocaption') { echo "tiltPanel"; } ?>">
 
 						<div class="plane level1">

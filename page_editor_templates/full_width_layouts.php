@@ -272,10 +272,13 @@
 
 													 $offsetC = get_sub_field('appearance_options');
 													 $styleoptions = get_sub_field('style_options');
-
+													  $datevisible = get_sub_field("hide_date");
 
 													 if( get_row_layout() == 'fw_highlighted_content' ) {
 														 if(have_rows("fw_highlighted_content_type")) { ?>
+
+
+
 														  <?php if($offsetC == '3col') { ?>
 														  		<div class="gridthreecol gridstyle2 <?php echo $styleoptions; ?>">
 

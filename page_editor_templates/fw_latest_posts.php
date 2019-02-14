@@ -1,5 +1,6 @@
 <?php $numofposts = get_sub_field('fw_number_of_posts');
 
+
 																	// The Query
 																	$query1 = new WP_Query( array( 'posts_per_page' => $numofposts ) ); ?>
 
@@ -18,6 +19,10 @@
 																			<div class="tiltWrapper custom custom2col" data-maxangle="3" data-tiltdepth="70">
 
 																				<a href="<?php the_permalink(); ?>" class="tiltAction"><?php the_title(); ?></a>
+
+																				<?php $deptname = get_field('deptname'); if($deptname && $styleoptions == 'photocaption') { ?>
+																					<div class="deptname"><?php echo $deptname; ?></div>
+																				<?php } ?>
 
 																				<div class="<?php if($styleoptions != 'photocaption') { echo "tiltPanel"; } ?>">
 
@@ -119,7 +124,9 @@
 																					<div>
 																						<div class="middleImageSample">
 																							<div class="whiteContent">
+																							<?php if($datevisible == false) { ?>
 																								<div class="dateposted"><?php the_time('M') ?> <?php the_time('jS') ?></div>
+																							<?php } ?>
 																								<div class="numericdate"><?php the_time('Ymd'); ?></div>
 																								<h2><?php the_title(); ?></h2>
 																								<div class="author">By

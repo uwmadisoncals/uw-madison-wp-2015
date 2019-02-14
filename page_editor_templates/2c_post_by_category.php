@@ -38,6 +38,10 @@
 
 																				<a href="<?php the_permalink(); ?>" class="tiltAction"><?php the_title(); ?></a>
 
+																				<?php $deptname = get_field('deptname'); if($deptname && $styleoptions == 'photocaption') { ?>
+																					<div class="deptname"><?php echo $deptname; ?></div>
+																				<?php } ?>
+
 																				<div class="<?php if($styleoptions != 'photocaption') { echo "tiltPanel"; } ?>">
 
 

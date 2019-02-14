@@ -4139,6 +4139,64 @@ body.home div.photoHeader .heroImageContainerSVG {
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#00000000", endColorstr="#59000000", GradientType=0)
 }
 
+.gridstyle2.photocaption .grid-item2col .textContent, .gridstyle2.photocaption .grid-item1col .textContent, .gridstyle2.photocaption .grid-item3col .textContent {
+    position: relative;
+    color: rgba(0,0,0,.9);
+}
+
+.gridstyle2.photocaption .grid-item2col .textContent h2, .gridstyle2.photocaption .grid-item1col .textContent h2, .gridstyle2.photocaption .grid-item3col .textContent h2 {
+    color: rgba(0,0,0,0.9);
+    font-family: "Verlag-Black";
+    letter-spacing: 0.2px;
+    font-size: 1.7rem;
+    text-shadow: unset;
+
+}
+
+.gridstyle2.photocaption .grid-item2col .textContent .author, .gridstyle2.photocaption .grid-item1col .textContent .author, .gridstyle2.photocaption .grid-item3col .textContent .author {
+    font-size: 0.75rem;
+    color: #117FAA !important;
+}
+
+.gridstyle2.photocaption .grid-item2col .level1 .heroImageBlur, .gridstyle2.photocaption .grid-item1col .level1 .heroImageBlur, .gridstyle2.photocaption .grid-item3col .level1 .heroImageBlur {
+    display: none;
+}
+
+.gridstyle2.photocaption .grid-item2col .level1 .heroGradient, .gridstyle2.photocaption .grid-item1col .level1 .heroGradient, .gridstyle2.photocaption .grid-item3col .level1 .heroGradient {
+    display: none;
+}
+
+.gridstyle2.photocaption .grid-item2col .level1 .reflection, .gridstyle2.photocaption .grid-item1col .level1 .reflection, .gridstyle2.photocaption .grid-item3col .level1 .reflection {
+    display: none;
+}
+
+.gridstyle2.photocaption .grid-item2col .textContent .dateposted, .gridstyle2.photocaption .grid-item1col .textContent .dateposted, .gridstyle2.photocaption .grid-item3col .textContent .dateposted {
+    text-shadow: unset;
+    color: rgba(0,0,0,0.5);
+}
+
+.gridstyle2 .grid-item2col .deptname, .gridstyle2 .grid-item1col .deptname, .gridstyle2 .grid-item3col .deptname {
+    font-size: 0.8rem;
+    color: #C40113;
+    text-transform: uppercase;
+    font-family: "Verlag-Black";
+    margin-bottom: 0.4rem;
+}
+
+.gridstyle2.photocaption .grid-item2col .textContent .excerpt p, .gridstyle2.photocaption .grid-item1col .textContent .excerpt p, .gridstyle2.photocaption .grid-item3col .textContent .excerpt p {
+    color: rgba(0,0,0,0.8);
+    font-family: "Verlag-Book";
+    font-size: 1.2rem;
+    text-shadow: unset;
+    letter-spacing: 0.1px;
+}
+
+.gridstyle2.photocaption .grid-item2col .textContent .whiteContent, .gridstyle2.photocaption .grid-item1col .textContent .whiteContent, .gridstyle2.photocaption .grid-item3col .textContent .whiteContent {
+    padding: 1rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
+}
+
 .gridstyle2 .grid-item1col .heroGradient,
 .gridstyle2 .grid-item2col .heroGradient,
 .gridstyle2 .grid-item3col .heroGradient,
@@ -4696,6 +4754,10 @@ body.home div.photoHeader .heroImageContainerSVG {
     -moz-animation: d .6s forwards;
     -moz-animation-iteration-count: 1;
     -moz-animation-delay: .4s
+}
+
+.spotlightImage img {
+    object-fit: cover;
 }
 
 .spotlight_list ul {
