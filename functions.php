@@ -2046,7 +2046,7 @@ function se_wp_enqueue_scripts() {
 
 }
 
-add_action('wp_head', 'se_wp_head');
+//add_action('wp_head', 'se_wp_head');
 function se_wp_head() {
 ?>
 <script type="text/javascript">
@@ -2099,8 +2099,8 @@ function se_wp_head() {
 <?php
 }
 
-add_action('wp_ajax_se_lookup', 'se_lookup');
-add_action('wp_ajax_nopriv_se_lookup', 'se_lookup');
+//add_action('wp_ajax_se_lookup', 'se_lookup');
+//add_action('wp_ajax_nopriv_se_lookup', 'se_lookup');
 
 function se_lookup() {
     global $wpdb;
@@ -2387,7 +2387,7 @@ register_default_headers( array(
 /**** Added ACF fields for Header Slides ****/
 if( function_exists('acf_add_local_field_group') ):
 
-	include 'acf_fields/advanced_page_editor_fields.php';
+	//include 'acf_fields/advanced_page_editor_fields.php';
 
 	include 'acf_fields/post_meta_fields.php';
 
@@ -6611,7 +6611,7 @@ function uw_madison_wp_2015_scripts() {
 
 	//wp_enqueue_script( 'uw-madison-wp-2015-main', get_template_directory_uri() . '/dist/scripts/main-02022018.min.js#asyncload', array(), '20150429', true );
 
-	wp_enqueue_style('main-css', get_template_directory_uri()."/build/css/root.css", null, VERSION, false);
+	wp_enqueue_style('main-css', get_template_directory_uri()."/build/css/newroot.css", null, VERSION, false);
 
 	/*wp_enqueue_script('main-js', get_template_directory_uri()."/compiled/js/main.js", null, VERSION, true);*/
 
