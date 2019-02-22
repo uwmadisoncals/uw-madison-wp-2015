@@ -22,7 +22,7 @@
 
 			$slug = $single_category->slug;
 
-			if($slug == "issues") {
+			if($slug == "issue") {
 
             //for each category, get the ID
             $catID = $single_category->cat_ID;
