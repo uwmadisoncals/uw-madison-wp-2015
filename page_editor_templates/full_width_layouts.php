@@ -94,9 +94,7 @@
 
 														<?php include 'accordion.php'; ?>
 
-													<?php } if( get_row_layout() == 'accordion_panel' ) { ?>
 
-														<?php include 'accordion.php'; ?>
 
 													<?php } else if( get_row_layout() == 'image_carousel' ) { ?>
 
