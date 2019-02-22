@@ -1350,6 +1350,24 @@ html {
     font-size: 1.2em
 }
 
+.post .deptname {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-family: "Verlag-Black";
+    color: rgba(0,0,0,0.4);
+    margin-bottom: 2rem;
+}
+
+.post .deptname span.dept {
+    margin-left: 0.5rem;
+    font-family: "Verlag-Black";
+}
+
+.post .deptname span.issue {
+    margin-right: 0.5rem;
+    color: #c5050c;
+}
+
 .page .verlag-option .entry-header h1,
 .post .verlag-option .entry-header h1,
 .single .verlag-option .entry-header h1 {
@@ -10832,3 +10850,4 @@ table.tablesaw thead th {
 
 
 /*# sourceMappingURL=root.css.map */
+
