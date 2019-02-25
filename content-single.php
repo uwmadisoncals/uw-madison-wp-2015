@@ -27,12 +27,12 @@
             //for each category, get the ID
 			$catID = $single_category->cat_ID;
 
-
-
-            //echo '<li><a href=" ' . get_category_link( $catID ) . ' ">' . $single_category->name . '</a>'; //category name & link
             $get_children_cats = array(
-                'child_of' => $catID //get children of this parent using the catID variable from earlier
-            );
+                'child_of' => $catID, //get children of this parent using the catID variable from earlier
+				'hide_empty'
+			);
+
+			$querystr = '&child_of='.$catID.'&hide_empty';
 
 			$child_cats = get_categories( $get_children_cats );//get children of parent category
 
@@ -40,10 +40,11 @@
 				$issuecat = $child_cat->name;
 			}
 
-
-
 			}
         } //end of categories logic ?>
+
+
+
 </ul>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -244,9 +245,10 @@
 							<?php if($postedbylocation != "lower") {
 								if(get_field('hide_posted_date') == false) {
 									uw_madison_wp_2015_posted_on();
+									echo " | ";
 								}
 								if(get_field('written_by')) {
-									echo '<span style="color: rgba(255,255,255,0.6);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
+									echo '<span style="color: rgba(255,255,255,0.6);"><div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
 									the_field('written_by');
 									echo '</div></span>'; ?>
 
@@ -314,9 +316,10 @@
 
 if(get_field('hide_posted_date') == false) {
 	uw_madison_wp_2015_posted_on();
+	echo " | ";
 }
 								if(get_field('written_by')) {
-									echo '<span style="color: rgba(0,0,0,0.5);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
+									echo '<span style="color: rgba(0,0,0,0.5);"><div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
 									the_field('written_by');
 									echo '</div></span>';
 								}
@@ -347,10 +350,10 @@ if(get_field('hide_posted_date') == false) {
 
 
 							<?php if(get_field('hide_posted_date') == false) { ?>
-									<div class="posted-on"><?php the_date(); ?></div>
+									<div class="posted-on"><?php the_date(); ?> | </div>
 								<?php } ?>
 							<?php if(get_field('written_by')) {
-									echo '<span style="color: rgba(0,0,0,0.5);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
+									echo '<span style="color: rgba(0,0,0,0.5);"><div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
 									the_field('written_by');
 									echo '</div></span>';
 								} ?>
