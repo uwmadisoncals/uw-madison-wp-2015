@@ -27,6 +27,8 @@
             //for each category, get the ID
 			$catID = $single_category->cat_ID;
 
+			//$post_categories = wp_get_post_categories( $post_id );
+
             $get_children_cats = array(
                 'child_of' => $catID, //get children of this parent using the catID variable from earlier
 				'hide_empty'
@@ -37,7 +39,20 @@
 			$child_cats = get_categories( $get_children_cats );//get children of parent category
 
 			foreach( $child_cats as $child_cat ){
-				$issuecat = $child_cat->name;
+				$currentcat = $child_cat->name;
+
+				$post_categories = wp_get_post_categories( get_the_ID() );
+
+				//echo $child_cat->name . ', ';
+
+				foreach($post_categories as $c){
+					$catname = get_cat_name( $c );
+					if($catname == $currentcat) {
+						//echo "found match";
+						$issuecat = $catname;
+					}
+
+				}
 			}
 
 			}
@@ -45,11 +60,14 @@
 
 
 
+
+
+
 </ul>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-	<div class="deptname"><span class="issue"><?php echo $issuecat; ?></span> | <span class="dept"><?php the_field("deptname"); ?></span></div>
+	<div class="deptname"><span class="issue"><?php echo $issuecat; ?></span></div>
 	<?php if($metatitle) { ?>
 		<h3 class="metatitle"><?php echo $metatitle; ?></h3>
 		<style>
