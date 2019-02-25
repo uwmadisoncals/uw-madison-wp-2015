@@ -25,7 +25,9 @@
 			if($slug == "issue") {
 
             //for each category, get the ID
-            $catID = $single_category->cat_ID;
+			$catID = $single_category->cat_ID;
+
+
 
             //echo '<li><a href=" ' . get_category_link( $catID ) . ' ">' . $single_category->name . '</a>'; //category name & link
             $get_children_cats = array(
@@ -34,7 +36,10 @@
 
 			$child_cats = get_categories( $get_children_cats );//get children of parent category
 
-			$issuecat = $child_cats[0]->name;
+			foreach( $child_cats as $child_cat ){
+				$issuecat = $child_cat->name;
+			}
+
 
 
 			}
