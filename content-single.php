@@ -78,7 +78,7 @@
 				color: rgba(0,0,0,0.5);
 				font-size: 0.8rem;
 				text-transform: uppercase;
-				margin-bottom: 1.5rem;
+				margin-bottom: .5rem;
 			}
 
 .entry-meta .metaline {

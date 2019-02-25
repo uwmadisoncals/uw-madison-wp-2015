@@ -38,7 +38,7 @@
 
 																				<a href="<?php the_permalink(); ?>" class="tiltAction"><?php the_title(); ?></a>
 
-																				<?php $deptname = get_field('deptname'); if($deptname && $styleoptions == 'photocaption') { ?>
+																				<?php $deptname = get_field('meta_title'); if($deptname && $styleoptions == 'photocaption') { ?>
 																					<div class="deptname"><?php echo $deptname; ?></div>
 																				<?php } ?>
 
