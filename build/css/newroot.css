@@ -10848,6 +10848,9 @@ table.tablesaw thead th {
     pointer-events: none
 }
 
+#wpstats {
+    display: none;
+}
 
 /*# sourceMappingURL=root.css.map */
 
