@@ -92,12 +92,12 @@
 												 }
 
 													if( get_row_layout() == '3c_highlighted_content' ) {
-
+														$styleoptions = get_sub_field('style_options');
 														$datevisible = get_sub_field("hide_date");
 
 														 if(have_rows("3c_highlighted_content_type")) { ?>
 
-														 	<div class="gridonecol gridstyle2 <?php echo $columnstyle ?>">
+														 	<div class="gridonecol gridstyle2 <?php echo $styleoptions; ?> <?php echo $columnstyle ?>">
 
 
 															  <div class="grid-sizer2col"></div>
@@ -228,10 +228,13 @@
 
 												 }
 
-												if( get_row_layout() == '3c_highlighted_content' ) {
-														 if(have_rows("3c_highlighted_content_type")) { ?>
+												 if( get_row_layout() == '3c_highlighted_content' ) {
+													$styleoptions = get_sub_field('style_options');
+													$datevisible = get_sub_field("hide_date");
 
-														 	<div class="gridonecol gridstyle2 <?php echo $columnstyle ?>">
+													 if(have_rows("3c_highlighted_content_type")) { ?>
+
+														 <div class="gridonecol gridstyle2 <?php echo $styleoptions; ?> <?php echo $columnstyle ?>">
 
 
 															  <div class="grid-sizer2col"></div>
@@ -362,10 +365,13 @@
 
 												 }
 
-												if( get_row_layout() == '3c_highlighted_content' ) {
-														 if(have_rows("3c_highlighted_content_type")) { ?>
+												 if( get_row_layout() == '3c_highlighted_content' ) {
+													$styleoptions = get_sub_field('style_options');
+													$datevisible = get_sub_field("hide_date");
 
-														 	<div class="gridonecol gridstyle2 <?php echo $columnstyle ?>">
+													 if(have_rows("3c_highlighted_content_type")) { ?>
+
+														 <div class="gridonecol gridstyle2 <?php echo $styleoptions; ?> <?php echo $columnstyle ?>">
 
 
 															  <div class="grid-sizer2col"></div>
