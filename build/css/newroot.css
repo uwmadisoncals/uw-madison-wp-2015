@@ -1351,11 +1351,11 @@ html {
 }
 
 .post .deptname {
-    text-transform: uppercase;
-    font-size: 0.8rem;
+
+    font-size: 1rem;
     font-family: "Verlag-Black";
     color: rgba(0,0,0,0.4);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .post .deptname span.dept {

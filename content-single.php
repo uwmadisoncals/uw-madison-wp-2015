@@ -151,9 +151,10 @@
 
 									if(get_field('hide_posted_date') == false) {
 										uw_madison_wp_2015_posted_on();
+										echo " | ";
 									}
 									if(get_field('written_by')) {
-										echo '<span style="color: rgba(0,0,0,0.5);"> | <div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
+										echo '<span style="color: rgba(0,0,0,0.5);"><div class="byline" style="display: inline-block; margin-top: 0.5rem;"> By ';
 										the_field('written_by');
 										echo '</div></span>';
 									} ?>
