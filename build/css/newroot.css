@@ -4195,7 +4195,7 @@ body.home div.photoHeader .heroImageContainerSVG {
 
 .gridstyle2 .grid-item2col .deptname, .gridstyle2 .grid-item1col .deptname, .gridstyle2 .grid-item3col .deptname {
     font-size: 0.8rem;
-    color: #C40113;
+    color: rgba(0,0,0,0.5);
     text-transform: uppercase;
     font-family: "Verlag-Black";
     margin-bottom: 0.4rem;
