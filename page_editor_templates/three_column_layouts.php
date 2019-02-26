@@ -94,6 +94,7 @@
 													if( get_row_layout() == '3c_highlighted_content' ) {
 														$styleoptions = get_sub_field('style_options');
 														$datevisible = get_sub_field("hide_date");
+														$authorvisible = get_sub_field("hide_author");
 
 														 if(have_rows("3c_highlighted_content_type")) { ?>
 
@@ -231,6 +232,7 @@
 												 if( get_row_layout() == '3c_highlighted_content' ) {
 													$styleoptions = get_sub_field('style_options');
 													$datevisible = get_sub_field("hide_date");
+													$authorvisible = get_sub_field("hide_author");
 
 													 if(have_rows("3c_highlighted_content_type")) { ?>
 
@@ -368,6 +370,7 @@
 												 if( get_row_layout() == '3c_highlighted_content' ) {
 													$styleoptions = get_sub_field('style_options');
 													$datevisible = get_sub_field("hide_date");
+													$authorvisible = get_sub_field("hide_author");
 
 													 if(have_rows("3c_highlighted_content_type")) { ?>
 
