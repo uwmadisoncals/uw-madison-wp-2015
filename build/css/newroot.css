@@ -3490,6 +3490,14 @@ div.lineSidebar .widget-area ul#nav_explore li a .nav_text {
     text-align: left
 }
 
+div.lineSidebar .sidebar_menu ul#nav_explore .currentSub li a {
+    padding-left: 1rem;
+}
+
+div.lineSidebar .sidebar_menu ul#nav_explore li ul#nav_explore .currentSub li a {
+    padding-left: 1rem;
+}
+
 footer .social ul {
     list-style: none;
     margin: 0;
