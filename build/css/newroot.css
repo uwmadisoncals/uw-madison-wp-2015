@@ -10828,6 +10828,14 @@ ul.uwmadison_events_group .uwmadison_event_subtitle {
   font-size: 1.5rem;
 }
 
+.flex-item .directoryWrapper.two_column .directoryListing li .personInfo .name {
+  font-size: 1rem;
+}
+
+.flex-item .directoryWrapper.two_column .directoryListing li .aux {
+  font-size: 0.9rem;
+}
+
 .directoryWrapper.two_column .directoryListing {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -10855,7 +10863,8 @@ ul.uwmadison_events_group .uwmadison_event_subtitle {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.directoryWrapper.two_column .directoryListing li .personPhoto img, .directoryWrapper.list .directoryListing li .personPhoto img {
+.directoryWrapper.two_column .directoryListing li .personPhoto img,
+.directoryWrapper.list .directoryListing li .personPhoto img {
   width: 80px;
   height: 80px;
 }
@@ -10872,6 +10881,10 @@ ul.uwmadison_events_group .uwmadison_event_subtitle {
 .directoryWrapper.gridlayout .directoryListing li .personAux {
   justify-self: start;
   padding: 1rem;
+}
+
+.directoryWrapper.gridlayout .directoryListing li .personAux .aux {
+  text-align: left;
 }
 
 .directoryWrapper.gridlayout .directoryListing li .personPhoto img {
@@ -11398,9 +11411,6 @@ div.personFeaturefw .bio p {
   object-fit: cover;
 }
 
-.directoryListing li .personInfo {
-}
-
 .directoryListing li .personInfo .name {
   font-size: 1.4rem;
   line-height: 1;
@@ -11422,8 +11432,8 @@ div.personFeaturefw .bio p {
 }
 
 .directoryListing li .aux {
-  margin-top: 1rem;
   font-size: 1rem;
+  text-align: right;
 }
 
 .directoryListing li .aux .location p {

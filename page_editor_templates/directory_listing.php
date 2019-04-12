@@ -8,7 +8,8 @@ $hide_photos = get_sub_field('hide_profile_photos');
 
     if($hide_photos) {
         $hide_photos_css = "hiddenPhotos";
-
+    } else {
+        $hide_photos_css = "";
     }
 
 if($listingoptions == "listbygroups") {
