@@ -1,6 +1,7 @@
 <?php //Directory Listing Include
 
 $directorylayout = get_sub_field('directory_layout');
+$gridlayoutoptions = get_sub_field('grid_options');
 $listingoptions = get_sub_field('listing_options');
 $directoryfilter = get_sub_field('listing_filter');
 
@@ -21,7 +22,7 @@ if($listingoptions == "listbygroups") {
 }
  ?>
 
-<div class="directoryWrapper <?php echo $directorylayout; ?>">
+<div class="directoryWrapper <?php echo $directorylayout; ?> <?php echo $gridlayoutoptions ?>">
 
 <?php if($directoryfilter) { ?>
     <div class="directoryFilter">

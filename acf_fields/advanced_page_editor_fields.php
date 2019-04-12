@@ -1693,6 +1693,41 @@ acf_add_local_field_group(array(
 											'placeholder' => '',
 										),
 										array(
+											'key' => 'field_5cb0c1f091fca',
+											'label' => 'Grid Options',
+											'name' => 'grid_options',
+											'type' => 'select',
+											'instructions' => '',
+											'required' => 0,
+											'conditional_logic' => array(
+												array(
+													array(
+														'field' => 'field_5cafa2bffc771',
+														'operator' => '==',
+														'value' => 'gridlayout',
+													),
+												),
+											),
+											'wrapper' => array(
+												'width' => '',
+												'class' => '',
+												'id' => '',
+											),
+											'choices' => array(
+												'threeCol' => 'Three Columns',
+												'fourCol' => 'Four Columns',
+											),
+											'default_value' => array(
+												0 => 'threeCol',
+											),
+											'allow_null' => 0,
+											'multiple' => 0,
+											'ui' => 0,
+											'return_format' => 'value',
+											'ajax' => 0,
+											'placeholder' => '',
+										),
+										array(
 											'key' => 'field_596cd74993758',
 											'label' => 'Listing Options',
 											'name' => 'listing_options',

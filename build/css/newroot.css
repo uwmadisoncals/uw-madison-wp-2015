@@ -10853,6 +10853,11 @@ ul.uwmadison_events_group .uwmadison_event_subtitle {
   grid-gap: 2rem;
 }
 
+.directoryWrapper.gridlayout.fourCol .directoryListing {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+
 .directoryWrapper.gridlayout .directoryListing li {
   background: #ececec;
   box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.14);
