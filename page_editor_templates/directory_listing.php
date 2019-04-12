@@ -4,6 +4,12 @@ $directorylayout = get_sub_field('directory_layout');
 $listingoptions = get_sub_field('listing_options');
 $directoryfilter = get_sub_field('listing_filter');
 
+$hide_photos = get_sub_field('hide_profile_photos');
+
+    if($hide_photos) {
+        $hide_photos_css = "hiddenPhotos";
+
+    }
 
 if($listingoptions == "listbygroups") {
     $directoryinput = "directorygroups";
@@ -30,7 +36,7 @@ if($listingoptions == "listall") { ?>
 	        'orderby' => 'meta_value',
 	        'order'	=> 'ASC', );
     $loop = new WP_Query( $args ); ?>
-    <ul class="directoryListing">
+    <ul class="directoryListing <?php echo $hide_photos_css; ?>">
     <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
         <?php include 'directory_listing_content.php'; ?>
@@ -76,7 +82,7 @@ if( $terms ): ?>
             )
         ) );
     $loop = new WP_Query( $args ); ?>
-    <ul class="directoryListing">
+    <ul class="directoryListing <?php echo $hide_photos_css; ?>">
     <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
         <?php include 'directory_listing_content.php'; ?>
@@ -100,8 +106,9 @@ if( $terms ): ?>
 
     $post_objects = get_sub_field('individuals_to_list');
 
+
     if( $post_objects ): ?>
-        <ul class="directoryListing">
+        <ul class="directoryListing <?php echo $hide_photos_css; ?>">
         <?php foreach( $post_objects as $post): // variable must be called $post (IMPORTANT) ?>
             <?php setup_postdata($post); ?>
             <?php include 'directory_listing_content.php'; ?>
@@ -136,7 +143,7 @@ foreach($custom_terms as $custom_term) {
 
 
         <div class="accordion_content">
-        <ul class="directoryListing">
+        <ul class="directoryListing <?php echo $hide_photos_css; ?>">
         <?php while($loop->have_posts()) : $loop->the_post(); ?>
             <?php include 'directory_listing_content.php'; ?>
         <?php endwhile; ?>

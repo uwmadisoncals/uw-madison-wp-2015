@@ -10855,6 +10855,11 @@ ul.uwmadison_events_group .uwmadison_event_subtitle {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.directoryWrapper.two_column .directoryListing li .personPhoto img, .directoryWrapper.list .directoryListing li .personPhoto img {
+  width: 80px;
+  height: 80px;
+}
+
 .directoryWrapper.gridlayout .directoryListing li .personPhoto {
   padding-right: unset;
   align-self: start;
@@ -11376,6 +11381,10 @@ div.personFeaturefw .bio p {
   align-items: center;
   grid-template-columns: auto 1fr 1fr;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.directoryListing.hiddenPhotos li {
+  grid-template-columns: 1fr 1fr;
 }
 
 .directoryListing li .personPhoto {
