@@ -1,7 +1,8 @@
 <?php //Directory Listing Include
 
+$directorylayout = get_sub_field('directory_layout');
 $listingoptions = get_sub_field('listing_options');
-$directoryfilter = get_sub_field('listing_filter'); 
+$directoryfilter = get_sub_field('listing_filter');
 
 
 if($listingoptions == "listbygroups") {
@@ -13,7 +14,7 @@ if($listingoptions == "listbygroups") {
 }
  ?>
 
-<div class="directoryWrapper">
+<div class="directoryWrapper <?php echo $directorylayout; ?>">
 
 <?php if($directoryfilter) { ?>
     <div class="directoryFilter">
@@ -27,13 +28,13 @@ if($listingoptions == "listall") { ?>
 
     <?php $args = array( 'post_type' => 'directory', 'posts_per_page' => -1, 'meta_key'	=> 'last_name',
 	        'orderby' => 'meta_value',
-	        'order'	=> 'ASC', ); 
+	        'order'	=> 'ASC', );
     $loop = new WP_Query( $args ); ?>
     <ul class="directoryListing">
     <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
         <?php include 'directory_listing_content.php'; ?>
-    
+
     <?php endwhile; ?>
     </ul>
 
@@ -41,10 +42,10 @@ if($listingoptions == "listall") { ?>
 
 <?php } else if($listingoptions == "listgroups") { ?>
 
-    
 
 
-    <?php 
+
+    <?php
 
 $terms = get_sub_field('groups_to_list');
 $directoryterms = array();
@@ -52,20 +53,20 @@ $directoryterms = array();
 
 if( $terms ): ?>
 
-	
+
 
 	<?php foreach( $terms as $term ): ?>
-        
+
 		 <?php array_push($directoryterms, $term); ?>
 
 	<?php endforeach; ?>
 
 
-    <?php $args = array( 'post_type' => 'directory', 
-            'posts_per_page' => -1, 
+    <?php $args = array( 'post_type' => 'directory',
+            'posts_per_page' => -1,
             'meta_key'	=> 'last_name',
 	        'orderby' => 'meta_value',
-	        'order'	=> 'ASC', 
+	        'order'	=> 'ASC',
             'tax_query' => array(
             'relation' => 'OR',
             array(
@@ -73,13 +74,13 @@ if( $terms ): ?>
                 'field' => 'term_id',
                 'terms' => $directoryterms
             )
-        ) ); 
+        ) );
     $loop = new WP_Query( $args ); ?>
     <ul class="directoryListing">
     <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
         <?php include 'directory_listing_content.php'; ?>
-    
+
     <?php endwhile; ?>
     </ul>
 
@@ -132,8 +133,8 @@ foreach($custom_terms as $custom_term) {
     if($loop->have_posts()) { ?>
         <div class="accordion_row">
             <a href="#" class="accordion_title"><span class="symbol">+</span><?php echo $custom_term->name; ?></a>
-        
-        
+
+
         <div class="accordion_content">
         <ul class="directoryListing">
         <?php while($loop->have_posts()) : $loop->the_post(); ?>
